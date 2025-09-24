@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Development Path - High Performance Teams | ScaleOps6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #FF5500 0%, #FF8800 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: white; text-decoration: none; }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a { color: #FF5500; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .subcomponent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,85,0,0.1) 0%, rgba(255,136,0,0.1) 100%);
+            border-radius: 12px;
+        }
+        .subcomponent-badge {
+            display: inline-block;
+            background: #FF5500;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .agent-info {
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        .score-circle {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .score-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .score-label {
+            display: block;
+            font-size: 0.75rem;
+            color: #888;
+        }
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        .tab {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tab.active {
+            color: #FF5500;
+            border-bottom: 2px solid #FF5500;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .content-section {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .content-section h3 {
+            color: #FF5500;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: white;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .required {
+            color: #FF5500;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analysis-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .analysis-card {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .dimension {
+            margin-bottom: 1.5rem;
+        }
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .dimension-bar {
+            height: 8px;
+            background: #222;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        .dimension-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5500, #FF8800);
+        }
+        .dimension-desc {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .resource-card {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .resource-card i {
+            font-size: 2rem;
+            color: #FF5500;
+            margin-bottom: 1rem;
+        }
+        .history-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .stat-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="ScaleOps6_logo.png" alt="ScaleOps6" style="height: 40px;">
+        </div>
+        <nav class="nav">
+            <a href="index.html">Dashboard</a>
+            <a href="block-11-high-performance-teams.html">Block 11</a>
+            <a href="#">Settings</a>
+        </nav>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Dashboard</a> / 
+        <a href="block-11-high-performance-teams.html">Block 11: High Performance Teams</a> / 
+        11D: Forecast Accuracy
+    </div>
+
+    <div class="container">
+        <div class="subcomponent-header">
+            <div class="header-content">
+                <span class="subcomponent-badge">11D</span>
+                <h1>Leadership Development Path</h1>
+                <p class="agent-info">
+                    <i class="fas fa-robot"></i> Expert Agent: Forecast Framework Builder
+                </p>
+            </div>
+            <div class="score-display">
+                <div class="score-circle">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="54" stroke="#333" stroke-width="8" fill="none"/>
+                        <circle cx="60" cy="60" r="54" stroke="#FF5500" stroke-width="8" fill="none"
+                                stroke-dasharray="339.292" stroke-dashoffset="100"
+                                transform="rotate(-90 60 60)"/>
+                    </svg>
+                    <div class="score-text">
+                        <span class="score-value">72</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="education">
+                <i class="fas fa-graduation-cap"></i> Education
+            </button>
+            <button class="tab" data-tab="workspace">
+                <i class="fas fa-edit"></i> Workspace
+            </button>
+            <button class="tab" data-tab="analysis">
+                <i class="fas fa-chart-line"></i> Analysis
+            </button>
+            <button class="tab" data-tab="resources">
+                <i class="fas fa-book"></i> Resources
+            </button>
+            <button class="tab" data-tab="history">
+                <i class="fas fa-history"></i> Score History
+            </button>
+        </div>
+
+        <div class="tab-content">
+            <div id="education" class="tab-content active">
+                
+            <div class="content-section">
+                <h3>What is Leadership Development Path?</h3>
+                <p>A structured program for identifying, developing, and promoting internal talent into leadership positions.</p>
+                
+                <h3>Why It Matters</h3>
+                <p>Great leaders aren't born, they're developed. Internal promotion maintains culture, reduces hiring risk, and motivates high performers.</p>
+                
+                <h3>How to Implement</h3>
+                
+      <h4>Development Components:</h4>
+      <ul>
+        <li><strong>Competency Model:</strong> Leadership skills framework</li>
+        <li><strong>Assessment:</strong> Current capability evaluation</li>
+        <li><strong>Training:</strong> Skill development programs</li>
+        <li><strong>Mentoring:</strong> Senior leader guidance</li>
+        <li><strong>Stretch Assignments:</strong> Growth opportunities</li>
+      </ul>
+      
+      <h4>Program Structure:</h4>
+      <ol>
+        <li>Define leadership competencies</li>
+        <li>Identify high-potential employees</li>
+        <li>Create individual development plans</li>
+        <li>Provide training and resources</li>
+        <li>Track progress and adjust</li>
+        <li>Promote when ready</li>
+      </ol>
+    
+                
+                
+                <h3>Examples</h3>
+                <ul>
+                    <li>Manager track: IC to team lead in 18 months</li><li>Executive track: Director to VP development program</li><li>Technical track: Senior IC to architect path</li>
+                </ul>
+                
+                
+                
+                <h3>Key Metrics</h3>
+                <ul>
+                    <li>Internal promotion rate</li><li>Leadership readiness score</li><li>Program completion rate</li><li>Post-promotion success rate</li>
+                </ul>
+                
+            </div>
+        
+            </div>
+            </div>
+
+            <div id="workspace" class="tab-content">
+                
+            <form id="worksheetForm">
+                
+                    <div class="form-group">
+                        <label for="current_state">Current Leadership Development Path Status *</label>
+                        <textarea id="current_state" name="current_state" placeholder="Describe your current approach to leadership development path..." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="target_outcome">Desired Outcome *</label>
+                        <textarea id="target_outcome" name="target_outcome" placeholder="What success looks like for leadership development path..." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="key_challenges">Key Challenges</label>
+                        <textarea id="key_challenges" name="key_challenges" placeholder="Main obstacles or concerns..." ></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="timeline">Implementation Timeline *</label>
+                        <select id="timeline" name="timeline" required>
+                                <option value="">Select...</option>
+                                <option value="Immediate">Immediate</option><option value="1-2 weeks">1-2 weeks</option><option value="1 month">1 month</option><option value="3 months">3 months</option><option value="6+ months">6+ months</option>
+                            </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="resources_needed">Resources Required</label>
+                        <textarea id="resources_needed" name="resources_needed" placeholder="Team, budget, tools needed..." ></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="success_metrics">Success Metrics *</label>
+                        <textarea id="success_metrics" name="success_metrics" placeholder="How you'll measure success for leadership development path..." required></textarea>
+                    </div>
+                
+                <button type="submit" class="submit-btn">Save Progress</button>
+            </form>
+        
+            </div>
+                
+                    <div class="dimension-card">
+                        <h4>Quality</h4>
+                        <p>Quality and effectiveness of implementation</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Strategic Alignment</h4>
+                        <p>Alignment with business objectives</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Adoption/Usage</h4>
+                        <p>Level of adoption and regular usage</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Business Impact</h4>
+                        <p>Measurable impact on business outcomes</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+            </div>
+            <div class="overall-score">
+                <h3>Overall Score</h3>
+                <div class="score-circle">
+                    <span class="score-number">0</span>
+                    <span class="score-label">/ 100</span>
+                </div>
+            </div>
+        
+            </div>
+                <p class="dimension-desc">Prediction accuracy</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Methodology Rigor</span>
+                    <span class="dimension-score">17/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 63.24540562435924%"></div>
+                </div>
+                <p class="dimension-desc">Forecasting process</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Pipeline Coverage</span>
+                    <span class="dimension-score">18/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 88.69157987273805%"></div>
+                </div>
+                <p class="dimension-desc">Pipeline to quota ratio</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Risk Assessment</span>
+                    <span class="dimension-score">19/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 61.34626535023888%"></div>
+                </div>
+                <p class="dimension-desc">Deal risk evaluation</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Adjustment Agility</span>
+                    <span class="dimension-score">15/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 69.09314330552453%"></div>
+                </div>
+                <p class="dimension-desc">Forecast flexibility</p>
+            </div>
+        
+                            </div>
+                        </div>
+                        <div class="analysis-card">
+                            <h3>Key Findings</h3>
+                            
+            <div class="findings">
+                <h4 style="color: #4CAF50; margin-bottom: 1rem;">✅ Strengths</h4>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Clear understanding of prediction reliability</span>
+                    </div>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Systematic approach in place</span>
+                    </div>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Data-driven decision making</span>
+                    </div>
+                
+                
+                <h4 style="color: #FF9800; margin: 1.5rem 0 1rem 0;">⚠️ Areas for Improvement</h4>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Limited validation or evidence</span>
+                    </div>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Inconsistent implementation</span>
+                    </div>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Lack of clear metrics</span>
+                    </div>
+                
+                
+                <h4 style="color: #2196F3; margin: 1.5rem 0 1rem 0;">💡 Opportunities</h4>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Enhance prediction reliability capabilities</span>
+                    </div>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Implement best practices</span>
+                    </div>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Leverage automation and tools</span>
+                    </div>
+                
+            </div>
+        
+                        </div>
+                        <div class="analysis-card">
+                            <h3>Recommendations</h3>
+                            
+            <div class="recommendations">
+                
+                    <div class="recommendation" style="margin-bottom: 1rem;">
+                        <span class="priority high"
+                              style="background: #F44336;
+                                     color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">
+                            HIGH PRIORITY
+                        </span>
+                        <p style="margin-top: 0.5rem;">Conduct thorough assessment of current prediction reliability</p>
+                    </div>
+                
+                    <div class="recommendation" style="margin-bottom: 1rem;">
+                        <span class="priority medium"
+                              style="background: #FF9800;
+                                     color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">
+                            MEDIUM PRIORITY
+                        </span>
+                        <p style="margin-top: 0.5rem;">Develop clear action plan with milestones</p>
+                    </div>
+                
+                    <div class="recommendation" style="margin-bottom: 1rem;">
+                        <span class="priority low"
+                              style="background: #4CAF50;
+                                     color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">
+                            LOW PRIORITY
+                        </span>
+                        <p style="margin-top: 0.5rem;">Establish regular review and optimization cycles</p>
+                    </div>
+                
+            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resources" class="tab-content">
+                
+            <div class="resources-grid">
+                
+                    <div class="resource-section">
+                        <h3>Recommended Tools</h3>
+                        <ul>
+                            <li>Learning Platforms (LinkedIn Learning, Udemy)</li><li>Mentorship Tools (MentorcliQ, Together)</li><li>Assessment Tools (Hogan, CliftonStrengths)</li><li>Succession Planning (Saba, Cornerstone)</li>
+                        </ul>
+                    </div>
+                
+                    <div class="resource-section">
+                        <h3>Templates & Frameworks</h3>
+                        <ul>
+                            <li>Leadership Competency Model</li><li>Development Plan Template</li><li>360 Review Framework</li><li>Succession Planning Matrix</li>
+                        </ul>
+                    </div>
+                
+                    <div class="resource-section">
+                        <h3>Best Practices</h3>
+                        <ul>
+                            <li>Identify high-potentials early</li><li>Provide stretch assignments regularly</li><li>Pair emerging leaders with mentors</li><li>Create safe spaces to fail and learn</li>
+                        </ul>
+                    </div>
+                
+            </div>
+        
+            </div>
+        
+            </div>
+        
+                </div>
+            </div>
+
+            <div id="history" class="tab-pane">
+                <div class="history-content">
+                    <h2>Score History & Trends</h2>
+                    <div class="chart-container">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
+                    <div class="history-stats">
+                        <div class="stat">
+                            <span class="stat-value">+15%</span>
+                            <span class="stat-label">30-Day Change</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">72</span>
+                            <span class="stat-label">Current Score</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">85</span>
+                            <span class="stat-label">Target Score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.tab;
+                
+                // Update active tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active pane
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('worksheetForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Analysis submitted! Results will appear in the Analysis tab.');
+            document.querySelector('[data-tab="analysis"]').click();
+        });
+
+        // Simulate score animation
+        setTimeout(() => {
+            const circle = document.querySelector('circle:last-child');
+            if (circle) {
+                circle.style.transition = 'stroke-dashoffset 1s ease';
+                circle.style.strokeDashoffset = '95';
+            }
+        }, 500);
+    </script>
+</body>
+</html>

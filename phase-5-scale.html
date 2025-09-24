@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 5: Scale - ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Soft orange glow effect */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 85, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #FF5500;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+        }
+
+        .phase-hero {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255, 85, 0, 0.1) 0%, rgba(255, 85, 0, 0.02) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 85, 0, 0.3);
+        }
+
+        .phase-number {
+            display: inline-block;
+            background: #FF5500;
+            color: #FFFFFF;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #FFFFFF 0%, #FF5500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .phase-tagline {
+            font-size: 20px;
+            color: #999;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #FF5500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #CCCCCC;
+        }
+
+        .goal-box {
+            background: rgba(255, 85, 0, 0.05);
+            border: 2px solid rgba(255, 85, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .goal-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #FF5500;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .goal-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #FFFFFF;
+        }
+
+        .importance-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .importance-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .importance-list li:last-child {
+            border-bottom: none;
+        }
+
+        .importance-list li::before {
+            content: "→";
+            color: #FF5500;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .scale-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .pillar-card {
+            background: linear-gradient(135deg, rgba(255, 85, 0, 0.06) 0%, rgba(255, 85, 0, 0.02) 100%);
+            border: 2px solid rgba(255, 85, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 85, 0, 0.25);
+        }
+
+        .pillar-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .pillar-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #FF5500;
+            margin-bottom: 15px;
+        }
+
+        .pillar-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #CCCCCC;
+            margin-bottom: 20px;
+        }
+
+        .pillar-checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pillar-checklist li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #999;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .pillar-checklist li::before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .blocks-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .block-link {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(255, 85, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .block-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 85, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(255, 85, 0, 0.3);
+        }
+
+        .block-number-small {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .block-name {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .outcome-card {
+            background: rgba(255, 85, 0, 0.03);
+            border: 1px solid rgba(255, 85, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .outcome-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .outcome-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FF5500;
+            margin-bottom: 10px;
+        }
+
+        .outcome-description {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .timeline-section {
+            background: linear-gradient(135deg, rgba(255, 85, 0, 0.05) 0%, transparent 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF5500;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .timeline-items {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .timeline-year {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF5500;
+            margin-bottom: 5px;
+        }
+
+        .timeline-milestone {
+            font-size: 14px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            .phase-tagline {
+                font-size: 16px;
+            }
+            .scale-pillars {
+                grid-template-columns: 1fr;
+            }
+            .timeline-items {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="nav.js"></script>
+    
+    <div class="container">
+        <a href="index.html" class="back-button">
+            ← Back to GTM Accelerator
+        </a>
+
+        <div class="phase-hero">
+            <span class="phase-number">PHASE 5</span>
+            <h1>Scale</h1>
+            <p class="phase-tagline">Building the infrastructure, leadership, and global presence for sustainable enterprise growth</p>
+        </div>
+
+        <div class="content-section">
+            <div class="goal-box">
+                <div class="goal-label">Primary Goal</div>
+                <div class="goal-text">
+                    Transform from a high-growth startup into a sustainable, global enterprise. Build world-class operational infrastructure, develop next-generation leadership, expand into international markets, and create the foundation for long-term value creation through IPO readiness, strategic exits, or continued independent growth.
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">What Does Scale Mean?</h2>
+            <div class="section-content">
+                <p>The Scale phase represents the maturation of your company from a disruptive startup to an established market leader. This is where you build the infrastructure, processes, and leadership required to operate at global scale while maintaining innovation and agility.</p>
+                <br>
+                <p>At this stage, you're focused on operational excellence, international expansion, leadership development, and preparing for major liquidity events. The challenge is to institutionalize your success while preserving the entrepreneurial spirit that got you here.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Why Scale is the Ultimate Goal</h2>
+            <ul class="importance-list">
+                <li>
+                    <span><strong>Enterprise Value Creation:</strong> Scaling to $1B+ valuation creates life-changing wealth for founders, employees, and investors.</span>
+                </li>
+                <li>
+                    <span><strong>Global Impact:</strong> Scale enables you to solve problems for millions of customers worldwide and create meaningful societal impact.</span>
+                </li>
+                <li>
+                    <span><strong>Legacy Building:</strong> Successful scale companies become institutions that outlast their founders and shape industries for decades.</span>
+                </li>
+                <li>
+                    <span><strong>Economic Moat:</strong> Scale creates insurmountable advantages in cost structure, brand recognition, and market power.</span>
+                </li>
+                <li>
+                    <span><strong>Platform for Innovation:</strong> Resources at scale enable moonshot projects and breakthrough innovations impossible for smaller companies.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Three Pillars of Scale</h2>
+            <div class="scale-pillars">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🏗️</div>
+                    <div class="pillar-title">Operational Infrastructure</div>
+                    <div class="pillar-description">
+                        Build enterprise-grade systems, processes, and governance structures that enable efficient operations at massive scale.
+                    </div>
+                    <ul class="pillar-checklist">
+                        <li>ERP and financial systems implementation</li>
+                        <li>Global supply chain optimization</li>
+                        <li>Enterprise security and compliance</li>
+                        <li>Data infrastructure and analytics</li>
+                        <li>Quality management systems</li>
+                        <li>Risk management frameworks</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">👥</div>
+                    <div class="pillar-title">Leadership Expansion</div>
+                    <div class="pillar-description">
+                        Develop world-class leadership at all levels, from C-suite executives to middle management, ensuring continuity and excellence.
+                    </div>
+                    <ul class="pillar-checklist">
+                        <li>Executive team development</li>
+                        <li>Succession planning programs</li>
+                        <li>Leadership training academies</li>
+                        <li>Board of directors optimization</li>
+                        <li>Culture preservation initiatives</li>
+                        <li>Talent retention strategies</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌍</div>
+                    <div class="pillar-title">Global Expansion</div>
+                    <div class="pillar-description">
+                        Establish presence in key international markets, adapting to local needs while maintaining global brand consistency.
+                    </div>
+                    <ul class="pillar-checklist">
+                        <li>International market entry strategies</li>
+                        <li>Localization and adaptation</li>
+                        <li>Global partnership networks</li>
+                        <li>Multi-currency operations</li>
+                        <li>Cross-border M&A execution</li>
+                        <li>Regulatory compliance worldwide</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Phase 5 Building Blocks</h2>
+            <div class="blocks-preview">
+                <a href="block-detail.html?id=14" class="block-link">
+                    <div class="block-number-small">BLOCK 14</div>
+                    <div class="block-name">Operational Infrastructure</div>
+                </a>
+                <a href="block-detail.html?id=15" class="block-link">
+                    <div class="block-number-small">BLOCK 15</div>
+                    <div class="block-name">Leadership Expansion</div>
+                </a>
+                <a href="block-detail.html?id=16" class="block-link">
+                    <div class="block-number-small">BLOCK 16</div>
+                    <div class="block-name">Global & Expansion Opportunities</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Scale Outcomes & Exit Strategies</h2>
+            <div class="outcome-grid">
+                <div class="outcome-card">
+                    <div class="outcome-icon">📈</div>
+                    <div class="outcome-title">IPO</div>
+                    <div class="outcome-description">
+                        Go public to access capital markets and provide liquidity for stakeholders
+                    </div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">🤝</div>
+                    <div class="outcome-title">Strategic Acquisition</div>
+                    <div class="outcome-description">
+                        Merge with or be acquired by a larger company for synergies and scale
+                    </div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">💼</div>
+                    <div class="outcome-title">Private Equity</div>
+                    <div class="outcome-description">
+                        Partner with PE firms for growth capital and operational expertise
+                    </div>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">🏆</div>
+                    <div class="outcome-title">Independent Growth</div>
+                    <div class="outcome-description">
+                        Continue as a private company, focusing on sustainable profitable growth
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="timeline-section">
+                <div class="timeline-title">Typical Scale Journey Timeline</div>
+                <div class="timeline-items">
+                    <div class="timeline-item">
+                        <div class="timeline-year">Year 5-7</div>
+                        <div class="timeline-milestone">$100M ARR</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">Year 7-9</div>
+                        <div class="timeline-milestone">$500M ARR</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">Year 9-12</div>
+                        <div class="timeline-milestone">$1B+ Valuation</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">Year 12+</div>
+                        <div class="timeline-milestone">IPO/Exit Ready</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Critical Success Factors at Scale</h2>
+            <ul class="importance-list">
+                <li>
+                    <span><strong>Operational Excellence:</strong> World-class execution across all functions with consistent quality and efficiency.</span>
+                </li>
+                <li>
+                    <span><strong>Innovation Balance:</strong> Maintain startup innovation while operating with enterprise discipline.</span>
+                </li>
+                <li>
+                    <span><strong>Stakeholder Management:</strong> Balance interests of customers, employees, investors, and communities.</span>
+                </li>
+                <li>
+                    <span><strong>Risk Management:</strong> Proactively identify and mitigate operational, financial, and reputational risks.</span>
+                </li>
+                <li>
+                    <span><strong>Sustainable Growth:</strong> Focus on profitable, sustainable growth rather than growth at all costs.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Common Scale Challenges</h2>
+            <ul class="importance-list">
+                <li>
+                    <span><strong>Bureaucracy Creep:</strong> Processes and approvals slow down decision-making and innovation.</span>
+                </li>
+                <li>
+                    <span><strong>Talent Retention:</strong> Keeping top performers engaged as equity upside diminishes.</span>
+                </li>
+                <li>
+                    <span><strong>Market Saturation:</strong> Finding new growth vectors as core markets mature.</span>
+                </li>
+                <li>
+                    <span><strong>Regulatory Scrutiny:</strong> Increased attention from regulators as size and influence grow.</span>
+                </li>
+                <li>
+                    <span><strong>Cultural Evolution:</strong> Preserving entrepreneurial culture while professionalizing operations.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">The Scale Mindset</h2>
+            <div class="section-content">
+                <p>Achieving true scale requires a fundamental shift in mindset from startup to enterprise leader:</p>
+                <ul style="margin-top: 20px; margin-left: 20px; line-height: 2;">
+                    <li><strong>From Founder-Centric to Institution:</strong> Build systems that outlast any individual</li>
+                    <li><strong>From Speed to Sustainability:</strong> Balance growth with long-term viability</li>
+                    <li><strong>From Product to Platform:</strong> Enable ecosystems rather than just selling products</li>
+                    <li><strong>From Local to Global:</strong> Think and operate on a worldwide scale</li>
+                    <li><strong>From Private to Public:</strong> Embrace transparency and stakeholder accountability</li>
+                    <li><strong>From Disruption to Leadership:</strong> Set industry standards rather than breaking them</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

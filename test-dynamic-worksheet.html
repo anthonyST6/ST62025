@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Worksheet Test - Problem Statement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            color: white;
+        }
+        
+        .control-panel {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .control-panel h2 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .control-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .control-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .control-item label {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .control-item input,
+        .control-item select,
+        .control-item textarea {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        .control-item input:focus,
+        .control-item select:focus,
+        .control-item textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+        
+        .control-item textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #444;
+        }
+        
+        .btn-secondary:hover {
+            background: #333;
+            border-color: #555;
+        }
+        
+        .worksheet-container {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            min-height: 400px;
+        }
+        
+        .worksheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .worksheet-title {
+            font-size: 1.8em;
+            color: #ff6b35;
+        }
+        
+        .worksheet-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: #999;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .meta-item .value {
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+        
+        .question-card {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .question-card:hover {
+            border-color: #555;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .question-number {
+            background: #ff6b35;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .question-badges {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .badge-type {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff8c42;
+        }
+        
+        .badge-difficulty {
+            background: rgba(100, 200, 100, 0.2);
+            color: #64c864;
+        }
+        
+        .badge-required {
+            background: rgba(255, 100, 100, 0.2);
+            color: #ff6464;
+        }
+        
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+        
+        .question-hint {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid #ff6b35;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            color: #ccc;
+            border-radius: 4px;
+        }
+        
+        .question-input {
+            width: 100%;
+            background: #1e1e1e;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1em;
+            min-height: 100px;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        .question-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+        
+        .question-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+        }
+        
+        .response-quality {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+        }
+        
+        .quality-bar {
+            width: 100px;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .quality-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6464 0%, #ffaa00 50%, #64c864 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .adaptation-notice {
+            background: rgba(100, 200, 255, 0.1);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .adaptation-notice.active {
+            display: block;
+        }
+        
+        .adaptation-notice h3 {
+            color: #64c8ff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .adaptation-notice p {
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        .progress-section {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .progress-title {
+            font-size: 1.2em;
+            color: #ff6b35;
+        }
+        
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .stat-item {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .insights-panel {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .insights-panel h2 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .insight-item {
+            background: #2a2a2a;
+            border-left: 3px solid #ff6b35;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .insight-type {
+            font-size: 0.85em;
+            color: #ff8c42;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .insight-message {
+            color: #e0e0e0;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .insight-confidence {
+            font-size: 0.9em;
+            color: #999;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #333;
+            border-top-color: #ff6b35;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .empty-state p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 Dynamic Worksheet Test</h1>
+            <p>Testing the fully dynamic, agent-powered worksheet generation system for Problem Statement</p>
+        </div>
+        
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h2>User Context Configuration</h2>
+            <div class="control-group">
+                <div class="control-item">
+                    <label>Company Name</label>
+                    <input type="text" id="companyName" placeholder="e.g., TechStartup Inc." value="TestCo">
+                </div>
+                <div class="control-item">
+                    <label>Industry</label>
+                    <select id="industry">
+                        <option value="b2b-saas">B2B SaaS</option>
+                        <option value="enterprise">Enterprise</option>
+                        <option value="consumer">Consumer</option>
+                        <option value="marketplace">Marketplace</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+                <div class="control-item">
+                    <label>Company Stage</label>
+                    <select id="companyStage">
+                        <option value="idea">Idea</option>
+                        <option value="pre-seed">Pre-Seed</option>
+                        <option value="seed">Seed</option>
+                        <option value="series-a">Series A</option>
+                        <option value="growth">Growth</option>
+                    </select>
+                </div>
+                <div class="control-item">
+                    <label>Team Size</label>
+                    <input type="number" id="teamSize" placeholder="e.g., 5" value="10">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="control-item" style="grid-column: span 2;">
+                    <label>Problem Description (Optional)</label>
+                    <textarea id="problemDescription" placeholder="Briefly describe the problem you're solving...">Early-stage startups struggle to build and execute effective go-to-market strategies due to lack of structured frameworks, expert guidance, and proven playbooks.</textarea>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="control-item">
+                    <label>Previous Score (0-100)</label>
+                    <input type="number" id="previousScore" placeholder="e.g., 65" value="45" min="0" max="100">
+                </div>
+                <div class="control-item">
+                    <label>Session Number</label>
+                    <input type="number" id="sessionNumber" placeholder="e.g., 1" value="1" min="1">
+                </div>
+                <div class="control-item">
+                    <label>User Experience Level</label>
+                    <select id="experienceLevel">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="generateDynamicWorksheet()">
+                    Generate Dynamic Worksheet
+                </button>
+                <button class="btn btn-secondary" onclick="resetContext()">
+                    Reset Context
+                </button>
+                <button class="btn btn-secondary" onclick="loadSampleData()">
+                    Load Sample Data
+                </button>
+            </div>
+        </div>
+        
+        <!-- Worksheet Container -->
+        <div class="worksheet-container">
+            <div id="worksheetContent">
+                <div class="empty-state">
+                    <h3>No Worksheet Generated</h3>
+                    <p>Configure the user context above and click "Generate Dynamic Worksheet" to create a personalized worksheet.</p>
+                </div>
+            </div>
+            
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Generating personalized worksheet...</p>
+            </div>
+        </div>
+        
+        <!-- Insights Panel -->
+        <div class="insights-panel" id="insightsPanel" style="display: none;">
+            <h2>Learning Insights</h2>
+            <div id="insightsContent"></div>
+        </div>
+    </div>
+    
+    <!-- Load all the dynamic worksheet components -->
+    <script src="dynamic-worksheet-generator.js"></script>
+    <script src="question-bank-system.js"></script>
+    <script src="enhanced-problem-statement-agent.js"></script>
+    <script src="adaptive-question-flow.js"></script>
+    <script src="learning-system.js"></script>
+    <script src="scoring-engine.js"></script>
+    <script src="score-analysis-engine.js"></script>
+    
+    <script>
+        // Global variables
+        let currentWorksheet = null;
+        let currentFlow = null;
+        let agent = null;
+        let learningSystem = null;
+        let adaptiveFlow = null;
+        let responses = {};
+        
+        // Initialize the system
+        async function initializeSystem() {
+            console.log('🚀 Initializing Dynamic Worksheet System...');
+            
+            try {
+                // Initialize the enhanced problem statement agent
+                agent = new EnhancedProblemStatementAgent();
+                
+                // Initialize learning system
+                learningSystem = new LearningSystem();
+                
+                // Initialize adaptive flow
+                adaptiveFlow = new AdaptiveQuestionFlow();
+                
+                console.log('✅ System initialized successfully');
+            } catch (error) {
+                console.error('❌ Error initializing system:', error);
+            }
+        }
+        
+        // Generate dynamic worksheet
+        async function generateDynamicWorksheet() {
+            console.log('📝 Generating dynamic worksheet...');
+            
+            // Show loading
+            document.getElementById('loadingIndicator').classList.add('active');
+            document.getElementById('worksheetContent').innerHTML = '';
+            
+            // Get user context
+            const userContext = getUserContext();
+            
+            try {
+                // Generate worksheet using the agent
+                currentWorksheet = await agent.generateDynamicWorksheet(userContext);
+                
+                // Start adaptive flow
+                if (adaptiveFlow) {
+                    currentFlow = await adaptiveFlow.startAdaptiveFlow(
+                        '1a', // Problem Statement subcomponent
+                        userContext,
+                        currentWorksheet.questions
+                    );
+                }
+                
+                // Display the worksheet
+                displayWorksheet(currentWorksheet);
+                
+                // Show insights panel
+                document.getElementById('insightsPanel').style.display = 'block';
+                
+            } catch (error) {
+                console.error('❌ Error generating worksheet:', error);
+                document.getElementById('worksheetContent').innerHTML = `
+                    <div class="empty-state">
+                        <h3>Error Generating Worksheet</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                // Hide loading
+                document.getElementById('loadingIndicator').classList.remove('active');
+            }
+        }
+        
+        // Get user context from form
+        function getUserContext() {
+            return {
+                userId: `user_${Date.now()}`,
+                companyName: document.getElementById('companyName').value,
+                industry: document.getElementById('industry').value,
+                companyStage: document.getElementById('companyStage').value,
+                teamSize: parseInt(document.getElementById('teamSize').value) || 0,
+                description: document.getElementById('problemDescription').value,
+                previousScores: {
+                    average: parseInt(document.getElementById('previousScore').value) || 0,
+                    problemClarity: parseInt(document.getElementById('previousScore').value) || 0
+                },
+                sessionNumber: parseInt(document.getElementById('sessionNumber').value) || 1,
+                experienceLevel: document.getElementById('experienceLevel').value,
+                timestamp: new Date().toISOString()
+            };
+        }
+        
+        // Display worksheet
+        function displayWorksheet(worksheet) {
+            const container = document.getElementById('worksheetContent');
+            
+            // Create worksheet header
+            const headerHTML = `
+                <div class="worksheet-header">
+                    <h2 class="worksheet-title">Dynamic Problem Statement Worksheet</h2>
+                    <div class="worksheet-meta">
+                        <div class="meta-item">
+                            Questions: <span class="value">${worksheet.questions.length}</span>
+                        </div>
+                        <div class="meta-item">
+                            Adaptive: <span class="value">Yes</span>
+                        </div>
+                        <div class="meta-item">
+                            ID: <span class="value">${worksheet.id}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Create questions
+            let questionsHTML = '';
+            worksheet.questions.forEach((question, index) => {
+                const badges = [];
+                
+                if (question.type) {
+                    badges.push(`<span class="badge badge-type">${question.type}</span>`);
+                }
+                if (question.difficulty) {
+                    badges.push(`<span class="badge badge-difficulty">${question.difficulty}</span>`);
+                }
+                if (question.required) {
+                    badges.push(`<span class="badge badge-required">Required</span>`);
+                }
+                
+                questionsHTML += `
+                    <div class="question-card" id="question_${question.id}">
+                        <div class="question-header">
+                            <span class="question-number">Question ${index + 1}</span>
+                            <div class="question-badges">
+                                ${badges.join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="question-text">${question.text}</div>
+                        
+                        ${question.hint ? `<div class="question-hint">💡 ${question.hint}</div>` : ''}
+                        
+                        <textarea 
+                            class="question-input" 
+                            id="response_${question.id}"
+                            placeholder="Enter your response here..."
+                            onchange="handleResponseChange('${question.id}')"
+                            onkeyup="updateResponseQuality('${question.id}')"
+                        ></textarea>
+                        
+                        <div class="question-footer">
+                            <div class="response-quality">
+                                <span>Response Quality:</span>
+                                <div class="quality-bar">
+                                    <div class="quality-fill" id="quality_${question.id}" style="width: 0%"></div>
+                                </div>
+                                <span id="quality_text_${question.id}">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Create progress section
+            const progressHTML = `
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <h3 class="progress-title">Session Progress</h3>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="answeredCount">0</div>
+                            <div class="stat-label">Answered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="remainingCount">${worksheet.questions.length}</div>
+                            <div class="stat-label">Remaining</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="avgQuality">0%</div>
+                            <div class="stat-label">Avg Quality</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="adaptations">0</div>
+                            <div class="stat-label">Adaptations</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add adaptation notice (hidden by default)
+            const adaptationHTML = `
+                <div class="adaptation-notice" id="adaptationNotice">
+                    <h3>🔄 Worksheet Adapted</h3>
+                    <p id="adaptationMessage"></p>
+                </div>
+            `;
+            
+            // Combine all HTML
+            container.innerHTML = headerHTML + adaptationHTML + questionsHTML + progressHTML;
+            
+            // Add submit button
+            container.innerHTML += `
+                <div class="button-group" style="margin-top: 30px;">
+                    <button class="btn btn-primary" onclick="submitWorksheet()">
+                        Submit & Analyze
+                    </button>
+                    <button class="btn btn-secondary" onclick="saveProgress()">
+                        Save Progress
+                    </button>
+                </div>
+            `;
+        }
+        
+        // Handle response change
+        async function handleResponseChange(questionId) {
+            const response = document.getElementById(`response_${questionId}`).value;
+            responses[questionId] = response;
+            
+            // Update progress
+            updateProgress();
+            
+            // Process with adaptive flow if available
+            if (adaptiveFlow && currentFlow) {
+                try {
+                    const result = await adaptiveFlow.processResponseAndAdapt(questionId, response);
+                    
+                    if (result.adapted) {
+                        showAdaptation(result.adaptationType, result.nextQuestions);
+                    }
+                    
+                    // Update insights
+                    updateInsights(result);
+                    
+                } catch (error) {
+                    console.error('Error processing response:', error);
+                }
+            }
+        }
+        
+        // Update response quality indicator
+        function updateResponseQuality(questionId) {
+            const response = document.getElementById(`response_${questionId}`).value;
+            
+            // Simple quality calculation
+            let quality = 0;
+            if (response.length > 0) quality += 20;
+            if (response.length > 50) quality += 20;
+            if (response.length > 100) quality += 20;
+            if (/\d+/.test(response)) quality += 20; // Has numbers
+            if (response.split(/[.!?]+/).length > 2) quality += 20; // Multiple sentences
+            
+            quality = Math.min(100, quality);
+            
+            // Update UI
+            document.getElementById(`quality_${questionId}`).style.width = `${quality}%`;
+            document.getElementById(`quality_text_${questionId}`).textContent = `${quality}%`;
+        }
+        
+        // Update progress stats
+        function updateProgress() {
+            const answered = Object.keys(responses).length;
+            const total = currentWorksheet ? currentWorksheet.questions.length : 0;
+            const remaining = total - answered;
+            
+            document.getElementById('answeredCount').textContent = answered;
+            document.getElementById('remainingCount').textContent = remaining;
+            
+            // Calculate average quality
+            let totalQuality = 0;
+            let qualityCount = 0;
+            
+            Object.keys(responses).forEach(questionId => {
+                const response = responses[questionId];
+                if (response) {
+                    let quality = 0;
+                    if (response.length > 0) quality += 20;
+                    if (response.length > 50) quality += 20;
+                    if (response.length > 100) quality += 20;
+                    if (/\d+/.test(response)) quality += 20;
+                    if (response.split(/[.!?]+/).length > 2) quality += 20;
+                    
+                    totalQuality += Math.min(100, quality);
+                    qualityCount++;
+                }
+            });
+            
+            const avgQuality = qualityCount > 0 ? Math.round(totalQuality / qualityCount) : 0;
+            document.getElementById('avgQuality').textContent = `${avgQuality}%`;
+        }
+        
+        // Show adaptation notice
+        function showAdaptation(type, nextQuestions) {
+            const notice = document.getElementById('adaptationNotice');
+            const message = document.getElementById('adaptationMessage');
+            
+            const messages = {
+                'simplify': 'Questions have been simplified based on your responses.',
+                'advance': 'More advanced questions have been added based on your strong performance.',
+                'struggling': 'Additional support and examples have been added to help you.',
+                'confident': 'Challenge questions have been added to test your understanding.',
+                'uncertain': 'Clarification questions have been added to resolve uncertainties.',
+                'reengage': 'The worksheet has been adjusted to maintain engagement.'
+            };
+            
+            message.textContent = messages[type] || 'The worksheet has been adapted based on your responses.';
+            notice.classList.add('active');
+            
+            // Update adaptation count
+            const adaptationCount = parseInt(document.getElementById('adaptations').textContent) + 1;
+            document.getElementById('adaptations').textContent = adaptationCount;
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                notice.classList.remove('active');
+            }, 5000);
+        }
+        
+        // Update insights panel
+        function updateInsights(result) {
+            const container = document.getElementById('insightsContent');
+            let insightsHTML = '';
+            
+            if (result.analysis) {
+                insightsHTML += `
+                    <div class="insight-item">
+                        <div class="insight-type">Response Analysis</div>
+                        <div class="insight-message">
+                            Quality: ${result.analysis.quality}% | 
+                            Completeness: ${result.analysis.completeness}% | 
+                            Specificity: ${result.analysis.specificity}%
+                        </div>
+                        <div class="insight-confidence">Based on current response</div>
+                    </div>
+                `;
+            }
+            
+            if (result.performanceMetrics) {
+                insightsHTML += `
+                    <div class="insight-item">
+                        <div class="insight-type">Performance Metrics</div>
+                        <div class="insight-message">
+                            Average Quality: ${Math.round(result.performanceMetrics.averageResponseQuality)}% | 
+                            Engagement: ${Math.round(result.performanceMetrics.userEngagementScore)}%
+                        </div>
+                        <div class="insight-confidence">Session-wide metrics</div>
+                    </div>
+                `;
+            }
+            
+            if (result.flowProgress) {
+                insightsHTML += `
+                    <div class="insight-item">
+                        <div class="insight-type">Flow Progress</div>
+                        <div class="insight-message">
+                            ${result.flowProgress.percentage}% complete with ${result.flowProgress.adaptations} adaptations
+                        </div>
+                        <div class="insight-confidence">
+                            ${result.flowProgress.remaining} questions remaining
+                        </div>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = insightsHTML;
+        }
+        
+        // Submit worksheet for analysis
+        async function submitWorksheet() {
+            console.log('📊 Submitting worksheet for analysis...');
+            
+            if (!agent || !currentWorksheet) {
+                alert('Please generate a worksheet first');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loadingIndicator').classList.add('active');
+            
+            try {
+                // Process with agent
+                const result = await agent.processWorksheetResponse(
+                    currentWorksheet.id,
+                    responses,
+                    getUserContext()
+                );
+                
+                // Record learning event
+                if (learningSystem) {
+                    const learningEvent = {
+                        sessionId: currentWorksheet.id,
+                        subcomponentId: '1a',
+                        userContext: getUserContext(),
+                        questions: currentWorksheet.questions,
+                        responses: responses,
+                        scores: result,
+                        adaptations: currentFlow?.adaptations || [],
+                        outcome: {
+                            success: result.score > 70,
+                            score: result.score
+                        }
+                    };
+                    
+                    const learningResult = await learningSystem.recordLearningEvent(learningEvent);
+                    
+                    // Display learning insights
+                    displayLearningInsights(learningResult);
+                }
+                
+                // Display results
+                displayAnalysisResults(result);
+                
+            } catch (error) {
+                console.error('❌ Error submitting worksheet:', error);
+                alert('Error analyzing worksheet: ' + error.message);
+            } finally {
+                document.getElementById('loadingIndicator').classList.remove('active');
+            }
+        }
+        
+        // Display analysis results
+        function displayAnalysisResults(result) {
+            const container = document.getElementById('insightsContent');
+            
+            let resultsHTML = `
+                <div class="insight-item" style="background: rgba(100, 200, 100, 0.1); border-left-color: #64c864;">
+                    <div class="insight-type">Final Score</div>
+                    <div class="insight-message" style="font-size: 1.5em; font-weight: 600;">
+                        ${result.score}/100
+                    </div>
+                    <div class="insight-confidence">${result.analysis?.executiveSummary || 'Analysis complete'}</div>
+                </div>
+            `;
+            
+            // Add recommendations
+            if (result.recommendations && result.recommendations.length > 0) {
+                result.recommendations.forEach(rec => {
+                    resultsHTML += `
+                        <div class="insight-item">
+                            <div class="insight-type">${rec.priority} Priority - ${rec.area}</div>
+                            <div class="insight-message">${rec.action}</div>
+                            <div class="insight-confidence">${rec.issue}</div>
+                        </div>
+                    `;
+                });
+            }
+            
+            // Add next steps
+            if (result.nextSteps) {
+                resultsHTML += `
+                    <div class="insight-item">
+                        <div class="insight-type">Immediate Next Steps</div>
+                        <div class="insight-message">
+                            ${result.nextSteps.immediate.join(' | ')}
+                        </div>
+                        <div class="insight-confidence">Start with these actions</div>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = resultsHTML;
+        }
+        
+        // Display learning insights
+        function displayLearningInsights(learningResult) {
+            if (!learningResult.insights) return;
+            
+            const container = document.getElementById('insightsContent');
+            let insightsHTML = '';
+            
+            // Add pattern insights
+            if (learningResult.insights.patterns && learningResult.insights.patterns.length > 0) {
+                learningResult.insights.patterns.forEach(pattern => {
+                    insightsHTML += `
+                        <div class="insight-item">
+                            <div class="insight-type">Pattern: ${pattern.type}</div>
+                            <div class="insight-message">${pattern.message}</div>
+                            <div class="insight-confidence">
+                                Confidence: ${Math.round(pattern.confidence * 100)}% | 
+                                ${pattern.basedOn}
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            // Add predictions
+            if (learningResult.insights.predictions && learningResult.insights.predictions.length > 0) {
+                learningResult.insights.predictions.forEach(prediction => {
+                    insightsHTML += `
+                        <div class="insight-item">
+                            <div class="insight-type">Prediction: ${prediction.type}</div>
+                            <div class="insight-message">${prediction.prediction}</div>
+                            <div class="insight-confidence">
+                                Confidence: ${Math.round(prediction.confidence * 100)}%
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            container.innerHTML += insightsHTML;
+        }
+        
+        // Save progress
+        function saveProgress() {
+            const data = {
+                worksheet: currentWorksheet,
+                responses: responses,
+                context: getUserContext(),
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem('worksheetProgress', JSON.stringify(data));
+            alert('Progress saved successfully!');
+        }
+        
+        // Load sample data
+        function loadSampleData() {
+            document.getElementById('companyName').value = 'ScaleOps6';
+            document.getElementById('industry').value = 'b2b-saas';
+            document.getElementById('companyStage').value = 'seed';
+            document.getElementById('teamSize').value = '15';
+            document.getElementById('problemDescription').value = 
+                'B2B SaaS founders and GTM leaders at early-stage startups (Seed to Series B) with 10-50 employees ' +
+                'struggle to build and execute effective go-to-market strategies due to lack of structured frameworks, ' +
+                'expert guidance, and proven playbooks. They waste time and resources on trial-and-error approaches, ' +
+                'leading to slower growth, missed opportunities, and increased burn rates.';
+            document.getElementById('previousScore').value = '65';
+            document.getElementById('sessionNumber').value = '2';
+            document.getElementById('experienceLevel').value = 'intermediate';
+        }
+        
+        // Reset context
+        function resetContext() {
+            document.getElementById('companyName').value = '';
+            document.getElementById('industry').value = 'general';
+            document.getElementById('companyStage').value = 'pre-seed';
+            document.getElementById('teamSize').value = '';
+            document.getElementById('problemDescription').value = '';
+            document.getElementById('previousScore').value = '0';
+            document.getElementById('sessionNumber').value = '1';
+            document.getElementById('experienceLevel').value = 'beginner';
+            
+            // Clear worksheet
+            currentWorksheet = null;
+            currentFlow = null;
+            responses = {};
+            document.getElementById('worksheetContent').innerHTML = `
+                <div class="empty-state">
+                    <h3>Context Reset</h3>
+                    <p>Configure the user context above and click "Generate Dynamic Worksheet" to create a new worksheet.</p>
+                </div>
+            `;
+            document.getElementById('insightsPanel').style.display = 'none';
+        }
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeSystem();
+        });
+    </script>
+</body>
+</html>

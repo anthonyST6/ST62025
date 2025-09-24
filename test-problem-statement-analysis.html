@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Problem Statement Analysis</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #FF5500;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .worksheet-field {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: #FF5500;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn-primary {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .btn-primary:hover {
+            background: #d64d2d;
+            transform: translateY(-2px);
+        }
+        
+        #analysis-content {
+            min-height: 400px;
+        }
+        
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .status.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .status.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #F44336;
+            color: #F44336;
+        }
+        
+        .status.info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196F3;
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Problem Statement Analysis</h1>
+    
+    <div class="section">
+        <h2>Test Worksheet</h2>
+        <div class="worksheet-field">
+            <label>WHO IS AFFECTED? (CUSTOMER PERSONA)</label>
+            <input type="text" id="who-affected" value="B2B SaaS founders and GTM leaders at early-stage startups (Seed to Series B) with 10-50 employees">
+        </div>
+        
+        <div class="worksheet-field">
+            <label>WHAT IS THE PROBLEM?</label>
+            <textarea id="what-problem">Early-stage startups struggle to build and execute effective go-to-market strategies due to lack of structured frameworks, expert guidance, and proven playbooks. They waste time and resources on trial-and-error approaches, leading to slower growth, missed opportunities, and increased burn rates.</textarea>
+        </div>
+        
+        <div class="worksheet-field">
+            <label>WHEN DOES IT OCCUR? (CONTEXT)</label>
+            <input type="text" id="when-occur" value="This occurs during critical growth phases - when transitioning from founder-led sales to building a sales team">
+        </div>
+        
+        <div class="worksheet-field">
+            <label>WHAT IS THE IMPACT? (METRICS)</label>
+            <textarea id="what-impact">Startups lose 6-12 months of runway due to inefficient GTM execution, with 70% failing to hit their growth targets. This translates to $500K-$2M in wasted resources, 40% longer sales cycles, and 50% lower conversion rates.</textarea>
+        </div>
+        
+        <div class="worksheet-field">
+            <label>HOW ARE THEY SOLVING IT TODAY?</label>
+            <textarea id="how-solving">Currently using a patchwork of expensive consultants ($20-50K/month), generic online courses, scattered blog posts, and trial-and-error. These solutions lack personalization, comprehensive frameworks, and measurable outcomes.</textarea>
+        </div>
+        
+        <div class="worksheet-field">
+            <label>EVIDENCE & VALIDATION</label>
+            <textarea id="evidence-validation">Interviewed 50+ founders who consistently reported GTM as their #1 challenge. Survey of 200 startups showed 85% lack structured GTM processes. Case studies from 10 pilot customers demonstrated 3x improvement in sales velocity.</textarea>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <button class="btn-primary" onclick="testAnalysis()">🤖 Test Analysis</button>
+            <button class="btn-primary" onclick="clearResults()">Clear Results</button>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Test Results</h2>
+        <div id="test-status"></div>
+        <div id="analysis-content"></div>
+    </div>
+    
+    <script>
+        // Set URL params to simulate Problem Statement page
+        if (!window.location.search.includes('id=1-1')) {
+            window.history.replaceState({}, '', '?id=1-1');
+        }
+        
+        function addStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('test-status');
+            const status = document.createElement('div');
+            status.className = `status ${type}`;
+            status.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
+            statusDiv.appendChild(status);
+        }
+        
+        function clearResults() {
+            document.getElementById('test-status').innerHTML = '';
+            document.getElementById('analysis-content').innerHTML = '';
+            addStatus('Results cleared', 'info');
+        }
+        
+        // Define a basic analyzeWorksheet function that will be overridden
+        window.analyzeWorksheet = function() {
+            addStatus('⚠️ Original analyzeWorksheet called - handler not loaded yet!', 'error');
+        };
+        
+        async function testAnalysis() {
+            addStatus('Starting test...', 'info');
+            
+            // Check if the handler is loaded
+            if (typeof window.analyzeWorksheet === 'function') {
+                addStatus('✅ analyzeWorksheet function exists', 'success');
+                
+                // Call the analyze function
+                try {
+                    addStatus('Calling analyzeWorksheet...', 'info');
+                    await window.analyzeWorksheet();
+                    addStatus('✅ Analysis completed successfully!', 'success');
+                } catch (error) {
+                    addStatus(`❌ Error during analysis: ${error.message}`, 'error');
+                }
+            } else {
+                addStatus('❌ analyzeWorksheet function not found!', 'error');
+            }
+        }
+        
+        // Helper function for switching tabs (mock)
+        window.switchTab = function(tabName, event) {
+            console.log('Switching to tab:', tabName);
+        };
+        
+        // Mock DataManager
+        window.DataManager = {
+            saveAnalysisResults: function(results) {
+                console.log('Saving analysis results:', results);
+            }
+        };
+        
+        // Mock showNotification
+        window.showNotification = function(message, type) {
+            addStatus(`Notification: ${message}`, type);
+        };
+    </script>
+    
+    <!-- Load the problem statement handler -->
+    <script src="problem-statement-handler.js"></script>
+    
+    <script>
+        // Check handler status after load
+        setTimeout(() => {
+            if (window.problemStatementHandler) {
+                addStatus('✅ Problem Statement Handler loaded', 'success');
+            } else {
+                addStatus('⚠️ Problem Statement Handler not found in global scope', 'error');
+            }
+        }, 500);
+    </script>
+</body>
+</html>

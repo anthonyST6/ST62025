@@ -1,0 +1,2135 @@
+{
+  "timestamp": "2025-09-22T00:33:22.051Z",
+  "validated": 113,
+  "passed": 96,
+  "failed": 17,
+  "complianceRate": "85.0",
+  "errors": [
+    {
+      "file": "block-1-mission-discovery.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "error": "Missing section: analysis-content"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "error": "Missing section: resources-content"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "error": "Missing section: history-content"
+    },
+    {
+      "file": "subcomponent-detail.html",
+      "error": "Missing section: education-content"
+    },
+    {
+      "file": "subcomponent-detail.html",
+      "error": "Missing section: workspace-content"
+    },
+    {
+      "file": "subcomponent-detail.html",
+      "error": "Missing section: resources-content"
+    }
+  ],
+  "warnings": [
+    {
+      "file": "block-1-mission-discovery.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-1-mission-discovery.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-2-customer-insights.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-3-strategic-prioritization.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-4-prototype-launch.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-5-early-adopter-wins.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-6-customer-engagement-flywheel.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-7-quantifiable-impact.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-8-customer-success-expansion.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-9-proof-execution.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-10-sales-team-empowerment.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-11-high-performance-teams.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-12-retention-systems.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-13-market-domination-strategies.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-14-operational-infrastructure.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-15-leadership-expansion.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "block-16-global-expansion-opportunities.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-10a-sales-enablement-assets.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-10a-sales-enablement-assets.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-10a-sales-enablement-assets.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-10a-sales-enablement-assets.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-10b-rep-onboarding-ramp.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-10b-rep-onboarding-ramp.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-10b-rep-onboarding-ramp.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-10b-rep-onboarding-ramp.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-10c-win-loss-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-10c-win-loss-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-10c-win-loss-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-10c-win-loss-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-10d-objection-handling.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-10d-objection-handling.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-10d-objection-handling.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-10d-objection-handling.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-10e-icp-definition.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-10e-icp-definition.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-10e-icp-definition.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-10e-icp-definition.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-10f-sales-call-library.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-10f-sales-call-library.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-10f-sales-call-library.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-10f-sales-call-library.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-11a-performance-scorecard.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-11a-performance-scorecard.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-11a-performance-scorecard.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-11a-performance-scorecard.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-11b-quota-structure.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-11b-quota-structure.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-11b-quota-structure.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-11b-quota-structure.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-11c-deal-review-process.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-11c-deal-review-process.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-11c-deal-review-process.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-11c-deal-review-process.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-11d-forecast-accuracy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-11d-forecast-accuracy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-11d-forecast-accuracy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-11d-forecast-accuracy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-11e-sales-coaching-program.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-11e-sales-coaching-program.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-11e-sales-coaching-program.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-11e-sales-coaching-program.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-11f-talent-gap-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-11f-talent-gap-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-11f-talent-gap-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-11f-talent-gap-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-12a-customer-onboarding.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-12a-customer-onboarding.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-12a-customer-onboarding.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-12a-customer-onboarding.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-12b-activation-tracking.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-12b-activation-tracking.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-12b-activation-tracking.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-12b-activation-tracking.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-12c-success-playbook-development.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-12c-success-playbook-development.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-12c-success-playbook-development.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-12c-success-playbook-development.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-12d-escalation-management.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-12d-escalation-management.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-12d-escalation-management.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-12d-escalation-management.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-12e-renewal-pipeline-management.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-12e-renewal-pipeline-management.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-12e-renewal-pipeline-management.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-12e-renewal-pipeline-management.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-12f-churn-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-12f-churn-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-12f-churn-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-12f-churn-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-13a-category-creation.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-13a-category-creation.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-13a-category-creation.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-13a-category-creation.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-13b-competitive-moat.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-13b-competitive-moat.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-13b-competitive-moat.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-13b-competitive-moat.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-13c-ecosystem-strategy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-13c-ecosystem-strategy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-13c-ecosystem-strategy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-13c-ecosystem-strategy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-13d-competitive-intelligence.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-13d-competitive-intelligence.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-13d-competitive-intelligence.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-13d-competitive-intelligence.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-13e-brand-strategy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-13e-brand-strategy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-13e-brand-strategy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-13e-brand-strategy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-13f-defensive-strategy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-13f-defensive-strategy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-13f-defensive-strategy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-13f-defensive-strategy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-14a-system-architecture.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-14a-system-architecture.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-14a-system-architecture.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-14a-system-architecture.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-14b-revenue-operations.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-14b-revenue-operations.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-14b-revenue-operations.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-14b-revenue-operations.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-14c-dashboard-design.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-14c-dashboard-design.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-14c-dashboard-design.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-14c-dashboard-design.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-14d-tool-stack-optimization.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-14d-tool-stack-optimization.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-14d-tool-stack-optimization.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-14d-tool-stack-optimization.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-14e-revops-playbook.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-14e-revops-playbook.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-14e-revops-playbook.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-14e-revops-playbook.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-14f-sla-management.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-14f-sla-management.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-14f-sla-management.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-14f-sla-management.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-15a-executive-hiring.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-15a-executive-hiring.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-15a-executive-hiring.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-15a-executive-hiring.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-15b-succession-planning.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-15b-succession-planning.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-15b-succession-planning.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-15b-succession-planning.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-15c-executive-cadence.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-15c-executive-cadence.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-15c-executive-cadence.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-15c-executive-cadence.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-15d-culture-health-assessment.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-15d-culture-health-assessment.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-15d-culture-health-assessment.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-15d-culture-health-assessment.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-15e-organizational-design.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-15e-organizational-design.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-15e-organizational-design.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-15e-organizational-design.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-15f-dei-integration.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-15f-dei-integration.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-15f-dei-integration.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-15f-dei-integration.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-16a-market-entry-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-16a-market-entry-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-16a-market-entry-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-16a-market-entry-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-16b-localization-strategy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-16b-localization-strategy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-16b-localization-strategy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-16b-localization-strategy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-16c-international-pricing.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-16c-international-pricing.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-16c-international-pricing.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-16c-international-pricing.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-16d-compliance-management.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-16d-compliance-management.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-16d-compliance-management.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-16d-compliance-management.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-16e-geographic-gtm-strategy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-16e-geographic-gtm-strategy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-16e-geographic-gtm-strategy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-16e-geographic-gtm-strategy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-16f-expansion-risk-assessment.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-16f-expansion-risk-assessment.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-16f-expansion-risk-assessment.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-16f-expansion-risk-assessment.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-1a-problem-statement.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-1a-problem-statement.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-1a-problem-statement.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-1a-problem-statement.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-1b-mission-statement.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-1b-mission-statement.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-1b-mission-statement.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-1b-mission-statement.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-1c-voice-of-customer.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-1c-voice-of-customer.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-1c-voice-of-customer.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-1c-voice-of-customer.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-1d-team-assessment.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-1d-team-assessment.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-1d-team-assessment.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-1d-team-assessment.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-1e-market-landscape.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-1e-market-landscape.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-1e-market-landscape.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-1e-market-landscape.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-1f-launch-readiness.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-1f-launch-readiness.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-1f-launch-readiness.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-1f-launch-readiness.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-2a-interview-cadence.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-2a-interview-cadence.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-2a-interview-cadence.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-2a-interview-cadence.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-2b-persona-development.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-2b-persona-development.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-2b-persona-development.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-2b-persona-development.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-2c-pain-point-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-2c-pain-point-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-2c-pain-point-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-2c-pain-point-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-2d-jobs-to-be-done.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-2d-jobs-to-be-done.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-2d-jobs-to-be-done.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-2d-jobs-to-be-done.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-2e-demand-signals.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-2e-demand-signals.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-2e-demand-signals.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-2e-demand-signals.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-2f-insight-loop.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-2f-insight-loop.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-2f-insight-loop.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-2f-insight-loop.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-3a-use-case-prioritization.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-3a-use-case-prioritization.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-3a-use-case-prioritization.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-3a-use-case-prioritization.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-3b-segment-tiering.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-3b-segment-tiering.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-3b-segment-tiering.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-3b-segment-tiering.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-3c-prioritization-framework.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-3c-prioritization-framework.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-3c-prioritization-framework.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-3c-prioritization-framework.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-3d-strategic-tradeoffs.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-3d-strategic-tradeoffs.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-3d-strategic-tradeoffs.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-3d-strategic-tradeoffs.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-3e-hypothesis-testing.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-3e-hypothesis-testing.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-3e-hypothesis-testing.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-3e-hypothesis-testing.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-3f-decision-archive.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-3f-decision-archive.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-3f-decision-archive.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-3f-decision-archive.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-4a-feature-matrix.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-4a-feature-matrix.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-4a-feature-matrix.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-4a-feature-matrix.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-4b-technical-scope.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-4b-technical-scope.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-4b-technical-scope.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-4b-technical-scope.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-4c-pilot-group-selection.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-4c-pilot-group-selection.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-4c-pilot-group-selection.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-4c-pilot-group-selection.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-4d-qa-standards.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-4d-qa-standards.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-4d-qa-standards.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-4d-qa-standards.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-4e-timeline-planning.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-4e-timeline-planning.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-4e-timeline-planning.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-4e-timeline-planning.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-4f-post-mortem-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-4f-post-mortem-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-4f-post-mortem-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-4f-post-mortem-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-5a-early-win-documentation.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-5a-early-win-documentation.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-5a-early-win-documentation.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-5a-early-win-documentation.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-5b-roi-calculation.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-5b-roi-calculation.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-5b-roi-calculation.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-5b-roi-calculation.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-5c-use-case-success.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-5c-use-case-success.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-5c-use-case-success.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-5c-use-case-success.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-5d-testimonial-collection.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-5d-testimonial-collection.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-5d-testimonial-collection.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-5d-testimonial-collection.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-5e-win-criteria-mapping.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-5e-win-criteria-mapping.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-5e-win-criteria-mapping.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-5e-win-criteria-mapping.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-5f-deal-debrief.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-5f-deal-debrief.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-5f-deal-debrief.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-5f-deal-debrief.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-6a-usage-analytics.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-6a-usage-analytics.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-6a-usage-analytics.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-6a-usage-analytics.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-6b-milestone-tracking.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-6b-milestone-tracking.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-6b-milestone-tracking.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-6b-milestone-tracking.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-6c-cs-dashboard-design.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-6c-cs-dashboard-design.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-6c-cs-dashboard-design.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-6c-cs-dashboard-design.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-6d-customer-activation.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-6d-customer-activation.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-6d-customer-activation.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-6d-customer-activation.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-6e-feedback-collection.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-6e-feedback-collection.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-6e-feedback-collection.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-6e-feedback-collection.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-6f-power-user-development.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-6f-power-user-development.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-6f-power-user-development.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-6f-power-user-development.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-7a-time-cost-savings.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-7a-time-cost-savings.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-7a-time-cost-savings.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-7a-time-cost-savings.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-7b-revenue-impact.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-7b-revenue-impact.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-7b-revenue-impact.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-7b-revenue-impact.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-7c-productivity-measurement.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-7c-productivity-measurement.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-7c-productivity-measurement.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-7c-productivity-measurement.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-7d-retention-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-7d-retention-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-7d-retention-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-7d-retention-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-7e-system-consolidation.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-7e-system-consolidation.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-7e-system-consolidation.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-7e-system-consolidation.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-7f-friction-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-7f-friction-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-7f-friction-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-7f-friction-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-8a-upsell-strategy.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-8a-upsell-strategy.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-8a-upsell-strategy.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-8a-upsell-strategy.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-8b-team-expansion-tracking.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-8b-team-expansion-tracking.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-8b-team-expansion-tracking.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-8b-team-expansion-tracking.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-8c-organic-growth-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-8c-organic-growth-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-8c-organic-growth-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-8c-organic-growth-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-8d-champion-development.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-8d-champion-development.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-8d-champion-development.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-8d-champion-development.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-8e-sentiment-tracking.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-8e-sentiment-tracking.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-8e-sentiment-tracking.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-8e-sentiment-tracking.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-8f-renewal-readiness.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-8f-renewal-readiness.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-8f-renewal-readiness.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-8f-renewal-readiness.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-9a-inbound-conversion.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-9a-inbound-conversion.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-9a-inbound-conversion.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-9a-inbound-conversion.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-9b-outbound-performance.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-9b-outbound-performance.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-9b-outbound-performance.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-9b-outbound-performance.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-9c-channel-economics.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-9c-channel-economics.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-9c-channel-economics.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-9c-channel-economics.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-9d-discovery-call-excellence.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-9d-discovery-call-excellence.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-9d-discovery-call-excellence.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-9d-discovery-call-excellence.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-9e-demo-optimization.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-9e-demo-optimization.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-9e-demo-optimization.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-9e-demo-optimization.html",
+      "warning": "Missing theme color: #F44336"
+    },
+    {
+      "file": "subcomponent-9f-founder-sales-analysis.html",
+      "warning": "Missing theme color: #000000"
+    },
+    {
+      "file": "subcomponent-9f-founder-sales-analysis.html",
+      "warning": "Missing theme color: #4CAF50"
+    },
+    {
+      "file": "subcomponent-9f-founder-sales-analysis.html",
+      "warning": "Missing theme color: #FF9800"
+    },
+    {
+      "file": "subcomponent-9f-founder-sales-analysis.html",
+      "warning": "Missing theme color: #F44336"
+    }
+  ]
+}

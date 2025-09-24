@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Customer Insight Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #FF5500;
+        }
+        button {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #FF7700;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #333;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+        .dimension {
+            background: #3a3a3a;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #555;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5500, #FF8800);
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Customer Insight Analysis Test</h1>
+        <p>Testing the Customer Insight analysis agent with sample data</p>
+        
+        <button onclick="testCustomerInsight()">Test Customer Insight Analysis</button>
+        <button onclick="testWithMinimalData()">Test with Minimal Data</button>
+        <button onclick="testWithRichData()">Test with Rich Data</button>
+        
+        <div id="results" class="results" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Sample customer insight data
+        const sampleCustomerData = {
+            'field-1': 'Customers struggle with understanding their GTM metrics. "We have no idea if our sales process is working" - Series A CEO. Teams waste 10+ hours/week on manual reporting. "Our data is scattered across 5 different tools" - VP Sales.',
+            'field-2': 'pipeline visibility, revenue forecasting, deal velocity, conversion rates, sales efficiency, GTM metrics, data-driven decisions, manual reporting, scattered data, no single source of truth',
+            'field-3': 'Frustrated by lack of visibility. Anxious about board meetings without clear metrics. Overwhelmed by manual data collection. Stressed about making decisions blind.',
+            'field-4': 'Tried Salesforce dashboards ($50K/year) - too complex. Built internal spreadsheets - broke after 3 months. Hired analyst ($120K/year) - still manual work. Consultants ($20K/month) - not sustainable.',
+            'field-5': 'Clear visibility into pipeline health. Automated reporting that saves 10 hours/week. Confidence in board meetings with real-time data. Data-driven decisions that improve conversion by 30%.',
+            'field-6': '"We need a GTM command center" - Series B Founder. "If I could see deal velocity in real-time, I could coach reps better" - Sales Manager. "Board asks for metrics I don\'t have" - CEO'
+        };
+
+        const minimalData = {
+            'field-1': 'Customers have problems with sales',
+            'field-2': 'sales, revenue, growth',
+            'field-3': 'frustrated',
+            'field-4': 'tried some tools',
+            'field-5': 'want better results',
+            'field-6': 'need help'
+        };
+
+        const richData = {
+            'field-1': '"We lose 40% of deals in the demo stage" - VP Sales at TechCo. "Our sales cycle is 120 days but should be 60" - CRO. "Reps spend 65% of time on non-selling activities" - Sales Ops Manager. Multiple customers report $2M+ in lost revenue due to poor GTM execution.',
+            'field-2': 'deal slippage, forecast accuracy, pipeline coverage, stage conversion, rep productivity, quota attainment, win rates, sales velocity, time-to-revenue, CAC payback, ACV growth, churn prediction',
+            'field-3': 'Extremely frustrated with constant firefighting. Anxious about missing quarterly targets. Overwhelmed by board pressure for growth. Exhausted from working 70+ hour weeks. Worried about team burnout and turnover.',
+            'field-4': 'Implemented Salesforce + Tableau ($150K) - too complex, 6-month implementation. Hired McKinsey consultants ($500K) - recommendations not actionable. Built custom BI solution ($300K) - failed after 8 months. Tried Looker, Domo, PowerBI - all require dedicated analysts.',
+            'field-5': '"I want to walk into Monday meetings knowing exactly where we stand" - CEO. "Predictable revenue growth with 90%+ forecast accuracy" - CFO. "Reps spending 80% of time selling" - CRO. "Reduce sales cycle by 50% while increasing win rate to 35%" - Board mandate.',
+            'field-6': '"Every Monday I scramble for 3 hours to prepare metrics" - RevOps Director. "We made a $2M hiring mistake because we couldn\'t see productivity data" - CPO. "Lost our Series B lead because we couldn\'t explain our unit economics" - Founder. "If we had proper GTM metrics, we\'d be at $50M ARR not $20M" - CEO'
+        };
+
+        async function testCustomerInsight() {
+            await runAnalysis(sampleCustomerData, 'Standard Customer Insight Data');
+        }
+
+        async function testWithMinimalData() {
+            await runAnalysis(minimalData, 'Minimal Customer Data');
+        }
+
+        async function testWithRichData() {
+            await runAnalysis(richData, 'Rich Customer Data');
+        }
+
+        async function runAnalysis(data, testName) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = `<h3>Running ${testName} Analysis...</h3>`;
+            
+            try {
+                console.log('📤 Sending request to /api/analyze/customer-insight');
+                console.log('Data:', data);
+                
+                const response = await fetch('/api/analyze/customer-insight', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': '1'
+                    },
+                    body: JSON.stringify({
+                        worksheetData: data,
+                        subcomponentId: '1-3'
+                    })
+                });
+                
+                console.log('📥 Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                console.log('✅ Analysis result:', result);
+                
+                displayResults(result, testName);
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                resultsDiv.innerHTML = `
+                    <h3>❌ Error Running ${testName}</h3>
+                    <p style="color: #f44336;">${error.message}</p>
+                    <p>Check console for details</p>
+                `;
+            }
+        }
+        
+        function displayResults(result, testName) {
+            const resultsDiv = document.getElementById('results');
+            
+            let html = `
+                <h2>✅ ${testName} - Analysis Complete</h2>
+                <div class="score">Score: ${result.score}%</div>
+            `;
+            
+            // Executive Summary
+            if (result.analysis && result.analysis.executiveSummary) {
+                html += `
+                    <div class="dimension">
+                        <h3>Executive Summary</h3>
+                        <p>${result.analysis.executiveSummary}</p>
+                    </div>
+                `;
+            }
+            
+            // Detailed Scores
+            if (result.detailedScores) {
+                html += '<h3>Dimension Scores:</h3>';
+                for (const [key, value] of Object.entries(result.detailedScores)) {
+                    const displayName = key.replace(/([A-Z])/g, ' $1').trim()
+                        .split(' ')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
+                    
+                    html += `
+                        <div class="dimension">
+                            <h4>${displayName}</h4>
+                            <div>Score: ${value.score}/${value.maxScore} (${value.percentage}%)</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${value.percentage}%"></div>
+                            </div>
+                            ${value.feedback ? `<pre style="white-space: pre-wrap;">${value.feedback}</pre>` : ''}
+                        </div>
+                    `;
+                }
+            }
+            
+            // Recommendations
+            if (result.recommendations && result.recommendations.length > 0) {
+                html += '<h3>Recommendations:</h3>';
+                result.recommendations.forEach(rec => {
+                    html += `
+                        <div class="dimension">
+                            <h4>${rec.area} (${rec.priority})</h4>
+                            <p>Impact: ${rec.impact}</p>
+                            ${rec.actionPlan ? `
+                                <ul>
+                                    ${rec.actionPlan.map(action => `<li>${action}</li>`).join('')}
+                                </ul>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+            }
+            
+            // Raw JSON for debugging
+            html += `
+                <h3>Raw Response (for debugging):</h3>
+                <pre>${JSON.stringify(result, null, 2)}</pre>
+            `;
+            
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

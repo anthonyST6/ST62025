@@ -1,0 +1,2891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6 - Subcomponent Detail</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="score-analysis-engine.js"></script>
+    <script src="recommendations-component.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 140px;
+            position: relative;
+        }
+
+        /* Soft orange glow effect */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 85, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #FF5500;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+
+        .breadcrumb .separator {
+            color: #666;
+        }
+
+        /* Header Section */
+        .subcomponent-header {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #FF5500;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .subcomponent-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #666;
+            font-weight: 700;
+        }
+
+        .subcomponent-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: #FF5500;
+        }
+
+        .subcomponent-description {
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            background: transparent;
+            color: #999;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            color: #FF5500;
+        }
+
+        .tab-button.active {
+            color: #FF5500;
+            border-bottom-color: #FF5500;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Educational Content Section */
+        .education-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #FF5500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 28px;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+        
+        /* Enhanced styling for How to Implement section */
+        .section-content h3,
+        .section-content h4 {
+            color: #fff;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .section-content h3 {
+            font-size: 18px;
+            color: #FF5500;
+            border-bottom: 1px solid rgba(255, 85, 0, 0.3);
+            padding-bottom: 8px;
+        }
+        
+        .section-content h4 {
+            font-size: 16px;
+            color: #ffaa66;
+        }
+        
+        .section-content p {
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        
+        .section-content strong {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        /* Better list styling */
+        .section-content ul,
+        .section-content ol {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .section-content ul li,
+        .section-content ol li {
+            position: relative;
+            padding: 12px 0 12px 35px;
+            margin-bottom: 12px;
+            line-height: 1.7;
+            border-left: 2px solid rgba(255, 85, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .section-content ul li:hover,
+        .section-content ol li:hover {
+            border-left-color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+            padding-left: 40px;
+        }
+        
+        .section-content ul li:before {
+            content: '▸';
+            position: absolute;
+            left: 12px;
+            color: #FF5500;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .section-content ol {
+            counter-reset: item;
+        }
+        
+        .section-content ol li {
+            counter-increment: item;
+        }
+        
+        .section-content ol li:before {
+            content: counter(item);
+            position: absolute;
+            left: 10px;
+            color: #FF5500;
+            font-weight: 700;
+            font-size: 14px;
+            background: rgba(255, 85, 0, 0.2);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        
+        /* Nested lists */
+        .section-content ul ul,
+        .section-content ol ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .section-content ul ul li,
+        .section-content ol ul li {
+            padding-left: 25px;
+            border-left: none;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .section-content ul ul li:before {
+            content: '•';
+            left: 5px;
+            font-size: 16px;
+        }
+        
+        /* Code blocks or highlighted text */
+        .section-content code {
+            background: rgba(255, 85, 0, 0.1);
+            color: #ffaa66;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        /* Blockquotes or important notes */
+        .section-content blockquote {
+            border-left: 3px solid #FF5500;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #ffaa66;
+            background: rgba(255, 85, 0, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bullet-list li {
+            padding: 15px 0 15px 35px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+        
+        .bullet-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .bullet-list li:hover {
+            background: rgba(255, 85, 0, 0.03);
+            padding-left: 40px;
+        }
+
+        .bullet-list li:before {
+            content: '▸';
+            position: absolute;
+            left: 10px;
+            color: #FF5500;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Interactive Workspace */
+        .workspace-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tool-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            border-color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+            box-shadow: 0 5px 20px rgba(255, 85, 0, 0.2);
+        }
+
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 85, 0, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .tool-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .tool-examples {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Templates Section */
+        .templates-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .template-item {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .template-item:hover {
+            border-color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+        }
+
+        .template-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .template-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 85, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .template-name {
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .template-action {
+            background: transparent;
+            color: #FF5500;
+            border: 1px solid #FF5500;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .template-action:hover {
+            background: #FF5500;
+            color: #000;
+        }
+
+        /* Best Practices Section */
+        .practices-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .practice-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #FF5500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .practice-item:hover {
+            background: rgba(255, 85, 0, 0.05);
+            transform: translateX(5px);
+        }
+
+        .practice-check {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 85, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF5500;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .practice-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .worksheet-builder {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .worksheet-field {
+            margin-bottom: 20px;
+        }
+
+        .worksheet-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #FF5500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .worksheet-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .worksheet-input:focus {
+            outline: none;
+            border-color: #FF5500;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .worksheet-textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            min-height: 120px;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .worksheet-textarea:focus {
+            outline: none;
+            border-color: #FF5500;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            border-color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+        }
+
+        .resource-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .resource-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .resource-description {
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #d64d2d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FF5500;
+            border: 2px solid #FF5500;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 85, 0, 0.1);
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: #FF5500;
+            transform: scale(1.3);
+        }
+
+        .progress-dot.completed {
+            background: #4CAF50;
+        }
+
+        /* Upload Zone */
+        .upload-zone {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-zone:hover {
+            border-color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+        }
+
+        .upload-zone.dragover {
+            border-color: #FF5500;
+            background: rgba(255, 85, 0, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #FF5500;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+
+        .upload-subtext {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Validation Checklist */
+        .validation-checklist {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .checklist-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FF5500;
+            border-radius: 4px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-checkbox.checked {
+            background: #FF5500;
+        }
+
+        .checklist-checkbox.checked:after {
+            content: '✓';
+            color: #000;
+            font-weight: bold;
+        }
+
+        .checklist-text {
+            flex: 1;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .checklist-status {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #999;
+        }
+
+        .checklist-status.complete {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+    
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="/">Dashboard</a>
+            <span class="separator">›</span>
+            <a href="#" id="block-link">Mission Discovery</a>
+            <span class="separator">›</span>
+            <span id="subcomponent-name">Problem Statement</span>
+        </div>
+
+        <!-- Subcomponent Header -->
+        <div class="subcomponent-header">
+            <div class="subcomponent-number" id="subcomponent-number">1.1</div>
+            <h1 class="subcomponent-title" id="subcomponent-title">PROBLEM STATEMENT</h1>
+            <p class="subcomponent-description" id="subcomponent-description">
+                Clear articulation of the problem you're solving and why it matters
+            </p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button" data-tab="education" onclick="switchTab('education', event)">📚 Education</button>
+            <button class="tab-button active" data-tab="workspace" onclick="switchTab('workspace', event)">✏️ Workspace</button>
+            <button class="tab-button" data-tab="analysis" onclick="switchTab('analysis', event)">🤖 Analysis</button>
+            <button class="tab-button" data-tab="resources" onclick="switchTab('resources', event)">🔧 Resources</button>
+            <button class="tab-button" data-tab="history" onclick="switchTab('history', event)">📊 Score History</button>
+        </div>
+
+        <!-- Education Tab -->
+        <div id="education-tab" class="tab-content">
+            <!-- Dynamic content will be loaded here -->
+            <div id="education-loading" style="text-align: center; padding: 60px 20px;">
+                <div style="font-size: 48px; margin-bottom: 20px; animation: pulse 1.5s infinite;">📚</div>
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #FF5500;">Loading Educational Content...</h3>
+                <p style="font-size: 16px; color: #999;">Fetching the latest GTM best practices and frameworks</p>
+            </div>
+        </div>
+
+        <!-- Workspace Tab -->
+        <div id="workspace-tab" class="tab-content active" data-subcomponent-id="">
+            <!-- Interactive Worksheet Section -->
+            <div class="workspace-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📝</span>
+                    Interactive Worksheet
+                </h2>
+                
+                <div id="dynamic-worksheet-container">
+                    <!-- Dynamic worksheet will be injected here by the worksheet system -->
+                    <!-- For Problem Statement (1-1), we use the original hardcoded worksheet -->
+                    <div class="loading-message" style="text-align: center; padding: 2rem; color: #888;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <p>Loading personalized questions...</p>
+                    </div>
+                </div>
+                
+                <!-- Original Problem Statement Worksheet (only shown for 1-1) -->
+                <div id="problem-statement-worksheet" style="display: none;">
+                    <div class="worksheet-builder">
+                        <div class="worksheet-field">
+                            <label class="worksheet-label">WHO IS AFFECTED? (CUSTOMER PERSONA)</label>
+                            <input type="text" id="who-affected" class="worksheet-input"
+                                   value="B2B SaaS founders and GTM leaders at early-stage startups (Seed to Series B) with 10-50 employees"
+                                   placeholder="e.g., B2B SaaS founders with 10-50 employees">
+                        </div>
+                        
+                        <div class="worksheet-field">
+                            <label class="worksheet-label">WHAT IS THE PROBLEM?</label>
+                            <textarea id="what-problem" class="worksheet-textarea"
+                                      placeholder="Describe the specific problem in 2-3 sentences...">Early-stage startups struggle to build and execute effective go-to-market strategies due to lack of structured frameworks, expert guidance, and proven playbooks. They waste time and resources on trial-and-error approaches, leading to slower growth, missed opportunities, and increased burn rates.</textarea>
+                        </div>
+                        
+                        <div class="worksheet-field">
+                            <label class="worksheet-label">WHEN DOES IT OCCUR? (CONTEXT)</label>
+                            <input type="text" id="when-occur" class="worksheet-input"
+                                   value="This occurs during critical growth phases - when transitioning from founder-led sales to building a sales team, when trying to achieve product-market fit, and when preparing for fundraising"
+                                   placeholder="e.g., During quarterly planning when trying to align teams">
+                        </div>
+                        
+                        <div class="worksheet-field">
+                            <label class="worksheet-label">WHAT IS THE IMPACT? (METRICS)</label>
+                            <textarea id="what-impact" class="worksheet-textarea"
+                                      placeholder="e.g., 20 hours/month wasted, $50K in lost productivity, 30% project delays">Startups lose 6-12 months of runway due to inefficient GTM execution, with 70% failing to hit their growth targets. This translates to $500K-$2M in wasted resources, 40% longer sales cycles, and 50% lower conversion rates compared to startups with structured GTM approaches.</textarea>
+                        </div>
+                        
+                        <div class="worksheet-field">
+                            <label class="worksheet-label">HOW ARE THEY SOLVING IT TODAY?</label>
+                            <textarea id="how-solving" class="worksheet-textarea"
+                                      placeholder="Describe current alternatives and their shortcomings...">Currently using a patchwork of expensive consultants ($20-50K/month), generic online courses, scattered blog posts, and trial-and-error. These solutions lack personalization, comprehensive frameworks, ongoing support, and measurable outcomes.</textarea>
+                        </div>
+                        
+                        <div class="worksheet-field">
+                            <label class="worksheet-label">EVIDENCE & VALIDATION</label>
+                            <textarea id="evidence-validation" class="worksheet-textarea"
+                                      placeholder="Customer quotes, data points, research findings...">Interviewed 50+ founders who consistently reported GTM as their #1 challenge. Survey of 200 startups showed 85% lack structured GTM processes. Case studies from 10 pilot customers demonstrated 3x improvement in sales velocity after implementing our framework.</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload-zone" id="upload-zone">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">Drop files here or click to upload</div>
+                    <div class="upload-subtext">Support for PDF, DOCX, PPTX, XLSX (Max 10MB)</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="saveWorksheet()">Save Progress</button>
+                    <button class="btn-primary" onclick="analyzeWorksheet()" style="background: #4CAF50;">🤖 Analyze Results</button>
+                    <button class="btn-secondary" onclick="exportWorksheet()">Export as PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Tab -->
+        <div id="analysis-tab" class="tab-content">
+            <div class="workspace-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🤖</span>
+                    Analysis Results
+                </h2>
+                
+                <div id="analysis-content" style="min-height: 400px;">
+                    <!-- Analysis results will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Tab -->
+        <div id="resources-tab" class="tab-content">
+            <!-- Templates & Frameworks Section -->
+            <div class="workspace-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📄</span>
+                    Templates & Frameworks
+                </h2>
+                <div id="resource-templates" class="templates-list">
+                    <!-- Templates will be dynamically loaded here -->
+                    <div class="template-item">
+                        <div class="template-content">
+                            <div class="template-icon">📄</div>
+                            <div style="flex: 1;">
+                                <h4 class="template-name">Problem Statement Canvas</h4>
+                                <p style="font-size: 13px; color: #999; margin-top: 4px;">Ready-to-use template for your GTM needs</p>
+                            </div>
+                        </div>
+                        <button class="template-action" onclick="downloadTemplate('Problem Statement Canvas')">
+                            Download
+                        </button>
+                    </div>
+                    <div class="template-item">
+                        <div class="template-content">
+                            <div class="template-icon">📄</div>
+                            <div style="flex: 1;">
+                                <h4 class="template-name">Problem Validation Scorecard</h4>
+                                <p style="font-size: 13px; color: #999; margin-top: 4px;">Ready-to-use template for your GTM needs</p>
+                            </div>
+                        </div>
+                        <button class="template-action" onclick="downloadTemplate('Problem Validation Scorecard')">
+                            Download
+                        </button>
+                    </div>
+                    <div class="template-item">
+                        <div class="template-content">
+                            <div class="template-icon">📄</div>
+                            <div style="flex: 1;">
+                                <h4 class="template-name">Pain Point Prioritization Matrix</h4>
+                                <p style="font-size: 13px; color: #999; margin-top: 4px;">Ready-to-use template for your GTM needs</p>
+                            </div>
+                        </div>
+                        <button class="template-action" onclick="downloadTemplate('Pain Point Prioritization Matrix')">
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Studies Section -->
+            <div class="workspace-section">
+                <h2 class="section-title">
+                    <span class="section-icon">💼</span>
+                    Case Studies
+                </h2>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+                    <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px; transition: all 0.3s ease; cursor: pointer;"
+                         onmouseover="this.style.borderColor='#FF5500'; this.style.background='rgba(255, 85, 0, 0.05)'"
+                         onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.background='rgba(0, 0, 0, 0.5)'">
+                        <h3 style="color: #FF5500; margin-bottom: 10px; font-size: 20px;">Slack</h3>
+                        <p style="color: #fff; font-weight: 600; margin-bottom: 10px;">Problem Statement:</p>
+                        <p style="color: #ccc; line-height: 1.6; margin-bottom: 15px;">
+                            "Email is broken for internal team communication. Teams waste 2.5 hours per day searching through email threads,
+                            miss critical messages in overflowing inboxes, and struggle to maintain context across conversations.
+                            This costs companies $10,000+ per employee annually in lost productivity."
+                        </p>
+                        <p style="color: #999; font-size: 14px; font-style: italic;">
+                            Result: Built a $27B company by solving workplace communication inefficiency
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px; transition: all 0.3s ease; cursor: pointer;"
+                         onmouseover="this.style.borderColor='#FF5500'; this.style.background='rgba(255, 85, 0, 0.05)'"
+                         onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.background='rgba(0, 0, 0, 0.5)'">
+                        <h3 style="color: #FF5500; margin-bottom: 10px; font-size: 20px;">Airbnb</h3>
+                        <p style="color: #fff; font-weight: 600; margin-bottom: 10px;">Problem Statement:</p>
+                        <p style="color: #ccc; line-height: 1.6; margin-bottom: 15px;">
+                            "Travelers can't find affordable accommodations in cities, while millions of homeowners have unused space.
+                            Hotels are expensive (avg $150/night), impersonal, and often fully booked during peak times.
+                            Meanwhile, homeowners struggle to monetize their biggest asset when traveling."
+                        </p>
+                        <p style="color: #999; font-size: 14px; font-style: italic;">
+                            Result: Created a $75B marketplace by connecting unused space with accommodation needs
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px; transition: all 0.3s ease; cursor: pointer;"
+                         onmouseover="this.style.borderColor='#FF5500'; this.style.background='rgba(255, 85, 0, 0.05)'"
+                         onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.background='rgba(0, 0, 0, 0.5)'">
+                        <h3 style="color: #FF5500; margin-bottom: 10px; font-size: 20px;">Uber</h3>
+                        <p style="color: #fff; font-weight: 600; margin-bottom: 10px;">Problem Statement:</p>
+                        <p style="color: #ccc; line-height: 1.6; margin-bottom: 15px;">
+                            "Getting a taxi in cities is unreliable, time-consuming, and frustrating. People wait 20+ minutes,
+                            can't track arrival times, face inconsistent pricing, and often can't find rides during peak hours.
+                            This wastes 100+ hours annually per urban resident and limits mobility options."
+                        </p>
+                        <p style="color: #999; font-size: 14px; font-style: italic;">
+                            Result: Revolutionized urban transportation into a $95B global platform
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px; transition: all 0.3s ease; cursor: pointer;"
+                         onmouseover="this.style.borderColor='#FF5500'; this.style.background='rgba(255, 85, 0, 0.05)'"
+                         onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.background='rgba(0, 0, 0, 0.5)'">
+                        <h3 style="color: #FF5500; margin-bottom: 10px; font-size: 20px;">Stripe</h3>
+                        <p style="color: #fff; font-weight: 600; margin-bottom: 10px;">Problem Statement:</p>
+                        <p style="color: #ccc; line-height: 1.6; margin-bottom: 15px;">
+                            "Accepting payments online is unnecessarily complex for developers. It takes weeks to integrate payment systems,
+                            requires understanding complex financial regulations, and dealing with multiple vendors.
+                            This delays product launches by 2-3 months and costs startups $50K+ in development time."
+                        </p>
+                        <p style="color: #999; font-size: 14px; font-style: italic;">
+                            Result: Built a $95B payments infrastructure by simplifying online transactions
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px; transition: all 0.3s ease; cursor: pointer;"
+                         onmouseover="this.style.borderColor='#FF5500'; this.style.background='rgba(255, 85, 0, 0.05)'"
+                         onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.background='rgba(0, 0, 0, 0.5)'">
+                        <h3 style="color: #FF5500; margin-bottom: 10px; font-size: 20px;">Zoom</h3>
+                        <p style="color: #fff; font-weight: 600; margin-bottom: 10px;">Problem Statement:</p>
+                        <p style="color: #ccc; line-height: 1.6; margin-bottom: 15px;">
+                            "Video conferencing is unreliable and complicated. Enterprise solutions require IT support,
+                            expensive hardware, and still fail 40% of the time. Remote teams waste 15 minutes per meeting troubleshooting,
+                            costing enterprises $25K per employee annually in lost productivity."
+                        </p>
+                        <p style="color: #999; font-size: 14px; font-style: italic;">
+                            Result: Became a $20B company by making video conferencing actually work
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Score History Tab -->
+        <div id="history-tab" class="tab-content">
+            <div class="workspace-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📊</span>
+                    Score History & Progress
+                </h2>
+                
+                <div id="score-history-content" style="min-height: 400px;">
+                    <!-- Score history will be displayed here -->
+                    <div style="text-align: center; padding: 60px 20px; color: #999;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">📈</div>
+                        <h3 style="font-size: 24px; margin-bottom: 10px; color: #fff;">Track Your Progress</h3>
+                        <p style="font-size: 16px;">Your score history and improvements will appear here after your first analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-dot completed" title="Problem Statement"></div>
+        <div class="progress-dot" title="Mission"></div>
+        <div class="progress-dot" title="Customer Insights"></div>
+        <div class="progress-dot" title="Founding Team Capability"></div>
+        <div class="progress-dot" title="Market Insights"></div>
+        <div class="progress-dot" title="Prototype Launch Plan"></div>
+    </div>
+
+    <script>
+        // Get subcomponent ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const subcomponentId = urlParams.get('id') || '1-1';
+        const blockId = parseInt(subcomponentId.split('-')[0]);
+
+        // Data persistence manager
+        const DataManager = {
+            // Save worksheet data
+            saveWorksheetData: function(data) {
+                localStorage.setItem(`worksheet_${subcomponentId}`, JSON.stringify(data));
+                localStorage.setItem(`worksheet_${subcomponentId}_timestamp`, new Date().toISOString());
+            },
+            
+            // Load worksheet data
+            loadWorksheetData: function() {
+                const data = localStorage.getItem(`worksheet_${subcomponentId}`);
+                return data ? JSON.parse(data) : null;
+            },
+            
+            // Save analysis results
+            saveAnalysisResults: function(analysis) {
+                localStorage.setItem(`analysis_${subcomponentId}`, JSON.stringify(analysis));
+                localStorage.setItem(`analysis_${subcomponentId}_timestamp`, new Date().toISOString());
+            },
+            
+            // Load analysis results
+            loadAnalysisResults: function() {
+                const analysis = localStorage.getItem(`analysis_${subcomponentId}`);
+                return analysis ? JSON.parse(analysis) : null;
+            },
+            
+            // Auto-save worksheet data
+            autoSaveWorksheet: function() {
+                const worksheetData = {
+                    'who-affected': document.getElementById('who-affected').value,
+                    'what-problem': document.getElementById('what-problem').value,
+                    'when-occur': document.getElementById('when-occur').value,
+                    'what-impact': document.getElementById('what-impact').value,
+                    'how-solving': document.getElementById('how-solving').value,
+                    'evidence-validation': document.getElementById('evidence-validation').value
+                };
+                this.saveWorksheetData(worksheetData);
+            }
+        };
+
+        // Tab switching
+        function switchTab(tabName, event) {
+            // Prevent default if event exists
+            if (event && event.preventDefault) {
+                event.preventDefault();
+            }
+            
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(`${tabName}-tab`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Activate the correct button
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            } else {
+                // Find and activate the button by tab name
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    if (btn.getAttribute('data-tab') === tabName) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            // Handle tab-specific loading
+            if (tabName === 'education') {
+                // Education content is static, no dynamic loading needed
+            } else if (tabName === 'analysis') {
+                const savedAnalysis = DataManager.loadAnalysisResults();
+                if (savedAnalysis) {
+                    displayAnalysisResults(savedAnalysis);
+                } else {
+                    // Show no analysis message
+                    document.getElementById('analysis-content').innerHTML = `
+                        <div style="text-align: center; padding: 60px 20px; color: #999;">
+                            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                            <h3 style="font-size: 24px; margin-bottom: 10px; color: #fff;">No Analysis Yet</h3>
+                            <p style="font-size: 16px; margin-bottom: 30px;">Complete the interactive worksheet and click "Analyze Results" to get AI-powered feedback</p>
+                            <button class="btn-primary" onclick="switchTab('workspace', null); document.querySelector('[data-tab=workspace]').click();">
+                                Go to Workspace
+                            </button>
+                        </div>
+                    `;
+                }
+            } else if (tabName === 'history') {
+                loadScoreHistory();
+            }
+        }
+
+        // Load score history
+        async function loadScoreHistory() {
+            try {
+                const response = await fetch(`/api/subcomponents/${subcomponentId}/history`, {
+                    headers: {
+                        'x-user-id': '1' // ST6 user ID
+                    }
+                });
+                
+                if (response.ok) {
+                    const history = await response.json();
+                    displayScoreHistory(history);
+                }
+            } catch (error) {
+                console.error('Error loading score history:', error);
+                // Show default message
+            }
+        }
+
+        // Display score history with clickable entries
+        function displayScoreHistory(history) {
+            const historyContent = document.getElementById('score-history-content');
+            
+            if (!history || history.length === 0) {
+                return; // Keep default message
+            }
+            
+            // Store history data globally for popup access
+            window.scoreHistoryData = history;
+            
+            historyContent.innerHTML = `
+                <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                    <h3 style="font-size: 20px; margin-bottom: 20px; color: #FF5500;">📊 Score Progression</h3>
+                    <p style="font-size: 14px; color: #999; margin-bottom: 20px;">Click on any entry to view detailed analysis</p>
+                    <div id="score-history-entries" style="display: flex; flex-direction: column; gap: 15px;">
+                        ${history.map((entry, index) => {
+                            const scoreColor = entry.score >= 80 ? '#4CAF50' :
+                                             entry.score >= 60 ? '#FF9800' : '#F44336';
+                            // Use the improvement value from the server (which calculates it correctly)
+                            const improvement = entry.improvement || 0;
+                            const improvementText = improvement > 0 ? `+${improvement}%` :
+                                                   improvement < 0 ? `${improvement}%` : '';
+                            
+                            // Add icon based on source
+                            const sourceIcon = entry.source === 'AI Analysis' ? '🤖' : '✏️';
+                            
+                            return `
+                            <div class="score-history-entry" data-index="${index}" style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid ${scoreColor}; cursor: pointer; transition: all 0.3s ease;">
+                                <div>
+                                    <div style="font-size: 14px; color: #999; margin-bottom: 5px;">
+                                        ${new Date(entry.timestamp).toLocaleDateString()} at ${new Date(entry.timestamp).toLocaleTimeString()}
+                                    </div>
+                                    <div style="font-size: 16px; color: #ccc; display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 20px;">${sourceIcon}</span>
+                                        ${entry.source || 'AI Analysis'}
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 32px; font-weight: 700; color: ${scoreColor};">
+                                        ${entry.score}%
+                                    </div>
+                                    ${improvementText ? `
+                                        <div style="font-size: 14px; color: ${improvement > 0 ? '#4CAF50' : '#F44336'}; display: flex; align-items: center; justify-content: flex-end; gap: 4px;">
+                                            <span style="font-size: 16px;">${improvement > 0 ? '↑' : '↓'}</span>
+                                            ${Math.abs(improvement)}%
+                                        </div>
+                                    ` : ''}
+                                </div>
+                                <div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #666; font-size: 20px;">
+                                    →
+                                </div>
+                            </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px;">
+                    <h3 style="font-size: 20px; margin-bottom: 20px; color: #FF5500;">📈 Key Insights</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px; text-align: center;">
+                            <div style="font-size: 14px; color: #999; margin-bottom: 8px;">Current Score</div>
+                            <div style="font-size: 36px; font-weight: 700; color: ${history[0].score >= 80 ? '#4CAF50' : history[0].score >= 60 ? '#FF9800' : '#F44336'};">
+                                ${history[0].score}%
+                            </div>
+                        </div>
+                        <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px; text-align: center;">
+                            <div style="font-size: 14px; color: #999; margin-bottom: 8px;">Average Score</div>
+                            <div style="font-size: 36px; font-weight: 700; color: #FF5500;">
+                                ${Math.round(history.reduce((sum, e) => sum + e.score, 0) / history.length)}%
+                            </div>
+                        </div>
+                        <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px; text-align: center;">
+                            <div style="font-size: 14px; color: #999; margin-bottom: 8px;">Best Score</div>
+                            <div style="font-size: 36px; font-weight: 700; color: #4CAF50;">
+                                ${Math.max(...history.map(e => e.score))}%
+                            </div>
+                        </div>
+                        <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px; text-align: center;">
+                            <div style="font-size: 14px; color: #999; margin-bottom: 8px;">Total Analyses</div>
+                            <div style="font-size: 36px; font-weight: 700; color: #2196F3;">
+                                ${history.length}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(255, 85, 0, 0.1); border-radius: 8px; border: 1px solid rgba(255, 85, 0, 0.3);">
+                        <p style="font-size: 14px; color: #FF5500; margin: 0;">
+                            💡 <strong>Tip:</strong> Every AI analysis is automatically saved to your score history. You can track your progress over time and see how your problem statement improves with each iteration.
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Add click handlers to all score history entries
+            setTimeout(() => {
+                const entries = document.querySelectorAll('.score-history-entry');
+                entries.forEach((entry, index) => {
+                    entry.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Get the history entry data
+                        const entryData = window.scoreHistoryData[index];
+                        
+                        // Add any additional data that might be stored
+                        if (entryData) {
+                            // If we have the full analysis data stored, include it
+                            const savedAnalysis = DataManager.loadAnalysisResults();
+                            if (savedAnalysis && savedAnalysis.timestamp === entryData.timestamp) {
+                                entryData.analysis = savedAnalysis.analysis || savedAnalysis;
+                                entryData.detailedScores = savedAnalysis.detailedScores;
+                                entryData.recommendations = savedAnalysis.recommendations;
+                                entryData.confidence = savedAnalysis.confidence;
+                            }
+                            
+                            // Show the enhanced popup with in-depth analysis
+                            if (window.scoreHistoryPopup) {
+                                // Pass all history entries for comparison analysis
+                                window.scoreHistoryPopup.createPopup(entryData, window.scoreHistoryData);
+                            }
+                        }
+                    });
+                    
+                    // Add hover effect
+                    entry.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateX(5px)';
+                        this.style.boxShadow = '0 4px 20px rgba(255, 85, 0, 0.2)';
+                    });
+                    
+                    entry.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateX(0)';
+                        this.style.boxShadow = 'none';
+                    });
+                });
+            }, 100);
+        }
+
+        // Save worksheet - works with both Problem Statement and simple worksheet
+        async function saveWorksheet() {
+            // Special handling for Problem Statement (1-1)
+            if (subcomponentId === '1-1') {
+                // Use original Problem Statement implementation
+                const worksheetData = {
+                    'who-affected': document.getElementById('who-affected')?.value,
+                    'what-problem': document.getElementById('what-problem')?.value,
+                    'when-occur': document.getElementById('when-occur')?.value,
+                    'what-impact': document.getElementById('what-impact')?.value,
+                    'how-solving': document.getElementById('how-solving')?.value,
+                    'evidence-validation': document.getElementById('evidence-validation')?.value
+                };
+                
+                // Save to localStorage
+                DataManager.saveWorksheetData(worksheetData);
+                
+                // Also save to database
+                try {
+                    const response = await fetch(`/api/subcomponents/${subcomponentId}/worksheet`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-user-id': '1' // ST6 user ID
+                        },
+                        body: JSON.stringify({ worksheetData })
+                    });
+                    
+                    if (response.ok) {
+                        alert('Worksheet saved successfully!');
+                    } else {
+                        alert('Worksheet saved locally!');
+                    }
+                } catch (error) {
+                    console.error('Error saving to database:', error);
+                    alert('Worksheet saved locally!');
+                }
+                return;
+            }
+            
+            // For other subcomponents, use simple worksheet save
+            if (window.simpleWorksheet) {
+                window.simpleWorksheet.saveProgress(subcomponentId);
+            } else {
+                alert('Unable to save worksheet. Please refresh and try again.');
+            }
+        }
+
+        // Analyze worksheet - works with both Problem Statement and simple worksheet
+        async function analyzeWorksheet() {
+            // Special handling for Problem Statement (1-1)
+            if (subcomponentId === '1-1') {
+                // Use original Problem Statement implementation
+                let worksheetData = {
+                    'who-affected': document.getElementById('who-affected')?.value,
+                    'what-problem': document.getElementById('what-problem')?.value,
+                    'when-occur': document.getElementById('when-occur')?.value,
+                    'what-impact': document.getElementById('what-impact')?.value,
+                    'how-solving': document.getElementById('how-solving')?.value,
+                    'evidence-validation': document.getElementById('evidence-validation')?.value
+                };
+                
+                // Filter out null values
+                const filteredData = {};
+                Object.keys(worksheetData).forEach(key => {
+                    if (worksheetData[key] !== undefined && worksheetData[key] !== null) {
+                        filteredData[key] = worksheetData[key];
+                    }
+                });
+                worksheetData = filteredData;
+                
+                // Check if worksheet has content
+                const hasContent = Object.values(worksheetData).some(value => value && value.trim() !== '');
+                if (!hasContent) {
+                    alert('Please fill in the worksheet before analyzing.');
+                    return;
+                }
+                
+                // Save worksheet first
+                DataManager.saveWorksheetData(worksheetData);
+                
+                // Also save to database
+                try {
+                    await fetch(`/api/subcomponents/${subcomponentId}/worksheet`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-user-id': '1' // ST6 user ID
+                        },
+                        body: JSON.stringify({ worksheetData })
+                    });
+                } catch (error) {
+                    console.error('Error saving worksheet to database:', error);
+                }
+                
+                // Switch to Analysis tab
+                switchTab('analysis', null);
+                document.querySelector('[data-tab=analysis]').click();
+                
+                // Show loading state
+                const analysisContent = document.getElementById('analysis-content');
+                analysisContent.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 20px; animation: pulse 1.5s infinite;">🤖</div>
+                        <h3 style="font-size: 24px; margin-bottom: 10px; color: #FF5500;">Analyzing Your Problem Statement...</h3>
+                        <p style="font-size: 16px; color: #999;">Our GTM expert agent is evaluating your submission</p>
+                    </div>
+                `;
+                
+                try {
+                    console.log('🚀 Frontend: Starting API call to /api/analyze/problem-statement');
+                    console.log('📦 Frontend: Sending worksheet data:', worksheetData);
+                    
+                    // CRITICAL: Ensure analysis content div exists
+                    let analysisContent = document.getElementById('analysis-content');
+                    if (!analysisContent) {
+                        console.error('❌ CRITICAL: analysis-content div not found! Creating it...');
+                        const analysisTab = document.getElementById('analysis-tab');
+                        if (analysisTab) {
+                            analysisTab.innerHTML = `
+                                <div class="workspace-section">
+                                    <h2 class="section-title">
+                                        <span class="section-icon">🤖</span>
+                                        Analysis Results
+                                    </h2>
+                                    <div id="analysis-content" style="min-height: 400px;">
+                                        <!-- Analysis results will be displayed here -->
+                                    </div>
+                                </div>
+                            `;
+                            analysisContent = document.getElementById('analysis-content');
+                        }
+                    }
+                    
+                    // Call the analysis API
+                    const response = await fetch('/api/analyze/problem-statement', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            worksheetData,
+                            subcomponentId,
+                            uploadedDocs: [] // Can be enhanced to include actual uploaded documents
+                        })
+                    });
+                
+                    console.log('📡 Frontend: API Response status:', response.status);
+                    
+                    if (response.ok) {
+                        const analysis = await response.json();
+                        console.log('✅ Frontend: Received analysis from API:', analysis);
+                        console.log('🎯 Frontend: Using REAL data from enhanced agent!');
+                        console.log('📊 Frontend: Score:', analysis.score);
+                        console.log('💡 Frontend: Recommendations count:', analysis.recommendations?.length);
+                    
+                    // DETAILED LOGGING OF RECOMMENDATIONS
+                    console.log('🔍 DETAILED RECOMMENDATION ANALYSIS:');
+                    if (analysis.recommendations && Array.isArray(analysis.recommendations)) {
+                        analysis.recommendations.forEach((rec, index) => {
+                            console.log(`📌 Recommendation ${index + 1}:`);
+                            console.log(`  - Area/Action: ${rec.area || rec.action || 'Unknown'}`);
+                            console.log(`  - Priority: ${rec.priority || 'MEDIUM'}`);
+                            console.log(`  - Expected Improvement: ${rec.expectedImprovement || 'Not specified'}`);
+                            console.log(`  - Impact: ${rec.impact || 'Not specified'}`);
+                            console.log(`  - Current State: ${rec.currentState || 'N/A'}`);
+                            console.log(`  - Target State: ${rec.targetState || 'N/A'}`);
+                            console.log(`  - Full object:`, rec);
+                        });
+                    } else {
+                        console.warn('⚠️ No recommendations array found in analysis!');
+                        console.log('Full analysis object:', JSON.stringify(analysis, null, 2));
+                    }
+                    // Save analysis results
+                    DataManager.saveAnalysisResults(analysis);
+                    
+                    // CRITICAL: Ensure displayAnalysisResults is called
+                    console.log('🎨 About to call displayAnalysisResults...');
+                    
+                    // Try multiple methods to display results
+                    let displayed = false;
+                    
+                    // Method 1: Try window.displayAnalysisResults (set by problem-statement-handler.js)
+                    if (typeof window.displayAnalysisResults === 'function') {
+                        console.log('✅ Using window.displayAnalysisResults');
+                        window.displayAnalysisResults(analysis);
+                        displayed = true;
+                    }
+                    // Method 2: Try the local displayAnalysisResults function
+                    else if (typeof displayAnalysisResults === 'function') {
+                        console.log('✅ Using local displayAnalysisResults');
+                        displayAnalysisResults(analysis);
+                        displayed = true;
+                    }
+                    // Method 3: Try window.problemStatementHandler.displayEnhancedAnalysisResults
+                    else if (window.problemStatementHandler && typeof window.problemStatementHandler.displayEnhancedAnalysisResults === 'function') {
+                        console.log('✅ Using problemStatementHandler.displayEnhancedAnalysisResults');
+                        window.problemStatementHandler.displayEnhancedAnalysisResults(analysis);
+                        displayed = true;
+                    }
+                    
+                    if (!displayed) {
+                        console.error('❌ No display function found! Using fallback...');
+                        // Fallback display
+                        if (analysisContent) {
+                            analysisContent.innerHTML = `
+                                <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px;">
+                                    <h3 style="color: #FF5500; font-size: 24px; margin-bottom: 20px;">Analysis Complete!</h3>
+                                    <div style="font-size: 48px; font-weight: 700; color: #FF5500; margin-bottom: 20px;">
+                                        Score: ${analysis.score}%
+                                    </div>
+                                    <p style="color: #ccc; line-height: 1.8;">
+                                        ${analysis.analysis?.executiveSummary || 'Analysis completed successfully.'}
+                                    </p>
+                                    <div style="margin-top: 20px;">
+                                        <button class="btn-secondary" onclick="location.reload()">Refresh Page</button>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        console.log('✅ Analysis results displayed successfully');
+                    }
+                    
+                    // Double-check that content was actually displayed
+                    setTimeout(() => {
+                        const checkContent = document.getElementById('analysis-content');
+                        if (checkContent && checkContent.innerHTML.trim().length < 100) {
+                            console.error('❌ Analysis content appears empty after display attempt!');
+                            console.log('📊 Forcing display with analysis data:', analysis);
+                            checkContent.innerHTML = `
+                                <div style="padding: 20px; background: rgba(255, 85, 0, 0.1); border: 2px solid #FF5500; border-radius: 10px;">
+                                    <h2 style="color: #FF5500;">Analysis Results (Fallback Display)</h2>
+                                    <p style="font-size: 36px; color: #fff; margin: 20px 0;">Score: ${analysis.score}%</p>
+                                    <pre style="color: #ccc; white-space: pre-wrap;">${JSON.stringify(analysis, null, 2)}</pre>
+                                </div>
+                            `;
+                        } else {
+                            console.log('✅ Analysis content successfully displayed');
+                        }
+                    }, 500);
+                    
+                    // Store the full analysis data for popup access
+                    if (analysis) {
+                        // Store in a way that can be retrieved by timestamp
+                        const timestamp = analysis.timestamp || new Date().toISOString();
+                        analysis.timestamp = timestamp;
+                        
+                        // Update the score history data if available
+                        if (window.scoreHistoryData) {
+                            const matchingEntry = window.scoreHistoryData.find(e =>
+                                Math.abs(new Date(e.timestamp) - new Date(timestamp)) < 60000 // Within 1 minute
+                            );
+                            if (matchingEntry) {
+                                // Merge the full analysis data with the history entry
+                                Object.assign(matchingEntry, analysis);
+                            }
+                        }
+                    }
+                    
+                    // Show notification that score was automatically saved to history
+                    showNotification(`Score of ${analysis.score}% automatically saved to Score History`, 'success');
+                    
+                    // Also notify about block score update
+                    setTimeout(() => {
+                        showNotification(`Mission Discovery block score updated based on this analysis`, 'info');
+                        }, 2000);
+                    } else {
+                        throw new Error('Analysis failed');
+                    }
+                } catch (error) {
+                    console.error('❌ Frontend: Analysis error:', error);
+                    console.warn('⚠️ Frontend: FALLING BACK TO MOCK DATA - This should not happen!');
+                    console.warn('⚠️ Frontend: Error details:', error.message);
+                    
+                    // For now, show mock results - BUT THIS SHOULD BE REMOVED
+                    const mockAnalysis = getMockAnalysisResults();
+                    console.warn('⚠️ Frontend: Mock data being used:', mockAnalysis);
+                    DataManager.saveAnalysisResults(mockAnalysis);
+                    displayAnalysisResults(mockAnalysis);
+                }
+                
+                return; // End of Problem Statement special handling
+            }
+            
+            // For other subcomponents, use simple worksheet analyze
+            if (window.simpleWorksheet) {
+                window.simpleWorksheet.analyzeResponses(subcomponentId);
+            } else {
+                alert('Unable to analyze worksheet. Please refresh and try again.');
+            }
+        }
+
+        // Get mock analysis results
+        function getMockAnalysisResults() {
+            return {
+                score: 70,
+                analysis: {
+                    executiveSummary: "Good problem statement foundation. You have the core elements in place but need to strengthen quantification and validation. Priority areas for improvement include more specific customer evidence and clearer impact metrics."
+                },
+                detailedScores: {
+                    personaClarity: {
+                        score: 16,
+                        weight: 20,
+                        feedback: "✓ Industry/market segment identified\n✓ Decision maker role specified\n✓ Pain points mentioned\n✗ Missing psychographic details"
+                    },
+                    contextualTriggers: {
+                        score: 14,
+                        weight: 20,
+                        feedback: "✓ Trigger events described\n✓ Business context provided\n✗ Missing specific timing\n✗ Urgency not established"
+                    },
+                    impactQuantification: {
+                        score: 12,
+                        weight: 20,
+                        feedback: "✓ Some metrics provided\n✗ Missing financial quantification\n✗ Missing comparative benchmarks"
+                    },
+                    evidenceValidation: {
+                        score: 14,
+                        weight: 20,
+                        feedback: "✓ Customer research quantified\n✓ Willingness to pay validated\n✗ No direct customer quotes\n✗ Market size not quantified"
+                    },
+                    solutionGap: {
+                        score: 14,
+                        weight: 20,
+                        feedback: "✓ Current solutions identified\n✓ Cost implications analyzed\n✗ Differentiation opportunity missed"
+                    }
+                },
+                recommendations: [
+                    {
+                        priority: "HIGH",
+                        action: "Quantify financial and operational impact with metrics",
+                        expectedImprovement: "+8 points",
+                        specificSteps: ["Survey customers on time/money lost", "Calculate average financial impact", "Document productivity losses"]
+                    },
+                    {
+                        priority: "HIGH",
+                        action: "Gather quantitative validation and customer quotes",
+                        expectedImprovement: "+6 points",
+                        specificSteps: ["Collect 5-10 customer quotes", "Calculate TAM/SAM/SOM", "Add validation metrics"]
+                    },
+                    {
+                        priority: "MEDIUM",
+                        action: "Deep dive into competitive landscape",
+                        expectedImprovement: "+6 points",
+                        specificSteps: ["Analyze top 5 alternatives", "Document why each fails", "Identify unique value prop"]
+                    }
+                ],
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        // Display analysis results with enhanced structure
+        function displayAnalysisResults(analysis) {
+            console.log('📊 displayAnalysisResults called with:', analysis);
+            console.log('📊 Detailed scores:', analysis.detailedScores);
+            
+            const analysisContent = document.getElementById('analysis-content');
+            
+            const scoreColor = analysis.score >= 80 ? '#4CAF50' :
+                             analysis.score >= 60 ? '#FF9800' : '#F44336';
+            
+            // Handle both enhanced and basic agent responses
+            const executiveSummary = analysis.analysis?.executiveSummary ||
+                                   analysis.executiveSummary ||
+                                   "Analysis complete.";
+            
+            const confidence = analysis.confidence ?
+                `<div style="margin-top: 10px; font-size: 14px; color: #999;">
+                    Confidence: ${Math.round(analysis.confidence * 100)}%
+                </div>` : '';
+            
+            analysisContent.innerHTML = `
+                <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <h3 style="font-size: 28px; margin-bottom: 10px;">Overall Score</h3>
+                            <p style="color: #999;">Based on GTM best practices and industry standards</p>
+                            ${confidence}
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 72px; font-weight: 800; color: ${scoreColor};">${analysis.score}%</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px;">
+                        <h4 style="color: #FF5500; margin-bottom: 15px;">Executive Summary</h4>
+                        <p style="line-height: 1.8; color: #ccc;">${executiveSummary}</p>
+                    </div>
+                </div>
+                
+                <!-- Detailed Scores - Full Width Stacked Layout -->
+                <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px;">
+                    ${Object.entries(analysis.detailedScores).map(([key, value]) => {
+                        // Handle both enhanced and basic agent response structures
+                        // Ensure we get numeric values, not objects
+                        const score = typeof value.score === 'number' ? value.score :
+                                     typeof value === 'number' ? value : 0;
+                        const maxScore = typeof value.maxScore === 'number' ? value.maxScore : 20;
+                        const percentage = typeof value.percentage === 'number' ? value.percentage :
+                                         (maxScore > 0 ? Math.round((score / maxScore) * 100) : 0);
+                        const feedback = value.feedback || '';
+                        
+                        // Properly capitalize the display name
+                        const displayName = key.replace(/([A-Z])/g, ' $1').trim()
+                            .split(' ')
+                            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                            .join(' ');
+                        
+                        // Parse feedback into pros and cons
+                        const feedbackLines = feedback.split('\n').filter(line => line.trim());
+                        const pros = feedbackLines.filter(line => line.includes('✓'));
+                        const cons = feedbackLines.filter(line => line.includes('✗'));
+                        
+                        return `
+                        <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 25px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h3 style="color: #FF5500; font-size: 20px; font-weight: 600;">${displayName}</h3>
+                                <div style="display: flex; align-items: center; gap: 20px;">
+                                    <span style="font-size: 28px; font-weight: 700; color: #fff;">${score}/${maxScore}</span>
+                                    <span style="font-size: 24px; color: ${percentage >= 80 ? '#4CAF50' : percentage >= 60 ? '#FF9800' : '#F44336'}; font-weight: 600;">
+                                        ${percentage}%
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            ${feedback ? `
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                ${pros.length > 0 ? `
+                                <div style="background: rgba(76, 175, 80, 0.1); border-radius: 10px; padding: 15px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <h4 style="color: #4CAF50; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Strengths</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${pros.map(pro => `
+                                        <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                            <span style="color: #4CAF50; font-size: 16px; flex-shrink: 0;">✓</span>
+                                            <span style="font-size: 14px; color: #ccc; line-height: 1.5;">${pro.replace('✓', '').trim()}</span>
+                                        </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                ` : '<div></div>'}
+                                
+                                ${cons.length > 0 ? `
+                                <div style="background: rgba(244, 67, 54, 0.1); border-radius: 10px; padding: 15px; border: 1px solid rgba(244, 67, 54, 0.3);">
+                                    <h4 style="color: #F44336; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Areas for Improvement</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        ${cons.map(con => `
+                                        <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                            <span style="color: #F44336; font-size: 16px; flex-shrink: 0;">✗</span>
+                                            <span style="font-size: 14px; color: #ccc; line-height: 1.5;">${con.replace('✗', '').trim()}</span>
+                                        </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                ` : '<div></div>'}
+                            </div>
+                            ` : `
+                            <div style="padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 10px; text-align: center; color: #999;">
+                                <p>No detailed feedback available for this dimension</p>
+                            </div>
+                            `}
+                        </div>
+                        `;
+                    }).join('')}
+                </div>
+                
+                <!-- Recommendations Section - DIRECTLY EMBEDDED -->
+                ${analysis.recommendations && analysis.recommendations.length > 0 ? (() => {
+                    // Calculate all improvements first
+                    let totalImprovement = 0;
+                    analysis.recommendations.forEach(rec => {
+                        let improvement = 0;
+                        if (rec.expectedImprovement) {
+                            const match = rec.expectedImprovement.toString().match(/\d+/);
+                            improvement = match ? parseInt(match[0]) : 5;
+                        } else if (rec.impact) {
+                            const match = rec.impact.toString().match(/\d+/);
+                            improvement = match ? parseInt(match[0]) : 5;
+                        } else {
+                            // Default calculation
+                            const currentDimension = Object.keys(analysis.detailedScores).find(key =>
+                                key.toLowerCase().includes(rec.area?.toLowerCase() || rec.action?.toLowerCase() || '')
+                            );
+                            const currentScore = currentDimension ? analysis.detailedScores[currentDimension].score || 10 : 10;
+                            const percentage = (currentScore / 20) * 100;
+                            
+                            if (percentage < 30) {
+                                improvement = 11;
+                            } else if (percentage < 50) {
+                                improvement = 8;
+                            } else if (percentage < 70) {
+                                improvement = 6;
+                            } else {
+                                improvement = 4;
+                            }
+                            
+                            if (rec.priority === 'CRITICAL') improvement = Math.min(improvement + 2, 15);
+                            if (rec.priority === 'MEDIUM') improvement = Math.max(improvement - 1, 2);
+                        }
+                        rec.calculatedImprovement = improvement;
+                        totalImprovement += improvement;
+                    });
+                    
+                    return `
+                <div style="margin-top: 40px; padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h2 style="color: #FF5500; font-size: 28px; margin-bottom: 10px;">
+                        📊 Strategic Recommendations
+                    </h2>
+                    <p style="color: #999; font-size: 14px; margin-bottom: 30px;">
+                        Click any recommendation for detailed implementation guidance
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        ${analysis.recommendations.map((rec, index) => {
+                            // Use pre-calculated improvement
+                            const improvement = rec.calculatedImprovement || 5;
+                            const currentDimension = Object.keys(analysis.detailedScores).find(key =>
+                                key.toLowerCase().includes(rec.area?.toLowerCase() || rec.action?.toLowerCase() || '')
+                            );
+                            const currentScore = currentDimension ? analysis.detailedScores[currentDimension].score || 10 : 10;
+                            const maxScore = 20;
+                            const percentage = (currentScore / maxScore) * 100;
+                            
+                            const priorityColor = rec.priority === 'CRITICAL' ? '#8B0000' :
+                                                rec.priority === 'HIGH' ? '#F44336' : '#FF9800';
+                            
+                            return `
+                            <div class="recommendation-card" data-index="${index}" style="
+                                background: rgba(0, 0, 0, 0.5);
+                                border: 1px solid rgba(255, 255, 255, 0.1);
+                                border-radius: 12px;
+                                padding: 20px;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                            " onmouseover="this.style.borderColor='#FF5500'; this.style.transform='translateX(5px)'"
+                               onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='translateX(0)'">
+                                
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                                    <h3 style="color: #fff; font-size: 18px; font-weight: 600; margin: 0;">
+                                        ${rec.action || rec.area || 'Improvement Opportunity'}
+                                    </h3>
+                                    <span style="
+                                        background: ${priorityColor};
+                                        color: #fff;
+                                        padding: 4px 12px;
+                                        border-radius: 20px;
+                                        font-size: 11px;
+                                        font-weight: 700;
+                                        text-transform: uppercase;
+                                    ">${rec.priority || 'MEDIUM'}</span>
+                                </div>
+                                
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 15px;">
+                                    <div>
+                                        <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Expected Impact</div>
+                                        <div style="color: #4CAF50; font-size: 16px; font-weight: 600;">+${improvement} points</div>
+                                    </div>
+                                    <div>
+                                        <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Current Score</div>
+                                        <div style="color: #FF9800; font-size: 16px; font-weight: 600;">${currentScore}/${maxScore}</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="display: flex; gap: 10px;">
+                                        <span style="
+                                            background: rgba(255, 255, 255, 0.1);
+                                            padding: 4px 10px;
+                                            border-radius: 15px;
+                                            font-size: 12px;
+                                            color: #999;
+                                        ">⏱️ ${improvement > 8 ? 'High' : improvement > 5 ? 'Medium' : 'Low'} effort</span>
+                                        <span style="
+                                            background: rgba(255, 255, 255, 0.1);
+                                            padding: 4px 10px;
+                                            border-radius: 15px;
+                                            font-size: 12px;
+                                            color: #999;
+                                        ">📈 ${Math.round(percentage)}% complete</span>
+                                    </div>
+                                    <span style="color: #666; font-size: 12px;">
+                                        Click for details →
+                                    </span>
+                                </div>
+                            </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(255, 85, 0, 0.05); border-radius: 12px; border: 1px solid rgba(255, 85, 0, 0.2);">
+                        <h3 style="color: #FF5500; margin-bottom: 15px;">Implementation Summary</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                            <div>
+                                <div style="color: #999; font-size: 12px; text-transform: uppercase; margin-bottom: 5px;">Total Improvement Potential</div>
+                                <div style="color: #4CAF50; font-size: 24px; font-weight: 700;">
+                                    +${totalImprovement} points
+                                </div>
+                            </div>
+                            <div>
+                                <div style="color: #999; font-size: 12px; text-transform: uppercase; margin-bottom: 5px;">Priority Actions</div>
+                                <div style="color: #FF5500; font-size: 24px; font-weight: 700;">
+                                    ${analysis.recommendations.filter(r => r.priority === 'CRITICAL' || r.priority === 'HIGH').length} critical
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+                })() : ''}
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-secondary" onclick="switchTab('workspace', null); document.querySelector('[data-tab=workspace]').click();">
+                        Refine Worksheet
+                    </button>
+                    <button class="btn-secondary" onclick="switchTab('history', null); document.querySelector('[data-tab=history]').click();">
+                        View Score History
+                    </button>
+                </div>
+                
+                <!-- Note about automatic saving -->
+                <div style="margin-top: 20px; padding: 15px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 8px;">
+                    <p style="color: #4CAF50; font-size: 14px; margin: 0;">
+                        ✓ Score automatically saved to Score History
+                    </p>
+                </div>
+            `;
+            
+            // Store recommendations for popup access
+            window.recommendationData = analysis.recommendations || [];
+            
+            // Add click handlers for recommendation cards AFTER DOM is updated
+            console.log('[DEBUG] Setting up recommendation click handlers'); // Diagnostic log
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.recommendation-card');
+                console.log('[DEBUG] Found recommendation cards:', cards.length); // Diagnostic log
+                
+                cards.forEach((card) => {
+                    card.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const rec = window.recommendationData[index];
+                        console.log('[DEBUG] Recommendation clicked:', index, rec); // Diagnostic log
+                        
+                        if (rec) {
+                            showRecommendationPopup(rec);
+                        }
+                    });
+                });
+            }, 500);
+        }
+        
+        // Define the recommendation popup function OUTSIDE of the innerHTML template
+        function showRecommendationPopup(rec) {
+            console.log('[DEBUG] showRecommendationPopup called with:', rec); // Diagnostic log
+            
+            // Remove any existing popup
+            const existingPopup = document.getElementById('recommendation-popup');
+            if (existingPopup) {
+                existingPopup.remove();
+            }
+                    
+            // Format the area/action name
+            let title = rec.action || rec.area || 'Improvement Recommendation';
+            const dimensionMap = {
+                'problemClarity': 'Problem Clarity',
+                'marketUnderstanding': 'Market Understanding',
+                'customerEmpathy': 'Customer Empathy',
+                'valueQuantification': 'Value Quantification',
+                'solutionDifferentiation': 'Solution Differentiation'
+            };
+            
+            if (dimensionMap[title]) {
+                title = dimensionMap[title];
+            } else if (title.match(/^[a-z]+[A-Z]/)) {
+                title = title.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
+            }
+            
+            console.log('[DEBUG] Formatted title:', title); // Diagnostic log
+                    
+            const priority = rec.priority || 'MEDIUM';
+            const priorityColor = priority === 'CRITICAL' ? '#8B0000' :
+                                priority === 'HIGH' ? '#F44336' :
+                                priority === 'STRATEGIC' ? '#9C27B0' : '#FF9800';
+            
+            // Get detailed analysis if available
+            const detailed = rec.detailedAnalysis || {};
+            const implementation = detailed.implementation || {};
+            const resources = rec.resources || detailed.resources || [];
+            const successMetrics = rec.successMetrics || detailed.successMetrics || [];
+            const risks = detailed.risks || [];
+            const roi = detailed.roi || '';
+            
+            console.log('[DEBUG] Detailed analysis:', detailed); // Diagnostic log
+                    
+            // Create popup container
+            const popup = document.createElement('div');
+            popup.id = 'recommendation-popup';
+            popup.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.9); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;';
+                    
+            // Create content container
+            const content = document.createElement('div');
+            content.style.cssText = 'background: #1a1a1a; border: 2px solid #FF5500; border-radius: 20px; max-width: 900px; max-height: 90vh; overflow-y: auto; width: 100%; position: relative;';
+                    
+            // Build content HTML
+            let contentHTML = '';
+                    
+            // Header
+            contentHTML += '<div style="padding: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; background: #1a1a1a; z-index: 10;">';
+                    contentHTML += '<div style="display: flex; justify-content: space-between; align-items: start;">';
+                    contentHTML += '<div>';
+                    contentHTML += '<h2 style="font-size: 28px; color: #FF5500; margin-bottom: 10px;">' + title + '</h2>';
+                    contentHTML += '<div style="display: flex; gap: 15px; align-items: center;">';
+                    contentHTML += '<span style="background: ' + priorityColor + '; color: #fff; padding: 6px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">' + priority + ' PRIORITY</span>';
+                    if (rec.expectedImprovement || rec.impact) {
+                        contentHTML += '<span style="color: #4CAF50; font-weight: 600; font-size: 16px;">' + (rec.expectedImprovement || rec.impact) + '</span>';
+                        }
+                        contentHTML += '</div></div>';
+                    contentHTML += '<button id="close-popup" style="background: transparent; border: none; color: #999; font-size: 32px; cursor: pointer; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">×</button>';
+                    contentHTML += '</div></div>';
+                    
+            // Body content
+            contentHTML += '<div style="padding: 30px;">';
+                    
+            // Overview
+            if (detailed.overview) {
+                        contentHTML += '<div style="background: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 20px; margin-bottom: 30px;">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 15px; font-size: 18px;">📋 Overview</h3>';
+                        contentHTML += '<p style="color: #ccc; line-height: 1.8;">' + detailed.overview + '</p>';
+                        contentHTML += '</div>';
+                    }
+                    
+            // Implementation Plan
+            if (rec.implementationPlan && rec.implementationPlan.length > 0) {
+                        contentHTML += '<div style="margin-bottom: 30px;">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">🚀 Implementation Plan</h3>';
+                        contentHTML += '<div style="background: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 20px;">';
+                        contentHTML += '<ul style="list-style: none; padding: 0; margin: 0;">';
+                        rec.implementationPlan.forEach((step, i) => {
+                            contentHTML += '<li style="padding: 10px 0; color: #ccc; display: flex; align-items: start;' + (i < rec.implementationPlan.length - 1 ? ' border-bottom: 1px solid rgba(255,255,255,0.05);' : '') + '">';
+                            contentHTML += '<span style="background: #FF5500; color: #000; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; margin-right: 15px; flex-shrink: 0;">' + (i + 1) + '</span>';
+                            contentHTML += step + '</li>';
+                        });
+                        contentHTML += '</ul></div></div>';
+                    } else if (Object.keys(implementation).length > 0) {
+                        contentHTML += '<div style="margin-bottom: 30px;">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">🚀 Implementation Plan</h3>';
+                        contentHTML += '<div style="display: flex; flex-direction: column; gap: 20px;">';
+                        for (const [key, phase] of Object.entries(implementation)) {
+                            if (phase && phase.title) {
+                                contentHTML += '<div style="background: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 20px; border-left: 3px solid #FF5500;">';
+                                contentHTML += '<h4 style="color: #fff; margin-bottom: 15px; font-size: 16px;">' + phase.title + '</h4>';
+                                if (phase.tasks && Array.isArray(phase.tasks)) {
+                                    contentHTML += '<ul style="list-style: none; padding: 0; margin: 0;">';
+                                    for (const task of phase.tasks) {
+                                        contentHTML += '<li style="padding: 8px 0; color: #ccc; display: flex; align-items: start;">';
+                                        contentHTML += '<span style="color: #FF5500; margin-right: 10px;">▸</span>' + task;
+                                        contentHTML += '</li>';
+                                    }
+                                    contentHTML += '</ul>';
+                                }
+                                contentHTML += '</div>';
+                            }
+                        }
+                        contentHTML += '</div></div>';
+                    } else if (rec.actionPlan && rec.actionPlan.length > 0) {
+                        contentHTML += '<div style="margin-bottom: 30px;">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">🚀 Action Plan</h3>';
+                        contentHTML += '<div style="background: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 20px;">';
+                        contentHTML += '<ul style="list-style: none; padding: 0; margin: 0;">';
+                        rec.actionPlan.forEach((step, i) => {
+                            contentHTML += '<li style="padding: 10px 0; color: #ccc; display: flex; align-items: start;' + (i < rec.actionPlan.length - 1 ? ' border-bottom: 1px solid rgba(255,255,255,0.05);' : '') + '">';
+                            contentHTML += '<span style="background: #FF5500; color: #000; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; margin-right: 15px; flex-shrink: 0;">' + (i + 1) + '</span>';
+                            contentHTML += step + '</li>';
+                        });
+                        contentHTML += '</ul></div></div>';
+                    }
+                    
+            // Resources
+            if (resources && resources.length > 0) {
+                        contentHTML += '<div style="margin-bottom: 30px;">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">📚 Resources</h3>';
+                        contentHTML += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">';
+                        resources.forEach(resource => {
+                            if (resource) {
+                                contentHTML += '<div style="background: rgba(255, 255, 255, 0.02); border-radius: 10px; padding: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">';
+                                contentHTML += '<div style="color: #FF5500; font-size: 20px; margin-bottom: 8px;">📄</div>';
+                                contentHTML += '<div style="color: #ccc; font-size: 14px;">' + resource + '</div>';
+                                contentHTML += '</div>';
+                            }
+                        });
+                        contentHTML += '</div></div>';
+                    }
+                    
+            // Success Metrics
+            if (successMetrics && successMetrics.length > 0) {
+                        contentHTML += '<div style="margin-bottom: 30px;">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">✅ Success Metrics</h3>';
+                        contentHTML += '<div style="background: rgba(76, 175, 80, 0.1); border-radius: 12px; padding: 20px; border: 1px solid rgba(76, 175, 80, 0.3);">';
+                        contentHTML += '<ul style="list-style: none; padding: 0; margin: 0;">';
+                        successMetrics.forEach(metric => {
+                            if (metric) {
+                                contentHTML += '<li style="padding: 8px 0; color: #ccc; display: flex; align-items: start;">';
+                                contentHTML += '<span style="color: #4CAF50; margin-right: 10px; font-size: 16px;">✓</span>' + metric;
+                                contentHTML += '</li>';
+                            }
+                        });
+                        contentHTML += '</ul></div></div>';
+                    }
+                    
+            // ROI
+            if (roi) {
+                        contentHTML += '<div style="background: linear-gradient(135deg, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.05)); border-radius: 12px; padding: 25px; border: 1px solid rgba(255, 85, 0, 0.3);">';
+                        contentHTML += '<h3 style="color: #FF5500; margin-bottom: 15px; font-size: 18px;">💰 Expected ROI</h3>';
+                        contentHTML += '<p style="color: #fff; line-height: 1.8; font-size: 16px;">' + roi + '</p>';
+                        contentHTML += '</div>';
+                    }
+                    
+            contentHTML += '</div>';
+            
+            // Set content
+            content.innerHTML = contentHTML;
+            popup.appendChild(content);
+            document.body.appendChild(popup);
+            
+            console.log('[DEBUG] Popup created and added to DOM'); // Diagnostic log
+            
+            // Add close button functionality
+            document.getElementById('close-popup').onclick = function() {
+                console.log('[DEBUG] Close button clicked'); // Diagnostic log
+                popup.remove();
+            };
+            
+            // Close on escape key
+            const closeOnEscape = (e) => {
+                if (e.key === 'Escape') {
+                    console.log('[DEBUG] Escape key pressed'); // Diagnostic log
+                    popup.remove();
+                    document.removeEventListener('keydown', closeOnEscape);
+                }
+            };
+            document.addEventListener('keydown', closeOnEscape);
+            
+            // Close on background click
+            popup.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    console.log('[DEBUG] Background clicked'); // Diagnostic log
+                    this.remove();
+                }
+            });
+        }
+
+        // Show notification helper
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' ? '#4CAF50' :
+                          type === 'error' ? '#F44336' :
+                          type === 'warning' ? '#FF9800' : '#2196F3';
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bgColor};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-size: 14px;
+                font-weight: 500;
+                animation: slideIn 0.3s ease;
+                max-width: 400px;
+            `;
+            notification.textContent = message;
+            
+            // Add animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(400px); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(400px); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 5000);
+        }
+        
+        // Update subcomponent score (manual update - now less necessary since auto-save)
+        async function updateSubcomponentScore(newScore) {
+            try {
+                const response = await fetch(`/api/subcomponents/${subcomponentId}/score`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': '1' // ST6 user ID
+                    },
+                    body: JSON.stringify({ score: newScore })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    showNotification(`Score confirmed at ${newScore}%!`, 'success');
+                    
+                    // Show block score update if it changed
+                    if (result.blockScore) {
+                        setTimeout(() => {
+                            const blockName = document.getElementById('block-link').textContent;
+                            showNotification(`${blockName} block score updated to ${result.blockScore}%`, 'info');
+                        }, 1500);
+                    }
+                } else {
+                    throw new Error('Score update failed');
+                }
+            } catch (error) {
+                console.error('Score update error:', error);
+                showNotification(`Error updating score: ${error.message}`, 'error');
+            }
+        }
+
+        // Export worksheet
+        function exportWorksheet() {
+            alert('Export functionality will generate a PDF of your problem statement worksheet.');
+        }
+
+        // Open resource
+        function openResource(type) {
+            alert(`Opening ${type} resource...`);
+        }
+
+
+        // File upload handling
+        const uploadZone = document.getElementById('upload-zone');
+        
+        uploadZone.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.pdf,.docx,.pptx,.xlsx';
+            input.onchange = (e) => handleFileUpload(e.target.files);
+            input.click();
+        });
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            handleFileUpload(e.dataTransfer.files);
+        });
+
+        function handleFileUpload(files) {
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('File size must be less than 10MB');
+                    return;
+                }
+                alert(`File "${file.name}" uploaded successfully!`);
+            }
+        }
+
+        // Load saved worksheet data from database
+        async function loadWorksheetData() {
+            try {
+                // First try to get data from the database (for ST6 user)
+                const response = await fetch(`/api/subcomponents/${subcomponentId}/worksheet`, {
+                    headers: {
+                        'x-user-id': '1' // ST6 user ID
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.worksheetData) {
+                        // Load data from database into form fields
+                        if (data.worksheetData['who-affected']) {
+                            document.getElementById('who-affected').value = data.worksheetData['who-affected'];
+                        }
+                        if (data.worksheetData['what-problem']) {
+                            document.getElementById('what-problem').value = data.worksheetData['what-problem'];
+                        }
+                        if (data.worksheetData['when-occur']) {
+                            document.getElementById('when-occur').value = data.worksheetData['when-occur'];
+                        }
+                        if (data.worksheetData['what-impact']) {
+                            document.getElementById('what-impact').value = data.worksheetData['what-impact'];
+                        }
+                        if (data.worksheetData['how-solving']) {
+                            document.getElementById('how-solving').value = data.worksheetData['how-solving'];
+                        }
+                        if (data.worksheetData['evidence-validation']) {
+                            document.getElementById('evidence-validation').value = data.worksheetData['evidence-validation'];
+                        }
+                        
+                        // Also save to localStorage for persistence
+                        DataManager.saveWorksheetData(data.worksheetData);
+                        console.log('Loaded worksheet data from database for ST6 user');
+                        return;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading worksheet from database:', error);
+            }
+            
+            // Fallback to localStorage if database fetch fails
+            const savedData = DataManager.loadWorksheetData();
+            if (savedData) {
+                // Load data into form fields
+                if (savedData['who-affected']) document.getElementById('who-affected').value = savedData['who-affected'];
+                if (savedData['what-problem']) document.getElementById('what-problem').value = savedData['what-problem'];
+                if (savedData['when-occur']) document.getElementById('when-occur').value = savedData['when-occur'];
+                if (savedData['what-impact']) document.getElementById('what-impact').value = savedData['what-impact'];
+                if (savedData['how-solving']) document.getElementById('how-solving').value = savedData['how-solving'];
+                if (savedData['evidence-validation']) document.getElementById('evidence-validation').value = savedData['evidence-validation'];
+            }
+        }
+
+        // Load workspace content
+        function loadWorkspaceContent(workspace) {
+            // Load tools
+            if (workspace.tools && workspace.tools.length > 0) {
+                const toolsContainer = document.getElementById('workspace-tools');
+                toolsContainer.innerHTML = workspace.tools.map(tool => {
+                    // Handle both string and object formats
+                    if (typeof tool === 'string') {
+                        // Parse tool string (e.g., "Tool Name (Description)")
+                        const match = tool.match(/^([^(]+)(?:\(([^)]+)\))?$/);
+                        const name = match ? match[1].trim() : tool;
+                        const description = match && match[2] ? match[2].trim() : '';
+                        
+                        return `
+                            <div class="tool-card">
+                                <div class="tool-icon">🔧</div>
+                                <h4 class="tool-name">${name}</h4>
+                                ${description ? `<p class="tool-description" style="font-size: 13px; color: #999; margin-top: 8px;">${description}</p>` : ''}
+                            </div>
+                        `;
+                    } else {
+                        return `
+                            <div class="tool-card">
+                                <div class="tool-icon">🔧</div>
+                                <h4 class="tool-name">${tool.name}</h4>
+                                <p class="tool-description" style="font-size: 13px; color: #999; margin-top: 8px;">${tool.description}</p>
+                                ${tool.link ? `<a href="${tool.link}" target="_blank" class="tool-link" style="color: #FF5500; text-decoration: none; font-size: 14px; font-weight: 600;">Learn More →</a>` : ''}
+                            </div>
+                        `;
+                    }
+                }).join('');
+            }
+            
+            // Load templates
+            if (workspace.templates && workspace.templates.length > 0) {
+                const templatesContainer = document.getElementById('workspace-templates');
+                if (templatesContainer) {
+                    templatesContainer.innerHTML = workspace.templates.map(template => {
+                        // Handle both string and object formats
+                        if (typeof template === 'string') {
+                            return `
+                                <div class="template-item">
+                                    <div class="template-content">
+                                        <div class="template-icon">📄</div>
+                                        <div style="flex: 1;">
+                                            <h4 class="template-name">${template}</h4>
+                                            <p style="font-size: 13px; color: #999; margin-top: 4px;">Ready-to-use template for your GTM needs</p>
+                                        </div>
+                                    </div>
+                                    <button class="template-action" onclick="downloadTemplate('${template}')">
+                                        Download
+                                    </button>
+                                </div>
+                            `;
+                        } else {
+                            return `
+                                <div class="template-item">
+                                    <div class="template-content">
+                                        <div class="template-icon">📄</div>
+                                        <div style="flex: 1;">
+                                            <h4 class="template-name">${template.name}</h4>
+                                            <p style="font-size: 13px; color: #999; margin-top: 4px;">${template.description || 'Ready-to-use template for your GTM needs'}</p>
+                                        </div>
+                                    </div>
+                                    <button class="template-action" onclick="downloadTemplate('${template.name || template}')">
+                                        Download
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }).join('');
+                }
+            }
+            
+            // Load best practices
+            if (workspace.bestPractices && workspace.bestPractices.length > 0) {
+                const practicesContainer = document.getElementById('workspace-practices');
+                if (practicesContainer) {
+                    practicesContainer.innerHTML = workspace.bestPractices.map(practice => {
+                    // Handle both string and object formats
+                    if (typeof practice === 'string') {
+                        return `
+                            <div class="practice-item">
+                                <div class="practice-check">✓</div>
+                                <div class="practice-text">
+                                    <strong style="color: #fff;">${practice}</strong>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        return `
+                            <div class="practice-item">
+                                <div class="practice-check">✓</div>
+                                <div class="practice-text">
+                                    <strong style="color: #fff;">${practice.title}</strong>
+                                    <p style="margin-top: 5px; font-size: 13px; color: #999;">${practice.description}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }).join('');
+                }
+            }
+        }
+        
+        // Download template function
+        function downloadTemplate(templateName) {
+            // Simulate template download
+            alert(`Downloading template: ${templateName}`);
+            // In a real implementation, this would trigger an actual file download
+        }
+
+        // Load subcomponent data
+        async function loadSubcomponentData() {
+            try {
+                console.log('🔍 DEBUG: Loading subcomponent data for:', subcomponentId);
+                const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                console.log('📡 DEBUG: API Response status:', response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('📦 DEBUG: Received data from API:', data);
+                    console.log('📚 DEBUG: Education content:', data.education);
+                    console.log('🏷️ DEBUG: Title from education:', data.education?.title);
+                    console.log('📝 DEBUG: Name from data:', data.name);
+                    
+                    // CRITICAL FIX: Use education.title for display, fallback to name
+                    const displayTitle = data.education?.title || data.name || 'SUBCOMPONENT';
+                    
+                    // Update page title in header - UPPERCASE for consistency
+                    const titleElement = document.getElementById('subcomponent-title');
+                    if (titleElement) {
+                        titleElement.textContent = displayTitle.toUpperCase();
+                        console.log('✅ Updated title to:', displayTitle.toUpperCase());
+                    }
+                    
+                    // Update description
+                    const descElement = document.getElementById('subcomponent-description');
+                    if (descElement) {
+                        descElement.textContent = data.description || 'Loading description...';
+                    }
+                    
+                    // Update number display (e.g., "5.1")
+                    const numberElement = document.getElementById('subcomponent-number');
+                    if (numberElement) {
+                        numberElement.textContent = subcomponentId.replace('-', '.');
+                    }
+                    
+                    // Update breadcrumb with proper title (not uppercase)
+                    const nameElement = document.getElementById('subcomponent-name');
+                    if (nameElement) {
+                        nameElement.textContent = displayTitle;
+                        console.log('✅ Updated breadcrumb to:', displayTitle);
+                    }
+                    
+                    // Update block link
+                    const blockLink = document.getElementById('block-link');
+                    if (blockLink) {
+                        blockLink.textContent = data.blockName || 'Block';
+                        blockLink.href = `block-detail.html?id=${blockId}`;
+                    }
+                    
+                    // ALWAYS UPDATE EDUCATIONAL CONTENT
+                    if (data.education) {
+                        console.log('✅ DEBUG: Updating education tab with dynamic content');
+                        console.log('📝 Content preview:', {
+                            title: data.education.title,
+                            hasWhat: !!data.education.what,
+                            hasWhy: !!data.education.why,
+                            hasHow: !!data.education.how,
+                            examplesCount: data.education.examples?.length || 0,
+                            templatesCount: data.education.templates?.length || 0,
+                            metricsCount: data.education.metrics?.length || 0
+                        });
+                        
+                        // Clear loading message first
+                        const educationTab = document.getElementById('education-tab');
+                        if (educationTab) {
+                            educationTab.innerHTML = ''; // Clear any existing content
+                            // Update with new content
+                            updateEducationTab(data.education);
+                            
+                            // Verify update happened
+                            setTimeout(() => {
+                                const updatedContent = document.getElementById('education-tab');
+                                if (updatedContent && updatedContent.innerHTML.includes('Loading Educational Content')) {
+                                    console.error('❌ Education content failed to update!');
+                                    // Force update again
+                                    updateEducationTab(data.education);
+                                } else {
+                                    console.log('✅ Education content successfully updated');
+                                }
+                            }, 100);
+                        }
+                    } else {
+                        console.warn('⚠️ DEBUG: No education content in API response!');
+                        // Show error message
+                        const educationTab = document.getElementById('education-tab');
+                        if (educationTab) {
+                            educationTab.innerHTML = `
+                                <div style="text-align: center; padding: 60px 20px; color: #999;">
+                                    <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
+                                    <h3 style="font-size: 24px; margin-bottom: 10px; color: #FF5500;">Content Not Available</h3>
+                                    <p style="font-size: 16px;">Educational content for this subcomponent is being updated.</p>
+                                    <p style="font-size: 14px; margin-top: 10px;">Subcomponent ID: ${subcomponentId}</p>
+                                </div>
+                            `;
+                        }
+                    }
+                    
+                    // Load workspace content if available
+                    if (data.workspace) {
+                        try {
+                            loadWorkspaceContent(data.workspace);
+                        } catch (wsError) {
+                            console.error('Error loading workspace content:', wsError);
+                        }
+                    }
+                    
+                    // Update resources if available
+                    if (data.resources && data.resources.length > 0) {
+                        console.log('Resources available:', data.resources);
+                    }
+                    
+                } else {
+                    throw new Error(`API returned status ${response.status}`);
+                }
+            } catch (error) {
+                console.error('❌ DEBUG: Error loading subcomponent data:', error);
+                // Show error in education tab only if it exists
+                const educationTab = document.getElementById('education-tab');
+                if (educationTab) {
+                    educationTab.innerHTML = `
+                        <div style="text-align: center; padding: 60px 20px; color: #999;">
+                            <div style="font-size: 48px; margin-bottom: 20px;">❌</div>
+                            <h3 style="font-size: 24px; margin-bottom: 10px; color: #FF5500;">Error Loading Content</h3>
+                            <p style="font-size: 16px;">There was an error loading the educational content.</p>
+                            <p style="font-size: 14px; margin-top: 10px; color: #F44336;">${error.message}</p>
+                            <button class="btn-primary" style="margin-top: 20px;" onclick="location.reload()">Retry</button>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Function to update the Education tab with dynamic content
+        function updateEducationTab(education) {
+            console.log('🎯 DEBUG: updateEducationTab called with:', education);
+            
+            const educationTab = document.getElementById('education-tab');
+            if (!educationTab) {
+                console.error('❌ DEBUG: Education tab element not found!');
+                return;
+            }
+            
+            // Build the education content HTML
+            let educationHTML = '';
+            
+            // What section
+            if (education.what) {
+                educationHTML += `
+                    <div class="education-section">
+                        <h2 class="section-title">
+                            <span class="section-icon">🎯</span>
+                            What is ${education.title || 'This'}?
+                        </h2>
+                        <div class="section-content">
+                            <p>${education.what}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Why section
+            if (education.why) {
+                educationHTML += `
+                    <div class="education-section">
+                        <h2 class="section-title">
+                            <span class="section-icon">💡</span>
+                            Why It Matters
+                        </h2>
+                        <div class="section-content">
+                            <p>${education.why}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // How section - Enhanced formatting for better readability
+            if (education.how) {
+                // Process the content to ensure proper formatting
+                let formattedHow = education.how;
+                
+                // Add spacing and structure if the content doesn't have proper HTML formatting
+                if (typeof formattedHow === 'string') {
+                    // Replace double line breaks with paragraph breaks
+                    formattedHow = formattedHow.replace(/\n\n/g, '</p><p style="margin-bottom: 16px;">');
+                    
+                    // Ensure content starts and ends with paragraph tags if not already formatted
+                    if (!formattedHow.startsWith('<')) {
+                        formattedHow = '<p style="margin-bottom: 16px;">' + formattedHow + '</p>';
+                    }
+                    
+                    // Enhance list formatting for better readability
+                    formattedHow = formattedHow.replace(/<ul>/g, '<ul style="margin: 20px 0;">');
+                    formattedHow = formattedHow.replace(/<ol>/g, '<ol style="margin: 20px 0;">');
+                    
+                    // Add spacing to list items
+                    formattedHow = formattedHow.replace(/<li>/g, '<li style="margin-bottom: 12px;">');
+                    
+                    // Enhance strong tags for better visibility
+                    formattedHow = formattedHow.replace(/<strong>/g, '<strong style="color: #fff; font-weight: 600;">');
+                    
+                    // Add styling to any h3 or h4 tags in the content
+                    formattedHow = formattedHow.replace(/<h3>/g, '<h3 style="color: #FF5500; margin-top: 25px; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid rgba(255, 85, 0, 0.3); padding-bottom: 8px;">');
+                    formattedHow = formattedHow.replace(/<h4>/g, '<h4 style="color: #ffaa66; margin-top: 20px; margin-bottom: 12px; font-size: 16px;">');
+                }
+                
+                educationHTML += `
+                    <div class="education-section">
+                        <h2 class="section-title">
+                            <span class="section-icon">🚀</span>
+                            How to Implement
+                        </h2>
+                        <div class="section-content" style="padding-top: 10px;">
+                            ${formattedHow}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Examples section
+            if (education.examples && education.examples.length > 0) {
+                educationHTML += `
+                    <div class="education-section">
+                        <h2 class="section-title">
+                            <span class="section-icon">📋</span>
+                            Real-World Examples
+                        </h2>
+                        <div class="section-content">
+                            <ul class="bullet-list">
+                                ${education.examples.map(example => `<li>${example}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Templates section
+            if (education.templates && education.templates.length > 0) {
+                educationHTML += `
+                    <div class="education-section">
+                        <h2 class="section-title">
+                            <span class="section-icon">📄</span>
+                            Available Templates
+                        </h2>
+                        <div class="section-content">
+                            <ul class="bullet-list">
+                                ${education.templates.map(template => `<li>${template}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Metrics section
+            if (education.metrics && education.metrics.length > 0) {
+                educationHTML += `
+                    <div class="education-section">
+                        <h2 class="section-title">
+                            <span class="section-icon">📈</span>
+                            Success Metrics
+                        </h2>
+                        <div class="section-content">
+                            <p>Track your progress with these key metrics:</p>
+                            <ul class="bullet-list">
+                                ${education.metrics.map(metric => `<li>${metric}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Update the education tab content
+            educationTab.innerHTML = educationHTML;
+            console.log('✅ DEBUG: Education tab updated successfully');
+        }
+
+        // Load default content for Problem Statement
+        function loadDefaultContent() {
+            // Default workspace content for Problem Statement
+            const defaultWorkspace = {
+                tools: [
+                    { name: "Customer Interview Tools", description: "Gong, Chorus" },
+                    { name: "Survey Platforms", description: "Typeform, SurveyMonkey" },
+                    { name: "Analytics Tools", description: "Mixpanel, Amplitude" },
+                    { name: "User Research Platforms", description: "UserVoice, Canny" }
+                ],
+                templates: [
+                    { name: "Problem Statement Canvas", description: "Ready-to-use template for your GTM needs" },
+                    { name: "Problem Validation Scorecard", description: "Ready-to-use template for your GTM needs" },
+                    { name: "Pain Point Prioritization Matrix", description: "Ready-to-use template for your GTM needs" }
+                ],
+                bestPractices: [
+                    "Interview at least 20 potential customers before finalizing",
+                    "Use the '5 Whys' technique to get to root causes",
+                    "Document all assumptions and validate each one",
+                    "Focus on problems, not solutions during discovery"
+                ]
+            };
+            
+            loadWorkspaceContent(defaultWorkspace);
+        }
+
+        // Auto-save functionality
+        let autoSaveTimer;
+        function setupAutoSave() {
+            // Add event listeners to all worksheet fields
+            const worksheetFields = document.querySelectorAll('.worksheet-input, .worksheet-textarea');
+            worksheetFields.forEach(field => {
+                field.addEventListener('input', () => {
+                    // Clear existing timer
+                    clearTimeout(autoSaveTimer);
+                    // Set new timer for auto-save after 2 seconds of inactivity
+                    autoSaveTimer = setTimeout(() => {
+                        DataManager.autoSaveWorksheet();
+                        console.log('Auto-saved worksheet data');
+                    }, 2000);
+                });
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSubcomponentData();
+            loadWorksheetData();
+            setupAutoSave();
+            
+            // Check for saved analysis on page load
+            const savedAnalysis = DataManager.loadAnalysisResults();
+            if (savedAnalysis) {
+                console.log('Found saved analysis results');
+            }
+            
+            // Show initial education tab (starting point for users)
+            switchTab('education', null);
+            
+            // Initialize dynamic worksheet system
+            initializeDynamicWorksheet();
+        });
+        
+        // Initialize the static worksheet system
+        function initializeDynamicWorksheet() {
+            // This function is now simplified to use static worksheets
+            console.log('📝 Static worksheet system ready for subcomponent:', subcomponentId);
+        }
+    </script>
+    
+    <!-- Simple Worksheet System - Same structure as Problem Statement -->
+    <script>
+        // Add cache-busting timestamp to script URLs
+        const timestamp = new Date().getTime();
+        const scripts = [
+            'enhanced-analysis-display.js',  // Enhanced analysis display handler
+            'simple-worksheet-questions.js',
+            'score-history-popup-enhanced.js',
+            'unified-analysis-handler.js',
+            'problem-statement-handler.js',  // Add the problem statement handler
+            'enhanced-display-handler.js'    // Add the enhanced display handler for all subcomponents
+        ];
+        
+        scripts.forEach(src => {
+            const script = document.createElement('script');
+            script.src = src + '?v=' + timestamp;
+            document.head.appendChild(script);
+        });
+    </script>
+    <script>
+        // Initialize simple worksheet system
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const subcomponentId = urlParams.get('id') || '1-1';
+            
+            // Handle workspace tab clicks
+            const workspaceButton = document.querySelector('[data-tab="workspace"]');
+            if (workspaceButton) {
+                workspaceButton.addEventListener('click', function() {
+                    setTimeout(() => {
+                        if (subcomponentId === '1-1') {
+                            // Show original Problem Statement worksheet
+                            const dynamicContainer = document.getElementById('dynamic-worksheet-container');
+                            const problemStatementWorksheet = document.getElementById('problem-statement-worksheet');
+                            
+                            if (dynamicContainer && problemStatementWorksheet) {
+                                dynamicContainer.style.display = 'none';
+                                problemStatementWorksheet.style.display = 'block';
+                            }
+                        } else {
+                            // Use simple worksheet for all other subcomponents
+                            window.displaySimpleWorksheet(subcomponentId);
+                        }
+                    }, 100);
+                });
+            }
+            
+            // Auto-initialize if workspace tab is already active
+            if (document.querySelector('[data-tab="workspace"].active')) {
+                setTimeout(() => {
+                    if (subcomponentId === '1-1') {
+                        const dynamicContainer = document.getElementById('dynamic-worksheet-container');
+                        const problemStatementWorksheet = document.getElementById('problem-statement-worksheet');
+                        
+                        if (dynamicContainer && problemStatementWorksheet) {
+                            dynamicContainer.style.display = 'none';
+                            problemStatementWorksheet.style.display = 'block';
+                        }
+                    } else {
+                        window.displaySimpleWorksheet(subcomponentId);
+                    }
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

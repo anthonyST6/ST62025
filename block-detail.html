@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="score-analysis-engine.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Soft orange glow effect */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 85, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+        }
+
+        .back-btn {
+            background: #FF5500;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #d54a2a;
+            transform: translateY(-2px);
+        }
+
+        /* Block Header */
+        .block-header {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Dynamic border colors for block header */
+        .block-header.score-excellent {
+            border-color: #4CAF50;
+        }
+        .block-header.score-good {
+            border-color: #FF9800;
+        }
+        .block-header.score-needs-improvement {
+            border-color: #F44336;
+        }
+
+        .block-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .block-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .block-description {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .block-score {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        /* Dynamic score colors */
+        .score-excellent .block-score {
+            color: #4CAF50;
+        }
+        .score-good .block-score {
+            color: #FF9800;
+        }
+        .score-needs-improvement .block-score {
+            color: #F44336;
+        }
+
+        .score-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sub-blocks Grid */
+        .subblocks-container {
+            margin-bottom: 40px;
+        }
+
+        .subblocks-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #FF5500;
+        }
+
+        .subblocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .subblock {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Dynamic sub-block border colors */
+        .subblock.score-excellent {
+            border-color: #4CAF50;
+        }
+        .subblock.score-good {
+            border-color: #FF9800;
+        }
+        .subblock.score-needs-improvement {
+            border-color: #F44336;
+        }
+
+        .subblock:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .subblock.score-excellent:hover {
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.25);
+        }
+        .subblock.score-good:hover {
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.25);
+        }
+        .subblock.score-needs-improvement:hover {
+            box-shadow: 0 8px 25px rgba(244, 67, 54, 0.25);
+        }
+
+        .subblock.active {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .subblock-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subblock-score {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        /* Dynamic sub-block score colors */
+        .subblock.score-excellent .subblock-score {
+            color: #4CAF50;
+        }
+        .subblock.score-good .subblock-score {
+            color: #FF9800;
+        }
+        .subblock.score-needs-improvement .subblock-score {
+            color: #F44336;
+        }
+
+        .subblock-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+            background: #333;
+            color: #999;
+        }
+
+        /* Assessment Section */
+        .assessment-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .assessment-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #FF5500;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .question-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .answer-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .answer-btn {
+            padding: 10px 20px;
+            border: 2px solid #333;
+            background: transparent;
+            color: #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .answer-btn:hover {
+            border-color: #FF5500;
+            background: rgba(255, 85, 0, 0.1);
+        }
+
+        .answer-btn.selected {
+            background: #FF5500;
+            border-color: #FF5500;
+        }
+
+        .submit-assessment {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-assessment:hover {
+            background: #45a049;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Dynamic progress bar colors */
+        .progress-fill.score-excellent {
+            background: #4CAF50;
+        }
+        .progress-fill.score-good {
+            background: #FF9800;
+        }
+        .progress-fill.score-needs-improvement {
+            background: #F44336;
+        }
+
+        /* Score History Section Styles */
+        .score-history-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .history-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FF5500;
+            margin: 0;
+        }
+
+        .time-filter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #999;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #FF5500;
+            color: #FF5500;
+            background: rgba(255, 85, 0, 0.1);
+        }
+
+        .filter-btn.active {
+            background: #FF5500;
+            border-color: #FF5500;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            height: 300px;
+            position: relative;
+        }
+
+        .score-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #FF5500;
+            margin-bottom: 5px;
+        }
+
+        .stat-change {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .stat-change.positive {
+            color: #4CAF50;
+        }
+
+        .stat-change.negative {
+            color: #F44336;
+        }
+
+        /* Change Log Table Styles */
+        .change-log-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .change-log-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #FF5500;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .change-log-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .change-log-table thead {
+            background: rgba(255, 85, 0, 0.1);
+        }
+
+        .change-log-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #FF5500;
+            border-bottom: 2px solid rgba(255, 85, 0, 0.3);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .change-log-table tbody tr {
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .change-log-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .change-log-table td {
+            padding: 15px;
+            color: #ffffff;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .change-date {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .change-title {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .weakness-tag {
+            display: inline-block;
+            background: rgba(244, 67, 54, 0.3);
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 2px;
+            font-weight: 500;
+        }
+
+        .action-tag {
+            display: inline-block;
+            background: rgba(255, 152, 0, 0.3);
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 2px;
+            font-weight: 500;
+        }
+
+        .improvement-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(76, 175, 80, 0.3);
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .improvement-badge.high {
+            background: rgba(76, 175, 80, 0.4);
+            color: #ffffff;
+        }
+
+        .improvement-badge.medium {
+            background: rgba(255, 152, 0, 0.4);
+            color: #ffffff;
+        }
+
+        .improvement-badge.low {
+            background: rgba(255, 193, 7, 0.4);
+            color: #ffffff;
+        }
+
+        .improvement-badge.negative {
+            background: rgba(244, 67, 54, 0.4);
+            color: #ffffff;
+        }
+
+        .change-marker-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #FF5500;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-size: 13px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            min-width: 250px;
+            max-width: 350px;
+            box-shadow: 0 4px 20px rgba(255, 85, 0, 0.3);
+        }
+
+        .change-marker-tooltip.visible {
+            opacity: 1;
+        }
+
+        .change-marker-tooltip .tooltip-title {
+            color: #FF5500;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .change-marker-tooltip .tooltip-date {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .change-marker-tooltip .tooltip-content {
+            line-height: 1.5;
+        }
+
+        .change-marker-tooltip .tooltip-improvement {
+            color: #4CAF50;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+    
+    <div class="container">
+        <div class="header" style="margin-top: 20px;">
+            <div>
+                <span id="phase-name" style="color: #FF5500; font-weight: 600; font-size: 18px;"></span>
+            </div>
+        </div>
+
+        <div class="block-header">
+            <div class="block-number" id="block-number"></div>
+            <h1 class="block-title" id="block-title"></h1>
+            <p class="block-description" id="block-description"></p>
+            <p id="block-details" style="margin-top: 10px; font-size: 14px; color: #999;"></p>
+            <div class="block-score" id="block-score">0%</div>
+            <div class="score-label">Current Score</div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%">
+                    0% Complete
+                </div>
+            </div>
+        </div>
+
+        <div class="subblocks-container">
+            <h2 class="subblocks-title">Sub-Components</h2>
+            <div class="subblocks-grid" id="subblocks-grid">
+                <!-- Sub-blocks will be populated here -->
+            </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div id="recommendations-section" class="assessment-container" style="display: none;">
+            <h2 class="assessment-title">
+                📊 Strategic Recommendations
+            </h2>
+            <p style="color: #999; font-size: 14px; margin-bottom: 20px;">
+                Click any recommendation for detailed implementation guidance
+            </p>
+            <div id="recommendations-container">
+                <!-- Recommendations will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Score History Section -->
+        <div class="score-history-section">
+            <div class="history-header">
+                <h3 class="history-title">📈 Score History</h3>
+                <div class="time-filter">
+                    <button class="filter-btn active" data-period="7d" onclick="updateChart('7d', this)">7 Days</button>
+                    <button class="filter-btn" data-period="30d" onclick="updateChart('30d', this)">30 Days</button>
+                    <button class="filter-btn" data-period="90d" onclick="updateChart('90d', this)">90 Days</button>
+                    <button class="filter-btn" data-period="all" onclick="updateChart('all', this)">All Time</button>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="scoreChart"></canvas>
+            </div>
+
+            <div class="score-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Current Score</div>
+                    <div class="stat-value" id="current-score">87%</div>
+                    <div class="stat-change positive">+5% this week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Score</div>
+                    <div class="stat-value" id="avg-score">82%</div>
+                    <div class="stat-change positive">+3% overall</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Best Score</div>
+                    <div class="stat-value" id="best-score">87%</div>
+                    <div class="stat-change">Achieved today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Completion</div>
+                    <div class="stat-value" id="completion">6/6</div>
+                    <div class="stat-change positive">100% complete</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Log Section with Clickable Entries -->
+        <div class="change-log-section">
+            <h3 class="change-log-title">
+                📋 Change Log & Improvement History
+            </h3>
+            <table class="change-log-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%">Date</th>
+                        <th style="width: 20%">Change Event</th>
+                        <th style="width: 25%">Previous Weaknesses</th>
+                        <th style="width: 25%">Corrective Actions</th>
+                        <th style="width: 15%">Score Impact</th>
+                    </tr>
+                </thead>
+                <tbody id="change-log-body">
+                    <!-- Change log entries will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Load recommendation display handlers -->
+    <script src="recommendations-component.js"></script>
+    <script src="enhanced-display-handler.js"></script>
+    
+    <script>
+        // Chart.js configuration
+        let scoreChart = null;
+        let blockData = null;
+        let scoreHistory = null;
+        let changeEvents = [];
+        let blockRecommendations = [];
+        
+        // Get block ID from URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const blockId = parseInt(urlParams.get('id')) || 1;
+
+        // Removed assessment questions and user responses - no longer needed
+
+        // Function to get score class based on score value
+        function getScoreClass(score) {
+            if (score >= 80) return 'score-excellent';
+            if (score >= 60) return 'score-good';
+            return 'score-needs-improvement';
+        }
+
+        // Initialize Chart with dynamic data
+        function initChart(historyData = null) {
+            const canvas = document.getElementById('scoreChart');
+            if (!canvas) {
+                console.error('Chart canvas element not found');
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Use provided data or default
+            const chartData = historyData || {
+                labels: [],
+                scores: [],
+                hasChanges: [],
+                changeDetails: {}
+            };
+            
+            // Chart configuration
+            const config = {
+                type: 'line',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: 'Score Progress',
+                        data: chartData.scores,
+                        borderColor: '#FF5500',
+                        backgroundColor: 'rgba(255, 85, 0, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: function(context) {
+                            // Make points larger where changes occurred
+                            const index = context.dataIndex;
+                            const hasChange = chartData.hasChanges && chartData.hasChanges[index];
+                            if (!hasChange) return 3; // Small dots for regular points
+                            
+                            // Check event type for different sizes
+                            const event = chartData.changeDetails && chartData.changeDetails[index];
+                            if (event && event.eventType === 'baseline') return 10; // Larger for baseline
+                            if (event && event.eventType === 'dependency') return 7; // Medium for dependency
+                            return 8; // Standard for improvements
+                        },
+                        pointBackgroundColor: function(context) {
+                            // Different colors for different event types
+                            const index = context.dataIndex;
+                            const hasChange = chartData.hasChanges && chartData.hasChanges[index];
+                            if (!hasChange) return '#FF5500';
+                            
+                            const event = chartData.changeDetails && chartData.changeDetails[index];
+                            if (event && event.eventType === 'baseline') return '#4CAF50'; // Green for baseline
+                            if (event && event.eventType === 'dependency') return '#FF9800'; // Orange for dependency
+                            return '#FFD700'; // Gold for improvements
+                        },
+                        pointBorderColor: function(context) {
+                            const index = context.dataIndex;
+                            const hasChange = chartData.hasChanges && chartData.hasChanges[index];
+                            if (!hasChange) return '#000';
+                            
+                            const event = chartData.changeDetails && chartData.changeDetails[index];
+                            if (event && event.eventType === 'baseline') return '#2E7D32'; // Dark green
+                            if (event && event.eventType === 'dependency') return '#E65100'; // Dark orange
+                            return '#FF5500'; // Standard orange for improvements
+                        },
+                        pointBorderWidth: function(context) {
+                            const index = context.dataIndex;
+                            const hasChange = chartData.hasChanges && chartData.hasChanges[index];
+                            if (!hasChange) return 1;
+                            
+                            const event = chartData.changeDetails && chartData.changeDetails[index];
+                            if (event && event.eventType === 'baseline') return 4; // Thicker for baseline
+                            return 3; // Standard for other events
+                        },
+                        pointHoverRadius: 9
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                            titleColor: '#FF5500',
+                            bodyColor: '#fff',
+                            borderColor: '#FF5500',
+                            borderWidth: 2,
+                            padding: 20,
+                            displayColors: false,
+                            titleFont: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 14,
+                                lineHeight: 1.5
+                            },
+                            callbacks: {
+                                title: function(context) {
+                                    const index = context[0].dataIndex;
+                                    if (chartData.changeDetails && chartData.changeDetails[index]) {
+                                        return chartData.changeDetails[index].event || chartData.changeDetails[index].title;
+                                    }
+                                    return chartData.labels[index];
+                                },
+                                label: function(context) {
+                                    const index = context.dataIndex;
+                                    if (chartData.changeDetails && chartData.changeDetails[index]) {
+                                        const event = chartData.changeDetails[index];
+                                        const lines = [`Score: ${context.parsed.y}%`];
+                                        
+                                        // Add event type indicator
+                                        if (event.eventType === 'baseline') {
+                                            lines.push('📊 Initial Baseline Assessment');
+                                        } else if (event.eventType === 'dependency') {
+                                            lines.push('🔗 Dependency Impact');
+                                            if (event.dependencyNote) {
+                                                lines.push(`Note: ${event.dependencyNote}`);
+                                            }
+                                        }
+                                        
+                                        // Show improvement/change
+                                        const improvement = event.improvement || 0;
+                                        if (improvement !== 0) {
+                                            lines.push(`Change: ${improvement > 0 ? '+' : ''}${improvement}%`);
+                                        }
+                                        
+                                        lines.push('');
+                                        
+                                        // Show weaknesses and actions
+                                        if (event.weaknesses && event.weaknesses.length > 0) {
+                                            lines.push('Weaknesses Addressed:');
+                                            lines.push(...event.weaknesses.map(w => `• ${w}`));
+                                            lines.push('');
+                                        }
+                                        
+                                        if (event.actions && event.actions.length > 0) {
+                                            lines.push('Actions Taken:');
+                                            lines.push(...event.actions.map(a => `• ${a}`));
+                                        }
+                                        
+                                        return lines;
+                                    }
+                                    return `Score: ${context.parsed.y}%`;
+                                }
+                            },
+                            // Custom positioning to ensure full visibility
+                            position: 'nearest',
+                            caretSize: 8,
+                            caretPadding: 10,
+                            cornerRadius: 8,
+                            // Increase max width for better text display
+                            bodySpacing: 6,
+                            titleSpacing: 4,
+                            titleMarginBottom: 10,
+                            footerMarginTop: 10,
+                            // Enable multi-line display
+                            multiKeyBackground: 'transparent'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)',
+                                borderColor: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#999',
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)',
+                                borderColor: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#999',
+                                font: {
+                                    size: 11
+                                },
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            scoreChart = new Chart(ctx, config);
+            console.log('Chart initialized successfully');
+        }
+
+        // Function to populate the change log table with dynamic data and make entries clickable
+        function populateChangeLog(events = []) {
+            const changeLogBody = document.getElementById('change-log-body');
+            if (!changeLogBody) return;
+            
+            changeLogBody.innerHTML = '';
+            
+            if (events.length === 0) {
+                changeLogBody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #666;">No change events recorded yet</td></tr>';
+                return;
+            }
+            
+            // Store events globally for popup access
+            window.scoreHistoryData = events;
+            
+            // Sort events by date - first chronologically, then reverse for newest first
+            const sortedEvents = [...events].sort((a, b) => {
+                // Parse dates and compare
+                const dateA = new Date(a.date || a.dateFormatted);
+                const dateB = new Date(b.date || b.dateFormatted);
+                return dateA - dateB; // Sort oldest to newest first
+            }).reverse(); // Then reverse to get newest at the top
+            
+            sortedEvents.forEach((event, index) => {
+                const row = document.createElement('tr');
+                
+                // Determine improvement level for badge styling
+                let improvementClass = 'low';
+                const improvement = event.improvement || (event.newScore - event.previousScore);
+                if (Math.abs(improvement) >= 5) improvementClass = 'high';
+                else if (Math.abs(improvement) >= 3) improvementClass = 'medium';
+                
+                // Add event type indicator
+                let eventTypeIcon = '';
+                if (event.eventType === 'baseline') {
+                    eventTypeIcon = '📊 ';
+                } else if (event.eventType === 'dependency') {
+                    eventTypeIcon = '🔗 ';
+                }
+                
+                // Handle negative improvements (for dependencies)
+                const improvementText = improvement >= 0 ?
+                    `+${improvement}%` :
+                    `${improvement}%`;
+                
+                // Style for negative changes
+                if (improvement < 0) {
+                    improvementClass = 'negative';
+                }
+                
+                // Make the row clickable
+                row.className = 'score-history-entry';
+                row.style.cursor = 'pointer';
+                row.dataset.eventIndex = index;
+                
+                row.innerHTML = `
+                    <td>
+                        <div class="change-date">${event.date || event.dateFormatted}</div>
+                    </td>
+                    <td>
+                        <div class="change-title">${eventTypeIcon}${event.event || event.title}</div>
+                        ${event.dependencyNote ? `<div style="font-size: 11px; color: #999; margin-top: 4px;">${event.dependencyNote}</div>` : ''}
+                    </td>
+                    <td>
+                        ${(event.weaknesses || []).map(w => `<span class="weakness-tag">${w}</span>`).join(' ')}
+                    </td>
+                    <td>
+                        ${(event.actions || []).map(a => `<span class="action-tag">${a}</span>`).join(' ')}
+                    </td>
+                    <td>
+                        <span class="improvement-badge ${improvementClass}">
+                            ${improvementText} (${event.previousScore}% → ${event.newScore}%)
+                        </span>
+                    </td>
+                `;
+                
+                // Add click handler to show detailed popup
+                row.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Get the full event data
+                    const fullEvent = window.scoreHistoryData[index];
+                    
+                    // Show the enhanced popup with in-depth analysis
+                    if (window.scoreHistoryPopup) {
+                        // Pass all events for comparison analysis
+                        window.scoreHistoryPopup.createPopup(fullEvent, window.scoreHistoryData);
+                    }
+                });
+                
+                changeLogBody.appendChild(row);
+            });
+        }
+
+        // Update chart with new data based on time filter
+        async function updateChart(period, buttonElement) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // If buttonElement is provided, use it; otherwise find by data-period
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            } else {
+                const btn = document.querySelector(`.filter-btn[data-period="${period}"]`);
+                if (btn) btn.classList.add('active');
+            }
+
+            // Fetch score history from API
+            try {
+                const days = period === '7d' ? 7 : period === '30d' ? 30 : period === '90d' ? 90 : 365;
+                const response = await fetch(`/api/blocks/${blockId}/history?days=${days}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Validate response structure
+                if (!data || !data.history) {
+                    console.error('Invalid API response structure:', data);
+                    throw new Error('Invalid API response: missing history data');
+                }
+                
+                scoreHistory = data.history;
+                changeEvents = data.changeEvents || [];
+                
+                console.log(`Received ${scoreHistory.length} history points and ${changeEvents.length} change events`);
+                
+                // Process data for chart
+                const labels = [];
+                const scores = [];
+                const hasChanges = [];
+                const changeDetails = {};
+                
+                scoreHistory.forEach((point, index) => {
+                    // Format label based on period
+                    if (period === '7d' || (index % Math.floor(scoreHistory.length / 10) === 0)) {
+                        const date = new Date(point.date);
+                        labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+                    } else {
+                        labels.push('');
+                    }
+                    
+                    scores.push(point.score);
+                    hasChanges.push(point.hasChange);
+                    
+                    if (point.changeEvent) {
+                        changeDetails[index] = point.changeEvent;
+                    }
+                });
+                
+                // Update or create chart
+                if (scoreChart) {
+                    // Destroy old chart and create new one with all data
+                    scoreChart.destroy();
+                    scoreChart = null;
+                }
+                
+                // Always reinitialize chart with complete data structure
+                initChart({
+                    labels: labels,
+                    scores: scores,
+                    hasChanges: hasChanges,
+                    changeDetails: changeDetails
+                });
+                
+                // Update statistics
+                updateStatistics(scores);
+                
+                // Update change log with clickable entries
+                populateChangeLog(changeEvents);
+                
+                // Also make chart points clickable
+                if (scoreChart && scoreChart.options) {
+                    scoreChart.options.onClick = function(event, elements) {
+                        if (elements && elements.length > 0) {
+                            const index = elements[0].index;
+                            if (changeDetails[index]) {
+                                // Show enhanced popup for this specific point
+                                if (window.scoreHistoryPopup) {
+                                    // Pass all change events for comparison
+                                    window.scoreHistoryPopup.createPopup(changeDetails[index], changeEvents);
+                                }
+                            }
+                        }
+                    };
+                    scoreChart.update();
+                }
+                
+            } catch (error) {
+                console.error('Error fetching score history:', error);
+                console.error('Error details:', error.message);
+                
+                // Use fallback data if API fails
+                useFallbackData(period);
+                
+                // Clear change log or show error message
+                const changeLogBody = document.getElementById('change-log-body');
+                if (changeLogBody) {
+                    changeLogBody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px; color: #ff5500;">Unable to load change history. Please refresh the page.</td></tr>';
+                }
+            }
+        }
+        
+        // Fallback data function
+        function useFallbackData(period) {
+            let labels = [];
+            let data = [];
+            
+            switch(period) {
+                case '7d':
+                    labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Today'];
+                    data = [75, 78, 80, 82, 83, 85, 87];
+                    break;
+                case '30d':
+                    for (let i = 29; i >= 0; i--) {
+                        const date = new Date();
+                        date.setDate(date.getDate() - i);
+                        if (i % 5 === 0) {
+                            labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+                        } else {
+                            labels.push('');
+                        }
+                        data.push(Math.min(100, 70 + Math.random() * 20 + (30 - i) * 0.5));
+                    }
+                    break;
+                case '90d':
+                    for (let i = 12; i >= 0; i--) {
+                        const date = new Date();
+                        date.setDate(date.getDate() - (i * 7));
+                        labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+                        data.push(Math.min(100, 65 + Math.random() * 25 + (12 - i) * 2));
+                    }
+                    break;
+                case 'all':
+                    labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    data = [45, 52, 58, 63, 68, 72, 75, 78, 81, 84, 86, 87];
+                    break;
+            }
+            
+            data = data.map(val => Math.round(val));
+            
+            if (scoreChart) {
+                scoreChart.data.labels = labels;
+                scoreChart.data.datasets[0].data = data;
+                scoreChart.update();
+            } else {
+                initChart({ labels: labels, scores: data, hasChanges: [], changeDetails: {} });
+            }
+            
+            updateStatistics(data);
+        }
+
+        // Update statistics cards
+        function updateStatistics(data) {
+            const currentScore = data[data.length - 1];
+            const avgScore = Math.round(data.reduce((a, b) => a + b, 0) / data.length);
+            const bestScore = Math.max(...data);
+            const weekChange = data.length >= 7 ? data[data.length - 1] - data[data.length - 7] : 0;
+            
+            document.getElementById('current-score').textContent = currentScore + '%';
+            document.getElementById('avg-score').textContent = avgScore + '%';
+            document.getElementById('best-score').textContent = bestScore + '%';
+            
+            // Update change indicators
+            const currentChange = document.querySelector('#current-score').parentElement.querySelector('.stat-change');
+            if (currentChange) {
+                currentChange.textContent = weekChange > 0 ? `+${weekChange}% this week` : `${weekChange}% this week`;
+                currentChange.className = weekChange >= 0 ? 'stat-change positive' : 'stat-change negative';
+            }
+        }
+
+        // Load block data
+        async function loadBlockData() {
+            try {
+                const response = await fetch(`/api/blocks/${blockId}`);
+                blockData = await response.json();
+                
+                // Apply dynamic score class to header
+                const scoreClass = getScoreClass(blockData.score);
+                document.querySelector('.block-header').classList.add(scoreClass);
+                
+                // Update header
+                document.getElementById('block-number').textContent = blockData.id;
+                document.getElementById('block-title').textContent = blockData.name;
+                document.getElementById('block-description').textContent = blockData.description;
+                if (blockData.details) {
+                    document.getElementById('block-details').textContent = blockData.details;
+                }
+                document.getElementById('block-score').textContent = `${blockData.score}%`;
+                
+                // Update progress bar with dynamic color
+                const progressFill = document.getElementById('progress-fill');
+                progressFill.style.width = `${blockData.score}%`;
+                progressFill.textContent = `${blockData.score}% Complete`;
+                progressFill.className = 'progress-fill ' + scoreClass;
+                
+                // Set phase name
+                const phases = ["Idea Market Fit", "Product Market Fit", "Go-To Market", "Scaling Impact", "Scale"];
+                document.getElementById('phase-name').textContent = `Phase ${blockData.phase}: ${phases[blockData.phase - 1]}`;
+                
+                // Load sub-blocks
+                loadSubBlocks(blockData.subBlocks);
+                
+                // Load recommendations if score is below 100
+                if (blockData.score < 100) {
+                    loadBlockRecommendations();
+                }
+                
+                // Load score history and initialize chart
+                await updateChart('7d');
+                
+                // Set up periodic refresh to catch score updates from subcomponent analyses
+                setInterval(refreshScores, 10000); // Refresh every 10 seconds
+                
+            } catch (error) {
+                console.error('Error loading block data:', error);
+            }
+        }
+        
+        // Load recommendations for the block
+        async function loadBlockRecommendations() {
+            try {
+                // Generate recommendations based on subcomponent scores
+                const recommendations = [];
+                let totalPotentialImprovement = 0;
+                
+                // Analyze each subcomponent for improvement opportunities
+                blockData.subBlocks.forEach(subBlock => {
+                    const scoreDiff = 100 - subBlock.score;
+                    if (scoreDiff > 0) {
+                        // Calculate potential improvement based on how low the score is
+                        let improvement = 0;
+                        let priority = 'MEDIUM';
+                        
+                        if (subBlock.score < 50) {
+                            improvement = Math.min(15, Math.round(scoreDiff * 0.3));
+                            priority = 'CRITICAL';
+                        } else if (subBlock.score < 70) {
+                            improvement = Math.min(10, Math.round(scoreDiff * 0.25));
+                            priority = 'HIGH';
+                        } else if (subBlock.score < 85) {
+                            improvement = Math.min(8, Math.round(scoreDiff * 0.2));
+                            priority = 'MEDIUM';
+                        } else {
+                            improvement = Math.min(5, Math.round(scoreDiff * 0.15));
+                            priority = 'LOW';
+                        }
+                        
+                        totalPotentialImprovement += improvement;
+                        
+                        // Create recommendation object
+                        recommendations.push({
+                            area: subBlock.name,
+                            action: `Improve ${subBlock.name} from ${subBlock.score}% to target`,
+                            priority: priority,
+                            impact: `+${improvement} points`,
+                            currentScore: subBlock.score,
+                            targetScore: Math.min(100, subBlock.score + improvement * 3),
+                            actionPlan: [
+                                `Complete the ${subBlock.name} worksheet with detailed information`,
+                                `Run AI analysis to identify specific weaknesses`,
+                                `Implement the top 3 recommendations from the analysis`,
+                                `Document evidence and validation for each improvement`,
+                                `Re-run analysis to confirm score improvement`
+                            ],
+                            successMetrics: [
+                                `${subBlock.name} score increases by at least ${improvement} points`,
+                                `All critical gaps identified in analysis are addressed`,
+                                `Documentation is complete and validated`,
+                                `Block overall score improves as a result`
+                            ],
+                        });
+                    }
+                });
+                
+                // Sort by priority and impact
+                recommendations.sort((a, b) => {
+                    const priorityOrder = { 'CRITICAL': 0, 'HIGH': 1, 'MEDIUM': 2, 'LOW': 3 };
+                    if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+                        return priorityOrder[a.priority] - priorityOrder[b.priority];
+                    }
+                    // If same priority, sort by impact
+                    const aImpact = parseInt(a.impact.replace(/\D/g, ''));
+                    const bImpact = parseInt(b.impact.replace(/\D/g, ''));
+                    return bImpact - aImpact;
+                });
+                
+                // Store recommendations globally
+                blockRecommendations = recommendations;
+                
+                // Display recommendations if any exist
+                if (recommendations.length > 0) {
+                    displayBlockRecommendations(recommendations, totalPotentialImprovement);
+                }
+                
+            } catch (error) {
+                console.error('Error loading recommendations:', error);
+            }
+        }
+        
+        // Display block recommendations with enhanced format
+        function displayBlockRecommendations(recommendations, totalImprovement) {
+            const section = document.getElementById('recommendations-section');
+            const container = document.getElementById('recommendations-container');
+            
+            if (!section || !container) return;
+            
+            // Show the section
+            section.style.display = 'block';
+            
+            // Build recommendations HTML
+            let html = `
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    ${recommendations.map((rec, index) => {
+                        const priorityColor = rec.priority === 'CRITICAL' ? '#8B0000' :
+                                            rec.priority === 'HIGH' ? '#F44336' :
+                                            rec.priority === 'MEDIUM' ? '#FF9800' : '#FFC107';
+                        
+                        return `
+                        <div class="recommendation-card" data-index="${index}" style="
+                            background: rgba(0, 0, 0, 0.5);
+                            border: 1px solid rgba(255, 255, 255, 0.1);
+                            border-radius: 12px;
+                            padding: 20px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.borderColor='#FF5500'; this.style.transform='translateX(5px)'"
+                           onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='translateX(0)'">
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                                <h3 style="color: #fff; font-size: 18px; font-weight: 600; margin: 0;">
+                                    ${rec.area}
+                                </h3>
+                                <span style="
+                                    background: ${priorityColor};
+                                    color: #fff;
+                                    padding: 4px 12px;
+                                    border-radius: 20px;
+                                    font-size: 11px;
+                                    font-weight: 700;
+                                    text-transform: uppercase;
+                                ">${rec.priority}</span>
+                            </div>
+                            
+                            <p style="color: #ccc; margin-bottom: 15px; font-size: 14px;">
+                                ${rec.action}
+                            </p>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px;">
+                                <div>
+                                    <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Expected Impact</div>
+                                    <div style="color: #4CAF50; font-size: 16px; font-weight: 600;">${rec.impact}</div>
+                                </div>
+                                <div>
+                                    <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Current Score</div>
+                                    <div style="color: #FF9800; font-size: 16px; font-weight: 600;">${rec.currentScore}%</div>
+                                </div>
+                                <div>
+                                    <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Target Score</div>
+                                    <div style="color: #2196F3; font-size: 16px; font-weight: 600;">${rec.targetScore}%</div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="
+                                    background: rgba(255, 255, 255, 0.1);
+                                    padding: 4px 10px;
+                                    border-radius: 15px;
+                                    font-size: 12px;
+                                    color: #999;
+                                ">⏱️ ${rec.timeframe}</span>
+                                <span style="color: #666; font-size: 12px;">
+                                    Click for detailed action plan →
+                                </span>
+                            </div>
+                        </div>
+                        `;
+                    }).join('')}
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: rgba(255, 85, 0, 0.05); border-radius: 12px; border: 1px solid rgba(255, 85, 0, 0.2);">
+                    <h3 style="color: #FF5500; margin-bottom: 15px;">Implementation Summary</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div>
+                            <div style="color: #999; font-size: 12px; text-transform: uppercase; margin-bottom: 5px;">Total Improvement Potential</div>
+                            <div style="color: #4CAF50; font-size: 24px; font-weight: 700;">
+                                +${totalImprovement} points
+                            </div>
+                        </div>
+                        <div>
+                            <div style="color: #999; font-size: 12px; text-transform: uppercase; margin-bottom: 5px;">Priority Actions</div>
+                            <div style="color: #FF5500; font-size: 24px; font-weight: 700;">
+                                ${recommendations.filter(r => r.priority === 'CRITICAL' || r.priority === 'HIGH').length} critical
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            
+            // Add click handlers for recommendation cards
+            setTimeout(() => {
+                const cards = container.querySelectorAll('.recommendation-card');
+                cards.forEach((card) => {
+                    card.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const rec = blockRecommendations[index];
+                        if (rec) {
+                            showBlockRecommendationPopup(rec);
+                        }
+                    });
+                });
+            }, 100);
+        }
+        
+        // Show detailed popup for block recommendation
+        function showBlockRecommendationPopup(rec) {
+            // Remove any existing popup
+            const existingPopup = document.getElementById('recommendation-popup');
+            if (existingPopup) {
+                existingPopup.remove();
+            }
+            
+            // Create popup
+            const popup = document.createElement('div');
+            popup.id = 'recommendation-popup';
+            popup.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.9); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;';
+            
+            const priorityColor = rec.priority === 'CRITICAL' ? '#8B0000' :
+                                rec.priority === 'HIGH' ? '#F44336' :
+                                rec.priority === 'MEDIUM' ? '#FF9800' : '#FFC107';
+            
+            popup.innerHTML = `
+                <div style="background: #1a1a1a; border: 2px solid #FF5500; border-radius: 20px; max-width: 900px; max-height: 90vh; overflow-y: auto; width: 100%; position: relative;">
+                    <div style="padding: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: sticky; top: 0; background: #1a1a1a; z-index: 10;">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <h2 style="font-size: 28px; color: #FF5500; margin-bottom: 10px;">${rec.area}</h2>
+                                <div style="display: flex; gap: 15px; align-items: center;">
+                                    <span style="background: ${priorityColor}; color: #fff; padding: 6px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;">${rec.priority} PRIORITY</span>
+                                    <span style="color: #4CAF50; font-weight: 600; font-size: 16px;">${rec.impact}</span>
+                                </div>
+                            </div>
+                            <button onclick="document.getElementById('recommendation-popup').remove()" style="background: transparent; border: none; color: #999; font-size: 32px; cursor: pointer;">×</button>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 30px;">
+                        <div style="background: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 20px; margin-bottom: 30px;">
+                            <h3 style="color: #FF5500; margin-bottom: 15px; font-size: 18px;">📋 Overview</h3>
+                            <p style="color: #ccc; line-height: 1.8;">${rec.action}</p>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                                <div style="text-align: center;">
+                                    <div style="color: #999; font-size: 12px; margin-bottom: 5px;">Current Score</div>
+                                    <div style="color: #FF9800; font-size: 24px; font-weight: 700;">${rec.currentScore}%</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="color: #999; font-size: 12px; margin-bottom: 5px;">Target Score</div>
+                                    <div style="color: #2196F3; font-size: 24px; font-weight: 700;">${rec.targetScore}%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">🚀 Action Plan</h3>
+                            <div style="background: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 20px;">
+                                <ol style="list-style: none; padding: 0; margin: 0;">
+                                    ${rec.actionPlan.map((step, i) => `
+                                        <li style="padding: 10px 0; color: #ccc; display: flex; align-items: start; ${i < rec.actionPlan.length - 1 ? 'border-bottom: 1px solid rgba(255,255,255,0.05);' : ''}">
+                                            <span style="background: #FF5500; color: #000; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; margin-right: 15px; flex-shrink: 0;">${i + 1}</span>
+                                            ${step}
+                                        </li>
+                                    `).join('')}
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="color: #FF5500; margin-bottom: 20px; font-size: 18px;">✅ Success Metrics</h3>
+                            <div style="background: rgba(76, 175, 80, 0.1); border-radius: 12px; padding: 20px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    ${rec.successMetrics.map(metric => `
+                                        <li style="padding: 8px 0; color: #ccc; display: flex; align-items: start;">
+                                            <span style="color: #4CAF50; margin-right: 10px; font-size: 16px;">✓</span>
+                                            ${metric}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px;">
+                            <button onclick="window.location.href='subcomponent-detail.html?id=${blockData.subBlocks.find(s => s.name === rec.area)?.id || '1-1'}'" style="background: #FF5500; color: #fff; border: none; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                                Go to ${rec.area} →
+                            </button>
+                            <button onclick="document.getElementById('recommendation-popup').remove()" style="background: transparent; color: #FF5500; border: 2px solid #FF5500; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+        }
+        
+        // Refresh scores dynamically
+        async function refreshScores() {
+            try {
+                const response = await fetch(`/api/blocks/${blockId}`);
+                const updatedData = await response.json();
+                
+                // Check if main block score changed
+                if (updatedData.score !== blockData.score) {
+                    blockData.score = updatedData.score;
+                    
+                    // Update UI elements
+                    const scoreClass = getScoreClass(blockData.score);
+                    document.querySelector('.block-header').className = 'block-header ' + scoreClass;
+                    document.getElementById('block-score').textContent = `${blockData.score}%`;
+                    
+                    // Update progress bar
+                    const progressFill = document.getElementById('progress-fill');
+                    progressFill.style.width = `${blockData.score}%`;
+                    progressFill.textContent = `${blockData.score}% Complete`;
+                    progressFill.className = 'progress-fill ' + scoreClass;
+                    
+                    console.log(`Block score updated to ${blockData.score}%`);
+                }
+                
+                // Check if any subcomponent scores changed
+                if (updatedData.subBlocks) {
+                    updatedData.subBlocks.forEach((subBlock, index) => {
+                        const oldScore = blockData.subBlocks[index].score;
+                        if (subBlock.score !== oldScore) {
+                            blockData.subBlocks[index].score = subBlock.score;
+                            
+                            // Update the specific subcomponent score display
+                            const scoreElement = document.getElementById(`subblock-score-${subBlock.id}`);
+                            if (scoreElement) {
+                                scoreElement.textContent = `${subBlock.score}%`;
+                                
+                                // Update the parent div's class for color
+                                const parentDiv = scoreElement.closest('.subblock');
+                                if (parentDiv) {
+                                    const newScoreClass = getScoreClass(subBlock.score);
+                                    parentDiv.className = `subblock ${newScoreClass}`;
+                                }
+                                
+                                console.log(`Subcomponent ${subBlock.name} score updated from ${oldScore}% to ${subBlock.score}%`);
+                            }
+                        }
+                    });
+                }
+                
+            } catch (error) {
+                console.error('Error refreshing scores:', error);
+            }
+        }
+
+        function loadSubBlocks(subBlocks) {
+            const grid = document.getElementById('subblocks-grid');
+            grid.innerHTML = '';
+            
+            subBlocks.forEach(subBlock => {
+                const div = document.createElement('div');
+                const scoreClass = getScoreClass(subBlock.score);
+                div.className = `subblock ${scoreClass}`;
+                div.innerHTML = `
+                    <div class="subblock-name">${subBlock.name}</div>
+                    ${subBlock.description ? `<p style="font-size: 12px; color: #999; margin: 5px 0 10px 0;">${subBlock.description}</p>` : ''}
+                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${subBlock.score}%</div>
+                    <span class="subblock-status">In Progress</span>
+                `;
+                // Navigate to subcomponent detail page
+                div.onclick = () => {
+                    window.location.href = `subcomponent-detail.html?id=${subBlock.id}`;
+                };
+                grid.appendChild(div);
+            });
+        }
+
+        // Removed loadAssessmentQuestions function - no longer needed
+
+        // Removed selectAnswer function - no longer needed
+
+        function selectSubBlock(subBlockId) {
+            console.log('Selected sub-block:', subBlockId);
+            // In production, this would navigate to sub-block detail
+        }
+
+        // Removed assessment-related functions - no longer needed
+        
+        // Helper function to get current subblock scores
+        function getSubBlockScores() {
+            const scores = [];
+            document.querySelectorAll('.subblock').forEach((element, index) => {
+                const scoreText = element.querySelector('.subblock-score')?.textContent;
+                if (scoreText) {
+                    scores.push({
+                        index,
+                        score: parseInt(scoreText.replace('%', ''))
+                    });
+                }
+            });
+            return scores;
+        }
+
+        // Load data on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing...');
+            loadBlockData();
+            
+            // Also refresh scores when page becomes visible (e.g., after tab switch)
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden) {
+                    refreshScores();
+                }
+            });
+            
+            // Refresh scores when returning from subcomponent page
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted || performance.navigation.type === 2) {
+                    refreshScores();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

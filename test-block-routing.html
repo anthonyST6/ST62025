@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Block Routing - Phase 1 & 2</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00ff88;
+            margin-bottom: 30px;
+        }
+        .block-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .block-title {
+            color: #00ff88;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .test-item {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        .test-item h3 {
+            color: #fff;
+            font-size: 14px;
+            margin: 0 0 10px 0;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .status.pending {
+            background: #444;
+            color: #aaa;
+        }
+        .status.testing {
+            background: #ff8800;
+            color: #000;
+        }
+        .status.success {
+            background: #00ff88;
+            color: #000;
+        }
+        .status.error {
+            background: #ff4444;
+            color: #fff;
+        }
+        .agent-name {
+            color: #00ff88;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        .test-button {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .test-button:hover {
+            background: #00cc70;
+        }
+        .summary {
+            background: #2a2a2a;
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .summary h2 {
+            color: #00ff88;
+            margin-top: 0;
+        }
+        .summary-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+        .correct {
+            color: #00ff88;
+        }
+        .incorrect {
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Block Routing Test - Phase 1 & 2</h1>
+        
+        <div id="phase1" class="block-section">
+            <h2 class="block-title">Phase 1: Idea Market Fit</h2>
+            <div class="test-grid" id="phase1-grid"></div>
+        </div>
+        
+        <div id="phase2" class="block-section">
+            <h2 class="block-title">Phase 2: Product Market Fit</h2>
+            <div class="test-grid" id="phase2-grid"></div>
+        </div>
+        
+        <button class="test-button" onclick="runAllTests()">Run All Tests</button>
+        
+        <div id="summary" class="summary" style="display: none;">
+            <h2>Test Summary</h2>
+            <div id="summary-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Import the unified analysis handler
+        const script = document.createElement('script');
+        script.src = '/unified-analysis-handler.js';
+        document.head.appendChild(script);
+        
+        // Test data for all blocks
+        const testBlocks = {
+            phase1: [
+                {
+                    blockId: 1,
+                    blockName: 'Mission Discovery',
+                    expectedAgent: 'ProblemStatementAgent',
+                    subcomponents: [
+                        { id: '1-1', name: 'Problem Statement Definition' },
+                        { id: '1-2', name: 'Mission Statement' },
+                        { id: '1-3', name: 'Customer Insight Capture' },
+                        { id: '1-4', name: 'Founding Team Capability' },
+                        { id: '1-5', name: 'Market Insight Synthesis' },
+                        { id: '1-6', name: 'Prototype Launch Plan' }
+                    ]
+                },
+                {
+                    blockId: 2,
+                    blockName: 'Customer Insights',
+                    expectedAgent: 'CustomerInsightsAgent',
+                    subcomponents: [
+                        { id: '2-1', name: 'Interview Cadence Plan' },
+                        { id: '2-2', name: 'Personas Framework' },
+                        { id: '2-3', name: 'Pain Point Mapping' },
+                        { id: '2-4', name: 'JTBD Capture' },
+                        { id: '2-5', name: 'Signal Grading' },
+                        { id: '2-6', name: 'Insight-to-Action Loop' }
+                    ]
+                },
+                {
+                    blockId: 3,
+                    blockName: 'Strategic Prioritization',
+                    expectedAgent: 'StrategicPrioritizationAgent',
+                    subcomponents: [
+                        { id: '3-1', name: 'Use Case Scoring Model' },
+                        { id: '3-2', name: 'Segment Tiering' },
+                        { id: '3-3', name: 'Prioritization Rubric' },
+                        { id: '3-4', name: 'Tradeoff Tracker' },
+                        { id: '3-5', name: 'Hypothesis Board' },
+                        { id: '3-6', name: 'Decision Archive' }
+                    ]
+                },
+                {
+                    blockId: 4,
+                    blockName: 'Prototype Launch',
+                    expectedAgent: 'PrototypeLaunchAgent',
+                    subcomponents: [
+                        { id: '4-1', name: 'Feature Inclusion Matrix' },
+                        { id: '4-2', name: 'Technical Scope Tracker' },
+                        { id: '4-3', name: 'Pilot Group Selection' },
+                        { id: '4-4', name: 'QA & Success Criteria' },
+                        { id: '4-5', name: 'Timeline Gantt or Roadmap' },
+                        { id: '4-6', name: 'Post-Mortem Template' }
+                    ]
+                }
+            ],
+            phase2: [
+                {
+                    blockId: 5,
+                    blockName: 'Early Adopter Wins',
+                    expectedAgent: 'EarlyAdopterWinsAgent',
+                    subcomponents: [
+                        { id: '5-1', name: 'Case Study Template' },
+                        { id: '5-2', name: 'ROI Calculation Sheet' },
+                        { id: '5-3', name: 'Use Case Spotlight' },
+                        { id: '5-4', name: 'Buyer Quotes & Testimonials' },
+                        { id: '5-5', name: 'Win Criteria Mapping' },
+                        { id: '5-6', name: 'Deal Debrief Framework' }
+                    ]
+                },
+                {
+                    blockId: 6,
+                    blockName: 'Customer Engagement Flywheel',
+                    expectedAgent: 'CustomerEngagementAgent',
+                    subcomponents: [
+                        { id: '6-1', name: 'Usage Heatmap' },
+                        { id: '6-2', name: 'Milestone Triggers' },
+                        { id: '6-3', name: 'CS Dashboard' },
+                        { id: '6-4', name: 'Activation Metric Model' },
+                        { id: '6-5', name: 'Feedback Collector' },
+                        { id: '6-6', name: 'Power User Behavior Signals' }
+                    ]
+                },
+                {
+                    blockId: 7,
+                    blockName: 'Quantifiable Impact',
+                    expectedAgent: 'QuantifiableImpactAgent',
+                    subcomponents: [
+                        { id: '7-1', name: 'Time/Cost Savings Metrics' },
+                        { id: '7-2', name: 'Revenue-Impact Attribution' },
+                        { id: '7-3', name: 'Productivity Lift Metrics' },
+                        { id: '7-4', name: 'Net Retention Trends' },
+                        { id: '7-5', name: 'Downstream System Reductions' },
+                        { id: '7-6', name: 'Friction Reduction Evidence' }
+                    ]
+                },
+                {
+                    blockId: 8,
+                    blockName: 'Customer Success Expansion',
+                    expectedAgent: 'CustomerSuccessAgent',
+                    subcomponents: [
+                        { id: '8-1', name: 'Upsell Funnel Model' },
+                        { id: '8-2', name: 'Team Expansion Signals' },
+                        { id: '8-3', name: 'Organic Adoption Pattern' },
+                        { id: '8-4', name: 'Champion Mapping' },
+                        { id: '8-5', name: 'CSAT/NPS Tracking' },
+                        { id: '8-6', name: 'Renewal Readiness Tracker' }
+                    ]
+                }
+            ]
+        };
+        
+        const testResults = {};
+        
+        function initializeTests() {
+            // Initialize Phase 1 tests
+            const phase1Grid = document.getElementById('phase1-grid');
+            testBlocks.phase1.forEach(block => {
+                block.subcomponents.forEach(sub => {
+                    const testItem = createTestItem(sub.id, sub.name, block.blockName);
+                    phase1Grid.appendChild(testItem);
+                });
+            });
+            
+            // Initialize Phase 2 tests
+            const phase2Grid = document.getElementById('phase2-grid');
+            testBlocks.phase2.forEach(block => {
+                block.subcomponents.forEach(sub => {
+                    const testItem = createTestItem(sub.id, sub.name, block.blockName);
+                    phase2Grid.appendChild(testItem);
+                });
+            });
+        }
+        
+        function createTestItem(id, name, blockName) {
+            const div = document.createElement('div');
+            div.className = 'test-item';
+            div.id = `test-${id}`;
+            div.innerHTML = `
+                <h3>${id}: ${name}</h3>
+                <div style="color: #888; font-size: 12px;">${blockName}</div>
+                <div class="agent-name" id="agent-${id}">-</div>
+                <div class="status pending" id="status-${id}">Pending</div>
+            `;
+            return div;
+        }
+        
+        async function testSubcomponent(subcomponentId, expectedAgent) {
+            const statusEl = document.getElementById(`status-${subcomponentId}`);
+            const agentEl = document.getElementById(`agent-${subcomponentId}`);
+            
+            statusEl.className = 'status testing';
+            statusEl.textContent = 'Testing...';
+            
+            try {
+                // Get the endpoint URL using the unified handler logic
+                const blockId = parseInt(subcomponentId.split('-')[0]);
+                let endpoint = '';
+                
+                // Determine endpoint based on block
+                switch(blockId) {
+                    case 1:
+                        endpoint = '/api/analyze/problem-statement';
+                        break;
+                    case 2:
+                        endpoint = '/api/analyze/customer-insights';
+                        break;
+                    case 3:
+                        endpoint = '/api/analyze/strategic-prioritization';
+                        break;
+                    case 4:
+                        endpoint = '/api/analyze/prototype-launch';
+                        break;
+                    case 5:
+                        endpoint = '/api/analyze/early-adopter-wins';
+                        break;
+                    case 6:
+                        endpoint = '/api/analyze/customer-engagement';
+                        break;
+                    case 7:
+                        endpoint = '/api/analyze/quantifiable-impact';
+                        break;
+                    case 8:
+                        endpoint = '/api/analyze/customer-success';
+                        break;
+                }
+                
+                // Make a test request
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': '1'
+                    },
+                    body: JSON.stringify({
+                        worksheetData: { test: 'Test data' },
+                        subcomponentId: subcomponentId
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Check if recommendations exist and have proper format
+                    let hasProperFormat = false;
+                    if (data.recommendations && Array.isArray(data.recommendations)) {
+                        hasProperFormat = data.recommendations.every(rec => 
+                            rec.expectedImprovement && 
+                            typeof rec.expectedImprovement === 'string' &&
+                            rec.expectedImprovement.includes('+')
+                        );
+                    }
+                    
+                    statusEl.className = 'status success';
+                    statusEl.textContent = hasProperFormat ? '✓ Success' : '⚠ Format Issue';
+                    agentEl.textContent = `Endpoint: ${endpoint}`;
+                    
+                    testResults[subcomponentId] = {
+                        success: true,
+                        endpoint: endpoint,
+                        hasProperFormat: hasProperFormat,
+                        score: data.score
+                    };
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.textContent = `Error: ${error.message}`;
+                agentEl.textContent = 'Failed';
+                
+                testResults[subcomponentId] = {
+                    success: false,
+                    error: error.message
+                };
+            }
+        }
+        
+        async function runAllTests() {
+            // Clear previous results
+            Object.keys(testResults).forEach(key => delete testResults[key]);
+            document.getElementById('summary').style.display = 'none';
+            
+            // Test all Phase 1 blocks
+            for (const block of testBlocks.phase1) {
+                for (const sub of block.subcomponents) {
+                    await testSubcomponent(sub.id, block.expectedAgent);
+                    await new Promise(resolve => setTimeout(resolve, 100)); // Small delay
+                }
+            }
+            
+            // Test all Phase 2 blocks
+            for (const block of testBlocks.phase2) {
+                for (const sub of block.subcomponents) {
+                    await testSubcomponent(sub.id, block.expectedAgent);
+                    await new Promise(resolve => setTimeout(resolve, 100)); // Small delay
+                }
+            }
+            
+            // Show summary
+            showSummary();
+        }
+        
+        function showSummary() {
+            const summaryEl = document.getElementById('summary');
+            const contentEl = document.getElementById('summary-content');
+            
+            // Group results by block
+            const blockResults = {};
+            
+            [...testBlocks.phase1, ...testBlocks.phase2].forEach(block => {
+                const blockEndpoints = new Set();
+                let allSuccess = true;
+                let allProperFormat = true;
+                
+                block.subcomponents.forEach(sub => {
+                    const result = testResults[sub.id];
+                    if (result) {
+                        if (result.success) {
+                            blockEndpoints.add(result.endpoint);
+                            if (!result.hasProperFormat) {
+                                allProperFormat = false;
+                            }
+                        } else {
+                            allSuccess = false;
+                        }
+                    }
+                });
+                
+                blockResults[block.blockId] = {
+                    name: block.blockName,
+                    endpoints: Array.from(blockEndpoints),
+                    allSuccess: allSuccess,
+                    allProperFormat: allProperFormat,
+                    expectedAgent: block.expectedAgent
+                };
+            });
+            
+            // Generate summary HTML
+            let html = '';
+            Object.entries(blockResults).forEach(([blockId, result]) => {
+                const isCorrect = result.endpoints.length === 1;
+                const statusClass = result.allSuccess ? (isCorrect ? 'correct' : 'incorrect') : 'incorrect';
+                
+                html += `
+                    <div class="summary-item">
+                        <div class="${statusClass}">
+                            <strong>Block ${blockId}: ${result.name}</strong>
+                        </div>
+                        <div>Endpoints used: ${result.endpoints.join(', ') || 'None'}</div>
+                        <div>Single endpoint: ${isCorrect ? '✓ Yes' : '✗ No (Multiple agents detected!)'}</div>
+                        <div>All successful: ${result.allSuccess ? '✓ Yes' : '✗ No'}</div>
+                        <div>Proper format: ${result.allProperFormat ? '✓ Yes (+X points)' : '✗ No (missing +X format)'}</div>
+                    </div>
+                `;
+            });
+            
+            contentEl.innerHTML = html;
+            summaryEl.style.display = 'block';
+        }
+        
+        // Initialize on load
+        window.addEventListener('load', initializeTests);
+    </script>
+</body>
+</html>

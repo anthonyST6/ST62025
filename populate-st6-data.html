@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Populate ST6 Data - ScaleOps6 Platform</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FF5500;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .data-section {
+            background: rgba(255, 85, 0, 0.05);
+            border: 1px solid #FF5500;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        button {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #d64d2d;
+        }
+        .link-button {
+            background: transparent;
+            border: 2px solid #FF5500;
+            color: #FF5500;
+        }
+        .link-button:hover {
+            background: rgba(255, 85, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 ST6 Data Population for ScaleOps6Product</h1>
+    
+    <div class="status">
+        <h2>Status</h2>
+        <div id="status-message">Ready to populate data...</div>
+    </div>
+
+    <div class="data-section">
+        <h2>Worksheet Data</h2>
+        <pre id="worksheet-data"></pre>
+    </div>
+
+    <div class="data-section">
+        <h2>Analysis Results</h2>
+        <pre id="analysis-data"></pre>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <button onclick="populateData()">Populate ST6 Data</button>
+        <button onclick="clearData()">Clear All Data</button>
+        <button class="link-button" onclick="goToSubcomponent()">Go to Problem Statement Page</button>
+    </div>
+
+    <script>
+        // ST6's worksheet data for ScaleOps6Product
+        const st6WorksheetData = {
+            'who-affected': 'GTM leaders at early-stage B2B SaaS startups (Seed to Series B, 5-50 employees) struggling to build scalable go-to-market operations without enterprise resources',
+            'what-problem': 'Early-stage startups lack a systematic approach to assess and improve their GTM readiness. They struggle with fragmented tools, unclear priorities, and no standardized framework to measure progress. This leads to wasted resources, missed opportunities, and inability to demonstrate GTM maturity to investors.',
+            'when-occur': 'When founders need to assess GTM readiness for investor meetings, board reviews, or strategic planning. Critical moments include pre-fundraising, entering new markets, or scaling from founder-led sales',
+            'what-impact': '60% of startups fail due to GTM issues. Average 6-month delay in revenue. $2M+ wasted on wrong GTM strategies. 40% lower valuation without clear GTM proof points. 3x longer sales cycles without proper GTM infrastructure.',
+            'how-solving': 'Expensive consultants ($50K-200K engagements), generic frameworks that don\'t fit startup reality, DIY spreadsheets missing critical components, or flying blind with no systematic approach. Most solutions are built for enterprises, not resource-constrained startups.',
+            'evidence-validation': 'Interviewed 47 startup founders and GTM leaders. 89% said they lack confidence in GTM readiness. 76% wished they had a systematic framework earlier. Average founder spends 30+ hours/month on GTM planning without clear outcomes. VCs report GTM maturity as top 3 investment criteria.'
+        };
+
+        // ST6's analysis results for ScaleOps6Product
+        const st6AnalysisResults = {
+            score: 72,
+            grade: 'B-',
+            confidence: 0.85,
+            analysis: {
+                executiveSummary: "Strong problem statement with clear market understanding. ST6 has identified a critical gap in the GTM readiness assessment space for early-stage startups. The problem is well-articulated with solid evidence and quantifiable impact. Key strengths include specific target audience definition and comprehensive validation data. Areas for improvement include deeper competitive differentiation and more granular success metrics."
+            },
+            detailedScores: {
+                personaClarity: {
+                    score: 18,
+                    weight: 20,
+                    feedback: "✓ Excellent target market definition (B2B SaaS, Seed-Series B)\n✓ Clear company size parameters (5-50 employees)\n✓ Specific pain point identified (lack of GTM resources)\n✓ Decision maker role implied (GTM leaders/founders)\n✗ Could add more psychographic details"
+                },
+                contextualTriggers: {
+                    score: 16,
+                    weight: 20,
+                    feedback: "✓ Multiple trigger events identified\n✓ Critical moments well-defined (fundraising, market entry)\n✓ Clear urgency established\n✓ Business context provided\n✗ Could quantify frequency of triggers"
+                },
+                impactQuantification: {
+                    score: 15,
+                    weight: 20,
+                    feedback: "✓ Strong failure rate metric (60%)\n✓ Revenue delay quantified (6 months)\n✓ Financial waste identified ($2M+)\n✓ Valuation impact noted (40% lower)\n✗ Could add TAM/SAM/SOM calculations"
+                },
+                evidenceValidation: {
+                    score: 17,
+                    weight: 20,
+                    feedback: "✓ Primary research conducted (47 interviews)\n✓ Strong validation metrics (89% lack confidence)\n✓ Time investment quantified (30+ hours/month)\n✓ VC perspective included\n✗ Could add more customer quotes"
+                },
+                solutionGap: {
+                    score: 14,
+                    weight: 20,
+                    feedback: "✓ Current alternatives clearly identified\n✓ Cost implications analyzed ($50K-200K)\n✓ Limitations of each approach noted\n✗ Unique differentiation could be stronger\n✗ Missing specific competitor analysis"
+                }
+            },
+            recommendations: [
+                {
+                    priority: "HIGH",
+                    action: "Calculate and document Total Addressable Market (TAM/SAM/SOM)",
+                    expectedImprovement: "+5 points",
+                    specificSteps: ["Research number of B2B SaaS startups globally", "Identify serviceable market in target regions", "Calculate obtainable market share"],
+                    timeframe: "1 week"
+                },
+                {
+                    priority: "HIGH",
+                    action: "Develop unique value proposition vs. specific competitors",
+                    expectedImprovement: "+6 points",
+                    specificSteps: ["Analyze top 5 alternatives in detail", "Create comparison matrix", "Define 3 unique differentiators", "Test messaging with target audience"],
+                    timeframe: "2 weeks"
+                },
+                {
+                    priority: "MEDIUM",
+                    action: "Add direct customer quotes and case studies",
+                    expectedImprovement: "+4 points",
+                    specificSteps: ["Select 5-7 compelling quotes from interviews", "Develop 2-3 mini case studies", "Get permission to use names/logos"],
+                    timeframe: "1 week"
+                },
+                {
+                    priority: "STRATEGIC",
+                    action: "Create problem validation scorecard",
+                    expectedImprovement: "+3 points",
+                    specificSteps: ["Define validation criteria", "Score against each criterion", "Identify gaps to address"],
+                    timeframe: "3 days"
+                }
+            ],
+            strategicInsights: {
+                marketPosition: {
+                    strength: "First-mover in startup-specific GTM assessment",
+                    opportunities: ["Partner with accelerators", "Integrate with VC portfolio management tools", "Build community of GTM practitioners"],
+                    threats: ["Larger players entering the space", "DIY tools becoming more sophisticated"]
+                },
+                scalability: {
+                    potential: "High - productized service model",
+                    challenges: ["Maintaining quality at scale", "Customization vs. standardization balance"]
+                }
+            },
+            expertAdvice: "ST6 is addressing a genuine market need with ScaleOps6Product. The problem statement demonstrates deep understanding of the target market's pain points. To move from good to exceptional, focus on quantifying the market opportunity more precisely and establishing clear differentiation from both direct competitors and alternative solutions. Consider developing a 'problem severity index' to help prospects self-assess their need for your solution.",
+            timestamp: new Date().toISOString(),
+            strengths: [
+                "Exceptionally clear target audience definition",
+                "Strong validation with primary research",
+                "Multiple quantified impact metrics",
+                "Good understanding of current alternatives"
+            ],
+            improvements: [
+                "Add TAM/SAM/SOM calculations",
+                "Include more direct customer quotes",
+                "Strengthen competitive differentiation",
+                "Add success metrics and KPIs"
+            ]
+        };
+
+        function populateData() {
+            try {
+                // Save worksheet data
+                localStorage.setItem('worksheet_1-1', JSON.stringify(st6WorksheetData));
+                localStorage.setItem('worksheet_1-1_timestamp', new Date().toISOString());
+                
+                // Save analysis results
+                localStorage.setItem('analysis_1-1', JSON.stringify(st6AnalysisResults));
+                localStorage.setItem('analysis_1-1_timestamp', new Date().toISOString());
+                
+                // Display the data
+                document.getElementById('worksheet-data').textContent = JSON.stringify(st6WorksheetData, null, 2);
+                document.getElementById('analysis-data').textContent = JSON.stringify(st6AnalysisResults, null, 2);
+                
+                // Update status
+                document.getElementById('status-message').innerHTML = 
+                    '<span class="success">✅ Data successfully populated!</span><br>' +
+                    'Worksheet data saved for Problem Statement (1-1)<br>' +
+                    'Analysis results saved with score: 72% (Grade: B-)<br>' +
+                    '<br><strong>You can now refresh the page and the data will persist.</strong>';
+                
+                console.log('ST6 data populated successfully');
+            } catch (error) {
+                document.getElementById('status-message').innerHTML = 
+                    '<span style="color: #F44336;">❌ Error: ' + error.message + '</span>';
+            }
+        }
+
+        function clearData() {
+            localStorage.removeItem('worksheet_1-1');
+            localStorage.removeItem('worksheet_1-1_timestamp');
+            localStorage.removeItem('analysis_1-1');
+            localStorage.removeItem('analysis_1-1_timestamp');
+            
+            document.getElementById('worksheet-data').textContent = 'Data cleared';
+            document.getElementById('analysis-data').textContent = 'Data cleared';
+            document.getElementById('status-message').innerHTML = 
+                '<span style="color: #FF9800;">⚠️ All data cleared from localStorage</span>';
+        }
+
+        function goToSubcomponent() {
+            window.location.href = '/subcomponent-detail.html?id=1-1';
+        }
+
+        // Check if data already exists
+        function checkExistingData() {
+            const worksheetData = localStorage.getItem('worksheet_1-1');
+            const analysisData = localStorage.getItem('analysis_1-1');
+            
+            if (worksheetData || analysisData) {
+                let status = 'Existing data found in localStorage:<br>';
+                if (worksheetData) {
+                    status += '• Worksheet data exists<br>';
+                    document.getElementById('worksheet-data').textContent = JSON.stringify(JSON.parse(worksheetData), null, 2);
+                }
+                if (analysisData) {
+                    const analysis = JSON.parse(analysisData);
+                    status += `• Analysis data exists (Score: ${analysis.score}%, Grade: ${analysis.grade})<br>`;
+                    document.getElementById('analysis-data').textContent = JSON.stringify(analysis, null, 2);
+                }
+                document.getElementById('status-message').innerHTML = status;
+            } else {
+                document.getElementById('worksheet-data').textContent = 'No data yet - click "Populate ST6 Data" to add it';
+                document.getElementById('analysis-data').textContent = 'No data yet - click "Populate ST6 Data" to add it';
+            }
+        }
+
+        // Check on page load
+        checkExistingData();
+    </script>
+</body>
+</html>
