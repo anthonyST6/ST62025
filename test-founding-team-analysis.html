@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Founding Team Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #FF5500;
+        }
+        button {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #FF7700;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #333;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+        .dimension {
+            background: #3a3a3a;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #555;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5500, #FF8800);
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👨‍👩‍👧‍👦 Founding Team Capability Analysis Test</h1>
+        <p>Testing the Founding Team analysis agent with sample data</p>
+        
+        <button onclick="testFoundingTeam()">Test Founding Team Analysis</button>
+        <button onclick="testWithWeakTeam()">Test with Weak Team</button>
+        <button onclick="testWithStrongTeam()">Test with Strong Team</button>
+        
+        <div id="results" class="results" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Sample founding team data
+        const sampleTeamData = {
+            'field-1': 'CEO/Co-founder: Anthony (15+ years enterprise sales), CTO/Co-founder: Sarah (ex-Google, 10+ years engineering), VP Marketing: David (scaled 3 startups from 0 to $10M ARR)',
+            'field-2': 'Anthony: Built sales teams at Oracle and Salesforce, closed $50M+ in enterprise deals. Sarah: Led engineering at 2 successful exits. David: Growth marketing expert, 100K+ MQLs generated',
+            'field-3': 'Full-stack development (React, Node, Python), Cloud architecture (AWS certified), AI/ML implementation, DevOps and CI/CD, Security and compliance (SOC2, GDPR)',
+            'field-4': 'Combined 30+ years in B2B SaaS. Deep understanding of enterprise sales cycles. Strong network of VCs, advisors, and potential customers. Published thought leaders in GTM space',
+            'field-5': 'Anthony: CEO at previous startup (exit to PE), managed 50+ person team. Sarah: VP Engineering managing 30 engineers. David: Director of Growth at Series B startup',
+            'field-6': 'Need CFO for Series A. Building advisory board with GTM experts. Hiring Head of Customer Success Q2. Adding 2 senior engineers next month'
+        };
+
+        const weakTeamData = {
+            'field-1': 'Two technical co-founders, both first-time founders',
+            'field-2': 'No direct sales or marketing experience',
+            'field-3': 'Strong engineering skills, built several side projects',
+            'field-4': '2 years in the industry as engineers',
+            'field-5': 'No previous leadership experience',
+            'field-6': 'Need to hire sales and marketing leadership'
+        };
+
+        const strongTeamData = {
+            'field-1': 'CEO: 3x founder with 2 exits ($50M and $200M), CTO: Ex-Facebook/Meta senior architect, CPO: Former VP Product at Stripe, CRO: Scaled Datadog from $10M to $100M ARR',
+            'field-2': 'CEO: Built and sold B2B SaaS companies, raised $100M+ total. CRO: Managed 200+ person sales org, consistently hit 150% of quota. CPO: Launched 5 products generating $500M+ revenue',
+            'field-3': 'CTO: Distributed systems expert, 15 patents, built infrastructure serving 1B+ users. Engineering team: Ex-FAANG engineers with deep expertise in AI, cloud, and security',
+            'field-4': '60+ years combined experience in enterprise software. Deep relationships with Fortune 500 CTOs and CIOs. Regular speakers at industry conferences. Published authors on GTM and product strategy',
+            'field-5': 'CEO: Managed 500+ employees across 3 companies. CTO: Led 100+ engineer org at Meta. CRO: Built global sales teams across 5 continents. All have board experience',
+            'field-6': 'Advisory board includes former Salesforce President, Sequoia Partner, and 3 Fortune 500 executives. Hiring plan fully mapped for next 18 months. Executive coach engaged for leadership team'
+        };
+
+        async function testFoundingTeam() {
+            await runAnalysis(sampleTeamData, 'Standard Founding Team Data');
+        }
+
+        async function testWithWeakTeam() {
+            await runAnalysis(weakTeamData, 'Weak Team Data');
+        }
+
+        async function testWithStrongTeam() {
+            await runAnalysis(strongTeamData, 'Strong Team Data');
+        }
+
+        async function runAnalysis(data, testName) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = `<h3>Running ${testName} Analysis...</h3>`;
+            
+            try {
+                console.log('📤 Sending request to /api/analyze/founding-team');
+                console.log('Data:', data);
+                
+                const response = await fetch('/api/analyze/founding-team', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': '1'
+                    },
+                    body: JSON.stringify({
+                        worksheetData: data,
+                        subcomponentId: '1-4'
+                    })
+                });
+                
+                console.log('📥 Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                console.log('✅ Analysis result:', result);
+                
+                displayResults(result, testName);
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                resultsDiv.innerHTML = `
+                    <h3>❌ Error Running ${testName}</h3>
+                    <p style="color: #f44336;">${error.message}</p>
+                    <p>Check console for details</p>
+                `;
+            }
+        }
+        
+        function displayResults(result, testName) {
+            const resultsDiv = document.getElementById('results');
+            
+            let html = `
+                <h2>✅ ${testName} - Analysis Complete</h2>
+                <div class="score">Score: ${result.score}%</div>
+            `;
+            
+            // Executive Summary
+            if (result.analysis && result.analysis.executiveSummary) {
+                html += `
+                    <div class="dimension">
+                        <h3>Executive Summary</h3>
+                        <p>${result.analysis.executiveSummary}</p>
+                    </div>
+                `;
+            }
+            
+            // Detailed Scores
+            if (result.detailedScores) {
+                html += '<h3>Dimension Scores:</h3>';
+                for (const [key, value] of Object.entries(result.detailedScores)) {
+                    const displayName = key.replace(/([A-Z])/g, ' $1').trim()
+                        .split(' ')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
+                    
+                    html += `
+                        <div class="dimension">
+                            <h4>${displayName}</h4>
+                            <div>Score: ${value.score}/${value.maxScore} (${value.percentage}%)</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${value.percentage}%"></div>
+                            </div>
+                            ${value.feedback ? `<pre style="white-space: pre-wrap;">${value.feedback}</pre>` : ''}
+                        </div>
+                    `;
+                }
+            }
+            
+            // Recommendations
+            if (result.recommendations && result.recommendations.length > 0) {
+                html += '<h3>Recommendations:</h3>';
+                result.recommendations.forEach(rec => {
+                    html += `
+                        <div class="dimension">
+                            <h4>${rec.area} (${rec.priority})</h4>
+                            <p>Impact: ${rec.impact}</p>
+                            ${rec.actionPlan ? `
+                                <ul>
+                                    ${rec.actionPlan.map(action => `<li>${action}</li>`).join('')}
+                                </ul>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+            }
+            
+            // Raw JSON for debugging
+            html += `
+                <h3>Raw Response (for debugging):</h3>
+                <pre>${JSON.stringify(result, null, 2)}</pre>
+            `;
+            
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

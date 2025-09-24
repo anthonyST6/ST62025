@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewal Forecasting - Customer Success Expansion | ScaleOps6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #FF5500 0%, #FF8800 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: white; text-decoration: none; }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a { color: #FF5500; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .subcomponent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,85,0,0.1) 0%, rgba(255,136,0,0.1) 100%);
+            border-radius: 12px;
+        }
+        .subcomponent-badge {
+            display: inline-block;
+            background: #FF5500;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .agent-info {
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        .score-circle {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .score-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .score-label {
+            display: block;
+            font-size: 0.75rem;
+            color: #888;
+        }
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        .tab {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tab.active {
+            color: #FF5500;
+            border-bottom: 2px solid #FF5500;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .content-section {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .content-section h3 {
+            color: #FF5500;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: white;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .required {
+            color: #FF5500;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analysis-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .analysis-card {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .dimension {
+            margin-bottom: 1.5rem;
+        }
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .dimension-bar {
+            height: 8px;
+            background: #222;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        .dimension-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5500, #FF8800);
+        }
+        .dimension-desc {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .resource-card {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .resource-card i {
+            font-size: 2rem;
+            color: #FF5500;
+            margin-bottom: 1rem;
+        }
+        .history-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .stat-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="ScaleOps6_logo.png" alt="ScaleOps6" style="height: 40px;">
+        </div>
+        <nav class="nav">
+            <a href="index.html">Dashboard</a>
+            <a href="block-8-customer-success-expansion.html">Block 8</a>
+            <a href="#">Settings</a>
+        </nav>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Dashboard</a> / 
+        <a href="block-8-customer-success-expansion.html">Block 8: Customer Success Expansion</a> / 
+        8F: Renewal Readiness
+    </div>
+
+    <div class="container">
+        <div class="subcomponent-header">
+            <div class="header-content">
+                <span class="subcomponent-badge">8F</span>
+                <h1>Renewal Forecasting</h1>
+                <p class="agent-info">
+                    <i class="fas fa-robot"></i> Expert Agent: Renewal Readiness Expert
+                </p>
+            </div>
+            <div class="score-display">
+                <div class="score-circle">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="54" stroke="#333" stroke-width="8" fill="none"/>
+                        <circle cx="60" cy="60" r="54" stroke="#FF5500" stroke-width="8" fill="none"
+                                stroke-dasharray="339.292" stroke-dashoffset="100"
+                                transform="rotate(-90 60 60)"/>
+                    </svg>
+                    <div class="score-text">
+                        <span class="score-value">72</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="education">
+                <i class="fas fa-graduation-cap"></i> Education
+            </button>
+            <button class="tab" data-tab="workspace">
+                <i class="fas fa-edit"></i> Workspace
+            </button>
+            <button class="tab" data-tab="analysis">
+                <i class="fas fa-chart-line"></i> Analysis
+            </button>
+            <button class="tab" data-tab="resources">
+                <i class="fas fa-book"></i> Resources
+            </button>
+            <button class="tab" data-tab="history">
+                <i class="fas fa-history"></i> Score History
+            </button>
+        </div>
+
+        <div class="tab-content">
+            <div id="education" class="tab-content active">
+                
+            <div class="content-section">
+                <h3>What is Renewal Forecasting?</h3>
+                <p>A predictive model and process for estimating customer renewal probability and revenue retention rates.</p>
+                
+                <h3>Why It Matters</h3>
+                <p>Renewals are the lifeblood of SaaS. Accurate forecasting enables proactive intervention, better resource planning, and investor confidence.</p>
+                
+                <h3>How to Implement</h3>
+                
+      <h4>Forecasting Factors:</h4>
+      <ul>
+        <li><strong>Health Score:</strong> Current customer health</li>
+        <li><strong>Usage Trends:</strong> Increasing or decreasing</li>
+        <li><strong>Engagement:</strong> Stakeholder involvement</li>
+        <li><strong>Value Delivery:</strong> ROI achievement</li>
+        <li><strong>Competitive Threats:</strong> Alternative evaluations</li>
+      </ul>
+      
+      <h4>Forecasting Process:</h4>
+      <ol>
+        <li>Segment customers by renewal date</li>
+        <li>Assess renewal probability</li>
+        <li>Identify at-risk accounts</li>
+        <li>Create intervention plans</li>
+        <li>Track forecast accuracy</li>
+        <li>Refine model quarterly</li>
+      </ol>
+    
+                
+                
+                <h3>Examples</h3>
+                <ul>
+                    <li>Q4 forecast: 92% gross retention, 105% net retention</li><li>30 days out: 95% forecast accuracy</li><li>Intervention success: 60% of at-risk saved</li>
+                </ul>
+                
+                
+                
+                <h3>Key Metrics</h3>
+                <ul>
+                    <li>Gross retention rate</li><li>Net retention rate</li><li>Forecast accuracy</li><li>Save rate</li>
+                </ul>
+                
+            </div>
+        
+            </div>
+            </div>
+
+            <div id="workspace" class="tab-content">
+                
+            <form id="worksheetForm">
+                
+                    <div class="form-group">
+                        <label for="current_state">Current Renewal Forecasting Status *</label>
+                        <textarea id="current_state" name="current_state" placeholder="Describe your current approach to renewal forecasting..." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="target_outcome">Desired Outcome *</label>
+                        <textarea id="target_outcome" name="target_outcome" placeholder="What success looks like for renewal forecasting..." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="key_challenges">Key Challenges</label>
+                        <textarea id="key_challenges" name="key_challenges" placeholder="Main obstacles or concerns..." ></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="timeline">Implementation Timeline *</label>
+                        <select id="timeline" name="timeline" required>
+                                <option value="">Select...</option>
+                                <option value="Immediate">Immediate</option><option value="1-2 weeks">1-2 weeks</option><option value="1 month">1 month</option><option value="3 months">3 months</option><option value="6+ months">6+ months</option>
+                            </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="resources_needed">Resources Required</label>
+                        <textarea id="resources_needed" name="resources_needed" placeholder="Team, budget, tools needed..." ></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="success_metrics">Success Metrics *</label>
+                        <textarea id="success_metrics" name="success_metrics" placeholder="How you'll measure success for renewal forecasting..." required></textarea>
+                    </div>
+                
+                <button type="submit" class="submit-btn">Save Progress</button>
+            </form>
+        
+            </div>
+                
+                    <div class="dimension-card">
+                        <h4>Quality</h4>
+                        <p>Quality and effectiveness of implementation</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Strategic Alignment</h4>
+                        <p>Alignment with business objectives</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Adoption/Usage</h4>
+                        <p>Level of adoption and regular usage</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Business Impact</h4>
+                        <p>Measurable impact on business outcomes</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+            </div>
+            <div class="overall-score">
+                <h3>Overall Score</h3>
+                <div class="score-circle">
+                    <span class="score-number">0</span>
+                    <span class="score-label">/ 100</span>
+                </div>
+            </div>
+        
+            </div>
+                <p class="dimension-desc">Renewal process maturity</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Early Engagement</span>
+                    <span class="dimension-score">18/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 80.63761640943245%"></div>
+                </div>
+                <p class="dimension-desc">Renewal conversation timing</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Value Documentation</span>
+                    <span class="dimension-score">15/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 75.06305437463652%"></div>
+                </div>
+                <p class="dimension-desc">Value proof for renewal</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Risk Identification</span>
+                    <span class="dimension-score">14/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 69.27788460669414%"></div>
+                </div>
+                <p class="dimension-desc">Renewal risk detection</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Renewal Rates</span>
+                    <span class="dimension-score">12/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 65.64766107155378%"></div>
+                </div>
+                <p class="dimension-desc">Renewal success metrics</p>
+            </div>
+        
+                            </div>
+                        </div>
+                        <div class="analysis-card">
+                            <h3>Key Findings</h3>
+                            
+            <div class="findings">
+                <h4 style="color: #4CAF50; margin-bottom: 1rem;">✅ Strengths</h4>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Clear understanding of retention preparation</span>
+                    </div>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Systematic approach in place</span>
+                    </div>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Data-driven decision making</span>
+                    </div>
+                
+                
+                <h4 style="color: #FF9800; margin: 1.5rem 0 1rem 0;">⚠️ Areas for Improvement</h4>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Limited validation or evidence</span>
+                    </div>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Inconsistent implementation</span>
+                    </div>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Lack of clear metrics</span>
+                    </div>
+                
+                
+                <h4 style="color: #2196F3; margin: 1.5rem 0 1rem 0;">💡 Opportunities</h4>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Enhance retention preparation capabilities</span>
+                    </div>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Implement best practices</span>
+                    </div>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Leverage automation and tools</span>
+                    </div>
+                
+            </div>
+        
+                        </div>
+                        <div class="analysis-card">
+                            <h3>Recommendations</h3>
+                            
+            <div class="recommendations">
+                
+                    <div class="recommendation" style="margin-bottom: 1rem;">
+                        <span class="priority high"
+                              style="background: #F44336;
+                                     color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">
+                            HIGH PRIORITY
+                        </span>
+                        <p style="margin-top: 0.5rem;">Conduct thorough assessment of current retention preparation</p>
+                    </div>
+                
+                    <div class="recommendation" style="margin-bottom: 1rem;">
+                        <span class="priority medium"
+                              style="background: #FF9800;
+                                     color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">
+                            MEDIUM PRIORITY
+                        </span>
+                        <p style="margin-top: 0.5rem;">Develop clear action plan with milestones</p>
+                    </div>
+                
+                    <div class="recommendation" style="margin-bottom: 1rem;">
+                        <span class="priority low"
+                              style="background: #4CAF50;
+                                     color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">
+                            LOW PRIORITY
+                        </span>
+                        <p style="margin-top: 0.5rem;">Establish regular review and optimization cycles</p>
+                    </div>
+                
+            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resources" class="tab-content">
+                
+            <div class="resources-grid">
+                
+                    <div class="resource-section">
+                        <h3>Recommended Tools</h3>
+                        <ul>
+                            <li>CRM Systems (Salesforce, HubSpot)</li><li>Forecasting Tools (Clari, BoostUp)</li><li>Pipeline Analytics (Gong, Chorus)</li><li>Deal Desk Tools (DealHub, Conga)</li>
+                        </ul>
+                    </div>
+                
+                    <div class="resource-section">
+                        <h3>Templates & Frameworks</h3>
+                        <ul>
+                            <li>Pipeline Review Agenda</li><li>Deal Inspection Checklist</li><li>Forecast Call Script</li><li>MEDDICC Scorecard</li>
+                        </ul>
+                    </div>
+                
+                    <div class="resource-section">
+                        <h3>Best Practices</h3>
+                        <ul>
+                            <li>Review pipeline weekly minimum</li><li>Inspect deals not just metrics</li><li>Focus on next steps and blockers</li><li>Track conversion rates by stage</li>
+                        </ul>
+                    </div>
+                
+            </div>
+        
+            </div>
+        
+            </div>
+        
+                </div>
+            </div>
+
+            <div id="history" class="tab-pane">
+                <div class="history-content">
+                    <h2>Score History & Trends</h2>
+                    <div class="chart-container">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
+                    <div class="history-stats">
+                        <div class="stat">
+                            <span class="stat-value">+15%</span>
+                            <span class="stat-label">30-Day Change</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">72</span>
+                            <span class="stat-label">Current Score</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">85</span>
+                            <span class="stat-label">Target Score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.tab;
+                
+                // Update active tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active pane
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('worksheetForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Analysis submitted! Results will appear in the Analysis tab.');
+            document.querySelector('[data-tab="analysis"]').click();
+        });
+
+        // Simulate score animation
+        setTimeout(() => {
+            const circle = document.querySelector('circle:last-child');
+            if (circle) {
+                circle.style.transition = 'stroke-dashoffset 1s ease';
+                circle.style.strokeDashoffset = '95';
+            }
+        }, 500);
+    </script>
+</body>
+</html>

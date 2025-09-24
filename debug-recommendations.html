@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Recommendations - ScaleOps6</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FF5500;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            color: #FF5500;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .test-result {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .success {
+            border-left: 3px solid #4CAF50;
+        }
+        .error {
+            border-left: 3px solid #F44336;
+        }
+        .warning {
+            border-left: 3px solid #FF9800;
+        }
+        button {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #FF6600;
+        }
+        .recommendation-display {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .rec-title {
+            color: #2196F3;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .rec-improvement {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Recommendation Debugging Tool</h1>
+    
+    <div class="test-section">
+        <div class="test-title">1. Browser Cache Status</div>
+        <button onclick="checkCache()">Check Cache</button>
+        <button onclick="clearCache()">Force Clear Cache</button>
+        <div id="cache-result" class="test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <div class="test-title">2. Test API Endpoint Directly</div>
+        <button onclick="testAPIEndpoint()">Test API</button>
+        <div id="api-result" class="test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <div class="test-title">3. Test Enhanced Agent Import</div>
+        <button onclick="testAgentImport()">Test Agent</button>
+        <div id="agent-result" class="test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <div class="test-title">4. Live Recommendation Analysis</div>
+        <button onclick="runFullAnalysis()">Run Full Analysis</button>
+        <div id="analysis-result" class="test-result"></div>
+        <div id="recommendations-display"></div>
+    </div>
+    
+    <div class="test-section">
+        <div class="test-title">5. Check Script Versions</div>
+        <button onclick="checkScriptVersions()">Check Versions</button>
+        <div id="version-result" class="test-result"></div>
+    </div>
+
+    <script>
+        // Add timestamp to prevent caching
+        const nocache = '?v=' + Date.now();
+        
+        function checkCache() {
+            const result = document.getElementById('cache-result');
+            result.className = 'test-result warning';
+            
+            // Check localStorage
+            const localStorageSize = JSON.stringify(localStorage).length;
+            const sessionStorageSize = JSON.stringify(sessionStorage).length;
+            
+            // Check for service workers
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    let cacheInfo = `Cache Status:\n`;
+                    cacheInfo += `- localStorage size: ${localStorageSize} bytes\n`;
+                    cacheInfo += `- sessionStorage size: ${sessionStorageSize} bytes\n`;
+                    cacheInfo += `- Service Workers: ${registrations.length} registered\n`;
+                    
+                    if (registrations.length > 0) {
+                        cacheInfo += `\n⚠️ Service Workers detected - may be caching responses!\n`;
+                        registrations.forEach(reg => {
+                            cacheInfo += `  - ${reg.scope}\n`;
+                        });
+                    }
+                    
+                    // Check for cached analysis
+                    const cachedAnalysis = localStorage.getItem('analysis_1-1');
+                    if (cachedAnalysis) {
+                        const analysis = JSON.parse(cachedAnalysis);
+                        cacheInfo += `\n📦 Found cached analysis from ${localStorage.getItem('analysis_1-1_timestamp')}\n`;
+                        if (analysis.recommendations) {
+                            cacheInfo += `  - ${analysis.recommendations.length} recommendations cached\n`;
+                            analysis.recommendations.forEach((rec, i) => {
+                                cacheInfo += `    ${i+1}. ${rec.expectedImprovement || rec.impact || 'No improvement value'}\n`;
+                            });
+                        }
+                    }
+                    
+                    result.textContent = cacheInfo;
+                });
+            } else {
+                result.textContent = `Cache Status:\n- localStorage: ${localStorageSize} bytes\n- sessionStorage: ${sessionStorageSize} bytes`;
+            }
+        }
+        
+        function clearCache() {
+            const result = document.getElementById('cache-result');
+            
+            // Clear all storage
+            localStorage.clear();
+            sessionStorage.clear();
+            
+            // Unregister service workers
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    registrations.forEach(registration => {
+                        registration.unregister();
+                    });
+                });
+            }
+            
+            // Clear caches
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => {
+                        caches.delete(name);
+                    });
+                });
+            }
+            
+            result.className = 'test-result success';
+            result.textContent = '✅ All caches cleared!\n- localStorage cleared\n- sessionStorage cleared\n- Service workers unregistered\n- Browser caches deleted\n\n⚠️ Please refresh the page (Ctrl+F5) to ensure fresh content!';
+        }
+        
+        async function testAPIEndpoint() {
+            const result = document.getElementById('api-result');
+            result.className = 'test-result';
+            result.textContent = 'Testing API endpoint...';
+            
+            try {
+                const testData = {
+                    worksheetData: {
+                        'who-affected': 'Test persona',
+                        'what-problem': 'Test problem',
+                        'when-occur': 'Test context',
+                        'what-impact': 'Test impact with metrics',
+                        'how-solving': 'Test current solutions',
+                        'evidence-validation': 'Test evidence'
+                    },
+                    subcomponentId: '1-1',
+                    uploadedDocs: []
+                };
+                
+                console.log('Sending test request to API...');
+                const response = await fetch('/api/analyze/problem-statement' + nocache, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.className = 'test-result success';
+                    
+                    let output = '✅ API Response Received:\n\n';
+                    output += `Score: ${data.score}%\n`;
+                    output += `Confidence: ${data.confidence ? Math.round(data.confidence * 100) + '%' : 'N/A'}\n`;
+                    output += `Timestamp: ${data.timestamp || 'N/A'}\n\n`;
+                    
+                    if (data.recommendations) {
+                        output += `Recommendations: ${data.recommendations.length} found\n\n`;
+                        data.recommendations.forEach((rec, i) => {
+                            output += `${i+1}. ${rec.area || rec.action || 'Unknown'}\n`;
+                            output += `   Priority: ${rec.priority || 'MEDIUM'}\n`;
+                            output += `   Expected Improvement: ${rec.expectedImprovement || rec.impact || 'NOT SPECIFIED'}\n`;
+                            output += `   Raw object keys: ${Object.keys(rec).join(', ')}\n\n`;
+                        });
+                    } else {
+                        output += '❌ No recommendations in response!\n';
+                    }
+                    
+                    result.textContent = output;
+                    
+                    // Also log full response
+                    console.log('Full API Response:', data);
+                } else {
+                    result.className = 'test-result error';
+                    result.textContent = `❌ API Error: ${response.status} ${response.statusText}`;
+                }
+            } catch (error) {
+                result.className = 'test-result error';
+                result.textContent = `❌ Network Error: ${error.message}`;
+                console.error('API Test Error:', error);
+            }
+        }
+        
+        async function testAgentImport() {
+            const result = document.getElementById('agent-result');
+            result.className = 'test-result';
+            result.textContent = 'Testing agent import on server...';
+            
+            try {
+                // Test a special endpoint to verify agent
+                const response = await fetch('/api/test/agent-version' + nocache, {
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.className = 'test-result success';
+                    result.textContent = `✅ Agent Status:\n${JSON.stringify(data, null, 2)}`;
+                } else if (response.status === 404) {
+                    result.className = 'test-result warning';
+                    result.textContent = '⚠️ Test endpoint not found. Creating test endpoint would help verify agent version.';
+                } else {
+                    result.className = 'test-result error';
+                    result.textContent = `❌ Error: ${response.status}`;
+                }
+            } catch (error) {
+                result.className = 'test-result error';
+                result.textContent = `❌ Error: ${error.message}`;
+            }
+        }
+        
+        async function runFullAnalysis() {
+            const result = document.getElementById('analysis-result');
+            const display = document.getElementById('recommendations-display');
+            
+            result.className = 'test-result';
+            result.textContent = 'Running full analysis with sample data...';
+            display.innerHTML = '';
+            
+            try {
+                const worksheetData = {
+                    'who-affected': 'B2B SaaS founders with 10-50 employees in early growth stage',
+                    'what-problem': 'Founders waste 30+ hours monthly on fragmented GTM planning without clear validation of readiness, leading to premature scaling and resource burn',
+                    'when-occur': 'During transition from product-market fit to scaling phase, typically at $1-5M ARR',
+                    'what-impact': 'Average startup wastes $500K and 6-12 months on failed GTM attempts. 70% of startups fail due to premature scaling. Teams lose 30% productivity from misaligned priorities.',
+                    'how-solving': 'Using expensive consultants ($50K-200K), generic enterprise frameworks, or DIY spreadsheets that miss critical startup-specific factors',
+                    'evidence-validation': 'Interviewed 47 founders: 89% lack GTM confidence, 76% want systematic framework. VCs report GTM maturity as top 3 investment criteria. Average founder spends 30+ hours/month on GTM planning.'
+                };
+                
+                const response = await fetch('/api/analyze/problem-statement' + nocache, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    },
+                    body: JSON.stringify({
+                        worksheetData,
+                        subcomponentId: '1-1',
+                        uploadedDocs: []
+                    })
+                });
+                
+                if (response.ok) {
+                    const analysis = await response.json();
+                    
+                    result.className = 'test-result success';
+                    result.textContent = `✅ Analysis Complete!\nScore: ${analysis.score}%\nRecommendations: ${analysis.recommendations?.length || 0}`;
+                    
+                    // Display recommendations
+                    if (analysis.recommendations && analysis.recommendations.length > 0) {
+                        display.innerHTML = '<h3 style="color: #FF5500; margin-top: 20px;">Recommendations Received:</h3>';
+                        
+                        analysis.recommendations.forEach((rec, i) => {
+                            const recDiv = document.createElement('div');
+                            recDiv.className = 'recommendation-display';
+                            
+                            const improvement = rec.expectedImprovement || rec.impact || 'NO VALUE';
+                            const isHardcoded = improvement === '+30 points' || improvement === '+30%';
+                            
+                            recDiv.innerHTML = `
+                                <div class="rec-title">${i+1}. ${rec.area || rec.action || 'Unknown'}</div>
+                                <div>Priority: ${rec.priority || 'MEDIUM'}</div>
+                                <div class="rec-improvement ${isHardcoded ? 'error' : ''}">
+                                    Expected Improvement: ${improvement}
+                                    ${isHardcoded ? ' ⚠️ HARDCODED VALUE DETECTED!' : ' ✅'}
+                                </div>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                    Raw value: "${rec.expectedImprovement}" | Impact: "${rec.impact}"
+                                </div>
+                            `;
+                            
+                            display.appendChild(recDiv);
+                        });
+                        
+                        // Check for hardcoded values
+                        const hardcodedFound = analysis.recommendations.some(rec => {
+                            const val = rec.expectedImprovement || rec.impact || '';
+                            return val.includes('30');
+                        });
+                        
+                        if (hardcodedFound) {
+                            display.innerHTML += '<div class="test-result error" style="margin-top: 20px;">⚠️ WARNING: Hardcoded +30 values detected! The enhanced agent may not be properly loaded.</div>';
+                        } else {
+                            display.innerHTML += '<div class="test-result success" style="margin-top: 20px;">✅ All improvement values appear dynamic and realistic!</div>';
+                        }
+                    }
+                    
+                    console.log('Full Analysis Response:', analysis);
+                } else {
+                    result.className = 'test-result error';
+                    result.textContent = `❌ Analysis failed: ${response.status}`;
+                }
+            } catch (error) {
+                result.className = 'test-result error';
+                result.textContent = `❌ Error: ${error.message}`;
+                console.error('Analysis Error:', error);
+            }
+        }
+        
+        function checkScriptVersions() {
+            const result = document.getElementById('version-result');
+            result.className = 'test-result';
+            
+            let versionInfo = 'Script Version Check:\n\n';
+            
+            // Check if enhanced agent is loaded
+            versionInfo += 'Client-side checks:\n';
+            versionInfo += `- Current URL: ${window.location.href}\n`;
+            versionInfo += `- Page loaded at: ${new Date().toISOString()}\n`;
+            versionInfo += `- User Agent: ${navigator.userAgent}\n\n`;
+            
+            // Check for specific functions that should exist
+            versionInfo += 'Function checks:\n';
+            versionInfo += `- window.analyzeWorksheet: ${typeof window.analyzeWorksheet}\n`;
+            versionInfo += `- window.displayAnalysisResults: ${typeof window.displayAnalysisResults}\n`;
+            versionInfo += `- window.getMockAnalysisResults: ${typeof window.getMockAnalysisResults}\n\n`;
+            
+            // Check localStorage for any cached versions
+            const cachedData = localStorage.getItem('analysis_1-1');
+            if (cachedData) {
+                try {
+                    const parsed = JSON.parse(cachedData);
+                    versionInfo += 'Cached analysis found:\n';
+                    versionInfo += `- Timestamp: ${localStorage.getItem('analysis_1-1_timestamp')}\n`;
+                    versionInfo += `- Score: ${parsed.score}%\n`;
+                    versionInfo += `- Recommendations: ${parsed.recommendations?.length || 0}\n`;
+                } catch (e) {
+                    versionInfo += 'Cached analysis found but could not parse\n';
+                }
+            }
+            
+            result.textContent = versionInfo;
+        }
+        
+        // Auto-run cache check on load
+        window.addEventListener('load', () => {
+            checkCache();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Problem Statement Recommendations</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #FF5500;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 85, 0, 0.3);
+        }
+        
+        #analysis-content {
+            margin-top: 30px;
+            min-height: 400px;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196F3;
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Problem Statement Recommendations Test</h1>
+        
+        <div class="test-section">
+            <h2>Test Scenario: Comprehensive Problem Statement</h2>
+            <p>This test simulates a well-articulated problem statement to verify recommendations display with:</p>
+            <ul>
+                <li>✅ Actionable recommendations (not just resources)</li>
+                <li>✅ "+X" impact scores for each recommendation</li>
+                <li>✅ Priority badges (CRITICAL, HIGH, MEDIUM)</li>
+                <li>✅ Specific implementation steps</li>
+                <li>✅ Success metrics</li>
+                <li>✅ Expected ROI information</li>
+            </ul>
+            
+            <button class="btn-primary" onclick="testRecommendations()">
+                Test Recommendations Display
+            </button>
+            
+            <div class="status info" id="status">
+                Click the button to test the enhanced recommendations display
+            </div>
+        </div>
+        
+        <div id="analysis-content"></div>
+    </div>
+    
+    <!-- Include the problem statement handler -->
+    <script src="problem-statement-handler.js"></script>
+    
+    <script>
+        // Test function to simulate analysis results with recommendations
+        function testRecommendations() {
+            const statusEl = document.getElementById('status');
+            statusEl.className = 'status success';
+            statusEl.innerHTML = '✅ Testing recommendations display...';
+            
+            // Simulate analysis results from the agent
+            const mockAnalysis = {
+                score: 68,
+                analysis: {
+                    executiveSummary: "Strong problem statement foundation (68%). You demonstrate good intermediate-level understanding with clear growth potential. Strengths: Clear problem articulation, Strong customer empathy. Priority improvements: Value quantification, Market understanding. You can reach excellence with focused effort."
+                },
+                detailedScores: {
+                    problemClarity: {
+                        score: 16,
+                        maxScore: 20,
+                        percentage: 80,
+                        weight: 20,
+                        feedback: "Good problem clarity but could benefit from more specific examples\n\n✓ Clear problem articulation\n✓ Some target segments identified\n✓ Good quantification with key metrics\n\n✗ Add more specific personas and scenarios\n✗ Explore root causes more deeply"
+                    },
+                    marketUnderstanding: {
+                        score: 12,
+                        maxScore: 20,
+                        percentage: 60,
+                        weight: 20,
+                        feedback: "Basic market understanding - needs deeper analysis\n\n✓ Market opportunity identified\n✓ Growth potential recognized\n\n✗ Need better market quantification (TAM/SAM/SOM)\n✗ Define go-to-market strategy\n✗ Research market growth trends\n✗ Validate with industry experts"
+                    },
+                    customerEmpathy: {
+                        score: 15,
+                        maxScore: 20,
+                        percentage: 75,
+                        weight: 20,
+                        feedback: "Good customer understanding with room for deeper validation\n\n✓ Customer segments identified\n✓ Some customer validation done\n✓ Target personas defined\n\n✗ Conduct 20+ customer interviews\n✗ Map Jobs-to-be-Done clearly\n✗ Develop detailed buyer personas\n✗ Collect direct customer quotes"
+                    },
+                    valueQuantification: {
+                        score: 10,
+                        maxScore: 20,
+                        percentage: 50,
+                        weight: 20,
+                        feedback: "Some quantification present - needs comprehensive metrics\n\n✓ Some metrics provided\n✓ Value consideration started\n\n✗ Calculate specific ROI metrics\n✗ Add time and cost savings data\n✗ Benchmark against alternatives\n✗ Include financial impact numbers"
+                    },
+                    solutionDifferentiation: {
+                        score: 15,
+                        maxScore: 20,
+                        percentage: 75,
+                        weight: 20,
+                        feedback: "Good differentiation understanding with room for refinement\n\n✓ Competitive landscape considered\n✓ Differentiation points identified\n✓ Unique approach considered\n\n✗ Analyze top 5 competitors deeply\n✗ Clarify unique value proposition\n✗ Define sustainable competitive moat\n✗ Document 'why now' for your solution"
+                    }
+                },
+                recommendations: [
+                    {
+                        priority: "CRITICAL",
+                        area: "Value Quantification & ROI",
+                        action: "Build Comprehensive ROI Model",
+                        expectedImprovement: 10,
+                        impact: "+10",
+                        actionPlan: [
+                            "Build an interactive ROI calculator showing payback period under 12 months",
+                            "Document 3 detailed case studies with specific before/after metrics and testimonials",
+                            "Calculate exact time savings (hours/week) and cost savings ($/month) for each persona",
+                            "Get 5 paying customers to validate and endorse your ROI calculations publicly",
+                            "Create a comprehensive value comparison matrix against top 3 alternatives"
+                        ],
+                        recommendations: [
+                            "Interview your top 5 customers about their actual cost savings",
+                            "Create an ROI calculator in Excel or Google Sheets",
+                            "Document time saved per week for each use case",
+                            "Calculate the total cost of ownership (TCO) comparison"
+                        ],
+                        successMetrics: [
+                            "ROI calculator validated by 5+ customers",
+                            "3+ case studies with hard metrics documented",
+                            "Clear payback period under 12 months demonstrated",
+                            "Value messaging adopted by sales team"
+                        ],
+                        detailedAnalysis: {
+                            overview: "Quantifying value transforms vague benefits into compelling business cases. This process will establish clear ROI metrics that resonate with economic buyers.",
+                            roi: "Clear value quantification increases average deal size by 25-40% and shortens sales cycles by 20-30%."
+                        }
+                    },
+                    {
+                        priority: "HIGH",
+                        area: "Market Understanding & Sizing",
+                        action: "Conduct Deep Market Analysis",
+                        expectedImprovement: 8,
+                        impact: "+8",
+                        actionPlan: [
+                            "Research and document pricing/positioning for your top 10 competitors",
+                            "Calculate TAM/SAM/SOM using bottom-up analysis with verifiable data sources",
+                            "Identify and validate 3 macro trends creating urgency for your solution now",
+                            "Interview 5 industry experts/analysts to validate your market opportunity thesis",
+                            "Create a detailed go-to-market strategy with quarterly milestones and KPIs"
+                        ],
+                        successMetrics: [
+                            "TAM/SAM/SOM documented with sources",
+                            "10+ competitors analyzed in detail",
+                            "3+ market trends validated",
+                            "Go-to-market strategy defined with milestones"
+                        ],
+                        detailedAnalysis: {
+                            overview: "Deep market understanding enables precise targeting and positioning. This analysis will establish your total addressable market, competitive landscape, and market dynamics.",
+                            roi: "Proper market understanding reduces customer acquisition costs by 20-30% and improves product-market fit timing."
+                        }
+                    },
+                    {
+                        priority: "HIGH",
+                        area: "Customer Empathy & Research",
+                        action: "Launch Customer Discovery Sprint",
+                        expectedImprovement: 5,
+                        impact: "+5",
+                        actionPlan: [
+                            "Conduct 20 customer interviews using the Mom Test framework (no leading questions)",
+                            "Shadow 5 target customers for a full day to observe their actual workflow",
+                            "Create 3 data-driven personas with demographics, psychographics, and buying behavior",
+                            "Map the complete buyer journey with all touchpoints, emotions, and decision criteria"
+                        ],
+                        successMetrics: [
+                            "20+ customer interviews completed",
+                            "3 validated personas created with real data",
+                            "Complete customer journey maps documented",
+                            "Direct customer quotes collected and organized"
+                        ],
+                        detailedAnalysis: {
+                            overview: "True customer empathy drives product decisions and messaging that resonates. This deep dive will uncover the emotional and functional drivers behind customer behavior.",
+                            roi: "Strong customer empathy increases product adoption by 30-40% and reduces churn by 15-25%."
+                        }
+                    },
+                    {
+                        priority: "MEDIUM",
+                        area: "Problem Clarity & Validation",
+                        action: "Refine Problem Statement",
+                        expectedImprovement: 4,
+                        impact: "+4",
+                        actionPlan: [
+                            "Interview 10 customers this week using the '5 Whys' technique to uncover root causes",
+                            "Document the problem in one clear sentence that a 5th grader could understand",
+                            "Calculate exactly how much time/money this problem costs your customers per month",
+                            "Get 20 prospects to rank this problem in their top 3 priorities (with evidence)"
+                        ],
+                        successMetrics: [
+                            "Problem statement passes 'Mom Test' validation",
+                            "80% of customers confirm problem accuracy",
+                            "Clear cause-and-effect chain documented",
+                            "Problem quantified with 3+ specific metrics"
+                        ]
+                    },
+                    {
+                        priority: "STRATEGIC",
+                        area: "GTM Foundation",
+                        action: "Build Scalable GTM Infrastructure",
+                        expectedImprovement: 8,
+                        impact: "+8",
+                        actionPlan: [
+                            "Define your Ideal Customer Profile (ICP) with 15+ specific characteristics",
+                            "Document your repeatable sales process based on last 10 successful deals",
+                            "Implement MEDDIC qualification framework with scoring for each stage",
+                            "Create customer success playbooks for onboarding, adoption, and expansion"
+                        ],
+                        successMetrics: [
+                            "ICP documented and validated with sales team",
+                            "Sales playbook created and tested",
+                            "3+ deals qualified with new MEDDIC criteria",
+                            "Customer success metrics defined and tracked"
+                        ],
+                        detailedAnalysis: {
+                            overview: "A comprehensive GTM foundation is essential for sustainable growth. This strategic initiative will establish the core frameworks needed for scalable customer acquisition.",
+                            roi: "Properly implemented GTM foundation typically increases win rates by 20-30% and reduces sales cycle by 15-25%."
+                        }
+                    }
+                ]
+            };
+            
+            // Use the displayEnhancedAnalysisResults function from problem-statement-handler.js
+            if (window.problemStatementHandler && window.problemStatementHandler.displayEnhancedAnalysisResults) {
+                window.problemStatementHandler.displayEnhancedAnalysisResults(mockAnalysis);
+            } else if (window.displayAnalysisResults) {
+                window.displayAnalysisResults(mockAnalysis);
+            } else {
+                // Fallback: directly call the display function
+                displayEnhancedAnalysisResults(mockAnalysis);
+            }
+            
+            statusEl.innerHTML = '✅ Recommendations displayed! Scroll down to review the enhanced format.';
+        }
+        
+        // Fallback display function if handler isn't loaded
+        function displayEnhancedAnalysisResults(analysis) {
+            const analysisContent = document.getElementById('analysis-content');
+            if (!analysisContent) return;
+            
+            analysisContent.innerHTML = `
+                <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px; margin-top: 30px;">
+                    <h2 style="color: #FF5500; margin-bottom: 20px;">⚠️ Handler Not Loaded</h2>
+                    <p>The problem-statement-handler.js file needs to be loaded for full functionality.</p>
+                    <p>However, the recommendations structure has been updated to include:</p>
+                    <ul>
+                        <li>✅ Actionable steps (not resources)</li>
+                        <li>✅ "+X" impact scores</li>
+                        <li>✅ Priority badges</li>
+                        <li>✅ Success metrics</li>
+                        <li>✅ ROI information</li>
+                    </ul>
+                    <pre style="background: #000; padding: 20px; border-radius: 8px; overflow-x: auto;">
+${JSON.stringify(analysis.recommendations, null, 2)}
+                    </pre>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

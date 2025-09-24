@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Statement Definition - Mission Discovery | ScaleOps6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #FF5500 0%, #FF8800 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: white; text-decoration: none; }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a { color: #FF5500; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .subcomponent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,85,0,0.1) 0%, rgba(255,136,0,0.1) 100%);
+            border-radius: 12px;
+        }
+        .subcomponent-badge {
+            display: inline-block;
+            background: #FF5500;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .agent-info {
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        .score-circle {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .score-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .score-label {
+            display: block;
+            font-size: 0.75rem;
+            color: #888;
+        }
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+        .tab {
+            background: none;
+            border: none;
+            color: #888;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tab.active {
+            color: #FF5500;
+            border-bottom: 2px solid #FF5500;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .content-section {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .content-section h3 {
+            color: #FF5500;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: white;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .required {
+            color: #FF5500;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analysis-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .analysis-card {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .dimension {
+            margin-bottom: 1.5rem;
+        }
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .dimension-bar {
+            height: 8px;
+            background: #222;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        .dimension-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5500, #FF8800);
+        }
+        .dimension-desc {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .resource-card {
+            background: #111;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .resource-card i {
+            font-size: 2rem;
+            color: #FF5500;
+            margin-bottom: 1rem;
+        }
+        .history-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .stat-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="ScaleOps6_logo.png" alt="ScaleOps6" style="height: 40px;">
+        </div>
+        <nav class="nav">
+            <a href="index.html">Dashboard</a>
+            <a href="block-1-mission-discovery.html">Block 1</a>
+            <a href="#">Settings</a>
+        </nav>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Dashboard</a> / 
+        <a href="block-1-mission-discovery.html">Block 1: Mission Discovery</a> / 
+        1A: Problem Statement
+    </div>
+
+    <div class="container">
+        <div class="subcomponent-header">
+            <div class="header-content">
+                <span class="subcomponent-badge">1A</span>
+                <h1>Problem Statement Definition</h1>
+                <p class="agent-info">
+                    <i class="fas fa-robot"></i> Expert Agent: Problem Definition Evaluator
+                </p>
+            </div>
+            <div class="score-display">
+                <div class="score-circle">
+                    <svg width="120" height="120">
+                        <circle cx="60" cy="60" r="54" stroke="#333" stroke-width="8" fill="none"/>
+                        <circle cx="60" cy="60" r="54" stroke="#FF5500" stroke-width="8" fill="none"
+                                stroke-dasharray="339.292" stroke-dashoffset="100"
+                                transform="rotate(-90 60 60)"/>
+                    </svg>
+                    <div class="score-text">
+                        <span class="score-value">72</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="education">
+                <i class="fas fa-graduation-cap"></i> Education
+            </button>
+            <button class="tab" data-tab="workspace">
+                <i class="fas fa-edit"></i> Workspace
+            </button>
+            <button class="tab" data-tab="analysis">
+                <i class="fas fa-chart-line"></i> Analysis
+            </button>
+            <button class="tab" data-tab="resources">
+                <i class="fas fa-book"></i> Resources
+            </button>
+            <button class="tab" data-tab="history">
+                <i class="fas fa-history"></i> Score History
+            </button>
+        </div>
+
+        <div class="tab-content">
+            <div id="education" class="tab-content active" style="display: block;">
+                
+            <div class="content-section">
+                <h3>What is Problem Statement Definition?</h3>
+                <p>A focused, plain-language articulation of the specific problem you solve for a clearly defined customer. This is not just a description of the industry or trend — it's a user-centered, situationally grounded pain point.</p>
+                
+                <h3>Why It Matters</h3>
+                <p>Startups often fail not because they can't build, but because they build something nobody truly needs. A strong problem statement helps align GTM, product, and messaging from the start.</p>
+                
+                <h3>How to Implement</h3>
+                
+      <h4>Key Components to Include:</h4>
+      <ul>
+        <li><strong>Who experiences the problem</strong> - Define your persona/segment clearly</li>
+        <li><strong>When/where it arises</strong> - Identify contextual triggers</li>
+        <li><strong>The negative impact</strong> - Quantify emotional, operational, or financial costs</li>
+        <li><strong>Validation evidence</strong> - Include quotes or metrics that prove existence</li>
+        <li><strong>Gap analysis</strong> - Explain why existing solutions aren't enough</li>
+      </ul>
+      
+      <h4>Best Practices:</h4>
+      <ul>
+        <li>Keep it under 100 words for clarity</li>
+        <li>Use customer language, not technical jargon</li>
+        <li>Focus on one primary problem initially</li>
+        <li>Test with 5+ potential customers for validation</li>
+      </ul>
+      
+      <h4>Common Pitfalls:</h4>
+      <ul>
+        <li>Being too broad or vague</li>
+        <li>Focusing on features instead of problems</li>
+        <li>Assuming without validating</li>
+        <li>Mixing multiple problems together</li>
+      </ul>
+    
+                
+                
+                <h3>Examples</h3>
+                <ul>
+                    <li>HR leaders in mid-market SaaS companies waste 12+ hours per week on manual onboarding tasks, leading to delayed productivity and 30% higher first-year turnover.</li><li>Product managers at enterprise software companies struggle to prioritize features effectively, resulting in 40% of development effort going to features that see <10% adoption.</li>
+                </ul>
+                
+                
+                
+                <h3>Key Metrics</h3>
+                <ul>
+                    <li>Problem severity score (1-10)</li><li>Frequency of occurrence</li><li>Number of customers validated</li><li>Economic impact quantified</li>
+                </ul>
+                
+            </div>
+        
+            </div>
+            </div>
+
+            <div id="workspace" class="tab-content" style="display: none;">
+                
+            <form id="worksheetForm">
+                
+                    <div class="form-group">
+                        <label for="current_state">Current Problem Statement Definition Status *</label>
+                        <textarea id="current_state" name="current_state" placeholder="Describe your current approach to problem statement definition..." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="target_outcome">Desired Outcome *</label>
+                        <textarea id="target_outcome" name="target_outcome" placeholder="What success looks like for problem statement definition..." required></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="key_challenges">Key Challenges</label>
+                        <textarea id="key_challenges" name="key_challenges" placeholder="Main obstacles or concerns..." ></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="timeline">Implementation Timeline *</label>
+                        <select id="timeline" name="timeline" required>
+                                <option value="">Select...</option>
+                                <option value="Immediate">Immediate</option><option value="1-2 weeks">1-2 weeks</option><option value="1 month">1 month</option><option value="3 months">3 months</option><option value="6+ months">6+ months</option>
+                            </select>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="resources_needed">Resources Required</label>
+                        <textarea id="resources_needed" name="resources_needed" placeholder="Team, budget, tools needed..." ></textarea>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="success_metrics">Success Metrics *</label>
+                        <textarea id="success_metrics" name="success_metrics" placeholder="How you'll measure success for problem statement definition..." required></textarea>
+                    </div>
+                
+                <button type="submit" class="submit-btn">Save Progress</button>
+            </form>
+        
+            </div>
+                
+                    <div class="dimension-card">
+                        <h4>Quality</h4>
+                        <p>Quality and effectiveness of implementation</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Strategic Alignment</h4>
+                        <p>Alignment with business objectives</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Adoption/Usage</h4>
+                        <p>Level of adoption and regular usage</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+                    <div class="dimension-card">
+                        <h4>Business Impact</h4>
+                        <p>Measurable impact on business outcomes</p>
+                        <div class="score-display">
+                            <span class="score-value">0</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                        <div class="weight-info">Weight: 20%</div>
+                    </div>
+                
+            </div>
+            <div class="overall-score">
+                <h3>Overall Score</h3>
+                <div class="score-circle">
+                    <span class="score-number">0</span>
+                    <span class="score-label">/ 100</span>
+                </div>
+            </div>
+        
+            </div>
+                <p class="dimension-desc">How well-defined and specific is the problem?</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Market Validation</span>
+                    <span class="dimension-score">15/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 79.36143814589595%"></div>
+                </div>
+                <p class="dimension-desc">Evidence of real market need</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Solution Fit</span>
+                    <span class="dimension-score">18/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 87.11793994644727%"></div>
+                </div>
+                <p class="dimension-desc">Alignment between problem and proposed solution</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Impact Potential</span>
+                    <span class="dimension-score">17/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 71.69520439822696%"></div>
+                </div>
+                <p class="dimension-desc">Size and severity of the problem</p>
+            </div>
+        
+            <div class="dimension">
+                <div class="dimension-header">
+                    <span class="dimension-name">Differentiation</span>
+                    <span class="dimension-score">12/20</span>
+                </div>
+                <div class="dimension-bar">
+                    <div class="dimension-fill" style="width: 64.81915120156484%"></div>
+                </div>
+                <p class="dimension-desc">Uniqueness of approach to solving</p>
+            </div>
+        
+                            </div>
+                        </div>
+                        <div class="analysis-card">
+                            <h3>Key Findings</h3>
+                            
+            <div class="findings">
+                <h4 style="color: #4CAF50; margin-bottom: 1rem;">✅ Strengths</h4>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Clear understanding of problem clarity and validation</span>
+                    </div>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Systematic approach in place</span>
+                    </div>
+                
+                    <div class="finding positive" style="margin: 0.5rem 0;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Data-driven decision making</span>
+                    </div>
+                
+                
+                <h4 style="color: #FF9800; margin: 1.5rem 0 1rem 0;">⚠️ Areas for Improvement</h4>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Limited validation or evidence</span>
+                    </div>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Inconsistent implementation</span>
+                    </div>
+                
+                    <div class="finding warning" style="margin: 0.5rem 0;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Lack of clear metrics</span>
+                    </div>
+                
+                
+                <h4 style="color: #2196F3; margin: 1.5rem 0 1rem 0;">💡 Opportunities</h4>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Enhance problem clarity and validation capabilities</span>
+                    </div>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Implement best practices</span>
+                    </div>
+                
+                    <div class="finding info" style="margin: 0.5rem 0;">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Leverage automation and tools</span>
+                    </div>
+                
+            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="analysis" class="tab-content" style="display: none;">
+                <div class="analysis-placeholder">
+                    <h3>No Analysis Results Yet</h3>
+                    <p>Complete the worksheet in the Workspace tab and click "Save Progress" to generate an analysis.</p>
+                </div>
+            </div>
+
+            <div id="resources" class="tab-content" style="display: none;">
+                
+            <div class="resources-grid">
+                
+                    <div class="resource-section">
+                        <h3>Recommended Tools</h3>
+                        <ul>
+                            <li>Customer Interview Recording Tools (Gong, Chorus)</li><li>Survey Platforms (Typeform, SurveyMonkey)</li><li>Analytics Tools (Mixpanel, Amplitude)</li><li>User Research Platforms (UserVoice, Canny)</li>
+                        </ul>
+                    </div>
+                
+                    <div class="resource-section">
+                        <h3>Templates & Frameworks</h3>
+                        <ul>
+                            <li>Problem Statement Canvas</li><li>Customer Pain Interview Guide</li><li>Problem Validation Scorecard</li><li>Pain Point Prioritization Matrix</li>
+                        </ul>
+                    </div>
+                
+                    <div class="resource-section">
+                        <h3>Best Practices</h3>
+                        <ul>
+                            <li>Interview at least 20 potential customers before finalizing</li><li>Use the '5 Whys' technique to get to root causes</li><li>Document all assumptions and validate each one</li><li>Focus on problems, not solutions during discovery</li>
+                        </ul>
+                    </div>
+                
+            </div>
+        
+            </div>
+        
+            </div>
+        
+                </div>
+            </div>
+
+            <div id="history" class="tab-content" style="display: none;">
+                <div class="history-content">
+                    <h2>Score History & Trends</h2>
+                    <div class="chart-container">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
+                    <div class="history-stats">
+                        <div class="stat">
+                            <span class="stat-value">+15%</span>
+                            <span class="stat-label">30-Day Change</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">72</span>
+                            <span class="stat-label">Current Score</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">85</span>
+                            <span class="stat-label">Target Score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('🚀 Problem Statement page loaded');
+        
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.tab;
+                console.log(`📑 Switching to tab: ${tabName}`);
+                
+                // Update active tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active pane - FIX: Use tab-content class instead of tab-pane
+                document.querySelectorAll('.tab-content').forEach(pane => {
+                    pane.classList.remove('active');
+                    pane.style.display = 'none';
+                });
+                const targetPane = document.getElementById(tabName);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                    targetPane.style.display = 'block';
+                    console.log(`✅ Activated pane: ${tabName}`);
+                } else {
+                    console.error(`❌ Could not find pane with id: ${tabName}`);
+                }
+            });
+        });
+
+        // Form submission with analysis
+        document.getElementById('worksheetForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log('📝 Form submitted - starting analysis');
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            const worksheetData = {};
+            
+            // Map form fields to expected worksheet keys
+            const fieldMapping = {
+                'current_state': 'who-affected',
+                'target_outcome': 'what-problem',
+                'key_challenges': 'when-occur',
+                'timeline': 'what-impact',
+                'resources_needed': 'how-solving',
+                'success_metrics': 'evidence-validation'
+            };
+            
+            for (let [key, value] of formData.entries()) {
+                const mappedKey = fieldMapping[key] || key;
+                worksheetData[mappedKey] = value;
+                console.log(`📋 Field ${key} -> ${mappedKey}: ${value.substring(0, 50)}...`);
+            }
+            
+            console.log('🔍 Sending analysis request to server...');
+            console.log('📦 Worksheet data:', worksheetData);
+            
+            try {
+                // Call the analysis API
+                const response = await fetch('/api/analyze/problem-statement', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': '1'
+                    },
+                    body: JSON.stringify({
+                        worksheetData: worksheetData,
+                        subcomponentId: '1-1'
+                    })
+                });
+                
+                console.log(`📡 Response status: ${response.status}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Analysis failed: ${response.statusText}`);
+                }
+                
+                const analysis = await response.json();
+                console.log('✅ Analysis received:', analysis);
+                console.log('📊 Score:', analysis.score);
+                console.log('🎯 Recommendations:', analysis.recommendations?.length || 0);
+                
+                // Display the analysis results
+                displayAnalysisResults(analysis);
+                
+                // Switch to analysis tab
+                console.log('🔄 Switching to Analysis tab...');
+                document.querySelector('[data-tab="analysis"]').click();
+                
+            } catch (error) {
+                console.error('❌ Analysis error:', error);
+                alert('Analysis failed: ' + error.message);
+            }
+        });
+        
+        // Function to display analysis results dynamically
+        function displayAnalysisResults(analysis) {
+            console.log('🎨 Displaying analysis results...');
+            
+            const analysisPane = document.getElementById('analysis');
+            if (!analysisPane) {
+                console.error('❌ Analysis pane not found!');
+                return;
+            }
+            
+            // Build the analysis HTML
+            let analysisHTML = `
+                <div class="analysis-results">
+                    <h2>Analysis Results</h2>
+                    
+                    <div class="overall-score-section">
+                        <h3>Overall Score</h3>
+                        <div class="score-display">
+                            <span class="score-value">${analysis.score || 0}</span>
+                            <span class="score-label">/ 100</span>
+                        </div>
+                    </div>
+            `;
+            
+            // Add detailed scores if available
+            if (analysis.analysis) {
+                analysisHTML += `
+                    <div class="detailed-scores">
+                        <h3>Detailed Analysis</h3>
+                `;
+                
+                // Add each dimension
+                const dimensions = ['personaAnalysis', 'contextAnalysis', 'impactAnalysis', 'evidenceAnalysis', 'solutionGapAnalysis'];
+                const dimensionNames = {
+                    personaAnalysis: 'Persona Clarity',
+                    contextAnalysis: 'Contextual Triggers',
+                    impactAnalysis: 'Impact Quantification',
+                    evidenceAnalysis: 'Evidence & Validation',
+                    solutionGapAnalysis: 'Solution Gap'
+                };
+                
+                dimensions.forEach(dim => {
+                    if (analysis.analysis[dim]) {
+                        const dimData = analysis.analysis[dim];
+                        analysisHTML += `
+                            <div class="dimension">
+                                <div class="dimension-header">
+                                    <span class="dimension-name">${dimensionNames[dim]}</span>
+                                    <span class="dimension-score">${dimData.score}/${dimData.maxScore}</span>
+                                </div>
+                                <div class="dimension-bar">
+                                    <div class="dimension-fill" style="width: ${dimData.percentage}%"></div>
+                                </div>
+                                <p class="dimension-desc">${dimData.insight}</p>
+                                <div class="dimension-feedback">${dimData.feedback || ''}</div>
+                            </div>
+                        `;
+                    }
+                });
+                
+                analysisHTML += '</div>';
+            }
+            
+            // Add recommendations
+            if (analysis.recommendations && analysis.recommendations.length > 0) {
+                analysisHTML += `
+                    <div class="recommendations-section">
+                        <h3>Recommendations</h3>
+                `;
+                
+                analysis.recommendations.forEach(rec => {
+                    const priorityColor = rec.priority === 'HIGH' ? '#F44336' :
+                                         rec.priority === 'MEDIUM' ? '#FF9800' : '#4CAF50';
+                    analysisHTML += `
+                        <div class="recommendation">
+                            <span class="priority" style="background: ${priorityColor}; color: white; padding: 0.25rem 0.5rem; border-radius: 4px;">
+                                ${rec.priority} PRIORITY
+                            </span>
+                            <h4>${rec.category}</h4>
+                            <p>${rec.action}</p>
+                            <p>Expected Improvement: ${rec.expectedImprovement}</p>
+                            <p>Timeframe: ${rec.timeframe}</p>
+                        </div>
+                    `;
+                });
+                
+                analysisHTML += '</div>';
+            }
+            
+            // Add strengths and improvements
+            if (analysis.strengths && analysis.strengths.length > 0) {
+                analysisHTML += `
+                    <div class="strengths-section">
+                        <h3>✅ Strengths</h3>
+                        <ul>
+                `;
+                analysis.strengths.forEach(strength => {
+                    analysisHTML += `<li>${strength}</li>`;
+                });
+                analysisHTML += '</ul></div>';
+            }
+            
+            if (analysis.improvements && analysis.improvements.length > 0) {
+                analysisHTML += `
+                    <div class="improvements-section">
+                        <h3>⚠️ Areas for Improvement</h3>
+                        <ul>
+                `;
+                analysis.improvements.forEach(improvement => {
+                    analysisHTML += `<li>${improvement}</li>`;
+                });
+                analysisHTML += '</ul></div>';
+            }
+            
+            analysisHTML += '</div>';
+            
+            // Update the analysis pane content
+            analysisPane.innerHTML = analysisHTML;
+            console.log('✅ Analysis results displayed successfully');
+        }
+
+        // Simulate score animation
+        setTimeout(() => {
+            const circle = document.querySelector('circle:last-child');
+            if (circle) {
+                circle.style.transition = 'stroke-dashoffset 1s ease';
+                circle.style.strokeDashoffset = '95';
+            }
+        }, 500);
+    </script>
+    
+    <!-- Load the enhanced Problem Statement handler to override default behavior -->
+    <script src="problem-statement-handler.js"></script>
+</body>
+</html>

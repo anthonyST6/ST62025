@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Locked Structure - ScaleOps6</title>
+    <script src="template-config.js"></script>
+    <script src="component-factory.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .test-header {
+            color: #FF5500;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .test-result {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+        }
+        .error {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #F44336;
+        }
+        .info {
+            background: rgba(33, 150, 243, 0.1);
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            color: #2196F3;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .comparison-label {
+            color: #999;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .comparison-value {
+            color: #FF5500;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #FF5500; text-align: center; margin-bottom: 40px;">
+        🔒 ScaleOps6 Locked Structure Test Suite
+    </h1>
+    
+    <div class="test-section">
+        <h2 class="test-header">📋 Test 1: Template Configuration Integrity</h2>
+        <div id="test1-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-header">🏗️ Test 2: Component Factory - Different Content, Same Structure</h2>
+        <div id="test2-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-header">🤖 Test 3: Agent Output Normalization</h2>
+        <div id="test3-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-header">🔄 Test 4: Structure Consistency Across Multiple Components</h2>
+        <div id="test4-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-header">⚠️ Test 5: Structure Violation Detection</h2>
+        <div id="test5-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-header">📊 Test Summary</h2>
+        <div id="test-summary"></div>
+    </div>
+
+    <script>
+        // Test results tracking
+        const testResults = {
+            passed: 0,
+            failed: 0,
+            tests: []
+        };
+        
+        // Helper function to display test result
+        function displayResult(elementId, success, message, details = null) {
+            const element = document.getElementById(elementId);
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${success ? 'success' : 'error'}`;
+            resultDiv.innerHTML = `
+                <strong>${success ? '✅ PASS' : '❌ FAIL'}:</strong> ${message}
+                ${details ? `<pre>${JSON.stringify(details, null, 2)}</pre>` : ''}
+            `;
+            element.appendChild(resultDiv);
+            
+            testResults.tests.push({ test: elementId, success, message });
+            if (success) testResults.passed++;
+            else testResults.failed++;
+        }
+        
+        // Test 1: Template Configuration Integrity
+        function test1() {
+            const results = document.getElementById('test1-results');
+            
+            // Check if template is loaded and frozen
+            try {
+                if (!window.TEMPLATE_CONFIG) {
+                    throw new Error('Template configuration not loaded');
+                }
+                
+                // Check if the object is frozen (multiple checks)
+                const isFrozen = Object.isFrozen(window.TEMPLATE_CONFIG);
+                const isDeepFrozen = Object.isFrozen(window.TEMPLATE_CONFIG.mainPageStructure) &&
+                                     Object.isFrozen(window.TEMPLATE_CONFIG.blockStructure) &&
+                                     Object.isFrozen(window.TEMPLATE_CONFIG.subcomponentStructure) &&
+                                     Object.isFrozen(window.TEMPLATE_CONFIG.subcomponentStructure.tabs[0]) &&
+                                     Object.isFrozen(window.TEMPLATE_CONFIG.visualTheme.textColors);
+                
+                // Try to modify the template (should silently fail if frozen)
+                const originalVersion = window.TEMPLATE_CONFIG.version;
+                window.TEMPLATE_CONFIG.version = '2.0.0';
+                const versionUnchanged = window.TEMPLATE_CONFIG.version === originalVersion;
+                
+                // Try to modify nested property
+                const originalColor = window.TEMPLATE_CONFIG.visualTheme.primaryColor;
+                window.TEMPLATE_CONFIG.visualTheme.primaryColor = '#000000';
+                const colorUnchanged = window.TEMPLATE_CONFIG.visualTheme.primaryColor === originalColor;
+                
+                // Try to add new property
+                window.TEMPLATE_CONFIG.newProperty = 'test';
+                const newPropertyNotAdded = !window.TEMPLATE_CONFIG.hasOwnProperty('newProperty');
+                
+                if (!isFrozen || !isDeepFrozen || !versionUnchanged || !colorUnchanged || !newPropertyNotAdded) {
+                    displayResult('test1-results', false, 'Template is not properly frozen - can be modified!');
+                    return;
+                }
+                
+                // Verify structure
+                const hasMainPage = !!window.TEMPLATE_CONFIG.mainPageStructure;
+                const hasBlock = !!window.TEMPLATE_CONFIG.blockStructure;
+                const hasSubcomponent = !!window.TEMPLATE_CONFIG.subcomponentStructure;
+                const hasAgent = !!window.TEMPLATE_CONFIG.agentIntegration;
+                const hasScoring = !!window.TEMPLATE_CONFIG.scoringEngineStructure;
+                
+                if (hasMainPage && hasBlock && hasSubcomponent && hasAgent && hasScoring) {
+                    displayResult('test1-results', true, 'Template configuration is properly loaded and frozen');
+                    
+                    // Show key metrics
+                    const info = document.createElement('div');
+                    info.className = 'test-result info';
+                    info.innerHTML = `
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <div class="comparison-label">Template Version</div>
+                                <div class="comparison-value">${window.TEMPLATE_CONFIG.version}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Locked Date</div>
+                                <div class="comparison-value">${window.TEMPLATE_CONFIG.lockedDate}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Tab Count</div>
+                                <div class="comparison-value">${window.TEMPLATE_CONFIG.subcomponentStructure.tabs.length} tabs</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Worksheet Fields</div>
+                                <div class="comparison-value">${window.TEMPLATE_CONFIG.subcomponentStructure.worksheetFields.length} fields</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Scoring Dimensions</div>
+                                <div class="comparison-value">${window.TEMPLATE_CONFIG.scoringEngineStructure.dimensions} dimensions</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Max Score</div>
+                                <div class="comparison-value">${window.TEMPLATE_CONFIG.scoringEngineStructure.totalMaxScore} points</div>
+                            </div>
+                        </div>
+                    `;
+                    results.appendChild(info);
+                } else {
+                    displayResult('test1-results', false, 'Template configuration is incomplete');
+                }
+            } catch (error) {
+                displayResult('test1-results', false, 'Template configuration test failed: ' + error.message);
+            }
+        }
+        
+        // Test 2: Component Factory - Different Content, Same Structure
+        function test2() {
+            try {
+                // Create two different subcomponents with different content
+                const component1 = window.componentFactory.createSubcomponent({
+                    title: 'Value Proposition',
+                    description: 'Define your unique value',
+                    worksheetLabels: {
+                        'who-affected': 'Target Market',
+                        'what-problem': 'Value Statement'
+                    }
+                });
+                
+                const component2 = window.componentFactory.createSubcomponent({
+                    title: 'Go-to-Market Strategy',
+                    description: 'Plan your market entry',
+                    worksheetLabels: {
+                        'who-affected': 'Initial Customers',
+                        'what-problem': 'Market Entry Plan'
+                    }
+                });
+                
+                // Verify both have same structure
+                const sameTabCount = component1.tabs.length === component2.tabs.length;
+                const sameFieldCount = component1.worksheetFields.length === component2.worksheetFields.length;
+                const sameTabStructure = JSON.stringify(component1.tabs.map(t => t.id)) === 
+                                        JSON.stringify(component2.tabs.map(t => t.id));
+                const sameFieldStructure = JSON.stringify(component1.worksheetFields.map(f => f.id)) === 
+                                           JSON.stringify(component2.worksheetFields.map(f => f.id));
+                
+                if (sameTabCount && sameFieldCount && sameTabStructure && sameFieldStructure) {
+                    displayResult('test2-results', true, 'Different content components maintain same structure');
+                    
+                    // Show comparison
+                    const info = document.createElement('div');
+                    info.className = 'test-result info';
+                    info.innerHTML = `
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <div class="comparison-label">Component 1 Title</div>
+                                <div class="comparison-value">${component1.title}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Component 2 Title</div>
+                                <div class="comparison-value">${component2.title}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Tab Structure Match</div>
+                                <div class="comparison-value">✅ Identical</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Field Structure Match</div>
+                                <div class="comparison-value">✅ Identical</div>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('test2-results').appendChild(info);
+                } else {
+                    displayResult('test2-results', false, 'Structure mismatch detected between components');
+                }
+            } catch (error) {
+                displayResult('test2-results', false, 'Component factory test failed: ' + error.message);
+            }
+        }
+        
+        // Test 3: Agent Output Normalization
+        function test3() {
+            try {
+                // Test with non-standard agent output
+                const messyOutput = {
+                    score: 75.8,  // Should be rounded
+                    confidence: 1.5,  // Should be capped at 1
+                    detailedScores: {  // Only 3 dimensions provided
+                        dim1: 15,
+                        dim2: 18,
+                        dim3: 12
+                    },
+                    recommendations: [
+                        { title: 'Improve X' },  // Missing required fields
+                        { title: 'Fix Y' },
+                        { title: 'Add Z' },
+                        { title: 'Extra 1' },
+                        { title: 'Extra 2' },
+                        { title: 'Extra 3' }  // Should be capped at 5
+                    ]
+                };
+                
+                const normalized = window.componentFactory.normalizeAgentOutput(messyOutput);
+                
+                // Verify normalization
+                const scoreValid = normalized.score === 76;  // Rounded
+                const confidenceValid = normalized.confidence === 1.0;  // Capped
+                const dimensionsValid = Object.keys(normalized.detailedScores).length === 5;  // Padded to 5
+                const recommendationsValid = normalized.recommendations.length <= 5;  // Capped at 5
+                const hasRequiredFields = normalized.timestamp && normalized.analysis;
+                
+                if (scoreValid && confidenceValid && dimensionsValid && recommendationsValid && hasRequiredFields) {
+                    displayResult('test3-results', true, 'Agent output successfully normalized to standard format');
+                    
+                    // Show normalization details
+                    const info = document.createElement('div');
+                    info.className = 'test-result info';
+                    info.innerHTML = `
+                        <strong>Normalization Applied:</strong>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Score: 75.8 → ${normalized.score} (rounded)</li>
+                            <li>Confidence: 1.5 → ${normalized.confidence} (capped at 1.0)</li>
+                            <li>Dimensions: 3 → ${Object.keys(normalized.detailedScores).length} (padded to 5)</li>
+                            <li>Recommendations: 6 → ${normalized.recommendations.length} (capped at 5)</li>
+                            <li>Added missing timestamp and analysis structure</li>
+                        </ul>
+                    `;
+                    document.getElementById('test3-results').appendChild(info);
+                } else {
+                    displayResult('test3-results', false, 'Agent output normalization failed');
+                }
+            } catch (error) {
+                displayResult('test3-results', false, 'Agent normalization test failed: ' + error.message);
+            }
+        }
+        
+        // Test 4: Structure Consistency Across Multiple Components
+        function test4() {
+            try {
+                const components = [];
+                const titles = ['Mission', 'Vision', 'Strategy', 'Execution', 'Metrics'];
+                
+                // Create 5 different components
+                titles.forEach(title => {
+                    components.push(window.componentFactory.createSubcomponent({
+                        title: title,
+                        description: `Define your ${title.toLowerCase()}`
+                    }));
+                });
+                
+                // Verify all have identical structure
+                let allMatch = true;
+                const referenceStructure = {
+                    tabs: components[0].tabs.map(t => t.id),
+                    fields: components[0].worksheetFields.map(f => f.id),
+                    tabCount: components[0].tabs.length,
+                    fieldCount: components[0].worksheetFields.length
+                };
+                
+                components.forEach((comp, index) => {
+                    const matches = 
+                        JSON.stringify(comp.tabs.map(t => t.id)) === JSON.stringify(referenceStructure.tabs) &&
+                        JSON.stringify(comp.worksheetFields.map(f => f.id)) === JSON.stringify(referenceStructure.fields) &&
+                        comp.tabs.length === referenceStructure.tabCount &&
+                        comp.worksheetFields.length === referenceStructure.fieldCount;
+                    
+                    if (!matches) {
+                        allMatch = false;
+                        console.error(`Component ${index} (${titles[index]}) structure mismatch`);
+                    }
+                });
+                
+                if (allMatch) {
+                    displayResult('test4-results', true, `All ${components.length} components have identical structure`);
+                    
+                    // Show component list
+                    const info = document.createElement('div');
+                    info.className = 'test-result info';
+                    info.innerHTML = `
+                        <strong>Components Created:</strong>
+                        <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                            ${components.map(c => `
+                                <div style="background: rgba(255, 85, 0, 0.1); padding: 8px 15px; border-radius: 20px; border: 1px solid rgba(255, 85, 0, 0.3);">
+                                    ${c.title}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div style="margin-top: 15px; color: #4CAF50;">
+                            ✅ All components share the exact same structural template
+                        </div>
+                    `;
+                    document.getElementById('test4-results').appendChild(info);
+                } else {
+                    displayResult('test4-results', false, 'Structure inconsistency detected across components');
+                }
+            } catch (error) {
+                displayResult('test4-results', false, 'Multiple component test failed: ' + error.message);
+            }
+        }
+        
+        // Test 5: Structure Violation Detection
+        function test5() {
+            try {
+                let violationDetected = false;
+                let errorMessage = '';
+                
+                // Try to create component with wrong structure
+                try {
+                    const invalidComponent = {
+                        title: 'Invalid Component',
+                        description: 'This should fail',
+                        tabs: ['Tab1', 'Tab2', 'Tab3'],  // Wrong structure
+                        worksheetFields: [  // Wrong count
+                            { id: 'field1', label: 'Field 1' },
+                            { id: 'field2', label: 'Field 2' }
+                        ]
+                    };
+                    
+                    // This should throw an error
+                    window.componentFactory.validateSubcomponent(invalidComponent);
+                } catch (error) {
+                    violationDetected = true;
+                    errorMessage = error.message;
+                }
+                
+                if (violationDetected) {
+                    displayResult('test5-results', true, 'Structure violations are properly detected and prevented');
+                    
+                    // Show violation details
+                    const info = document.createElement('div');
+                    info.className = 'test-result info';
+                    info.innerHTML = `
+                        <strong>Violation Detection Working:</strong>
+                        <div style="margin-top: 10px; padding: 15px; background: rgba(244, 67, 54, 0.1); border: 1px solid rgba(244, 67, 54, 0.3); border-radius: 8px;">
+                            <div style="color: #F44336; margin-bottom: 10px;">❌ Attempted Structure Violations:</div>
+                            <ul style="margin: 0; padding-left: 20px; color: #ccc;">
+                                <li>Tried to use 3 tabs instead of 5</li>
+                                <li>Tried to use 2 worksheet fields instead of 6</li>
+                                <li>Used wrong tab structure format</li>
+                            </ul>
+                            <div style="color: #4CAF50; margin-top: 10px;">✅ All violations were blocked</div>
+                        </div>
+                    `;
+                    document.getElementById('test5-results').appendChild(info);
+                } else {
+                    displayResult('test5-results', false, 'Structure violations were not detected - template can be bypassed!');
+                }
+            } catch (error) {
+                displayResult('test5-results', false, 'Violation detection test failed: ' + error.message);
+            }
+        }
+        
+        // Run all tests
+        function runAllTests() {
+            console.log('🧪 Starting ScaleOps6 Locked Structure Tests...');
+            
+            test1();
+            test2();
+            test3();
+            test4();
+            test5();
+            
+            // Display summary
+            setTimeout(() => {
+                const summary = document.getElementById('test-summary');
+                const allPassed = testResults.failed === 0;
+                
+                summary.innerHTML = `
+                    <div class="test-result ${allPassed ? 'success' : 'error'}" style="font-size: 18px; padding: 25px;">
+                        <div style="font-size: 32px; margin-bottom: 20px;">
+                            ${allPassed ? '🎉' : '⚠️'}
+                        </div>
+                        <div style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">
+                            ${allPassed ? 'ALL TESTS PASSED!' : 'SOME TESTS FAILED'}
+                        </div>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <div class="comparison-label">Tests Passed</div>
+                                <div class="comparison-value" style="color: #4CAF50;">${testResults.passed}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Tests Failed</div>
+                                <div class="comparison-value" style="color: ${testResults.failed > 0 ? '#F44336' : '#4CAF50'};">${testResults.failed}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Total Tests</div>
+                                <div class="comparison-value">${testResults.passed + testResults.failed}</div>
+                            </div>
+                            <div class="comparison-item">
+                                <div class="comparison-label">Success Rate</div>
+                                <div class="comparison-value">${Math.round((testResults.passed / (testResults.passed + testResults.failed)) * 100)}%</div>
+                            </div>
+                        </div>
+                        ${allPassed ? `
+                            <div style="margin-top: 20px; padding: 15px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 8px;">
+                                <strong>✅ Structure Lock Verified:</strong> The template system is working correctly. 
+                                All components will maintain consistent structure while allowing content customization.
+                            </div>
+                        ` : `
+                            <div style="margin-top: 20px; padding: 15px; background: rgba(244, 67, 54, 0.1); border: 1px solid rgba(244, 67, 54, 0.3); border-radius: 8px;">
+                                <strong>⚠️ Issues Detected:</strong> Some tests failed. Review the results above and fix any issues before proceeding.
+                            </div>
+                        `}
+                    </div>
+                `;
+                
+                console.log('✅ Test suite complete:', testResults);
+            }, 100);
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', runAllTests);
+    </script>
+</body>
+</html>

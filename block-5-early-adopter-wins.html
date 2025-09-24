@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block 5: Early Adopter Wins - ScaleOps6 Platform</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #FF5500 0%, #FF8800 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav { display: flex; gap: 2rem; }
+        .nav a { color: white; text-decoration: none; }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a { color: #FF5500; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .block-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,85,0,0.1) 0%, rgba(255,136,0,0.1) 100%);
+            border-radius: 12px;
+        }
+        .block-number {
+            display: inline-block;
+            background: #FF5500;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .block-title { font-size: 2.5rem; margin-bottom: 1rem; }
+        .block-description { color: #ccc; line-height: 1.6; }
+        .subcomponents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .subcomponent-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .subcomponent-card:hover {
+            border-color: #FF5500;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255,85,0,0.2);
+        }
+        .subcomponent-id {
+            display: inline-block;
+            background: #222;
+            color: #FF5500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .subcomponent-title { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .subcomponent-agent {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .subcomponent-score {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+        .score-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF5500;
+        }
+        .score-label { color: #666; font-size: 0.85rem; }
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #222;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5500, #FF8800);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">ScaleOps6 Platform</div>
+        <nav class="nav">
+            <a href="index.html">Dashboard</a>
+            <a href="#">Analytics</a>
+            <a href="#">Settings</a>
+        </nav>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="index.html">Dashboard</a> / Block 5: Early Adopter Wins
+    </div>
+
+    <div class="container">
+        <div class="block-header">
+            <span class="block-number">BLOCK 5</span>
+            <h1 class="block-title">Early Adopter Wins</h1>
+            <p class="block-description">
+                Document and leverage early customer wins to build momentum and validate your value proposition.
+            </p>
+        </div>
+
+        <div class="subcomponents-grid">
+            
+            <a href="subcomponent-detail.html?id=5-1" class="subcomponent-card">
+                <span class="subcomponent-id">5A</span>
+                <h3 class="subcomponent-title">Early Win Documentation</h3>
+                <p class="subcomponent-agent">Early Win Validator</p>
+                <div class="subcomponent-score">
+                    <div>
+                        <div class="score-value">--</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="subcomponent-detail.html?id=5-2" class="subcomponent-card">
+                <span class="subcomponent-id">5B</span>
+                <h3 class="subcomponent-title">ROI Calculation</h3>
+                <p class="subcomponent-agent">ROI Calculator</p>
+                <div class="subcomponent-score">
+                    <div>
+                        <div class="score-value">--</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="subcomponent-detail.html?id=5-3" class="subcomponent-card">
+                <span class="subcomponent-id">5C</span>
+                <h3 class="subcomponent-title">Use Case Success</h3>
+                <p class="subcomponent-agent">Use Case Analyst</p>
+                <div class="subcomponent-score">
+                    <div>
+                        <div class="score-value">--</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="subcomponent-detail.html?id=5-4" class="subcomponent-card">
+                <span class="subcomponent-id">5D</span>
+                <h3 class="subcomponent-title">Testimonial Collection</h3>
+                <p class="subcomponent-agent">Testimonial Curator</p>
+                <div class="subcomponent-score">
+                    <div>
+                        <div class="score-value">--</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="subcomponent-detail.html?id=5-5" class="subcomponent-card">
+                <span class="subcomponent-id">5E</span>
+                <h3 class="subcomponent-title">Win Criteria Mapping</h3>
+                <p class="subcomponent-agent">Win Criteria Mapper</p>
+                <div class="subcomponent-score">
+                    <div>
+                        <div class="score-value">--</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="subcomponent-detail.html?id=5-6" class="subcomponent-card">
+                <span class="subcomponent-id">5F</span>
+                <h3 class="subcomponent-title">Deal Debrief</h3>
+                <p class="subcomponent-agent">Deal Debrief Expert</p>
+                <div class="subcomponent-score">
+                    <div>
+                        <div class="score-value">--</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Simulate random scores for demo
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+            const score = 60 + Math.floor(Math.random() * 30);
+            bar.style.width = score + '%';
+            bar.closest('.subcomponent-card').querySelector('.score-value').textContent = score;
+        });
+    </script>
+</body>
+</html>

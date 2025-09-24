@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test All Prototype Launch Subcomponents</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00ff88;
+            border-bottom: 2px solid #00ff88;
+            padding-bottom: 10px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .test-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .test-card h2 {
+            color: #00ff88;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        button {
+            background: #00ff88;
+            color: #0a0a0a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #00cc70;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #0d0d0d;
+            border-radius: 4px;
+            border: 1px solid #222;
+            min-height: 100px;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .score.high { color: #00ff88; }
+        .score.medium { color: #ffaa00; }
+        .score.low { color: #ff4444; }
+        .feedback {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .strengths { color: #00ff88; }
+        .weaknesses { color: #ffaa00; }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+        .error {
+            color: #ff4444;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test All Prototype Launch Subcomponents</h1>
+    <p>Testing all 6 subcomponents with comprehensive answers to verify proper field mapping and scoring</p>
+    
+    <div class="test-grid">
+        <!-- 4-1: Feature Inclusion Matrix -->
+        <div class="test-card">
+            <h2>4-1: Feature Inclusion Matrix</h2>
+            <button onclick="testSubcomponent('4-1')">Test Feature Matrix</button>
+            <div id="result-4-1" class="result">
+                <div class="loading">Click to test...</div>
+            </div>
+        </div>
+
+        <!-- 4-2: Technical Scope Tracker -->
+        <div class="test-card">
+            <h2>4-2: Technical Scope Tracker</h2>
+            <button onclick="testSubcomponent('4-2')">Test Technical Scope</button>
+            <div id="result-4-2" class="result">
+                <div class="loading">Click to test...</div>
+            </div>
+        </div>
+
+        <!-- 4-3: Pilot Group Selection -->
+        <div class="test-card">
+            <h2>4-3: Pilot Group Selection</h2>
+            <button onclick="testSubcomponent('4-3')">Test Pilot Group</button>
+            <div id="result-4-3" class="result">
+                <div class="loading">Click to test...</div>
+            </div>
+        </div>
+
+        <!-- 4-4: QA & Success Criteria -->
+        <div class="test-card">
+            <h2>4-4: QA & Success Criteria</h2>
+            <button onclick="testSubcomponent('4-4')">Test QA Standards</button>
+            <div id="result-4-4" class="result">
+                <div class="loading">Click to test...</div>
+            </div>
+        </div>
+
+        <!-- 4-5: Timeline Gantt or Roadmap -->
+        <div class="test-card">
+            <h2>4-5: Timeline Gantt/Roadmap</h2>
+            <button onclick="testSubcomponent('4-5')">Test Timeline Planning</button>
+            <div id="result-4-5" class="result">
+                <div class="loading">Click to test...</div>
+            </div>
+        </div>
+
+        <!-- 4-6: Post-Mortem Template -->
+        <div class="test-card">
+            <h2>4-6: Post-Mortem Template</h2>
+            <button onclick="testSubcomponent('4-6')">Test Success Metrics</button>
+            <div id="result-4-6" class="result">
+                <div class="loading">Click to test...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test data for each subcomponent
+        const testData = {
+            '4-1': {
+                'field-1': 'Feature Specifications: Core features include user authentication with OAuth2, real-time data synchronization, advanced search with filters, customizable dashboards, API integrations, automated reporting, role-based access control, and mobile responsive design. Each feature directly addresses identified user pain points.',
+                'field-2': 'Value Scoring: Authentication (High - Critical for security), Real-time sync (High - Core differentiator), Search (Medium - Important for UX), Dashboards (High - Key value prop), API (Medium - Enables integrations), Reporting (Medium - Saves time), RBAC (High - Enterprise requirement), Mobile (Low - Nice to have for MVP)',
+                'field-3': 'Effort Estimation: Authentication - 2 weeks, Real-time sync - 4 weeks, Search - 1 week, Dashboards - 3 weeks, API - 2 weeks, Reporting - 2 weeks, RBAC - 1 week, Mobile - 1 week. Total estimated effort: 16 developer-weeks with 2 developers = 8 weeks timeline.',
+                'field-4': 'Dependencies: Authentication must be completed first as all features depend on it. Real-time sync requires database setup. Dashboards depend on data models. API needs authentication. Reporting requires dashboards. RBAC builds on authentication. Mobile depends on core features being complete.',
+                'field-5': 'Roadmap Alignment: Phase 1 (Q1): Authentication, core sync, basic dashboards. Phase 2 (Q2): Advanced features, API, reporting. Phase 3 (Q3): Enterprise features, mobile, scaling. Aligns with go-to-market strategy targeting SMBs first, then enterprise.',
+                'field-6': '8'
+            },
+            '4-2': {
+                'field-1': 'Scope Boundaries: In scope: Core SaaS platform, REST API, web application, PostgreSQL database, AWS infrastructure, third-party integrations (Stripe, SendGrid, Mixpanel). Out of scope: Native mobile apps, on-premise deployment, custom enterprise features, white-labeling, advanced ML features.',
+                'field-2': 'Architecture Design: Microservices architecture on AWS using ECS/Fargate. React frontend with Next.js. Node.js/Express backend. PostgreSQL with Redis caching. API Gateway for routing. S3 for storage. CloudFront CDN. ElasticSearch for search. RabbitMQ for async processing.',
+                'field-3': 'Technical Risks: Database scaling at 10K+ users (Mitigation: Read replicas, sharding plan). Real-time sync performance (Mitigation: WebSockets, Redis pub/sub). Third-party API reliability (Mitigation: Circuit breakers, fallbacks). Security vulnerabilities (Mitigation: Regular audits, penetration testing).',
+                'field-4': 'Resource Requirements: 2 senior full-stack developers, 1 DevOps engineer, 1 UI/UX designer (part-time), 1 QA engineer. Infrastructure: $500/month AWS budget initially. Tools: GitHub, Jira, Datadog monitoring, PagerDuty. Total budget: $50K for MVP.',
+                'field-5': 'Scalability Plan: Horizontal scaling with auto-scaling groups. Database read replicas for 10K users. Implement caching layer early. Move to Kubernetes at 50K users. Consider multi-region deployment at 100K users. Built-in monitoring and alerting from day one.',
+                'field-6': 'React, Node.js, PostgreSQL, AWS'
+            },
+            '4-3': {
+                'field-1': 'Selection Criteria: Target customers who match ICP: B2B SaaS companies with 10-50 employees, experiencing rapid growth, need better data management, have budget for tools, technically savvy, willing to provide feedback, can tolerate some bugs, have influence in their industry.',
+                'field-2': 'Group Composition: 15 pilot customers across 3 segments: 5 early-stage startups (validation), 5 growth-stage companies (core use case), 5 enterprise teams (scale testing). Mix of industries: FinTech (3), HealthTech (3), E-commerce (3), EdTech (3), MarTech (3). Geographic diversity.',
+                'field-3': 'Engagement Plan: Week 1: Personal onboarding call with each pilot. Week 2-3: Daily check-ins via Slack. Week 4+: Weekly group calls, individual monthly reviews. Dedicated support channel. Regular feature previews. Exclusive input on roadmap. Special pricing post-pilot.',
+                'field-4': 'Feedback Collection: Weekly NPS surveys via Typeform. In-app feedback widget (Hotjar). Monthly 30-minute user interviews. Usage analytics via Mixpanel. Support ticket analysis. Feature request tracking in Productboard. Session recordings for UX issues. Quarterly advisory board meetings.',
+                'field-5': 'Success Metrics: 80% activation rate within 7 days. 60% weekly active usage. NPS score > 40. 50% willing to pay at launch. 3+ testimonials. <24 hour support response time. 70% feature adoption rate. 5+ product champions identified.',
+                'field-6': '15'
+            },
+            '4-4': {
+                'field-1': 'Quality Standards: 99.9% uptime SLA. Page load time < 2 seconds. API response time < 200ms. Zero critical bugs in production. <5 medium bugs per release. Test coverage > 80%. Accessibility WCAG 2.1 AA compliant. Security: OWASP Top 10 addressed.',
+                'field-2': 'Test Coverage: Target 80% code coverage. Unit tests for all business logic (90% coverage). Integration tests for all API endpoints. E2E tests for critical user flows. Performance tests for load scenarios. Security testing quarterly. Accessibility testing for all new features.',
+                'field-3': 'Automation Strategy: CI/CD pipeline with GitHub Actions. Automated unit tests on every commit. Integration tests on PR. E2E tests nightly. Automated deployment to staging. Manual approval for production. Automated rollback on failures. 70% test automation target.',
+                'field-4': 'Bug Management: Jira for tracking. Severity levels: Critical (fix immediately), High (within 24h), Medium (current sprint), Low (backlog). Daily triage meetings. Bug budget: max 10 open high-priority bugs. Root cause analysis for critical bugs. Monthly bug retrospectives.',
+                'field-5': 'Release Criteria: All planned features complete and tested. No critical bugs. <5 high-priority bugs. 80% test coverage achieved. Performance benchmarks met. Security scan passed. Documentation updated. Rollback plan ready. Stakeholder approval obtained.',
+                'field-6': '82%'
+            },
+            '4-5': {
+                'field-1': 'Timeline Overview: 12-week MVP timeline. Weeks 1-2: Setup and planning. Weeks 3-4: Core authentication. Weeks 5-7: Main features. Weeks 8-9: Integration and testing. Week 10: Beta launch. Weeks 11-12: Iterations and fixes. Hard launch date: March 15, 2024.',
+                'field-2': 'Milestone Definitions: M1 (Week 2): Development environment ready, designs approved. M2 (Week 4): Authentication complete, database schema finalized. M3 (Week 7): Core features functional. M4 (Week 9): Beta-ready with 5 pilots onboarded. M5 (Week 12): Production launch with 15 pilots.',
+                'field-3': 'Buffer Strategy: 20% buffer built into each milestone. 1 week contingency at end. Friday afternoons reserved for tech debt. No features in final week - bug fixes only. Can cut "nice to have" features if needed. External dependencies have 30% buffer.',
+                'field-4': 'Progress Tracking: Daily standups at 9am. Weekly sprint reviews Fridays. Bi-weekly stakeholder updates. Burndown charts in Jira. Velocity tracking. Risk register updated weekly. Executive dashboard with key metrics. Slack updates for blockers.',
+                'field-5': 'Adjustment Process: Change requests require product owner approval. Timeline changes need stakeholder sign-off. Weekly risk review to identify potential delays. Fast-track process for critical fixes. Scope can be reduced but launch date is fixed. Clear escalation path defined.',
+                'field-6': '03/15/2024'
+            },
+            '4-6': {
+                'field-1': 'What defines launch success: 100 signups in first week, 50% activation rate (complete onboarding), 30% convert to paid within 30 days, NPS > 40, <2% churn in first month, 5 customer testimonials, 10 feature requests showing engagement, positive press coverage',
+                'field-2': 'What are your usage metrics: DAU/MAU ratio > 40%, average session duration > 5 minutes, 3+ sessions per week per user, feature adoption > 60%, API usage for power users, mobile usage > 30%, time to first value < 10 minutes',
+                'field-3': 'What are your quality metrics: 99.9% uptime achieved, page load < 2 seconds for 95% of requests, error rate < 0.1%, support tickets < 5 per 100 users, bug escape rate < 2%, crash-free sessions > 99%, customer effort score < 3',
+                'field-4': 'What are your business metrics: CAC < $500, LTV > $5000, LTV/CAC ratio > 3, MRR growth 20% month-over-month, gross margin > 70%, payback period < 12 months, logo churn < 5%, revenue churn < 2%, expansion revenue > 20%',
+                'field-5': 'How will you track metrics: Mixpanel for product analytics, Stripe for revenue metrics, Datadog for performance monitoring, PostgreSQL for custom reports, weekly dashboard reviews, automated alerts for key thresholds, monthly board reporting package',
+                'field-6': 'What triggers a pivot: <20% activation after 60 days, CAC > $1000 consistently, <10 paying customers after 90 days, NPS < 20, churn > 10% monthly, no product-market fit signals, runway < 6 months without growth'
+            }
+        };
+
+        async function testSubcomponent(subcomponentId) {
+            const resultDiv = document.getElementById(`result-${subcomponentId}`);
+            resultDiv.innerHTML = '<div class="loading">Testing...</div>';
+            
+            try {
+                const response = await fetch('/api/analyze/prototype-launch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        worksheetData: testData[subcomponentId],
+                        subcomponentId: subcomponentId
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                displayResult(subcomponentId, result);
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+                console.error('Test failed:', error);
+            }
+        }
+        
+        function displayResult(subcomponentId, result) {
+            const resultDiv = document.getElementById(`result-${subcomponentId}`);
+            const score = result.score || 0;
+            const scoreClass = score >= 70 ? 'high' : score >= 40 ? 'medium' : 'low';
+            
+            // Extract strengths and weaknesses
+            const strengths = result.analysis?.strengths || [];
+            const weaknesses = result.analysis?.weaknesses || [];
+            
+            let html = `
+                <div class="score ${scoreClass}">Score: ${score}%</div>
+                <div class="feedback">
+                    <div class="strengths">
+                        <strong>✓ Strengths:</strong><br>
+                        ${strengths.slice(0, 3).join('<br>✓ ')}
+                    </div>
+                    <div class="weaknesses">
+                        <strong>⚠ Areas to Improve:</strong><br>
+                        ${weaknesses.slice(0, 3).join('<br>⚠ ')}
+                    </div>
+                </div>
+            `;
+            
+            resultDiv.innerHTML = html;
+        }
+        
+        // Test all subcomponents on load
+        window.addEventListener('load', () => {
+            console.log('Ready to test all Prototype Launch subcomponents');
+        });
+    </script>
+</body>
+</html>

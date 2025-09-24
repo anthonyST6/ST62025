@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: #111111;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #333;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .logo h1 span {
+            color: #FF5500;
+        }
+
+        .logo p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FF5500;
+            box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: #FF5500;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            background: #d64d2d;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
+        }
+
+        .btn-guest {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            color: #888;
+            border: 1px solid #333;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-guest:hover {
+            border-color: #555;
+            color: #aaa;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #555;
+            font-size: 12px;
+        }
+
+        .error-message {
+            background: rgba(255, 85, 0, 0.1);
+            border: 1px solid rgba(255, 85, 0, 0.3);
+            color: #FF5500;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script src="nav.js"></script>
+    
+    <div class="login-container" style="margin-top: 50px;">
+        <div class="logo">
+            <h1><span>ScaleOps6</span></h1>
+            <p>Growth Execution Framework</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company (Optional)</label>
+                <input type="text" id="company" name="company" placeholder="Your Company">
+            </div>
+
+            <button type="submit" class="btn-login">Sign In / Register</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <button class="btn-guest" onclick="continueAsGuest()">Continue as Guest</button>
+    </div>
+
+    <script>
+        // Log color update verification
+        console.log('🎨 Brand Color Update Verification:');
+        console.log('Old orange: #FF6B35 (muted burnt orange)');
+        console.log('New orange: #FF5500 (vibrant Scale Team 6 orange)');
+        console.log('Updated rgba: rgba(255, 85, 0, ...) from rgba(232, 93, 61, ...)');
+        
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+
+            try {
+                const response = await fetch('/api/session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, name, company })
+                });
+
+                const data = await response.json();
+
+                if (data.sessionId) {
+                    // Store session info
+                    localStorage.setItem('sessionId', data.sessionId);
+                    localStorage.setItem('userId', data.userId);
+                    localStorage.setItem('userEmail', email);
+                    localStorage.setItem('userName', name);
+
+                    // Show success message
+                    document.getElementById('successMessage').textContent = 'Login successful! Redirecting...';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+
+                    // Redirect to main dashboard
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1000);
+                } else {
+                    throw new Error('Failed to create session');
+                }
+            } catch (error) {
+                document.getElementById('errorMessage').textContent = 'Login failed. Please try again.';
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            }
+        });
+
+        function continueAsGuest() {
+            // Create anonymous session
+            fetch('/api/session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.sessionId) {
+                    localStorage.setItem('sessionId', data.sessionId);
+                    localStorage.setItem('isGuest', 'true');
+                    window.location.href = '/';
+                }
+            })
+            .catch(error => {
+                console.error('Error creating guest session:', error);
+                window.location.href = '/';
+            });
+        }
+
+        // Check if already logged in
+        if (localStorage.getItem('sessionId') && !localStorage.getItem('isGuest')) {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Prototype Launch Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .test-form {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 60px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+        button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ff5722;
+        }
+        .results {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6b35;
+            margin: 20px 0;
+        }
+        .dimension {
+            margin: 10px 0;
+            padding: 10px;
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+        .recommendations {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+        .rec-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: #2a2a2a;
+            border-left: 3px solid #ff6b35;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Prototype Launch Agent - Subcomponent 4-6</h1>
+    
+    <div class="test-form">
+        <h2>Post-Mortem Template Questions</h2>
+        
+        <label>What defines launch success?</label>
+        <textarea id="field1">10 paying customers within 30 days, 50% activation rate, 80% retention after first week</textarea>
+        
+        <label>What are your usage metrics?</label>
+        <textarea id="field2">Daily active users, session duration average 5 minutes, 3 sessions per week per user</textarea>
+        
+        <label>What are your quality metrics?</label>
+        <textarea id="field3">99.9% uptime, page load under 2 seconds, error rate below 1%, support tickets under 5 per week</textarea>
+        
+        <label>What are your business metrics?</label>
+        <textarea id="field4">$500 MRR target, CAC under $100, LTV above $1000, 20% month-over-month growth</textarea>
+        
+        <label>How will you track metrics?</label>
+        <textarea id="field5">Mixpanel for user analytics, Stripe for revenue, Datadog for performance, PostgreSQL for custom metrics, weekly dashboard updates</textarea>
+        
+        <label>What triggers a pivot?</label>
+        <textarea id="field6">Activation rate below 30% after 100 users, churn above 50% in first month, CAC exceeds LTV, can't solve core problem</textarea>
+        
+        <button onclick="testAgent()">Test Analysis</button>
+    </div>
+    
+    <div id="results" class="results" style="display:none;">
+        <h2>Analysis Results</h2>
+        <div id="score" class="score"></div>
+        <div id="dimensions"></div>
+        <div id="recommendations" class="recommendations"></div>
+    </div>
+
+    <script>
+        async function testAgent() {
+            const worksheetData = {
+                'field-1': document.getElementById('field1').value,
+                'field-2': document.getElementById('field2').value,
+                'field-3': document.getElementById('field3').value,
+                'field-4': document.getElementById('field4').value,
+                'field-5': document.getElementById('field5').value,
+                'field-6': document.getElementById('field6').value
+            };
+            
+            try {
+                const response = await fetch('/api/analyze/prototype-launch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': '1'
+                    },
+                    body: JSON.stringify({
+                        worksheetData: worksheetData,
+                        subcomponentId: '4-6'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                // Display results
+                document.getElementById('score').textContent = `Score: ${result.score}%`;
+                
+                // Display dimensions
+                let dimensionsHtml = '<h3>Dimension Scores:</h3>';
+                for (const [key, data] of Object.entries(result.detailedScores)) {
+                    dimensionsHtml += `
+                        <div class="dimension">
+                            <strong>${key}:</strong> ${data.percentage}% (${data.score}/${data.maxScore})
+                            <div style="margin-top:5px; font-size:12px; color:#888;">
+                                ${data.feedback.replace(/\n/g, '<br>')}
+                            </div>
+                        </div>
+                    `;
+                }
+                document.getElementById('dimensions').innerHTML = dimensionsHtml;
+                
+                // Display recommendations
+                let recsHtml = '<h3>Recommendations:</h3>';
+                if (result.recommendations && result.recommendations.length > 0) {
+                    result.recommendations.forEach(rec => {
+                        recsHtml += `
+                            <div class="rec-item">
+                                <strong>${rec.area}</strong> 
+                                <span style="color:#ff6b35;">${rec.impact || rec.expectedImprovement}</span>
+                                <span style="background:${rec.priority === 'CRITICAL' ? '#ff3333' : rec.priority === 'HIGH' ? '#ff6b35' : '#ffaa00'}; padding:2px 6px; border-radius:3px; margin-left:10px;">${rec.priority}</span>
+                                <div style="margin-top:5px;">${rec.action}</div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    recsHtml += '<p>No recommendations available</p>';
+                }
+                document.getElementById('recommendations').innerHTML = recsHtml;
+                
+                document.getElementById('results').style.display = 'block';
+                
+                console.log('Full result:', result);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error testing agent: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>
