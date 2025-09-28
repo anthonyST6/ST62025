@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test OUTPUT Tab - ScaleTeam6</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FF5500;
+            border-bottom: 2px solid #FF5500;
+            padding-bottom: 10px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .test-result {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #F44336;
+        }
+        .info {
+            color: #2196F3;
+        }
+        .warning {
+            color: #FF9800;
+        }
+        button {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #d64d2d;
+        }
+        .template-output {
+            background: rgba(255, 85, 0, 0.05);
+            border: 1px solid #FF5500;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .question-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid #FF5500;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+    <script src="template-evaluation-engine.js"></script>
+</head>
+<body>
+    <h1>🧪 OUTPUT Tab Testing Suite</h1>
+    
+    <div class="test-section">
+        <h2>Test Configuration</h2>
+        <p>This test will verify that all template questions are being asked and evaluated at a professional level.</p>
+        <button onclick="runAllTests()">🚀 Run All Tests</button>
+        <button onclick="testTemplateEngine()">🔧 Test Template Engine</button>
+        <button onclick="testScoring()">📊 Test Scoring Logic</button>
+        <button onclick="testIntegration()">🔗 Test Integration</button>
+    </div>
+
+    <div id="test-results"></div>
+
+    <script>
+        // Sample worksheet data with varying quality answers
+        const sampleWorksheetData = {
+            'who-affected': 'B2B SaaS founders and GTM leaders at early-stage startups (Seed to Series B) with 10-50 employees in the US market focusing on enterprise software solutions',
+            'what-problem': 'Early-stage startups struggle to build and execute effective go-to-market strategies due to lack of structured frameworks, expert guidance, and proven playbooks. The root cause is the gap between product development expertise and market execution knowledge.',
+            'when-occur': 'This occurs during critical growth phases - when transitioning from founder-led sales to building a sales team (typically at $1-5M ARR), when trying to achieve product-market fit (months 6-18), and when preparing for Series A fundraising. The problem intensifies quarterly during planning cycles.',
+            'what-impact': 'Startups lose 6-12 months of runway due to inefficient GTM execution, with 70% failing to hit their growth targets. This translates to $500K-$2M in wasted resources, 40% longer sales cycles, and 50% lower conversion rates. The opportunity cost is estimated at $5M in lost revenue per year.',
+            'how-solving': 'Currently using a patchwork of expensive consultants ($20-50K/month), generic online courses ($500-2000), scattered blog posts, and trial-and-error. These solutions lack personalization, comprehensive frameworks, ongoing support, and measurable outcomes. Satisfaction level is below 30%.',
+            'evidence-validation': 'Interviewed 50+ founders who consistently reported GTM as their #1 challenge. Survey of 200 startups showed 85% lack structured GTM processes. Case studies from 10 pilot customers demonstrated 3x improvement in sales velocity. Industry reports from Gartner and Forrester confirm the market need.'
+        };
+
+        const weakWorksheetData = {
+            'who-affected': 'Startups',
+            'what-problem': 'They have problems with sales',
+            'when-occur': 'Sometimes',
+            'what-impact': 'It costs money',
+            'how-solving': 'They try different things',
+            'evidence-validation': 'We talked to some people'
+        };
+
+        function runAllTests() {
+            const results = document.getElementById('test-results');
+            results.innerHTML = '<h2>🔄 Running All Tests...</h2>';
+            
+            setTimeout(() => {
+                testTemplateEngine();
+                setTimeout(() => {
+                    testScoring();
+                    setTimeout(() => {
+                        testIntegration();
+                    }, 1000);
+                }, 1000);
+            }, 500);
+        }
+
+        function testTemplateEngine() {
+            const results = document.getElementById('test-results');
+            let html = '<div class="test-section"><h2>📋 Template Engine Test</h2>';
+            
+            try {
+                // Test if engine is loaded
+                if (!window.TemplateEvaluationEngine) {
+                    throw new Error('Template Evaluation Engine not loaded!');
+                }
+                html += '<div class="test-result success">✅ Template Engine loaded successfully</div>';
+                
+                // Test each template
+                const templates = ['Problem Statement Canvas', 'Problem Validation Scorecard', 'Pain Point Prioritization Matrix'];
+                
+                templates.forEach(templateName => {
+                    html += `<div class="template-output"><h3>${templateName}</h3>`;
+                    
+                    const template = window.TemplateEvaluationEngine.templates[templateName];
+                    if (!template) {
+                        html += `<div class="test-result error">❌ Template not found</div>`;
+                        return;
+                    }
+                    
+                    html += `<div class="test-result info">📝 ${template.questions.length} questions configured</div>`;
+                    
+                    // List all questions
+                    template.questions.forEach((q, idx) => {
+                        html += `<div class="question-item">
+                            <strong>Q${idx + 1}: ${q.question}</strong><br>
+                            <span class="info">Weight: ${q.weight}%</span><br>
+                            <span class="warning">Criteria: ${q.criteria.length} items</span><br>
+                            <details>
+                                <summary>View Criteria</summary>
+                                <ul>${q.criteria.map(c => `<li>${c}</li>`).join('')}</ul>
+                            </details>
+                        </div>`;
+                    });
+                    
+                    html += '</div>';
+                });
+                
+            } catch (error) {
+                html += `<div class="test-result error">❌ Error: ${error.message}</div>`;
+            }
+            
+            html += '</div>';
+            results.innerHTML += html;
+        }
+
+        function testScoring() {
+            const results = document.getElementById('test-results');
+            let html = '<div class="test-section"><h2>📊 Scoring Logic Test</h2>';
+            
+            try {
+                const templates = ['Problem Statement Canvas', 'Problem Validation Scorecard', 'Pain Point Prioritization Matrix'];
+                
+                html += '<h3>Testing with High-Quality Answers</h3>';
+                templates.forEach(templateName => {
+                    const evaluation = window.TemplateEvaluationEngine.evaluateTemplate(templateName, sampleWorksheetData);
+                    
+                    html += `<div class="template-output">
+                        <h4>${templateName}</h4>
+                        <div class="test-result">
+                            <strong>Score: ${evaluation.totalScore}%</strong> | 
+                            <strong>Grade: ${evaluation.grade}</strong><br>
+                            <span class="info">${evaluation.overallFeedback}</span>
+                        </div>
+                        <details>
+                            <summary>Question Scores</summary>
+                            ${evaluation.questions.map(q => `
+                                <div class="question-item">
+                                    ${q.question}: ${q.score}% (${q.grade})<br>
+                                    Criteria met: ${q.matchedCriteria}/${q.totalCriteria}
+                                </div>
+                            `).join('')}
+                        </details>
+                    </div>`;
+                });
+                
+                html += '<h3>Testing with Weak Answers</h3>';
+                templates.forEach(templateName => {
+                    const evaluation = window.TemplateEvaluationEngine.evaluateTemplate(templateName, weakWorksheetData);
+                    
+                    html += `<div class="template-output">
+                        <h4>${templateName}</h4>
+                        <div class="test-result">
+                            <strong>Score: ${evaluation.totalScore}%</strong> | 
+                            <strong>Grade: ${evaluation.grade}</strong><br>
+                            <span class="warning">${evaluation.overallFeedback}</span>
+                        </div>
+                    </div>`;
+                });
+                
+                // Verify scores are different
+                const goodScores = templates.map(t => 
+                    window.TemplateEvaluationEngine.evaluateTemplate(t, sampleWorksheetData).totalScore
+                );
+                const weakScores = templates.map(t => 
+                    window.TemplateEvaluationEngine.evaluateTemplate(t, weakWorksheetData).totalScore
+                );
+                
+                const avgGood = goodScores.reduce((a, b) => a + b, 0) / goodScores.length;
+                const avgWeak = weakScores.reduce((a, b) => a + b, 0) / weakScores.length;
+                
+                if (avgGood > avgWeak + 20) {
+                    html += '<div class="test-result success">✅ Scoring differentiation working correctly (Good: ' + Math.round(avgGood) + '%, Weak: ' + Math.round(avgWeak) + '%)</div>';
+                } else {
+                    html += '<div class="test-result error">❌ Insufficient scoring differentiation</div>';
+                }
+                
+            } catch (error) {
+                html += `<div class="test-result error">❌ Error: ${error.message}</div>`;
+            }
+            
+            html += '</div>';
+            results.innerHTML += html;
+        }
+
+        function testIntegration() {
+            const results = document.getElementById('test-results');
+            let html = '<div class="test-section"><h2>🔗 Integration Test</h2>';
+            
+            try {
+                // Test processTemplateOutputs function
+                const scoreEntry = {
+                    score: 75,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Simulate the processTemplateOutputs function
+                const processResults = processTemplateOutputs(sampleWorksheetData, scoreEntry);
+                
+                html += '<div class="test-result success">✅ processTemplateOutputs executed successfully</div>';
+                
+                Object.entries(processResults).forEach(([templateName, result]) => {
+                    html += `<div class="template-output">
+                        <h4>${templateName}</h4>
+                        <div>Score: ${result.score}% | Grade: ${result.grade}</div>
+                        <div>Details: ${result.details.length} items</div>
+                        <div>Has evaluation: ${result.evaluation ? 'Yes' : 'No'}</div>
+                    </div>`;
+                });
+                
+                // Test report generation
+                const testEval = window.TemplateEvaluationEngine.evaluateTemplate('Problem Statement Canvas', sampleWorksheetData);
+                const report = window.TemplateEvaluationEngine.generateTemplateReport(testEval);
+                
+                if (report && report.includes('ScaleTeam6')) {
+                    html += '<div class="test-result success">✅ Report generation working with ST6 branding</div>';
+                } else {
+                    html += '<div class="test-result error">❌ Report generation issue</div>';
+                }
+                
+            } catch (error) {
+                html += `<div class="test-result error">❌ Integration Error: ${error.message}</div>`;
+            }
+            
+            html += '</div>';
+            results.innerHTML += html;
+        }
+
+        // Copy of the processTemplateOutputs function for testing
+        function processTemplateOutputs(worksheetData, scoreEntry) {
+            const results = {};
+            
+            if (!window.TemplateEvaluationEngine) {
+                console.error('TemplateEvaluationEngine not loaded!');
+                return results;
+            }
+            
+            const templates = ['Problem Statement Canvas', 'Problem Validation Scorecard', 'Pain Point Prioritization Matrix'];
+            
+            templates.forEach(templateName => {
+                const evaluation = window.TemplateEvaluationEngine.evaluateTemplate(templateName, worksheetData);
+                
+                const details = evaluation.questions.map(q => ({
+                    label: q.question.substring(0, 50) + '...',
+                    answer: worksheetData[Object.keys(worksheetData)[0]] || '',
+                    score: q.score,
+                    grade: q.grade,
+                    matchedCriteria: q.matchedCriteria,
+                    totalCriteria: q.totalCriteria,
+                    feedback: q.feedback.filter(f => f.met).map(f => f.criterion).join(', ')
+                }));
+                
+                results[templateName] = {
+                    score: evaluation.totalScore,
+                    grade: evaluation.grade,
+                    details: details,
+                    timestamp: new Date().toISOString(),
+                    sourceScore: scoreEntry.score || 0,
+                    evaluation: evaluation
+                };
+            });
+            
+            return results;
+        }
+
+        // Auto-run tests on load
+        window.addEventListener('load', () => {
+            console.log('Test page loaded. Click "Run All Tests" to begin.');
+        });
+    </script>
+</body>
+</html>

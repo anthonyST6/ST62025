@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6 Application Flowchart - Interactive Navigation Map</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .level {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+            position: relative;
+        }
+
+        .node {
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .main-node {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: 18px;
+            padding: 20px 40px;
+        }
+
+        .auth-node {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .phase-node {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .block-node {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            font-size: 12px;
+            padding: 10px 15px;
+            min-width: 120px;
+        }
+
+        .subcomponent-node {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            font-size: 11px;
+            padding: 8px 12px;
+            min-width: 100px;
+        }
+
+        .connector {
+            width: 2px;
+            height: 30px;
+            background: #ccc;
+            margin: -15px auto;
+        }
+
+        .phase-container {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            background: #fafafa;
+        }
+
+        .phase-title {
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .block-container {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .block-header {
+            margin-bottom: 10px;
+        }
+
+        .subcomponents-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .navigation-tip {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ScaleOps6 Platform - Interactive Application Map</h1>
+        <p class="subtitle">Click any box to navigate directly to that page (Application running on port 3001)</p>
+
+        <div class="info-box">
+            <strong>📍 Current Status:</strong> Application is running at <a href="http://localhost:3001" target="_blank">http://localhost:3001</a>
+            <br>All links below will open in a new tab for easy navigation.
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">122</div>
+                <div class="stat-label">Total HTML Pages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Growth Phases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">16</div>
+                <div class="stat-label">Framework Blocks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">96</div>
+                <div class="stat-label">Subcomponents</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                <span>Main Pages</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                <span>Authentication</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                <span>Phase Pages</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                <span>Block Pages</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                <span>Subcomponents</span>
+            </div>
+        </div>
+
+        <div class="flowchart">
+            <!-- Level 1: Entry Points -->
+            <div class="level">
+                <a href="http://localhost:3001/login.html" target="_blank" class="node auth-node">
+                    🔐 Login
+                </a>
+                <a href="http://localhost:3001/" target="_blank" class="node main-node">
+                    🏠 Dashboard<br>(index.html)
+                </a>
+                <a href="http://localhost:3001/admin.html" target="_blank" class="node auth-node">
+                    ⚙️ Admin Panel
+                </a>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Level 2: Phase Pages -->
+            <div class="level">
+                <a href="http://localhost:3001/phase-1-idea-market-fit.html" target="_blank" class="node phase-node">
+                    Phase 1<br>Idea Market Fit
+                </a>
+                <a href="http://localhost:3001/phase-2-product-market-fit.html" target="_blank" class="node phase-node">
+                    Phase 2<br>Product Market Fit
+                </a>
+                <a href="http://localhost:3001/phase-3-go-to-market.html" target="_blank" class="node phase-node">
+                    Phase 3<br>Go-To Market
+                </a>
+                <a href="http://localhost:3001/phase-4-scaling-impact.html" target="_blank" class="node phase-node">
+                    Phase 4<br>Scaling Impact
+                </a>
+                <a href="http://localhost:3001/phase-5-scale.html" target="_blank" class="node phase-node">
+                    Phase 5<br>Scale
+                </a>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Phase 1 Blocks and Subcomponents -->
+            <div class="phase-container">
+                <div class="phase-title">📊 PHASE 1: IDEA MARKET FIT</div>
+                <div class="blocks-grid">
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-1-mission-discovery.html" target="_blank" class="node block-node">
+                                Block 1: Mission Discovery
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-1a-problem-statement.html" target="_blank" class="node subcomponent-node">1A: Problem</a>
+                            <a href="http://localhost:3001/subcomponent-1b-mission-statement.html" target="_blank" class="node subcomponent-node">1B: Mission</a>
+                            <a href="http://localhost:3001/subcomponent-1c-voice-of-customer.html" target="_blank" class="node subcomponent-node">1C: Voice</a>
+                            <a href="http://localhost:3001/subcomponent-1d-team-assessment.html" target="_blank" class="node subcomponent-node">1D: Team</a>
+                            <a href="http://localhost:3001/subcomponent-1e-market-landscape.html" target="_blank" class="node subcomponent-node">1E: Market</a>
+                            <a href="http://localhost:3001/subcomponent-1f-launch-readiness.html" target="_blank" class="node subcomponent-node">1F: Launch</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-2-customer-insights.html" target="_blank" class="node block-node">
+                                Block 2: Customer Insights
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-2a-interview-cadence.html" target="_blank" class="node subcomponent-node">2A: Interview</a>
+                            <a href="http://localhost:3001/subcomponent-2b-persona-development.html" target="_blank" class="node subcomponent-node">2B: Persona</a>
+                            <a href="http://localhost:3001/subcomponent-2c-pain-point-analysis.html" target="_blank" class="node subcomponent-node">2C: Pain Points</a>
+                            <a href="http://localhost:3001/subcomponent-2d-jobs-to-be-done.html" target="_blank" class="node subcomponent-node">2D: JTBD</a>
+                            <a href="http://localhost:3001/subcomponent-2e-demand-signals.html" target="_blank" class="node subcomponent-node">2E: Demand</a>
+                            <a href="http://localhost:3001/subcomponent-2f-insight-loop.html" target="_blank" class="node subcomponent-node">2F: Insights</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-3-strategic-prioritization.html" target="_blank" class="node block-node">
+                                Block 3: Strategic Prioritization
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-3a-use-case-prioritization.html" target="_blank" class="node subcomponent-node">3A: Use Cases</a>
+                            <a href="http://localhost:3001/subcomponent-3b-segment-tiering.html" target="_blank" class="node subcomponent-node">3B: Segments</a>
+                            <a href="http://localhost:3001/subcomponent-3c-prioritization-framework.html" target="_blank" class="node subcomponent-node">3C: Framework</a>
+                            <a href="http://localhost:3001/subcomponent-3d-strategic-tradeoffs.html" target="_blank" class="node subcomponent-node">3D: Tradeoffs</a>
+                            <a href="http://localhost:3001/subcomponent-3e-hypothesis-testing.html" target="_blank" class="node subcomponent-node">3E: Hypothesis</a>
+                            <a href="http://localhost:3001/subcomponent-3f-decision-archive.html" target="_blank" class="node subcomponent-node">3F: Decisions</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-4-prototype-launch.html" target="_blank" class="node block-node">
+                                Block 4: Prototype Launch
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-4a-feature-matrix.html" target="_blank" class="node subcomponent-node">4A: Features</a>
+                            <a href="http://localhost:3001/subcomponent-4b-technical-scope.html" target="_blank" class="node subcomponent-node">4B: Technical</a>
+                            <a href="http://localhost:3001/subcomponent-4c-pilot-group-selection.html" target="_blank" class="node subcomponent-node">4C: Pilot</a>
+                            <a href="http://localhost:3001/subcomponent-4d-qa-standards.html" target="_blank" class="node subcomponent-node">4D: QA</a>
+                            <a href="http://localhost:3001/subcomponent-4e-timeline-planning.html" target="_blank" class="node subcomponent-node">4E: Timeline</a>
+                            <a href="http://localhost:3001/subcomponent-4f-post-mortem-analysis.html" target="_blank" class="node subcomponent-node">4F: Post-Mortem</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 Blocks and Subcomponents -->
+            <div class="phase-container">
+                <div class="phase-title">🎯 PHASE 2: PRODUCT MARKET FIT</div>
+                <div class="blocks-grid">
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-5-early-adopter-wins.html" target="_blank" class="node block-node">
+                                Block 5: Early Adopter Wins
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-5a-early-win-documentation.html" target="_blank" class="node subcomponent-node">5A: Wins</a>
+                            <a href="http://localhost:3001/subcomponent-5b-roi-calculation.html" target="_blank" class="node subcomponent-node">5B: ROI</a>
+                            <a href="http://localhost:3001/subcomponent-5c-use-case-success.html" target="_blank" class="node subcomponent-node">5C: Success</a>
+                            <a href="http://localhost:3001/subcomponent-5d-testimonial-collection.html" target="_blank" class="node subcomponent-node">5D: Testimonials</a>
+                            <a href="http://localhost:3001/subcomponent-5e-win-criteria-mapping.html" target="_blank" class="node subcomponent-node">5E: Criteria</a>
+                            <a href="http://localhost:3001/subcomponent-5f-deal-debrief.html" target="_blank" class="node subcomponent-node">5F: Debrief</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-6-customer-engagement-flywheel.html" target="_blank" class="node block-node">
+                                Block 6: Customer Engagement
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-6a-usage-analytics.html" target="_blank" class="node subcomponent-node">6A: Usage</a>
+                            <a href="http://localhost:3001/subcomponent-6b-milestone-tracking.html" target="_blank" class="node subcomponent-node">6B: Milestones</a>
+                            <a href="http://localhost:3001/subcomponent-6c-cs-dashboard-design.html" target="_blank" class="node subcomponent-node">6C: Dashboard</a>
+                            <a href="http://localhost:3001/subcomponent-6d-customer-activation.html" target="_blank" class="node subcomponent-node">6D: Activation</a>
+                            <a href="http://localhost:3001/subcomponent-6e-feedback-collection.html" target="_blank" class="node subcomponent-node">6E: Feedback</a>
+                            <a href="http://localhost:3001/subcomponent-6f-power-user-development.html" target="_blank" class="node subcomponent-node">6F: Power Users</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-7-quantifiable-impact.html" target="_blank" class="node block-node">
+                                Block 7: Quantifiable Impact
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-7a-time-cost-savings.html" target="_blank" class="node subcomponent-node">7A: Savings</a>
+                            <a href="http://localhost:3001/subcomponent-7b-revenue-impact.html" target="_blank" class="node subcomponent-node">7B: Revenue</a>
+                            <a href="http://localhost:3001/subcomponent-7c-productivity-measurement.html" target="_blank" class="node subcomponent-node">7C: Productivity</a>
+                            <a href="http://localhost:3001/subcomponent-7d-retention-analysis.html" target="_blank" class="node subcomponent-node">7D: Retention</a>
+                            <a href="http://localhost:3001/subcomponent-7e-system-consolidation.html" target="_blank" class="node subcomponent-node">7E: Systems</a>
+                            <a href="http://localhost:3001/subcomponent-7f-friction-analysis.html" target="_blank" class="node subcomponent-node">7F: Friction</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-8-customer-success-expansion.html" target="_blank" class="node block-node">
+                                Block 8: Customer Success
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-8a-upsell-strategy.html" target="_blank" class="node subcomponent-node">8A: Upsell</a>
+                            <a href="http://localhost:3001/subcomponent-8b-team-expansion-tracking.html" target="_blank" class="node subcomponent-node">8B: Expansion</a>
+                            <a href="http://localhost:3001/subcomponent-8c-organic-growth-analysis.html" target="_blank" class="node subcomponent-node">8C: Growth</a>
+                            <a href="http://localhost:3001/subcomponent-8d-champion-development.html" target="_blank" class="node subcomponent-node">8D: Champions</a>
+                            <a href="http://localhost:3001/subcomponent-8e-sentiment-tracking.html" target="_blank" class="node subcomponent-node">8E: Sentiment</a>
+                            <a href="http://localhost:3001/subcomponent-8f-renewal-readiness.html" target="_blank" class="node subcomponent-node">8F: Renewal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 Blocks and Subcomponents -->
+            <div class="phase-container">
+                <div class="phase-title">🚀 PHASE 3: GO-TO MARKET</div>
+                <div class="blocks-grid">
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-9-proof-execution.html" target="_blank" class="node block-node">
+                                Block 9: Proof Execution
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-9a-inbound-conversion.html" target="_blank" class="node subcomponent-node">9A: Inbound</a>
+                            <a href="http://localhost:3001/subcomponent-9b-outbound-performance.html" target="_blank" class="node subcomponent-node">9B: Outbound</a>
+                            <a href="http://localhost:3001/subcomponent-9c-channel-economics.html" target="_blank" class="node subcomponent-node">9C: Channels</a>
+                            <a href="http://localhost:3001/subcomponent-9d-discovery-call-excellence.html" target="_blank" class="node subcomponent-node">9D: Discovery</a>
+                            <a href="http://localhost:3001/subcomponent-9e-demo-optimization.html" target="_blank" class="node subcomponent-node">9E: Demo</a>
+                            <a href="http://localhost:3001/subcomponent-9f-founder-sales-analysis.html" target="_blank" class="node subcomponent-node">9F: Founder</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-10-sales-team-empowerment.html" target="_blank" class="node block-node">
+                                Block 10: Sales Empowerment
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-10a-sales-enablement-assets.html" target="_blank" class="node subcomponent-node">10A: Assets</a>
+                            <a href="http://localhost:3001/subcomponent-10b-rep-onboarding-ramp.html" target="_blank" class="node subcomponent-node">10B: Onboarding</a>
+                            <a href="http://localhost:3001/subcomponent-10c-win-loss-analysis.html" target="_blank" class="node subcomponent-node">10C: Win/Loss</a>
+                            <a href="http://localhost:3001/subcomponent-10d-objection-handling.html" target="_blank" class="node subcomponent-node">10D: Objections</a>
+                            <a href="http://localhost:3001/subcomponent-10e-icp-definition.html" target="_blank" class="node subcomponent-node">10E: ICP</a>
+                            <a href="http://localhost:3001/subcomponent-10f-sales-call-library.html" target="_blank" class="node subcomponent-node">10F: Calls</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-11-high-performance-teams.html" target="_blank" class="node block-node">
+                                Block 11: High Performance
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-11a-performance-scorecard.html" target="_blank" class="node subcomponent-node">11A: Scorecard</a>
+                            <a href="http://localhost:3001/subcomponent-11b-quota-structure.html" target="_blank" class="node subcomponent-node">11B: Quotas</a>
+                            <a href="http://localhost:3001/subcomponent-11c-deal-review-process.html" target="_blank" class="node subcomponent-node">11C: Reviews</a>
+                            <a href="http://localhost:3001/subcomponent-11d-forecast-accuracy.html" target="_blank" class="node subcomponent-node">11D: Forecast</a>
+                            <a href="http://localhost:3001/subcomponent-11e-sales-coaching-program.html" target="_blank" class="node subcomponent-node">11E: Coaching</a>
+                            <a href="http://localhost:3001/subcomponent-11f-talent-gap-analysis.html" target="_blank" class="node subcomponent-node">11F: Talent</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-12-retention-systems.html" target="_blank" class="node block-node">
+                                Block 12: Retention Systems
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-12a-customer-onboarding.html" target="_blank" class="node subcomponent-node">12A: Onboarding</a>
+                            <a href="http://localhost:3001/subcomponent-12b-activation-tracking.html" target="_blank" class="node subcomponent-node">12B: Activation</a>
+                            <a href="http://localhost:3001/subcomponent-12c-success-playbook-development.html" target="_blank" class="node subcomponent-node">12C: Playbook</a>
+                            <a href="http://localhost:3001/subcomponent-12d-escalation-management.html" target="_blank" class="node subcomponent-node">12D: Escalation</a>
+                            <a href="http://localhost:3001/subcomponent-12e-renewal-pipeline-management.html" target="_blank" class="node subcomponent-node">12E: Pipeline</a>
+                            <a href="http://localhost:3001/subcomponent-12f-churn-analysis.html" target="_blank" class="node subcomponent-node">12F: Churn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4 Blocks and Subcomponents -->
+            <div class="phase-container">
+                <div class="phase-title">📈 PHASE 4: SCALING IMPACT</div>
+                <div class="blocks-grid">
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-13-market-domination-strategies.html" target="_blank" class="node block-node">
+                                Block 13: Market Domination
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-13a-category-creation.html" target="_blank" class="node subcomponent-node">13A: Category</a>
+                            <a href="http://localhost:3001/subcomponent-13b-competitive-moat.html" target="_blank" class="node subcomponent-node">13B: Moat</a>
+                            <a href="http://localhost:3001/subcomponent-13c-ecosystem-strategy.html" target="_blank" class="node subcomponent-node">13C: Ecosystem</a>
+                            <a href="http://localhost:3001/subcomponent-13d-competitive-intelligence.html" target="_blank" class="node subcomponent-node">13D: Intel</a>
+                            <a href="http://localhost:3001/subcomponent-13e-brand-strategy.html" target="_blank" class="node subcomponent-node">13E: Brand</a>
+                            <a href="http://localhost:3001/subcomponent-13f-defensive-strategy.html" target="_blank" class="node subcomponent-node">13F: Defense</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 5 Blocks and Subcomponents -->
+            <div class="phase-container">
+                <div class="phase-title">🌍 PHASE 5: SCALE</div>
+                <div class="blocks-grid">
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-14-operational-infrastructure.html" target="_blank" class="node block-node">
+                                Block 14: Operations
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-14a-system-architecture.html" target="_blank" class="node subcomponent-node">14A: Systems</a>
+                            <a href="http://localhost:3001/subcomponent-14b-revenue-operations.html" target="_blank" class="node subcomponent-node">14B: RevOps</a>
+                            <a href="http://localhost:3001/subcomponent-14c-dashboard-design.html" target="_blank" class="node subcomponent-node">14C: Dashboard</a>
+                            <a href="http://localhost:3001/subcomponent-14d-tool-stack-optimization.html" target="_blank" class="node subcomponent-node">14D: Tools</a>
+                            <a href="http://localhost:3001/subcomponent-14e-revops-playbook.html" target="_blank" class="node subcomponent-node">14E: Playbook</a>
+                            <a href="http://localhost:3001/subcomponent-14f-sla-management.html" target="_blank" class="node subcomponent-node">14F: SLAs</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-15-leadership-expansion.html" target="_blank" class="node block-node">
+                                Block 15: Leadership
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-15a-executive-hiring.html" target="_blank" class="node subcomponent-node">15A: Hiring</a>
+                            <a href="http://localhost:3001/subcomponent-15b-succession-planning.html" target="_blank" class="node subcomponent-node">15B: Succession</a>
+                            <a href="http://localhost:3001/subcomponent-15c-executive-cadence.html" target="_blank" class="node subcomponent-node">15C: Cadence</a>
+                            <a href="http://localhost:3001/subcomponent-15d-culture-health-assessment.html" target="_blank" class="node subcomponent-node">15D: Culture</a>
+                            <a href="http://localhost:3001/subcomponent-15e-organizational-design.html" target="_blank" class="node subcomponent-node">15E: Org Design</a>
+                            <a href="http://localhost:3001/subcomponent-15f-dei-integration.html" target="_blank" class="node subcomponent-node">15F: DEI</a>
+                        </div>
+                    </div>
+
+                    <div class="block-container">
+                        <div class="block-header">
+                            <a href="http://localhost:3001/block-16-global-expansion-opportunities.html" target="_blank" class="node block-node">
+                                Block 16: Global Expansion
+                            </a>
+                        </div>
+                        <div class="subcomponents-list">
+                            <a href="http://localhost:3001/subcomponent-16a-market-entry-analysis.html" target="_blank" class="node subcomponent-node">16A: Entry</a>
+                            <a href="http://localhost:3001/subcomponent-16b-localization-strategy.html" target="_blank" class="node subcomponent-node">16B: Localization</a>
+                            <a href="http://localhost:3001/subcomponent-16c-international-pricing.html" target="_blank" class="node subcomponent-node">16C: Pricing</a>
+                            <a href="http://localhost:3001/subcomponent-16d-compliance-management.html" target="_blank" class="node subcomponent-node">16D: Compliance</a>
+                            <a href="http://localhost:3001/subcomponent-16e-geographic-gtm-strategy.html" target="_blank" class="node subcomponent-node">16E: Geo GTM</a>
+                            <a href="http://localhost:3001/subcomponent-16f-expansion-risk-assessment.html" target="_blank" class="node subcomponent-node">16F: Risk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-tip">
+            <strong>💡 Navigation Tips:</strong>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>All links open in new tabs for easy navigation</li>
+                <li>Use the Dashboard (index.html) for the main overview</li>
+                <li>Each Block contains 6 subcomponents (A through F)</li>
+                <li>Dynamic routing: block-detail.html?id=X for block details</li>
+                <li>Login as admin to access the Admin Panel features</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>🔧 Technical Details:</strong>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>Backend: Node.js + Express</li>
+                <li>Database: SQLite (local storage)</li>
+                <li>Features: AI Agent Integration, Score Tracking, File Uploads</li>
+                <li>Port: 3001 (configured in server.js)</li>
+                <li>Session Management: In-memory caching</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

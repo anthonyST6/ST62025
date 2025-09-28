@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Logged In Navigation - ScaleOps6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .content {
+            padding: 40px;
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 85, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        
+        .info-box p {
+            color: #999;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        .info-box strong {
+            color: #FF5500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be injected here -->
+    <script src="/nav.js"></script>
+    
+    <div class="content">
+        <h1>Navigation Test Page</h1>
+        <div class="info-box">
+            <p>This page simulates a <strong>logged-in user</strong> to test the navigation display.</p>
+            <p>User: <strong>ST6CO</strong></p>
+            <p>Email: <strong>admin@st6.com</strong></p>
+            <p>The navigation should show:</p>
+            <ul style="text-align: left; margin: 20px 0; color: #ccc;">
+                <li>Username "ST6CO" with Logout button</li>
+                <li>Admin link in the navigation</li>
+                <li>Progress statistics bar below the main nav</li>
+                <li>Overall Progress: 73%</li>
+                <li>Completed Blocks: 8/16</li>
+                <li>Active Phase: Go-To Market</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate logged-in user by setting localStorage
+        localStorage.setItem('sessionId', 'test-session-123');
+        localStorage.setItem('userName', 'ST6CO');
+        localStorage.setItem('userEmail', 'admin@st6.com');
+        localStorage.setItem('isGuest', 'false');
+        localStorage.setItem('userId', '1');
+        
+        // Force navigation refresh after setting user data
+        setTimeout(() => {
+            if (typeof createNavigation === 'function') {
+                // Remove existing nav if present
+                const existingNav = document.getElementById('mainNav');
+                if (existingNav) {
+                    existingNav.remove();
+                    const spacer = document.querySelector('div[style*="height"]');
+                    if (spacer) spacer.remove();
+                }
+                // Recreate navigation
+                createNavigation();
+            }
+        }, 100);
+    </script>
+</body>
+</html>

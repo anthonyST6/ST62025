@@ -43,18 +43,25 @@ class DatabaseScoreManager {
             )
         `);
 
-        // Create score_history table for tracking changes
+        // Create score_history table for tracking changes WITH FULL ANALYSIS DATA
         this.db.run(`
             CREATE TABLE IF NOT EXISTS score_history (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 user_id INTEGER NOT NULL,
                 block_id INTEGER NOT NULL,
                 subcomponent_id TEXT,
+                score INTEGER,
                 old_score INTEGER,
                 new_score INTEGER,
                 change_type TEXT,
                 change_reason TEXT,
+                analysis_type TEXT,
+                worksheet_data TEXT,
+                analysis_data TEXT,
+                user_name TEXT,
+                user_email TEXT,
                 metadata TEXT,
+                analyzed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         `);
@@ -126,7 +133,7 @@ class DatabaseScoreManager {
         });
     }
 
-    // Save subcomponent score
+    // Save subcomponent score WITH FULL ANALYSIS DATA TO HISTORY
     saveSubcomponentScore(userId, blockId, subcomponentId, score, source = 'agent', analysisData = {}) {
         return new Promise((resolve, reject) => {
             // Get old score first
@@ -153,10 +160,16 @@ class DatabaseScoreManager {
                                 return;
                             }
 
-                            // Log to history
-                            if (oldScore !== null && oldScore !== score) {
-                                this.logScoreChange(userId, blockId, subcomponentId, oldScore, score, 'update', source);
-                            }
+                            // Save COMPLETE analysis to score_history table for full history tracking
+                            this.saveAnalysisToHistory(
+                                userId,
+                                blockId,
+                                subcomponentId,
+                                score,
+                                oldScore,
+                                source,
+                                analysisData
+                            );
 
                             // Now recalculate the main block score
                             this.recalculateBlockScore(userId, blockId).then(blockResult => {
@@ -246,6 +259,42 @@ class DatabaseScoreManager {
             `INSERT INTO score_history (user_id, block_id, subcomponent_id, old_score, new_score, change_type, change_reason)
              VALUES (?, ?, ?, ?, ?, ?, ?)`,
             [userId, blockId, subcomponentId, oldScore, newScore, changeType, changeReason]
+        );
+    }
+
+    // Save COMPLETE analysis to history for proper score history display
+    saveAnalysisToHistory(userId, blockId, subcomponentId, score, oldScore, source, analysisData) {
+        // Extract worksheet data and analysis details from the analysisData
+        const worksheetData = analysisData.worksheetData || {};
+        const analysis = analysisData.analysis || analysisData;
+        
+        // Get user info (in production, this would come from session/auth)
+        const userName = 'ST6 User';
+        const userEmail = 'user@st6.com';
+        
+        this.db.run(
+            `INSERT INTO score_history (
+                user_id, block_id, subcomponent_id,
+                score, old_score, new_score,
+                change_type, change_reason, analysis_type,
+                worksheet_data, analysis_data,
+                user_name, user_email,
+                metadata, analyzed_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)`,
+            [
+                userId, blockId, subcomponentId,
+                score, oldScore, score,
+                'analysis', source, source,
+                JSON.stringify(worksheetData),
+                JSON.stringify(analysis),
+                userName, userEmail,
+                JSON.stringify({ agent: analysis.agent || source })
+            ],
+            (err) => {
+                if (err) {
+                    console.error('Error saving analysis to history:', err);
+                }
+            }
         );
     }
 

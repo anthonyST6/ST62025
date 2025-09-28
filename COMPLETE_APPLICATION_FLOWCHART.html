@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6 - Complete Application Flowchart with URL Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #1a1a1a;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #00ff00;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .status-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .status-active { background: #00ff00; box-shadow: 0 0 10px #00ff00; }
+        .status-duplicate { background: #ffaa00; box-shadow: 0 0 10px #ffaa00; }
+        .status-inactive { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        .status-dynamic { background: #00aaff; box-shadow: 0 0 10px #00aaff; }
+
+        .warning-box {
+            background: #330000;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #ffaa00;
+        }
+
+        .info-box {
+            background: #002200;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .page-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            color: #00ff00;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .page-card {
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .page-card:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .page-url {
+            color: #00aaff;
+            font-size: 12px;
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+
+        .page-file {
+            color: #ffaa00;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .page-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .page-links {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+            font-size: 11px;
+            color: #888;
+        }
+
+        .duplicate-warning {
+            background: #440000;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            color: #ff6666;
+            font-size: 12px;
+        }
+
+        .flowchart-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #0d0d0d;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        .flow-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .flow-node {
+            padding: 10px 20px;
+            background: #1a1a1a;
+            border: 2px solid;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 150px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .flow-node:hover {
+            transform: scale(1.05);
+        }
+
+        .node-active { border-color: #00ff00; }
+        .node-duplicate { border-color: #ffaa00; }
+        .node-inactive { border-color: #ff0000; }
+        .node-dynamic { border-color: #00aaff; }
+
+        .flow-connector {
+            width: 2px;
+            height: 30px;
+            background: #333;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #333;
+        }
+
+        th {
+            background: #1a1a1a;
+            color: #00ff00;
+        }
+
+        td {
+            background: #0d0d0d;
+            font-size: 12px;
+        }
+
+        .clickable-url {
+            color: #00aaff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .clickable-url:hover {
+            color: #00ff00;
+            text-decoration: underline;
+        }
+
+        .duplicate-badge {
+            background: #ffaa00;
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .inactive-badge {
+            background: #ff0000;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 SCALEOPS6 COMPLETE APPLICATION FLOWCHART</h1>
+        <p style="color: #888;">Full URL Analysis | Duplicate Detection | Active/Inactive Status</p>
+        <p style="color: #ffaa00; margin-top: 10px;">⚠️ Application Running on Port 3001</p>
+    </div>
+
+    <div class="status-legend">
+        <div class="legend-item">
+            <div class="status-indicator status-active"></div>
+            <span>ACTIVE - Working Page</span>
+        </div>
+        <div class="legend-item">
+            <div class="status-indicator status-duplicate"></div>
+            <span>DUPLICATE - Multiple Routes</span>
+        </div>
+        <div class="legend-item">
+            <div class="status-indicator status-dynamic"></div>
+            <span>DYNAMIC - Query Parameters</span>
+        </div>
+        <div class="legend-item">
+            <div class="status-indicator status-inactive"></div>
+            <span>INACTIVE - Not Found/Error</span>
+        </div>
+    </div>
+
+    <div class="warning-box">
+        <h3>⚠️ CRITICAL ISSUES DETECTED - THE DUPLICATE PROBLEM EXPLAINED</h3>
+        <ul style="margin-top: 10px; margin-left: 20px;">
+            <li><strong>96 duplicate routing conflicts:</strong> Each subcomponent can be accessed through TWO different URL patterns, but only ONE works</li>
+            <li><strong>When you click Block 1:</strong> You navigate to <code>http://localhost:3001/block-detail.html?id=1</code> ✅</li>
+            <li><strong>When you click "Problem Statement (64%)":</strong> Code tries <code>subcomponent-detail.html?id=1-1</code> ❌ (404 ERROR)</li>
+            <li><strong>The actual file that exists:</strong> <code>subcomponent-1a-problem-statement.html</code> ✅ (but unreachable)</li>
+            <li><strong>Root cause:</strong> Line 1641 in block-detail.html uses <code>window.location.href = `subcomponent-detail.html?id=${subBlock.id}`;</code></li>
+        </ul>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">122</div>
+            <div class="stat-label">Total HTML Files</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">96</div>
+            <div class="stat-label">Duplicate Routes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Missing Files (404)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">25</div>
+            <div class="stat-label">Unique Active Pages</div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Pages -->
+    <div class="page-section">
+        <h2 class="section-title">🏠 MAIN NAVIGATION PAGES (4 Active)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Page Name</th>
+                    <th>URL</th>
+                    <th>File Path</th>
+                    <th>Status</th>
+                    <th>Links To</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dashboard</td>
+                    <td><a href="http://localhost:3001/" target="_blank" class="clickable-url">http://localhost:3001/</a></td>
+                    <td>DEVST6/index.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                    <td>All phases, blocks via JS</td>
+                </tr>
+                <tr>
+                    <td>Login</td>
+                    <td><a href="http://localhost:3001/login.html" target="_blank" class="clickable-url">http://localhost:3001/login.html</a></td>
+                    <td>DEVST6/login.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                    <td>Dashboard after auth</td>
+                </tr>
+                <tr>
+                    <td>Admin Panel</td>
+                    <td><a href="http://localhost:3001/admin.html" target="_blank" class="clickable-url">http://localhost:3001/admin.html</a></td>
+                    <td>DEVST6/admin.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                    <td>Dashboard, User Management</td>
+                </tr>
+                <tr>
+                    <td>Block Detail (Dynamic)</td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=1" target="_blank" class="clickable-url">http://localhost:3001/block-detail.html?id=X</a></td>
+                    <td>DEVST6/block-detail.html</td>
+                    <td><span style="color: #00aaff;">✓ DYNAMIC</span></td>
+                    <td>Subcomponent-detail.html (404)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Phase Pages -->
+    <div class="page-section">
+        <h2 class="section-title">📈 PHASE PAGES (5 Active)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Phase</th>
+                    <th>URL</th>
+                    <th>File Path</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Phase 1: Idea Market Fit</td>
+                    <td><a href="http://localhost:3001/phase-1-idea-market-fit.html" target="_blank" class="clickable-url">http://localhost:3001/phase-1-idea-market-fit.html</a></td>
+                    <td>DEVST6/phase-1-idea-market-fit.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>Phase 2: Product Market Fit</td>
+                    <td><a href="http://localhost:3001/phase-2-product-market-fit.html" target="_blank" class="clickable-url">http://localhost:3001/phase-2-product-market-fit.html</a></td>
+                    <td>DEVST6/phase-2-product-market-fit.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>Phase 3: Go-To Market</td>
+                    <td><a href="http://localhost:3001/phase-3-go-to-market.html" target="_blank" class="clickable-url">http://localhost:3001/phase-3-go-to-market.html</a></td>
+                    <td>DEVST6/phase-3-go-to-market.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>Phase 4: Scaling Impact</td>
+                    <td><a href="http://localhost:3001/phase-4-scaling-impact.html" target="_blank" class="clickable-url">http://localhost:3001/phase-4-scaling-impact.html</a></td>
+                    <td>DEVST6/phase-4-scaling-impact.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>Phase 5: Scale</td>
+                    <td><a href="http://localhost:3001/phase-5-scale.html" target="_blank" class="clickable-url">http://localhost:3001/phase-5-scale.html</a></td>
+                    <td>DEVST6/phase-5-scale.html</td>
+                    <td><span style="color: #00ff00;">✓ ACTIVE</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Block Pages with Duplicate Detection -->
+    <div class="page-section">
+        <h2 class="section-title">🔲 BLOCK PAGES (16 Active + Duplicates)</h2>
+        <div class="duplicate-warning">
+            ⚠️ Each block has TWO routes: Static HTML file AND Dynamic block-detail.html?id=X
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Block</th>
+                    <th>Static URL</th>
+                    <th>Dynamic URL</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Block 1: Mission Discovery</td>
+                    <td><a href="http://localhost:3001/block-1-mission-discovery.html" target="_blank" class="clickable-url">../block-1-mission-discovery.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=1" target="_blank" class="clickable-url">../block-detail.html?id=1</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 2: Customer Insights</td>
+                    <td><a href="http://localhost:3001/block-2-customer-insights.html" target="_blank" class="clickable-url">../block-2-customer-insights.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=2" target="_blank" class="clickable-url">../block-detail.html?id=2</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 3: Strategic Prioritization</td>
+                    <td><a href="http://localhost:3001/block-3-strategic-prioritization.html" target="_blank" class="clickable-url">../block-3-strategic-prioritization.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=3" target="_blank" class="clickable-url">../block-detail.html?id=3</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 4: Prototype Launch</td>
+                    <td><a href="http://localhost:3001/block-4-prototype-launch.html" target="_blank" class="clickable-url">../block-4-prototype-launch.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=4" target="_blank" class="clickable-url">../block-detail.html?id=4</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 5: Early Adopter Wins</td>
+                    <td><a href="http://localhost:3001/block-5-early-adopter-wins.html" target="_blank" class="clickable-url">../block-5-early-adopter-wins.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=5" target="_blank" class="clickable-url">../block-detail.html?id=5</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 6: Customer Engagement</td>
+                    <td><a href="http://localhost:3001/block-6-customer-engagement-flywheel.html" target="_blank" class="clickable-url">../block-6-customer-engagement-flywheel.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=6" target="_blank" class="clickable-url">../block-detail.html?id=6</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 7: Quantifiable Impact</td>
+                    <td><a href="http://localhost:3001/block-7-quantifiable-impact.html" target="_blank" class="clickable-url">../block-7-quantifiable-impact.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=7" target="_blank" class="clickable-url">../block-detail.html?id=7</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 8: Customer Success</td>
+                    <td><a href="http://localhost:3001/block-8-customer-success-expansion.html" target="_blank" class="clickable-url">../block-8-customer-success-expansion.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=8" target="_blank" class="clickable-url">../block-detail.html?id=8</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 9: Proof Execution</td>
+                    <td><a href="http://localhost:3001/block-9-proof-execution.html" target="_blank" class="clickable-url">../block-9-proof-execution.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=9" target="_blank" class="clickable-url">../block-detail.html?id=9</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 10: Sales Empowerment</td>
+                    <td><a href="http://localhost:3001/block-10-sales-team-empowerment.html" target="_blank" class="clickable-url">../block-10-sales-team-empowerment.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=10" target="_blank" class="clickable-url">../block-detail.html?id=10</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 11: High Performance</td>
+                    <td><a href="http://localhost:3001/block-11-high-performance-teams.html" target="_blank" class="clickable-url">../block-11-high-performance-teams.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=11" target="_blank" class="clickable-url">../block-detail.html?id=11</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 12: Retention Systems</td>
+                    <td><a href="http://localhost:3001/block-12-retention-systems.html" target="_blank" class="clickable-url">../block-12-retention-systems.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=12" target="_blank" class="clickable-url">../block-detail.html?id=12</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 13: Market Domination</td>
+                    <td><a href="http://localhost:3001/block-13-market-domination-strategies.html" target="_blank" class="clickable-url">../block-13-market-domination-strategies.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=13" target="_blank" class="clickable-url">../block-detail.html?id=13</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 14: Operations</td>
+                    <td><a href="http://localhost:3001/block-14-operational-infrastructure.html" target="_blank" class="clickable-url">../block-14-operational-infrastructure.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=14" target="_blank" class="clickable-url">../block-detail.html?id=14</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 15: Leadership</td>
+                    <td><a href="http://localhost:3001/block-15-leadership-expansion.html" target="_blank" class="clickable-url">../block-15-leadership-expansion.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=15" target="_blank" class="clickable-url">../block-detail.html?id=15</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+                <tr>
+                    <td>Block 16: Global Expansion</td>
+                    <td><a href="http://localhost:3001/block-16-global-expansion-opportunities.html" target="_blank" class="clickable-url">../block-16-global-expansion-opportunities.html</a></td>
+                    <td><a href="http://localhost:3001/block-detail.html?id=16" target="_blank" class="clickable-url">../block-detail.html?id=16</a></td>
+                    <td><span style="color: #ffaa00;">⚠️ DUPLICATE</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Subcomponent Pages with Critical Issue -->
+    <div class="page-section">
+        <h2 class="section-title">🔴 SUBCOMPONENT PAGES (90 Working Files + 96 Broken Links)</h2>
+        <div class="duplicate-warning">
+            <h3>🚨 WHY ARE THEY DUPLICATES?</h3>
+            <p><strong>Approach 1: Static HTML Files (WORKING)</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>Every subcomponent has its own dedicated HTML file</li>
+                <li>Example: <code>subcomponent-1a-problem-statement.html</code></li>
+                <li>Total: 90 static HTML files exist and work</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>Approach 2: Dynamic Query Parameters (BROKEN)</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>Intended to use one template: <code>subcomponent-detail.html</code></li>
+                <li>Would load content based on <code>?id=X-Y</code> parameter</li>
+                <li>Problem: <strong>subcomponent-detail.html was never created!</strong></li>
+            </ul>
+        </div>
+        
+        <h3 style="color: #ff0000; margin: 20px 0;">❌ MISSING FILE (Causing Navigation Errors)</h3>
+        <table>
+            <tr>
+                <td>subcomponent-detail.html</td>
+                <td><span style="color: #ff0000;">http://localhost:3001/subcomponent-detail.html</span></td>
+                <td>FILE NOT FOUND</td>
+                <td><span style="color: #ff0000;">❌ 404 ERROR</span></td>
+            </tr>
+        </table>
+
+        <h3 style="color: #ffaa00; margin: 20px 0;">⚠️ COMPLETE DUPLICATE MAPPING - Block 1 Mission Discovery</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subcomponent</th>
+                    <th>Static File URL (EXISTS)</th>
+                    <th>Dynamic URL (BROKEN)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1A: Problem Statement (64%)</td>
+                    <td><a href="http://localhost:3001/subcomponent-1a-problem-statement.html" target="_blank" class="clickable-url">../subcomponent-1a-problem-statement.html</a></td>
+                    <td><span style="color: #ff0000;">../subcomponent-detail.html?id=1-1 (404)</span></td>
+                    <td><span style="color: #ffaa00;">⚠️ 2 REFS</span></td>
+                </tr>
+                <tr>
+                    <td>1B: Mission Statement (72%)</td>
+                    <td><a href="http://localhost:3001/subcomponent-1b-mission-statement.html" target="_blank" class="clickable-url">../subcomponent-1b-mission-statement.html</a></td>
+                    <td><span style="color: #ff0000;">../subcomponent-detail.html?id=1-2 (404)</span></td>
+                    <td><span style="color: #ffaa00;">⚠️ 2 REFS</span></td>
+                </tr>
+                <tr>
+                    <td>1C: Voice of Customer (68%)</td>
+                    <td><a href="http://localhost:3001/subcomponent-1c-voice-of-customer.html" target="_blank" class="clickable-url">../subcomponent-1c-voice-of-customer.html</a></td>
+                    <td><span style="color: #ff0000;">../subcomponent-detail.html?id=1-3 (404)</span></td>
+                    <td><span style="color: #ffaa00;">⚠️ 2 REFS</span></td>
+                </tr>
+                <tr>
+                    <td>1D: Team Assessment (75%)</td>
+                    <td><a href="http://localhost:3001/subcomponent-1d-team-assessment.html" target="_blank" class="clickable-url">../subcomponent-1d-team-assessment.html</a></td>
+                    <td><span style="color: #ff0000;">../subcomponent-detail.html?id=1-4 (404)</span></td>
+                    <td><span style="color: #ffaa00;">⚠️ 2 REFS</span></td>
+                </tr>
+                <tr>
+                    <td>1E: Market Landscape (70%)</td>
+                    <td><a href="http://localhost:3001/subcomponent-1e-market-landscape.html" target="_blank" class="clickable-url">../subcomponent-1e-market-landscape.html</a></td>
+                    <td><span style="color: #ff0000;">../subcomponent-detail.html?id=1-5 (404)</span></td>
+                    <td><span style="color: #ffaa00;">⚠️ 2 REFS</span></td>
+                </tr>
+                <tr>
+                    <td>1F: Launch Readiness (80%)</td>
+                    <td><a href="http://localhost:3001/subcomponent-1f-launch-readiness.html" target="_blank" class="clickable-url">../subcomponent-1f-launch-readiness.html</a></td>
+                    <td><span style="color: #ff0000;">../subcomponent-detail.html?id=1-6 (404)</span></td>
+                    <td><span style="color: #ffaa00;">⚠️ 2 REFS</span></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #888;">... and 90 more subcomponents with same issue ...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Visual Flowchart -->
+    <div class="flowchart-container">
+        <h2 style="color: #00ff00; text-align: center; margin-bottom: 30px;">📊 APPLICATION FLOW HIERARCHY</h2>
+        
+        <div class="flow-level">
+            <div class="flow-node node-active">
+                <strong>LOGIN</strong><br>
+                <span style="font-size: 10px;">login.html</span>
+            </div>
+        </div>
+        
+        <div class="flow-connector"></div>
+        
+        <div class="flow-level">
+            <div class="flow-node node-active">
+                <strong>DASHBOARD</strong><br>
+                <span style="font-size: 10px;">index.html</span>
+            </div>
+        </div>
+        
+        <div class="flow-connector"></div>
+        
+        <div class="flow-level">
+            <div class="flow-node node-active">Phase 1</div>
+            <div class="flow-node node-active">Phase 2</div>
+            <div class="flow-node node-active">Phase 3</div>
+            <div class="flow-node node-active">Phase 4</div>
+            <div class="flow-node node-active">Phase 5</div>
+        </div>
+        
+        <div class="flow-connector"></div>
+        
+        <div class="flow-level">
+            <div class="flow-node node-duplicate">
+                <strong>16 BLOCKS</strong><br>
+                <span style="font-size: 10px;">Duplicate Routes!</span>
+            </div>
+        </div>
+        
+        <div class="flow-connector"></div>
+        
+        <div class="flow-level">
+            <div class="flow-node node-inactive">
+                <strong>96 SUBCOMPONENTS</strong><br>
+                <span style="font-size: 10px;">Dynamic routing broken!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visual Flow Diagram -->
+    <div class="page-section" style="background: #002200; border: 2px solid #00ff00;">
+        <h2 class="section-title">🔄 THE ROUTING CONFLICT IN DETAIL</h2>
+        <div style="display: flex; gap: 40px; justify-content: space-around; margin: 20px 0;">
+            <div style="flex: 1;">
+                <h3 style="color: #ff0000; margin-bottom: 15px;">❌ Current Flow (BROKEN)</h3>
+                <ol style="color: #ffaa00; line-height: 2;">
+                    <li>User clicks Block 1 → Goes to <code style="color: #00ff00;">block-detail.html?id=1</code> ✅</li>
+                    <li>User sees 6 subcomponents listed with scores</li>
+                    <li>User clicks "Problem Statement (64%)" → Tries <code style="color: #ff0000;">subcomponent-detail.html?id=1-1</code> ❌</li>
+                    <li><strong style="color: #ff0000;">404 ERROR - Page Not Found!</strong></li>
+                </ol>
+            </div>
+            <div style="flex: 1;">
+                <h3 style="color: #00ff00; margin-bottom: 15px;">✅ Alternative Flow (WOULD WORK)</h3>
+                <ol style="color: #00ff00; line-height: 2;">
+                    <li>User clicks Block 1 → Goes to <code>block-detail.html?id=1</code> ✅</li>
+                    <li>User sees 6 subcomponents listed with scores</li>
+                    <li>Code redirects to <code>subcomponent-1a-problem-statement.html</code> ✅</li>
+                    <li><strong style="color: #00ff00;">Page loads successfully!</strong></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Options -->
+    <div class="info-box">
+        <h3 style="color: #00ff00;">✅ SOLUTION OPTIONS</h3>
+        <div style="margin-top: 15px;">
+            <h4 style="color: #ffaa00;">Option 1: Fix the Links (Quick Fix)</h4>
+            <ul style="margin-left: 20px; color: #888;">
+                <li>Modify block-detail.html line 1641</li>
+                <li>Change from: <code style="color: #ff0000;">subcomponent-detail.html?id=${subBlock.id}</code></li>
+                <li>Change to: Map to actual static files</li>
+            </ul>
+            
+            <h4 style="color: #ffaa00; margin-top: 15px;">Option 2: Create the Missing File</h4>
+            <ul style="margin-left: 20px; color: #888;">
+                <li>Create subcomponent-detail.html</li>
+                <li>Make it load content dynamically based on ID parameter</li>
+                <li>Would need to handle 96 different ID combinations</li>
+            </ul>
+            
+            <h4 style="color: #ffaa00; margin-top: 15px;">Option 3: Consolidate to Static Files Only</h4>
+            <ul style="margin-left: 20px; color: #888;">
+                <li>Remove all dynamic routing references</li>
+                <li>Use only the 90 existing static HTML files</li>
+                <li>Simplest and most reliable approach</li>
+            </ul>
+        </div>
+        
+        <div style="background: #003300; border: 1px solid #00ff00; padding: 15px; margin-top: 20px; border-radius: 5px;">
+            <h4 style="color: #00ff00;">📝 Example Fix Code:</h4>
+            <pre style="color: #00ff00; font-size: 12px;">
+// Instead of:
+window.location.href = `subcomponent-detail.html?id=${subBlock.id}`;
+
+// Use:
+const subcomponentMap = {
+    '1-1': 'subcomponent-1a-problem-statement.html',
+    '1-2': 'subcomponent-1b-mission-statement.html',
+    '1-3': 'subcomponent-1c-voice-of-customer.html',
+    '1-4': 'subcomponent-1d-team-assessment.html',
+    '1-5': 'subcomponent-1e-market-landscape.html',
+    '1-6': 'subcomponent-1f-launch-readiness.html',
+    // ... map all 90 subcomponents
+};
+window.location.href = subcomponentMap[subBlock.id];</pre>
+        </div>
+    </div>
+
+    <!-- Complete File List -->
+    <div class="page-section">
+        <h2 class="section-title">📁 COMPLETE FILE INVENTORY (All 122 HTML Files)</h2>
+        <details>
+            <summary style="cursor: pointer; color: #00ff00; padding: 10px;">Click to expand full file list...</summary>
+            <div style="margin-top: 20px; font-size: 12px; color: #888;">
+                <h4>Main Pages (4)</h4>
+                <ul>
+                    <li>index.html</li>
+                    <li>login.html</li>
+                    <li>admin.html</li>
+                    <li>block-detail.html</li>
+                </ul>
+                
+                <h4>Phase Pages (5)</h4>
+                <ul>
+                    <li>phase-1-idea-market-fit.html</li>
+                    <li>phase-2-product-market-fit.html</li>
+                    <li>phase-3-go-to-market.html</li>
+                    <li>phase-4-scaling-impact.html</li>
+                    <li>phase-5-scale.html</li>
+                </ul>
+                
+                <h4>Block Pages (16)</h4>
+                <ul>
+                    <li>block-1-mission-discovery.html</li>
+                    <li>block-2-customer-insights.html</li>
+                    <li>block-3-strategic-prioritization.html</li>
+                    <li>block-4-prototype-launch.html</li>
+                    <li>block-5-early-adopter-wins.html</li>
+                    <li>block-6-customer-engagement-flywheel.html</li>
+                    <li>block-7-quantifiable-impact.html</li>
+                    <li>block-8-customer-success-expansion.html</li>
+                    <li>block-9-proof-execution.html</li>
+                    <li>block-10-sales-team-empowerment.html</li>
+                    <li>block-11-high-performance-teams.html</li>
+                    <li>block-12-retention-systems.html</li>
+                    <li>block-13-market-domination-strategies.html</li>
+                    <li>block-14-operational-infrastructure.html</li>
+                    <li>block-15-leadership-expansion.html</li>
+                    <li>block-16-global-expansion-opportunities.html</li>
+                </ul>
+                
+                <h4>Subcomponent Pages (96)</h4>
+                <ul>
+                    <li>subcomponent-1a-problem-statement.html through subcomponent-16f-expansion-risk-assessment.html</li>
+                    <li>(6 subcomponents per block × 16 blocks = 96 files)</li>
+                </ul>
+                
+                <h4>Test/Utility Page (1)</h4>
+                <ul>
+                    <li>test-mission-discovery-worksheets.html</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <script>
+        // Add timestamp
+        const timestamp = new Date().toLocaleString();
+        document.body.insertAdjacentHTML('beforeend', `
+            <div style="text-align: center; color: #333; margin-top: 30px; padding: 20px; border-top: 1px solid #333;">
+                Generated: ${timestamp} | Port: 3001 | Total Files: 122
+            </div>
+        `);
+
+        // Console logging for debugging
+        console.log('%c🔍 SCALEOPS6 URL ANALYSIS', 'color: #00ff00; font-size: 20px; font-weight: bold;');
+        console.log('%c⚠️ CRITICAL ISSUES:', 'color: #ff0000; font-size: 16px;');
+        console.log('1. subcomponent-detail.html is MISSING (404)');
+        console.log('2. 96 duplicate routes detected');
+        console.log('3. Blocks link to non-existent dynamic routes');
+        console.log('%c✅ ACTIVE PAGES:', 'color: #00ff00; font-size: 16px;');
+        console.log('- 4 Main pages');
+        console.log('- 5 Phase pages');
+        console.log('- 16 Block pages (with duplicates)');
+        console.log('- 96 Subcomponent pages (routing broken)');
+    </script>
+</body>
+</html>

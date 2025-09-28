@@ -178,35 +178,10 @@ function createNavigation() {
                     </div>
                 </div>
             </div>
-            
-            <!-- Quick Stats Bar -->
-            ${sessionId && !isGuest ? `
-                <div style="
-                    margin-top: 15px;
-                    padding-top: 15px;
-                    border-top: 1px solid #333;
-                    display: flex;
-                    gap: 30px;
-                    font-size: 12px;
-                ">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="color: #666;">Overall Progress:</span>
-                        <span style="color: #FF5500; font-weight: 600;">73%</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="color: #666;">Completed Blocks:</span>
-                        <span style="color: #4CAF50; font-weight: 600;">8/16</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="color: #666;">Active Phase:</span>
-                        <span style="color: #FF9800; font-weight: 600;">Go-To Market</span>
-                    </div>
-                </div>
-            ` : ''}
         </nav>
         
         <!-- Spacer to push content below fixed nav -->
-        <div style="height: ${sessionId && !isGuest ? '140px' : '120px'};"></div>
+        <div style="height: 120px;"></div>
     `;
     
     // Insert navigation at the beginning of body
@@ -240,8 +215,8 @@ function showAnalytics() {
         return;
     }
     
-    // In a real app, this would navigate to an analytics page
-    alert('Analytics Dashboard - Coming Soon!\n\nThis will show:\n• Progress trends\n• Time spent per block\n• Completion predictions\n• Comparative benchmarks');
+    // Navigate to outputs page to show analysis outputs
+    window.location.href = '/outputs.html';
 }
 
 function showHelp() {
@@ -250,7 +225,7 @@ function showHelp() {
           '📝 Blocks: Click any block to see details\n' +
           '✅ Assessments: Complete questionnaires to update scores\n' +
           '👤 Admin: Manage users and view platform analytics\n' +
-          '📈 Analytics: Track your progress over time\n\n' +
+          '📈 Analytics: View your analysis outputs with filled templates\n\n' +
           'Need more help? Contact support@st6.com');
 }
 

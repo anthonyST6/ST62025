@@ -1,3 +1,6 @@
+// Load environment variables first
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -26,7 +29,12 @@ const quantifiableImpactAgent = new QuantifiableImpactAgent();
 const customerSuccessAgent = new CustomerSuccessExpansionAgent();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;  // Changed default to 3001 to avoid conflicts
+
+// Log isolation mode
+if (process.env.ISOLATED_MODE === 'true') {
+    console.log('🔒 DEVST6 running in ISOLATED MODE - No external connections');
+}
 
 // In-memory cache (no Redis!)
 class InMemoryCache {
@@ -482,7 +490,19 @@ app.get('/api/blocks', async (req, res) => {
         // If no database scores exist for user, initialize from test company
         if (Object.keys(scoreMap).length === 0) {
             console.log('📊 Initializing scores for user', userId);
-            await scoreManager.initializeUserScores(userId, testCompany.blockScores);
+            // Fix: Extract score values from test company objects
+            const scoreValues = {};
+            Object.keys(testCompany.blockScores).forEach(blockId => {
+                const blockData = testCompany.blockScores[blockId];
+                // Ensure we're extracting the score value correctly
+                if (typeof blockData === 'object' && blockData !== null) {
+                    scoreValues[blockId] = blockData.score || 50;
+                } else {
+                    scoreValues[blockId] = blockData || 50;
+                }
+            });
+            console.log('📊 Initializing with scores:', scoreValues);
+            await scoreManager.initializeUserScores(userId, scoreValues);
             // Re-fetch after initialization
             const newDbScores = await scoreManager.getAllBlockScores(userId);
             newDbScores.forEach(row => {
@@ -497,7 +517,27 @@ app.get('/api/blocks', async (req, res) => {
         
         // Map blocks with database scores
         const allBlocks = blocks.map(block => {
-            const blockScore = scoreMap[block.id] || { score: 50, trend: 'stable' };
+            // Get score from database or test company
+            let blockScore = scoreMap[block.id];
+            
+            // If no database score, get from test company
+            if (!blockScore) {
+                const testScore = testCompany.blockScores[block.id];
+                if (testScore) {
+                    // Extract score value if it's an object
+                    const scoreValue = typeof testScore === 'object' ? testScore.score : testScore;
+                    const trend = typeof testScore === 'object' ? testScore.trend : 'stable';
+                    const lastChange = typeof testScore === 'object' ? testScore.lastChange : null;
+                    
+                    blockScore = {
+                        score: scoreValue || 50,
+                        trend: trend || 'stable',
+                        lastChange: lastChange
+                    };
+                } else {
+                    blockScore = { score: 50, trend: 'stable' };
+                }
+            }
             
             // Calculate status based on score
             let status = 'pending';
@@ -544,15 +584,20 @@ app.get('/api/blocks', async (req, res) => {
         res.json(allBlocks);
     } catch (error) {
         console.error('Error fetching blocks:', error);
-        // Fallback to test company data
-        const fallbackBlocks = blocks.map(block => ({
-            ...block,
-            score: testCompany.blockScores[block.id]?.score || 50,
-            status: 'pending',
-            trend: 'stable',
-            locked: false,
-            subBlocks: subBlocks[block.id] || []
-        }));
+        // Fallback to test company data - also fix here
+        const fallbackBlocks = blocks.map(block => {
+            const testScore = testCompany.blockScores[block.id];
+            const scoreValue = testScore ? (typeof testScore === 'object' ? testScore.score : testScore) : 50;
+            
+            return {
+                ...block,
+                score: scoreValue,
+                status: 'pending',
+                trend: 'stable',
+                locked: false,
+                subBlocks: subBlocks[block.id] || []
+            };
+        });
         res.json(fallbackBlocks);
     }
 });
@@ -570,7 +615,14 @@ app.get('/api/blocks/:id', async (req, res) => {
     try {
         // Get score from database
         const dbScore = await scoreManager.getBlockScore(userId, blockId);
-        const score = dbScore ? dbScore.score : (testCompany.blockScores[blockId]?.score || 50);
+        let score;
+        if (dbScore) {
+            score = dbScore.score;
+        } else {
+            // Get from test company and handle object structure
+            const testScore = testCompany.blockScores[blockId];
+            score = testScore ? (typeof testScore === 'object' ? testScore.score : testScore) : 50;
+        }
         
         // Get all subcomponent scores for this block
         const subcomponentScores = await scoreManager.getSubcomponentScoresByBlock(userId, blockId);
@@ -613,18 +665,21 @@ app.get('/api/blocks/:id', async (req, res) => {
             ...memBlock,
             score: score,
             status: status,
-            trend: dbScore?.trend || 'stable',
-            lastChange: dbScore?.last_change,
+            trend: dbScore?.trend || testCompany.blockScores[blockId]?.trend || 'stable',
+            lastChange: dbScore?.last_change || testCompany.blockScores[blockId]?.lastChange,
             source: dbScore?.source || 'default',
             subBlocks: enhancedSubBlocks,
             locked: false
         });
     } catch (error) {
         console.error('Error fetching block details:', error);
-        // Fallback response
+        // Fallback response - also fix here
+        const testScore = testCompany.blockScores[blockId];
+        const scoreValue = testScore ? (typeof testScore === 'object' ? testScore.score : testScore) : 50;
+        
         res.json({
             ...memBlock,
-            score: testCompany.blockScores[blockId]?.score || 50,
+            score: scoreValue,
             status: 'pending',
             subBlocks: subBlocks[blockId] || [],
             locked: false
@@ -3181,12 +3236,14 @@ app.get('/api/subcomponents/:id/score', (req, res) => {
     }
 });
 
-// Get score history for a subcomponent
+// Get score history for a subcomponent - ENHANCED to return full analysis data
 app.get('/api/subcomponents/:id/history', (req, res) => {
     const subcomponentId = req.params.id;
     const userId = req.headers['x-user-id'] || 1;
     
-    // Get score history from activity log
+    console.log(`📊 Fetching score history for subcomponent ${subcomponentId}, user ${userId}`);
+    
+    // Get score history from activity log with full metadata
     db.all(`
         SELECT
             created_at as timestamp,
@@ -3195,7 +3252,7 @@ app.get('/api/subcomponents/:id/history', (req, res) => {
         FROM activity_log
         WHERE user_id = ?
         AND entity_id = ?
-        AND action IN ('score_update', 'worksheet_analysis')
+        AND action IN ('score_update', 'worksheet_analysis', 'score_history_save')
         ORDER BY created_at DESC
         LIMIT 20
     `, [userId, subcomponentId], (err, rows) => {
@@ -3204,9 +3261,11 @@ app.get('/api/subcomponents/:id/history', (req, res) => {
             return res.status(500).json({ error: 'Failed to fetch score history' });
         }
         
+        console.log(`📊 Found ${rows.length} history entries for ${subcomponentId}`);
+        
         let history = [];
         
-        // Process each row to extract score information
+        // Process each row to extract COMPLETE analysis information
         let previousScore = null;
         
         // Process in reverse order (oldest first) to calculate improvements correctly
@@ -3216,26 +3275,93 @@ app.get('/api/subcomponents/:id/history', (req, res) => {
         reversedRows.forEach(row => {
             try {
                 const metadata = JSON.parse(row.metadata);
-                let currentScore = null;
-                let source = '';
+                let historyEntry = null;
                 
                 if (row.action === 'score_update' && metadata.newScore !== undefined) {
-                    currentScore = metadata.newScore;
-                    source = 'Manual Update';
-                } else if (row.action === 'worksheet_analysis' && metadata.analysis && metadata.analysis.score !== undefined) {
-                    currentScore = metadata.analysis.score;
-                    source = 'AI Analysis';
-                }
-                
-                if (currentScore !== null) {
+                    // Manual score update - basic entry
+                    const currentScore = metadata.newScore;
                     const improvement = previousScore !== null ? currentScore - previousScore : 0;
-                    tempHistory.push({
+                    historyEntry = {
                         timestamp: row.timestamp,
                         score: currentScore,
-                        source: source,
-                        improvement: improvement
-                    });
+                        source: 'Manual Update',
+                        improvement: improvement,
+                        type: 'manual',
+                        // Include basic data for manual updates
+                        analysis: {
+                            score: currentScore,
+                            summary: `Manual score update to ${currentScore}%`,
+                            detailedScores: {},
+                            recommendations: []
+                        }
+                    };
                     previousScore = currentScore;
+                    
+                } else if (row.action === 'score_history_save' && metadata.score !== undefined) {
+                    // Score history save - FULL entry with all data
+                    const currentScore = metadata.score;
+                    const improvement = previousScore !== null ? currentScore - previousScore : 0;
+                    
+                    historyEntry = {
+                        timestamp: row.timestamp,
+                        score: currentScore,
+                        source: metadata.source || 'Manual Save',
+                        improvement: improvement,
+                        type: 'saved',
+                        // Include COMPLETE analysis data if available
+                        analysis: metadata.analysis || {
+                            score: currentScore,
+                            summary: `Score saved: ${currentScore}%`,
+                            detailedScores: {},
+                            recommendations: []
+                        },
+                        // Include worksheet data if available
+                        worksheetData: metadata.worksheetData || {},
+                        // Include user info
+                        user: {
+                            name: 'ST6 User',
+                            email: 'user@st6.com',
+                            userId: userId
+                        }
+                    };
+                    previousScore = currentScore;
+                    
+                } else if (row.action === 'worksheet_analysis' && metadata.analysis) {
+                    // AI Analysis - FULL entry with all analysis data
+                    const analysis = metadata.analysis;
+                    const currentScore = analysis.score;
+                    const improvement = previousScore !== null ? currentScore - previousScore : 0;
+                    
+                    historyEntry = {
+                        timestamp: row.timestamp,
+                        score: currentScore,
+                        source: 'AI Analysis',
+                        improvement: improvement,
+                        type: 'analysis',
+                        // Include COMPLETE analysis data for display
+                        analysis: {
+                            score: currentScore,
+                            summary: analysis.summary || '',
+                            detailedScores: analysis.detailedScores || {},
+                            recommendations: analysis.recommendations || [],
+                            strengths: analysis.strengths || [],
+                            weaknesses: analysis.weaknesses || [],
+                            agent: analysis.agent || 'Unknown Agent'
+                        },
+                        // Include worksheet data if available
+                        worksheetData: metadata.worksheetData || {},
+                        // Include user info if available
+                        user: {
+                            name: 'ST6 User',
+                            email: 'user@st6.com',
+                            userId: userId
+                        }
+                    };
+                    previousScore = currentScore;
+                }
+                
+                if (historyEntry) {
+                    tempHistory.push(historyEntry);
                 }
             } catch (e) {
                 console.error('Error parsing history row:', e);
@@ -3245,23 +3371,166 @@ app.get('/api/subcomponents/:id/history', (req, res) => {
         // Reverse back to show newest first
         history = tempHistory.reverse();
         
-        // If no history, create a default entry
-        if (history.length === 0) {
-            const blockId = parseInt(subcomponentId.split('-')[0]);
-            const subIndex = parseInt(subcomponentId.split('-')[1]) - 1;
-            
-            if (subBlocks[blockId] && subBlocks[blockId][subIndex]) {
-                history.push({
-                    timestamp: new Date().toISOString(),
-                    score: subBlocks[blockId][subIndex].score,
-                    source: 'Initial Score',
-                    improvement: 0
-                });
-            }
-        }
+        console.log(`📊 Processed ${history.length} valid history entries`);
         
-        res.json(history);
+        // If no history, check for any saved scores in the score_history table
+        if (history.length === 0) {
+            console.log(`📊 No activity log entries, checking score_history table...`);
+            
+            // Try to get from score_history table as fallback
+            db.all(`
+                SELECT
+                    sh.*,
+                    ss.score as subcomponent_score,
+                    ss.metadata as subcomponent_metadata,
+                    ss.updated_at as score_updated
+                FROM score_history sh
+                LEFT JOIN subcomponent_scores ss
+                    ON ss.user_id = sh.user_id
+                    AND ss.subcomponent_id = ?
+                WHERE sh.user_id = ?
+                AND sh.subcomponent_id = ?
+                ORDER BY sh.analyzed_at DESC
+                LIMIT 10
+            `, [subcomponentId, userId, subcomponentId], (err2, scoreRows) => {
+                if (!err2 && scoreRows && scoreRows.length > 0) {
+                    console.log(`📊 Found ${scoreRows.length} entries in score_history table`);
+                    
+                    scoreRows.forEach(row => {
+                        try {
+                            const analysisData = row.analysis_data ? JSON.parse(row.analysis_data) : {};
+                            const worksheetData = row.worksheet_data ? JSON.parse(row.worksheet_data) : {};
+                            
+                            history.push({
+                                timestamp: row.analyzed_at || row.score_updated,
+                                score: row.score || row.subcomponent_score || 0,
+                                source: row.analysis_type || 'Database',
+                                improvement: 0,
+                                type: 'database',
+                                analysis: {
+                                    score: row.score || row.subcomponent_score || 0,
+                                    summary: analysisData.summary || '',
+                                    detailedScores: analysisData.detailedScores || {},
+                                    recommendations: analysisData.recommendations || [],
+                                    strengths: analysisData.strengths || [],
+                                    weaknesses: analysisData.weaknesses || []
+                                },
+                                worksheetData: worksheetData,
+                                user: {
+                                    name: row.user_name || 'ST6 User',
+                                    email: row.user_email || 'user@st6.com',
+                                    userId: userId
+                                }
+                            });
+                        } catch (e) {
+                            console.error('Error parsing score_history row:', e);
+                        }
+                    });
+                }
+                
+                // If still no history, create a default entry
+                if (history.length === 0) {
+                    const blockId = parseInt(subcomponentId.split('-')[0]);
+                    const subIndex = parseInt(subcomponentId.split('-')[1]) - 1;
+                    
+                    if (subBlocks[blockId] && subBlocks[blockId][subIndex]) {
+                        history.push({
+                            timestamp: new Date().toISOString(),
+                            score: subBlocks[blockId][subIndex].score,
+                            source: 'Initial Score',
+                            improvement: 0,
+                            type: 'default',
+                            analysis: {
+                                score: subBlocks[blockId][subIndex].score,
+                                summary: 'No analysis performed yet',
+                                detailedScores: {},
+                                recommendations: []
+                            },
+                            worksheetData: {},
+                            user: {
+                                name: 'System',
+                                email: 'system@st6.com',
+                                userId: 0
+                            }
+                        });
+                    }
+                }
+                
+                console.log(`📊 Returning ${history.length} total history entries`);
+                res.json(history);
+            });
+        } else {
+            console.log(`📊 Returning ${history.length} history entries from activity log`);
+            res.json(history);
+        }
     });
+});
+
+// Save score history for a subcomponent - NEW POST ENDPOINT
+app.post('/api/subcomponents/:id/history', async (req, res) => {
+    const subcomponentId = req.params.id;
+    const userId = parseInt(req.headers['x-user-id']) || 1;
+    const { score, analysis, worksheetData } = req.body;
+    
+    console.log(`📊 Saving score history for subcomponent ${subcomponentId}, user ${userId}`);
+    console.log(`📊 Score: ${score}, Has analysis: ${!!analysis}, Has worksheet: ${!!worksheetData}`);
+    
+    try {
+        // Parse block ID from subcomponent ID
+        const blockId = parseInt(subcomponentId.split('-')[0]);
+        
+        // Save complete analysis data to score history
+        const result = await scoreManager.saveSubcomponentScore(
+            userId,
+            blockId,
+            subcomponentId,
+            score,
+            'manual-save',
+            {
+                analysis: analysis || {},
+                worksheetData: worksheetData || {},
+                savedAt: new Date().toISOString()
+            }
+        );
+        
+        // Also save to activity log for history tracking
+        Database.logActivity(
+            userId,
+            'score_history_save',
+            'subcomponent',
+            subcomponentId,
+            {
+                score: score,
+                analysis: analysis || {},
+                worksheetData: worksheetData || {},
+                source: 'manual-save'
+            },
+            (err) => {
+                if (err) {
+                    console.error('Failed to log score history save:', err);
+                }
+            }
+        );
+        
+        console.log(`✅ Score history saved successfully for ${subcomponentId}`);
+        
+        res.json({
+            success: true,
+            message: 'Score history saved successfully',
+            data: {
+                subcomponentId: subcomponentId,
+                score: score,
+                blockScore: result.blockScore,
+                timestamp: new Date().toISOString()
+            }
+        });
+    } catch (error) {
+        console.error('Error saving score history:', error);
+        res.status(500).json({
+            error: 'Failed to save score history',
+            message: error.message
+        });
+    }
 });
 
 // Overall readiness score
