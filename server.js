@@ -4140,6 +4140,69 @@ app.post('/api/analyze/customer-success', async (req, res) => {
     }
 });
 
+// Get score history for outputs page - fetches real scores from database
+app.get('/api/score-history', async (req, res) => {
+    const userId = parseInt(req.headers['x-user-id']) || 1;
+    
+    console.log(`📊 Fetching score history for outputs page, user ${userId}`);
+    
+    try {
+        // Get all subcomponent scores with their analysis data
+        const query = `
+            SELECT
+                ss.subcomponent_id,
+                ss.block_id,
+                ss.score,
+                ss.updated_at as timestamp,
+                ss.source as analysis_type,
+                ss.metadata
+            FROM subcomponent_scores ss
+            WHERE ss.user_id = ?
+            AND ss.score IS NOT NULL
+            ORDER BY ss.updated_at DESC
+            LIMIT 20
+        `;
+        
+        const scores = await new Promise((resolve, reject) => {
+            db.all(query, [userId], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows || []);
+            });
+        });
+        
+        console.log(`📊 Found ${scores.length} scores in database`);
+        
+        // Format the scores for the outputs page
+        const formattedScores = scores.map(row => {
+            let metadata = {};
+            let analysis = {};
+            
+            try {
+                metadata = row.metadata ? JSON.parse(row.metadata) : {};
+                analysis = metadata.analysis || {};
+            } catch (e) {
+                console.error('Error parsing metadata:', e);
+            }
+            
+            return {
+                block_id: row.block_id,
+                subcomponent_id: row.subcomponent_id,
+                score: row.score,
+                timestamp: row.timestamp,
+                analysis_type: row.analysis_type || 'AI Analysis',
+                recommendations: analysis.recommendations || [],
+                analysis: analysis
+            };
+        });
+        
+        // If no scores found, return empty array (let client handle fallback)
+        res.json(formattedScores);
+        
+    } catch (error) {
+        console.error('Error fetching score history:', error);
+        res.json([]); // Return empty array on error
+    }
+});
 
 // Start server
 app.listen(PORT, () => {

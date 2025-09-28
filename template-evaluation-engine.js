@@ -1,5 +1,5 @@
 // Template Evaluation Engine - Professional Grade Assessment
-// ScaleTeam6 - GTM Excellence Standards
+// ScaleOps - GTM Excellence Standards
 
 window.TemplateEvaluationEngine = {
     // Professional evaluation criteria for each template
@@ -441,11 +441,17 @@ window.TemplateEvaluationEngine = {
             if (q.score < 70) {
                 const unmetCriteria = q.feedback.filter(f => !f.met).map(f => f.criterion);
                 if (unmetCriteria.length > 0) {
+                    // Calculate realistic improvement potential based on current score
+                    // For a 45% score, max improvement should be to reach ~75-80%, not 100%
+                    const currentScore = evaluation.totalScore;
+                    const maxRealisticScore = 80; // Realistic target score
+                    const potentialImprovement = Math.round((maxRealisticScore - currentScore) * (q.weight / 100));
+                    
                     evaluation.recommendations.push({
                         area: q.question,
                         priority: q.score < 50 ? 'HIGH' : 'MEDIUM',
                         suggestion: `Address: ${unmetCriteria.slice(0, 2).join(', ')}`,
-                        impact: `Could improve score by ${Math.min(30, 100 - q.score)} points`
+                        impact: `+${potentialImprovement}% to overall score`
                     });
                 }
             }
@@ -461,16 +467,16 @@ window.TemplateEvaluationEngine = {
         
         return `
             <div class="template-report" style="font-family: 'Inter', sans-serif; color: #fff; background: #000; padding: 30px;">
-                <!-- Header with ST6 Branding -->
-                <div style="background: linear-gradient(135deg, #FF5500, #FF8844); padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+                <!-- Header with Professional Branding -->
+                <div style="background: linear-gradient(135deg, rgba(255, 85, 0, 0.1) 0%, rgba(255, 85, 0, 0.05) 100%); padding: 30px; border-radius: 15px; margin-bottom: 30px; border: 1px solid rgba(255, 85, 0, 0.2);">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
-                            <h1 style="margin: 0; font-size: 32px; font-weight: 800;">ScaleTeam6</h1>
-                            <h2 style="margin: 10px 0 0 0; font-size: 24px; font-weight: 600;">${evaluation.templateName}</h2>
+                            <h2 style="margin: 0; font-size: 28px; font-weight: 700; color: #FF5500; text-transform: uppercase; letter-spacing: 1px;">${evaluation.templateName}</h2>
+                            <p style="margin: 10px 0 0 0; font-size: 14px; color: #999;">Professional Assessment Report</p>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 48px; font-weight: 800; color: #fff;">${evaluation.totalScore}%</div>
-                            <div style="font-size: 24px; font-weight: 600; background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; display: inline-block;">Grade: ${evaluation.grade}</div>
+                        <div style="text-align: center; padding: 20px; background: rgba(0, 0, 0, 0.5); border-radius: 15px; border: 1px solid rgba(255, 85, 0, 0.3);">
+                            <div style="font-size: 56px; font-weight: 800; color: #FF5500; text-shadow: 0 0 30px rgba(255, 85, 0, 0.3);">${evaluation.totalScore}%</div>
+                            <div style="color: #999; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">Overall Score</div>
                         </div>
                     </div>
                 </div>
@@ -521,22 +527,53 @@ window.TemplateEvaluationEngine = {
                     `).join('')}
                 </div>
 
-                <!-- Recommendations -->
+                <!-- Recommendations with Dropdowns -->
                 ${evaluation.recommendations.length > 0 ? `
                     <div style="background: rgba(255, 85, 0, 0.1); border: 2px solid #FF5500; border-radius: 12px; padding: 25px;">
                         <h3 style="color: #FF5500; margin-bottom: 20px; font-size: 20px;">Recommendations for Improvement</h3>
-                        ${evaluation.recommendations.map(rec => `
-                            <div style="background: rgba(0, 0, 0, 0.5); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: start;">
-                                    <div>
-                                        <div style="color: #fff; font-weight: 600; margin-bottom: 5px;">${rec.area}</div>
-                                        <div style="color: #ccc; font-size: 14px;">${rec.suggestion}</div>
+                        <div style="margin-bottom: 15px; padding: 10px; background: rgba(255, 85, 0, 0.05); border-radius: 8px;">
+                            <div style="color: #FF9800; font-size: 13px;">
+                                <strong>Current Score: ${evaluation.totalScore}%</strong> |
+                                Potential Score with improvements: <strong>${Math.min(80, evaluation.totalScore + evaluation.recommendations.reduce((sum, r) => sum + parseInt(r.impact.match(/\+(\d+)%/)?.[1] || 0), 0))}%</strong>
+                            </div>
+                        </div>
+                        ${evaluation.recommendations.map((rec, index) => `
+                            <div style="margin-bottom: 15px;">
+                                <div style="background: rgba(0, 0, 0, 0.5); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 85, 0, 0.2);">
+                                    <div class="recommendation-header" data-index="${index}" style="padding: 15px; cursor: pointer; transition: all 0.3s ease;"
+                                         onmouseover="this.style.background='rgba(255, 85, 0, 0.1)'"
+                                         onmouseout="this.style.background='transparent'">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div style="display: flex; align-items: center; gap: 10px;">
+                                                <span class="arrow-icon" data-index="${index}" style="color: #FF5500; font-size: 18px; transition: transform 0.3s ease;">▶</span>
+                                                <div style="color: #fff; font-weight: 600;">${rec.area}</div>
+                                                <span style="background: ${rec.priority === 'HIGH' ? '#F44336' : '#FF9800'}; color: #fff; padding: 4px 12px; border-radius: 15px; font-size: 11px; font-weight: 600;">
+                                                    ${rec.priority}
+                                                </span>
+                                            </div>
+                                            <div style="color: #4CAF50; font-size: 12px; font-weight: 600;">${rec.impact}</div>
+                                        </div>
                                     </div>
-                                    <div style="text-align: right;">
-                                        <span style="background: ${rec.priority === 'HIGH' ? '#F44336' : '#FF9800'}; color: #fff; padding: 4px 12px; border-radius: 15px; font-size: 11px; font-weight: 600;">
-                                            ${rec.priority}
-                                        </span>
-                                        <div style="color: #4CAF50; font-size: 12px; margin-top: 5px;">${rec.impact}</div>
+                                    <div class="recommendation-content" data-index="${index}" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                        <div style="padding: 0 15px 15px 15px; border-top: 1px solid rgba(255, 85, 0, 0.1);">
+                                            <div style="margin-top: 15px;">
+                                                <div style="color: #FF5500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Action Items:</div>
+                                                <div style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                                                    ${rec.suggestion}
+                                                </div>
+                                                ${rec.priority === 'HIGH' ? `
+                                                    <div style="margin-top: 10px; padding: 10px; background: rgba(244, 67, 54, 0.1); border-left: 3px solid #F44336; border-radius: 4px;">
+                                                        <div style="color: #F44336; font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">⚠ High Priority</div>
+                                                        <div style="color: #ccc; font-size: 13px;">Addressing this issue should be your immediate focus for maximum impact.</div>
+                                                    </div>
+                                                ` : rec.priority === 'MEDIUM' ? `
+                                                    <div style="margin-top: 10px; padding: 10px; background: rgba(255, 152, 0, 0.1); border-left: 3px solid #FF9800; border-radius: 4px;">
+                                                        <div style="color: #FF9800; font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">⚡ Medium Priority</div>
+                                                        <div style="color: #ccc; font-size: 13px;">Consider addressing this after high-priority items are resolved.</div>
+                                                    </div>
+                                                ` : ''}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -546,7 +583,7 @@ window.TemplateEvaluationEngine = {
 
                 <!-- Footer -->
                 <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; color: #666; font-size: 12px;">
-                    <p>Generated by ScaleTeam6 NexusOps Platform</p>
+                    <p>Generated by ScaleOps NexusOps Platform</p>
                     <p>${new Date().toLocaleString()}</p>
                 </div>
             </div>

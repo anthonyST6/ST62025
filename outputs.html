@@ -385,14 +385,9 @@
         }
 
         .recommendation-content {
-            max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
             background: rgba(0, 0, 0, 0.3);
-        }
-
-        .recommendation-content.active {
-            max-height: 500px;
         }
 
         .recommendation-item {
@@ -758,15 +753,15 @@
             expertRecommendations.forEach((rec, index) => {
                 html += `
                     <div class="recommendations-dropdown">
-                        <div class="recommendation-header" data-rec-index="${index}">
+                        <div class="recommendation-header" data-index="${index}">
                             <h4>
                                 <span>${rec.icon}</span>
                                 ${rec.title}
                                 <span class="expert-badge">${rec.expert}</span>
                             </h4>
-                            <span class="dropdown-arrow">▼</span>
+                            <span class="dropdown-arrow arrow-icon" data-index="${index}">▼</span>
                         </div>
-                        <div class="recommendation-content" id="rec-content-${index}">
+                        <div class="recommendation-content" data-index="${index}" style="max-height: 0px; overflow: hidden; transition: max-height 0.3s ease;">
                             <div class="recommendation-item">
                                 <div class="recommendation-icon">${rec.icon}</div>
                                 <div class="recommendation-text">
@@ -789,14 +784,6 @@
             
             html += '</div>';
             return html;
-        }
-
-        // Add toggle function for dropdowns
-        function toggleRecommendation(header) {
-            event.stopPropagation(); // Prevent card from toggling
-            header.classList.toggle('active');
-            const content = header.nextElementSibling;
-            content.classList.toggle('active');
         }
 
         function getBlockName(blockId) {
@@ -896,19 +883,6 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             loadOutputsData();
-            
-            // Add global event listener for dropdown clicks
-            document.addEventListener('click', function(e) {
-                const header = e.target.closest('.recommendation-header');
-                if (header) {
-                    e.stopPropagation();
-                    header.classList.toggle('active');
-                    const content = header.nextElementSibling;
-                    if (content && content.classList.contains('recommendation-content')) {
-                        content.classList.toggle('active');
-                    }
-                }
-            });
         });
         
         // Auto-refresh every 30 seconds

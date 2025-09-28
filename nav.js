@@ -66,38 +66,6 @@ function createNavigation() {
                     ">
                         Dashboard
                     </a>
-                    
-                    ${sessionId && !isGuest ? `
-                        <a href="/admin.html" class="nav-link ${currentPage === 'admin.html' ? 'active' : ''}" style="
-                            color: ${currentPage === 'admin.html' ? '#FF5500' : '#ccc'};
-                            text-decoration: none;
-                            font-size: 14px;
-                            font-weight: 500;
-                            transition: color 0.3s ease;
-                        ">
-                            Admin
-                        </a>
-                    ` : ''}
-                    
-                    <a href="#" onclick="showAnalytics()" class="nav-link" style="
-                        color: #ccc;
-                        text-decoration: none;
-                        font-size: 14px;
-                        font-weight: 500;
-                        transition: color 0.3s ease;
-                    ">
-                        Analytics
-                    </a>
-                    
-                    <a href="#" onclick="showHelp()" class="nav-link" style="
-                        color: #ccc;
-                        text-decoration: none;
-                        font-size: 14px;
-                        font-weight: 500;
-                        transition: color 0.3s ease;
-                    ">
-                        Help
-                    </a>
                 </div>
                 
                 <!-- User Section -->

@@ -768,6 +768,25 @@
             background: rgba(76, 175, 80, 0.2);
             color: #4CAF50;
         }
+        
+        /* Modal scrollbar styling */
+        .modal-scrollable::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .modal-scrollable::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .modal-scrollable::-webkit-scrollbar-thumb {
+            background: rgba(255, 85, 0, 0.5);
+            border-radius: 4px;
+        }
+        
+        .modal-scrollable::-webkit-scrollbar-thumb:hover {
+            background: #FF5500;
+        }
     </style>
 </head>
 <body>
@@ -1727,21 +1746,86 @@
                         bottom: 0;
                         background: rgba(0, 0, 0, 0.9);
                         z-index: 10000;
-                        overflow: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         padding: 20px;
                     `;
                     
-                    modal.innerHTML = `
-                        <div style="max-width: 1000px; margin: 0 auto; position: relative;">
-                            <button onclick="this.parentElement.parentElement.remove()"
-                                    style="position: absolute; top: 10px; right: 10px; background: #FF5500; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; z-index: 10001;">
-                                ✕ Close
-                            </button>
-                            ${reportHTML}
-                        </div>
+                    // Create scrollable content container
+                    const contentWrapper = document.createElement('div');
+                    contentWrapper.style.cssText = `
+                        max-width: 1000px;
+                        max-height: 90vh;
+                        width: 100%;
+                        background: #1a1a1a;
+                        border-radius: 15px;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
                     `;
                     
+                    // Create close button
+                    const closeButton = document.createElement('button');
+                    closeButton.innerHTML = '✕ Close';
+                    closeButton.style.cssText = `
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        background: #FF5500;
+                        color: #fff;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        z-index: 10002;
+                        font-weight: 600;
+                    `;
+                    closeButton.onclick = function() {
+                        modal.remove();
+                    };
+                    
+                    // Create scrollable content area
+                    const scrollableContent = document.createElement('div');
+                    scrollableContent.className = 'modal-scrollable';
+                    scrollableContent.style.cssText = `
+                        overflow-y: auto;
+                        flex: 1;
+                        padding: 20px;
+                        padding-top: 60px;
+                    `;
+                    scrollableContent.innerHTML = reportHTML;
+                    
+                    // Assemble the modal
+                    contentWrapper.appendChild(closeButton);
+                    contentWrapper.appendChild(scrollableContent);
+                    modal.appendChild(contentWrapper);
                     document.body.appendChild(modal);
+                    
+                    // Initialize dropdown functionality for the modal
+                    if (window.initializeTemplateDropdowns) {
+                        setTimeout(() => {
+                            window.initializeTemplateDropdowns(scrollableContent);
+                            console.log('✅ Dropdown functionality initialized for modal');
+                        }, 100);
+                    }
+                    
+                    // Close on escape key
+                    const closeOnEscape = (e) => {
+                        if (e.key === 'Escape') {
+                            modal.remove();
+                            document.removeEventListener('keydown', closeOnEscape);
+                        }
+                    };
+                    document.addEventListener('keydown', closeOnEscape);
+                    
+                    // Close on background click
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === this) {
+                            this.remove();
+                        }
+                    });
                 }
             }
         }
@@ -4844,7 +4928,8 @@
             'score-history-popup-enhanced.js',
             'unified-analysis-handler.js',
             'problem-statement-handler.js',  // Add the problem statement handler
-            'enhanced-display-handler.js'    // Add the enhanced display handler for all subcomponents
+            'enhanced-display-handler.js',   // Add the enhanced display handler for all subcomponents
+            'template-dropdown-handler.js'   // Global dropdown handler for template reports
         ];
         
         scripts.forEach(src => {

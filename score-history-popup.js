@@ -1,5 +1,6 @@
-// Score History Popup Component
+// ScaleOps Score History Popup Component
 // This file provides clickable score history entries with detailed analysis popups
+// Branded for ScaleOps platform
 
 class ScoreHistoryPopup {
     constructor() {
@@ -64,6 +65,22 @@ class ScoreHistoryPopup {
                 overflow-y: auto;
                 animation: slideUp 0.3s ease;
                 box-shadow: 0 20px 60px rgba(255, 85, 0, 0.3);
+                position: relative;
+            }
+
+            .scaleops-watermark {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: linear-gradient(135deg, #FF5500, #FF8800);
+                color: white;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                z-index: 11;
             }
             
             .popup-header {
@@ -327,9 +344,10 @@ class ScoreHistoryPopup {
         const improvement = entryData.improvement || (currentScore - previousScore);
         
         popup.innerHTML = `
+            <div class="scaleops-watermark">ScaleOps</div>
             <div class="popup-header">
                 <button class="popup-close" onclick="scoreHistoryPopup.closePopup()">×</button>
-                <div class="popup-title">Score Analysis Details</div>
+                <div class="popup-title">ScaleOps Score Analysis</div>
                 <div class="popup-subtitle">${this.formatDate(entryData.date || entryData.timestamp)}</div>
             </div>
             
@@ -338,7 +356,7 @@ class ScoreHistoryPopup {
                 <div class="popup-section">
                     <h3 class="popup-section-title">
                         <span>📊</span>
-                        Score Overview
+                        Performance Metrics
                     </h3>
                     <div class="score-comparison">
                         <div class="score-box">
@@ -349,7 +367,7 @@ class ScoreHistoryPopup {
                         </div>
                         <div class="score-arrow">→</div>
                         <div class="score-box">
-                            <div class="score-label">New Score</div>
+                            <div class="score-label">Current Score</div>
                             <div class="score-value" style="color: ${this.getScoreColor(currentScore)}">
                                 ${currentScore}%
                             </div>
@@ -441,11 +459,11 @@ class ScoreHistoryPopup {
                         
                         <div class="insight-card">
                             <div class="insight-title">Analysis Type</div>
-                            <div class="insight-value">${entryData.source || 'AI Analysis'}</div>
+                            <div class="insight-value">${entryData.source || 'ScaleOps AI'}</div>
                             <div class="insight-description">
                                 ${entryData.eventType === 'baseline' ? 'Initial baseline assessment' :
                                   entryData.eventType === 'dependency' ? 'Dependency-based update' :
-                                  'Standard analysis'}
+                                  'ScaleOps standard analysis'}
                             </div>
                         </div>
                         
@@ -461,12 +479,12 @@ class ScoreHistoryPopup {
                     </div>
                 </div>
 
-                <!-- Recommendations -->
+                <!-- ScaleOps Expert Recommendations -->
                 ${entryData.recommendations && entryData.recommendations.length > 0 ? `
                 <div class="popup-section">
                     <h3 class="popup-section-title">
                         <span>🎯</span>
-                        Recommendations
+                        ScaleOps Expert Recommendations
                     </h3>
                     <div class="action-items">
                         ${entryData.recommendations.map((rec, index) => `
