@@ -1155,8 +1155,67 @@
         const urlParams = new URLSearchParams(window.location.search);
         const subcomponentId = urlParams.get('id') || '1-1';
         const blockId = parseInt(subcomponentId.split('-')[0]);
+        
+        // Global state manager for analysis persistence
+        window.AnalysisStateManager = {
+            currentAnalysis: null,
+            
+            setAnalysis: function(analysis) {
+                this.currentAnalysis = analysis;
+                // Also save to all storage locations
+                if (analysis && analysis.score !== undefined) {
+                    localStorage.setItem(`analysis_${subcomponentId}`, JSON.stringify(analysis));
+                    sessionStorage.setItem(`current_analysis_${subcomponentId}`, JSON.stringify(analysis));
+                    window.persistedAnalysisData = window.persistedAnalysisData || {};
+                    window.persistedAnalysisData[subcomponentId] = analysis;
+                }
+            },
+            
+            getAnalysis: function() {
+                // Try to get from memory first
+                if (this.currentAnalysis && this.currentAnalysis.score !== undefined) {
+                    return this.currentAnalysis;
+                }
+                
+                // Try window cache
+                if (window.persistedAnalysisData && window.persistedAnalysisData[subcomponentId]) {
+                    this.currentAnalysis = window.persistedAnalysisData[subcomponentId];
+                    return this.currentAnalysis;
+                }
+                
+                // Try session storage
+                const sessionData = sessionStorage.getItem(`current_analysis_${subcomponentId}`);
+                if (sessionData) {
+                    try {
+                        const parsed = JSON.parse(sessionData);
+                        if (parsed && parsed.score !== undefined) {
+                            this.currentAnalysis = parsed;
+                            return parsed;
+                        }
+                    } catch (e) {}
+                }
+                
+                // Try local storage
+                const localData = localStorage.getItem(`analysis_${subcomponentId}`);
+                if (localData) {
+                    try {
+                        const parsed = JSON.parse(localData);
+                        if (parsed && parsed.score !== undefined) {
+                            this.currentAnalysis = parsed;
+                            return parsed;
+                        }
+                    } catch (e) {}
+                }
+                
+                return null;
+            },
+            
+            hasAnalysis: function() {
+                return this.getAnalysis() !== null;
+            }
+        };
 
-        // Data persistence manager
+        // Data persistence manager with enhanced persistence
         const DataManager = {
             // Save worksheet data
             saveWorksheetData: function(data) {
@@ -1170,22 +1229,73 @@
                 return data ? JSON.parse(data) : null;
             },
             
-            // Save analysis results
+            // Save analysis results with multiple backup locations
             saveAnalysisResults: function(analysis) {
+                // Primary storage
                 localStorage.setItem(`analysis_${subcomponentId}`, JSON.stringify(analysis));
                 localStorage.setItem(`analysis_${subcomponentId}_timestamp`, new Date().toISOString());
+                
+                // Backup storage for current session
+                sessionStorage.setItem(`current_analysis_${subcomponentId}`, JSON.stringify(analysis));
+                
                 // Also save a general "last analysis" key for easy access
                 localStorage.setItem('lastAnalysisResults', JSON.stringify({
                     results: analysis,
                     timestamp: new Date().toISOString(),
                     user: 'ST6C0'
                 }));
+                
+                // Store in window object for immediate access
+                window.persistedAnalysisData = window.persistedAnalysisData || {};
+                window.persistedAnalysisData[subcomponentId] = analysis;
             },
             
-            // Load analysis results
+            // Load analysis results - with multiple fallback checks
             loadAnalysisResults: function() {
+                // First check window object (fastest)
+                if (window.persistedAnalysisData && window.persistedAnalysisData[subcomponentId]) {
+                    console.log('✅ Loaded analysis from window cache');
+                    return window.persistedAnalysisData[subcomponentId];
+                }
+                
+                // Check session storage (current session)
+                const sessionAnalysis = sessionStorage.getItem(`current_analysis_${subcomponentId}`);
+                if (sessionAnalysis) {
+                    const parsed = JSON.parse(sessionAnalysis);
+                    if (parsed && parsed.score !== undefined) {
+                        console.log('✅ Loaded analysis from session storage');
+                        // Also restore to window cache
+                        window.persistedAnalysisData = window.persistedAnalysisData || {};
+                        window.persistedAnalysisData[subcomponentId] = parsed;
+                        return parsed;
+                    }
+                }
+                
+                // Check local storage (persistent)
                 const analysis = localStorage.getItem(`analysis_${subcomponentId}`);
-                return analysis ? JSON.parse(analysis) : null;
+                if (analysis) {
+                    const parsed = JSON.parse(analysis);
+                    if (parsed && parsed.score !== undefined) {
+                        console.log('✅ Loaded persisted analysis from localStorage');
+                        // Restore to all caches
+                        window.persistedAnalysisData = window.persistedAnalysisData || {};
+                        window.persistedAnalysisData[subcomponentId] = parsed;
+                        sessionStorage.setItem(`current_analysis_${subcomponentId}`, JSON.stringify(parsed));
+                        return parsed;
+                    }
+                }
+                
+                // Check the general last analysis key as final fallback
+                const lastAnalysis = localStorage.getItem('lastAnalysisResults');
+                if (lastAnalysis) {
+                    const lastParsed = JSON.parse(lastAnalysis);
+                    if (lastParsed && lastParsed.results) {
+                        console.log('✅ Loaded last analysis results as fallback');
+                        return lastParsed.results;
+                    }
+                }
+                
+                return null;
             },
             
             // Auto-save worksheet data
@@ -1202,7 +1312,7 @@
             }
         };
 
-        // Tab switching
+        // Tab switching - FIXED FOR PERSISTENT ANALYSIS
         function switchTab(tabName, event) {
             // Prevent default if event exists
             if (event && event.preventDefault) {
@@ -1241,21 +1351,77 @@
             if (tabName === 'education') {
                 // Education content is static, no dynamic loading needed
             } else if (tabName === 'analysis') {
-                const savedAnalysis = DataManager.loadAnalysisResults();
-                if (savedAnalysis) {
-                    displayAnalysisResults(savedAnalysis);
+                // CRITICAL FIX: Use state manager for consistent analysis retrieval
+                const savedAnalysis = window.AnalysisStateManager.getAnalysis() || DataManager.loadAnalysisResults();
+                
+                // Ensure analysis content div exists
+                let analysisContent = document.getElementById('analysis-content');
+                if (!analysisContent) {
+                    const analysisTab = document.getElementById('analysis-tab');
+                    if (analysisTab) {
+                        // Only create structure if it doesn't exist
+                        if (!analysisTab.querySelector('.workspace-section')) {
+                            analysisTab.innerHTML = `
+                                <div class="workspace-section">
+                                    <h2 class="section-title">
+                                        <span class="section-icon">🤖</span>
+                                        Analysis Results
+                                    </h2>
+                                    <div id="analysis-content" style="min-height: 400px;">
+                                        <!-- Analysis results will be displayed here -->
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        analysisContent = document.getElementById('analysis-content');
+                    }
+                }
+                
+                if (savedAnalysis && savedAnalysis.score !== undefined) {
+                    console.log('✅ Loading persisted analysis results');
+                    console.log('📊 Analysis score:', savedAnalysis.score);
+                    
+                    // ALWAYS re-display the analysis when switching to this tab
+                    // This ensures the content is never lost
+                    if (analysisContent) {
+                        // Check if we need to re-render (avoid unnecessary re-renders)
+                        const currentScore = analysisContent.querySelector('[data-analysis-score]');
+                        const needsRerender = !currentScore || currentScore.getAttribute('data-analysis-score') !== String(savedAnalysis.score);
+                        
+                        if (needsRerender || analysisContent.innerHTML.trim() === '' ||
+                            analysisContent.innerHTML.includes('No Analysis Yet') ||
+                            analysisContent.innerHTML.includes('Analysis results will be displayed here')) {
+                            displayAnalysisResults(savedAnalysis);
+                        }
+                    }
+                    
                 } else {
-                    // Show no analysis message
-                    document.getElementById('analysis-content').innerHTML = `
-                        <div style="text-align: center; padding: 60px 20px; color: #999;">
-                            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
-                            <h3 style="font-size: 24px; margin-bottom: 10px; color: #fff;">No Analysis Yet</h3>
-                            <p style="font-size: 16px; margin-bottom: 30px;">Complete the interactive worksheet and click "Analyze Results" to get AI-powered feedback</p>
-                            <button class="btn-primary" onclick="goToWorkspace();">
-                                Go to Workspace
-                            </button>
-                        </div>
-                    `;
+                    // Only show "No Analysis Yet" if there truly is no saved analysis
+                    const analysisContent = document.getElementById('analysis-content');
+                    if (analysisContent && (analysisContent.innerHTML.trim() === '' || analysisContent.innerHTML.includes('Analysis results will be displayed here'))) {
+                        analysisContent.innerHTML = `
+                            <div style="text-align: center; padding: 60px 20px; color: #999;">
+                                <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                                <h3 style="font-size: 24px; margin-bottom: 10px; color: #fff;">No Analysis Yet</h3>
+                                <p style="font-size: 16px; margin-bottom: 30px;">Complete the interactive worksheet and click "Analyze Results" to get AI-powered feedback</p>
+                                <button class="btn-primary" onclick="goToWorkspace();">
+                                    Go to Workspace
+                                </button>
+                            </div>
+                        `;
+                    }
+                }
+            } else if (tabName === 'workspace') {
+                // When switching to workspace, don't clear analysis data
+                // Just ensure worksheet is loaded properly
+                if (subcomponentId === '1-1') {
+                    const dynamicContainer = document.getElementById('dynamic-worksheet-container');
+                    const problemStatementWorksheet = document.getElementById('problem-statement-worksheet');
+                    
+                    if (dynamicContainer && problemStatementWorksheet) {
+                        dynamicContainer.style.display = 'none';
+                        problemStatementWorksheet.style.display = 'block';
+                    }
                 }
             } else if (tabName === 'output') {
                 loadTemplateOutputs();
@@ -1419,14 +1585,16 @@
             
             // Display each score's template outputs
             allResults.forEach((results, index) => {
-                const timestamp = new Date(results.timestamp).toLocaleString('en-US', {
-                    month: '2-digit',
+                const timestamp = new Date(results.timestamp).toLocaleString('en-GB', {
+                    timeZone: 'UTC',
                     day: '2-digit',
+                    month: '2-digit',
                     year: 'numeric',
                     hour: '2-digit',
                     minute: '2-digit',
-                    hour12: true
-                });
+                    second: '2-digit',
+                    hour12: false
+                }).replace(',', '') + ' UTC';
                 
                 html += `
                     <div style="margin-bottom: 40px; padding: 30px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px;">
@@ -1460,9 +1628,7 @@
                                     <div style="font-size: 36px; font-weight: 700; color: ${scoreColor};">
                                         ${result.score}%
                                     </div>
-                                    <div style="font-size: 18px; font-weight: 600; color: #FF5500;">
-                                        Grade: ${result.grade || 'N/A'}
-                                    </div>
+                                    <!-- Grade display removed for ScaleOps branding -->
                                 </div>
                                 <div style="font-size: 12px; color: #999; max-height: 150px; overflow-y: auto;">
                                     ${result.details.slice(0, 3).map(d => `
@@ -1470,7 +1636,7 @@
                                             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                                 <strong style="color: #FF5500; font-size: 11px;">${d.label}</strong>
                                                 <span style="color: ${d.score >= 80 ? '#4CAF50' : d.score >= 60 ? '#FF9800' : '#F44336'}; font-size: 11px;">
-                                                    ${d.score}% (${d.grade})
+                                                    ${d.score}%
                                                 </span>
                                             </div>
                                             <div style="font-size: 10px; color: #666; margin-bottom: 4px;">
@@ -1594,7 +1760,7 @@
                         <head>
                             <meta charset="UTF-8">
                             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>ScaleTeam6 - ${templateName} Report</title>
+                            <title>ScaleOps - ${templateName} Report</title>
                             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
                             <style>
                                 body { margin: 0; padding: 0; background: #000; }
@@ -1611,7 +1777,7 @@
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `ScaleTeam6-${templateName.replace(/\s+/g, '-')}-Report-${new Date().toISOString().split('T')[0]}.html`;
+                    a.download = `ScaleOps-${templateName.replace(/\s+/g, '-')}-Report-${new Date().toISOString().split('T')[0]}.html`;
                     document.body.appendChild(a);
                     a.click();
                     window.URL.revokeObjectURL(url);
@@ -1633,21 +1799,18 @@
                 return {
                     'Problem Statement Canvas': {
                         score: 70,
-                        grade: 'B',
                         details: [],
                         timestamp: new Date().toISOString(),
                         sourceScore: scoreEntry.score || 0
                     },
                     'Problem Validation Scorecard': {
                         score: 65,
-                        grade: 'C',
                         details: [],
                         timestamp: new Date().toISOString(),
                         sourceScore: scoreEntry.score || 0
                     },
                     'Pain Point Prioritization Matrix': {
                         score: 75,
-                        grade: 'B',
                         details: [],
                         timestamp: new Date().toISOString(),
                         sourceScore: scoreEntry.score || 0
@@ -1669,7 +1832,6 @@
                         console.error(`Failed to evaluate ${templateName}`);
                         results[templateName] = {
                             score: 0,
-                            grade: 'N/A',
                             details: [],
                             timestamp: new Date().toISOString(),
                             sourceScore: scoreEntry.score || 0
@@ -1678,7 +1840,6 @@
                     }
                     
                     console.log(`  - Score: ${evaluation.totalScore}%`);
-                    console.log(`  - Grade: ${evaluation.grade}`);
                     console.log(`  - Questions evaluated: ${evaluation.questions.length}`);
                     
                     // Convert evaluation format to match expected output format
@@ -1692,7 +1853,6 @@
                             label: questionLabel,
                             answer: q.answer || '',
                             score: q.score || 0,
-                            grade: q.grade || 'N/A',
                             matchedCriteria: q.matchedCriteria || 0,
                             totalCriteria: q.totalCriteria || (q.criteria ? q.criteria.length : 0),
                             feedback: q.feedback ?
@@ -1702,7 +1862,6 @@
                     
                     results[templateName] = {
                         score: evaluation.totalScore || 0,
-                        grade: evaluation.grade || 'N/A',
                         details: details,
                         timestamp: new Date().toISOString(),
                         sourceScore: scoreEntry.score || 0,
@@ -1712,7 +1871,6 @@
                     console.error(`Error evaluating ${templateName}:`, error);
                     results[templateName] = {
                         score: 0,
-                        grade: 'Error',
                         details: [],
                         timestamp: new Date().toISOString(),
                         sourceScore: scoreEntry.score || 0,
@@ -1862,7 +2020,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleTeam6 - ${templateName} Output</title>
+    <title>ScaleOps - ${templateName} Output</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         body {
@@ -1927,7 +2085,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">ScaleTeam6</div>
+        <div class="logo">ScaleOps</div>
         <div>
             <div>${templateName}</div>
             <div style="color: #999; font-size: 14px;">${new Date().toLocaleDateString()}</div>
@@ -1960,9 +2118,18 @@
     `).join('')}
     
     <div class="footer">
-        <p>© 2024 ScaleTeam6. All rights reserved.</p>
+        <p>© 2024 ScaleOps. All rights reserved.</p>
         <p style="margin-top: 10px; font-size: 12px;">
-            Generated from ScaleOps6 Platform - ${new Date().toLocaleString()}
+            Generated from ScaleOps6 Platform - ${new Date().toLocaleString('en-GB', {
+                timeZone: 'UTC',
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            }).replace(',', '')} UTC
         </p>
     </div>
 </body>
@@ -2053,17 +2220,16 @@
             // Get current time in CST
             const now = new Date();
             
-            // Helper to format date in CST
-            function toCSTDate(date) {
-                // Create a new date in CST (UTC-6)
-                const cstDate = new Date(date.toLocaleString("en-US", {timeZone: "America/Chicago"}));
-                return cstDate.toISOString();
+            // Helper to format date in UTC
+            function toUTCDate(date) {
+                // Return UTC ISO string
+                return date.toISOString();
             }
             
             return [
                 {
                     score: 64,
-                    timestamp: toCSTDate(new Date(now.getTime() - 0.5 * 60 * 60 * 1000)), // 30 minutes ago
+                    timestamp: toUTCDate(new Date(now.getTime() - 0.5 * 60 * 60 * 1000)), // 30 minutes ago
                     source: 'Audit Score',
                     user: 'ST6C0',
                     improvement: 0,
@@ -2296,15 +2462,16 @@
                             <div class="score-history-entry" data-index="${index}" style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid ${scoreColor}; cursor: pointer; transition: all 0.3s ease;">
                                 <div>
                                     <div style="font-size: 14px; color: #999; margin-bottom: 5px;">
-                                        ${new Date(entry.timestamp).toLocaleString('en-US', {
-                                            timeZone: 'America/Chicago',
-                                            month: '2-digit',
+                                        ${new Date(entry.timestamp).toLocaleString('en-GB', {
+                                            timeZone: 'UTC',
                                             day: '2-digit',
+                                            month: '2-digit',
                                             year: 'numeric',
                                             hour: '2-digit',
                                             minute: '2-digit',
-                                            hour12: true
-                                        })}
+                                            second: '2-digit',
+                                            hour12: false
+                                        }).replace(',', '')} UTC
                                     </div>
                                     <div style="font-size: 16px; color: #ccc;">
                                         <div style="display: flex; align-items: center; gap: 8px;">
@@ -2415,13 +2582,13 @@
                                 analysisBtn.click();
                             }
                             
-                            // Add a header to show this is a historical analysis with ScaleTeam6 branding
+                            // Add a header to show this is a historical analysis with ScaleOps branding
                             const analysisContent = document.getElementById('analysis-content');
                             if (analysisContent) {
-                                // Add historical indicator with download button - ScaleTeam6 branded
+                                // Add historical indicator with download button - ScaleOps branded
                                 let historicalHeader = `
                                     <div style="background: linear-gradient(135deg, rgba(255, 85, 0, 0.1), rgba(255, 85, 0, 0.05)); border: 2px solid #FF5500; border-radius: 15px; padding: 20px; margin-bottom: 25px; position: relative; overflow: hidden;">
-                                        <!-- ScaleTeam6 watermark -->
+                                        <!-- ScaleOps watermark -->
                                         <div style="position: absolute; top: -20px; right: -20px; opacity: 0.1; transform: rotate(15deg);">
                                             <span style="font-size: 60px; font-weight: 800; color: #FF5500;">ST6</span>
                                         </div>
@@ -2429,19 +2596,20 @@
                                             <div>
                                                 <h4 style="color: #FF5500; margin: 0; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px;">
                                                     <span style="font-size: 24px;">📊</span>
-                                                    Historical Analysis - ScaleTeam6
+                                                    Historical Analysis - ScaleOps
                                                 </h4>
                                                 <p style="color: #ccc; margin: 8px 0 0 0; font-size: 14px;">
                                                     <strong>Submitted by:</strong> ${completeAnalysis.user} |
-                                                    <strong>Date:</strong> ${new Date(completeAnalysis.timestamp).toLocaleString('en-US', {
-                                                        timeZone: 'America/Chicago',
-                                                        month: '2-digit',
+                                                    <strong>Date:</strong> ${new Date(completeAnalysis.timestamp).toLocaleString('en-GB', {
+                                                        timeZone: 'UTC',
                                                         day: '2-digit',
+                                                        month: '2-digit',
                                                         year: 'numeric',
                                                         hour: '2-digit',
                                                         minute: '2-digit',
-                                                        hour12: true
-                                                    }).toUpperCase()} CST
+                                                        second: '2-digit',
+                                                        hour12: false
+                                                    }).replace(',', '')} UTC
                                                 </p>
                                                 <p style="color: #FF5500; margin: 5px 0 0 0; font-size: 13px; font-weight: 600;">
                                                     Score: ${completeAnalysis.score}% | Source: ${completeAnalysis.source}
@@ -2730,18 +2898,21 @@
                         console.warn('⚠️ No recommendations array found in analysis!');
                         console.log('Full analysis object:', JSON.stringify(analysis, null, 2));
                     }
-                    // Save COMPLETE analysis results with user info and ScaleTeam6 branding
+                    // Save COMPLETE analysis results with user info and ScaleOps branding
                     const analysisWithUser = {
                         ...analysis,
                         user: 'ST6C0',
                         source: 'Audit Score',
                         timestamp: new Date().toISOString(),
-                        platform: 'ScaleTeam6 NexusOps',
+                        platform: 'ScaleOps NexusOps',
                         version: '1.0'
                     };
                     
-                    // Save to DataManager for persistence
+                    // CRITICAL: Save to DataManager for persistence with multiple backups
                     DataManager.saveAnalysisResults(analysisWithUser);
+                    
+                    console.log('💾 Analysis saved to multiple storage locations');
+                    console.log('✅ Analysis will persist across all tab switches');
                     
                     // Save COMPLETE analysis to score history
                     saveToScoreHistory(analysisWithUser);
@@ -2871,311 +3042,6 @@
             };
         }
 
-        // Display analysis results with enhanced structure
-        function displayAnalysisResults(analysis) {
-            console.log('📊 displayAnalysisResults called with:', analysis);
-            console.log('📊 Detailed scores:', analysis.detailedScores);
-            
-            const analysisContent = document.getElementById('analysis-content');
-            
-            const scoreColor = analysis.score >= 80 ? '#4CAF50' :
-                             analysis.score >= 60 ? '#FF9800' : '#F44336';
-            
-            // Handle both enhanced and basic agent responses
-            const executiveSummary = analysis.analysis?.executiveSummary ||
-                                   analysis.executiveSummary ||
-                                   "Analysis complete.";
-            
-            const confidence = analysis.confidence ?
-                `<div style="margin-top: 10px; font-size: 14px; color: #999;">
-                    Confidence: ${Math.round(analysis.confidence * 100)}%
-                </div>` : '';
-            
-            analysisContent.innerHTML = `
-                <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                        <div>
-                            <h3 style="font-size: 28px; margin-bottom: 10px;">Overall Score</h3>
-                            <p style="color: #999;">Based on GTM best practices and industry standards</p>
-                            ${confidence}
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 72px; font-weight: 800; color: ${scoreColor};">${analysis.score}%</div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px;">
-                        <h4 style="color: #FF5500; margin-bottom: 15px;">Executive Summary</h4>
-                        <p style="line-height: 1.8; color: #ccc;">${executiveSummary}</p>
-                    </div>
-                </div>
-                
-                <!-- Detailed Scores - Full Width Stacked Layout -->
-                <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px;">
-                    ${Object.entries(analysis.detailedScores).map(([key, value]) => {
-                        // Handle both enhanced and basic agent response structures
-                        // Ensure we get numeric values, not objects
-                        const score = typeof value.score === 'number' ? value.score :
-                                     typeof value === 'number' ? value : 0;
-                        const maxScore = typeof value.maxScore === 'number' ? value.maxScore : 20;
-                        const percentage = typeof value.percentage === 'number' ? value.percentage :
-                                         (maxScore > 0 ? Math.round((score / maxScore) * 100) : 0);
-                        const feedback = value.feedback || '';
-                        
-                        // Properly capitalize the display name
-                        const displayName = key.replace(/([A-Z])/g, ' $1').trim()
-                            .split(' ')
-                            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                            .join(' ');
-                        
-                        // Parse feedback into pros and cons
-                        const feedbackLines = feedback.split('\n').filter(line => line.trim());
-                        const pros = feedbackLines.filter(line => line.includes('✓'));
-                        const cons = feedbackLines.filter(line => line.includes('✗'));
-                        
-                        return `
-                        <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 25px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                                <h3 style="color: #FF5500; font-size: 20px; font-weight: 600;">${displayName}</h3>
-                                <div style="display: flex; align-items: center; gap: 20px;">
-                                    <span style="font-size: 28px; font-weight: 700; color: #fff;">${score}/${maxScore}</span>
-                                    <span style="font-size: 24px; color: ${percentage >= 80 ? '#4CAF50' : percentage >= 60 ? '#FF9800' : '#F44336'}; font-weight: 600;">
-                                        ${percentage}%
-                                    </span>
-                                </div>
-                            </div>
-                            
-                            ${feedback ? `
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                ${pros.length > 0 ? `
-                                <div style="background: rgba(76, 175, 80, 0.1); border-radius: 10px; padding: 15px; border: 1px solid rgba(76, 175, 80, 0.3);">
-                                    <h4 style="color: #4CAF50; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Strengths</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        ${pros.map(pro => `
-                                        <div style="display: flex; align-items: flex-start; gap: 10px;">
-                                            <span style="color: #4CAF50; font-size: 16px; flex-shrink: 0;">✓</span>
-                                            <span style="font-size: 14px; color: #ccc; line-height: 1.5;">${pro.replace('✓', '').trim()}</span>
-                                        </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                                ` : '<div></div>'}
-                                
-                                ${cons.length > 0 ? `
-                                <div style="background: rgba(244, 67, 54, 0.1); border-radius: 10px; padding: 15px; border: 1px solid rgba(244, 67, 54, 0.3);">
-                                    <h4 style="color: #F44336; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Areas for Improvement</h4>
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        ${cons.map(con => `
-                                        <div style="display: flex; align-items: flex-start; gap: 10px;">
-                                            <span style="color: #F44336; font-size: 16px; flex-shrink: 0;">✗</span>
-                                            <span style="font-size: 14px; color: #ccc; line-height: 1.5;">${con.replace('✗', '').trim()}</span>
-                                        </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
-                                ` : '<div></div>'}
-                            </div>
-                            ` : `
-                            <div style="padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 10px; text-align: center; color: #999;">
-                                <p>No detailed feedback available for this dimension</p>
-                            </div>
-                            `}
-                        </div>
-                        `;
-                    }).join('')}
-                </div>
-                
-                <!-- Recommendations Section - DIRECTLY EMBEDDED -->
-                ${analysis.recommendations && analysis.recommendations.length > 0 ? (() => {
-                    // Calculate all improvements first
-                    let totalImprovement = 0;
-                    analysis.recommendations.forEach(rec => {
-                        let improvement = 0;
-                        if (rec.expectedImprovement) {
-                            const match = rec.expectedImprovement.toString().match(/\d+/);
-                            improvement = match ? parseInt(match[0]) : 5;
-                        } else if (rec.impact) {
-                            const match = rec.impact.toString().match(/\d+/);
-                            improvement = match ? parseInt(match[0]) : 5;
-                        } else {
-                            // Default calculation
-                            const currentDimension = Object.keys(analysis.detailedScores).find(key =>
-                                key.toLowerCase().includes(rec.area?.toLowerCase() || rec.action?.toLowerCase() || '')
-                            );
-                            const currentScore = currentDimension ? analysis.detailedScores[currentDimension].score || 10 : 10;
-                            const percentage = (currentScore / 20) * 100;
-                            
-                            if (percentage < 30) {
-                                improvement = 11;
-                            } else if (percentage < 50) {
-                                improvement = 8;
-                            } else if (percentage < 70) {
-                                improvement = 6;
-                            } else {
-                                improvement = 4;
-                            }
-                            
-                            if (rec.priority === 'CRITICAL') improvement = Math.min(improvement + 2, 15);
-                            if (rec.priority === 'MEDIUM') improvement = Math.max(improvement - 1, 2);
-                        }
-                        rec.calculatedImprovement = improvement;
-                        totalImprovement += improvement;
-                    });
-                    
-                    return `
-                <div style="margin-top: 40px; padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h2 style="color: #FF5500; font-size: 28px; margin-bottom: 10px;">
-                        📊 Strategic Recommendations
-                    </h2>
-                    <p style="color: #999; font-size: 14px; margin-bottom: 30px;">
-                        Click any recommendation for detailed implementation guidance
-                    </p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-                        ${analysis.recommendations.map((rec, index) => {
-                            // Use pre-calculated improvement
-                            const improvement = rec.calculatedImprovement || 5;
-                            const currentDimension = Object.keys(analysis.detailedScores).find(key =>
-                                key.toLowerCase().includes(rec.area?.toLowerCase() || rec.action?.toLowerCase() || '')
-                            );
-                            const currentScore = currentDimension ? analysis.detailedScores[currentDimension].score || 10 : 10;
-                            const maxScore = 20;
-                            const percentage = (currentScore / maxScore) * 100;
-                            
-                            const priorityColor = rec.priority === 'CRITICAL' ? '#8B0000' :
-                                                rec.priority === 'HIGH' ? '#F44336' : '#FF9800';
-                            
-                            return `
-                            <div class="recommendation-card" data-index="${index}" style="
-                                background: rgba(0, 0, 0, 0.5);
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                border-radius: 12px;
-                                padding: 20px;
-                                cursor: pointer;
-                                transition: all 0.3s ease;
-                            " onmouseover="this.style.borderColor='#FF5500'; this.style.transform='translateX(5px)'"
-                               onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='translateX(0)'">
-                                
-                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
-                                    <h3 style="color: #fff; font-size: 18px; font-weight: 600; margin: 0;">
-                                        ${rec.action || rec.area || 'Improvement Opportunity'}
-                                    </h3>
-                                    <span style="
-                                        background: ${priorityColor};
-                                        color: #fff;
-                                        padding: 4px 12px;
-                                        border-radius: 20px;
-                                        font-size: 11px;
-                                        font-weight: 700;
-                                        text-transform: uppercase;
-                                    ">${rec.priority || 'MEDIUM'}</span>
-                                </div>
-                                
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 15px;">
-                                    <div>
-                                        <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Expected Impact</div>
-                                        <div style="color: #4CAF50; font-size: 16px; font-weight: 600;">+${improvement} points</div>
-                                    </div>
-                                    <div>
-                                        <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Current Score</div>
-                                        <div style="color: #FF9800; font-size: 16px; font-weight: 600;">${currentScore}/${maxScore}</div>
-                                    </div>
-                                </div>
-                                
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <div style="display: flex; gap: 10px;">
-                                        <span style="
-                                            background: rgba(255, 255, 255, 0.1);
-                                            padding: 4px 10px;
-                                            border-radius: 15px;
-                                            font-size: 12px;
-                                            color: #999;
-                                        ">⏱️ ${improvement > 8 ? 'High' : improvement > 5 ? 'Medium' : 'Low'} effort</span>
-                                        <span style="
-                                            background: rgba(255, 255, 255, 0.1);
-                                            padding: 4px 10px;
-                                            border-radius: 15px;
-                                            font-size: 12px;
-                                            color: #999;
-                                        ">📈 ${Math.round(percentage)}% complete</span>
-                                    </div>
-                                    <span style="color: #666; font-size: 12px;">
-                                        Click for details →
-                                    </span>
-                                </div>
-                            </div>
-                            `;
-                        }).join('')}
-                    </div>
-                    
-                    <div style="margin-top: 30px; padding: 20px; background: rgba(255, 85, 0, 0.05); border-radius: 12px; border: 1px solid rgba(255, 85, 0, 0.2);">
-                        <h3 style="color: #FF5500; margin-bottom: 15px;">Implementation Summary</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                            <div>
-                                <div style="color: #999; font-size: 12px; text-transform: uppercase; margin-bottom: 5px;">Total Improvement Potential</div>
-                                <div style="color: #4CAF50; font-size: 24px; font-weight: 700;">
-                                    +${totalImprovement} points
-                                </div>
-                            </div>
-                            <div>
-                                <div style="color: #999; font-size: 12px; text-transform: uppercase; margin-bottom: 5px;">Priority Actions</div>
-                                <div style="color: #FF5500; font-size: 24px; font-weight: 700;">
-                                    ${analysis.recommendations.filter(r => r.priority === 'CRITICAL' || r.priority === 'HIGH').length} critical
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-                })() : ''}
-                
-                <!-- Action Buttons -->
-                <div class="action-buttons">
-                    <button class="btn-primary" style="background: #4CAF50;" onclick="downloadCurrentAnalysis()">
-                        📥 Download Report
-                    </button>
-                    <button class="btn-primary" style="background: #2196F3;" onclick="reanalyzeWorksheet()">
-                        🔄 Reanalyze
-                    </button>
-                    <button class="btn-secondary" onclick="document.querySelector('[data-tab=workspace]').click();">
-                        ✏️ Refine Worksheet
-                    </button>
-                    <button class="btn-secondary" onclick="document.querySelector('[data-tab=history]').click();">
-                        📊 View Score History
-                    </button>
-                </div>
-                
-                <!-- Note about automatic saving -->
-                <div style="margin-top: 20px; padding: 15px; background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 8px;">
-                    <p style="color: #4CAF50; font-size: 14px; margin: 0;">
-                        ✓ Score automatically saved to Score History
-                    </p>
-                </div>
-            `;
-            
-            // Store recommendations for popup access
-            window.recommendationData = analysis.recommendations || [];
-            
-            // Add click handlers for recommendation cards AFTER DOM is updated
-            console.log('[DEBUG] Setting up recommendation click handlers'); // Diagnostic log
-            setTimeout(() => {
-                const cards = document.querySelectorAll('.recommendation-card');
-                console.log('[DEBUG] Found recommendation cards:', cards.length); // Diagnostic log
-                
-                cards.forEach((card) => {
-                    card.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const index = parseInt(this.getAttribute('data-index'));
-                        const rec = window.recommendationData[index];
-                        console.log('[DEBUG] Recommendation clicked:', index, rec); // Diagnostic log
-                        
-                        if (rec) {
-                            showRecommendationPopup(rec);
-                        }
-                    });
-                });
-            }, 500);
-        }
         
         // Define the recommendation popup function OUTSIDE of the innerHTML template
         function showRecommendationPopup(rec) {
@@ -4400,22 +4266,23 @@
         
         // Generate HTML for analysis report
         function generateAnalysisReportHTML(analysis) {
-            const timestamp = new Date(analysis.timestamp || new Date()).toLocaleString('en-US', {
-                timeZone: 'America/Chicago',
-                month: '2-digit',
+            const timestamp = new Date(analysis.timestamp || new Date()).toLocaleString('en-GB', {
+                timeZone: 'UTC',
                 day: '2-digit',
+                month: '2-digit',
                 year: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                hour12: true
-            });
+                second: '2-digit',
+                hour12: false
+            }).replace(',', '') + ' UTC';
             
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleTeam6 - Analysis Report</title>
+    <title>ScaleOps - Analysis Report</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         
@@ -4600,7 +4467,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">ScaleTeam6</div>
+        <div class="logo">ScaleOps</div>
         <div class="report-info">
             <div>Analysis Report</div>
             <div>${timestamp}</div>
@@ -4707,7 +4574,7 @@
     ` : ''}
     
     <div class="footer">
-        <p>© 2024 ScaleTeam6. All rights reserved.</p>
+        <p>© 2024 ScaleOps. All rights reserved.</p>
         <p style="margin-top: 10px; font-size: 12px;">
             This report is confidential and proprietary. Generated from ScaleOps6 Platform.
         </p>
@@ -4724,15 +4591,16 @@
             if (savedSection && savedContent) {
                 // Format the data for display
                 let formattedData = 'SAVED WORKSHEET DATA\n' + '='.repeat(50) + '\n\n';
-                formattedData += `Saved at: ${new Date().toLocaleString('en-US', {
-                    timeZone: 'America/Chicago',
-                    month: '2-digit',
+                formattedData += `Saved at: ${new Date().toLocaleString('en-GB', {
+                    timeZone: 'UTC',
                     day: '2-digit',
+                    month: '2-digit',
                     year: 'numeric',
                     hour: '2-digit',
                     minute: '2-digit',
-                    hour12: true
-                })} CST\n\n`;
+                    second: '2-digit',
+                    hour12: false
+                }).replace(',', '')} UTC\n\n`;
                 
                 const fieldLabels = {
                     'who-affected': 'WHO IS AFFECTED (CUSTOMER PERSONA)',
@@ -4788,6 +4656,143 @@
             }
         }
         
+        // Define displayAnalysisResults function with state manager
+        function displayAnalysisResults(analysis) {
+            console.log('📊 Displaying analysis results:', analysis);
+            const analysisContent = document.getElementById('analysis-content');
+            if (!analysisContent) {
+                console.error('Analysis content div not found');
+                return;
+            }
+            
+            // Save to state manager and all storage locations
+            window.AnalysisStateManager.setAnalysis(analysis);
+            DataManager.saveAnalysisResults(analysis);
+            
+            // Build the analysis display HTML with data attribute for tracking
+            let html = `
+                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <h3 style="color: #FF5500; font-size: 24px; font-weight: 700;">Analysis Complete</h3>
+                        <div style="text-align: right;">
+                            <div style="font-size: 48px; font-weight: 800; color: ${analysis.score >= 80 ? '#4CAF50' : analysis.score >= 60 ? '#FF9800' : '#F44336'};" data-analysis-score="${analysis.score}">
+                                ${analysis.score}%
+                            </div>
+                            <div style="font-size: 14px; color: #999;">Overall Score</div>
+                        </div>
+                    </div>
+                    
+                    ${analysis.executiveSummary || analysis.analysis?.executiveSummary ? `
+                    <div style="background: rgba(0, 0, 0, 0.5); border-radius: 10px; padding: 20px; margin-bottom: 30px;">
+                        <h4 style="color: #FF5500; margin-bottom: 15px;">Executive Summary</h4>
+                        <p style="color: #ccc; line-height: 1.8;">
+                            ${analysis.executiveSummary || analysis.analysis?.executiveSummary || 'Analysis complete.'}
+                        </p>
+                    </div>
+                    ` : ''}
+                    
+                    ${analysis.detailedScores ? `
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #FF5500; margin-bottom: 20px;">Detailed Scoring</h4>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            ${Object.entries(analysis.detailedScores).map(([key, value]) => {
+                                const displayName = key.replace(/([A-Z])/g, ' $1').trim()
+                                    .split(' ')
+                                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                                    .join(' ');
+                                const percentage = value.percentage || (value.maxScore > 0 ? Math.round((value.score / value.maxScore) * 100) : 0);
+                                return `
+                                <div style="background: rgba(0, 0, 0, 0.5); border-radius: 10px; padding: 20px; border-left: 3px solid ${percentage >= 80 ? '#4CAF50' : percentage >= 60 ? '#FF9800' : '#F44336'};">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <h5 style="color: #fff; font-size: 16px; margin: 0;">${displayName}</h5>
+                                        <div style="text-align: right;">
+                                            <span style="font-size: 24px; font-weight: 700; color: ${percentage >= 80 ? '#4CAF50' : percentage >= 60 ? '#FF9800' : '#F44336'};">
+                                                ${percentage}%
+                                            </span>
+                                            <span style="font-size: 14px; color: #999; margin-left: 10px;">
+                                                (${value.score}/${value.maxScore})
+                                            </span>
+                                        </div>
+                                    </div>
+                                    ${value.feedback ? `
+                                    <div style="font-size: 14px; color: #ccc; line-height: 1.6;">
+                                        ${value.feedback.split('\\n').map(line => {
+                                            if (line.includes('✓')) {
+                                                return `<div style="color: #4CAF50; margin: 5px 0;">${line}</div>`;
+                                            } else if (line.includes('✗')) {
+                                                return `<div style="color: #F44336; margin: 5px 0;">${line}</div>`;
+                                            } else {
+                                                return `<div style="margin: 5px 0;">${line}</div>`;
+                                            }
+                                        }).join('')}
+                                    </div>
+                                    ` : ''}
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    ${analysis.recommendations && analysis.recommendations.length > 0 ? `
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #FF5500; margin-bottom: 20px;">Strategic Recommendations</h4>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            ${analysis.recommendations.map((rec, index) => {
+                                const priorityColor = rec.priority === 'CRITICAL' ? '#8B0000' :
+                                                    rec.priority === 'HIGH' ? '#F44336' : '#FF9800';
+                                return `
+                                <div style="background: rgba(0, 0, 0, 0.5); border-radius: 10px; padding: 20px; border-left: 3px solid ${priorityColor};">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                        <h5 style="color: #fff; font-size: 16px; margin: 0;">
+                                            ${index + 1}. ${rec.action || rec.area || 'Improvement Opportunity'}
+                                        </h5>
+                                        <div style="display: flex; gap: 10px; align-items: center;">
+                                            <span style="background: ${priorityColor}; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+                                                ${rec.priority || 'MEDIUM'}
+                                            </span>
+                                            ${rec.expectedImprovement ? `
+                                            <span style="color: #4CAF50; font-weight: 600;">
+                                                ${rec.expectedImprovement}
+                                            </span>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                    ${rec.implementationPlan && rec.implementationPlan.length > 0 ? `
+                                    <div style="font-size: 14px; color: #ccc;">
+                                        <strong>Implementation Steps:</strong>
+                                        <ol style="margin: 10px 0 0 20px; padding: 0;">
+                                            ${rec.implementationPlan.map(step => `
+                                            <li style="margin: 5px 0; line-height: 1.6;">${step}</li>
+                                            `).join('')}
+                                        </ol>
+                                    </div>
+                                    ` : ''}
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn-primary" onclick="downloadCurrentAnalysis()">
+                            📥 Download Report
+                        </button>
+                        <button class="btn-secondary" onclick="switchTab('workspace', null)">
+                            ✏️ Back to Worksheet
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Set the HTML content
+            analysisContent.innerHTML = html;
+            
+            // Save to localStorage for persistence
+            DataManager.saveAnalysisResults(analysis);
+        }
+        
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             loadSubcomponentData();
@@ -4800,10 +4805,18 @@
                 displaySavedData(savedWorksheetData);
             }
             
-            // Check for saved analysis on page load
+            // Check for saved analysis on page load and ensure it persists
             const savedAnalysis = DataManager.loadAnalysisResults();
-            if (savedAnalysis) {
-                console.log('Found saved analysis results');
+            if (savedAnalysis && savedAnalysis.score !== undefined) {
+                console.log('✅ Found saved analysis results - will persist across all tabs');
+                console.log('📊 Saved analysis score:', savedAnalysis.score);
+                
+                // If user starts on analysis tab, show it immediately
+                if (window.location.hash === '#analysis') {
+                    setTimeout(() => {
+                        switchTab('analysis', null);
+                    }, 100);
+                }
             }
             
             // Show initial education tab (starting point for users)

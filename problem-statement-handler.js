@@ -229,6 +229,28 @@
             return;
         }
         
+        // CRITICAL: Save analysis data to all storage locations for persistence
+        if (window.AnalysisStateManager) {
+            window.AnalysisStateManager.setAnalysis(analysis);
+            console.log('💾 Saved to AnalysisStateManager');
+        }
+        
+        if (window.DataManager) {
+            window.DataManager.saveAnalysisResults(analysis);
+            console.log('💾 Saved to DataManager (localStorage + sessionStorage)');
+        }
+        
+        // Also save directly to localStorage as backup
+        const subcomponentId = new URLSearchParams(window.location.search).get('id') || '1-1';
+        localStorage.setItem(`analysis_${subcomponentId}`, JSON.stringify(analysis));
+        sessionStorage.setItem(`current_analysis_${subcomponentId}`, JSON.stringify(analysis));
+        
+        // Save to window object for immediate access
+        window.persistedAnalysisData = window.persistedAnalysisData || {};
+        window.persistedAnalysisData[subcomponentId] = analysis;
+        
+        console.log('✅ Analysis data saved to all storage locations');
+        
         // FIXED: Removed recursive call that was causing infinite loop
         // Now directly display the results without checking for another function
         
