@@ -378,10 +378,7 @@
             color: #FF5500;
             transition: transform 0.3s ease;
             font-size: 18px;
-        }
-
-        .recommendation-header.active .dropdown-arrow {
-            transform: rotate(180deg);
+            display: inline-block;
         }
 
         .recommendation-content {
@@ -753,15 +750,15 @@
             expertRecommendations.forEach((rec, index) => {
                 html += `
                     <div class="recommendations-dropdown">
-                        <div class="recommendation-header" data-index="${index}">
+                        <div class="recommendation-header" onclick="toggleDropdown(${index})">
                             <h4>
                                 <span>${rec.icon}</span>
                                 ${rec.title}
                                 <span class="expert-badge">${rec.expert}</span>
                             </h4>
-                            <span class="dropdown-arrow arrow-icon" data-index="${index}">▼</span>
+                            <span class="dropdown-arrow" id="arrow-${index}">▼</span>
                         </div>
-                        <div class="recommendation-content" data-index="${index}" style="max-height: 0px; overflow: hidden; transition: max-height 0.3s ease;">
+                        <div class="recommendation-content" id="content-${index}" style="max-height: 0px; overflow: hidden; transition: max-height 0.3s ease;">
                             <div class="recommendation-item">
                                 <div class="recommendation-icon">${rec.icon}</div>
                                 <div class="recommendation-text">
@@ -878,6 +875,28 @@
 
         function exportOutputs() {
             alert('Export functionality coming soon!\n\nThis will allow you to download all your analysis outputs with filled templates as a PDF or Excel file.');
+        }
+
+        // Toggle dropdown function
+        function toggleDropdown(index) {
+            const content = document.getElementById(`content-${index}`);
+            const arrow = document.getElementById(`arrow-${index}`);
+            
+            if (content) {
+                if (content.style.maxHeight === '0px' || !content.style.maxHeight) {
+                    // Expand
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    if (arrow) {
+                        arrow.style.transform = 'rotate(180deg)';
+                    }
+                } else {
+                    // Collapse
+                    content.style.maxHeight = '0px';
+                    if (arrow) {
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            }
         }
 
         // Initialize on page load
