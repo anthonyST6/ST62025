@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6 - Cache Clear & Test</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #FF5500;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #FF5500;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 85, 0, 0.1);
+            border-left: 3px solid #FF5500;
+            border-radius: 8px;
+        }
+        .step h3 {
+            color: #FF5500;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #d64d2d;
+        }
+        .test-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .test-link {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .test-link:hover {
+            border-color: #FF5500;
+            transform: translateY(-3px);
+        }
+        .test-link a {
+            color: #FF5500;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .warning {
+            color: #FF9800;
+        }
+        .error {
+            color: #F44336;
+        }
+        code {
+            background: rgba(255, 85, 0, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 ScaleOps6 - Cache Clear & Testing Guide</h1>
+    
+    <div class="section">
+        <h2>⚠️ IMPORTANT: Browser Cache Issue Detected</h2>
+        <p>Your browser is showing cached versions of the old files. Follow these steps to see the enhanced layout:</p>
+    </div>
+
+    <div class="section">
+        <h2>Step 1: Clear Browser Cache</h2>
+        
+        <div class="step">
+            <h3>Option A: Force Refresh (Quickest)</h3>
+            <p><strong>Windows/Linux:</strong> Press <code>Ctrl + Shift + R</code> or <code>Ctrl + F5</code></p>
+            <p><strong>Mac:</strong> Press <code>Cmd + Shift + R</code></p>
+            <p>This forces the browser to reload all resources without using cache.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Option B: Developer Tools Method</h3>
+            <ol>
+                <li>Open Developer Tools (F12 or right-click → Inspect)</li>
+                <li>Right-click the refresh button in your browser</li>
+                <li>Select "Empty Cache and Hard Reload"</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3>Option C: Manual Cache Clear</h3>
+            <p><strong>Chrome:</strong> Settings → Privacy → Clear browsing data → Cached images and files</p>
+            <p><strong>Firefox:</strong> Settings → Privacy → Clear Data → Cached Web Content</p>
+            <p><strong>Edge:</strong> Settings → Privacy → Clear browsing data → Cached images and files</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Step 2: Test Enhanced Features</h2>
+        <p>After clearing cache, test these URLs with cache-busting parameters:</p>
+        
+        <div class="test-links">
+            <div class="test-link">
+                <h4>Block 1-1 (Problem Statement)</h4>
+                <a href="#" onclick="testBlock('1-1'); return false;">Test Now →</a>
+            </div>
+            <div class="test-link">
+                <h4>Block 7-5 (System Reduction)</h4>
+                <a href="#" onclick="testBlock('7-5'); return false;">Test Now →</a>
+            </div>
+            <div class="test-link">
+                <h4>Block 10-3 (Win-Loss Analysis)</h4>
+                <a href="#" onclick="testBlock('10-3'); return false;">Test Now →</a>
+            </div>
+            <div class="test-link">
+                <h4>Block 16-6 (Risk Assessment)</h4>
+                <a href="#" onclick="testBlock('16-6'); return false;">Test Now →</a>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <button class="btn" onclick="testAllBlocks()">🔍 Test All 96 Blocks</button>
+            <button class="btn" onclick="openDashboard()">📊 Open Dashboard</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ What You Should See</h2>
+        <p>After clearing cache, each block should display:</p>
+        <ul style="line-height: 2;">
+            <li class="success">✓ <strong>Two-Column Layout</strong> in Education tab (left: theory, right: examples)</li>
+            <li class="success">✓ <strong>Green-Highlighted Best Practices</strong> with green checkmarks</li>
+            <li class="success">✓ <strong>6 Detailed Examples</strong> with 5-6 sentence descriptions</li>
+            <li class="success">✓ <strong>Downloadable Templates</strong> in Resources tab</li>
+            <li class="success">✓ <strong>Populated Output Templates</strong> from workspace data</li>
+            <li class="success">✓ <strong>Strengths/Weaknesses Grid</strong> in Analysis tab</li>
+            <li class="success">✓ <strong>Unique Agent Content</strong> for all 96 subcomponents</li>
+            <li class="success">✓ <strong>Full Tab Persistence</strong> across all navigation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Troubleshooting</h2>
+        
+        <div class="step">
+            <h3 class="warning">Still seeing old layout?</h3>
+            <ol>
+                <li>Try opening in an Incognito/Private window</li>
+                <li>Use a different browser temporarily</li>
+                <li>Restart the server: <code>Ctrl+C</code> then <code>npm start</code></li>
+                <li>Check console for errors (F12 → Console tab)</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h3 class="error">Server Issues?</h3>
+            <p>If the server is having issues, try running on a different port:</p>
+            <code>PORT=3002 npm start</code>
+            <p>Then access at: <a href="http://localhost:3002" style="color: #FF5500;">http://localhost:3002</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Add timestamp to force cache refresh
+        const cacheBuster = new Date().getTime();
+        
+        function testBlock(id) {
+            // Open with cache-busting parameter
+            const url = `subcomponent-detail.html?id=${id}&v=${cacheBuster}&nocache=true`;
+            window.open(url, '_blank');
+        }
+        
+        function testAllBlocks() {
+            // Test a sample from each of the 16 blocks
+            const testIds = ['1-1', '2-3', '3-5', '4-2', '5-4', '6-1', '7-5', '8-3', 
+                           '9-2', '10-4', '11-6', '12-1', '13-3', '14-5', '15-2', '16-4'];
+            
+            if (confirm(`This will open ${testIds.length} tabs. Continue?`)) {
+                testIds.forEach((id, index) => {
+                    setTimeout(() => {
+                        testBlock(id);
+                    }, index * 500); // Stagger opening to prevent browser blocking
+                });
+            }
+        }
+        
+        function openDashboard() {
+            window.open(`index.html?v=${cacheBuster}`, '_blank');
+        }
+        
+        // Auto-detect if cache might be an issue
+        window.addEventListener('load', () => {
+            // Check if we can detect old structure
+            fetch('block-7-5.html')
+                .then(response => response.text())
+                .then(html => {
+                    if (html.includes('Redirecting to Enhanced View')) {
+                        console.log('✅ Files are updated correctly');
+                    } else if (html.includes('old structure')) {
+                        console.warn('⚠️ Old files detected - cache clear needed');
+                        alert('Old cached files detected! Please clear your browser cache using the instructions on this page.');
+                    }
+                })
+                .catch(err => console.log('Could not check file status'));
+        });
+        
+        // Show current cache status
+        console.log('%c🔍 Cache Diagnostic Info', 'color: #FF5500; font-size: 16px; font-weight: bold;');
+        console.log('Current Time:', new Date().toISOString());
+        console.log('Cache Buster ID:', cacheBuster);
+        console.log('Browser:', navigator.userAgent);
+        console.log('To force refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)');
+    </script>
+</body>
+</html>

@@ -3,234 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Block 1: Mission Discovery - ScaleOps6 Platform</title>
+    <title>Block 1: Mission Discovery - ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #000;
-            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
             min-height: 100vh;
+            padding: 20px;
+            padding-top: 140px;
+            position: relative;
         }
-        .header {
-            background: linear-gradient(135deg, #FF5500 0%, #FF8800 100%);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        /* Soft orange glow effect */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255, 85, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; }
-        .nav { display: flex; gap: 2rem; }
-        .nav a { color: white; text-decoration: none; }
-        .breadcrumb {
-            padding: 1rem 2rem;
-            color: #888;
-            font-size: 0.9rem;
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .breadcrumb a { color: #FF5500; text-decoration: none; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+        /* Block Header - matching the screenshot */
         .block-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(255,85,0,0.1) 0%, rgba(255,136,0,0.1) 100%);
-            border-radius: 12px;
+            background: #1a1a1a;
+            border: 2px solid #FF5500;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
         }
+
         .block-number {
-            display: inline-block;
-            background: #FF5500;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-bottom: 1rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            color: #333;
+            font-weight: 700;
         }
-        .block-title { font-size: 2.5rem; margin-bottom: 1rem; }
-        .block-description { color: #ccc; line-height: 1.6; }
+
+        .block-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: #FF5500;
+        }
+
+        .block-description {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .block-score {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #FF5500;
+        }
+
+        .score-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #FF5500;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Sub-Components Section */
+        .subcomponents-container {
+            margin-bottom: 40px;
+        }
+
+        .subcomponents-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #FF5500;
+        }
+
         .subcomponents-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-        .subcomponent-card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+            .subcomponents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .subcomponent {
+            background: #1a1a1a;
+            border: 2px solid #FF5500;
+            border-radius: 15px;
+            padding: 20px;
             cursor: pointer;
+            transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: block;
         }
-        .subcomponent-card:hover {
-            border-color: #FF5500;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(255,85,0,0.2);
+
+        .subcomponent:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 25px rgba(255, 85, 0, 0.25);
         }
-        .subcomponent-id {
-            display: inline-block;
-            background: #222;
-            color: #FF5500;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+
+        .subcomponent-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffffff;
         }
-        .subcomponent-title { font-size: 1.25rem; margin-bottom: 0.5rem; }
-        .subcomponent-agent {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+
+        .subcomponent-description {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
+
         .subcomponent-score {
+            font-size: 24px;
+            font-weight: 800;
+            color: #FF5500;
+        }
+
+        .subcomponent-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+            background: #333;
+            color: #999;
+        }
+
+        /* Navigation */
+        .breadcrumb {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #333;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #999;
         }
-        .score-value {
-            font-size: 1.5rem;
-            font-weight: bold;
+
+        .breadcrumb a {
             color: #FF5500;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
         }
-        .score-label { color: #666; font-size: 0.85rem; }
-        .progress-bar {
-            flex: 1;
-            height: 8px;
-            background: #222;
-            border-radius: 4px;
-            overflow: hidden;
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
         }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #FF5500, #FF8800);
-            border-radius: 4px;
-            transition: width 0.3s ease;
+
+        .breadcrumb .separator {
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">ScaleOps6 Platform</div>
-        <nav class="nav">
-            <a href="index.html">Dashboard</a>
-            <a href="#">Analytics</a>
-            <a href="#">Settings</a>
-        </nav>
-    </div>
-
-    <div class="breadcrumb">
-        <a href="index.html">Dashboard</a> / Block 1: Mission Discovery
-    </div>
-
+    <script src="nav.js"></script>
+    
     <div class="container">
-        <div class="block-header">
-            <span class="block-number">BLOCK 1</span>
-            <h1 class="block-title">Mission Discovery</h1>
-            <p class="block-description">
-                Establish the foundation of your go-to-market strategy by clearly defining your mission, understanding your market, and preparing for launch.
-            </p>
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="index.html">Dashboard</a>
+            <span class="separator">›</span>
+            <span>Mission Discovery</span>
         </div>
 
-        <div class="subcomponents-grid">
-            
-            <a href="subcomponent-detail.html?id=1-1" class="subcomponent-card">
-                <span class="subcomponent-id">1A</span>
-                <h3 class="subcomponent-title">Problem Statement</h3>
-                <p class="subcomponent-agent">Problem Definition Evaluator</p>
-                <div class="subcomponent-score">
-                    <div>
-                        <div class="score-value">--</div>
-                        <div class="score-label">Score</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
+        <!-- Block Header -->
+        <div class="block-header">
+            <div class="block-number">1</div>
+            <h1 class="block-title">MISSION DISCOVERY</h1>
+            <p class="block-description">
+                Ensure clarity on the problem, target customer, solution thesis, and internal team alignment
+            </p>
+            <p style="margin-top: 10px; font-size: 14px; color: #999;">
+                Define your problem statement, mission, customer insights, founding team capability, market insights, and prototype launch plan
+            </p>
+            <div class="block-score">54%</div>
+            <div class="score-label">CURRENT SCORE</div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 54%">
+                    54% Complete
                 </div>
-            </a>
-            <a href="subcomponent-detail.html?id=1-2" class="subcomponent-card">
-                <span class="subcomponent-id">1B</span>
-                <h3 class="subcomponent-title">Mission Statement</h3>
-                <p class="subcomponent-agent">Mission Alignment Advisor</p>
-                <div class="subcomponent-score">
-                    <div>
-                        <div class="score-value">--</div>
-                        <div class="score-label">Score</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </a>
-            <a href="subcomponent-detail.html?id=1-3" class="subcomponent-card">
-                <span class="subcomponent-id">1C</span>
-                <h3 class="subcomponent-title">Voice of Customer</h3>
-                <p class="subcomponent-agent">VoC Synthesizer</p>
-                <div class="subcomponent-score">
-                    <div>
-                        <div class="score-value">--</div>
-                        <div class="score-label">Score</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </a>
-            <a href="subcomponent-detail.html?id=1-4" class="subcomponent-card">
-                <span class="subcomponent-id">1D</span>
-                <h3 class="subcomponent-title">Team Assessment</h3>
-                <p class="subcomponent-agent">Team Gap Identifier</p>
-                <div class="subcomponent-score">
-                    <div>
-                        <div class="score-value">--</div>
-                        <div class="score-label">Score</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </a>
-            <a href="subcomponent-detail.html?id=1-5" class="subcomponent-card">
-                <span class="subcomponent-id">1E</span>
-                <h3 class="subcomponent-title">Market Landscape</h3>
-                <p class="subcomponent-agent">Market Mapper</p>
-                <div class="subcomponent-score">
-                    <div>
-                        <div class="score-value">--</div>
-                        <div class="score-label">Score</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </a>
-            <a href="subcomponent-detail.html?id=1-6" class="subcomponent-card">
-                <span class="subcomponent-id">1F</span>
-                <h3 class="subcomponent-title">Launch Readiness</h3>
-                <p class="subcomponent-agent">Launch Plan Assessor</p>
-                <div class="subcomponent-score">
-                    <div>
-                        <div class="score-value">--</div>
-                        <div class="score-label">Score</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </a>
+            </div>
+        </div>
+
+        <!-- Sub-Components -->
+        <div class="subcomponents-container">
+            <h2 class="subcomponents-title">Sub-Components</h2>
+            <div class="subcomponents-grid">
+                
+                <a href="subcomponent-detail.html?id=1-1" class="subcomponent">
+                    <div class="subcomponent-name">PROBLEM STATEMENT DEFINITION</div>
+                    <div class="subcomponent-description">Focused articulation of the specific problem you solve</div>
+                    <div class="subcomponent-score">64%</div>
+                    <span class="subcomponent-status">In Progress</span>
+                </a>
+
+                <a href="subcomponent-detail.html?id=1-2" class="subcomponent">
+                    <div class="subcomponent-name">MISSION STATEMENT</div>
+                    <div class="subcomponent-description">Declaration of the startup's purpose and vision</div>
+                    <div class="subcomponent-score">20%</div>
+                    <span class="subcomponent-status">In Progress</span>
+                </a>
+
+                <a href="subcomponent-detail.html?id=1-3" class="subcomponent">
+                    <div class="subcomponent-name">CUSTOMER INSIGHT CAPTURE</div>
+                    <div class="subcomponent-description">Raw and synthesized data from target users</div>
+                    <div class="subcomponent-score">55%</div>
+                    <span class="subcomponent-status">In Progress</span>
+                </a>
+
+                <a href="subcomponent-detail.html?id=1-4" class="subcomponent">
+                    <div class="subcomponent-name">FOUNDING TEAM CAPABILITY</div>
+                    <div class="subcomponent-description">Audit of founding team's ability to execute</div>
+                    <div class="subcomponent-score">30%</div>
+                    <span class="subcomponent-status">In Progress</span>
+                </a>
+
+                <a href="subcomponent-detail.html?id=1-5" class="subcomponent">
+                    <div class="subcomponent-name">MARKET INSIGHT SYNTHESIS</div>
+                    <div class="subcomponent-description">Summary of market landscape and timing</div>
+                    <div class="subcomponent-score">75%</div>
+                    <span class="subcomponent-status">In Progress</span>
+                </a>
+
+                <a href="subcomponent-detail.html?id=1-6" class="subcomponent">
+                    <div class="subcomponent-name">PROTOTYPE LAUNCH PLAN</div>
+                    <div class="subcomponent-description">Concrete plan to launch functional prototype</div>
+                    <div class="subcomponent-score">78%</div>
+                    <span class="subcomponent-status">In Progress</span>
+                </a>
+
+            </div>
         </div>
     </div>
 
     <script>
-        // Simulate random scores for demo
-        document.querySelectorAll('.progress-fill').forEach(bar => {
-            const score = 60 + Math.floor(Math.random() * 30);
-            bar.style.width = score + '%';
-            bar.closest('.subcomponent-card').querySelector('.score-value').textContent = score;
+        // Load actual scores from localStorage or API
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update block score
+            const blockScore = localStorage.getItem('block_1_score') || '54';
+            document.querySelector('.block-score').textContent = blockScore + '%';
+            document.querySelector('.progress-fill').style.width = blockScore + '%';
+            document.querySelector('.progress-fill').textContent = blockScore + '% Complete';
+            
+            // Update subcomponent scores if available
+            const subcomponents = [
+                { id: '1-1', defaultScore: 64 },
+                { id: '1-2', defaultScore: 20 },
+                { id: '1-3', defaultScore: 55 },
+                { id: '1-4', defaultScore: 30 },
+                { id: '1-5', defaultScore: 75 },
+                { id: '1-6', defaultScore: 78 }
+            ];
+            
+            subcomponents.forEach((sub, index) => {
+                const score = localStorage.getItem(`subcomponent_${sub.id}_score`) || sub.defaultScore;
+                const scoreElements = document.querySelectorAll('.subcomponent-score');
+                if (scoreElements[index]) {
+                    scoreElements[index].textContent = score + '%';
+                }
+            });
         });
     </script>
 </body>

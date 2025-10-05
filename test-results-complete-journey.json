@@ -1,0 +1,6075 @@
+{
+  "blocks": {
+    "1": {
+      "name": "Mission Discovery",
+      "agents": [
+        {
+          "subcomponentId": "1-1",
+          "agent": "Problem Definition Evaluator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Problem Definition Evaluator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Problem Definition Evaluator",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Problem Definition Evaluator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Problem Definition Evaluator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Problem Definition Evaluator"
+            }
+          }
+        },
+        {
+          "subcomponentId": "1-2",
+          "agent": "Mission Alignment Advisor",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Mission Alignment Advisor"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": false
+              },
+              "agent": "Mission Alignment Advisor",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Mission Alignment Advisor"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Mission Alignment Advisor"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Mission Alignment Advisor"
+            }
+          }
+        },
+        {
+          "subcomponentId": "1-3",
+          "agent": "Value Proposition Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Value Proposition Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": false
+              },
+              "agent": "Value Proposition Analyst",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Value Proposition Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Value Proposition Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Value Proposition Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "1-4",
+          "agent": "Target Audience Strategist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Target Audience Strategist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Target Audience Strategist",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Target Audience Strategist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Target Audience Strategist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Target Audience Strategist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "1-5",
+          "agent": "Competitive Positioning Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Competitive Positioning Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Competitive Positioning Expert",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Competitive Positioning Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Competitive Positioning Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Competitive Positioning Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "1-6",
+          "agent": "Mission Metrics Tracker",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Mission Metrics Tracker"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Mission Metrics Tracker",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Mission Metrics Tracker"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Mission Metrics Tracker"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Mission Metrics Tracker"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "2": {
+      "name": "Customer Insights",
+      "agents": [
+        {
+          "subcomponentId": "2-1",
+          "agent": "Interview Cadence Analyzer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Interview Cadence Analyzer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Interview Cadence Analyzer",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Interview Cadence Analyzer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Interview Cadence Analyzer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Interview Cadence Analyzer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "2-2",
+          "agent": "Question Framework Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Question Framework Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Question Framework Designer",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Question Framework Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Question Framework Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Question Framework Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "2-3",
+          "agent": "Insight Synthesis Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Insight Synthesis Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Insight Synthesis Specialist",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Insight Synthesis Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Insight Synthesis Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Insight Synthesis Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "2-4",
+          "agent": "Pattern Recognition Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Pattern Recognition Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Pattern Recognition Expert",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Pattern Recognition Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Pattern Recognition Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Pattern Recognition Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "2-5",
+          "agent": "Persona Development Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Persona Development Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Persona Development Architect",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Persona Development Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Persona Development Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Persona Development Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "2-6",
+          "agent": "Journey Mapping Facilitator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Journey Mapping Facilitator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Journey Mapping Facilitator",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Journey Mapping Facilitator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Journey Mapping Facilitator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Journey Mapping Facilitator"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "3": {
+      "name": "Strategic Prioritization",
+      "agents": [
+        {
+          "subcomponentId": "3-1",
+          "agent": "Feature Priority Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Feature Priority Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Feature Priority Analyst",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Feature Priority Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Feature Priority Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Feature Priority Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "3-2",
+          "agent": "Resource Allocation Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Resource Allocation Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Resource Allocation Optimizer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Resource Allocation Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Resource Allocation Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Resource Allocation Optimizer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "3-3",
+          "agent": "Timeline Planning Coordinator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Timeline Planning Coordinator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Timeline Planning Coordinator",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Timeline Planning Coordinator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Timeline Planning Coordinator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Timeline Planning Coordinator"
+            }
+          }
+        },
+        {
+          "subcomponentId": "3-4",
+          "agent": "Risk Assessment Evaluator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Risk Assessment Evaluator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Risk Assessment Evaluator",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Risk Assessment Evaluator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Risk Assessment Evaluator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Risk Assessment Evaluator"
+            }
+          }
+        },
+        {
+          "subcomponentId": "3-5",
+          "agent": "Dependency Mapping Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Dependency Mapping Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Dependency Mapping Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Dependency Mapping Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Dependency Mapping Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Dependency Mapping Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "3-6",
+          "agent": "Milestone Tracking Manager",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Milestone Tracking Manager"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Milestone Tracking Manager",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Milestone Tracking Manager"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Milestone Tracking Manager"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Milestone Tracking Manager"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "4": {
+      "name": "Prototype Launch",
+      "agents": [
+        {
+          "subcomponentId": "4-1",
+          "agent": "MVP Definition Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "MVP Definition Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "MVP Definition Architect",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "MVP Definition Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "MVP Definition Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "MVP Definition Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "4-2",
+          "agent": "Rapid Testing Coordinator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Rapid Testing Coordinator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Rapid Testing Coordinator",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Rapid Testing Coordinator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Rapid Testing Coordinator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Rapid Testing Coordinator"
+            }
+          }
+        },
+        {
+          "subcomponentId": "4-3",
+          "agent": "Feedback Loop Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Feedback Loop Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Feedback Loop Designer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Feedback Loop Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Feedback Loop Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Feedback Loop Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "4-4",
+          "agent": "Iteration Planning Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Iteration Planning Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Iteration Planning Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Iteration Planning Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Iteration Planning Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Iteration Planning Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "4-5",
+          "agent": "Quality Metrics Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Quality Metrics Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Quality Metrics Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Quality Metrics Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Quality Metrics Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Quality Metrics Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "4-6",
+          "agent": "Launch Readiness Evaluator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Launch Readiness Evaluator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Launch Readiness Evaluator",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Launch Readiness Evaluator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Launch Readiness Evaluator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Launch Readiness Evaluator"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "5": {
+      "name": "Go-to-Market Strategy",
+      "agents": [
+        {
+          "subcomponentId": "5-1",
+          "agent": "GTMMessagingAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "GTMMessagingAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "GTMMessagingAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "GTMMessagingAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "GTMMessagingAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "GTMMessagingAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "5-2",
+          "agent": "GTMChannelAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "GTMChannelAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "GTMChannelAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "GTMChannelAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "GTMChannelAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "GTMChannelAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "5-3",
+          "agent": "GTMPricingAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "GTMPricingAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "GTMPricingAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "GTMPricingAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "GTMPricingAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "GTMPricingAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "5-4",
+          "agent": "GTMPartnershipAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "GTMPartnershipAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "GTMPartnershipAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "GTMPartnershipAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "GTMPartnershipAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "GTMPartnershipAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "5-5",
+          "agent": "GTMContentAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "GTMContentAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "GTMContentAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "GTMContentAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "GTMContentAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "GTMContentAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "5-6",
+          "agent": "GTMLaunchAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "GTMLaunchAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "GTMLaunchAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "GTMLaunchAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "GTMLaunchAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "GTMLaunchAgent"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "6": {
+      "name": "Customer Engagement Flywheel",
+      "agents": [
+        {
+          "subcomponentId": "6-1",
+          "agent": "Onboarding Experience Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Onboarding Experience Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Onboarding Experience Designer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Onboarding Experience Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Onboarding Experience Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Onboarding Experience Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "6-2",
+          "agent": "Activation Metrics Tracker",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Activation Metrics Tracker"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Activation Metrics Tracker",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Activation Metrics Tracker"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Activation Metrics Tracker"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Activation Metrics Tracker"
+            }
+          }
+        },
+        {
+          "subcomponentId": "6-3",
+          "agent": "Engagement Pattern Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Engagement Pattern Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Engagement Pattern Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Engagement Pattern Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Engagement Pattern Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Engagement Pattern Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "6-4",
+          "agent": "Retention Strategy Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Retention Strategy Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Retention Strategy Optimizer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Retention Strategy Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Retention Strategy Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Retention Strategy Optimizer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "6-5",
+          "agent": "Referral Program Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Referral Program Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Referral Program Architect",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Referral Program Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Referral Program Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Referral Program Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "6-6",
+          "agent": "Community Building Strategist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Community Building Strategist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Community Building Strategist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Community Building Strategist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Community Building Strategist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Community Building Strategist"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "7": {
+      "name": "Quantifiable Impact",
+      "agents": [
+        {
+          "subcomponentId": "7-1",
+          "agent": "KPI Definition Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "KPI Definition Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "KPI Definition Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "KPI Definition Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "KPI Definition Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "KPI Definition Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "7-2",
+          "agent": "Data Collection Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Data Collection Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Data Collection Architect",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Data Collection Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Data Collection Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Data Collection Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "7-3",
+          "agent": "Analytics Dashboard Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Analytics Dashboard Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Analytics Dashboard Designer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Analytics Dashboard Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Analytics Dashboard Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Analytics Dashboard Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "7-4",
+          "agent": "Performance Benchmarking Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Performance Benchmarking Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Performance Benchmarking Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Performance Benchmarking Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Performance Benchmarking Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Performance Benchmarking Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "7-5",
+          "agent": "ROI Calculation Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "ROI Calculation Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "ROI Calculation Expert",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "ROI Calculation Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "ROI Calculation Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "ROI Calculation Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "7-6",
+          "agent": "Impact Reporting Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Impact Reporting Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Impact Reporting Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Impact Reporting Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Impact Reporting Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Impact Reporting Specialist"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "8": {
+      "name": "Customer Success Expansion",
+      "agents": [
+        {
+          "subcomponentId": "8-1",
+          "agent": "Success Metrics Definer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Success Metrics Definer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Success Metrics Definer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Success Metrics Definer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Success Metrics Definer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Success Metrics Definer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "8-2",
+          "agent": "Health Score Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Health Score Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Health Score Architect",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Health Score Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Health Score Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Health Score Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "8-3",
+          "agent": "Expansion Opportunity Identifier",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Expansion Opportunity Identifier"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Expansion Opportunity Identifier",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Expansion Opportunity Identifier"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Expansion Opportunity Identifier"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Expansion Opportunity Identifier"
+            }
+          }
+        },
+        {
+          "subcomponentId": "8-4",
+          "agent": "Upsell Strategy Developer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Upsell Strategy Developer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Upsell Strategy Developer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Upsell Strategy Developer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Upsell Strategy Developer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Upsell Strategy Developer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "8-5",
+          "agent": "Renewal Rate Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Renewal Rate Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Renewal Rate Optimizer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Renewal Rate Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Renewal Rate Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Renewal Rate Optimizer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "8-6",
+          "agent": "Advocacy Program Builder",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Advocacy Program Builder"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Advocacy Program Builder",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Advocacy Program Builder"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Advocacy Program Builder"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Advocacy Program Builder"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "9": {
+      "name": "Proof of Execution",
+      "agents": [
+        {
+          "subcomponentId": "9-1",
+          "agent": "Case Study Developer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Case Study Developer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Case Study Developer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Case Study Developer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Case Study Developer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Case Study Developer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "9-2",
+          "agent": "Results Documentation Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Results Documentation Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Results Documentation Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Results Documentation Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Results Documentation Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Results Documentation Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "9-3",
+          "agent": "Testimonial Collection Manager",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Testimonial Collection Manager"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Testimonial Collection Manager",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Testimonial Collection Manager"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Testimonial Collection Manager"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Testimonial Collection Manager"
+            }
+          }
+        },
+        {
+          "subcomponentId": "9-4",
+          "agent": "Success Metrics Compiler",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Success Metrics Compiler"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Success Metrics Compiler",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Success Metrics Compiler"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Success Metrics Compiler"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Success Metrics Compiler"
+            }
+          }
+        },
+        {
+          "subcomponentId": "9-5",
+          "agent": "Implementation Showcase Creator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Implementation Showcase Creator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Implementation Showcase Creator",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Implementation Showcase Creator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Implementation Showcase Creator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Implementation Showcase Creator"
+            }
+          }
+        },
+        {
+          "subcomponentId": "9-6",
+          "agent": "ROI Evidence Gatherer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "ROI Evidence Gatherer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "ROI Evidence Gatherer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "ROI Evidence Gatherer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "ROI Evidence Gatherer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "ROI Evidence Gatherer"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "10": {
+      "name": "Sales Team Empowerment",
+      "agents": [
+        {
+          "subcomponentId": "10-1",
+          "agent": "Sales Process Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Sales Process Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Sales Process Optimizer",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Sales Process Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Sales Process Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Sales Process Optimizer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "10-2",
+          "agent": "Playbook Development Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Playbook Development Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Playbook Development Expert",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Playbook Development Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Playbook Development Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Playbook Development Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "10-3",
+          "agent": "Training Program Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Training Program Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Training Program Designer",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Training Program Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Training Program Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Training Program Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "10-4",
+          "agent": "Tool Stack Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Tool Stack Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Tool Stack Architect",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Tool Stack Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Tool Stack Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Tool Stack Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "10-5",
+          "agent": "Performance Coaching Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Performance Coaching Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Performance Coaching Specialist",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Performance Coaching Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Performance Coaching Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Performance Coaching Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "10-6",
+          "agent": "Commission Structure Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Commission Structure Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Commission Structure Analyst",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Commission Structure Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Commission Structure Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Commission Structure Analyst"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "11": {
+      "name": "High Performance Teams",
+      "agents": [
+        {
+          "subcomponentId": "11-1",
+          "agent": "Team Structure Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Team Structure Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Team Structure Designer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Team Structure Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Team Structure Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Team Structure Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "11-2",
+          "agent": "Hiring Process Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Hiring Process Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Hiring Process Optimizer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Hiring Process Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Hiring Process Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Hiring Process Optimizer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "11-3",
+          "agent": "Culture Development Strategist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Culture Development Strategist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Culture Development Strategist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Culture Development Strategist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": true,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Culture Development Strategist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Culture Development Strategist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "11-4",
+          "agent": "Performance Management Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Performance Management Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Performance Management Expert",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Performance Management Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Performance Management Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Performance Management Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "11-5",
+          "agent": "Skill Development Coordinator",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Skill Development Coordinator"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Skill Development Coordinator",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Skill Development Coordinator"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Skill Development Coordinator"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Skill Development Coordinator"
+            }
+          }
+        },
+        {
+          "subcomponentId": "11-6",
+          "agent": "Team Productivity Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Team Productivity Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Team Productivity Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Team Productivity Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Team Productivity Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Team Productivity Analyst"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "12": {
+      "name": "Retention Systems",
+      "agents": [
+        {
+          "subcomponentId": "12-1",
+          "agent": "Churn Prediction Modeler",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Churn Prediction Modeler"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Churn Prediction Modeler",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Churn Prediction Modeler"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": true,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Churn Prediction Modeler"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Churn Prediction Modeler"
+            }
+          }
+        },
+        {
+          "subcomponentId": "12-2",
+          "agent": "Retention Program Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Retention Program Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Retention Program Designer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Retention Program Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Retention Program Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Retention Program Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "12-3",
+          "agent": "Customer Feedback Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Customer Feedback Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Customer Feedback Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Customer Feedback Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Customer Feedback Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Customer Feedback Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "12-4",
+          "agent": "Loyalty Program Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Loyalty Program Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Loyalty Program Architect",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Loyalty Program Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Loyalty Program Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Loyalty Program Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "12-5",
+          "agent": "Win-Back Campaign Strategist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Win-Back Campaign Strategist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Win-Back Campaign Strategist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Win-Back Campaign Strategist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Win-Back Campaign Strategist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Win-Back Campaign Strategist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "12-6",
+          "agent": "Lifetime Value Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Lifetime Value Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Lifetime Value Optimizer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Lifetime Value Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Lifetime Value Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Lifetime Value Optimizer"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "13": {
+      "name": "Market Domination Strategies",
+      "agents": [
+        {
+          "subcomponentId": "13-1",
+          "agent": "Market Share Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Market Share Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Market Share Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Market Share Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Market Share Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Market Share Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "13-2",
+          "agent": "Competitive Intelligence Gatherer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Competitive Intelligence Gatherer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Competitive Intelligence Gatherer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Competitive Intelligence Gatherer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Competitive Intelligence Gatherer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Competitive Intelligence Gatherer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "13-3",
+          "agent": "Strategic Partnership Developer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Strategic Partnership Developer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Strategic Partnership Developer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Strategic Partnership Developer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Strategic Partnership Developer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Strategic Partnership Developer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "13-4",
+          "agent": "Market Expansion Planner",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Market Expansion Planner"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Market Expansion Planner",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Market Expansion Planner"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Market Expansion Planner"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Market Expansion Planner"
+            }
+          }
+        },
+        {
+          "subcomponentId": "13-5",
+          "agent": "Brand Authority Builder",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Brand Authority Builder"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Brand Authority Builder",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Brand Authority Builder"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Brand Authority Builder"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Brand Authority Builder"
+            }
+          }
+        },
+        {
+          "subcomponentId": "13-6",
+          "agent": "Category Creation Strategist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Category Creation Strategist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Category Creation Strategist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Category Creation Strategist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Category Creation Strategist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Category Creation Strategist"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "14": {
+      "name": "Operational Infrastructure",
+      "agents": [
+        {
+          "subcomponentId": "14-1",
+          "agent": "Process Automation Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Process Automation Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Process Automation Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Process Automation Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Process Automation Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Process Automation Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "14-2",
+          "agent": "System Integration Architect",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "System Integration Architect"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "System Integration Architect",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "System Integration Architect"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "System Integration Architect"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "System Integration Architect"
+            }
+          }
+        },
+        {
+          "subcomponentId": "14-3",
+          "agent": "Data Infrastructure Designer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Data Infrastructure Designer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Data Infrastructure Designer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Data Infrastructure Designer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Data Infrastructure Designer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Data Infrastructure Designer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "14-4",
+          "agent": "Security Compliance Manager",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Security Compliance Manager"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Security Compliance Manager",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Security Compliance Manager"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Security Compliance Manager"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Security Compliance Manager"
+            }
+          }
+        },
+        {
+          "subcomponentId": "14-5",
+          "agent": "Scalability Planning Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Scalability Planning Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Scalability Planning Expert",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Scalability Planning Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Scalability Planning Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Scalability Planning Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "14-6",
+          "agent": "Operational Efficiency Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Operational Efficiency Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Operational Efficiency Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Operational Efficiency Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Operational Efficiency Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Operational Efficiency Analyst"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "15": {
+      "name": "Leadership Expansion",
+      "agents": [
+        {
+          "subcomponentId": "15-1",
+          "agent": "ExecutiveHiringAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "ExecutiveHiringAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "ExecutiveHiringAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "ExecutiveHiringAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "ExecutiveHiringAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "ExecutiveHiringAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "15-2",
+          "agent": "BoardAdvisoryAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "BoardAdvisoryAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "BoardAdvisoryAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "BoardAdvisoryAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "BoardAdvisoryAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "BoardAdvisoryAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "15-3",
+          "agent": "SuccessionPlanningAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "SuccessionPlanningAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "SuccessionPlanningAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "SuccessionPlanningAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": true,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "SuccessionPlanningAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "SuccessionPlanningAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "15-4",
+          "agent": "LeadershipDevelopmentAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "LeadershipDevelopmentAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "LeadershipDevelopmentAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "LeadershipDevelopmentAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": true,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "LeadershipDevelopmentAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "LeadershipDevelopmentAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "15-5",
+          "agent": "ExecutiveCoachingAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "ExecutiveCoachingAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "ExecutiveCoachingAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "ExecutiveCoachingAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "ExecutiveCoachingAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "ExecutiveCoachingAgent"
+            }
+          }
+        },
+        {
+          "subcomponentId": "15-6",
+          "agent": "StrategicVisionAgent",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "StrategicVisionAgent"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "StrategicVisionAgent",
+              "questionCount": 8
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "StrategicVisionAgent"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "StrategicVisionAgent"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "StrategicVisionAgent"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    },
+    "16": {
+      "name": "Global Expansion Opportunities",
+      "agents": [
+        {
+          "subcomponentId": "16-1",
+          "agent": "International Market Analyst",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "International Market Analyst"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "International Market Analyst",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "International Market Analyst"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "International Market Analyst"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "International Market Analyst"
+            }
+          }
+        },
+        {
+          "subcomponentId": "16-2",
+          "agent": "Localization Strategy Expert",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Localization Strategy Expert"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Localization Strategy Expert",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Localization Strategy Expert"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Localization Strategy Expert"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Localization Strategy Expert"
+            }
+          }
+        },
+        {
+          "subcomponentId": "16-3",
+          "agent": "Global Partnership Developer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Global Partnership Developer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Global Partnership Developer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Global Partnership Developer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Global Partnership Developer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Global Partnership Developer"
+            }
+          }
+        },
+        {
+          "subcomponentId": "16-4",
+          "agent": "Regulatory Compliance Specialist",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Regulatory Compliance Specialist"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Regulatory Compliance Specialist",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Regulatory Compliance Specialist"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Regulatory Compliance Specialist"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Regulatory Compliance Specialist"
+            }
+          }
+        },
+        {
+          "subcomponentId": "16-5",
+          "agent": "Cross-Cultural Team Builder",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Cross-Cultural Team Builder"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Cross-Cultural Team Builder",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Cross-Cultural Team Builder"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Cross-Cultural Team Builder"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Cross-Cultural Team Builder"
+            }
+          }
+        },
+        {
+          "subcomponentId": "16-6",
+          "agent": "Global Revenue Optimizer",
+          "passed": false,
+          "results": {
+            "education": {
+              "passed": false,
+              "error": "response.education.includes is not a function",
+              "agent": "Global Revenue Optimizer"
+            },
+            "workspace": {
+              "passed": false,
+              "tests": {
+                "hasWorkspace": true,
+                "hasQuestions": true,
+                "hasAgentQuestions": false,
+                "hasDefaultValues": true,
+                "hasSTCoData": true
+              },
+              "agent": "Global Revenue Optimizer",
+              "questionCount": 7
+            },
+            "scoring": {
+              "passed": false,
+              "tests": {
+                "hasAgent": false,
+                "canScore": true,
+                "hasAnalysis": true
+              },
+              "agent": "Global Revenue Optimizer"
+            },
+            "templates": {
+              "passed": true,
+              "tests": {
+                "hasTemplates": true,
+                "hasAgentTemplates": false,
+                "hasBlockContext": false,
+                "templateCount": 3
+              },
+              "agent": "Global Revenue Optimizer"
+            },
+            "resources": {
+              "passed": true,
+              "tests": {
+                "hasResources": true,
+                "hasOutputCapability": true,
+                "resourceCount": 4
+              },
+              "agent": "Global Revenue Optimizer"
+            }
+          }
+        }
+      ],
+      "passed": 0,
+      "failed": 6
+    }
+  },
+  "summary": {
+    "totalAgents": 96,
+    "passed": 0,
+    "failed": 96,
+    "issues": [
+      {
+        "block": 1,
+        "subcomponent": "1-1",
+        "agent": "Problem Definition Evaluator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 1,
+        "subcomponent": "1-2",
+        "agent": "Mission Alignment Advisor",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 1,
+        "subcomponent": "1-3",
+        "agent": "Value Proposition Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 1,
+        "subcomponent": "1-4",
+        "agent": "Target Audience Strategist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 1,
+        "subcomponent": "1-5",
+        "agent": "Competitive Positioning Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 1,
+        "subcomponent": "1-6",
+        "agent": "Mission Metrics Tracker",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 2,
+        "subcomponent": "2-1",
+        "agent": "Interview Cadence Analyzer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 2,
+        "subcomponent": "2-2",
+        "agent": "Question Framework Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 2,
+        "subcomponent": "2-3",
+        "agent": "Insight Synthesis Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 2,
+        "subcomponent": "2-4",
+        "agent": "Pattern Recognition Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 2,
+        "subcomponent": "2-5",
+        "agent": "Persona Development Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 2,
+        "subcomponent": "2-6",
+        "agent": "Journey Mapping Facilitator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 3,
+        "subcomponent": "3-1",
+        "agent": "Feature Priority Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 3,
+        "subcomponent": "3-2",
+        "agent": "Resource Allocation Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 3,
+        "subcomponent": "3-3",
+        "agent": "Timeline Planning Coordinator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 3,
+        "subcomponent": "3-4",
+        "agent": "Risk Assessment Evaluator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 3,
+        "subcomponent": "3-5",
+        "agent": "Dependency Mapping Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 3,
+        "subcomponent": "3-6",
+        "agent": "Milestone Tracking Manager",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 4,
+        "subcomponent": "4-1",
+        "agent": "MVP Definition Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 4,
+        "subcomponent": "4-2",
+        "agent": "Rapid Testing Coordinator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 4,
+        "subcomponent": "4-3",
+        "agent": "Feedback Loop Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 4,
+        "subcomponent": "4-4",
+        "agent": "Iteration Planning Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 4,
+        "subcomponent": "4-5",
+        "agent": "Quality Metrics Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 4,
+        "subcomponent": "4-6",
+        "agent": "Launch Readiness Evaluator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 5,
+        "subcomponent": "5-1",
+        "agent": "GTMMessagingAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 5,
+        "subcomponent": "5-2",
+        "agent": "GTMChannelAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 5,
+        "subcomponent": "5-3",
+        "agent": "GTMPricingAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 5,
+        "subcomponent": "5-4",
+        "agent": "GTMPartnershipAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 5,
+        "subcomponent": "5-5",
+        "agent": "GTMContentAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 5,
+        "subcomponent": "5-6",
+        "agent": "GTMLaunchAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 6,
+        "subcomponent": "6-1",
+        "agent": "Onboarding Experience Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 6,
+        "subcomponent": "6-2",
+        "agent": "Activation Metrics Tracker",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 6,
+        "subcomponent": "6-3",
+        "agent": "Engagement Pattern Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 6,
+        "subcomponent": "6-4",
+        "agent": "Retention Strategy Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 6,
+        "subcomponent": "6-5",
+        "agent": "Referral Program Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 6,
+        "subcomponent": "6-6",
+        "agent": "Community Building Strategist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 7,
+        "subcomponent": "7-1",
+        "agent": "KPI Definition Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 7,
+        "subcomponent": "7-2",
+        "agent": "Data Collection Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 7,
+        "subcomponent": "7-3",
+        "agent": "Analytics Dashboard Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 7,
+        "subcomponent": "7-4",
+        "agent": "Performance Benchmarking Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 7,
+        "subcomponent": "7-5",
+        "agent": "ROI Calculation Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 7,
+        "subcomponent": "7-6",
+        "agent": "Impact Reporting Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 8,
+        "subcomponent": "8-1",
+        "agent": "Success Metrics Definer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 8,
+        "subcomponent": "8-2",
+        "agent": "Health Score Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 8,
+        "subcomponent": "8-3",
+        "agent": "Expansion Opportunity Identifier",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 8,
+        "subcomponent": "8-4",
+        "agent": "Upsell Strategy Developer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 8,
+        "subcomponent": "8-5",
+        "agent": "Renewal Rate Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 8,
+        "subcomponent": "8-6",
+        "agent": "Advocacy Program Builder",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 9,
+        "subcomponent": "9-1",
+        "agent": "Case Study Developer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 9,
+        "subcomponent": "9-2",
+        "agent": "Results Documentation Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 9,
+        "subcomponent": "9-3",
+        "agent": "Testimonial Collection Manager",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 9,
+        "subcomponent": "9-4",
+        "agent": "Success Metrics Compiler",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 9,
+        "subcomponent": "9-5",
+        "agent": "Implementation Showcase Creator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 9,
+        "subcomponent": "9-6",
+        "agent": "ROI Evidence Gatherer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 10,
+        "subcomponent": "10-1",
+        "agent": "Sales Process Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 10,
+        "subcomponent": "10-2",
+        "agent": "Playbook Development Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 10,
+        "subcomponent": "10-3",
+        "agent": "Training Program Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 10,
+        "subcomponent": "10-4",
+        "agent": "Tool Stack Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 10,
+        "subcomponent": "10-5",
+        "agent": "Performance Coaching Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 10,
+        "subcomponent": "10-6",
+        "agent": "Commission Structure Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 11,
+        "subcomponent": "11-1",
+        "agent": "Team Structure Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 11,
+        "subcomponent": "11-2",
+        "agent": "Hiring Process Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 11,
+        "subcomponent": "11-3",
+        "agent": "Culture Development Strategist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 11,
+        "subcomponent": "11-4",
+        "agent": "Performance Management Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 11,
+        "subcomponent": "11-5",
+        "agent": "Skill Development Coordinator",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 11,
+        "subcomponent": "11-6",
+        "agent": "Team Productivity Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 12,
+        "subcomponent": "12-1",
+        "agent": "Churn Prediction Modeler",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 12,
+        "subcomponent": "12-2",
+        "agent": "Retention Program Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 12,
+        "subcomponent": "12-3",
+        "agent": "Customer Feedback Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 12,
+        "subcomponent": "12-4",
+        "agent": "Loyalty Program Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 12,
+        "subcomponent": "12-5",
+        "agent": "Win-Back Campaign Strategist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 12,
+        "subcomponent": "12-6",
+        "agent": "Lifetime Value Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 13,
+        "subcomponent": "13-1",
+        "agent": "Market Share Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 13,
+        "subcomponent": "13-2",
+        "agent": "Competitive Intelligence Gatherer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 13,
+        "subcomponent": "13-3",
+        "agent": "Strategic Partnership Developer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 13,
+        "subcomponent": "13-4",
+        "agent": "Market Expansion Planner",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 13,
+        "subcomponent": "13-5",
+        "agent": "Brand Authority Builder",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 13,
+        "subcomponent": "13-6",
+        "agent": "Category Creation Strategist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 14,
+        "subcomponent": "14-1",
+        "agent": "Process Automation Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 14,
+        "subcomponent": "14-2",
+        "agent": "System Integration Architect",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 14,
+        "subcomponent": "14-3",
+        "agent": "Data Infrastructure Designer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 14,
+        "subcomponent": "14-4",
+        "agent": "Security Compliance Manager",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 14,
+        "subcomponent": "14-5",
+        "agent": "Scalability Planning Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 14,
+        "subcomponent": "14-6",
+        "agent": "Operational Efficiency Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 15,
+        "subcomponent": "15-1",
+        "agent": "ExecutiveHiringAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 15,
+        "subcomponent": "15-2",
+        "agent": "BoardAdvisoryAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 15,
+        "subcomponent": "15-3",
+        "agent": "SuccessionPlanningAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 15,
+        "subcomponent": "15-4",
+        "agent": "LeadershipDevelopmentAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 15,
+        "subcomponent": "15-5",
+        "agent": "ExecutiveCoachingAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 15,
+        "subcomponent": "15-6",
+        "agent": "StrategicVisionAgent",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 16,
+        "subcomponent": "16-1",
+        "agent": "International Market Analyst",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 16,
+        "subcomponent": "16-2",
+        "agent": "Localization Strategy Expert",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 16,
+        "subcomponent": "16-3",
+        "agent": "Global Partnership Developer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 16,
+        "subcomponent": "16-4",
+        "agent": "Regulatory Compliance Specialist",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 16,
+        "subcomponent": "16-5",
+        "agent": "Cross-Cultural Team Builder",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      },
+      {
+        "block": 16,
+        "subcomponent": "16-6",
+        "agent": "Global Revenue Optimizer",
+        "failures": [
+          "education",
+          "workspace",
+          "scoring"
+        ]
+      }
+    ]
+  }
+}

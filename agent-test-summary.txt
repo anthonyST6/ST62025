@@ -1,0 +1,495 @@
+ScaleOps6 Agent System Test Report
+Generated: 2025-10-05T20:22:59.689Z
+============================================================
+
+OVERALL RESULTS
+Total Agents Tested: 96
+Passed: 95
+Failed: 1
+Success Rate: 99.0%
+
+============================================================
+DETAILED RESULTS BY AGENT
+============================================================
+
+Agent 1a: Problem Definition Evaluator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 1b: Mission Alignment Advisor
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 1c: VoC Synthesizer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 1d: Team Gap Identifier
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 1e: Market Mapper
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 1f: Launch Plan Assessor
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 2a: Interview Cadence Analyzer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 2b: Persona Framework Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 2c: Pain Point Mapper
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 2d: JTBD Specialist
+Status: FAILED
+Issues Found: 1
+Issues:
+  - [MEDIUM] education: Generic placeholder found: "tbd"
+----------------------------------------
+
+Agent 2e: Signal Grader
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 2f: Insight Loop Manager
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 3a: Use Case Scorer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 3b: Segment Tier Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 3c: Prioritization Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 3d: Tradeoff Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 3e: Hypothesis Validator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 3f: Decision Archivist
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 4a: Feature Matrix Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 4b: Technical Scope Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 4c: Pilot Group Selector
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 4d: QA Criteria Setter
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 4e: Timeline Planner
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 4f: Post-Mortem Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 5a: Early Win Validator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 5b: ROI Calculator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 5c: Use Case Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 5d: Testimonial Curator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 5e: Win Criteria Mapper
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 5f: Deal Debrief Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 6a: Usage Heatmap Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 6b: Milestone Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 6c: CS Dashboard Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 6d: Activation Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 6e: Feedback Collector
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 6f: Power User Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 7a: Time/Cost Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 7b: Revenue Impact Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 7c: Productivity Measurer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 7d: Retention Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 7e: System Reduction Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 7f: Friction Analyzer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 8a: Upsell Funnel Designer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 8b: Team Expansion Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 8c: Organic Growth Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 8d: Champion Mapper
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 8e: Sentiment Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 8f: Renewal Readiness Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 9a: Inbound Conversion Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 9b: Outbound Performance Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 9c: Channel Economics Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 9d: Discovery Call Evaluator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 9e: Demo-to-Close Optimizer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 9f: Founder Sales Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 10a: Enablement Asset Manager
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 10b: Rep Ramp Planner
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 10c: Win/Loss Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 10d: Objection Handler
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 10e: ICP Filter Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 10f: Sales Call Librarian
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 11a: Scorecard Designer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 11b: Quota Structure Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 11c: Deal Review Manager
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 11d: Forecast Framework Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 11e: Coaching Loop Designer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 11f: Talent Gap Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 12a: Onboarding Optimizer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 12b: Activation Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 12c: Success Playbook Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 12d: Escalation Manager
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 12e: Renewal Pipeline Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 12f: Churn Root-Cause Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 13a: Category Narrative Designer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 13b: Strategic Moat Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 13c: Ecosystem Mapper
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 13d: Competitor Monitor
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 13e: Brand Architect
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 13f: Defensive GTM Strategist
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 14a: System Architecture Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 14b: Revenue Engine Mapper
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 14c: Dashboard Designer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 14d: Tool Consolidator
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 14e: RevOps Playbook Builder
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 14f: SLA Policy Manager
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 15a: VP Hiring Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 15b: Succession Planner
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 15c: Executive Cadence Manager
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 15d: Culture Health Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 15e: Org Chart Designer
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 15f: DEI Integration Specialist
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 16a: Market Entry Analyst
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 16b: Localization Expert
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 16c: International Pricing Strategist
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 16d: Compliance Tracker
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 16e: Geo-GTM Specialist
+Status: PASSED
+Issues Found: 0
+----------------------------------------
+
+Agent 16f: Expansion Risk Assessor
+Status: PASSED
+Issues Found: 0
+----------------------------------------

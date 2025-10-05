@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof of Execution - ScaleOps6</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .logo .scale {
+            color: #ffffff;
+        }
+
+        .logo .ops {
+            color: #FF5500;
+        }
+
+        .logo sup {
+            font-size: 18px;
+            color: #FF5500;
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF5500;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #FF5500;
+            color: #FF5500;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .logout-btn:hover {
+            background: #FF5500;
+            color: #000000;
+        }
+
+        /* Main Title */
+        .main-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .main-title h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #FF5500;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            transition: opacity 0.3s;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        /* Phase Header */
+        .phase-header {
+            background: #FF5500;
+            color: #000000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .phase-score {
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Block Info */
+        .block-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .block-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .block-description {
+            color: #999;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Modules Grid */
+        .modules-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .module-card {
+            background: #0a0a0a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            display: block;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.2);
+        }
+
+        .module-number {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .module-score {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .module-title {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .module-status {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .main-title h1 {
+                font-size: 32px;
+            }
+        }
+    </style></head>
+<body>    <!-- Header -->
+    
+                <div class="module-score" style="color: #4CAF50;">82%</div>
+                <div class="module-title">EXECUTION FRAMEWORK</div>
+                <div class="module-status" style="background: rgba(76, 175, 80, 0.3); color: #4CAF50;">ACTIVE</div>
+            </a>
+
+            <a href="block-9-2.html" class="module-card" style="border-color: #4CAF50;">
+                <div class="module-number">2</div>
+                <div class="module-score" style="color: #4CAF50;">88%</div>
+                <div class="module-title">PERFORMANCE TRACKING</div>
+                <div class="module-status" style="background: rgba(76, 175, 80, 0.3); color: #4CAF50;">ACTIVE</div>
+            </a>
+
+            <a href="block-9-3.html" class="module-card" style="border-color: #FF9800;">
+                <div class="module-number">3</div>
+                <div class="module-score" style="color: #FF9800;">79%</div>
+                <div class="module-title">PROCESS OPTIMIZATION</div>
+                <div class="module-status" style="background: rgba(76, 175, 80, 0.3); color: #4CAF50;">ACTIVE</div>
+            </a>
+
+            <a href="block-9-4.html" class="module-card" style="border-color: #4CAF50;">
+                <div class="module-number">4</div>
+                <div class="module-score" style="color: #4CAF50;">86%</div>
+                <div class="module-title">QUALITY STANDARDS</div>
+                <div class="module-status" style="background: rgba(76, 175, 80, 0.3); color: #4CAF50;">ACTIVE</div>
+            </a>
+
+            <a href="block-9-5.html" class="module-card" style="border-color: #4CAF50;">
+                <div class="module-number">5</div>
+                <div class="module-score" style="color: #4CAF50;">91%</div>
+                <div class="module-title">DELIVERY EXCELLENCE</div>
+                <div class="module-status" style="background: rgba(76, 175, 80, 0.3); color: #4CAF50;">ACTIVE</div>
+            </a>
+
+            <a href="block-9-6.html" class="module-card" style="border-color: #4CAF50;">
+                <div class="module-number">6</div>
+                <div class="module-score" style="color: #4CAF50;">84%</div>
+                <div class="module-title">RESULTS COMMUNICATION</div>
+                <div class="module-status" style="background: rgba(76, 175, 80, 0.3); color: #4CAF50;">ACTIVE</div>
+            </a>
+        </div>
+    </div>
+    <script>
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+</html>

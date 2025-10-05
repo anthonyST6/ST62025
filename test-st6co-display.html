@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test ST6Co Workspace Display</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            color: #FF5500;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+        }
+        .error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #F44336;
+        }
+        .info {
+            background: rgba(255, 85, 0, 0.2);
+            border: 1px solid #FF5500;
+        }
+        button {
+            background: #FF5500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #d64d2d;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="color: #FF5500;">ST6Co Workspace Display Test</h1>
+        
+        <div class="test-section">
+            <h2 class="test-title">Test Controls</h2>
+            <button onclick="testSubcomponent('1-1')">Test Block 1-1 (Problem Statement)</button>
+            <button onclick="testSubcomponent('5-3')">Test Block 5-3 (GTM Strategy)</button>
+            <button onclick="testSubcomponent('15-2')">Test Block 15-2 (Leadership)</button>
+            <button onclick="testAllSubcomponents()">Test All 96 Subcomponents</button>
+        </div>
+        
+        <div class="test-section">
+            <h2 class="test-title">Test Results</h2>
+            <div id="test-results"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2 class="test-title">Workspace Preview</h2>
+            <div id="workspace-preview"></div>
+        </div>
+    </div>
+    
+    <script>
+        const resultsDiv = document.getElementById('test-results');
+        const previewDiv = document.getElementById('workspace-preview');
+        
+        function log(message, type = 'info') {
+            const result = document.createElement('div');
+            result.className = `test-result ${type}`;
+            result.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            resultsDiv.appendChild(result);
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+        
+        async function testSubcomponent(subcomponentId) {
+            log(`Testing subcomponent ${subcomponentId}...`, 'info');
+            
+            try {
+                const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                log(`✅ Successfully loaded data for ${subcomponentId}`, 'success');
+                
+                // Check for ST6Co data in workspace
+                if (data.workspace && data.workspace.questions) {
+                    const questions = data.workspace.questions;
+                    
+                    // Check for ST6Co context questions
+                    const st6Questions = questions.filter(q => 
+                        q.id && q.id.startsWith('st6_')
+                    );
+                    
+                    if (st6Questions.length > 0) {
+                        log(`✅ Found ${st6Questions.length} ST6Co-specific questions`, 'success');
+                        
+                        // Display the ST6Co questions
+                        st6Questions.forEach(q => {
+                            if (q.type === 'info' && q.content) {
+                                log(`  - Company: ${q.content.company}, Product: ${q.content.product}`, 'success');
+                            } else if (q.defaultValue) {
+                                log(`  - ${q.question}: Has default value (${q.defaultValue.substring(0, 50)}...)`, 'success');
+                            } else {
+                                log(`  - ${q.question}`, 'success');
+                            }
+                        });
+                    } else {
+                        log(`❌ No ST6Co-specific questions found!`, 'error');
+                    }
+                    
+                    // Check for dimension questions with ST6Co context
+                    const dimensionQuestions = questions.filter(q => 
+                        q.question && q.question.includes('ST6Co')
+                    );
+                    
+                    if (dimensionQuestions.length > 0) {
+                        log(`✅ Found ${dimensionQuestions.length} dimension questions with ST6Co context`, 'success');
+                    } else {
+                        log(`⚠️ No dimension questions reference ST6Co`, 'error');
+                    }
+                    
+                    // Display preview
+                    displayWorkspacePreview(data.workspace.questions);
+                    
+                } else {
+                    log(`❌ No workspace questions found`, 'error');
+                }
+                
+                // Check agent assignment
+                if (data.name) {
+                    log(`Agent: ${data.name}`, 'info');
+                }
+                
+            } catch (error) {
+                log(`❌ Error testing ${subcomponentId}: ${error.message}`, 'error');
+            }
+        }
+        
+        function displayWorkspacePreview(questions) {
+            let html = '<h3 style="color: #FF5500;">Workspace Questions Preview</h3>';
+            
+            const categories = {};
+            questions.forEach(q => {
+                if (!categories[q.category]) {
+                    categories[q.category] = [];
+                }
+                categories[q.category].push(q);
+            });
+            
+            Object.keys(categories).forEach(category => {
+                html += `<div style="margin: 20px 0;">`;
+                html += `<h4 style="color: #FF5500; border-bottom: 1px solid #FF5500; padding-bottom: 5px;">${category}</h4>`;
+                
+                categories[category].forEach(q => {
+                    html += `<div style="margin: 10px 0; padding: 10px; background: rgba(255, 255, 255, 0.02); border-radius: 5px;">`;
+                    
+                    if (q.type === 'info' && q.content) {
+                        html += `<strong>${q.question}</strong><br>`;
+                        html += `<span style="color: #999;">Company: ${q.content.company}, Product: ${q.content.product}</span>`;
+                    } else if (q.type === 'text' && q.defaultValue) {
+                        html += `<strong>${q.question}</strong><br>`;
+                        html += `<span style="color: #4CAF50;">Has ST6Co default value ✓</span>`;
+                    } else {
+                        html += `<strong>${q.question}</strong>`;
+                        if (q.type === 'scale') {
+                            html += ` <span style="color: #666;">(Scale 1-5, Weight: ${q.weight}%)</span>`;
+                        }
+                    }
+                    
+                    html += `</div>`;
+                });
+                
+                html += `</div>`;
+            });
+            
+            previewDiv.innerHTML = html;
+        }
+        
+        async function testAllSubcomponents() {
+            log('Starting comprehensive test of all 96 subcomponents...', 'info');
+            
+            let totalTested = 0;
+            let withST6Data = 0;
+            let withoutST6Data = 0;
+            
+            for (let block = 1; block <= 16; block++) {
+                for (let sub = 1; sub <= 6; sub++) {
+                    const subcomponentId = `${block}-${sub}`;
+                    
+                    try {
+                        const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                        const data = await response.json();
+                        
+                        totalTested++;
+                        
+                        if (data.workspace && data.workspace.questions) {
+                            const hasST6 = data.workspace.questions.some(q => 
+                                (q.id && q.id.startsWith('st6_')) || 
+                                (q.question && q.question.includes('ST6Co'))
+                            );
+                            
+                            if (hasST6) {
+                                withST6Data++;
+                                log(`✅ ${subcomponentId}: Has ST6Co data`, 'success');
+                            } else {
+                                withoutST6Data++;
+                                log(`❌ ${subcomponentId}: Missing ST6Co data`, 'error');
+                            }
+                        }
+                        
+                    } catch (error) {
+                        log(`❌ ${subcomponentId}: Error - ${error.message}`, 'error');
+                    }
+                    
+                    // Small delay to avoid overwhelming the server
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+            }
+            
+            log(`Test Complete: ${totalTested}/96 tested`, 'info');
+            log(`✅ With ST6Co data: ${withST6Data}`, 'success');
+            log(`❌ Without ST6Co data: ${withoutST6Data}`, withoutST6Data > 0 ? 'error' : 'success');
+        }
+        
+        // Auto-test first subcomponent on load
+        window.addEventListener('DOMContentLoaded', () => {
+            testSubcomponent('1-1');
+        });
+    </script>
+</body>
+</html>

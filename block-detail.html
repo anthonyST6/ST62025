@@ -84,9 +84,9 @@
 
         /* Block Header */
         .block-header {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid;
-            border-radius: 15px;
+            background: #1a1a1a;
+            border: 2px solid #FF5500;
+            border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
             position: relative;
@@ -164,14 +164,20 @@
 
         .subblocks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
+        @media (max-width: 768px) {
+            .subblocks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .subblock {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px solid;
-            border-radius: 12px;
+            background: #1a1a1a;
+            border: 2px solid #FF5500;
+            border-radius: 15px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -731,6 +737,11 @@
     </div>
 
     <!-- Load recommendation display handlers -->
+    <!-- Load agent system files -->
+    <script src="agent-library.js"></script>
+    <script src="agent-content-loader.js"></script>
+    <script src="enhanced-agent-content-loader.js"></script>
+    <script src="agent-worksheet-integration.js"></script>
     <script src="recommendations-component.js"></script>
     <script src="enhanced-display-handler.js"></script>
     
@@ -1690,5 +1701,31 @@
             });
         });
     </script>
+        // Initialize agent system
+        window.addEventListener('DOMContentLoaded', function() {
+            // Make AgentLibrary globally accessible
+            if (typeof AgentLibrary !== 'undefined') {
+                window.agentLibrary = AgentLibrary;
+                console.log('Agent Library loaded:', Object.keys(AgentLibrary).length + ' agents available');
+            }
+            
+            // Initialize agent content loader if available
+            if (typeof initializeAgentContent === 'function') {
+                initializeAgentContent();
+                console.log('Agent content loader initialized');
+            }
+            
+            // Initialize enhanced agent content if available
+            if (typeof EnhancedAgentContentLoader !== 'undefined') {
+                window.enhancedLoader = new EnhancedAgentContentLoader();
+                console.log('Enhanced agent content loader initialized');
+            }
+            
+            // Initialize worksheet integration if available
+            if (typeof AgentWorksheetIntegration !== 'undefined') {
+                window.worksheetIntegration = new AgentWorksheetIntegration();
+                console.log('Agent worksheet integration initialized');
+            }
+        });
 </body>
 </html>

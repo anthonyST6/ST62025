@@ -97,10 +97,10 @@
             color: #FF5500;
             border-bottom: 2px solid #FF5500;
         }
-        .tab-pane {
+        .tab-content {
             display: none;
         }
-        .tab-pane.active {
+        .tab-content.active {
             display: block;
         }
         .content-section {
@@ -264,19 +264,19 @@
 
         <div class="tabs">
             <button class="tab active" data-tab="education">
-                <i class="fas fa-graduation-cap"></i> Education
+                📚 Education
             </button>
             <button class="tab" data-tab="workspace">
-                <i class="fas fa-edit"></i> Workspace
+                ✏️ Workspace
             </button>
             <button class="tab" data-tab="analysis">
-                <i class="fas fa-chart-line"></i> Analysis
+                🤖 Analysis
             </button>
             <button class="tab" data-tab="resources">
-                <i class="fas fa-book"></i> Resources
+                🔧 Resources
             </button>
             <button class="tab" data-tab="history">
-                <i class="fas fa-history"></i> Score History
+                📊 Score History
             </button>
         </div>
 
@@ -550,7 +550,16 @@
                     </div>
                 </div>
             </div>
-
+            
+            <div id="output" class="tab-content">
+                <div id="output-content">
+                    <!-- Output content will be dynamically loaded -->
+                    <div class="content-section">
+                        <h3>Template Outputs</h3>
+                        <p>Complete the workspace analysis to generate outputs.</p>
+                    </div>
+                </div>
+            </div>
             <div id="resources" class="tab-content">
                 
             <div class="resources-grid">
@@ -585,7 +594,7 @@
                 </div>
             </div>
 
-            <div id="history" class="tab-pane">
+            <div id="history" class="tab-content">
                 <div class="history-content">
                     <h2>Score History & Trends</h2>
                     <div class="chart-container">
@@ -612,18 +621,40 @@
 
     <script>
         
-        // Tab switching
+        
+        // Enhanced tab switching
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 const tabName = tab.dataset.tab;
+                console.log('Switching to tab:', tabName);
                 
                 // Update active tab
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 
-                // Update active pane
-                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-                document.getElementById(tabName).classList.add('active');
+                // Update active content
+                document.querySelectorAll('.tab-content').forEach(pane => {
+                    pane.classList.remove('active');
+                    pane.style.display = 'none';
+                });
+                
+                const targetPane = document.getElementById(tabName);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                    targetPane.style.display = 'block';
+                    
+                    // Load dynamic content for specific tabs
+                    if (tabName === 'education' && window.getPolishedEducationContent) {
+                        targetPane.innerHTML = window.getPolishedEducationContent('9-6');
+                    }
+                    if (tabName === 'analysis' && window.displayAnalysisResults) {
+                        // Load saved analysis if available
+                        const savedAnalysis = localStorage.getItem('analysis_9-6');
+                        if (savedAnalysis) {
+                            window.displayAnalysisResults(JSON.parse(savedAnalysis));
+                        }
+                    }
+                }
             });
         });
 
@@ -642,6 +673,35 @@
                 circle.style.strokeDashoffset = '95';
             }
         }, 500);
+    </script>
+
+    <!-- ScaleOps6 Polished Content Scripts -->
+    <script src="scaleops6-polished-education.js"></script>
+    <script src="scaleops6-polished-analysis-fix.js"></script>
+    <script src="enhanced-agent-content-loader.js"></script>
+    <script src="fix-education-content-complete.js"></script>
+    <script>
+        // Set the subcomponent ID for content loading
+        window.currentSubcomponentId = '9-6';
+        
+        // Initialize polished content on load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Initializing ScaleOps6 polished content for 9-6');
+            
+            // Load education content
+            if (window.getPolishedEducationContent) {
+                const educationTab = document.getElementById('education');
+                if (educationTab) {
+                    educationTab.innerHTML = window.getPolishedEducationContent('9-6');
+                }
+            }
+            
+            // Initialize enhanced content loader
+            if (window.EnhancedAgentContentLoader) {
+                window.agentLoader = new window.EnhancedAgentContentLoader();
+                window.agentLoader.initialize();
+            }
+        });
     </script>
 </body>
 </html>

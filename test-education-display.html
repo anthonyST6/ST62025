@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Education Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .status { 
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success { background: rgba(76, 175, 80, 0.2); color: #4CAF50; }
+        .error { background: rgba(244, 67, 54, 0.2); color: #F44336; }
+        .warning { background: rgba(255, 152, 0, 0.2); color: #FF9800; }
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Education Display Test for Subcomponent 1-1</h1>
+    
+    <div class="test-section">
+        <h2>1. Checking API Response</h2>
+        <div id="api-status"></div>
+        <pre id="api-response"></pre>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Checking Education Content Structure</h2>
+        <div id="education-structure"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Checking Scripts Loaded</h2>
+        <div id="scripts-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Testing Education Display Function</h2>
+        <div id="function-test"></div>
+    </div>
+
+    <script>
+        async function testEducationDisplay() {
+            const apiStatus = document.getElementById('api-status');
+            const apiResponse = document.getElementById('api-response');
+            const educationStructure = document.getElementById('education-structure');
+            const scriptsStatus = document.getElementById('scripts-status');
+            const functionTest = document.getElementById('function-test');
+            
+            // Test 1: Check API
+            try {
+                apiStatus.innerHTML = '<div class="status warning">Fetching API data...</div>';
+                const response = await fetch('/api/subcomponents/1-1');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    apiStatus.innerHTML = '<div class="status success">✓ API is responding</div>';
+                    
+                    // Show first 500 chars of response
+                    apiResponse.textContent = JSON.stringify(data, null, 2).substring(0, 1000) + '...';
+                    
+                    // Test 2: Check education content structure
+                    if (data.education) {
+                        let structureHTML = '<div class="status success">✓ Education content found</div>';
+                        structureHTML += '<ul>';
+                        structureHTML += `<li>Title: ${data.education.title ? '✓' : '✗'} ${data.education.title || 'Missing'}</li>`;
+                        structureHTML += `<li>What: ${data.education.what ? '✓' : '✗'} ${typeof data.education.what}</li>`;
+                        structureHTML += `<li>Why: ${data.education.why ? '✓' : '✗'} ${typeof data.education.why}</li>`;
+                        structureHTML += `<li>How: ${data.education.how ? '✓' : '✗'} ${typeof data.education.how}</li>`;
+                        structureHTML += `<li>Examples: ${data.education.examples ? '✓' : '✗'} ${Array.isArray(data.education.examples) ? `Array(${data.education.examples.length})` : typeof data.education.examples}</li>`;
+                        
+                        if (data.education.examples && data.education.examples.length > 0) {
+                            structureHTML += '<li>First example structure:<ul>';
+                            const firstExample = data.education.examples[0];
+                            if (typeof firstExample === 'object') {
+                                Object.keys(firstExample).forEach(key => {
+                                    structureHTML += `<li>${key}: ${typeof firstExample[key]}</li>`;
+                                });
+                            } else {
+                                structureHTML += `<li>Type: ${typeof firstExample}</li>`;
+                            }
+                            structureHTML += '</ul></li>';
+                        }
+                        
+                        structureHTML += '</ul>';
+                        educationStructure.innerHTML = structureHTML;
+                    } else {
+                        educationStructure.innerHTML = '<div class="status error">✗ No education content in response</div>';
+                    }
+                    
+                } else {
+                    apiStatus.innerHTML = `<div class="status error">✗ API returned status ${response.status}</div>`;
+                }
+            } catch (error) {
+                apiStatus.innerHTML = `<div class="status error">✗ API Error: ${error.message}</div>`;
+            }
+            
+            // Test 3: Check if scripts would be loaded
+            const scripts = [
+                'enhanced-education-display.js',
+                'enhanced-resources-output.js',
+                'educational-content.js',
+                'agent-library.js'
+            ];
+            
+            let scriptsHTML = '<ul>';
+            scripts.forEach(script => {
+                // Check if file exists by trying to fetch it
+                fetch('/' + script)
+                    .then(res => {
+                        if (res.ok) {
+                            scriptsHTML += `<li>✓ ${script} exists</li>`;
+                        } else {
+                            scriptsHTML += `<li>✗ ${script} not found</li>`;
+                        }
+                        scriptsStatus.innerHTML = scriptsHTML + '</ul>';
+                    })
+                    .catch(() => {
+                        scriptsHTML += `<li>✗ ${script} error</li>`;
+                        scriptsStatus.innerHTML = scriptsHTML + '</ul>';
+                    });
+            });
+            
+            // Test 4: Check if updateEducationTab function exists
+            functionTest.innerHTML = '<div class="status warning">Checking functions...</div>';
+            
+            // Check what's actually in the page
+            const actualPageResponse = await fetch('/subcomponent-detail.html?id=1-1');
+            const actualPageHTML = await actualPageResponse.text();
+            
+            let functionsFound = [];
+            if (actualPageHTML.includes('updateEducationTab')) {
+                functionsFound.push('updateEducationTab');
+            }
+            if (actualPageHTML.includes('safeDisplayValue')) {
+                functionsFound.push('safeDisplayValue');
+            }
+            if (actualPageHTML.includes('enhanced-education-display.js')) {
+                functionsFound.push('enhanced-education-display.js included');
+            }
+            
+            if (functionsFound.length > 0) {
+                functionTest.innerHTML = `<div class="status success">✓ Found functions: ${functionsFound.join(', ')}</div>`;
+            } else {
+                functionTest.innerHTML = '<div class="status error">✗ Required functions not found in HTML</div>';
+            }
+        }
+        
+        // Run tests on load
+        testEducationDisplay();
+    </script>
+</body>
+</html>

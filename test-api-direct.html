@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #2a2a2a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #444;
+        }
+        .success {
+            color: #4CAF50;
+        }
+        .error {
+            color: #F44336;
+        }
+        .data-display {
+            background: #000;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        button {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #FF6600;
+        }
+        h1 {
+            color: #FF5500;
+        }
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .agent-button {
+            background: #333;
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .agent-button:hover {
+            background: #444;
+            border-color: #FF5500;
+        }
+        .agent-button.tested {
+            border-color: #4CAF50;
+            background: #1a3a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Direct API Testing</h1>
+        <p>Testing API endpoints directly to verify agent data is being served correctly</p>
+        
+        <div class="test-section">
+            <h2>Quick Tests</h2>
+            <button onclick="testSubcomponent('1-1')">Test Agent 1a (Block 1-1)</button>
+            <button onclick="testSubcomponent('5-3')">Test Agent 5c (Block 5-3)</button>
+            <button onclick="testSubcomponent('10-4')">Test Agent 10d (Block 10-4)</button>
+            <button onclick="testSubcomponent('16-6')">Test Agent 16f (Block 16-6)</button>
+            <button onclick="testAllAgents()">Test All 96 Agents</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>All Agents</h2>
+            <div class="agent-grid" id="agent-grid"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Test Results</h2>
+            <div id="results"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Raw API Response</h2>
+            <div class="data-display" id="raw-data">
+                Click a test button to see API response
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize agent grid
+        function initAgentGrid() {
+            const grid = document.getElementById('agent-grid');
+            for (let block = 1; block <= 16; block++) {
+                for (let sub = 1; sub <= 6; sub++) {
+                    const button = document.createElement('div');
+                    button.className = 'agent-button';
+                    button.id = `agent-${block}-${sub}`;
+                    const agentKey = `${block}${String.fromCharCode(96 + sub)}`;
+                    button.innerHTML = `${agentKey}<br><small>${block}-${sub}</small>`;
+                    button.onclick = () => testSubcomponent(`${block}-${sub}`);
+                    grid.appendChild(button);
+                }
+            }
+        }
+        
+        async function testSubcomponent(subcomponentId) {
+            const resultsDiv = document.getElementById('results');
+            const rawDataDiv = document.getElementById('raw-data');
+            
+            resultsDiv.innerHTML = `<p>Testing subcomponent ${subcomponentId}...</p>`;
+            
+            try {
+                // Test API endpoint
+                const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Display raw data
+                rawDataDiv.textContent = JSON.stringify(data, null, 2);
+                
+                // Mark as tested
+                const button = document.getElementById(`agent-${subcomponentId}`);
+                if (button) {
+                    button.classList.add('tested');
+                }
+                
+                // Analyze the response
+                let html = `<h3 class="success">✓ API Response Received for ${subcomponentId}</h3>`;
+                
+                // Check agent data
+                if (data.name) {
+                    html += `<p class="success">✓ Agent Name: ${data.name}</p>`;
+                } else {
+                    html += `<p class="error">✗ No agent name found</p>`;
+                }
+                
+                if (data.agentKey) {
+                    html += `<p class="success">✓ Agent Key: ${data.agentKey}</p>`;
+                } else {
+                    html += `<p class="error">✗ No agent key found</p>`;
+                }
+                
+                // Check education content
+                if (data.education) {
+                    const eduKeys = Object.keys(data.education);
+                    html += `<p class="success">✓ Education Content: ${eduKeys.length} sections (${eduKeys.join(', ')})</p>`;
+                } else {
+                    html += `<p class="error">✗ No education content</p>`;
+                }
+                
+                // Check workspace questions
+                if (data.workspace && data.workspace.questions) {
+                    html += `<p class="success">✓ Workspace Questions: ${data.workspace.questions.length} questions</p>`;
+                    
+                    // List questions
+                    html += '<ul>';
+                    data.workspace.questions.forEach(q => {
+                        html += `<li>${q.question || q.label || 'Question'} (${q.type || 'unknown'})</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += `<p class="error">✗ No workspace questions</p>`;
+                }
+                
+                // Check templates
+                if (data.templates && data.templates.length > 0) {
+                    html += `<p class="success">✓ Templates: ${data.templates.length} templates</p>`;
+                    html += '<ul>';
+                    data.templates.forEach(t => {
+                        html += `<li>${t.name} (${t.format})</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += `<p class="error">✗ No templates</p>`;
+                }
+                
+                // Check resources
+                if (data.resources && data.resources.length > 0) {
+                    html += `<p class="success">✓ Resources: ${data.resources.length} resources</p>`;
+                    html += '<ul>';
+                    data.resources.forEach(r => {
+                        html += `<li>${r.title} (${r.type})</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += `<p class="error">✗ No resources</p>`;
+                }
+                
+                // Check scoring dimensions
+                if (data.scoringDimensions && data.scoringDimensions.length > 0) {
+                    html += `<p class="success">✓ Scoring Dimensions: ${data.scoringDimensions.length} dimensions</p>`;
+                    const totalWeight = data.scoringDimensions.reduce((sum, d) => sum + d.weight, 0);
+                    if (totalWeight === 100) {
+                        html += `<p class="success">✓ Weights sum to 100%</p>`;
+                    } else {
+                        html += `<p class="error">✗ Weights sum to ${totalWeight}% (should be 100%)</p>`;
+                    }
+                } else {
+                    html += `<p class="error">✗ No scoring dimensions</p>`;
+                }
+                
+                resultsDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="error">✗ Error testing ${subcomponentId}: ${error.message}</p>`;
+                rawDataDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+        
+        async function testAllAgents() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h3>Testing all 96 agents...</h3>';
+            
+            let passed = 0;
+            let failed = 0;
+            let results = [];
+            
+            for (let block = 1; block <= 16; block++) {
+                for (let sub = 1; sub <= 6; sub++) {
+                    const subcomponentId = `${block}-${sub}`;
+                    const agentKey = `${block}${String.fromCharCode(96 + sub)}`;
+                    
+                    try {
+                        const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                        const data = await response.json();
+                        
+                        // Check if all required fields are present
+                        const hasAllFields = 
+                            data.name && 
+                            data.education && 
+                            data.workspace?.questions?.length > 0 &&
+                            data.templates?.length > 0 &&
+                            data.resources?.length > 0 &&
+                            data.scoringDimensions?.length > 0;
+                        
+                        if (hasAllFields) {
+                            passed++;
+                            results.push(`<span class="success">✓ ${agentKey}: ${data.name}</span>`);
+                            
+                            // Mark as tested
+                            const button = document.getElementById(`agent-${subcomponentId}`);
+                            if (button) {
+                                button.classList.add('tested');
+                            }
+                        } else {
+                            failed++;
+                            results.push(`<span class="error">✗ ${agentKey}: Missing data</span>`);
+                        }
+                        
+                    } catch (error) {
+                        failed++;
+                        results.push(`<span class="error">✗ ${agentKey}: ${error.message}</span>`);
+                    }
+                    
+                    // Small delay to avoid overwhelming the server
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                }
+            }
+            
+            let html = '<h3>Test Complete!</h3>';
+            html += `<p class="success">Passed: ${passed}/96</p>`;
+            html += `<p class="error">Failed: ${failed}/96</p>`;
+            html += '<div style="columns: 3; column-gap: 20px;">';
+            html += results.map(r => `<div>${r}</div>`).join('');
+            html += '</div>';
+            
+            resultsDiv.innerHTML = html;
+            
+            if (passed === 96) {
+                alert('🎉 SUCCESS! All 96 agents are working correctly!');
+            }
+        }
+        
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initAgentGrid();
+        });
+    </script>
+</body>
+</html>

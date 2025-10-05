@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Subcomponent 12-5</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: rgba(255, 85, 0, 0.1);
+            border: 2px solid #FF5500;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .title {
+            color: #FF5500;
+            font-size: 32px;
+            margin: 0;
+        }
+        .description {
+            color: #ccc;
+            margin-top: 10px;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .section-title {
+            color: #FF5500;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .loading {
+            color: #999;
+            font-style: italic;
+        }
+        .error {
+            color: #f44336;
+            background: rgba(244, 67, 54, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title" id="title">Loading...</h1>
+            <p class="description" id="description">Loading agent information...</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">API Response</h2>
+            <div id="api-response" class="loading">Fetching data from API...</div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Agent Information</h2>
+            <div id="agent-info" class="loading">Loading agent details...</div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Education Content</h2>
+            <div id="education-content" class="loading">Loading education content...</div>
+        </div>
+    </div>
+
+    <script>
+        // Simple test script without any external dependencies
+        const subcomponentId = '12-5';
+        
+        console.log('🚀 Test page loading for subcomponent:', subcomponentId);
+        
+        // Fetch data from API
+        async function loadData() {
+            try {
+                console.log('📡 Fetching from API...');
+                const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`API returned ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('✅ API Response received:', data);
+                
+                // Display raw API response
+                document.getElementById('api-response').innerHTML = `
+                    <div class="success">API call successful!</div>
+                    <pre style="color: #ccc; overflow-x: auto;">${JSON.stringify(data, null, 2)}</pre>
+                `;
+                
+                // Update title and description
+                const title = data.agent || data.education?.title || data.name || 'Unknown';
+                const description = data.description || 'No description available';
+                
+                document.getElementById('title').textContent = title;
+                document.getElementById('description').textContent = description;
+                
+                // Display agent information
+                if (data.agent || data.agentObject) {
+                    document.getElementById('agent-info').innerHTML = `
+                        <div class="success">Agent loaded successfully!</div>
+                        <p><strong>Agent Name:</strong> ${data.agent || 'Not specified'}</p>
+                        <p><strong>Subcomponent Name:</strong> ${data.name || 'Not specified'}</p>
+                        <p><strong>Block:</strong> ${data.blockName || 'Not specified'}</p>
+                        <p><strong>Description:</strong> ${data.description || 'Not specified'}</p>
+                    `;
+                } else {
+                    document.getElementById('agent-info').innerHTML = `
+                        <div class="error">No agent information in response</div>
+                    `;
+                }
+                
+                // Display education content
+                if (data.education) {
+                    const edu = data.education;
+                    document.getElementById('education-content').innerHTML = `
+                        <div class="success">Education content loaded!</div>
+                        <h3 style="color: #FF5500;">Title: ${edu.title || 'Not specified'}</h3>
+                        <div style="margin-top: 15px;">
+                            <h4 style="color: #FF5500;">What:</h4>
+                            <p style="color: #ccc;">${edu.what || 'Not available'}</p>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <h4 style="color: #FF5500;">Why:</h4>
+                            <p style="color: #ccc;">${edu.why || 'Not available'}</p>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <h4 style="color: #FF5500;">How:</h4>
+                            <p style="color: #ccc;">${edu.how || 'Not available'}</p>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('education-content').innerHTML = `
+                        <div class="error">No education content in response</div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('❌ Error loading data:', error);
+                document.getElementById('api-response').innerHTML = `
+                    <div class="error">Error: ${error.message}</div>
+                `;
+            }
+        }
+        
+        // Load data when page loads
+        loadData();
+    </script>
+</body>
+</html>

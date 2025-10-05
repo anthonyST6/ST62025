@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subcomponent Detail Diagnostic</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a1a;
+            color: #0ff;
+            padding: 20px;
+            margin: 0;
+        }
+        .diagnostic-panel {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #0ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .diagnostic-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #0ff;
+            padding-bottom: 10px;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 3px solid #0ff;
+            font-size: 14px;
+        }
+        .error {
+            color: #ff0066;
+            border-left-color: #ff0066;
+            background: rgba(255, 0, 102, 0.1);
+        }
+        .success {
+            color: #00ff00;
+            border-left-color: #00ff00;
+            background: rgba(0, 255, 0, 0.1);
+        }
+        .warning {
+            color: #ffaa00;
+            border-left-color: #ffaa00;
+            background: rgba(255, 170, 0, 0.1);
+        }
+        .info {
+            color: #00aaff;
+            border-left-color: #00aaff;
+            background: rgba(0, 170, 255, 0.1);
+        }
+        button {
+            background: #0ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background: #00ffaa;
+        }
+        #iframe-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #0ff;
+            margin-top: 20px;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .timestamp {
+            color: #888;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagnostic-panel">
+        <div class="diagnostic-title">🔍 Subcomponent Detail Page Diagnostic Tool</div>
+        
+        <div id="diagnostic-log"></div>
+        
+        <div style="margin-top: 20px;">
+            <button onclick="loadSubcomponentPage()">Load Subcomponent Page</button>
+            <button onclick="analyzeDOM()">Analyze DOM Structure</button>
+            <button onclick="checkScripts()">Check Script Loading</button>
+            <button onclick="checkStyles()">Check CSS Loading</button>
+            <button onclick="checkConsoleErrors()">Check Console Errors</button>
+            <button onclick="checkNetworkRequests()">Check Network Requests</button>
+            <button onclick="clearLog()">Clear Log</button>
+        </div>
+    </div>
+
+    <div class="diagnostic-panel">
+        <div class="diagnostic-title">📊 Real-Time Monitoring</div>
+        <div id="monitoring-log"></div>
+    </div>
+
+    <div id="iframe-container" style="display: none;">
+        <iframe id="target-frame" src=""></iframe>
+    </div>
+
+    <script>
+        const diagnosticLog = document.getElementById('diagnostic-log');
+        const monitoringLog = document.getElementById('monitoring-log');
+        let logCounter = 0;
+        let networkRequests = [];
+        let scriptLoadStatus = {};
+        let cssLoadStatus = {};
+
+        function getTimestamp() {
+            return new Date().toLocaleTimeString('en-US', { 
+                hour12: false, 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                fractionalSecondDigits: 3 
+            });
+        }
+
+        function log(message, type = 'info') {
+            logCounter++;
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.innerHTML = `<span class="timestamp">[${getTimestamp()}]</span> ${message}`;
+            diagnosticLog.appendChild(entry);
+            diagnosticLog.scrollTop = diagnosticLog.scrollHeight;
+        }
+
+        function monitorLog(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.innerHTML = `<span class="timestamp">[${getTimestamp()}]</span> ${message}`;
+            monitoringLog.appendChild(entry);
+            monitoringLog.scrollTop = monitoringLog.scrollHeight;
+            
+            // Keep only last 20 monitoring entries
+            while (monitoringLog.children.length > 20) {
+                monitoringLog.removeChild(monitoringLog.firstChild);
+            }
+        }
+
+        function clearLog() {
+            diagnosticLog.innerHTML = '';
+            monitoringLog.innerHTML = '';
+            logCounter = 0;
+            log('Log cleared', 'info');
+        }
+
+        // Intercept console methods
+        const originalConsole = {
+            log: console.log,
+            error: console.error,
+            warn: console.warn
+        };
+
+        console.log = function(...args) {
+            originalConsole.log.apply(console, args);
+            monitorLog(`[Console.log] ${args.join(' ')}`, 'info');
+        };
+
+        console.error = function(...args) {
+            originalConsole.error.apply(console, args);
+            monitorLog(`[Console.error] ${args.join(' ')}`, 'error');
+        };
+
+        console.warn = function(...args) {
+            originalConsole.warn.apply(console, args);
+            monitorLog(`[Console.warn] ${args.join(' ')}`, 'warning');
+        };
+
+        // Monitor global errors
+        window.addEventListener('error', function(event) {
+            if (event.filename) {
+                monitorLog(`[Global Error] ${event.message} at ${event.filename}:${event.lineno}:${event.colno}`, 'error');
+            } else {
+                monitorLog(`[Global Error] ${event.message}`, 'error');
+            }
+        });
+
+        window.addEventListener('unhandledrejection', function(event) {
+            monitorLog(`[Unhandled Promise Rejection] ${event.reason}`, 'error');
+        });
+
+        function loadSubcomponentPage() {
+            log('Starting to load subcomponent-detail.html...', 'info');
+            
+            const iframe = document.getElementById('target-frame');
+            const container = document.getElementById('iframe-container');
+            
+            // Clear previous monitoring
+            networkRequests = [];
+            scriptLoadStatus = {};
+            cssLoadStatus = {};
+            
+            // Set up iframe monitoring
+            iframe.onload = function() {
+                log('✓ Iframe loaded successfully', 'success');
+                
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    // Monitor iframe console
+                    if (iframe.contentWindow) {
+                        const iframeConsole = iframe.contentWindow.console;
+                        const originalIframeLog = iframeConsole.log;
+                        const originalIframeError = iframeConsole.error;
+                        
+                        iframe.contentWindow.console.log = function(...args) {
+                            originalIframeLog.apply(iframeConsole, args);
+                            monitorLog(`[Iframe Console.log] ${args.join(' ')}`, 'info');
+                        };
+                        
+                        iframe.contentWindow.console.error = function(...args) {
+                            originalIframeError.apply(iframeConsole, args);
+                            monitorLog(`[Iframe Console.error] ${args.join(' ')}`, 'error');
+                        };
+                        
+                        // Monitor iframe errors
+                        iframe.contentWindow.addEventListener('error', function(event) {
+                            monitorLog(`[Iframe Error] ${event.message} at ${event.filename}:${event.lineno}`, 'error');
+                        });
+                    }
+                    
+                    // Analyze loaded content
+                    setTimeout(() => {
+                        analyzeIframeContent(iframeDoc);
+                    }, 2000); // Wait for scripts to execute
+                    
+                } catch (e) {
+                    log(`✗ Error accessing iframe content: ${e.message}`, 'error');
+                }
+            };
+            
+            iframe.onerror = function(e) {
+                log(`✗ Failed to load iframe: ${e}`, 'error');
+            };
+            
+            // Load the page
+            iframe.src = 'subcomponent-detail.html?id=1-4';
+            container.style.display = 'block';
+            
+            log('Iframe loading initiated...', 'info');
+        }
+
+        function analyzeIframeContent(doc) {
+            log('=== ANALYZING IFRAME CONTENT ===', 'info');
+            
+            // Check for scripts
+            const scripts = doc.querySelectorAll('script');
+            log(`Found ${scripts.length} script tags`, 'info');
+            scripts.forEach((script, index) => {
+                const src = script.src || '(inline script)';
+                const hasContent = script.textContent.trim().length > 0;
+                log(`Script ${index + 1}: ${src}${hasContent && !script.src ? ' - has inline content' : ''}`, 'info');
+            });
+            
+            // Check for stylesheets
+            const stylesheets = doc.querySelectorAll('link[rel="stylesheet"]');
+            log(`Found ${stylesheets.length} stylesheet links`, 'info');
+            stylesheets.forEach((link, index) => {
+                log(`Stylesheet ${index + 1}: ${link.href}`, 'info');
+            });
+            
+            // Check for main containers
+            const containers = [
+                { selector: '.container', name: 'Main Container' },
+                { selector: '.header', name: 'Header' },
+                { selector: '.navigation', name: 'Navigation' },
+                { selector: '.content', name: 'Content Area' },
+                { selector: '.sidebar', name: 'Sidebar' },
+                { selector: '.footer', name: 'Footer' },
+                { selector: '#app', name: 'App Container' },
+                { selector: '#root', name: 'Root Container' },
+                { selector: '.score-display', name: 'Score Display' },
+                { selector: '.subcomponent-content', name: 'Subcomponent Content' }
+            ];
+            
+            log('=== CHECKING FOR COMMON CONTAINERS ===', 'info');
+            containers.forEach(({ selector, name }) => {
+                const element = doc.querySelector(selector);
+                if (element) {
+                    const isVisible = element.offsetWidth > 0 && element.offsetHeight > 0;
+                    const hasContent = element.textContent.trim().length > 0;
+                    log(`✓ ${name} (${selector}): Found - Visible: ${isVisible}, Has Content: ${hasContent}`, 'success');
+                    
+                    // Check computed styles
+                    const styles = doc.defaultView.getComputedStyle(element);
+                    if (styles.display === 'none') {
+                        log(`  ⚠ Element has display: none`, 'warning');
+                    }
+                    if (styles.visibility === 'hidden') {
+                        log(`  ⚠ Element has visibility: hidden`, 'warning');
+                    }
+                } else {
+                    log(`✗ ${name} (${selector}): Not found`, 'warning');
+                }
+            });
+            
+            // Check body content
+            const bodyText = doc.body.textContent.trim();
+            log(`Body text length: ${bodyText.length} characters`, 'info');
+            if (bodyText.length < 100) {
+                log('⚠ Very little text content in body', 'warning');
+            }
+            
+            // Check for JavaScript variables
+            try {
+                const win = doc.defaultView;
+                log('=== CHECKING JAVASCRIPT GLOBALS ===', 'info');
+                
+                const importantGlobals = [
+                    'jQuery', '$', 'React', 'Vue', 'Angular',
+                    'scoreManager', 'layoutManager', 'contentLoader',
+                    'initializeLayout', 'loadContent', 'setupPage'
+                ];
+                
+                importantGlobals.forEach(globalName => {
+                    if (win[globalName]) {
+                        log(`✓ Global '${globalName}' is defined`, 'success');
+                    }
+                });
+            } catch (e) {
+                log(`Could not check JavaScript globals: ${e.message}`, 'warning');
+            }
+        }
+
+        function analyzeDOM() {
+            const iframe = document.getElementById('target-frame');
+            if (!iframe.contentDocument) {
+                log('✗ No iframe loaded. Please load the page first.', 'error');
+                return;
+            }
+            
+            const doc = iframe.contentDocument;
+            log('=== DOM STRUCTURE ANALYSIS ===', 'info');
+            
+            function analyzeElement(element, depth = 0) {
+                const indent = '  '.repeat(depth);
+                const tag = element.tagName.toLowerCase();
+                const id = element.id ? `#${element.id}` : '';
+                const classes = element.className ? `.${element.className.split(' ').join('.')}` : '';
+                const childCount = element.children.length;
+                const textLength = element.textContent.trim().length;
+                
+                log(`${indent}${tag}${id}${classes} - ${childCount} children, ${textLength} chars`, 'info');
+                
+                if (depth < 3) { // Limit depth to avoid too much output
+                    Array.from(element.children).forEach(child => {
+                        analyzeElement(child, depth + 1);
+                    });
+                }
+            }
+            
+            analyzeElement(doc.body);
+        }
+
+        function checkScripts() {
+            const iframe = document.getElementById('target-frame');
+            if (!iframe.contentDocument) {
+                log('✗ No iframe loaded. Please load the page first.', 'error');
+                return;
+            }
+            
+            const doc = iframe.contentDocument;
+            const win = iframe.contentWindow;
+            
+            log('=== SCRIPT LOADING ANALYSIS ===', 'info');
+            
+            // Check all scripts
+            const scripts = doc.querySelectorAll('script');
+            scripts.forEach((script, index) => {
+                if (script.src) {
+                    // External script
+                    fetch(script.src)
+                        .then(response => {
+                            if (response.ok) {
+                                log(`✓ Script ${index + 1}: ${script.src} - Loaded (${response.status})`, 'success');
+                                return response.text();
+                            } else {
+                                log(`✗ Script ${index + 1}: ${script.src} - Failed (${response.status})`, 'error');
+                            }
+                        })
+                        .then(content => {
+                            if (content) {
+                                // Check if script defines expected functions
+                                const functionPatterns = [
+                                    /function\s+(\w+)/g,
+                                    /const\s+(\w+)\s*=/g,
+                                    /let\s+(\w+)\s*=/g,
+                                    /var\s+(\w+)\s*=/g
+                                ];
+                                
+                                const definedFunctions = new Set();
+                                functionPatterns.forEach(pattern => {
+                                    let match;
+                                    while ((match = pattern.exec(content)) !== null) {
+                                        definedFunctions.add(match[1]);
+                                    }
+                                });
+                                
+                                if (definedFunctions.size > 0) {
+                                    log(`  → Defines: ${Array.from(definedFunctions).slice(0, 5).join(', ')}${definedFunctions.size > 5 ? '...' : ''}`, 'info');
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            log(`✗ Script ${index + 1}: ${script.src} - Network error: ${error.message}`, 'error');
+                        });
+                } else {
+                    // Inline script
+                    const content = script.textContent.trim();
+                    if (content) {
+                        log(`✓ Script ${index + 1}: Inline script (${content.length} chars)`, 'success');
+                        
+                        // Try to execute and catch errors
+                        try {
+                            // Check for syntax errors by creating a function
+                            new Function(content);
+                            log(`  → Syntax OK`, 'success');
+                        } catch (e) {
+                            log(`  → Syntax Error: ${e.message}`, 'error');
+                        }
+                    }
+                }
+            });
+        }
+
+        function checkStyles() {
+            const iframe = document.getElementById('target-frame');
+            if (!iframe.contentDocument) {
+                log('✗ No iframe loaded. Please load the page first.', 'error');
+                return;
+            }
+            
+            const doc = iframe.contentDocument;
+            log('=== CSS LOADING ANALYSIS ===', 'info');
+            
+            // Check stylesheets
+            const links = doc.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach((link, index) => {
+                fetch(link.href)
+                    .then(response => {
+                        if (response.ok) {
+                            log(`✓ Stylesheet ${index + 1}: ${link.href} - Loaded (${response.status})`, 'success');
+                        } else {
+                            log(`✗ Stylesheet ${index + 1}: ${link.href} - Failed (${response.status})`, 'error');
+                        }
+                    })
+                    .catch(error => {
+                        log(`✗ Stylesheet ${index + 1}: ${link.href} - Network error: ${error.message}`, 'error');
+                    });
+            });
+            
+            // Check inline styles
+            const styleElements = doc.querySelectorAll('style');
+            styleElements.forEach((style, index) => {
+                const content = style.textContent.trim();
+                log(`✓ Inline style ${index + 1}: ${content.length} chars`, 'info');
+            });
+            
+            // Check computed styles on body
+            const bodyStyles = doc.defaultView.getComputedStyle(doc.body);
+            log(`Body computed styles:`, 'info');
+            log(`  Display: ${bodyStyles.display}`, 'info');
+            log(`  Visibility: ${bodyStyles.visibility}`, 'info');
+            log(`  Opacity: ${bodyStyles.opacity}`, 'info');
+            log(`  Background: ${bodyStyles.backgroundColor}`, 'info');
+        }
+
+        function checkConsoleErrors() {
+            log('=== CHECKING FOR CONSOLE ERRORS ===', 'info');
+            log('Check the Real-Time Monitoring panel above for any console errors', 'info');
+            
+            // Try to trigger any pending operations
+            const iframe = document.getElementById('target-frame');
+            if (iframe.contentWindow) {
+                try {
+                    // Try to call common initialization functions
+                    const win = iframe.contentWindow;
+                    const initFunctions = [
+                        'initializeLayout',
+                        'loadContent',
+                        'setupPage',
+                        'init',
+                        'initialize',
+                        'start',
+                        'main'
+                    ];
+                    
+                    initFunctions.forEach(funcName => {
+                        if (typeof win[funcName] === 'function') {
+                            log(`Attempting to call ${funcName}()...`, 'info');
+                            try {
+                                win[funcName]();
+                                log(`✓ Successfully called ${funcName}()`, 'success');
+                            } catch (e) {
+                                log(`✗ Error calling ${funcName}(): ${e.message}`, 'error');
+                            }
+                        }
+                    });
+                } catch (e) {
+                    log(`Error accessing iframe window: ${e.message}`, 'error');
+                }
+            }
+        }
+
+        function checkNetworkRequests() {
+            log('=== NETWORK REQUESTS ANALYSIS ===', 'info');
+            log('Note: This shows requests from the diagnostic page. Check browser DevTools Network tab for complete iframe requests.', 'info');
+            
+            // We can't directly access all network requests from JavaScript,
+            // but we can check what resources are currently loaded
+            const iframe = document.getElementById('target-frame');
+            if (!iframe.contentDocument) {
+                log('✗ No iframe loaded. Please load the page first.', 'error');
+                return;
+            }
+            
+            const doc = iframe.contentDocument;
+            
+            // Check images
+            const images = doc.querySelectorAll('img');
+            images.forEach((img, index) => {
+                if (img.complete) {
+                    if (img.naturalWidth === 0) {
+                        log(`✗ Image ${index + 1}: ${img.src} - Failed to load`, 'error');
+                    } else {
+                        log(`✓ Image ${index + 1}: ${img.src} - Loaded`, 'success');
+                    }
+                } else {
+                    log(`⏳ Image ${index + 1}: ${img.src} - Still loading`, 'warning');
+                }
+            });
+            
+            // Suggest checking DevTools
+            log('💡 For complete network analysis, open Browser DevTools (F12) > Network tab', 'info');
+        }
+
+        // Auto-start diagnostic when page loads
+        window.addEventListener('load', function() {
+            log('Diagnostic tool ready. Click "Load Subcomponent Page" to begin analysis.', 'success');
+        });
+    </script>
+</body>
+</html>

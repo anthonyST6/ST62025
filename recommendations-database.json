@@ -4,6 +4,554 @@
       {
         "area": "Solution Differentiation",
         "priority": "MEDIUM",
+        "impact": "+7 points",
+        "expectedImprovement": 7,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T11:28:42.388Z",
+          "subcomponent": "problemStatement",
+          "score": 90,
+          "dimension": "solutionDifferentiation"
+        }
+      },
+      {
+        "area": "Customer Empathy",
+        "priority": "MEDIUM",
+        "impact": "+6 points",
+        "expectedImprovement": 6,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T11:28:42.386Z",
+          "subcomponent": "problemStatement",
+          "score": 70,
+          "dimension": "customerEmpathy"
+        }
+      },
+      {
+        "area": "Market Understanding",
+        "priority": "HIGH",
+        "impact": "+10 points",
+        "expectedImprovement": 10,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T11:28:42.385Z",
+          "subcomponent": "problemStatement",
+          "score": 65,
+          "dimension": "marketUnderstanding"
+        }
+      },
+      {
+        "area": "Value Quantification",
+        "priority": "HIGH",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T11:28:42.385Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "valueQuantification"
+        }
+      },
+      {
+        "area": "Problem Clarity",
+        "priority": "CRITICAL",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Conduct 10 additional customer interviews for validation",
+          "Refine problem statement based on feedback",
+          "Quantify the cost of the problem for each segment"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "Problem-solution fit confirmed with 10 customers",
+          "Clear problem statement that resonates with 90% of prospects",
+          "Documented problem worth $10K+ annually to customers"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T11:28:42.383Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "problemClarity"
+        }
+      },
+      {
+        "area": "Solution Differentiation",
+        "priority": "MEDIUM",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T10:58:44.198Z",
+          "subcomponent": "problemStatement",
+          "score": 90,
+          "dimension": "solutionDifferentiation"
+        }
+      },
+      {
+        "area": "Customer Empathy",
+        "priority": "MEDIUM",
+        "impact": "+7 points",
+        "expectedImprovement": 7,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T10:58:44.198Z",
+          "subcomponent": "problemStatement",
+          "score": 70,
+          "dimension": "customerEmpathy"
+        }
+      },
+      {
+        "area": "Market Understanding",
+        "priority": "HIGH",
+        "impact": "+8 points",
+        "expectedImprovement": 8,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T10:58:44.198Z",
+          "subcomponent": "problemStatement",
+          "score": 65,
+          "dimension": "marketUnderstanding"
+        }
+      },
+      {
+        "area": "Value Quantification",
+        "priority": "HIGH",
+        "impact": "+9 points",
+        "expectedImprovement": 9,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T10:58:44.198Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "valueQuantification"
+        }
+      },
+      {
+        "area": "Problem Clarity",
+        "priority": "CRITICAL",
+        "impact": "+6 points",
+        "expectedImprovement": 6,
+        "actionPlan": [
+          "Conduct 10 additional customer interviews for validation",
+          "Refine problem statement based on feedback",
+          "Quantify the cost of the problem for each segment"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "Problem-solution fit confirmed with 10 customers",
+          "Clear problem statement that resonates with 90% of prospects",
+          "Documented problem worth $10K+ annually to customers"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T10:58:44.197Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "problemClarity"
+        }
+      },
+      {
+        "area": "Solution Differentiation",
+        "priority": "MEDIUM",
+        "impact": "+7 points",
+        "expectedImprovement": 7,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T07:39:16.401Z",
+          "subcomponent": "problemStatement",
+          "score": 90,
+          "dimension": "solutionDifferentiation"
+        }
+      },
+      {
+        "area": "Customer Empathy",
+        "priority": "MEDIUM",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T07:39:16.401Z",
+          "subcomponent": "problemStatement",
+          "score": 70,
+          "dimension": "customerEmpathy"
+        }
+      },
+      {
+        "area": "Market Understanding",
+        "priority": "HIGH",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T07:39:16.401Z",
+          "subcomponent": "problemStatement",
+          "score": 65,
+          "dimension": "marketUnderstanding"
+        }
+      },
+      {
+        "area": "Value Quantification",
+        "priority": "HIGH",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T07:39:16.401Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "valueQuantification"
+        }
+      },
+      {
+        "area": "Problem Clarity",
+        "priority": "CRITICAL",
+        "impact": "+8 points",
+        "expectedImprovement": 8,
+        "actionPlan": [
+          "Conduct 10 additional customer interviews for validation",
+          "Refine problem statement based on feedback",
+          "Quantify the cost of the problem for each segment"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "Problem-solution fit confirmed with 10 customers",
+          "Clear problem statement that resonates with 90% of prospects",
+          "Documented problem worth $10K+ annually to customers"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T07:39:16.400Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "problemClarity"
+        }
+      },
+      {
+        "area": "Solution Differentiation",
+        "priority": "MEDIUM",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T06:47:37.118Z",
+          "subcomponent": "problemStatement",
+          "score": 90,
+          "dimension": "solutionDifferentiation"
+        }
+      },
+      {
+        "area": "Customer Empathy",
+        "priority": "MEDIUM",
+        "impact": "+5 points",
+        "expectedImprovement": 5,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T06:47:37.118Z",
+          "subcomponent": "problemStatement",
+          "score": 70,
+          "dimension": "customerEmpathy"
+        }
+      },
+      {
+        "area": "Market Understanding",
+        "priority": "HIGH",
+        "impact": "+6 points",
+        "expectedImprovement": 6,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T06:47:37.118Z",
+          "subcomponent": "problemStatement",
+          "score": 65,
+          "dimension": "marketUnderstanding"
+        }
+      },
+      {
+        "area": "Value Quantification",
+        "priority": "HIGH",
+        "impact": "+6 points",
+        "expectedImprovement": 6,
+        "actionPlan": [
+          "Interview 15-20 potential customers using structured discovery",
+          "Document specific pain points with frequency and severity metrics",
+          "Create problem validation scorecard with measurable criteria",
+          "Validate problem-solution fit with 5 early adopters"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "20+ validated customer interviews completed",
+          "Problem validated by 80%+ of target customers",
+          "Pain point severity rated 7+/10"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T06:47:37.118Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "valueQuantification"
+        }
+      },
+      {
+        "area": "Problem Clarity",
+        "priority": "CRITICAL",
+        "impact": "+9 points",
+        "expectedImprovement": 9,
+        "actionPlan": [
+          "Conduct 10 additional customer interviews for validation",
+          "Refine problem statement based on feedback",
+          "Quantify the cost of the problem for each segment"
+        ],
+        "recommendations": [
+          "Schedule 5 customer interviews this week using calendly link",
+          "Create interview script with 10 open-ended questions",
+          "Use recording tool (Gong/Chorus) to capture all interviews"
+        ],
+        "successMetrics": [
+          "Problem-solution fit confirmed with 10 customers",
+          "Clear problem statement that resonates with 90% of prospects",
+          "Documented problem worth $10K+ annually to customers"
+        ],
+        "metadata": {
+          "generatedAt": "2025-10-05T06:47:37.117Z",
+          "subcomponent": "problemStatement",
+          "score": 50,
+          "dimension": "problemClarity"
+        }
+      },
+      {
+        "area": "Solution Differentiation",
+        "priority": "MEDIUM",
         "impact": "+3 points",
         "expectedImprovement": 3,
         "actionPlan": [
@@ -822,560 +1370,12 @@
           "score": 50,
           "dimension": "problemClarity"
         }
-      },
-      {
-        "area": "Solution Differentiation",
-        "priority": "MEDIUM",
-        "impact": "+5 points",
-        "expectedImprovement": 5,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:48:35.412Z",
-          "subcomponent": "problemStatement",
-          "score": 90,
-          "dimension": "solutionDifferentiation"
-        }
-      },
-      {
-        "area": "Customer Empathy",
-        "priority": "MEDIUM",
-        "impact": "+5 points",
-        "expectedImprovement": 5,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:48:35.412Z",
-          "subcomponent": "problemStatement",
-          "score": 70,
-          "dimension": "customerEmpathy"
-        }
-      },
-      {
-        "area": "Market Understanding",
-        "priority": "HIGH",
-        "impact": "+8 points",
-        "expectedImprovement": 8,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:48:35.412Z",
-          "subcomponent": "problemStatement",
-          "score": 65,
-          "dimension": "marketUnderstanding"
-        }
-      },
-      {
-        "area": "Value Quantification",
-        "priority": "HIGH",
-        "impact": "+8 points",
-        "expectedImprovement": 8,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:48:35.412Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "valueQuantification"
-        }
-      },
-      {
-        "area": "Problem Clarity",
-        "priority": "CRITICAL",
-        "impact": "+7 points",
-        "expectedImprovement": 7,
-        "actionPlan": [
-          "Conduct 10 additional customer interviews for validation",
-          "Refine problem statement based on feedback",
-          "Quantify the cost of the problem for each segment"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "Problem-solution fit confirmed with 10 customers",
-          "Clear problem statement that resonates with 90% of prospects",
-          "Documented problem worth $10K+ annually to customers"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:48:35.412Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "problemClarity"
-        }
-      },
-      {
-        "area": "Solution Differentiation",
-        "priority": "MEDIUM",
-        "impact": "+4 points",
-        "expectedImprovement": 4,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:44:47.131Z",
-          "subcomponent": "problemStatement",
-          "score": 90,
-          "dimension": "solutionDifferentiation"
-        }
-      },
-      {
-        "area": "Customer Empathy",
-        "priority": "MEDIUM",
-        "impact": "+3 points",
-        "expectedImprovement": 3,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:44:47.131Z",
-          "subcomponent": "problemStatement",
-          "score": 70,
-          "dimension": "customerEmpathy"
-        }
-      },
-      {
-        "area": "Market Understanding",
-        "priority": "HIGH",
-        "impact": "+7 points",
-        "expectedImprovement": 7,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:44:47.131Z",
-          "subcomponent": "problemStatement",
-          "score": 65,
-          "dimension": "marketUnderstanding"
-        }
-      },
-      {
-        "area": "Value Quantification",
-        "priority": "HIGH",
-        "impact": "+9 points",
-        "expectedImprovement": 9,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:44:47.131Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "valueQuantification"
-        }
-      },
-      {
-        "area": "Problem Clarity",
-        "priority": "CRITICAL",
-        "impact": "+8 points",
-        "expectedImprovement": 8,
-        "actionPlan": [
-          "Conduct 10 additional customer interviews for validation",
-          "Refine problem statement based on feedback",
-          "Quantify the cost of the problem for each segment"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "Problem-solution fit confirmed with 10 customers",
-          "Clear problem statement that resonates with 90% of prospects",
-          "Documented problem worth $10K+ annually to customers"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:44:47.130Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "problemClarity"
-        }
-      },
-      {
-        "area": "Solution Differentiation",
-        "priority": "MEDIUM",
-        "impact": "+4 points",
-        "expectedImprovement": 4,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:21:52.465Z",
-          "subcomponent": "problemStatement",
-          "score": 90,
-          "dimension": "solutionDifferentiation"
-        }
-      },
-      {
-        "area": "Customer Empathy",
-        "priority": "MEDIUM",
-        "impact": "+7 points",
-        "expectedImprovement": 7,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:21:52.465Z",
-          "subcomponent": "problemStatement",
-          "score": 70,
-          "dimension": "customerEmpathy"
-        }
-      },
-      {
-        "area": "Market Understanding",
-        "priority": "HIGH",
-        "impact": "+7 points",
-        "expectedImprovement": 7,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:21:52.465Z",
-          "subcomponent": "problemStatement",
-          "score": 65,
-          "dimension": "marketUnderstanding"
-        }
-      },
-      {
-        "area": "Value Quantification",
-        "priority": "HIGH",
-        "impact": "+9 points",
-        "expectedImprovement": 9,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:21:52.465Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "valueQuantification"
-        }
-      },
-      {
-        "area": "Problem Clarity",
-        "priority": "CRITICAL",
-        "impact": "+6 points",
-        "expectedImprovement": 6,
-        "actionPlan": [
-          "Conduct 10 additional customer interviews for validation",
-          "Refine problem statement based on feedback",
-          "Quantify the cost of the problem for each segment"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "Problem-solution fit confirmed with 10 customers",
-          "Clear problem statement that resonates with 90% of prospects",
-          "Documented problem worth $10K+ annually to customers"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:21:52.465Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "problemClarity"
-        }
-      },
-      {
-        "area": "Solution Differentiation",
-        "priority": "MEDIUM",
-        "impact": "+6 points",
-        "expectedImprovement": 6,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:17:33.109Z",
-          "subcomponent": "problemStatement",
-          "score": 90,
-          "dimension": "solutionDifferentiation"
-        }
-      },
-      {
-        "area": "Customer Empathy",
-        "priority": "MEDIUM",
-        "impact": "+7 points",
-        "expectedImprovement": 7,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:17:33.109Z",
-          "subcomponent": "problemStatement",
-          "score": 70,
-          "dimension": "customerEmpathy"
-        }
-      },
-      {
-        "area": "Market Understanding",
-        "priority": "HIGH",
-        "impact": "+8 points",
-        "expectedImprovement": 8,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:17:33.109Z",
-          "subcomponent": "problemStatement",
-          "score": 65,
-          "dimension": "marketUnderstanding"
-        }
-      },
-      {
-        "area": "Value Quantification",
-        "priority": "HIGH",
-        "impact": "+8 points",
-        "expectedImprovement": 8,
-        "actionPlan": [
-          "Interview 15-20 potential customers using structured discovery",
-          "Document specific pain points with frequency and severity metrics",
-          "Create problem validation scorecard with measurable criteria",
-          "Validate problem-solution fit with 5 early adopters"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "20+ validated customer interviews completed",
-          "Problem validated by 80%+ of target customers",
-          "Pain point severity rated 7+/10"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:17:33.109Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "valueQuantification"
-        }
-      },
-      {
-        "area": "Problem Clarity",
-        "priority": "CRITICAL",
-        "impact": "+7 points",
-        "expectedImprovement": 7,
-        "actionPlan": [
-          "Conduct 10 additional customer interviews for validation",
-          "Refine problem statement based on feedback",
-          "Quantify the cost of the problem for each segment"
-        ],
-        "recommendations": [
-          "Schedule 5 customer interviews this week using calendly link",
-          "Create interview script with 10 open-ended questions",
-          "Use recording tool (Gong/Chorus) to capture all interviews"
-        ],
-        "successMetrics": [
-          "Problem-solution fit confirmed with 10 customers",
-          "Clear problem statement that resonates with 90% of prospects",
-          "Documented problem worth $10K+ annually to customers"
-        ],
-        "metadata": {
-          "generatedAt": "2025-09-28T18:17:33.108Z",
-          "subcomponent": "problemStatement",
-          "score": 50,
-          "dimension": "problemClarity"
-        }
       }
     ]
   },
   "templates": {},
   "successMetrics": {},
   "usage": {
-    "problemStatement": 400
+    "problemStatement": 420
   }
 }

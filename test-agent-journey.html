@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Journey Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-header {
+            background: #FF5500;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .test-card {
+            background: #2a2a2a;
+            border: 2px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .test-card.pass {
+            border-color: #4CAF50;
+        }
+        .test-card.fail {
+            border-color: #F44336;
+        }
+        .test-card h3 {
+            margin-top: 0;
+            color: #FF5500;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            background: #333;
+            border-radius: 5px;
+        }
+        .pass-indicator {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .fail-indicator {
+            color: #F44336;
+            font-weight: bold;
+        }
+        .test-button {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #FF6600;
+        }
+        #test-log {
+            background: #000;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        .log-success {
+            color: #4CAF50;
+        }
+        .log-error {
+            color: #F44336;
+        }
+        .log-info {
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Agent Journey Testing Suite</h1>
+            <p>Testing all 96 agents across 16 blocks for complete user journey functionality</p>
+            <button class="test-button" onclick="runAllTests()">Run All Tests</button>
+            <button class="test-button" onclick="testRandomAgent()">Test Random Agent</button>
+            <button class="test-button" onclick="clearLog()">Clear Log</button>
+        </div>
+
+        <div class="test-grid" id="test-grid">
+            <!-- Test cards will be generated here -->
+        </div>
+
+        <div id="test-log">
+            <h3>Test Log</h3>
+            <div id="log-content"></div>
+        </div>
+    </div>
+
+    <!-- Load agent library and integration system -->
+    <script src="agent-library.js"></script>
+    <script src="agent-integration-system.js"></script>
+    
+    <script>
+        let testResults = {};
+        
+        // Initialize test grid
+        function initializeTestGrid() {
+            const grid = document.getElementById('test-grid');
+            grid.innerHTML = '';
+            
+            // Create test cards for each block
+            for (let block = 1; block <= 16; block++) {
+                const card = document.createElement('div');
+                card.className = 'test-card';
+                card.id = `block-${block}-card`;
+                card.innerHTML = `
+                    <h3>Block ${block}</h3>
+                    <div id="block-${block}-results">
+                        <p>Not tested yet</p>
+                    </div>
+                    <button class="test-button" onclick="testBlock(${block})">Test Block ${block}</button>
+                `;
+                grid.appendChild(card);
+            }
+        }
+        
+        // Log function
+        function log(message, type = 'info') {
+            const logContent = document.getElementById('log-content');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            entry.textContent = `[${timestamp}] ${message}`;
+            logContent.appendChild(entry);
+            logContent.scrollTop = logContent.scrollHeight;
+        }
+        
+        // Clear log
+        function clearLog() {
+            document.getElementById('log-content').innerHTML = '';
+            log('Log cleared', 'info');
+        }
+        
+        // Test a specific block
+        async function testBlock(blockNum) {
+            log(`Testing Block ${blockNum}...`, 'info');
+            const card = document.getElementById(`block-${blockNum}-card`);
+            const resultsDiv = document.getElementById(`block-${blockNum}-results`);
+            resultsDiv.innerHTML = '<p>Testing...</p>';
+            
+            let allPassed = true;
+            let results = [];
+            
+            // Test each subcomponent in the block
+            for (let sub = 1; sub <= 6; sub++) {
+                const subcomponentId = `${blockNum}-${sub}`;
+                const agentKey = `${blockNum}${String.fromCharCode(96 + sub)}`;
+                
+                log(`Testing agent ${agentKey} (${subcomponentId})`, 'info');
+                
+                const testResult = await testAgent(agentKey, subcomponentId);
+                results.push(testResult);
+                
+                if (!testResult.passed) {
+                    allPassed = false;
+                }
+            }
+            
+            // Update card display
+            card.className = `test-card ${allPassed ? 'pass' : 'fail'}`;
+            
+            // Display results
+            let html = '';
+            results.forEach(result => {
+                html += `
+                    <div class="test-result">
+                        <strong>${result.agentKey}:</strong> 
+                        <span class="${result.passed ? 'pass-indicator' : 'fail-indicator'}">
+                            ${result.passed ? '✓ PASS' : '✗ FAIL'}
+                        </span>
+                        <br>
+                        <small>${result.message}</small>
+                    </div>
+                `;
+            });
+            resultsDiv.innerHTML = html;
+            
+            log(`Block ${blockNum} testing complete: ${allPassed ? 'PASSED' : 'FAILED'}`, allPassed ? 'success' : 'error');
+            
+            return allPassed;
+        }
+        
+        // Test a specific agent
+        async function testAgent(agentKey, subcomponentId) {
+            const agent = window.AgentLibrary[agentKey];
+            
+            if (!agent) {
+                return {
+                    agentKey,
+                    passed: false,
+                    message: 'Agent not found in library'
+                };
+            }
+            
+            // Test 1: Agent has required properties
+            const requiredProps = ['name', 'description', 'scoringDimensions', 'evaluationCriteria'];
+            for (const prop of requiredProps) {
+                if (!agent[prop]) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: `Missing required property: ${prop}`
+                    };
+                }
+            }
+            
+            // Test 2: Scoring dimensions are valid
+            if (!Array.isArray(agent.scoringDimensions) || agent.scoringDimensions.length === 0) {
+                return {
+                    agentKey,
+                    passed: false,
+                    message: 'Invalid or empty scoring dimensions'
+                };
+            }
+            
+            // Test 3: Weights add up to 100
+            const totalWeight = agent.scoringDimensions.reduce((sum, dim) => sum + dim.weight, 0);
+            if (totalWeight !== 100) {
+                return {
+                    agentKey,
+                    passed: false,
+                    message: `Weights sum to ${totalWeight}%, should be 100%`
+                };
+            }
+            
+            // Test 4: Test API endpoint
+            try {
+                const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                if (!response.ok) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: `API returned ${response.status}`
+                    };
+                }
+                
+                const data = await response.json();
+                
+                // Verify API returns correct agent data
+                if (data.name !== agent.name) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: `API name mismatch: "${data.name}" vs "${agent.name}"`
+                    };
+                }
+                
+                // Check for education content
+                if (!data.education) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: 'No education content in API response'
+                    };
+                }
+                
+                // Check for workspace questions
+                if (!data.workspace || !data.workspace.questions || data.workspace.questions.length === 0) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: 'No workspace questions in API response'
+                    };
+                }
+                
+                // Check for templates
+                if (!data.templates || data.templates.length === 0) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: 'No templates in API response'
+                    };
+                }
+                
+                // Check for resources
+                if (!data.resources || data.resources.length === 0) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: 'No resources in API response'
+                    };
+                }
+                
+            } catch (error) {
+                return {
+                    agentKey,
+                    passed: false,
+                    message: `API error: ${error.message}`
+                };
+            }
+            
+            // Test 5: Test scoring analysis
+            try {
+                const testResponses = {};
+                agent.scoringDimensions.forEach((dim, index) => {
+                    testResponses[`q${index + 1}`] = 4; // Test with score of 4/5
+                });
+                
+                const analysisResponse = await fetch('/api/analysis', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        subcomponentId: subcomponentId,
+                        responses: testResponses
+                    })
+                });
+                
+                if (!analysisResponse.ok) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: `Analysis API returned ${analysisResponse.status}`
+                    };
+                }
+                
+                const analysis = await analysisResponse.json();
+                
+                if (!analysis.score || typeof analysis.score !== 'number') {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: 'Analysis did not return a valid score'
+                    };
+                }
+                
+                if (analysis.agentName !== agent.name) {
+                    return {
+                        agentKey,
+                        passed: false,
+                        message: `Analysis agent name mismatch`
+                    };
+                }
+                
+            } catch (error) {
+                return {
+                    agentKey,
+                    passed: false,
+                    message: `Analysis error: ${error.message}`
+                };
+            }
+            
+            // All tests passed
+            return {
+                agentKey,
+                passed: true,
+                message: `${agent.name} - All tests passed`
+            };
+        }
+        
+        // Run all tests
+        async function runAllTests() {
+            log('Starting comprehensive agent testing...', 'info');
+            let totalPassed = 0;
+            let totalFailed = 0;
+            
+            for (let block = 1; block <= 16; block++) {
+                const passed = await testBlock(block);
+                if (passed) {
+                    totalPassed++;
+                } else {
+                    totalFailed++;
+                }
+                
+                // Small delay between blocks
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            log(`\n=== FINAL RESULTS ===`, 'info');
+            log(`Blocks Passed: ${totalPassed}/16`, totalPassed === 16 ? 'success' : 'error');
+            log(`Blocks Failed: ${totalFailed}/16`, totalFailed === 0 ? 'success' : 'error');
+            log(`Total Agents Tested: 96`, 'info');
+            
+            if (totalPassed === 16) {
+                log('🎉 ALL AGENTS PASSED! The system is fully functional.', 'success');
+            } else {
+                log('⚠️ Some agents failed. Please review the results above.', 'error');
+            }
+        }
+        
+        // Test a random agent
+        async function testRandomAgent() {
+            const blockNum = Math.floor(Math.random() * 16) + 1;
+            const subNum = Math.floor(Math.random() * 6) + 1;
+            const agentKey = `${blockNum}${String.fromCharCode(96 + subNum)}`;
+            const subcomponentId = `${blockNum}-${subNum}`;
+            
+            log(`Testing random agent: ${agentKey} (${subcomponentId})`, 'info');
+            
+            const result = await testAgent(agentKey, subcomponentId);
+            
+            if (result.passed) {
+                log(`✓ ${agentKey}: ${result.message}`, 'success');
+            } else {
+                log(`✗ ${agentKey}: ${result.message}`, 'error');
+            }
+            
+            return result;
+        }
+        
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeTestGrid();
+            log('Test suite initialized. Click "Run All Tests" to begin.', 'info');
+            log(`Found ${Object.keys(window.AgentLibrary).length} agents in library`, 'info');
+        });
+    </script>
+</body>
+</html>

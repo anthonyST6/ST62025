@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6 - Founding Team Assessment</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #FF5500;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #FF5500;
+        }
+
+        .nav-link.active {
+            color: #FF5500;
+            font-weight: 600;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .logout-btn {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #e64d00;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 30px 30px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #FF5500;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+
+        .breadcrumb .separator {
+            color: #999;
+        }
+
+        /* Subcomponent Header */
+        .subcomponent-header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .subcomponent-number {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 24px;
+            color: #999;
+            font-weight: 700;
+        }
+
+        .subcomponent-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .subcomponent-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            padding: 18px 25px;
+            background: transparent;
+            color: #666;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab-button:hover {
+            color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+        }
+
+        .tab-button.active {
+            color: #FF5500;
+            background: rgba(255, 85, 0, 0.08);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #FF5500;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            min-height: 500px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Education Tab Styles */
+        .education-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 28px;
+        }
+
+        .section-content {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .section-content h3 {
+            color: #FF5500;
+            font-size: 20px;
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+
+        .section-content p {
+            margin-bottom: 15px;
+        }
+
+        .section-content ul {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .section-content li {
+            position: relative;
+            padding: 10px 0 10px 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-content li:before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: #FF5500;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Best Practices */
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .practice-card {
+            background: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .practice-check {
+            color: #4CAF50;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .practice-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .practice-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer-watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF5500, #FF8844);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 13px;
+            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
+            z-index: 999;
+        }
+
+        /* Workspace Tab */
+        .worksheet-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .worksheet-field {
+            margin-bottom: 25px;
+        }
+
+        .worksheet-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #FF5500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .worksheet-input,
+        .worksheet-textarea {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .worksheet-input:focus,
+        .worksheet-textarea:focus {
+            outline: none;
+            border-color: #FF5500;
+            box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
+        }
+
+        .worksheet-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e64d00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FF5500;
+            border: 2px solid #FF5500;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #FF5500;
+            color: white;
+        }
+
+        /* Analysis Tab */
+        .analysis-result {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #FF5500, #FF8844);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .score-value {
+            font-size: 64px;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        /* Resources Tab */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            border-color: #FF5500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .resource-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .resource-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .resource-description {
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <div class="header-nav">
+        <div class="nav-left">
+            <a href="/" class="logo">ScaleOps6</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">Reports</a>
+                <a href="#" class="nav-link">Settings</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="user-info">
+                <span>👤</span>
+                <span>ST6C0</span>
+            </div>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <a href="/">Dashboard</a>
+            <span class="separator">›</span>
+            <a href="#" id="block-link">Mission Discovery</a>
+            <span class="separator">›</span>
+            <span id="subcomponent-name">Founding Team Assessment</span>
+        </div>
+
+        <!-- Subcomponent Header -->
+        <div class="subcomponent-header">
+            <div class="subcomponent-number" id="subcomponent-number">1.4</div>
+            <h1 class="subcomponent-title" id="subcomponent-title">FOUNDING TEAM ASSESSMENT</h1>
+            <p class="subcomponent-description" id="subcomponent-description">
+                Evaluate your founding team's capabilities, alignment, and readiness to execute
+            </p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" data-tab="education" onclick="switchTab('education')">
+                📚 Education
+            </button>
+            <button class="tab-button" data-tab="workspace" onclick="switchTab('workspace')">
+                ✏️ Workspace
+            </button>
+            <button class="tab-button" data-tab="analysis" onclick="switchTab('analysis')">
+                🤖 Analysis
+            </button>
+            <button class="tab-button" data-tab="output" onclick="switchTab('output')">
+                📋 Output
+            </button>
+            <button class="tab-button" data-tab="resources" onclick="switchTab('resources')">
+                🔧 Resources
+            </button>
+            <button class="tab-button" data-tab="history" onclick="switchTab('history')">
+                📊 Score History
+            </button>
+        </div>
+
+        <!-- Education Tab -->
+        <div id="education-tab" class="tab-content active">
+            <div class="education-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🎯</span>
+                    What is Founding Team Assessment?
+                </h2>
+                <div class="section-content">
+                    <p>
+                        Founding Team Assessment is a critical evaluation process that examines the collective capabilities, 
+                        complementary skills, and alignment of your founding team members. This comprehensive analysis helps 
+                        identify strengths to leverage, gaps to fill, and areas for development to ensure your team can 
+                        successfully execute your go-to-market strategy.
+                    </p>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🔑</span>
+                    Key Components
+                </h2>
+                <div class="section-content">
+                    <ul>
+                        <li>Skills Matrix Evaluation - Technical, business, and domain expertise</li>
+                        <li>Role Clarity & Responsibilities - Clear ownership and accountability</li>
+                        <li>Cultural Fit & Values Alignment - Shared vision and working styles</li>
+                        <li>Experience & Track Record - Past successes and lessons learned</li>
+                        <li>Commitment Level - Time, energy, and resource dedication</li>
+                        <li>Gap Analysis - Missing capabilities and hiring needs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📈</span>
+                    Why It Matters
+                </h2>
+                <div class="section-content">
+                    <p>
+                        Research shows that 65% of startups fail due to co-founder conflicts or team issues. 
+                        A thorough founding team assessment:
+                    </p>
+                    <ul>
+                        <li>Reduces hiring mistakes by 50%</li>
+                        <li>Improves team productivity by 35%</li>
+                        <li>Accelerates time-to-market by 40%</li>
+                        <li>Increases investor confidence by 3x</li>
+                        <li>Prevents costly founder disputes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🚀</span>
+                    How to Implement
+                </h2>
+                <div class="section-content">
+                    <ol>
+                        <li>Create a comprehensive skills matrix for all founders</li>
+                        <li>Define clear roles and decision-making authority</li>
+                        <li>Establish equity splits based on contribution and commitment</li>
+                        <li>Document founder agreements and vesting schedules</li>
+                        <li>Identify critical gaps and create hiring roadmap</li>
+                        <li>Set up regular team health checks and feedback loops</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <h2 class="section-title">
+                    <span class="section-icon">💡</span>
+                    Best Practices
+                </h2>
+                <div class="practices-grid">
+                    <div class="practice-card">
+                        <div class="practice-check">✓</div>
+                        <div class="practice-title">Conduct Honest Skills Assessments</div>
+                        <div class="practice-text">
+                            Remove ego from the equation and objectively evaluate each founder's true capabilities, 
+                            experience, and areas for growth.
+                        </div>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-check">✓</div>
+                        <div class="practice-title">Document Everything Early</div>
+                        <div class="practice-text">
+                            Put all agreements, equity splits, roles, and expectations in writing before conflicts arise.
+                        </div>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-check">✓</div>
+                        <div class="practice-title">Address Conflicts Immediately</div>
+                        <div class="practice-text">
+                            Don't let issues fester - create a culture of open communication and rapid conflict resolution.
+                        </div>
+                    </div>
+                    <div class="practice-card">
+                        <div class="practice-check">✓</div>
+                        <div class="practice-title">Invest in Team Development</div>
+                        <div class="practice-text">
+                            Allocate budget for coaching, training, and team-building to strengthen your founding team.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workspace Tab -->
+        <div id="workspace-tab" class="tab-content">
+            <div class="worksheet-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📝</span>
+                    Team Assessment Worksheet
+                </h2>
+                
+                <div class="worksheet-field">
+                    <label class="worksheet-label">Team Composition & Roles</label>
+                    <textarea class="worksheet-textarea" placeholder="List each founder, their primary role, and key responsibilities..."></textarea>
+                </div>
+                
+                <div class="worksheet-field">
+                    <label class="worksheet-label">Skills & Expertise Matrix</label>
+                    <textarea class="worksheet-textarea" placeholder="Map out technical skills, domain expertise, and business capabilities across the team..."></textarea>
+                </div>
+                
+                <div class="worksheet-field">
+                    <label class="worksheet-label">Experience & Track Record</label>
+                    <textarea class="worksheet-textarea" placeholder="Document relevant past experiences, successes, and lessons learned..."></textarea>
+                </div>
+                
+                <div class="worksheet-field">
+                    <label class="worksheet-label">Commitment & Availability</label>
+                    <textarea class="worksheet-textarea" placeholder="Specify time commitment, vesting schedules, and resource contributions..."></textarea>
+                </div>
+                
+                <div class="worksheet-field">
+                    <label class="worksheet-label">Gap Analysis</label>
+                    <textarea class="worksheet-textarea" placeholder="Identify missing skills, expertise gaps, and hiring priorities..."></textarea>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="saveWorksheet()">Save Progress</button>
+                    <button class="btn-primary" style="background: #4CAF50;">🤖 Analyze Team</button>
+                    <button class="btn-secondary">Export as PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Tab -->
+        <div id="analysis-tab" class="tab-content">
+            <div class="score-display">
+                <h2>Team Assessment Score</h2>
+                <div class="score-value">0%</div>
+                <p>Complete the worksheet to get your analysis</p>
+            </div>
+        </div>
+
+        <!-- Output Tab -->
+        <div id="output-tab" class="tab-content">
+            <h2 class="section-title">
+                <span class="section-icon">📋</span>
+                Generated Outputs
+            </h2>
+            <p>Complete your analysis to generate team assessment reports and action plans.</p>
+        </div>
+
+        <!-- Resources Tab -->
+        <div id="resources-tab" class="tab-content">
+            <h2 class="section-title">
+                <span class="section-icon">🔧</span>
+                Tools & Resources
+            </h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📄</div>
+                    <div class="resource-title">Founder Agreement Template</div>
+                    <div class="resource-description">Legal template for founder agreements and equity splits</div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📊</div>
+                    <div class="resource-title">Skills Matrix Template</div>
+                    <div class="resource-description">Comprehensive skills assessment framework</div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📈</div>
+                    <div class="resource-title">Team Health Scorecard</div>
+                    <div class="resource-description">Regular assessment tool for team dynamics</div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🎯</div>
+                    <div class="resource-title">Role Definition Guide</div>
+                    <div class="resource-description">Framework for defining clear responsibilities</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Score History Tab -->
+        <div id="history-tab" class="tab-content">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Score History & Progress
+            </h2>
+            <p>Your assessment history will appear here after your first analysis.</p>
+        </div>
+    </div>
+
+    <!-- Footer Watermark -->
+    <div class="footer-watermark">
+        Powered by ScaleOps6™
+    </div>
+
+    <script>
+        // Auto-login
+        if (!localStorage.getItem('sessionId')) {
+            localStorage.setItem('sessionId', 'st6-session-' + Date.now());
+            localStorage.setItem('userName', 'ST6C0');
+            localStorage.setItem('userRole', 'ScaleOps6Product');
+        }
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(`${tabName}-tab`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Activate button
+            const activeButton = document.querySelector(`[data-tab="${tabName}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        // Save worksheet
+        function saveWorksheet() {
+            alert('Worksheet saved successfully!');
+        }
+
+        // Get subcomponent ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const subcomponentId = urlParams.get('id') || '1-4';
+        
+        // Update page based on subcomponent ID
+        if (subcomponentId) {
+            document.getElementById('subcomponent-number').textContent = subcomponentId.replace('-', '.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5973 @@
+{
+  "timestamp": "2025-10-05T20:22:59.689Z",
+  "totalAgents": 96,
+  "passed": 95,
+  "failed": 1,
+  "issues": [],
+  "agentResults": {
+    "1a": {
+      "agentId": "1a",
+      "agentName": "Problem Definition Evaluator",
+      "blockId": 1,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "1b": {
+      "agentId": "1b",
+      "agentName": "Mission Alignment Advisor",
+      "blockId": 1,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "1c": {
+      "agentId": "1c",
+      "agentName": "VoC Synthesizer",
+      "blockId": 1,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "1d": {
+      "agentId": "1d",
+      "agentName": "Team Gap Identifier",
+      "blockId": 1,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "1e": {
+      "agentId": "1e",
+      "agentName": "Market Mapper",
+      "blockId": 1,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "1f": {
+      "agentId": "1f",
+      "agentName": "Launch Plan Assessor",
+      "blockId": 1,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "2a": {
+      "agentId": "2a",
+      "agentName": "Interview Cadence Analyzer",
+      "blockId": 2,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "2b": {
+      "agentId": "2b",
+      "agentName": "Persona Framework Builder",
+      "blockId": 2,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "2c": {
+      "agentId": "2c",
+      "agentName": "Pain Point Mapper",
+      "blockId": 2,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "2d": {
+      "agentId": "2d",
+      "agentName": "JTBD Specialist",
+      "blockId": 2,
+      "subId": 4,
+      "status": "failed",
+      "education": {
+        "status": "failed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": [
+          {
+            "category": "education",
+            "issue": "Generic placeholder found: \"tbd\"",
+            "severity": "medium"
+          }
+        ]
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": [
+        {
+          "category": "education",
+          "issue": "Generic placeholder found: \"tbd\"",
+          "severity": "medium"
+        }
+      ]
+    },
+    "2e": {
+      "agentId": "2e",
+      "agentName": "Signal Grader",
+      "blockId": 2,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "2f": {
+      "agentId": "2f",
+      "agentName": "Insight Loop Manager",
+      "blockId": 2,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "3a": {
+      "agentId": "3a",
+      "agentName": "Use Case Scorer",
+      "blockId": 3,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "3b": {
+      "agentId": "3b",
+      "agentName": "Segment Tier Analyst",
+      "blockId": 3,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "3c": {
+      "agentId": "3c",
+      "agentName": "Prioritization Expert",
+      "blockId": 3,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "3d": {
+      "agentId": "3d",
+      "agentName": "Tradeoff Tracker",
+      "blockId": 3,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "3e": {
+      "agentId": "3e",
+      "agentName": "Hypothesis Validator",
+      "blockId": 3,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "3f": {
+      "agentId": "3f",
+      "agentName": "Decision Archivist",
+      "blockId": 3,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "4a": {
+      "agentId": "4a",
+      "agentName": "Feature Matrix Builder",
+      "blockId": 4,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "4b": {
+      "agentId": "4b",
+      "agentName": "Technical Scope Expert",
+      "blockId": 4,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "4c": {
+      "agentId": "4c",
+      "agentName": "Pilot Group Selector",
+      "blockId": 4,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "4d": {
+      "agentId": "4d",
+      "agentName": "QA Criteria Setter",
+      "blockId": 4,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "4e": {
+      "agentId": "4e",
+      "agentName": "Timeline Planner",
+      "blockId": 4,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "4f": {
+      "agentId": "4f",
+      "agentName": "Post-Mortem Analyst",
+      "blockId": 4,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "5a": {
+      "agentId": "5a",
+      "agentName": "Early Win Validator",
+      "blockId": 5,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "5b": {
+      "agentId": "5b",
+      "agentName": "ROI Calculator",
+      "blockId": 5,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "5c": {
+      "agentId": "5c",
+      "agentName": "Use Case Analyst",
+      "blockId": 5,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "5d": {
+      "agentId": "5d",
+      "agentName": "Testimonial Curator",
+      "blockId": 5,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "5e": {
+      "agentId": "5e",
+      "agentName": "Win Criteria Mapper",
+      "blockId": 5,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "5f": {
+      "agentId": "5f",
+      "agentName": "Deal Debrief Expert",
+      "blockId": 5,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "6a": {
+      "agentId": "6a",
+      "agentName": "Usage Heatmap Analyst",
+      "blockId": 6,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "6b": {
+      "agentId": "6b",
+      "agentName": "Milestone Tracker",
+      "blockId": 6,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "6c": {
+      "agentId": "6c",
+      "agentName": "CS Dashboard Builder",
+      "blockId": 6,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "6d": {
+      "agentId": "6d",
+      "agentName": "Activation Expert",
+      "blockId": 6,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "6e": {
+      "agentId": "6e",
+      "agentName": "Feedback Collector",
+      "blockId": 6,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "6f": {
+      "agentId": "6f",
+      "agentName": "Power User Analyst",
+      "blockId": 6,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "7a": {
+      "agentId": "7a",
+      "agentName": "Time/Cost Analyst",
+      "blockId": 7,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "7b": {
+      "agentId": "7b",
+      "agentName": "Revenue Impact Tracker",
+      "blockId": 7,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "7c": {
+      "agentId": "7c",
+      "agentName": "Productivity Measurer",
+      "blockId": 7,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "7d": {
+      "agentId": "7d",
+      "agentName": "Retention Analyst",
+      "blockId": 7,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "7e": {
+      "agentId": "7e",
+      "agentName": "System Reduction Expert",
+      "blockId": 7,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "7f": {
+      "agentId": "7f",
+      "agentName": "Friction Analyzer",
+      "blockId": 7,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "8a": {
+      "agentId": "8a",
+      "agentName": "Upsell Funnel Designer",
+      "blockId": 8,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "8b": {
+      "agentId": "8b",
+      "agentName": "Team Expansion Tracker",
+      "blockId": 8,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "8c": {
+      "agentId": "8c",
+      "agentName": "Organic Growth Analyst",
+      "blockId": 8,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "8d": {
+      "agentId": "8d",
+      "agentName": "Champion Mapper",
+      "blockId": 8,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "8e": {
+      "agentId": "8e",
+      "agentName": "Sentiment Tracker",
+      "blockId": 8,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "8f": {
+      "agentId": "8f",
+      "agentName": "Renewal Readiness Expert",
+      "blockId": 8,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "9a": {
+      "agentId": "9a",
+      "agentName": "Inbound Conversion Analyst",
+      "blockId": 9,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "9b": {
+      "agentId": "9b",
+      "agentName": "Outbound Performance Tracker",
+      "blockId": 9,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "9c": {
+      "agentId": "9c",
+      "agentName": "Channel Economics Expert",
+      "blockId": 9,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "9d": {
+      "agentId": "9d",
+      "agentName": "Discovery Call Evaluator",
+      "blockId": 9,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "9e": {
+      "agentId": "9e",
+      "agentName": "Demo-to-Close Optimizer",
+      "blockId": 9,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "9f": {
+      "agentId": "9f",
+      "agentName": "Founder Sales Analyst",
+      "blockId": 9,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "10a": {
+      "agentId": "10a",
+      "agentName": "Enablement Asset Manager",
+      "blockId": 10,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "10b": {
+      "agentId": "10b",
+      "agentName": "Rep Ramp Planner",
+      "blockId": 10,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "10c": {
+      "agentId": "10c",
+      "agentName": "Win/Loss Analyst",
+      "blockId": 10,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "10d": {
+      "agentId": "10d",
+      "agentName": "Objection Handler",
+      "blockId": 10,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "10e": {
+      "agentId": "10e",
+      "agentName": "ICP Filter Expert",
+      "blockId": 10,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "10f": {
+      "agentId": "10f",
+      "agentName": "Sales Call Librarian",
+      "blockId": 10,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "11a": {
+      "agentId": "11a",
+      "agentName": "Scorecard Designer",
+      "blockId": 11,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "11b": {
+      "agentId": "11b",
+      "agentName": "Quota Structure Expert",
+      "blockId": 11,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "11c": {
+      "agentId": "11c",
+      "agentName": "Deal Review Manager",
+      "blockId": 11,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "11d": {
+      "agentId": "11d",
+      "agentName": "Forecast Framework Builder",
+      "blockId": 11,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "11e": {
+      "agentId": "11e",
+      "agentName": "Coaching Loop Designer",
+      "blockId": 11,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "11f": {
+      "agentId": "11f",
+      "agentName": "Talent Gap Analyst",
+      "blockId": 11,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "12a": {
+      "agentId": "12a",
+      "agentName": "Onboarding Optimizer",
+      "blockId": 12,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "12b": {
+      "agentId": "12b",
+      "agentName": "Activation Tracker",
+      "blockId": 12,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "12c": {
+      "agentId": "12c",
+      "agentName": "Success Playbook Builder",
+      "blockId": 12,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "12d": {
+      "agentId": "12d",
+      "agentName": "Escalation Manager",
+      "blockId": 12,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "12e": {
+      "agentId": "12e",
+      "agentName": "Renewal Pipeline Expert",
+      "blockId": 12,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "12f": {
+      "agentId": "12f",
+      "agentName": "Churn Root-Cause Analyst",
+      "blockId": 12,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "13a": {
+      "agentId": "13a",
+      "agentName": "Category Narrative Designer",
+      "blockId": 13,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "13b": {
+      "agentId": "13b",
+      "agentName": "Strategic Moat Builder",
+      "blockId": 13,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "13c": {
+      "agentId": "13c",
+      "agentName": "Ecosystem Mapper",
+      "blockId": 13,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "13d": {
+      "agentId": "13d",
+      "agentName": "Competitor Monitor",
+      "blockId": 13,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "13e": {
+      "agentId": "13e",
+      "agentName": "Brand Architect",
+      "blockId": 13,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "13f": {
+      "agentId": "13f",
+      "agentName": "Defensive GTM Strategist",
+      "blockId": 13,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "14a": {
+      "agentId": "14a",
+      "agentName": "System Architecture Expert",
+      "blockId": 14,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "14b": {
+      "agentId": "14b",
+      "agentName": "Revenue Engine Mapper",
+      "blockId": 14,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "14c": {
+      "agentId": "14c",
+      "agentName": "Dashboard Designer",
+      "blockId": 14,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "14d": {
+      "agentId": "14d",
+      "agentName": "Tool Consolidator",
+      "blockId": 14,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "14e": {
+      "agentId": "14e",
+      "agentName": "RevOps Playbook Builder",
+      "blockId": 14,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "14f": {
+      "agentId": "14f",
+      "agentName": "SLA Policy Manager",
+      "blockId": 14,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "15a": {
+      "agentId": "15a",
+      "agentName": "VP Hiring Expert",
+      "blockId": 15,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "15b": {
+      "agentId": "15b",
+      "agentName": "Succession Planner",
+      "blockId": 15,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "15c": {
+      "agentId": "15c",
+      "agentName": "Executive Cadence Manager",
+      "blockId": 15,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "15d": {
+      "agentId": "15d",
+      "agentName": "Culture Health Tracker",
+      "blockId": 15,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "15e": {
+      "agentId": "15e",
+      "agentName": "Org Chart Designer",
+      "blockId": 15,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "15f": {
+      "agentId": "15f",
+      "agentName": "DEI Integration Specialist",
+      "blockId": 15,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "16a": {
+      "agentId": "16a",
+      "agentName": "Market Entry Analyst",
+      "blockId": 16,
+      "subId": 1,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "16b": {
+      "agentId": "16b",
+      "agentName": "Localization Expert",
+      "blockId": 16,
+      "subId": 2,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "16c": {
+      "agentId": "16c",
+      "agentName": "International Pricing Strategist",
+      "blockId": 16,
+      "subId": 3,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "16d": {
+      "agentId": "16d",
+      "agentName": "Compliance Tracker",
+      "blockId": 16,
+      "subId": 4,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "16e": {
+      "agentId": "16e",
+      "agentName": "Geo-GTM Specialist",
+      "blockId": 16,
+      "subId": 5,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    },
+    "16f": {
+      "agentId": "16f",
+      "agentName": "Expansion Risk Assessor",
+      "blockId": 16,
+      "subId": 6,
+      "status": "passed",
+      "education": {
+        "status": "passed",
+        "checks": [
+          "Agent name presence",
+          "No generic placeholders",
+          "Required sections present"
+        ],
+        "issues": []
+      },
+      "workspace": {
+        "status": "passed",
+        "checks": [
+          "Question count: 7",
+          "Dimension relevance"
+        ],
+        "issues": []
+      },
+      "analysis": {
+        "status": "passed",
+        "checks": [
+          "Dimension count",
+          "Analyze button presence"
+        ],
+        "issues": []
+      },
+      "scoreHistory": {
+        "status": "passed",
+        "checks": [
+          "Score history tab loads"
+        ],
+        "issues": []
+      },
+      "templates": {
+        "status": "passed",
+        "checks": [
+          "Output tab loads"
+        ],
+        "issues": []
+      },
+      "resources": {
+        "status": "passed",
+        "checks": [
+          "Resources tab loads"
+        ],
+        "issues": []
+      },
+      "visual": {
+        "status": "passed",
+        "checks": [
+          "Dark theme",
+          "Orange branding"
+        ],
+        "issues": []
+      },
+      "issues": []
+    }
+  }
+}

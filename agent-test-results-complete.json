@@ -1,0 +1,3754 @@
+{
+  "timestamp": "2025-10-05T22:52:55.011Z",
+  "totalAgents": 96,
+  "passed": [
+    "1-1",
+    "1-4",
+    "1-5",
+    "1-6",
+    "2-1",
+    "2-2",
+    "2-3",
+    "2-4",
+    "2-5",
+    "2-6",
+    "3-1",
+    "3-2",
+    "3-3",
+    "3-4",
+    "3-5",
+    "3-6",
+    "4-1",
+    "4-2",
+    "4-3",
+    "4-4",
+    "4-5",
+    "4-6",
+    "5-1",
+    "5-2",
+    "5-3",
+    "5-4",
+    "5-5",
+    "5-6",
+    "6-1",
+    "6-2",
+    "6-3",
+    "6-4",
+    "6-5",
+    "6-6",
+    "7-1",
+    "7-2",
+    "7-3",
+    "7-4",
+    "7-5",
+    "7-6",
+    "8-1",
+    "8-2",
+    "8-3",
+    "8-4",
+    "8-5",
+    "8-6",
+    "9-1",
+    "9-2",
+    "9-3",
+    "9-4",
+    "9-5",
+    "9-6",
+    "10-1",
+    "10-2",
+    "10-3",
+    "10-4",
+    "10-5",
+    "10-6",
+    "11-1",
+    "11-2",
+    "11-3",
+    "11-4",
+    "11-5",
+    "11-6",
+    "12-1",
+    "12-2",
+    "12-3",
+    "12-4",
+    "12-5",
+    "12-6",
+    "13-1",
+    "13-2",
+    "13-3",
+    "13-4",
+    "13-5",
+    "13-6",
+    "14-1",
+    "14-2",
+    "14-3",
+    "14-4",
+    "14-5",
+    "14-6",
+    "15-1",
+    "15-2",
+    "15-3",
+    "15-4",
+    "15-5",
+    "15-6",
+    "16-1",
+    "16-2",
+    "16-3",
+    "16-4",
+    "16-5",
+    "16-6"
+  ],
+  "failed": [
+    "1-2",
+    "1-3"
+  ],
+  "details": {
+    "1-1": {
+      "subcomponentId": "1-1",
+      "timestamp": "2025-10-05T22:52:55.045Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Problem Definition Evaluator (Subcomponent: Problem Statement Definition)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "1-2": {
+      "subcomponentId": "1-2",
+      "timestamp": "2025-10-05T22:52:55.045Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": false,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Mission Alignment Advisor (Subcomponent: Mission Statement)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "1-3": {
+      "subcomponentId": "1-3",
+      "timestamp": "2025-10-05T22:52:55.046Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": false,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: VoC Synthesizer (Subcomponent: Voice of Customer)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "1-4": {
+      "subcomponentId": "1-4",
+      "timestamp": "2025-10-05T22:52:55.046Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Team Gap Identifier (Subcomponent: Team Assessment)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "1-5": {
+      "subcomponentId": "1-5",
+      "timestamp": "2025-10-05T22:52:55.047Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Market Mapper (Subcomponent: Market Landscape)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "1-6": {
+      "subcomponentId": "1-6",
+      "timestamp": "2025-10-05T22:52:55.047Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Launch Plan Assessor (Subcomponent: Launch Readiness)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "2-1": {
+      "subcomponentId": "2-1",
+      "timestamp": "2025-10-05T22:52:56.067Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Interview Cadence Analyzer (Subcomponent: Jobs to be Done)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "2-2": {
+      "subcomponentId": "2-2",
+      "timestamp": "2025-10-05T22:52:56.067Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Persona Framework Builder (Subcomponent: Personas Framework)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "2-3": {
+      "subcomponentId": "2-3",
+      "timestamp": "2025-10-05T22:52:56.067Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Pain Point Mapper (Subcomponent: Interview Cadence)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "2-4": {
+      "subcomponentId": "2-4",
+      "timestamp": "2025-10-05T22:52:56.067Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: JTBD Specialist (Subcomponent: Pain Point Mapping)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "2-5": {
+      "subcomponentId": "2-5",
+      "timestamp": "2025-10-05T22:52:56.068Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Signal Grader (Subcomponent: Insight Action)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "2-6": {
+      "subcomponentId": "2-6",
+      "timestamp": "2025-10-05T22:52:56.068Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Insight Loop Manager (Subcomponent: Customer Journey)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "3-1": {
+      "subcomponentId": "3-1",
+      "timestamp": "2025-10-05T22:52:57.088Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Use Case Scorer (Subcomponent: Use Case Prioritization)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "3-2": {
+      "subcomponentId": "3-2",
+      "timestamp": "2025-10-05T22:52:57.088Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Segment Tier Analyst (Subcomponent: Resource Allocation)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "3-3": {
+      "subcomponentId": "3-3",
+      "timestamp": "2025-10-05T22:52:57.089Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Prioritization Expert (Subcomponent: Risk Assessment)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "3-4": {
+      "subcomponentId": "3-4",
+      "timestamp": "2025-10-05T22:52:57.089Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Tradeoff Tracker (Subcomponent: Timeline Planning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "3-5": {
+      "subcomponentId": "3-5",
+      "timestamp": "2025-10-05T22:52:57.089Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Hypothesis Validator (Subcomponent: Success Metrics)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "3-6": {
+      "subcomponentId": "3-6",
+      "timestamp": "2025-10-05T22:52:57.089Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Decision Archivist (Subcomponent: Decision Framework)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "4-1": {
+      "subcomponentId": "4-1",
+      "timestamp": "2025-10-05T22:52:58.103Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Feature Matrix Builder (Subcomponent: MVP Definition)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "4-2": {
+      "subcomponentId": "4-2",
+      "timestamp": "2025-10-05T22:52:58.103Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Technical Scope Expert (Subcomponent: Feature Prioritization)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "4-3": {
+      "subcomponentId": "4-3",
+      "timestamp": "2025-10-05T22:52:58.103Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Pilot Group Selector (Subcomponent: Testing Strategy)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "4-4": {
+      "subcomponentId": "4-4",
+      "timestamp": "2025-10-05T22:52:58.103Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: QA Criteria Setter (Subcomponent: Feedback Loops)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "4-5": {
+      "subcomponentId": "4-5",
+      "timestamp": "2025-10-05T22:52:58.103Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Timeline Planner (Subcomponent: Iteration Planning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "4-6": {
+      "subcomponentId": "4-6",
+      "timestamp": "2025-10-05T22:52:58.103Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Post-Mortem Analyst (Subcomponent: Launch Strategy)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "5-1": {
+      "subcomponentId": "5-1",
+      "timestamp": "2025-10-05T22:52:59.123Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: GTMMessagingAgent (Subcomponent: Target Identification)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "5-2": {
+      "subcomponentId": "5-2",
+      "timestamp": "2025-10-05T22:52:59.123Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: SalesEnablementAgent (Subcomponent: Messaging Framework)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "5-3": {
+      "subcomponentId": "5-3",
+      "timestamp": "2025-10-05T22:52:59.123Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: PricingPackagingAgent (Subcomponent: Channel Strategy)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "5-4": {
+      "subcomponentId": "5-4",
+      "timestamp": "2025-10-05T22:52:59.123Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: ChannelPartnerAgent (Subcomponent: Pricing Model)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "5-5": {
+      "subcomponentId": "5-5",
+      "timestamp": "2025-10-05T22:52:59.123Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: CompetitivePositioningAgent (Subcomponent: Sales Enablement)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "5-6": {
+      "subcomponentId": "5-6",
+      "timestamp": "2025-10-05T22:52:59.123Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: LaunchPlanningAgent (Subcomponent: Launch Planning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "6-1": {
+      "subcomponentId": "6-1",
+      "timestamp": "2025-10-05T22:53:00.135Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Usage Heatmap Analyst (Subcomponent: Acquisition Strategy)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "6-2": {
+      "subcomponentId": "6-2",
+      "timestamp": "2025-10-05T22:53:00.135Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Milestone Tracker (Subcomponent: Activation Process)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "6-3": {
+      "subcomponentId": "6-3",
+      "timestamp": "2025-10-05T22:53:00.135Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: CS Dashboard Builder (Subcomponent: Retention Programs)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "6-4": {
+      "subcomponentId": "6-4",
+      "timestamp": "2025-10-05T22:53:00.135Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Activation Expert (Subcomponent: Referral Systems)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "6-5": {
+      "subcomponentId": "6-5",
+      "timestamp": "2025-10-05T22:53:00.136Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Feedback Collector (Subcomponent: Revenue Optimization)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "6-6": {
+      "subcomponentId": "6-6",
+      "timestamp": "2025-10-05T22:53:00.136Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Power User Analyst (Subcomponent: Engagement Metrics)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "7-1": {
+      "subcomponentId": "7-1",
+      "timestamp": "2025-10-05T22:53:01.160Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Time/Cost Analyst (Subcomponent: KPI Framework)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "7-2": {
+      "subcomponentId": "7-2",
+      "timestamp": "2025-10-05T22:53:01.160Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Revenue Impact Tracker (Subcomponent: Data Collection)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "7-3": {
+      "subcomponentId": "7-3",
+      "timestamp": "2025-10-05T22:53:01.160Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Productivity Measurer (Subcomponent: Analytics Setup)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "7-4": {
+      "subcomponentId": "7-4",
+      "timestamp": "2025-10-05T22:53:01.161Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Retention Analyst (Subcomponent: Impact Metrics)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "7-5": {
+      "subcomponentId": "7-5",
+      "timestamp": "2025-10-05T22:53:01.161Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: System Reduction Expert (Subcomponent: ROI Calculation)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "7-6": {
+      "subcomponentId": "7-6",
+      "timestamp": "2025-10-05T22:53:01.161Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Friction Analyzer (Subcomponent: Reporting Systems)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "8-1": {
+      "subcomponentId": "8-1",
+      "timestamp": "2025-10-05T22:53:02.178Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Upsell Funnel Designer (Subcomponent: Success Planning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "8-2": {
+      "subcomponentId": "8-2",
+      "timestamp": "2025-10-05T22:53:02.178Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Team Expansion Tracker (Subcomponent: Onboarding Process)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "8-3": {
+      "subcomponentId": "8-3",
+      "timestamp": "2025-10-05T22:53:02.178Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Organic Growth Analyst (Subcomponent: Support Systems)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "8-4": {
+      "subcomponentId": "8-4",
+      "timestamp": "2025-10-05T22:53:02.179Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Champion Mapper (Subcomponent: Upsell Strategy)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "8-5": {
+      "subcomponentId": "8-5",
+      "timestamp": "2025-10-05T22:53:02.179Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Sentiment Tracker (Subcomponent: Renewal Process)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "8-6": {
+      "subcomponentId": "8-6",
+      "timestamp": "2025-10-05T22:53:02.179Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Renewal Readiness Expert (Subcomponent: Advocacy Programs)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "9-1": {
+      "subcomponentId": "9-1",
+      "timestamp": "2025-10-05T22:53:03.204Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Inbound Conversion Analyst (Subcomponent: Pilot Programs)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "9-2": {
+      "subcomponentId": "9-2",
+      "timestamp": "2025-10-05T22:53:03.204Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Outbound Performance Tracker (Subcomponent: Case Studies)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "9-3": {
+      "subcomponentId": "9-3",
+      "timestamp": "2025-10-05T22:53:03.204Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Channel Economics Expert (Subcomponent: Reference Customers)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "9-4": {
+      "subcomponentId": "9-4",
+      "timestamp": "2025-10-05T22:53:03.204Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Discovery Call Evaluator (Subcomponent: Success Stories)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "9-5": {
+      "subcomponentId": "9-5",
+      "timestamp": "2025-10-05T22:53:03.204Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Demo-to-Close Optimizer (Subcomponent: ROI Documentation)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "9-6": {
+      "subcomponentId": "9-6",
+      "timestamp": "2025-10-05T22:53:03.204Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Founder Sales Analyst (Subcomponent: Market Validation)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "10-1": {
+      "subcomponentId": "10-1",
+      "timestamp": "2025-10-05T22:53:04.211Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Enablement Asset Manager (Subcomponent: Sales Training)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "10-2": {
+      "subcomponentId": "10-2",
+      "timestamp": "2025-10-05T22:53:04.211Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Rep Ramp Planner (Subcomponent: Playbook Development)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "10-3": {
+      "subcomponentId": "10-3",
+      "timestamp": "2025-10-05T22:53:04.211Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Win/Loss Analyst (Subcomponent: Tool Implementation)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "10-4": {
+      "subcomponentId": "10-4",
+      "timestamp": "2025-10-05T22:53:04.211Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Objection Handler (Subcomponent: Performance Tracking)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "10-5": {
+      "subcomponentId": "10-5",
+      "timestamp": "2025-10-05T22:53:04.211Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: ICP Filter Expert (Subcomponent: Incentive Design)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "10-6": {
+      "subcomponentId": "10-6",
+      "timestamp": "2025-10-05T22:53:04.211Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Sales Call Librarian (Subcomponent: Team Scaling)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "11-1": {
+      "subcomponentId": "11-1",
+      "timestamp": "2025-10-05T22:53:05.229Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Scorecard Designer (Subcomponent: Team Structure)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "11-2": {
+      "subcomponentId": "11-2",
+      "timestamp": "2025-10-05T22:53:05.229Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Quota Structure Expert (Subcomponent: Hiring Process)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "11-3": {
+      "subcomponentId": "11-3",
+      "timestamp": "2025-10-05T22:53:05.229Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Deal Review Manager (Subcomponent: Culture Building)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "11-4": {
+      "subcomponentId": "11-4",
+      "timestamp": "2025-10-05T22:53:05.229Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Forecast Framework Builder (Subcomponent: Performance Management)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "11-5": {
+      "subcomponentId": "11-5",
+      "timestamp": "2025-10-05T22:53:05.229Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Coaching Loop Designer (Subcomponent: Development Programs)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "11-6": {
+      "subcomponentId": "11-6",
+      "timestamp": "2025-10-05T22:53:05.229Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Talent Gap Analyst (Subcomponent: Leadership Pipeline)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "12-1": {
+      "subcomponentId": "12-1",
+      "timestamp": "2025-10-05T22:53:06.242Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Onboarding Optimizer (Subcomponent: Churn Analysis)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "12-2": {
+      "subcomponentId": "12-2",
+      "timestamp": "2025-10-05T22:53:06.242Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Activation Tracker (Subcomponent: Retention Strategies)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "12-3": {
+      "subcomponentId": "12-3",
+      "timestamp": "2025-10-05T22:53:06.242Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Success Playbook Builder (Subcomponent: Customer Health)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "12-4": {
+      "subcomponentId": "12-4",
+      "timestamp": "2025-10-05T22:53:06.242Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Escalation Manager (Subcomponent: Engagement Programs)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "12-5": {
+      "subcomponentId": "12-5",
+      "timestamp": "2025-10-05T22:53:06.242Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Renewal Pipeline Expert (Subcomponent: Win-back Campaigns)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "12-6": {
+      "subcomponentId": "12-6",
+      "timestamp": "2025-10-05T22:53:06.242Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Churn Root-Cause Analyst (Subcomponent: Loyalty Programs)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "13-1": {
+      "subcomponentId": "13-1",
+      "timestamp": "2025-10-05T22:53:07.258Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Category Narrative Designer (Subcomponent: Competitive Analysis)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "13-2": {
+      "subcomponentId": "13-2",
+      "timestamp": "2025-10-05T22:53:07.259Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Strategic Moat Builder (Subcomponent: Market Positioning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "13-3": {
+      "subcomponentId": "13-3",
+      "timestamp": "2025-10-05T22:53:07.259Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Ecosystem Mapper (Subcomponent: Category Creation)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "13-4": {
+      "subcomponentId": "13-4",
+      "timestamp": "2025-10-05T22:53:07.259Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Competitor Monitor (Subcomponent: Thought Leadership)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "13-5": {
+      "subcomponentId": "13-5",
+      "timestamp": "2025-10-05T22:53:07.259Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Brand Architect (Subcomponent: Strategic Partnerships)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "13-6": {
+      "subcomponentId": "13-6",
+      "timestamp": "2025-10-05T22:53:07.259Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Defensive GTM Strategist (Subcomponent: Market Expansion)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "14-1": {
+      "subcomponentId": "14-1",
+      "timestamp": "2025-10-05T22:53:08.268Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: System Architecture Expert (Subcomponent: Process Optimization)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "14-2": {
+      "subcomponentId": "14-2",
+      "timestamp": "2025-10-05T22:53:08.268Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Revenue Engine Mapper (Subcomponent: Technology Stack)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "14-3": {
+      "subcomponentId": "14-3",
+      "timestamp": "2025-10-05T22:53:08.268Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Dashboard Designer (Subcomponent: Automation Systems)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "14-4": {
+      "subcomponentId": "14-4",
+      "timestamp": "2025-10-05T22:53:08.268Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Tool Consolidator (Subcomponent: Quality Control)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "14-5": {
+      "subcomponentId": "14-5",
+      "timestamp": "2025-10-05T22:53:08.268Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: RevOps Playbook Builder (Subcomponent: Supply Chain)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "14-6": {
+      "subcomponentId": "14-6",
+      "timestamp": "2025-10-05T22:53:08.268Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: SLA Policy Manager (Subcomponent: Risk Management)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "15-1": {
+      "subcomponentId": "15-1",
+      "timestamp": "2025-10-05T22:53:09.282Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: ExecutiveHiringAgent (Subcomponent: Executive Development)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "15-2": {
+      "subcomponentId": "15-2",
+      "timestamp": "2025-10-05T22:53:09.282Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: BoardGovernanceAgent (Subcomponent: Board Relations)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "15-3": {
+      "subcomponentId": "15-3",
+      "timestamp": "2025-10-05T22:53:09.282Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: SuccessionPlanningAgent (Subcomponent: Succession Planning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "15-4": {
+      "subcomponentId": "15-4",
+      "timestamp": "2025-10-05T22:53:09.282Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: StakeholderAlignmentAgent (Subcomponent: Leadership Training)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "15-5": {
+      "subcomponentId": "15-5",
+      "timestamp": "2025-10-05T22:53:09.282Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: InvestorRelationsAgent (Subcomponent: Vision Alignment)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "15-6": {
+      "subcomponentId": "15-6",
+      "timestamp": "2025-10-05T22:53:09.282Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 8 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: LeadershipDynamicsAgent (Subcomponent: Strategic Planning)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "16-1": {
+      "subcomponentId": "16-1",
+      "timestamp": "2025-10-05T22:53:10.299Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Market Entry Analyst (Subcomponent: Market Selection)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "16-2": {
+      "subcomponentId": "16-2",
+      "timestamp": "2025-10-05T22:53:10.300Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Localization Expert (Subcomponent: Entry Strategy)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "16-3": {
+      "subcomponentId": "16-3",
+      "timestamp": "2025-10-05T22:53:10.300Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: International Pricing Strategist (Subcomponent: Localization)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "16-4": {
+      "subcomponentId": "16-4",
+      "timestamp": "2025-10-05T22:53:10.300Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Compliance Tracker (Subcomponent: Global Partnerships)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "16-5": {
+      "subcomponentId": "16-5",
+      "timestamp": "2025-10-05T22:53:10.300Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Geo-GTM Specialist (Subcomponent: Regulatory Compliance)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    },
+    "16-6": {
+      "subcomponentId": "16-6",
+      "timestamp": "2025-10-05T22:53:10.300Z",
+      "tests": {
+        "educationTab": {
+          "passed": true,
+          "details": "✅ Education content present with 5 examples (Examples have 6 sentences)"
+        },
+        "workspaceQuestions": {
+          "passed": true,
+          "details": "✅ 7 questions loaded with ST6Co context"
+        },
+        "agentRole": {
+          "passed": true,
+          "details": "✅ Agent: Expansion Risk Assessor (Subcomponent: Global Operations)"
+        },
+        "scoring": {
+          "passed": true,
+          "details": "✅ 5 scoring dimensions configured"
+        },
+        "scoreHistory": {
+          "passed": true,
+          "details": "✅ Score history available (10 records)"
+        },
+        "templates": {
+          "passed": true,
+          "details": "✅ 3 customized templates available"
+        },
+        "resources": {
+          "passed": true,
+          "details": "✅ 4 resources with ST6Co customization"
+        },
+        "layoutConsistency": {
+          "passed": true,
+          "details": "✅ Using consistent subcomponent-detail.html template"
+        }
+      }
+    }
+  }
+}

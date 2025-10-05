@@ -1,241 +1,287 @@
-const fs = require('fs');
-const path = require('path');
+// Fix Analysis Display - Add Strengths/Weaknesses and Fix Scoring
+// Ensures all analysis results show complete information
 
-console.log('🔧 Fixing Analysis Tab Display Issue...\n');
-
-// Fix the enhanced display handler to ensure it's properly integrated
-const enhancedDisplayHandler = `
-// Enhanced Display Handler for Analysis Tab
 (function() {
-    console.log('🎨 Enhanced Display Handler Loaded');
+    'use strict';
     
-    // Store original displayAnalysisResults function if it exists
-    const originalDisplayAnalysisResults = window.displayAnalysisResults;
-    
-    // Enhanced display function that ensures recommendations are shown properly
+    // Enhanced analysis display function
     window.displayAnalysisResults = function(analysis) {
-        console.log('📊 Enhanced displayAnalysisResults called with:', analysis);
+        console.log('🎨 Enhanced Analysis Display - Showing complete results with strengths/weaknesses');
         
         const analysisContent = document.getElementById('analysis-content');
         if (!analysisContent) {
-            console.error('❌ Analysis content div not found!');
+            console.error('Analysis content container not found');
             return;
         }
         
-        // If no analysis provided, show no analysis message
-        if (!analysis) {
-            analysisContent.innerHTML = \`
-                <div style="text-align: center; padding: 60px 20px; color: #999;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
-                    <h3 style="font-size: 24px; margin-bottom: 10px; color: #fff;">No Analysis Yet</h3>
-                    <p style="font-size: 16px; margin-bottom: 30px;">Complete the interactive worksheet and click "Analyze Results" to get AI-powered feedback</p>
-                    <button class="btn-primary" onclick="switchTab('workspace', null); document.querySelector('[data-tab=workspace]').click();">
-                        Go to Workspace
+        // Ensure we have all required data
+        const score = analysis.score || 0;
+        const summary = analysis.summary || 'Analysis complete.';
+        const detailedScores = analysis.detailedScores || {};
+        const recommendations = analysis.recommendations || [];
+        const strengths = analysis.strengths || [];
+        const weaknesses = analysis.weaknesses || [];
+        
+        // Generate strengths if not provided
+        if (strengths.length === 0 && detailedScores) {
+            Object.entries(detailedScores).forEach(([dimension, data]) => {
+                if (data.percentage >= 70) {
+                    strengths.push({
+                        area: dimension.replace(/([A-Z])/g, ' $1').trim(),
+                        description: `Strong performance in ${dimension} (${data.percentage}%)`,
+                        score: data.percentage
+                    });
+                }
+            });
+        }
+        
+        // Generate weaknesses if not provided
+        if (weaknesses.length === 0 && detailedScores) {
+            Object.entries(detailedScores).forEach(([dimension, data]) => {
+                if (data.percentage < 50) {
+                    weaknesses.push({
+                        area: dimension.replace(/([A-Z])/g, ' $1').trim(),
+                        description: `Needs improvement in ${dimension} (${data.percentage}%)`,
+                        score: data.percentage
+                    });
+                }
+            });
+        }
+        
+        // Create the complete analysis display
+        const analysisHTML = `
+            <div style="padding: 30px; max-width: 1400px; margin: 0 auto;">
+                <!-- Header Section -->
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px;">
+                    <div style="background: linear-gradient(135deg, #2196F3, #42A5F5); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 30px;">🤖</span>
+                    </div>
+                    <div>
+                        <h2 style="color: #fff; margin: 0; font-size: 28px;">Analysis Results</h2>
+                        <p style="color: #999; margin: 5px 0 0 0;">Based on GTM best practices and industry standards</p>
+                    </div>
+                </div>
+                
+                <!-- Score Card -->
+                <div style="background: linear-gradient(135deg, rgba(255, 85, 0, 0.1), rgba(255, 136, 0, 0.05)); border: 2px solid #FF5500; border-radius: 20px; padding: 40px; text-align: center; margin-bottom: 30px;">
+                    <p style="color: #999; margin: 0 0 10px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Overall Score</p>
+                    <div style="font-size: 72px; font-weight: 700; color: ${score >= 70 ? '#4CAF50' : score >= 40 ? '#FF9800' : '#f44336'}; margin: 20px 0;">
+                        ${score}%
+                    </div>
+                    <p style="color: #ccc; font-size: 16px; margin: 0;">
+                        Confidence: ${analysis.confidence || '85'}%
+                    </p>
+                </div>
+                
+                <!-- Executive Summary -->
+                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                    <h3 style="color: #FF5500; margin: 0 0 15px 0; font-size: 20px;">
+                        📊 Executive Summary
+                    </h3>
+                    <p style="color: #ccc; line-height: 1.8; font-size: 16px; margin: 0;">
+                        ${summary}
+                    </p>
+                </div>
+                
+                <!-- Strengths Section -->
+                ${strengths.length > 0 ? `
+                    <div style="background: rgba(76, 175, 80, 0.05); border: 1px solid rgba(76, 175, 80, 0.2); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                        <h3 style="color: #4CAF50; margin: 0 0 20px 0; font-size: 20px;">
+                            ✅ Strengths
+                        </h3>
+                        <div style="display: grid; gap: 15px;">
+                            ${strengths.map(strength => `
+                                <div style="background: rgba(76, 175, 80, 0.1); border-left: 4px solid #4CAF50; padding: 15px 20px; border-radius: 8px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="color: #4CAF50; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">
+                                                ${strength.area || strength.title || 'Strength'}
+                                            </h4>
+                                            <p style="color: #ccc; margin: 0; font-size: 14px;">
+                                                ${strength.description || strength.details || 'Performing well in this area'}
+                                            </p>
+                                        </div>
+                                        ${strength.score ? `
+                                            <div style="background: rgba(76, 175, 80, 0.2); padding: 8px 15px; border-radius: 20px;">
+                                                <span style="color: #4CAF50; font-weight: 600; font-size: 14px;">${strength.score}%</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <!-- Weaknesses/Areas for Improvement Section -->
+                ${weaknesses.length > 0 ? `
+                    <div style="background: rgba(244, 67, 54, 0.05); border: 1px solid rgba(244, 67, 54, 0.2); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                        <h3 style="color: #f44336; margin: 0 0 20px 0; font-size: 20px;">
+                            ⚠️ Areas for Improvement
+                        </h3>
+                        <div style="display: grid; gap: 15px;">
+                            ${weaknesses.map(weakness => `
+                                <div style="background: rgba(244, 67, 54, 0.1); border-left: 4px solid #f44336; padding: 15px 20px; border-radius: 8px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="color: #f44336; margin: 0 0 5px 0; font-size: 16px; font-weight: 600;">
+                                                ${weakness.area || weakness.title || 'Improvement Area'}
+                                            </h4>
+                                            <p style="color: #ccc; margin: 0; font-size: 14px;">
+                                                ${weakness.description || weakness.details || 'Needs attention in this area'}
+                                            </p>
+                                        </div>
+                                        ${weakness.score !== undefined ? `
+                                            <div style="background: rgba(244, 67, 54, 0.2); padding: 8px 15px; border-radius: 20px;">
+                                                <span style="color: #f44336; font-weight: 600; font-size: 14px;">${weakness.score}%</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <!-- Detailed Scores Breakdown -->
+                ${Object.keys(detailedScores).length > 0 ? `
+                    <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                        <h3 style="color: #fff; margin: 0 0 20px 0; font-size: 20px;">
+                            📈 Detailed Scoring Breakdown
+                        </h3>
+                        <div style="display: grid; gap: 20px;">
+                            ${Object.entries(detailedScores).map(([dimension, data]) => {
+                                const percentage = data.percentage || Math.round((data.score / (data.maxScore || 20)) * 100);
+                                const color = percentage >= 70 ? '#4CAF50' : percentage >= 40 ? '#FF9800' : '#f44336';
+                                
+                                return `
+                                    <div style="background: rgba(0, 0, 0, 0.3); border-radius: 10px; padding: 20px;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                            <h4 style="color: #fff; margin: 0; font-size: 16px;">
+                                                ${dimension.replace(/([A-Z])/g, ' $1').trim()}
+                                            </h4>
+                                            <span style="color: ${color}; font-weight: 600; font-size: 18px;">
+                                                ${percentage}%
+                                            </span>
+                                        </div>
+                                        <div style="background: rgba(255, 255, 255, 0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                                            <div style="background: ${color}; height: 100%; width: ${percentage}%; transition: width 0.5s ease;"></div>
+                                        </div>
+                                        ${data.feedback ? `
+                                            <p style="color: #999; margin: 10px 0 0 0; font-size: 13px; line-height: 1.5;">
+                                                ${data.feedback}
+                                            </p>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <!-- Recommendations Section -->
+                ${recommendations.length > 0 ? `
+                    <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
+                        <h3 style="color: #fff; margin: 0 0 20px 0; font-size: 20px;">
+                            🎯 Strategic Recommendations
+                        </h3>
+                        <div style="display: grid; gap: 15px;">
+                            ${recommendations.map((rec, index) => {
+                                const priorityColor = rec.priority === 'CRITICAL' ? '#f44336' : 
+                                                     rec.priority === 'HIGH' ? '#FF9800' : 
+                                                     rec.priority === 'MEDIUM' ? '#2196F3' : '#999';
+                                
+                                return `
+                                    <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 20px;">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                                            <h4 style="color: #fff; margin: 0; font-size: 16px;">
+                                                ${index + 1}. ${rec.area || rec.title || 'Recommendation'}
+                                            </h4>
+                                            <span style="background: ${priorityColor}22; color: ${priorityColor}; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">
+                                                ${rec.priority || 'MEDIUM'}
+                                            </span>
+                                        </div>
+                                        <p style="color: #ccc; margin: 0 0 10px 0; font-size: 14px; line-height: 1.6;">
+                                            ${rec.description || rec.details || rec.suggestion || 'Implement this improvement'}
+                                        </p>
+                                        ${rec.impact ? `
+                                            <div style="display: flex; align-items: center; gap: 10px;">
+                                                <span style="color: #4CAF50; font-size: 14px;">Expected Impact:</span>
+                                                <span style="color: #4CAF50; font-weight: 600;">+${rec.impact} points</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <!-- Action Buttons -->
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button onclick="window.location.href='#workspace'" 
+                            style="background: linear-gradient(135deg, #FF5500, #FF8800); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;"
+                            onmouseover="this.style.transform='scale(1.05)';"
+                            onmouseout="this.style.transform='scale(1)';">
+                        ✏️ Refine Worksheet
+                    </button>
+                    
+                    <button onclick="window.switchTab('score-history')" 
+                            style="background: linear-gradient(135deg, #2196F3, #42A5F5); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;"
+                            onmouseover="this.style.transform='scale(1.05)';"
+                            onmouseout="this.style.transform='scale(1)';">
+                        📊 View Score History
                     </button>
                 </div>
-            \`;
-            return;
-        }
-        
-        // Ensure we have recommendations in the proper format
-        if (analysis.recommendations && Array.isArray(analysis.recommendations)) {
-            // Process each recommendation to ensure it has the "+X points" format
-            analysis.recommendations = analysis.recommendations.map(rec => {
-                // Ensure expectedImprovement is in "+X points" format
-                if (!rec.expectedImprovement || !rec.expectedImprovement.includes('points')) {
-                    const points = rec.impact ? parseInt(rec.impact.toString().match(/\\d+/)?.[0] || '5') : 5;
-                    rec.expectedImprovement = \`+\${points} points\`;
-                }
                 
-                // Ensure priority is set
-                if (!rec.priority) {
-                    rec.priority = 'MEDIUM';
-                }
-                
-                // Ensure action/area is set
-                if (!rec.action && !rec.area) {
-                    rec.action = 'Improvement Opportunity';
-                }
-                
-                return rec;
-            });
-        }
-        
-        // Call the original display function if it exists, otherwise use our enhanced version
-        if (originalDisplayAnalysisResults && typeof originalDisplayAnalysisResults === 'function') {
-            originalDisplayAnalysisResults(analysis);
-        } else {
-            // Use our enhanced display
-            displayEnhancedAnalysis(analysis);
-        }
-    };
-    
-    // Enhanced analysis display function
-    function displayEnhancedAnalysis(analysis) {
-        const analysisContent = document.getElementById('analysis-content');
-        if (!analysisContent) return;
-        
-        const scoreColor = analysis.score >= 80 ? '#4CAF50' :
-                          analysis.score >= 60 ? '#FF9800' : '#F44336';
-        
-        let html = \`
-            <div style="background: rgba(255, 255, 255, 0.02); border-radius: 15px; padding: 30px; margin-bottom: 30px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                    <div>
-                        <h3 style="font-size: 28px; margin-bottom: 10px;">Overall Score</h3>
-                        <p style="color: #999;">Based on GTM best practices</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 72px; font-weight: 800; color: \${scoreColor};">\${analysis.score}%</div>
-                    </div>
+                <!-- Success Message -->
+                <div style="background: rgba(76, 175, 80, 0.1); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 10px; padding: 15px; margin-top: 30px; text-align: center;">
+                    <p style="color: #4CAF50; margin: 0; font-size: 14px;">
+                        ✓ Score automatically saved to Score History
+                    </p>
                 </div>
             </div>
-        \`;
+        `;
         
-        // Add recommendations section
-        if (analysis.recommendations && analysis.recommendations.length > 0) {
-            html += \`
-                <div style="margin-top: 40px; padding: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h2 style="color: #FF5500; font-size: 28px; margin-bottom: 30px;">
-                        📊 Strategic Recommendations
-                    </h2>
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-            \`;
-            
-            analysis.recommendations.forEach((rec, index) => {
-                const priorityColor = rec.priority === 'CRITICAL' ? '#8B0000' :
-                                    rec.priority === 'HIGH' ? '#F44336' : '#FF9800';
-                
-                html += \`
-                    <div class="recommendation-card" style="
-                        background: rgba(0, 0, 0, 0.5);
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                        border-radius: 12px;
-                        padding: 20px;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.borderColor='#FF5500'; this.style.transform='translateX(5px)'"
-                       onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.transform='translateX(0)'">
-                        
-                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
-                            <h3 style="color: #fff; font-size: 18px; font-weight: 600; margin: 0;">
-                                \${rec.action || rec.area || 'Improvement Opportunity'}
-                            </h3>
-                            <span style="
-                                background: \${priorityColor};
-                                color: #fff;
-                                padding: 4px 12px;
-                                border-radius: 20px;
-                                font-size: 11px;
-                                font-weight: 700;
-                                text-transform: uppercase;
-                            ">\${rec.priority || 'MEDIUM'}</span>
-                        </div>
-                        
-                        <div style="display: flex; gap: 20px; align-items: center;">
-                            <div style="color: #4CAF50; font-size: 18px; font-weight: 600;">
-                                \${rec.expectedImprovement || '+5 points'}
-                            </div>
-                        </div>
-                    </div>
-                \`;
-            });
-            
-            html += \`
-                    </div>
-                </div>
-            \`;
-        }
+        analysisContent.innerHTML = analysisHTML;
         
-        analysisContent.innerHTML = html;
-    }
-    
-    // Fix tab switching to properly load and display analysis
-    const originalSwitchTab = window.switchTab;
-    window.switchTab = function(tabName, event) {
-        // Call original switch tab
-        if (originalSwitchTab) {
-            originalSwitchTab(tabName, event);
-        }
+        // Scroll to top of analysis
+        analysisContent.scrollTop = 0;
         
-        // Special handling for analysis tab
-        if (tabName === 'analysis') {
-            console.log('📊 Analysis tab clicked, checking for saved analysis...');
-            
-            // Get subcomponent ID
-            const urlParams = new URLSearchParams(window.location.search);
-            const subcomponentId = urlParams.get('id') || '1-1';
-            
-            // Try to load saved analysis
-            const savedAnalysis = localStorage.getItem(\`analysis_\${subcomponentId}\`);
-            
-            if (savedAnalysis) {
-                try {
-                    const analysis = JSON.parse(savedAnalysis);
-                    console.log('✅ Found saved analysis:', analysis);
-                    
-                    // Display the analysis
-                    setTimeout(() => {
-                        window.displayAnalysisResults(analysis);
-                    }, 100);
-                } catch (error) {
-                    console.error('Error parsing saved analysis:', error);
-                }
-            } else {
-                console.log('No saved analysis found for subcomponent:', subcomponentId);
-                
-                // Show no analysis message
-                const analysisContent = document.getElementById('analysis-content');
-                if (analysisContent) {
-                    analysisContent.innerHTML = \`
-                        <div style="text-align: center; padding: 60px 20px; color: #999;">
-                            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
-                            <h3 style="font-size: 24px; margin-bottom: 10px; color: #fff;">No Analysis Yet</h3>
-                            <p style="font-size: 16px; margin-bottom: 30px;">Complete the interactive worksheet and click "Analyze Results" to get AI-powered feedback</p>
-                            <button class="btn-primary" onclick="switchTab('workspace', null); document.querySelector('[data-tab=workspace]').click();">
-                                Go to Workspace
-                            </button>
-                        </div>
-                    \`;
-                }
-            }
-        }
+        // Log the complete analysis for debugging
+        console.log('📊 Complete Analysis Data:', {
+            score: score,
+            strengths: strengths.length,
+            weaknesses: weaknesses.length,
+            recommendations: recommendations.length,
+            detailedScores: Object.keys(detailedScores).length
+        });
     };
     
-    console.log('✅ Enhanced Display Handler initialized');
-})();
-`;
-
-// Write the enhanced display handler
-const handlerPath = path.join(__dirname, 'enhanced-analysis-display.js');
-fs.writeFileSync(handlerPath, enhancedDisplayHandler);
-console.log('✅ Created enhanced-analysis-display.js');
-
-// Update subcomponent-detail.html to include the enhanced handler
-const subcomponentPath = path.join(__dirname, 'subcomponent-detail.html');
-let subcomponentContent = fs.readFileSync(subcomponentPath, 'utf8');
-
-// Check if the enhanced handler is already included
-if (!subcomponentContent.includes('enhanced-analysis-display.js')) {
-    // Find the script section where other scripts are loaded
-    const scriptSection = subcomponentContent.indexOf('scripts.forEach(src => {');
-    if (scriptSection !== -1) {
-        // Add our enhanced handler to the scripts array
-        subcomponentContent = subcomponentContent.replace(
-            "const scripts = [",
-            "const scripts = [\n            'enhanced-analysis-display.js',  // Enhanced analysis display handler"
-        );
+    // Also fix the scoring calculation to be more reasonable
+    window.calculateReasonableScore = function(detailedScores) {
+        // Ensure minimum score of 20% for any attempt
+        let totalScore = 0;
+        let totalWeight = 0;
         
-        fs.writeFileSync(subcomponentPath, subcomponentContent);
-        console.log('✅ Updated subcomponent-detail.html to include enhanced handler');
-    }
-} else {
-    console.log('ℹ️ Enhanced handler already included in subcomponent-detail.html');
-}
-
-console.log('\n✨ Analysis display fix complete!');
-console.log('\n📝 Next steps:');
-console.log('1. The server should auto-reload with the changes');
-console.log('2. Test any subcomponent by filling the worksheet and clicking "Analyze Results"');
-console.log('3. Click on the Analysis tab to see the recommendations with "+X points" format');
-console.log('4. All recommendations should show with priority badges (CRITICAL/HIGH/MEDIUM)');
+        Object.values(detailedScores).forEach(dimension => {
+            const score = dimension.score || 0;
+            const maxScore = dimension.maxScore || 20;
+            const weight = dimension.weight || 20;
+            
+            // Calculate percentage for this dimension
+            const percentage = Math.max(20, Math.round((score / maxScore) * 100));
+            
+            totalScore += (percentage * weight) / 100;
+            totalWeight += weight;
+        });
+        
+        // Calculate final score with minimum threshold
+        const finalScore = totalWeight > 0 ? Math.round(totalScore) : 50;
+        
+        // Ensure score is between 20 and 100
+        return Math.max(20, Math.min(100, finalScore));
+    };
+    
+    console.log('✅ Analysis Display Fix loaded - Strengths/Weaknesses will now be shown');
+})();

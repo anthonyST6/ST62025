@@ -1,0 +1,494 @@
+{
+  "timestamp": "2025-10-05T07:49:09.435Z",
+  "filesProcessed": 97,
+  "updated": 96,
+  "skipped": 0,
+  "errors": 0,
+  "files": [
+    {
+      "file": "subcomponent-10a-sales-enablement-assets.html",
+      "letterCode": "10a",
+      "numberId": "10-1"
+    },
+    {
+      "file": "subcomponent-10b-rep-onboarding-ramp.html",
+      "letterCode": "10b",
+      "numberId": "10-2"
+    },
+    {
+      "file": "subcomponent-10c-win-loss-analysis.html",
+      "letterCode": "10c",
+      "numberId": "10-3"
+    },
+    {
+      "file": "subcomponent-10d-objection-handling.html",
+      "letterCode": "10d",
+      "numberId": "10-4"
+    },
+    {
+      "file": "subcomponent-10e-icp-definition.html",
+      "letterCode": "10e",
+      "numberId": "10-5"
+    },
+    {
+      "file": "subcomponent-10f-sales-call-library.html",
+      "letterCode": "10f",
+      "numberId": "10-6"
+    },
+    {
+      "file": "subcomponent-11a-performance-scorecard.html",
+      "letterCode": "11a",
+      "numberId": "11-1"
+    },
+    {
+      "file": "subcomponent-11b-quota-structure.html",
+      "letterCode": "11b",
+      "numberId": "11-2"
+    },
+    {
+      "file": "subcomponent-11c-deal-review-process.html",
+      "letterCode": "11c",
+      "numberId": "11-3"
+    },
+    {
+      "file": "subcomponent-11d-forecast-accuracy.html",
+      "letterCode": "11d",
+      "numberId": "11-4"
+    },
+    {
+      "file": "subcomponent-11e-sales-coaching-program.html",
+      "letterCode": "11e",
+      "numberId": "11-5"
+    },
+    {
+      "file": "subcomponent-11f-talent-gap-analysis.html",
+      "letterCode": "11f",
+      "numberId": "11-6"
+    },
+    {
+      "file": "subcomponent-12a-customer-onboarding.html",
+      "letterCode": "12a",
+      "numberId": "12-1"
+    },
+    {
+      "file": "subcomponent-12b-activation-tracking.html",
+      "letterCode": "12b",
+      "numberId": "12-2"
+    },
+    {
+      "file": "subcomponent-12c-success-playbook-development.html",
+      "letterCode": "12c",
+      "numberId": "12-3"
+    },
+    {
+      "file": "subcomponent-12d-escalation-management.html",
+      "letterCode": "12d",
+      "numberId": "12-4"
+    },
+    {
+      "file": "subcomponent-12e-renewal-pipeline-management.html",
+      "letterCode": "12e",
+      "numberId": "12-5"
+    },
+    {
+      "file": "subcomponent-12f-churn-analysis.html",
+      "letterCode": "12f",
+      "numberId": "12-6"
+    },
+    {
+      "file": "subcomponent-13a-category-creation.html",
+      "letterCode": "13a",
+      "numberId": "13-1"
+    },
+    {
+      "file": "subcomponent-13b-competitive-moat.html",
+      "letterCode": "13b",
+      "numberId": "13-2"
+    },
+    {
+      "file": "subcomponent-13c-ecosystem-strategy.html",
+      "letterCode": "13c",
+      "numberId": "13-3"
+    },
+    {
+      "file": "subcomponent-13d-competitive-intelligence.html",
+      "letterCode": "13d",
+      "numberId": "13-4"
+    },
+    {
+      "file": "subcomponent-13e-brand-strategy.html",
+      "letterCode": "13e",
+      "numberId": "13-5"
+    },
+    {
+      "file": "subcomponent-13f-defensive-strategy.html",
+      "letterCode": "13f",
+      "numberId": "13-6"
+    },
+    {
+      "file": "subcomponent-14a-system-architecture.html",
+      "letterCode": "14a",
+      "numberId": "14-1"
+    },
+    {
+      "file": "subcomponent-14b-revenue-operations.html",
+      "letterCode": "14b",
+      "numberId": "14-2"
+    },
+    {
+      "file": "subcomponent-14c-dashboard-design.html",
+      "letterCode": "14c",
+      "numberId": "14-3"
+    },
+    {
+      "file": "subcomponent-14d-tool-stack-optimization.html",
+      "letterCode": "14d",
+      "numberId": "14-4"
+    },
+    {
+      "file": "subcomponent-14e-revops-playbook.html",
+      "letterCode": "14e",
+      "numberId": "14-5"
+    },
+    {
+      "file": "subcomponent-14f-sla-management.html",
+      "letterCode": "14f",
+      "numberId": "14-6"
+    },
+    {
+      "file": "subcomponent-15a-executive-hiring.html",
+      "letterCode": "15a",
+      "numberId": "15-1"
+    },
+    {
+      "file": "subcomponent-15b-succession-planning.html",
+      "letterCode": "15b",
+      "numberId": "15-2"
+    },
+    {
+      "file": "subcomponent-15c-executive-cadence.html",
+      "letterCode": "15c",
+      "numberId": "15-3"
+    },
+    {
+      "file": "subcomponent-15d-culture-health-assessment.html",
+      "letterCode": "15d",
+      "numberId": "15-4"
+    },
+    {
+      "file": "subcomponent-15e-organizational-design.html",
+      "letterCode": "15e",
+      "numberId": "15-5"
+    },
+    {
+      "file": "subcomponent-15f-dei-integration.html",
+      "letterCode": "15f",
+      "numberId": "15-6"
+    },
+    {
+      "file": "subcomponent-16a-market-entry-analysis.html",
+      "letterCode": "16a",
+      "numberId": "16-1"
+    },
+    {
+      "file": "subcomponent-16b-localization-strategy.html",
+      "letterCode": "16b",
+      "numberId": "16-2"
+    },
+    {
+      "file": "subcomponent-16c-international-pricing.html",
+      "letterCode": "16c",
+      "numberId": "16-3"
+    },
+    {
+      "file": "subcomponent-16d-compliance-management.html",
+      "letterCode": "16d",
+      "numberId": "16-4"
+    },
+    {
+      "file": "subcomponent-16e-geographic-gtm-strategy.html",
+      "letterCode": "16e",
+      "numberId": "16-5"
+    },
+    {
+      "file": "subcomponent-16f-expansion-risk-assessment.html",
+      "letterCode": "16f",
+      "numberId": "16-6"
+    },
+    {
+      "file": "subcomponent-1a-problem-statement.html",
+      "letterCode": "1a",
+      "numberId": "1-1"
+    },
+    {
+      "file": "subcomponent-1b-mission-statement.html",
+      "letterCode": "1b",
+      "numberId": "1-2"
+    },
+    {
+      "file": "subcomponent-1c-voice-of-customer.html",
+      "letterCode": "1c",
+      "numberId": "1-3"
+    },
+    {
+      "file": "subcomponent-1d-team-assessment.html",
+      "letterCode": "1d",
+      "numberId": "1-4"
+    },
+    {
+      "file": "subcomponent-1e-market-landscape.html",
+      "letterCode": "1e",
+      "numberId": "1-5"
+    },
+    {
+      "file": "subcomponent-1f-launch-readiness.html",
+      "letterCode": "1f",
+      "numberId": "1-6"
+    },
+    {
+      "file": "subcomponent-2a-interview-cadence.html",
+      "letterCode": "2a",
+      "numberId": "2-1"
+    },
+    {
+      "file": "subcomponent-2b-persona-development.html",
+      "letterCode": "2b",
+      "numberId": "2-2"
+    },
+    {
+      "file": "subcomponent-2c-pain-point-analysis.html",
+      "letterCode": "2c",
+      "numberId": "2-3"
+    },
+    {
+      "file": "subcomponent-2d-jobs-to-be-done.html",
+      "letterCode": "2d",
+      "numberId": "2-4"
+    },
+    {
+      "file": "subcomponent-2e-demand-signals.html",
+      "letterCode": "2e",
+      "numberId": "2-5"
+    },
+    {
+      "file": "subcomponent-2f-insight-loop.html",
+      "letterCode": "2f",
+      "numberId": "2-6"
+    },
+    {
+      "file": "subcomponent-3a-use-case-prioritization.html",
+      "letterCode": "3a",
+      "numberId": "3-1"
+    },
+    {
+      "file": "subcomponent-3b-segment-tiering.html",
+      "letterCode": "3b",
+      "numberId": "3-2"
+    },
+    {
+      "file": "subcomponent-3c-prioritization-framework.html",
+      "letterCode": "3c",
+      "numberId": "3-3"
+    },
+    {
+      "file": "subcomponent-3d-strategic-tradeoffs.html",
+      "letterCode": "3d",
+      "numberId": "3-4"
+    },
+    {
+      "file": "subcomponent-3e-hypothesis-testing.html",
+      "letterCode": "3e",
+      "numberId": "3-5"
+    },
+    {
+      "file": "subcomponent-3f-decision-archive.html",
+      "letterCode": "3f",
+      "numberId": "3-6"
+    },
+    {
+      "file": "subcomponent-4a-feature-matrix.html",
+      "letterCode": "4a",
+      "numberId": "4-1"
+    },
+    {
+      "file": "subcomponent-4b-technical-scope.html",
+      "letterCode": "4b",
+      "numberId": "4-2"
+    },
+    {
+      "file": "subcomponent-4c-pilot-group-selection.html",
+      "letterCode": "4c",
+      "numberId": "4-3"
+    },
+    {
+      "file": "subcomponent-4d-qa-standards.html",
+      "letterCode": "4d",
+      "numberId": "4-4"
+    },
+    {
+      "file": "subcomponent-4e-timeline-planning.html",
+      "letterCode": "4e",
+      "numberId": "4-5"
+    },
+    {
+      "file": "subcomponent-4f-post-mortem-analysis.html",
+      "letterCode": "4f",
+      "numberId": "4-6"
+    },
+    {
+      "file": "subcomponent-5a-early-win-documentation.html",
+      "letterCode": "5a",
+      "numberId": "5-1"
+    },
+    {
+      "file": "subcomponent-5b-roi-calculation.html",
+      "letterCode": "5b",
+      "numberId": "5-2"
+    },
+    {
+      "file": "subcomponent-5c-use-case-success.html",
+      "letterCode": "5c",
+      "numberId": "5-3"
+    },
+    {
+      "file": "subcomponent-5d-testimonial-collection.html",
+      "letterCode": "5d",
+      "numberId": "5-4"
+    },
+    {
+      "file": "subcomponent-5e-win-criteria-mapping.html",
+      "letterCode": "5e",
+      "numberId": "5-5"
+    },
+    {
+      "file": "subcomponent-5f-deal-debrief.html",
+      "letterCode": "5f",
+      "numberId": "5-6"
+    },
+    {
+      "file": "subcomponent-6a-usage-analytics.html",
+      "letterCode": "6a",
+      "numberId": "6-1"
+    },
+    {
+      "file": "subcomponent-6b-milestone-tracking.html",
+      "letterCode": "6b",
+      "numberId": "6-2"
+    },
+    {
+      "file": "subcomponent-6c-cs-dashboard-design.html",
+      "letterCode": "6c",
+      "numberId": "6-3"
+    },
+    {
+      "file": "subcomponent-6d-customer-activation.html",
+      "letterCode": "6d",
+      "numberId": "6-4"
+    },
+    {
+      "file": "subcomponent-6e-feedback-collection.html",
+      "letterCode": "6e",
+      "numberId": "6-5"
+    },
+    {
+      "file": "subcomponent-6f-power-user-development.html",
+      "letterCode": "6f",
+      "numberId": "6-6"
+    },
+    {
+      "file": "subcomponent-7a-time-cost-savings.html",
+      "letterCode": "7a",
+      "numberId": "7-1"
+    },
+    {
+      "file": "subcomponent-7b-revenue-impact.html",
+      "letterCode": "7b",
+      "numberId": "7-2"
+    },
+    {
+      "file": "subcomponent-7c-productivity-measurement.html",
+      "letterCode": "7c",
+      "numberId": "7-3"
+    },
+    {
+      "file": "subcomponent-7d-retention-analysis.html",
+      "letterCode": "7d",
+      "numberId": "7-4"
+    },
+    {
+      "file": "subcomponent-7e-system-consolidation.html",
+      "letterCode": "7e",
+      "numberId": "7-5"
+    },
+    {
+      "file": "subcomponent-7f-friction-analysis.html",
+      "letterCode": "7f",
+      "numberId": "7-6"
+    },
+    {
+      "file": "subcomponent-8a-upsell-strategy.html",
+      "letterCode": "8a",
+      "numberId": "8-1"
+    },
+    {
+      "file": "subcomponent-8b-team-expansion-tracking.html",
+      "letterCode": "8b",
+      "numberId": "8-2"
+    },
+    {
+      "file": "subcomponent-8c-organic-growth-analysis.html",
+      "letterCode": "8c",
+      "numberId": "8-3"
+    },
+    {
+      "file": "subcomponent-8d-champion-development.html",
+      "letterCode": "8d",
+      "numberId": "8-4"
+    },
+    {
+      "file": "subcomponent-8e-sentiment-tracking.html",
+      "letterCode": "8e",
+      "numberId": "8-5"
+    },
+    {
+      "file": "subcomponent-8f-renewal-readiness.html",
+      "letterCode": "8f",
+      "numberId": "8-6"
+    },
+    {
+      "file": "subcomponent-9a-inbound-conversion.html",
+      "letterCode": "9a",
+      "numberId": "9-1"
+    },
+    {
+      "file": "subcomponent-9b-outbound-performance.html",
+      "letterCode": "9b",
+      "numberId": "9-2"
+    },
+    {
+      "file": "subcomponent-9c-channel-economics.html",
+      "letterCode": "9c",
+      "numberId": "9-3"
+    },
+    {
+      "file": "subcomponent-9d-discovery-call-excellence.html",
+      "letterCode": "9d",
+      "numberId": "9-4"
+    },
+    {
+      "file": "subcomponent-9e-demo-optimization.html",
+      "letterCode": "9e",
+      "numberId": "9-5"
+    },
+    {
+      "file": "subcomponent-9f-founder-sales-analysis.html",
+      "letterCode": "9f",
+      "numberId": "9-6"
+    },
+    {
+      "file": "subcomponent-detail.html",
+      "letterCode": "unknown",
+      "numberId": "unknown"
+    }
+  ]
+}

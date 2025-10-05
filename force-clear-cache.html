@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force Clear Cache & Test Enhanced Layout</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .step {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #4CAF50;
+        }
+        .step h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .test-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .test-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        }
+        .warning {
+            background: rgba(255, 152, 0, 0.2);
+            border-left: 5px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .highlight {
+            background: rgba(255, 235, 59, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Force Clear Cache & Test Enhanced Layout</h1>
+        
+        <div class="warning">
+            <h3>⚠️ Important: Browser Cache Issue Detected</h3>
+            <p>Your browser is caching the old layout. Follow these steps to see the enhanced features.</p>
+        </div>
+
+        <div class="step">
+            <h2>Step 1: Clear Browser Cache</h2>
+            <p><strong>Choose one of these methods:</strong></p>
+            
+            <h3>Option A: Force Refresh (Quickest)</h3>
+            <ul>
+                <li><strong>Windows/Linux:</strong> <span class="highlight">Ctrl + Shift + R</span> or <span class="highlight">Ctrl + F5</span></li>
+                <li><strong>Mac:</strong> <span class="highlight">Cmd + Shift + R</span></li>
+            </ul>
+            
+            <h3>Option B: Open in Incognito/Private Window</h3>
+            <ul>
+                <li><strong>Chrome:</strong> Ctrl/Cmd + Shift + N</li>
+                <li><strong>Firefox:</strong> Ctrl/Cmd + Shift + P</li>
+                <li><strong>Edge:</strong> Ctrl/Cmd + Shift + N</li>
+            </ul>
+            
+            <h3>Option C: Clear All Browser Data</h3>
+            <ul>
+                <li>Press <span class="highlight">F12</span> to open Developer Tools</li>
+                <li>Right-click the refresh button</li>
+                <li>Select "Empty Cache and Hard Reload"</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Step 2: Test Enhanced Features</h2>
+            <p>After clearing cache, click the button below to test the enhanced layout:</p>
+            
+            <div class="button-container">
+                <a href="http://localhost:3001" class="test-button" onclick="window.open(this.href, '_blank'); return false;">
+                    Open Dashboard in New Tab
+                </a>
+            </div>
+            
+            <p>Then navigate to: <strong>Mission Discovery → Problem Statement Definition</strong></p>
+        </div>
+
+        <div class="success">
+            <h3>✅ What You Should See After Cache Clear:</h3>
+            <ul>
+                <li><strong>Education Tab:</strong>
+                    <ul>
+                        <li>Two-column layout (theory left, examples right)</li>
+                        <li>6 detailed examples with <span class="highlight">5-6 sentence descriptions</span></li>
+                    </ul>
+                </li>
+                <li><strong>Best Practices:</strong>
+                    <ul>
+                        <li><span class="highlight">Green background highlighting</span></li>
+                        <li>Green checkmarks (✓)</li>
+                        <li>Hover effects</li>
+                    </ul>
+                </li>
+                <li><strong>Resources Tab:</strong>
+                    <ul>
+                        <li>All templates downloadable</li>
+                        <li>Professional formatting</li>
+                    </ul>
+                </li>
+                <li><strong>Analysis Tab:</strong>
+                    <ul>
+                        <li>Strengths/Weaknesses grid</li>
+                        <li>Color-coded scoring</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>Step 3: Direct Test Links</h2>
+            <p>Test specific enhanced features directly:</p>
+            
+            <div class="button-container">
+                <a href="http://localhost:3001/subcomponent-detail.html?id=1-1" class="test-button" target="_blank">
+                    Test Problem Statement (1-1)
+                </a>
+                <a href="http://localhost:3001/subcomponent-detail.html?id=2-3" class="test-button" target="_blank">
+                    Test Personas Framework (2-3)
+                </a>
+                <a href="http://localhost:3001/subcomponent-detail.html?id=5-4" class="test-button" target="_blank">
+                    Test Retention Metrics (5-4)
+                </a>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>Verification Script</h2>
+            <p>Run this in the browser console to verify enhanced features are loaded:</p>
+            <div class="code">
+// Check if enhanced features are loaded
+console.log('Enhanced Education:', typeof window.EnhancedAgentEducationContent !== 'undefined');
+console.log('ScaleOps6 Content:', typeof window.scaleops6CompleteContent !== 'undefined');
+console.log('Enhanced Display:', typeof window.enhancedDisplayHandler !== 'undefined');
+console.log('Analysis Persistence:', typeof window.enhancedAnalysisPersistence !== 'undefined');
+
+// Check for green highlighting
+const bestPractices = document.querySelectorAll('.best-practice-item');
+if (bestPractices.length > 0) {
+    const bgColor = window.getComputedStyle(bestPractices[0]).backgroundColor;
+    console.log('Green highlighting active:', bgColor.includes('rgb'));
+}
+
+// Check for detailed examples
+const examples = document.querySelectorAll('.example-description');
+examples.forEach((ex, i) => {
+    const sentences = ex.textContent.split('. ').length;
+    console.log(`Example ${i+1} sentences:`, sentences);
+});
+            </div>
+        </div>
+
+        <div class="warning">
+            <h3>🔄 Still Seeing Old Layout?</h3>
+            <p>If you still see the old layout after clearing cache:</p>
+            <ol>
+                <li>Close all browser tabs</li>
+                <li>Clear browser data for the last hour</li>
+                <li>Restart the browser</li>
+                <li>Open in a new incognito/private window</li>
+                <li>Navigate directly to: <code>http://localhost:3001/subcomponent-detail.html?id=1-1</code></li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>🎯 Quick Verification</h2>
+            <p>The enhanced layout is working if you see:</p>
+            <ul>
+                <li>✅ 6 tabs at the top of subcomponent pages</li>
+                <li>✅ Green background on Best Practices items</li>
+                <li>✅ Detailed 5-6 sentence example descriptions</li>
+                <li>✅ Two-column layout in Education tab</li>
+                <li>✅ Downloadable templates in Resources</li>
+                <li>✅ Strengths/Weaknesses grid in Analysis</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Auto-detect if running on localhost
+        if (window.location.hostname === 'localhost') {
+            console.log('✅ Cache clear guide loaded successfully');
+            console.log('📍 Server running at: http://localhost:3001');
+        }
+    </script>
+</body>
+</html>

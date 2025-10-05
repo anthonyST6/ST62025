@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Data Loading Test</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #000;
+            color: #0f0;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #0f0;
+        }
+        .pass { color: #0f0; }
+        .fail { color: #f00; }
+        .warn { color: #ff0; }
+        .info { color: #0ff; }
+        button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0ff;
+        }
+        #results {
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 AGENT DATA LOADING TEST</h1>
+    <p>This test checks if agents are properly loading data into the UI</p>
+    
+    <div class="test-section">
+        <h2>Test Controls</h2>
+        <button onclick="testSingleSubcomponent()">Test Single (1-3)</button>
+        <button onclick="testAllBlocks()">Test All Blocks</button>
+        <button onclick="clearResults()">Clear Results</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const results = document.getElementById('results');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type;
+            results.innerHTML += `<span class="${className}">[${timestamp}] ${message}</span>\n`;
+            console.log(message);
+        }
+        
+        function clearResults() {
+            results.innerHTML = '';
+            log('Results cleared', 'info');
+        }
+        
+        async function testSubcomponent(blockId, subId) {
+            const subcomponentId = `${blockId}-${subId}`;
+            log(`\n${'='.repeat(60)}`, 'info');
+            log(`Testing Subcomponent: ${subcomponentId}`, 'info');
+            log(`${'='.repeat(60)}`, 'info');
+            
+            // Create iframe to load the page
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = `/subcomponent-detail.html?id=${subcomponentId}`;
+            document.body.appendChild(iframe);
+            
+            return new Promise((resolve) => {
+                iframe.onload = async () => {
+                    // Wait for scripts to load
+                    await new Promise(r => setTimeout(r, 3000));
+                    
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    const iframeWin = iframe.contentWindow;
+                    
+                    // Test 1: Check if agent library is loaded
+                    const hasAgentLibrary = typeof iframeWin.AgentLibrary !== 'undefined';
+                    if (hasAgentLibrary) {
+                        log(`✅ Agent Library loaded`, 'pass');
+                        
+                        // Get the agent for this subcomponent
+                        const agentKey = `${blockId}${String.fromCharCode(96 + parseInt(subId))}`;
+                        const agent = iframeWin.AgentLibrary[agentKey];
+                        
+                        if (agent) {
+                            log(`✅ Agent found: ${agent.name}`, 'pass');
+                            log(`   Expertise: ${agent.description}`, 'info');
+                        } else {
+                            log(`❌ No agent found for key: ${agentKey}`, 'fail');
+                        }
+                    } else {
+                        log(`❌ Agent Library not loaded`, 'fail');
+                    }
+                    
+                    // Test 2: Check Education Tab Content
+                    const educationTab = iframeDoc.getElementById('education-tab');
+                    if (educationTab) {
+                        const sections = educationTab.querySelectorAll('.education-section');
+                        if (sections.length > 0) {
+                            log(`✅ Education Tab: ${sections.length} sections loaded`, 'pass');
+                            
+                            // Check for agent-specific content
+                            const content = educationTab.textContent;
+                            if (content.includes('What is') || content.includes('Why It Matters')) {
+                                log(`   Content appears to be agent-specific`, 'info');
+                            }
+                        } else {
+                            const loadingMsg = educationTab.querySelector('#education-loading');
+                            if (loadingMsg) {
+                                log(`⚠️ Education Tab: Still showing loading message`, 'warn');
+                            } else {
+                                log(`❌ Education Tab: No content loaded`, 'fail');
+                            }
+                        }
+                    } else {
+                        log(`❌ Education Tab not found`, 'fail');
+                    }
+                    
+                    // Test 3: Check Workspace Questions
+                    const workspaceContainer = iframeDoc.getElementById('dynamic-worksheet-container');
+                    if (workspaceContainer) {
+                        const questions = workspaceContainer.querySelectorAll('.worksheet-field');
+                        if (questions.length > 0) {
+                            log(`✅ Workspace: ${questions.length} questions loaded`, 'pass');
+                            
+                            // Sample first question
+                            const firstLabel = workspaceContainer.querySelector('.worksheet-label');
+                            if (firstLabel) {
+                                log(`   First question: "${firstLabel.textContent}"`, 'info');
+                            }
+                        } else {
+                            const loadingMsg = workspaceContainer.querySelector('.loading-message');
+                            if (loadingMsg) {
+                                log(`⚠️ Workspace: Still loading questions`, 'warn');
+                            } else {
+                                log(`❌ Workspace: No questions loaded`, 'fail');
+                            }
+                        }
+                    } else {
+                        log(`❌ Workspace container not found`, 'fail');
+                    }
+                    
+                    // Test 4: Check if agent integration system is active
+                    if (typeof iframeWin.agentSystem !== 'undefined') {
+                        log(`✅ Agent Integration System is active`, 'pass');
+                        
+                        // Check if agent is mapped to this subcomponent
+                        const agent = iframeWin.agentSystem.agents[subcomponentId];
+                        if (agent) {
+                            log(`   Agent assigned: ${agent.name}`, 'info');
+                            log(`   Dimensions: ${agent.scoringDimensions.length}`, 'info');
+                        }
+                    } else {
+                        log(`❌ Agent Integration System not loaded`, 'fail');
+                    }
+                    
+                    // Test 5: Check localStorage for any saved data
+                    const scoreHistory = iframeWin.localStorage.getItem('scaleops6_score_history');
+                    if (scoreHistory) {
+                        try {
+                            const history = JSON.parse(scoreHistory);
+                            log(`📊 Score History: ${history.length} items in storage`, 'info');
+                        } catch (e) {
+                            log(`⚠️ Score History exists but cannot parse`, 'warn');
+                        }
+                    }
+                    
+                    // Test 6: Check if API endpoint is being called
+                    const apiCalled = iframeDoc.documentElement.innerHTML.includes('/api/subcomponents/');
+                    if (apiCalled) {
+                        log(`📡 API endpoint referenced in code`, 'info');
+                    } else {
+                        log(`⚠️ No API endpoint reference found`, 'warn');
+                    }
+                    
+                    // Clean up
+                    document.body.removeChild(iframe);
+                    resolve();
+                };
+            });
+        }
+        
+        async function testSingleSubcomponent() {
+            clearResults();
+            log('Starting single subcomponent test...', 'info');
+            await testSubcomponent(1, 3);
+            log('\n✅ Test complete!', 'pass');
+        }
+        
+        async function testAllBlocks() {
+            clearResults();
+            log('Starting comprehensive test...', 'info');
+            
+            const samplesToTest = [
+                { block: 1, sub: 1 },
+                { block: 1, sub: 3 },
+                { block: 2, sub: 1 },
+                { block: 3, sub: 1 },
+                { block: 5, sub: 1 },
+                { block: 7, sub: 1 },
+                { block: 10, sub: 1 },
+                { block: 13, sub: 1 },
+                { block: 16, sub: 1 }
+            ];
+            
+            for (const sample of samplesToTest) {
+                await testSubcomponent(sample.block, sample.sub);
+                await new Promise(r => setTimeout(r, 1000)); // Delay between tests
+            }
+            
+            log('\n✅ All tests complete!', 'pass');
+        }
+        
+        // Auto-run single test on load
+        window.addEventListener('load', () => {
+            setTimeout(testSingleSubcomponent, 1000);
+        });
+    </script>
+</body>
+</html>

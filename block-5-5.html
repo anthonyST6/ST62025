@@ -1,0 +1,1006 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Acquisition Metrics - ScaleOps6 GTM Framework</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/st6-nexusops.css">
+    <link rel="stylesheet" href="css/scale-team-six.css">
+    
+    <!-- Module-specific styles -->
+    <style>
+        /* Universal ScaleOps6 Branding */
+        :root {
+            --primary-orange: #FF5500;
+            --secondary-orange: #FF8800;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0d0d0d;
+            --text-white: #ffffff;
+            --text-gray: #999999;
+            --success-green: #10B981;
+            --warning-yellow: #F59E0B;
+            --error-red: #EF4444;
+            --critical-red: #DC2626;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        .module-header {
+            background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+            border: 2px solid var(--primary-orange);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px;
+        }
+
+        .module-title {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            margin: 0 0 10px 0;
+        }
+
+        .module-description {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 0;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 5px;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-gray);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .tab-button.active {
+            background: var(--primary-orange);
+            color: var(--text-white);
+        }
+
+        .tab-button:hover:not(.active) {
+            background: rgba(255, 85, 0, 0.1);
+            color: var(--text-white);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Workspace Fields */
+        .workspace-field {
+            margin-bottom: 25px;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-white);
+            font-size: 15px;
+            line-height: 1.6;
+            resize: vertical;
+            min-height: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .field-input:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 85, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-success {
+            background: var(--success-green);
+            color: white;
+        }
+
+        /* Analysis Display */
+        #analysis-content {
+            min-height: 400px;
+        }
+
+        /* Score History */
+        .score-history-container {
+            padding: 20px;
+        }
+
+        .history-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        /* Resources */
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+        }
+
+        /* File Upload Area */
+        .file-upload-area {
+            border: 2px dashed rgba(255, 85, 0, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--primary-orange);
+            background: rgba(255, 85, 0, 0.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .module-title {
+                font-size: 24px;
+            }
+            
+            .tab-navigation {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <style>
+        /* Dimension-Based Styles */
+        .dimension-worksheet {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .dimension-field-container {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 85, 0, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .dimension-field-container:hover {
+            border-color: rgba(255, 85, 0, 0.4);
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .dimension-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        
+        .dimension-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #FF5500;
+        }
+        
+        .dimension-number {
+            background: #FF5500;
+            color: #000;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .dimension-name {
+            color: #fff;
+        }
+        
+        .dimension-weight {
+            color: #999;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .required-indicator {
+            background: rgba(255, 85, 0, 0.2);
+            color: #FF5500;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .dimension-question {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .dimension-hint {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: rgba(255, 85, 0, 0.05);
+            border-left: 3px solid #FF5500;
+            border-radius: 4px;
+        }
+        
+        .dimension-input {
+            width: 100%;
+            min-height: 150px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            padding: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        .dimension-input:focus {
+            outline: none;
+            border-color: #FF5500;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
+        }
+        
+        .dimension-helpers {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+        
+        .char-counter {
+            font-size: 13px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .guidance-btn, .example-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #999;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .guidance-btn:hover, .example-btn:hover {
+            border-color: #FF5500;
+            color: #FF5500;
+            background: rgba(255, 85, 0, 0.05);
+        }
+        
+        .dimension-guidance, .dimension-example {
+            margin-top: 16px;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 85, 0, 0.2);
+        }
+        
+        .example-good {
+            padding: 12px;
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 3px solid #4CAF50;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        
+        .example-poor {
+            padding: 12px;
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 3px solid #F44336;
+            border-radius: 4px;
+        }
+        
+        /* Enhanced Analysis Display */
+        .enhanced-analysis-results {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .agent-info {
+            background: rgba(255, 85, 0, 0.05);
+            border: 1px solid rgba(255, 85, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .dimension-score-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .score-bar-container {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+        
+        .score-bar {
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+        
+        .recommendation-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 85, 0, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .recommendation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 85, 0, 0.2);
+        }
+        
+        .rec-priority {
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        /* Education Content Styles */
+        .agent-education-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .education-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .principle-card {
+            background: rgba(255, 85, 0, 0.05);
+            border: 1px solid rgba(255, 85, 0, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .principle-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .principle-number {
+            background: #FF5500;
+            color: #000;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .principle-weight {
+            background: rgba(255, 85, 0, 0.2);
+            color: #FF5500;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: auto;
+        }
+        
+        /* Maturity Level Badge */
+        .maturity-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            color: #000;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Pattern Indicators */
+        .pattern-item {
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .pattern-item.strength_pattern {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .pattern-item.weakness_pattern {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+        
+        .pattern-item.imbalance_pattern {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+    <!-- Navigation Header -->
+    
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/dashboard">Dashboard</a>
+        <span>›</span>
+        <a href="/block-5">Block 5</a>
+        <span>›</span>
+        <span id="breadcrumb-current">Customer Acquisition Metrics</span>
+    </div>
+
+    <!-- Module Header -->
+    <div class="module-header">
+        <h1 class="module-title">Customer Acquisition Metrics</h1>
+        <p class="module-description">Track and optimize acquisition funnel</p>
+        <div class="module-id">Module 5.5</div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation nav-tabs">
+        <button class="tab-button active" data-tab="education" onclick="switchTab('education', this)">
+            📚 EDUCATION
+        </button>
+        <button class="tab-button" data-tab="workspace" onclick="switchTab('workspace', this)">
+            ✏️ WORKSPACE
+        </button>
+        <button class="tab-button" data-tab="analysis" onclick="switchTab('analysis', this)">
+            📊 ANALYSIS
+        </button>
+        <button class="tab-button" data-tab="resources" onclick="switchTab('resources', this)">
+            🔧 RESOURCES
+        </button>
+        <button class="tab-button" data-tab="score-history" onclick="switchTab('score-history', this)">
+            📈 SCORE HISTORY
+        </button>
+    </div>
+
+    <!-- Tab Contents -->
+    
+    <!-- Education Tab -->
+    <div id="education-tab" class="tab-content active">
+        <h2>Understanding Customer Acquisition Metrics</h2>
+        <div id="education-content">
+            <!-- Dynamic content loaded here -->
+        </div>
+    </div>
+
+    <!-- Workspace Tab -->
+    
+    <!-- Workspace Tab -->
+    <div id="workspace-tab" class="tab-content">
+        <h2>Complete Your Worksheet</h2>
+        <div id="worksheet-container" class="dimension-worksheet">
+            <!-- Dynamic dimension-based fields loaded here -->
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="saveProgress()">
+                💾 SAVE PROGRESS
+            </button>
+            <button class="btn btn-primary" onclick="analyzeWorksheet()">
+                🤖 ANALYZE WITH AGENT
+            </button>
+            <button class="btn btn-secondary" onclick="exportToPDF()">
+                📄 EXPORT AS PDF
+            </button>
+        </div>
+    </div>
+<!-- Analysis Tab -->
+    <div id="analysis-tab" class="tab-content">
+        <h2>Analysis Results</h2>
+        <div id="analysis-content">
+            <!-- Analysis results displayed here -->
+        </div>
+    </div>
+
+    <!-- Resources Tab -->
+    <div id="resources-tab" class="tab-content">
+        <h2>Resources & Templates</h2>
+        <div id="resources-content">
+            <!-- Resources loaded here -->
+        </div>
+
+    <!-- Templates Tab -->
+    <div id="templates-tab" class="tab-content">
+        <h2>Templates & Resources</h2>
+        <div id="templates-content">
+            <!-- Templates loaded here -->
+        </div>
+    </div>
+    </div>
+
+    <!-- Score History Tab -->
+    <div id="score-history-tab" class="tab-content">
+        <h2>Your Progress History</h2>
+        <div id="score-history-content">
+            <!-- Score history displayed here -->
+        </div>
+    </div>
+
+    <!-- Core JavaScript -->
+    <script>
+        // Module Configuration
+        
+        // Enhanced Module Configuration
+        
+        // Enhanced Module Configuration
+        const moduleConfig = {
+            blockId: 5,
+            subcomponentId: 5,
+            moduleId: '5-5',
+            agentId: 'launch-coordination-agent',
+            blockTitle: 'Go-to-Market Strategy',
+            subcomponentTitle: 'Launch Coordination',
+            useDimensionSystem: true,
+            title: document.querySelector('.module-title')?.textContent || 'Launch Coordination',
+            description: document.querySelector('.module-description')?.textContent || ''
+        };
+
+        // Tab Switching
+        function switchTab(tabName, button) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName + '-tab');
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Mark button as active
+            if (button) {
+                button.classList.add('active');
+            }
+            
+            // Load tab-specific content if needed
+            loadTabContent(tabName);
+        }
+
+        // Load tab content dynamically
+        
+        // Load workspace fields (dimension-based)
+        function loadWorkspaceFields() {
+            if (typeof window.UnifiedAnalysisHandler !== 'undefined') {
+                const handler = new window.UnifiedAnalysisHandler();
+                handler.loadWorksheet(moduleConfig.moduleId);
+            } else {
+                console.log('Waiting for UnifiedAnalysisHandler...');
+                setTimeout(loadWorkspaceFields, 100);
+            }
+        }
+
+        function loadTabContent(tabName) {
+            switch(tabName) {
+                case 'education':
+                    loadEducationContent();
+                    break;
+                case 'workspace':
+                    loadWorkspaceFields() // Enhanced dimension-based fields;
+                    break;
+                case 'resources':
+                    loadResources();
+                    break;
+                case 'score-history':
+                    loadScoreHistory();
+                    break;
+            }
+        }
+
+        // Save Progress
+        function saveProgress() {
+            const worksheetData = collectWorksheetData();
+            
+            // Save to localStorage with retry logic
+            const saveWithRetry = (data, attempts = 3) => {
+                try {
+                    const key = 'worksheet_' + moduleConfig.moduleId;
+                    localStorage.setItem(key, JSON.stringify({
+                        data: data,
+                        timestamp: new Date().toISOString(),
+                        moduleId: moduleConfig.moduleId
+                    }));
+                    
+                    showNotification('Progress saved successfully!', 'success');
+                    return true;
+                } catch (error) {
+                    if (attempts > 1) {
+                        console.log('Retrying save...', attempts - 1, 'attempts left');
+                        return saveWithRetry(data, attempts - 1);
+                    }
+                    showNotification('Failed to save progress', 'error');
+                    return false;
+                }
+            };
+            
+            saveWithRetry(worksheetData);
+        }
+
+        // Collect worksheet data
+        
+        // Collect worksheet data (dimension-based)
+        function collectWorksheetData() {
+            const data = {};
+            
+            // Collect dimension values
+            document.querySelectorAll('.dimension-input').forEach(input => {
+                const dimensionId = input.dataset.dimension;
+                if (dimensionId) {
+                    data[dimensionId] = input.value || '';
+                }
+            });
+            
+            // Add metadata
+            data.moduleId = moduleConfig.moduleId;
+            data.agentId = moduleConfig.agentId;
+            data.timestamp = new Date().toISOString();
+            
+            return data;
+        }
+            }
+            
+            return data;
+        }
+
+
+        // Analyze worksheet with agent
+        function analyzeWorksheet() {
+            if (typeof window.UnifiedAnalysisHandler !== 'undefined') {
+                const handler = new window.UnifiedAnalysisHandler();
+                handler.analyzeWorksheet(moduleConfig.moduleId);
+            } else {
+                showNotification('Analysis system loading...', 'info');
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = 'notification ' + type;
+            notification.textContent = message;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                background: ${type === 'success' ? '#10B981' : 
+                           type === 'error' ? '#EF4444' : '#2196F3'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 5000);
+        }
+
+        // Initialize on load
+        
+        // Load education content
+        function loadEducationContent() {
+            const educationContent = document.getElementById('education-content');
+            if (educationContent) {
+                educationContent.innerHTML = `
+                    <div class="education-section">
+                        <h3>Agent: ${moduleConfig.agentId || 'Loading...'}</h3>
+                        <p>This module uses dimension-based evaluation to provide intelligent analysis.</p>
+                        <div class="principle-card">
+                            <div class="principle-header">
+                                <span class="principle-number">1</span>
+                                <h4>Core Functionality</h4>
+                            </div>
+                            <p>The enhanced agent system provides specialized guidance through:</p>
+                            <ul>
+                                <li>Dynamic education content</li>
+                                <li>Dimension-based worksheets</li>
+                                <li>Intelligent analysis</li>
+                                <li>Comprehensive feedback</li>
+                                <li>Data persistence</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Module initialized:', moduleConfig);
+            
+            // Load saved progress if exists
+            loadSavedProgress();
+            
+            // Load initial content
+            loadEducationContent();
+            loadWorkspaceFields() // Enhanced dimension-based fields;
+        });
+
+        // Load saved progress
+
+        // Load resources
+        function loadResources() {
+            const resourcesContent = document.getElementById('resources-content');
+            if (resourcesContent) {
+                resourcesContent.innerHTML = `
+                    <div class="resource-card">
+                        <h4>Templates & Resources</h4>
+                        <p>Agent-specific resources for ${moduleConfig.subcomponentTitle || 'this module'}</p>
+                        <ul>
+                            <li>📄 Worksheet Template</li>
+                            <li>📊 Analysis Framework</li>
+                            <li>📈 Best Practices Guide</li>
+                            <li>🎯 Success Metrics</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+
+
+        // Load score history
+        function loadScoreHistory() {
+            const scoreHistoryContent = document.getElementById('score-history-content');
+            if (scoreHistoryContent) {
+                const history = JSON.parse(localStorage.getItem('score_history_' + moduleConfig.moduleId) || '[]');
+                if (history.length > 0) {
+                    scoreHistoryContent.innerHTML = history.map(item => `
+                        <div class="history-item">
+                            <div>Score: ${item.score}%</div>
+                            <div>Date: ${new Date(item.timestamp).toLocaleDateString()}</div>
+                            <div>Agent: ${item.agentId}</div>
+                        </div>
+                    `).join('');
+                } else {
+                    scoreHistoryContent.innerHTML = '<p>No score history yet. Complete a worksheet to see your progress.</p>';
+                }
+            }
+        }
+
+        function loadSavedProgress() {
+            try {
+                const key = 'worksheet_' + moduleConfig.moduleId;
+                const saved = localStorage.getItem(key);
+                
+                if (saved) {
+                    const { data } = JSON.parse(saved);
+                    
+                    // Restore field values
+                    Object.keys(data).forEach(fieldId => {
+                        const field = document.getElementById(fieldId);
+                        if (field) {
+                            field.value = data[fieldId];
+                        }
+                    });
+                    
+                    console.log('Loaded saved progress');
+                }
+            } catch (error) {
+                console.error('Error loading saved progress:', error);
+            }
+        }
+
+        // Export to PDF
+        function exportToPDF() {
+            showNotification('PDF export feature coming soon!', 'info');
+        }
+    </script>
+
+    <!-- Load Handler Scripts -->
+    <script src="enhanced-display-handler-fixed.js"></script>
+    <script src="unified-analysis-handler-fixed.js"></script>
+    <script src="score-history-handler.js"></script>
+    
+    <!-- Module-specific script -->
+    <script src="module-5-5.js">
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
+    </script>
+
+    <!-- Agent Integration Scripts -->
+    
+    
+    
+    
+
+    <!-- Enhanced Agent System Scripts -->
+    
+    
+    
+    
+    
+
+
+    </div>
+
+    <!-- Core JavaScript Libraries -->
+    <script>
+        // Ensure agent library is loaded first
+        window.agentLibrary = window.agentLibrary || {};
+    </script>
+    
+    <!-- Agent System Scripts -->
+    <script src="agent-library.js"></script>
+    <script src="enhanced-agent-class.js"></script>
+    <script src="unified-analysis-handler-enhanced.js"></script>
+    <script src="dimension-display-handler.js"></script>
+    <script src="agent-persistence-manager.js"></script>
+    <script src="enhanced-education-display.js"></script>
+    <script src="enhanced-resources-output.js"></script>
+</body>
+</html>
+        
