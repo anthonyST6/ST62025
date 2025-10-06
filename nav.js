@@ -35,8 +35,10 @@ function createNavigation() {
             ">
                 <!-- Logo on the left - clickable to return home -->
                 <a href="/" style="
-                    display: inline-block;
+                    display: inline-flex;
+                    align-items: flex-start;
                     text-decoration: none;
+                    position: relative;
                 ">
                     <img src="/Official_ScaleOps6_Logo.png" alt="ScaleOps6" style="
                         height: 60px;
@@ -46,6 +48,14 @@ function createNavigation() {
                         transition: opacity 0.3s ease;
                     " onmouseover="this.style.opacity='0.8';"
                        onmouseout="this.style.opacity='1';">
+                    <span style="
+                        color: #FF5500;
+                        font-size: 10px;
+                        font-weight: 600;
+                        margin-left: 2px;
+                        margin-top: 8px;
+                        line-height: 1;
+                    ">™</span>
                 </a>
                 
                 <!-- Main Navigation Links in the center -->
