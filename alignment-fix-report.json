@@ -1,0 +1,549 @@
+{
+  "timestamp": "2025-10-06T16:15:47.793Z",
+  "summary": {
+    "totalSubcomponents": 96,
+    "beforeFix": {
+      "aligned": 2,
+      "partial": 1,
+      "misaligned": 93
+    },
+    "afterFix": {
+      "aligned": 96,
+      "failed": 0
+    },
+    "fixes": {
+      "educationTitles": 56,
+      "workspaceDomains": 89
+    }
+  },
+  "misalignments": {
+    "education": [
+      {
+        "id": "1-3",
+        "subName": "Voice of Customer",
+        "wrongTitle": "Customer Insight Capture"
+      },
+      {
+        "id": "1-5",
+        "subName": "Market Landscape",
+        "wrongTitle": "Market Insight Synthesis"
+      },
+      {
+        "id": "1-6",
+        "subName": "Launch Readiness",
+        "wrongTitle": "Prototype Launch Plan"
+      },
+      {
+        "id": "15-3",
+        "subName": "Succession Planning",
+        "wrongTitle": "Succession Planning Matrix"
+      },
+      {
+        "id": "16-1",
+        "subName": "Market Selection",
+        "wrongTitle": "Market Entry Strategy"
+      }
+    ],
+    "workspace": [
+      {
+        "id": "1-4",
+        "subName": "Founding Team Capability",
+        "wrongDomain": "Team Assessment"
+      },
+      {
+        "id": "2-2",
+        "subName": "Personas Framework",
+        "wrongDomain": "Persona Development"
+      },
+      {
+        "id": "3-1",
+        "subName": "Use Case Scoring Model",
+        "wrongDomain": "Use Case Prioritization"
+      },
+      {
+        "id": "3-2",
+        "subName": "Segment Tiering",
+        "wrongDomain": "Resource Allocation"
+      },
+      {
+        "id": "4-1",
+        "subName": "Feature Inclusion Matrix",
+        "wrongDomain": "MVP Definition"
+      },
+      {
+        "id": "4-2",
+        "subName": "Technical Scope Tracker",
+        "wrongDomain": "Feature Prioritization"
+      },
+      {
+        "id": "4-3",
+        "subName": "Pilot Group Selection",
+        "wrongDomain": "Testing Strategy"
+      },
+      {
+        "id": "4-4",
+        "subName": "QA & Success Criteria",
+        "wrongDomain": "Feedback Loops"
+      },
+      {
+        "id": "4-6",
+        "subName": "Post-Mortem Template",
+        "wrongDomain": "Launch Strategy"
+      },
+      {
+        "id": "6-1",
+        "subName": "Usage Heatmap",
+        "wrongDomain": "Acquisition Strategy"
+      },
+      {
+        "id": "6-2",
+        "subName": "Milestone Triggers",
+        "wrongDomain": "Activation Process"
+      },
+      {
+        "id": "7-1",
+        "subName": "Time/Cost Savings Metrics",
+        "wrongDomain": "KPI Framework"
+      },
+      {
+        "id": "9-1",
+        "subName": "Inbound Conversion Rates",
+        "wrongDomain": "Pilot Programs"
+      },
+      {
+        "id": "9-2",
+        "subName": "Outbound Play Performance",
+        "wrongDomain": "Case Studies"
+      },
+      {
+        "id": "9-3",
+        "subName": "Channel Economics Clarity",
+        "wrongDomain": "Reference Customers"
+      },
+      {
+        "id": "9-4",
+        "subName": "Discovery Call Effectiveness",
+        "wrongDomain": "Success Stories"
+      },
+      {
+        "id": "9-5",
+        "subName": "Demo-to-Close Flow",
+        "wrongDomain": "ROI Documentation"
+      },
+      {
+        "id": "9-6",
+        "subName": "Founders Selling Model",
+        "wrongDomain": "Market Validation"
+      },
+      {
+        "id": "10-1",
+        "subName": "Enablement Asset Pack",
+        "wrongDomain": "Sales Enablement Assets"
+      },
+      {
+        "id": "10-2",
+        "subName": "Rep Ramp Plan",
+        "wrongDomain": "Playbook Development"
+      },
+      {
+        "id": "10-3",
+        "subName": "Win/Loss Tracker",
+        "wrongDomain": "Tool Implementation"
+      },
+      {
+        "id": "10-4",
+        "subName": "Objection Handling Guide",
+        "wrongDomain": "Performance Tracking"
+      },
+      {
+        "id": "10-5",
+        "subName": "ICP Filter Checklist",
+        "wrongDomain": "Incentive Design"
+      },
+      {
+        "id": "10-6",
+        "subName": "Sales Call Library",
+        "wrongDomain": "Team Scaling"
+      },
+      {
+        "id": "11-1",
+        "subName": "Scorecard Model",
+        "wrongDomain": "Team Structure"
+      },
+      {
+        "id": "11-2",
+        "subName": "Quota Structure",
+        "wrongDomain": "Hiring Process"
+      },
+      {
+        "id": "11-3",
+        "subName": "Weekly Deal Reviews",
+        "wrongDomain": "Culture Building"
+      },
+      {
+        "id": "11-4",
+        "subName": "Forecasting Framework",
+        "wrongDomain": "Performance Management"
+      },
+      {
+        "id": "11-5",
+        "subName": "Manager Coaching Loop",
+        "wrongDomain": "Development Programs"
+      },
+      {
+        "id": "11-6",
+        "subName": "Talent Gap Identification",
+        "wrongDomain": "Leadership Pipeline"
+      },
+      {
+        "id": "12-1",
+        "subName": "Onboarding Checklist",
+        "wrongDomain": "Churn Analysis"
+      },
+      {
+        "id": "12-2",
+        "subName": "Activation Tracker",
+        "wrongDomain": "Retention Strategies"
+      },
+      {
+        "id": "12-3",
+        "subName": "Success Playbooks",
+        "wrongDomain": "Customer Health"
+      },
+      {
+        "id": "12-4",
+        "subName": "Escalation SOPs",
+        "wrongDomain": "Engagement Programs"
+      },
+      {
+        "id": "12-6",
+        "subName": "Churn Root-Cause Engine",
+        "wrongDomain": "Loyalty Programs"
+      },
+      {
+        "id": "13-1",
+        "subName": "Category Narrative Canvas",
+        "wrongDomain": "Competitive Analysis"
+      },
+      {
+        "id": "14-1",
+        "subName": "System Architecture Diagram",
+        "wrongDomain": "Process Optimization"
+      },
+      {
+        "id": "14-2",
+        "subName": "Revenue Engine Map",
+        "wrongDomain": "Technology Stack"
+      }
+    ],
+    "both": [
+      {
+        "id": "2-1",
+        "subName": "Jobs to be Done",
+        "wrongTitle": "Interview Cadence Plan",
+        "wrongDomain": "Interview Cadence"
+      },
+      {
+        "id": "2-3",
+        "subName": "Interview Cadence",
+        "wrongTitle": "Pain Point Mapping",
+        "wrongDomain": "Pain Point Analysis"
+      },
+      {
+        "id": "2-4",
+        "subName": "Pain Point Mapping",
+        "wrongTitle": "Jobs-to-be-Done Capture",
+        "wrongDomain": "Jobs to be Done"
+      },
+      {
+        "id": "2-5",
+        "subName": "Insight Action",
+        "wrongTitle": "Signal Grading",
+        "wrongDomain": "Demand Signals"
+      },
+      {
+        "id": "2-6",
+        "subName": "Customer Journey",
+        "wrongTitle": "Insight-to-Action Loop",
+        "wrongDomain": "Insight Loop"
+      },
+      {
+        "id": "3-3",
+        "subName": "Prioritization Rubric",
+        "wrongTitle": "Resource Allocation Framework",
+        "wrongDomain": "Risk Assessment"
+      },
+      {
+        "id": "3-4",
+        "subName": "Tradeoff Tracker",
+        "wrongTitle": "Competitive Positioning",
+        "wrongDomain": "Timeline Planning"
+      },
+      {
+        "id": "3-5",
+        "subName": "Hypothesis Board",
+        "wrongTitle": "Risk Assessment",
+        "wrongDomain": "Success Metrics"
+      },
+      {
+        "id": "3-6",
+        "subName": "Decision Archive",
+        "wrongTitle": "Opportunity Evaluation",
+        "wrongDomain": "Decision Framework"
+      },
+      {
+        "id": "4-5",
+        "subName": "Timeline GANTT or Roadmap",
+        "wrongTitle": "Timeline Gantt or Roadmap",
+        "wrongDomain": "Iteration Planning"
+      },
+      {
+        "id": "5-1",
+        "subName": "GTM Messaging Framework",
+        "wrongTitle": "Case Study Template",
+        "wrongDomain": "Case Study Development"
+      },
+      {
+        "id": "5-2",
+        "subName": "Sales Enablement Assets",
+        "wrongTitle": "ROI Calculation Sheet",
+        "wrongDomain": "Messaging Framework"
+      },
+      {
+        "id": "5-3",
+        "subName": "Pricing & Packaging Strategy",
+        "wrongTitle": "Reference Program",
+        "wrongDomain": "Channel Strategy"
+      },
+      {
+        "id": "5-4",
+        "subName": "Channel Partner Strategy",
+        "wrongTitle": "Social Proof Collection",
+        "wrongDomain": "Pricing Model"
+      },
+      {
+        "id": "5-5",
+        "subName": "Competitive Positioning",
+        "wrongTitle": "Pilot Program Management",
+        "wrongDomain": "Sales Enablement"
+      },
+      {
+        "id": "5-6",
+        "subName": "Launch Planning & Execution",
+        "wrongTitle": "Feedback Integration",
+        "wrongDomain": "Launch Planning"
+      },
+      {
+        "id": "6-3",
+        "subName": "CS Dashboard",
+        "wrongTitle": "Engagement Scoring System",
+        "wrongDomain": "Retention Programs"
+      },
+      {
+        "id": "6-4",
+        "subName": "Activation Metric Model",
+        "wrongTitle": "Retention Playbooks",
+        "wrongDomain": "Referral Systems"
+      },
+      {
+        "id": "6-5",
+        "subName": "Feedback Collector",
+        "wrongTitle": "Product Adoption Tracker",
+        "wrongDomain": "Revenue Optimization"
+      },
+      {
+        "id": "6-6",
+        "subName": "Power User Behavior Signals",
+        "wrongTitle": "Customer Feedback Loop",
+        "wrongDomain": "Engagement Metrics"
+      },
+      {
+        "id": "7-2",
+        "subName": "Revenue-Impact Attribution",
+        "wrongTitle": "Productivity Gains",
+        "wrongDomain": "Data Collection"
+      },
+      {
+        "id": "7-3",
+        "subName": "Productivity Lift Metrics",
+        "wrongTitle": "Outcome Tracking",
+        "wrongDomain": "Analytics Setup"
+      },
+      {
+        "id": "7-4",
+        "subName": "Net Retention Trends",
+        "wrongTitle": "Benchmark Comparisons",
+        "wrongDomain": "Impact Metrics"
+      },
+      {
+        "id": "7-5",
+        "subName": "Downstream System Reductions",
+        "wrongTitle": "Attribution Models",
+        "wrongDomain": "ROI Calculation"
+      },
+      {
+        "id": "7-6",
+        "subName": "Friction Reduction Evidence",
+        "wrongTitle": "Executive Dashboard",
+        "wrongDomain": "Reporting Systems"
+      },
+      {
+        "id": "8-1",
+        "subName": "Upsell Funnel Model",
+        "wrongTitle": "Onboarding Playbook",
+        "wrongDomain": "Success Planning"
+      },
+      {
+        "id": "8-2",
+        "subName": "Team Expansion Signals",
+        "wrongTitle": "Health Score Algorithm",
+        "wrongDomain": "Onboarding Process"
+      },
+      {
+        "id": "8-3",
+        "subName": "Organic Adoption Pattern",
+        "wrongTitle": "Expansion Triggers",
+        "wrongDomain": "Support Systems"
+      },
+      {
+        "id": "8-4",
+        "subName": "Champion Mapping",
+        "wrongTitle": "Support Ticket Taxonomy",
+        "wrongDomain": "Upsell Strategy"
+      },
+      {
+        "id": "8-5",
+        "subName": "CSAT/NPS Tracking",
+        "wrongTitle": "Knowledge Base Structure",
+        "wrongDomain": "Renewal Process"
+      },
+      {
+        "id": "8-6",
+        "subName": "Renewal Readiness Tracker",
+        "wrongTitle": "Renewal Forecasting",
+        "wrongDomain": "Advocacy Programs"
+      },
+      {
+        "id": "12-5",
+        "subName": "Renewals Pipelines",
+        "wrongTitle": "Renewals Pipeline",
+        "wrongDomain": "Win-back Campaigns"
+      },
+      {
+        "id": "13-2",
+        "subName": "Strategic MOAT Design",
+        "wrongTitle": "Strategic Moat Design",
+        "wrongDomain": "Market Positioning"
+      },
+      {
+        "id": "13-3",
+        "subName": "Ecosystem Leverage Map",
+        "wrongTitle": "Ecosystem Development",
+        "wrongDomain": "Category Creation"
+      },
+      {
+        "id": "13-4",
+        "subName": "Competitor GTM Monitoring",
+        "wrongTitle": "M&A Strategy",
+        "wrongDomain": "Thought Leadership"
+      },
+      {
+        "id": "13-5",
+        "subName": "Brand Architecture Plan",
+        "wrongTitle": "Market Leadership",
+        "wrongDomain": "Strategic Partnerships"
+      },
+      {
+        "id": "13-6",
+        "subName": "Defensive GTM Tactics",
+        "wrongTitle": "Competitive Intelligence",
+        "wrongDomain": "Market Expansion"
+      },
+      {
+        "id": "14-3",
+        "subName": "Internal Dashboards",
+        "wrongTitle": "Process Automation Map",
+        "wrongDomain": "Automation Systems"
+      },
+      {
+        "id": "14-4",
+        "subName": "Tool Consolidation Tracker",
+        "wrongTitle": "Data Infrastructure Design",
+        "wrongDomain": "Quality Control"
+      },
+      {
+        "id": "14-5",
+        "subName": "RevOps Playbook",
+        "wrongTitle": "Security & Compliance Framework",
+        "wrongDomain": "Supply Chain"
+      },
+      {
+        "id": "14-6",
+        "subName": "Internal SLA Policy",
+        "wrongTitle": "Scalability Planning",
+        "wrongDomain": "Risk Management"
+      },
+      {
+        "id": "15-1",
+        "subName": "Executive Team",
+        "wrongTitle": "Executive Hiring Roadmap",
+        "wrongDomain": "Executive Development"
+      },
+      {
+        "id": "15-2",
+        "subName": "Board Development",
+        "wrongTitle": "Board Governance Framework",
+        "wrongDomain": "Board Relations"
+      },
+      {
+        "id": "15-4",
+        "subName": "Stakeholder Alignment",
+        "wrongTitle": "Stakeholder Alignment Plan",
+        "wrongDomain": "Leadership Training"
+      },
+      {
+        "id": "15-5",
+        "subName": "Investor Relations",
+        "wrongTitle": "Investor Relations Protocol",
+        "wrongDomain": "Vision Alignment"
+      },
+      {
+        "id": "15-6",
+        "subName": "Leadership Dynamics",
+        "wrongTitle": "Leadership Team Dynamics",
+        "wrongDomain": "Strategic Planning"
+      },
+      {
+        "id": "16-2",
+        "subName": "Localization Infrastructure",
+        "wrongTitle": "Localization Roadmap",
+        "wrongDomain": "Entry Strategy"
+      },
+      {
+        "id": "16-3",
+        "subName": "International Pricing Matrix",
+        "wrongTitle": "Global Operations Playbook",
+        "wrongDomain": "Localization"
+      },
+      {
+        "id": "16-4",
+        "subName": "Regional Compliance Tracker",
+        "wrongTitle": "Regulatory Compliance Map",
+        "wrongDomain": "Global Partnerships"
+      },
+      {
+        "id": "16-5",
+        "subName": "Geo-Specific GTM Playbooks",
+        "wrongTitle": "Partnership Ecosystem Strategy",
+        "wrongDomain": "Regulatory Compliance"
+      },
+      {
+        "id": "16-6",
+        "subName": "Expansion Risk Assessment",
+        "wrongTitle": "Cultural Adaptation Framework",
+        "wrongDomain": "Global Operations"
+      }
+    ]
+  },
+  "validationFailures": []
+}
