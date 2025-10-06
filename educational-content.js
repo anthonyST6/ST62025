@@ -637,6 +637,134 @@ const educationalContent = {
       ]
     }
   },
+  
+  "5-3": {  // Reference Program
+    title: "Reference Program",
+    what: `A structured system for cultivating and leveraging satisfied customers as advocates and references for new prospects.`,
+    why: `References close deals 2x faster and at 30% higher win rates. They're your most credible sales asset.`,
+    how: `
+      <h4>Program Components:</h4>
+      <ul>
+        <li><strong>Identification:</strong> Find your happiest, most successful customers</li>
+        <li><strong>Cultivation:</strong> Build deeper relationships with champions</li>
+        <li><strong>Activation:</strong> Make it easy for them to refer</li>
+        <li><strong>Recognition:</strong> Reward and celebrate advocates</li>
+        <li><strong>Management:</strong> Track and optimize program performance</li>
+      </ul>
+    `,
+    examples: [
+      "Quarterly customer spotlight with $500 donation to charity of choice",
+      "VIP access to product roadmap and executive team",
+      "Co-marketing opportunities and speaking slots"
+    ],
+    templates: [
+      "Referral Program Framework",
+      "Customer Advocacy Playbook",
+      "Reference Customer Agreement"
+    ],
+    metrics: [
+      "Number of active references",
+      "Reference utilization rate",
+      "Deals influenced by references",
+      "Reference-to-close rate"
+    ]
+  },
+  
+  "5-4": {  // Social Proof Collection
+    title: "Social Proof Collection",
+    what: `Systematic gathering and deployment of customer testimonials, reviews, and success stories to build trust and credibility.`,
+    why: `92% of buyers read reviews before purchasing. Social proof reduces perceived risk and accelerates decision-making.`,
+    how: `
+      <h4>Collection Methods:</h4>
+      <ul>
+        <li><strong>Testimonials:</strong> Written or video endorsements</li>
+        <li><strong>Case Studies:</strong> Detailed success stories</li>
+        <li><strong>Reviews:</strong> Third-party platform ratings</li>
+        <li><strong>Logos:</strong> Customer brand recognition</li>
+        <li><strong>Metrics:</strong> Aggregate success statistics</li>
+      </ul>
+    `,
+    examples: [
+      "Wall of Love with 50+ customer quotes on homepage",
+      "4.8/5 star rating on G2 with 200+ reviews",
+      "Customer success metrics: 10,000+ users, 99.9% uptime"
+    ],
+    templates: [
+      "Testimonial Collection Guide",
+      "Social Proof Library",
+      "Success Story Template"
+    ],
+    metrics: [
+      "Number of testimonials collected",
+      "Review platform ratings",
+      "Social proof conversion impact",
+      "Content freshness score"
+    ]
+  },
+  
+  "5-5": {  // Pilot Program Management
+    title: "Pilot Program Management",
+    what: `A structured approach to running controlled trials with select customers to validate product-market fit and gather feedback.`,
+    why: `Pilots de-risk product launches, generate early proof points, and create invested champions before general availability.`,
+    how: `
+      <h4>Pilot Structure:</h4>
+      <ul>
+        <li><strong>Selection:</strong> Choose ideal early adopters</li>
+        <li><strong>Onboarding:</strong> High-touch setup and training</li>
+        <li><strong>Support:</strong> Dedicated success resources</li>
+        <li><strong>Feedback:</strong> Regular check-ins and surveys</li>
+        <li><strong>Graduation:</strong> Convert to paying customers</li>
+      </ul>
+    `,
+    examples: [
+      "30-day pilot with 5 enterprise customers, 80% conversion",
+      "Beta program with 100 users, weekly feedback sessions",
+      "Design partner program with 3 strategic accounts"
+    ],
+    templates: [
+      "Pilot Program Structure",
+      "Beta Testing Agreement",
+      "Early Adopter Onboarding Kit"
+    ],
+    metrics: [
+      "Pilot-to-customer conversion rate",
+      "Time to value in pilot",
+      "Feature requests per pilot",
+      "NPS of pilot participants"
+    ]
+  },
+  
+  "5-6": {  // Feedback Integration
+    title: "Feedback Integration",
+    what: `A systematic process for collecting, prioritizing, and incorporating customer feedback into product and GTM decisions.`,
+    why: `Customer-driven development reduces feature failure rates by 60% and increases retention by 25%.`,
+    how: `
+      <h4>Integration Process:</h4>
+      <ul>
+        <li><strong>Collection:</strong> Multiple feedback channels</li>
+        <li><strong>Categorization:</strong> Theme and priority tagging</li>
+        <li><strong>Prioritization:</strong> Impact vs effort scoring</li>
+        <li><strong>Communication:</strong> Close the loop with customers</li>
+        <li><strong>Measurement:</strong> Track implementation impact</li>
+      </ul>
+    `,
+    examples: [
+      "Monthly feature voting with top 3 added to roadmap",
+      "Customer advisory board quarterly input sessions",
+      "Public roadmap with customer request tracking"
+    ],
+    templates: [
+      "Feedback Loop Framework",
+      "Product Council Charter",
+      "Feature Request Tracker"
+    ],
+    metrics: [
+      "Feedback volume by channel",
+      "Feature request implementation rate",
+      "Time from feedback to release",
+      "Customer satisfaction with responsiveness"
+    ]
+  },
 
   "5-2": {  // ROI Calculation Sheet
     title: "ROI Calculation Sheet",
@@ -853,6 +981,135 @@ const educationalContent = {
         "Track reply sentiment, not just rate"
       ]
     }
+  },
+  
+  // Block 3: Strategic Prioritization - Missing subcomponents
+  "3-3": {  // Resource Allocation Framework
+    title: "Resource Allocation Framework",
+    what: `A systematic approach to distributing limited resources (time, money, people) across competing priorities to maximize strategic impact.`,
+    why: `Resources are always finite. Without clear allocation frameworks, teams waste effort on low-impact work while critical initiatives starve.`,
+    how: `
+      <h4>Allocation Criteria:</h4>
+      <ul>
+        <li><strong>Strategic Alignment:</strong> How well does it support key objectives?</li>
+        <li><strong>ROI Potential:</strong> Expected return vs. investment required</li>
+        <li><strong>Risk Level:</strong> Probability of success and downside</li>
+        <li><strong>Resource Requirements:</strong> People, time, and capital needed</li>
+        <li><strong>Opportunity Cost:</strong> What else could we do instead?</li>
+      </ul>
+    `,
+    examples: [
+      "70% resources to core product, 20% to new initiatives, 10% to experiments",
+      "Engineering: 40% features, 30% tech debt, 20% bugs, 10% innovation",
+      "Marketing: 50% demand gen, 30% brand, 20% product marketing"
+    ],
+    templates: [
+      "Resource Allocation Matrix",
+      "Priority Scoring Framework",
+      "Strategic Initiative Tracker"
+    ],
+    metrics: [
+      "Resource utilization rate",
+      "ROI by initiative",
+      "Strategic goal achievement",
+      "Resource allocation efficiency"
+    ]
+  },
+  
+  "3-4": {  // Competitive Positioning
+    title: "Competitive Positioning",
+    what: `The strategic process of defining how your product uniquely solves customer problems better than alternatives.`,
+    why: `Clear positioning helps you win the right customers, command premium pricing, and defend against competition.`,
+    how: `
+      <h4>Positioning Framework:</h4>
+      <ul>
+        <li><strong>Target Segment:</strong> Who is your ideal customer?</li>
+        <li><strong>Problem Category:</strong> What problem do you solve?</li>
+        <li><strong>Unique Value:</strong> How are you different and better?</li>
+        <li><strong>Proof Points:</strong> What evidence supports your claims?</li>
+        <li><strong>Competitive Alternatives:</strong> What would they use instead?</li>
+      </ul>
+    `,
+    examples: [
+      "Only solution designed specifically for mid-market SaaS companies",
+      "Fastest implementation in the industry (2 weeks vs 3 months)",
+      "Built by practitioners, not consultants"
+    ],
+    templates: [
+      "Competitive Positioning Canvas",
+      "Differentiation Strategy Map",
+      "Competitive Response Playbook"
+    ],
+    metrics: [
+      "Win rate vs competitors",
+      "Price premium achieved",
+      "Market share growth",
+      "Positioning clarity score"
+    ]
+  },
+  
+  "3-5": {  // Risk Assessment
+    title: "Risk Assessment",
+    what: `Systematic identification and evaluation of potential threats to your business objectives and growth plans.`,
+    why: `Proactive risk management prevents catastrophic failures and enables faster, more confident decision-making.`,
+    how: `
+      <h4>Risk Categories:</h4>
+      <ul>
+        <li><strong>Market Risk:</strong> Demand changes, competition</li>
+        <li><strong>Technical Risk:</strong> Product failures, tech debt</li>
+        <li><strong>Financial Risk:</strong> Cash flow, funding gaps</li>
+        <li><strong>Operational Risk:</strong> Team, processes, vendors</li>
+        <li><strong>Regulatory Risk:</strong> Compliance, legal issues</li>
+      </ul>
+    `,
+    examples: [
+      "Key person dependency: CTO holds critical knowledge",
+      "Platform risk: 60% revenue from one integration partner",
+      "Regulatory change could require major product redesign"
+    ],
+    templates: [
+      "Risk Assessment Matrix",
+      "Mitigation Strategy Framework",
+      "Risk Monitoring Dashboard"
+    ],
+    metrics: [
+      "Risk exposure score",
+      "Mitigation effectiveness",
+      "Time to risk identification",
+      "Risk-adjusted returns"
+    ]
+  },
+  
+  "3-6": {  // Opportunity Evaluation
+    title: "Opportunity Evaluation",
+    what: `A structured approach to assessing and prioritizing growth opportunities based on potential impact and feasibility.`,
+    why: `Not all opportunities are created equal. Systematic evaluation prevents resource waste on attractive but unprofitable ventures.`,
+    how: `
+      <h4>Evaluation Dimensions:</h4>
+      <ul>
+        <li><strong>Market Size:</strong> TAM and growth potential</li>
+        <li><strong>Strategic Fit:</strong> Alignment with vision and capabilities</li>
+        <li><strong>Competitive Advantage:</strong> Can we win?</li>
+        <li><strong>Resource Requirements:</strong> Investment needed</li>
+        <li><strong>Time to Value:</strong> How quickly can we capture it?</li>
+      </ul>
+    `,
+    examples: [
+      "International expansion: $50M opportunity, 18-month payback",
+      "Enterprise tier: 3x ACV but 2x longer sales cycle",
+      "Platform play: High risk but 10x potential"
+    ],
+    templates: [
+      "Opportunity Evaluation Scorecard",
+      "Market Timing Analysis",
+      "Go/No-Go Decision Framework"
+    ],
+    metrics: [
+      "Opportunity pipeline value",
+      "Success rate of pursued opportunities",
+      "Time to opportunity capture",
+      "ROI on new initiatives"
+    ]
   },
 
   // Block 9 continued - missing subcomponents 3-6
@@ -1136,6 +1393,134 @@ const educationalContent = {
       ]
     }
   },
+  
+  "13-3": {  // Ecosystem Development
+    title: "Ecosystem Development",
+    what: `Building a network of partners, integrations, and complementary solutions that increase your product's value and stickiness.`,
+    why: `Ecosystems create network effects, increase switching costs, and can contribute 30-50% of revenue through partnerships.`,
+    how: `
+      <h4>Ecosystem Components:</h4>
+      <ul>
+        <li><strong>Technology Partners:</strong> Integrations and APIs</li>
+        <li><strong>Channel Partners:</strong> Resellers and distributors</li>
+        <li><strong>Service Partners:</strong> Consultants and implementers</li>
+        <li><strong>Platform Extensions:</strong> Apps and plugins</li>
+        <li><strong>Developer Community:</strong> API users and contributors</li>
+      </ul>
+    `,
+    examples: [
+      "Salesforce AppExchange with 3,000+ apps",
+      "Shopify partner ecosystem driving 40% of revenue",
+      "Stripe's 300+ pre-built integrations"
+    ],
+    templates: [
+      "Ecosystem Development Plan",
+      "Platform Strategy Canvas",
+      "Network Effects Calculator"
+    ],
+    metrics: [
+      "Number of ecosystem partners",
+      "Partner-sourced revenue %",
+      "Integration usage rate",
+      "Developer community size"
+    ]
+  },
+  
+  "13-4": {  // M&A Strategy
+    title: "M&A Strategy",
+    what: `Strategic approach to growth through mergers and acquisitions, including target identification, evaluation, and integration.`,
+    why: `M&A can accelerate market entry by 2-3 years, acquire talent and technology, and eliminate competition.`,
+    how: `
+      <h4>M&A Process:</h4>
+      <ul>
+        <li><strong>Strategy:</strong> Build vs buy vs partner analysis</li>
+        <li><strong>Targeting:</strong> Identify potential acquisitions</li>
+        <li><strong>Evaluation:</strong> Due diligence and valuation</li>
+        <li><strong>Negotiation:</strong> Terms and structure</li>
+        <li><strong>Integration:</strong> Post-merger execution</li>
+      </ul>
+    `,
+    examples: [
+      "Acqui-hire of 10-person AI team for $20M",
+      "Market expansion through $50M competitor acquisition",
+      "Technology acquisition to accelerate roadmap by 18 months"
+    ],
+    templates: [
+      "M&A Target Evaluation Matrix",
+      "Integration Planning Checklist",
+      "Synergy Realization Tracker"
+    ],
+    metrics: [
+      "M&A pipeline value",
+      "Integration success rate",
+      "Synergy realization %",
+      "Time to value from acquisition"
+    ]
+  },
+  
+  "13-5": {  // Market Leadership
+    title: "Market Leadership",
+    what: `Strategies and tactics for establishing and maintaining the #1 position in your category or market segment.`,
+    why: `Market leaders capture 70% of category profits, have 2x the valuation multiples, and set the rules competitors must follow.`,
+    how: `
+      <h4>Leadership Strategies:</h4>
+      <ul>
+        <li><strong>Category Creation:</strong> Define the space</li>
+        <li><strong>Thought Leadership:</strong> Shape the conversation</li>
+        <li><strong>Market Share:</strong> Dominate key segments</li>
+        <li><strong>Innovation:</strong> Stay ahead of the curve</li>
+        <li><strong>Brand Power:</strong> Become the default choice</li>
+      </ul>
+    `,
+    examples: [
+      "Owning 40% market share in core segment",
+      "CEO keynoting at 5 major industry conferences",
+      "Setting industry standards adopted by competitors"
+    ],
+    templates: [
+      "Market Leadership Scorecard",
+      "Thought Leadership Calendar",
+      "Industry Influence Map"
+    ],
+    metrics: [
+      "Market share %",
+      "Share of voice in media",
+      "Brand awareness score",
+      "Competitive win rate"
+    ]
+  },
+  
+  "13-6": {  // Competitive Intelligence
+    title: "Competitive Intelligence",
+    what: `Systematic gathering and analysis of information about competitors to inform strategic decisions and maintain advantage.`,
+    why: `Companies with strong competitive intelligence are 2x more likely to achieve above-average growth and 3x better at retention.`,
+    how: `
+      <h4>Intelligence Gathering:</h4>
+      <ul>
+        <li><strong>Public Sources:</strong> Websites, reports, news</li>
+        <li><strong>Customer Intel:</strong> Win/loss interviews</li>
+        <li><strong>Product Analysis:</strong> Feature comparisons</li>
+        <li><strong>Talent Tracking:</strong> Hiring patterns</li>
+        <li><strong>Financial Analysis:</strong> Funding and metrics</li>
+      </ul>
+    `,
+    examples: [
+      "Weekly competitive briefing for sales team",
+      "Quarterly competitive positioning updates",
+      "Real-time alerts on competitor moves"
+    ],
+    templates: [
+      "Competitive Intelligence Framework",
+      "Market Share Tracker",
+      "Strategic Response Playbook"
+    ],
+    metrics: [
+      "Competitive win rate",
+      "Time to competitive response",
+      "Intelligence accuracy score",
+      "Market share vs competitors"
+    ]
+  },
 
   // Phase 5: SCALE
   // Block 14: Operational Infrastructure
@@ -1281,6 +1666,99 @@ const educationalContent = {
         "Create single source of truth for metrics"
       ]
     }
+  },
+  
+  // Block 14 continued - missing subcomponents 14-3 through 14-6
+  "14-3": {  // Process Automation Map
+    title: "Process Automation Map",
+    templates: [
+      "Process Automation Blueprint",
+      "Workflow Optimization Guide",
+      "Automation ROI Calculator"
+    ],
+    what: `A comprehensive map of all business processes showing current state, automation opportunities, and implementation priorities.`,
+    why: `Manual processes limit scalability and introduce errors. Automation enables growth without proportional headcount increases.`,
+    how: `Document all processes, identify automation candidates, calculate ROI for each, prioritize by impact and feasibility, implement in phases.`,
+    examples: [
+      "Automated onboarding reducing setup time from 2 hours to 15 minutes",
+      "Invoice processing automation saving 20 hours/week",
+      "Customer support ticket routing reducing response time 50%"
+    ],
+    metrics: [
+      "Process automation percentage",
+      "Time saved through automation",
+      "Error reduction rate",
+      "Cost per transaction"
+    ]
+  },
+  
+  "14-4": {  // Data Infrastructure Design
+    title: "Data Infrastructure Design",
+    templates: [
+      "Data Architecture Blueprint",
+      "Data Governance Framework",
+      "Analytics Implementation Plan"
+    ],
+    what: `The design and implementation of data collection, storage, processing, and analytics systems that power decision-making.`,
+    why: `Data is your competitive advantage. The right infrastructure enables real-time insights, predictive analytics, and data-driven growth.`,
+    how: `Design data model, implement collection systems, build data warehouse, create analytics layer, establish governance, enable self-service analytics.`,
+    examples: [
+      "Real-time dashboard showing key metrics across all departments",
+      "Predictive churn model with 85% accuracy",
+      "Data warehouse consolidating 15 different data sources"
+    ],
+    metrics: [
+      "Data quality score",
+      "Query response time",
+      "Data freshness (latency)",
+      "Analytics adoption rate"
+    ]
+  },
+  
+  "14-5": {  // Security & Compliance Framework
+    title: "Security & Compliance Framework",
+    templates: [
+      "Security Policy Template",
+      "Compliance Checklist",
+      "Incident Response Plan"
+    ],
+    what: `A comprehensive security and compliance program covering policies, controls, monitoring, and incident response.`,
+    why: `Security breaches can destroy companies. Proactive security and compliance build trust and prevent catastrophic losses.`,
+    how: `Assess risks, implement controls, document policies, train employees, monitor continuously, conduct audits, maintain certifications.`,
+    examples: [
+      "SOC 2 Type II certification achieved in 6 months",
+      "Zero security incidents in past 12 months",
+      "GDPR compliance across all systems"
+    ],
+    metrics: [
+      "Security incident frequency",
+      "Compliance audit score",
+      "Mean time to detect/respond",
+      "Security training completion rate"
+    ]
+  },
+  
+  "14-6": {  // Scalability Planning
+    title: "Scalability Planning",
+    templates: [
+      "Scalability Roadmap",
+      "Capacity Planning Model",
+      "Infrastructure Cost Optimizer"
+    ],
+    what: `Strategic planning for system, process, and organizational scalability to support 10x growth without 10x complexity.`,
+    why: `Most startups hit scalability walls that slow growth. Planning ahead prevents costly re-architecture and maintains velocity.`,
+    how: `Model growth scenarios, identify bottlenecks, design scalable architecture, implement gradually, monitor performance, optimize continuously.`,
+    examples: [
+      "System handling 100x traffic with 3x infrastructure cost",
+      "Customer support scaling to 10,000 tickets/day with same team",
+      "Onboarding 1,000 customers/month vs 100 previously"
+    ],
+    metrics: [
+      "System capacity utilization",
+      "Cost per transaction",
+      "Performance at scale",
+      "Scalability debt ratio"
+    ]
   },
 
   // Add remaining Block 2 subcomponents
@@ -2154,6 +2632,98 @@ const educationalContent = {
     }
   },
 
+  "6-3": {  // Engagement Scoring System
+    title: "Engagement Scoring System",
+    templates: [
+      "Engagement Scoring Model",
+      "User Behavior Tracker",
+      "Activation Metrics Dashboard"
+    ],
+    what: `A quantitative framework for measuring and scoring user engagement across multiple dimensions to predict retention and identify growth opportunities.`,
+    why: `Engagement is the leading indicator of retention. Scoring helps prioritize support efforts and identify expansion opportunities.`,
+    how: `Define engagement metrics, weight by importance, track user behaviors, calculate scores, segment users by engagement level, trigger automated interventions.`,
+    examples: [
+      "Power users: 90+ score, daily active, using all features",
+      "At-risk: <40 score, declining usage, no recent activity",
+      "Growth opportunity: 70 score, approaching usage limits"
+    ],
+    metrics: [
+      "Average engagement score",
+      "Score distribution",
+      "Engagement trend",
+      "Score-to-retention correlation"
+    ]
+  },
+  
+  "6-4": {  // Retention Playbooks
+    title: "Retention Playbooks",
+    templates: [
+      "Retention Strategy Guide",
+      "Churn Prevention Playbook",
+      "Customer Success Plan"
+    ],
+    what: `Documented strategies and tactics for keeping customers engaged, satisfied, and renewing their subscriptions.`,
+    why: `It costs 5-25x more to acquire a new customer than retain an existing one. Systematic retention drives sustainable growth.`,
+    how: `Identify churn triggers, create intervention strategies, build success programs, implement early warning systems, measure retention impact.`,
+    examples: [
+      "30-60-90 day check-in cadence for new customers",
+      "Automated alerts when usage drops 50%",
+      "Quarterly business reviews with key accounts"
+    ],
+    metrics: [
+      "Gross retention rate",
+      "Net retention rate",
+      "Customer lifetime value",
+      "Churn rate by cohort"
+    ]
+  },
+  
+  "6-5": {  // Product Adoption Tracker
+    title: "Product Adoption Tracker",
+    templates: [
+      "Feature Adoption Dashboard",
+      "User Journey Map",
+      "Adoption Funnel Analysis"
+    ],
+    what: `A system for tracking how users discover, try, and adopt different features within your product.`,
+    why: `Feature adoption drives value realization. Understanding adoption patterns helps improve onboarding and increase product stickiness.`,
+    how: `Track feature discovery, measure first use, monitor repeat usage, identify adoption barriers, optimize user flows, celebrate milestones.`,
+    examples: [
+      "70% of users discover key feature within 7 days",
+      "Feature adoption increases retention by 40%",
+      "Guided tours improve adoption by 25%"
+    ],
+    metrics: [
+      "Feature discovery rate",
+      "Time to first use",
+      "Feature adoption rate",
+      "Feature stickiness"
+    ]
+  },
+  
+  "6-6": {  // Customer Feedback Loop
+    title: "Customer Feedback Loop",
+    templates: [
+      "Feedback Collection Framework",
+      "Voice of Customer Report",
+      "Product Roadmap Input Matrix"
+    ],
+    what: `A systematic process for collecting, analyzing, and acting on customer feedback to drive product and service improvements.`,
+    why: `Customer feedback is the compass for product development. A strong feedback loop ensures you build what customers actually need.`,
+    how: `Collect feedback from multiple channels, categorize and prioritize input, share insights with teams, implement changes, close the loop with customers.`,
+    examples: [
+      "Monthly NPS surveys with follow-up questions",
+      "In-app feedback widget with 15% response rate",
+      "Customer advisory board quarterly sessions"
+    ],
+    metrics: [
+      "Feedback volume",
+      "Response rate",
+      "Feature request implementation rate",
+      "Customer satisfaction score"
+    ]
+  },
+  
   // Add more blocks to reach comprehensive coverage
   "7-1": {  // Time/Cost Savings Metrics
     title: "Time/Cost Savings Metrics",

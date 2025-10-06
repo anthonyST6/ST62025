@@ -11,7 +11,10 @@ const {
 } = require('./integrated-agent-library.js');
 
 // Load correct subcomponent names (NOT agent names)
-const SUBCOMPONENT_NAMES = require('./subcomponent-names-mapping.js');
+const { SUBCOMPONENT_NAMES } = require('./subcomponent-names-mapping.js');
+
+// Load real-world examples for education tab
+const { getRealWorldExamples } = require('./real-world-examples-all-96-complete.js');
 
 // CRITICAL FIX: Import the question generation infrastructure
 const AgentQuestionGenerator = require('./agent-question-generator.js');
@@ -21,6 +24,9 @@ const { testCompany } = require('./test-company.js');
 
 // Load enhanced ST6Co answers for better scoring
 const { enhancedST6CoAnswers, getEnhancedAnswers } = require('./enhance-st6co-answers.js');
+
+// Load templates from get-templates.js (simplified version)
+const { getTemplatesForSubcomponent } = require('./get-templates.js');
 
 // Log successful loading
 console.log('🚀 Enhanced Server Loading...');
@@ -493,6 +499,12 @@ const server = http.createServer((req, res) => {
             const blockId = parseInt(subcomponentId.split('-')[0]);
             const block = blocks.find(b => b.id === blockId);
             
+            // Debug logging for breadcrumb issue
+            console.log(`📍 Breadcrumb Debug for ${subcomponentId}:`);
+            console.log(`   - Subcomponent Name: ${subcomponentName}`);
+            console.log(`   - Agent Name: ${agentName}`);
+            console.log(`   - Block Name: ${block ? block.name : 'Unknown'}`);
+            
             const response = {
                 id: subcomponentId,
                 name: subcomponentName,  // This is the subcomponent name (e.g., "Win-back Campaigns")
@@ -505,17 +517,7 @@ const server = http.createServer((req, res) => {
                     what: `${agentName} is a specialized agent that ${agent.description}. This agent helps you master ${subcomponentName} by evaluating your organization's capabilities across ${agent.scoringDimensions.length} key dimensions.`,
                     why: `Mastering ${subcomponentName} through the ${agentName} agent is crucial for your go-to-market success. Organizations that excel in this area typically see 2.5x faster growth, 68% higher win rates, and 45% lower customer acquisition costs.`,
                     how: `The ${agentName} evaluates your performance across these dimensions: ${agent.scoringDimensions.map(d => d.name).join(', ')}. Complete the workspace assessment to establish your baseline, then follow the agent's recommendations to improve.`,
-                    examples: [
-                        `${testCompany.name} Case Study: When ${testCompany.name} first implemented the ${agentName} framework for ${subcomponentName}, they were struggling with a baseline score of just 42%. By focusing on the top three scoring dimensions identified by the agent, they systematically improved their processes over a 3-month period. The team implemented weekly reviews, established clear KPIs for each dimension, and created accountability systems. As a result, they achieved a remarkable 35% improvement in their overall score, reaching 77% by the end of Q3. This improvement directly correlated with a ${testCompany.profile.keyMetrics.monthlyGrowth} increase in monthly growth rate and a significant reduction in customer churn.`,
-                        
-                        `Industry Leadership Example: Leading B2B SaaS companies consistently leverage ${agentName} insights to drive strategic decisions in ${subcomponentName}. These organizations typically maintain scores above 80% by embedding the agent's recommendations into their operational DNA. They use the dimensional scoring as a north star metric in executive dashboards and quarterly business reviews. The most successful companies create cross-functional teams specifically dedicated to improving low-scoring dimensions. This systematic approach has enabled them to achieve 2.5x faster growth rates compared to their competitors. Their success demonstrates that excellence in ${subcomponentName} is not just about tools, but about creating a culture of continuous improvement.`,
-                        
-                        `ROI Impact Analysis: Companies that achieve and maintain 80%+ scores in ${subcomponentName} through the ${agentName} framework consistently outperform their peers across all key metrics. These high performers report an average of ${testCompany.profile.keyMetrics.monthlyGrowth} monthly growth, compared to just 8% for those scoring below 50%. The financial impact extends beyond growth - they also see a 45% reduction in customer acquisition costs and a 91% improvement in retention rates. The compound effect of these improvements typically results in 3x valuation multiples within 18 months. Most importantly, these companies report that the structured approach provided by ${agentName} helped them identify and fix critical gaps they didn't even know existed.`,
-                        
-                        `Transformation Journey: A mid-market software company recently used ${agentName} to transform their approach to ${subcomponentName}. Starting with a score of 38%, they were losing customers and struggling to scale. The agent identified critical weaknesses in three key dimensions that were creating a domino effect across their entire operation. Over six months, they methodically addressed each dimension, using the agent's recommendations to guide their improvement initiatives. They invested in training, upgraded their technology stack, and restructured their teams around the scoring dimensions. By month six, they had achieved a score of 82% and saw immediate business impact: ${testCompany.profile.keyMetrics.nps} NPS score, 68% win rate improvement, and $2.3M in recovered revenue from prevented churn.`,
-                        
-                        `Best Practice Implementation: The most successful implementations of ${agentName} for ${subcomponentName} follow a consistent pattern that any organization can replicate. First, companies establish a baseline by completing the comprehensive workspace assessment with honest, data-driven responses. Second, they focus intensively on the lowest-scoring dimension for 30 days before moving to the next. Third, they implement weekly measurement cycles to track progress and adjust tactics quickly. Fourth, they celebrate small wins to maintain momentum and engagement across the team. Fifth, they document their learnings and create playbooks for sustaining improvements. Companies following this methodology typically see their first meaningful improvements within 2-3 weeks and achieve 70%+ scores within 90 days.`
-                    ],
+                    examples: getRealWorldExamples(subcomponentId),
                     metrics: agent.scoringDimensions.map(d => `${d.name}: Target 80%+ (Weight: ${d.weight}%)`),
                     agentInfo: {
                         name: agentName,
@@ -527,8 +529,11 @@ const server = http.createServer((req, res) => {
                 workspace: {
                     questions: generateWorkspaceQuestions(agent, subcomponentId)
                 },
-                templates: generateTemplates(agent, subcomponentId),
-                resources: generateResources(agent, subcomponentId),
+                templates: getTemplatesForSubcomponent ? getTemplatesForSubcomponent(subcomponentId) : [],
+                resources: {
+                    templates: getTemplatesForSubcomponent ? getTemplatesForSubcomponent(subcomponentId) : [],
+                    files: generateResources(agent, subcomponentId)
+                },
                 scoringDimensions: agent.scoringDimensions,
                 evaluationCriteria: agent.evaluationCriteria,
                 companyData: {

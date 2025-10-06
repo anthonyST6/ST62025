@@ -1,0 +1,974 @@
+{
+  "auditDate": "2025-10-06T04:08:28.407Z",
+  "summary": {
+    "totalSubcomponents": 96,
+    "subcomponentsWithTemplates": 96,
+    "subcomponentsWithoutTemplates": 0,
+    "totalTemplates": 288,
+    "averageTemplatesPerSubcomponent": 3,
+    "completionPercentage": "100.0"
+  },
+  "missingSubcomponents": [],
+  "detailedResults": {
+    "1-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Problem Statement Canvas",
+        "Customer Pain Interview Guide",
+        "Problem Validation Scorecard"
+      ],
+      "source": "get-templates.js"
+    },
+    "1-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Mission Statement Builder",
+        "Vision-Mission-Values Framework",
+        "Strategic Narrative Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "1-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Customer Interview Script",
+        "Insight Synthesis Canvas",
+        "Voice of Customer Database"
+      ],
+      "source": "get-templates.js"
+    },
+    "1-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Founding Team Scorecard",
+        "Skills Gap Analysis",
+        "Advisor Recruitment Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "1-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Market Sizing Calculator",
+        "Competitive Matrix Template",
+        "Positioning Quadrant Builder"
+      ],
+      "source": "get-templates.js"
+    },
+    "1-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "MVP Planning Canvas",
+        "Prototype Test Protocol",
+        "Launch Readiness Checklist"
+      ],
+      "source": "get-templates.js"
+    },
+    "2-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Interview Schedule Template",
+        "Question Bank by Stage",
+        "Insight Synthesis Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "2-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Persona Canvas Template",
+        "Buyer Journey Map",
+        "Persona Interview Guide"
+      ],
+      "source": "get-templates.js"
+    },
+    "2-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Pain Point Matrix Template",
+        "Customer Journey Map",
+        "Pain-to-Feature Mapping"
+      ],
+      "source": "get-templates.js"
+    },
+    "2-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "JTBD Interview Script",
+        "Job Story Template",
+        "Outcome Mapping Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "2-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Signal Scoring Rubric",
+        "Feedback Prioritization Matrix",
+        "Signal Tracking Dashboard"
+      ],
+      "source": "get-templates.js"
+    },
+    "2-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Insight Action Plan",
+        "Decision Log Template",
+        "Impact Tracking Sheet"
+      ],
+      "source": "get-templates.js"
+    },
+    "3-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Use Case Scoring Matrix",
+        "Market Opportunity Calculator",
+        "Feasibility Assessment"
+      ],
+      "source": "get-templates.js"
+    },
+    "3-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Segment Scoring Card",
+        "ICP Definition Framework",
+        "Tiering Decision Matrix"
+      ],
+      "source": "get-templates.js"
+    },
+    "3-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Resource Allocation Matrix",
+        "Priority Scoring Framework",
+        "Strategic Initiative Tracker"
+      ],
+      "source": "get-templates.js"
+    },
+    "3-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Competitive Positioning Canvas",
+        "Differentiation Strategy Map",
+        "Competitive Response Playbook"
+      ],
+      "source": "get-templates.js"
+    },
+    "3-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Risk Assessment Matrix",
+        "Mitigation Strategy Framework",
+        "Risk Monitoring Dashboard"
+      ],
+      "source": "get-templates.js"
+    },
+    "3-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Opportunity Evaluation Scorecard",
+        "Market Timing Analysis",
+        "Go/No-Go Decision Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "4-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Feature Prioritization Matrix",
+        "MVP Scoping Canvas",
+        "MoSCoW Analysis Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "4-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Technical Roadmap Template",
+        "Sprint Planning Board",
+        "Architecture Decision Record"
+      ],
+      "source": "get-templates.js"
+    },
+    "4-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Pilot User Agreement",
+        "Screening Questionnaire",
+        "Feedback Collection Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "4-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "QA Test Plan",
+        "Success Criteria Checklist",
+        "Bug Tracking Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "4-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Gantt Chart Template",
+        "Agile Roadmap Canvas",
+        "Milestone Tracker"
+      ],
+      "source": "get-templates.js"
+    },
+    "4-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Post-Mortem Agenda",
+        "Learning Canvas",
+        "Decision Log Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "5-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Case Study Interview Script",
+        "Case Study Template",
+        "ROI Calculator Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "5-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "ROI Calculator Spreadsheet",
+        "Value Realization Framework",
+        "Business Case Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "5-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Referral Program Framework",
+        "Customer Advocacy Playbook",
+        "Reference Customer Agreement"
+      ],
+      "source": "get-templates.js"
+    },
+    "5-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Testimonial Collection Guide",
+        "Social Proof Library",
+        "Success Story Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "5-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Pilot Program Structure",
+        "Beta Testing Agreement",
+        "Early Adopter Onboarding Kit"
+      ],
+      "source": "get-templates.js"
+    },
+    "5-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Feedback Loop Framework",
+        "Product Council Charter",
+        "Feature Request Tracker"
+      ],
+      "source": "get-templates.js"
+    },
+    "6-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Feature Usage Matrix",
+        "User Journey Heatmap",
+        "Engagement Dashboard"
+      ],
+      "source": "get-templates.js"
+    },
+    "6-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Milestone Definition Framework",
+        "Trigger Tracking Dashboard",
+        "Intervention Playbook"
+      ],
+      "source": "get-templates.js"
+    },
+    "6-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Engagement Scoring Model",
+        "User Behavior Tracker",
+        "Activation Metrics Dashboard"
+      ],
+      "source": "get-templates.js"
+    },
+    "6-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Retention Strategy Guide",
+        "Churn Prevention Playbook",
+        "Customer Success Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "6-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Feature Adoption Dashboard",
+        "User Journey Map",
+        "Adoption Funnel Analysis"
+      ],
+      "source": "get-templates.js"
+    },
+    "6-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Feedback Collection Framework",
+        "Voice of Customer Report",
+        "Product Roadmap Input Matrix"
+      ],
+      "source": "get-templates.js"
+    },
+    "7-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "ROI Calculator",
+        "Time Study Template",
+        "Cost-Benefit Analysis"
+      ],
+      "source": "get-templates.js"
+    },
+    "7-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Productivity Measurement Guide",
+        "Before/After Analysis",
+        "Impact Assessment Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "7-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Outcome Definition Worksheet",
+        "Success Metrics Dashboard",
+        "Quarterly Business Review Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "7-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Benchmark Report Template",
+        "Competitive Analysis Matrix",
+        "Performance Comparison Dashboard"
+      ],
+      "source": "get-templates.js"
+    },
+    "7-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Attribution Model Framework",
+        "Journey Mapping Template",
+        "Feature Impact Analysis"
+      ],
+      "source": "get-templates.js"
+    },
+    "7-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Executive Dashboard Mockup",
+        "KPI Selection Framework",
+        "Dashboard Design Guide"
+      ],
+      "source": "get-templates.js"
+    },
+    "8-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Onboarding Checklist",
+        "Welcome Email Sequence",
+        "Success Plan Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "8-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Health Score Calculator",
+        "Risk Assessment Matrix",
+        "Intervention Playbook"
+      ],
+      "source": "get-templates.js"
+    },
+    "8-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Expansion Opportunity Scorecard",
+        "Upsell Talk Track",
+        "Upgrade Proposal Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "8-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Ticket Classification Guide",
+        "Support Metrics Dashboard",
+        "Root Cause Analysis Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "8-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "KB Article Template",
+        "Content Audit Checklist",
+        "Information Architecture Map"
+      ],
+      "source": "get-templates.js"
+    },
+    "8-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Renewal Forecast Model",
+        "Account Review Template",
+        "Save Plan Playbook"
+      ],
+      "source": "get-templates.js"
+    },
+    "9-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Conversion Tracking Sheet",
+        "A/B Test Framework",
+        "Funnel Analysis Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "9-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Outbound Sequence Template",
+        "Cold Email Scripts",
+        "Objection Handling Matrix"
+      ],
+      "source": "get-templates.js"
+    },
+    "9-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Channel Performance Dashboard",
+        "CAC by Channel Report",
+        "Channel Mix Model"
+      ],
+      "source": "get-templates.js"
+    },
+    "9-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Sales Velocity Calculator",
+        "Pipeline Velocity Dashboard",
+        "Deal Progression Tracker"
+      ],
+      "source": "get-templates.js"
+    },
+    "9-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Win Rate Dashboard",
+        "Competitive Win/Loss Matrix",
+        "Deal Analysis Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "9-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Pipeline Coverage Calculator",
+        "Coverage Ratio Dashboard",
+        "Pipeline Generation Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "10-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Sales Candidate Scorecard",
+        "Interview Question Bank",
+        "Reference Check Guide"
+      ],
+      "source": "get-templates.js"
+    },
+    "10-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Discovery Call Script",
+        "Qualification Scorecard",
+        "Call Preparation Checklist"
+      ],
+      "source": "get-templates.js"
+    },
+    "10-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Demo Script Template",
+        "Demo Preparation Guide",
+        "Follow-up Email Templates"
+      ],
+      "source": "get-templates.js"
+    },
+    "10-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Objection Handling Guide",
+        "Battle Card Template",
+        "Win/Loss Analysis Form"
+      ],
+      "source": "get-templates.js"
+    },
+    "10-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Comp Plan Calculator",
+        "Commission Agreement",
+        "Quota Setting Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "10-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Pipeline Review Agenda",
+        "Deal Inspection Checklist",
+        "Forecast Call Script"
+      ],
+      "source": "get-templates.js"
+    },
+    "11-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Org Chart Template",
+        "RACI Matrix",
+        "Team Charter Document"
+      ],
+      "source": "get-templates.js"
+    },
+    "11-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "OKR Planning Template",
+        "Performance Review Form",
+        "KPI Dashboard"
+      ],
+      "source": "get-templates.js"
+    },
+    "11-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Culture Deck Template",
+        "Values Definition Workshop",
+        "Behavior Interview Guide"
+      ],
+      "source": "get-templates.js"
+    },
+    "11-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Leadership Competency Model",
+        "Development Plan Template",
+        "360 Review Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "11-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Communication Charter",
+        "Meeting Agenda Templates",
+        "Status Report Format"
+      ],
+      "source": "get-templates.js"
+    },
+    "11-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Retention Risk Assessment",
+        "Stay Interview Guide",
+        "Compensation Benchmarking Tool"
+      ],
+      "source": "get-templates.js"
+    },
+    "12-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Churn Analysis Worksheet",
+        "Risk Scoring Rubric",
+        "Intervention Playbook"
+      ],
+      "source": "get-templates.js"
+    },
+    "12-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Win-Back Email Sequence",
+        "Offer Strategy Matrix",
+        "Campaign Tracking Sheet"
+      ],
+      "source": "get-templates.js"
+    },
+    "12-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Loyalty Program Framework",
+        "Tier Structure Calculator",
+        "Rewards Catalog"
+      ],
+      "source": "get-templates.js"
+    },
+    "12-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Pricing Analysis Worksheet",
+        "Van Westendorp Survey",
+        "Pricing Committee Deck"
+      ],
+      "source": "get-templates.js"
+    },
+    "12-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "CAB Charter Template",
+        "Member Invitation Letter",
+        "Meeting Agenda Framework"
+      ],
+      "source": "get-templates.js"
+    },
+    "12-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Engagement Scoring Model",
+        "Segmentation Framework",
+        "Automated Playbooks"
+      ],
+      "source": "get-templates.js"
+    },
+    "13-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Category Design Canvas",
+        "Point of View Document",
+        "Category Manifesto Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "13-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Moat Assessment Framework",
+        "Competitive Defensibility Map",
+        "Moat Investment Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "13-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Ecosystem Development Plan",
+        "Platform Strategy Canvas",
+        "Network Effects Calculator"
+      ],
+      "source": "get-templates.js"
+    },
+    "13-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "M&A Target Evaluation Matrix",
+        "Integration Planning Checklist",
+        "Synergy Realization Tracker"
+      ],
+      "source": "get-templates.js"
+    },
+    "13-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Market Leadership Scorecard",
+        "Thought Leadership Calendar",
+        "Industry Influence Map"
+      ],
+      "source": "get-templates.js"
+    },
+    "13-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Competitive Intelligence Framework",
+        "Market Share Tracker",
+        "Strategic Response Playbook"
+      ],
+      "source": "get-templates.js"
+    },
+    "14-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Architecture Diagram Template",
+        "System Documentation Guide",
+        "Integration Checklist"
+      ],
+      "source": "get-templates.js"
+    },
+    "14-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Revenue Operations Map",
+        "Systems Integration Plan",
+        "GTM Tech Stack Audit"
+      ],
+      "source": "get-templates.js"
+    },
+    "14-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Process Automation Blueprint",
+        "Workflow Optimization Guide",
+        "Automation ROI Calculator"
+      ],
+      "source": "get-templates.js"
+    },
+    "14-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Data Architecture Blueprint",
+        "Data Governance Framework",
+        "Analytics Implementation Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "14-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Security Policy Template",
+        "Compliance Checklist",
+        "Incident Response Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "14-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Scalability Roadmap",
+        "Capacity Planning Model",
+        "Infrastructure Cost Optimizer"
+      ],
+      "source": "get-templates.js"
+    },
+    "15-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Executive Job Description",
+        "Interview Scorecard",
+        "90-Day Plan Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "15-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Board Charter",
+        "Board Deck Template",
+        "Director Onboarding Kit"
+      ],
+      "source": "get-templates.js"
+    },
+    "15-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Succession Planning Grid",
+        "Talent Review Template",
+        "Development Action Plan"
+      ],
+      "source": "get-templates.js"
+    },
+    "15-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Stakeholder Map",
+        "Alignment Canvas",
+        "Communication Calendar"
+      ],
+      "source": "get-templates.js"
+    },
+    "15-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Investor Update Template",
+        "Board Report Format",
+        "Data Room Checklist"
+      ],
+      "source": "get-templates.js"
+    },
+    "15-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Team Assessment Survey",
+        "Team Charter Template",
+        "Conflict Resolution Guide"
+      ],
+      "source": "get-templates.js"
+    },
+    "16-1": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Market Entry Canvas",
+        "Localization Checklist",
+        "Partnership Agreement Template"
+      ],
+      "source": "get-templates.js"
+    },
+    "16-2": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Localization Requirements Matrix",
+        "Translation Style Guide",
+        "Market Launch Checklist"
+      ],
+      "source": "get-templates.js"
+    },
+    "16-3": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Country Launch Checklist",
+        "Global Vendor Matrix",
+        "Compliance Calendar"
+      ],
+      "source": "get-templates.js"
+    },
+    "16-4": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Compliance Requirements Matrix",
+        "Risk Assessment Framework",
+        "Audit Preparation Checklist"
+      ],
+      "source": "get-templates.js"
+    },
+    "16-5": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Partner Program Guide",
+        "Partnership Agreement Template",
+        "Partner Enablement Kit"
+      ],
+      "source": "get-templates.js"
+    },
+    "16-6": {
+      "status": "EXISTS",
+      "count": 3,
+      "templates": [
+        "Cultural Assessment Tool",
+        "Adaptation Checklist",
+        "Cross-Cultural Training Guide"
+      ],
+      "source": "get-templates.js"
+    }
+  }
+}
