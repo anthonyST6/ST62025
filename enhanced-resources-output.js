@@ -189,7 +189,25 @@ Segment | Size | Growth Rate | Our Fit | Priority
     function enhanceResourcesTab() {
         console.log('📚 Enhancing Resources tab with downloadable templates...');
         
-        const resourcesContent = document.getElementById('resources-content');
+        // Try multiple possible container IDs
+        let resourcesContent = document.getElementById('resources-content');
+        if (!resourcesContent) {
+            resourcesContent = document.getElementById('resource-templates');
+        }
+        if (!resourcesContent) {
+            // If still not found, look for the resources tab and create the container
+            const resourcesTab = document.getElementById('resources-tab');
+            if (resourcesTab) {
+                const existingContent = resourcesTab.querySelector('.templates-list');
+                if (existingContent) {
+                    resourcesContent = existingContent;
+                } else {
+                    resourcesContent = document.createElement('div');
+                    resourcesContent.id = 'resources-content';
+                    resourcesTab.appendChild(resourcesContent);
+                }
+            }
+        }
         if (!resourcesContent) return;
         
         // Get current subcomponent ID
@@ -414,19 +432,30 @@ Segment | Size | Growth Rate | Our Fit | Priority
         };
     }
     
+    // Make functions globally available
+    window.enhanceResourcesTab = enhanceResourcesTab;
+    window.enhanceOutputTab = enhanceOutputTab;
+    
     // Override tab switching to enhance Resources and Output tabs
-    const originalSwitchTab = window.switchTab;
-    if (originalSwitchTab) {
-        window.switchTab = function(tabName, event) {
-            originalSwitchTab(tabName, event);
-            
-            if (tabName === 'resources') {
-                setTimeout(enhanceResourcesTab, 100);
-            } else if (tabName === 'output') {
-                setTimeout(enhanceOutputTab, 100);
-            }
-        };
+    function overrideSwitchTab() {
+        const originalSwitchTab = window.switchTab;
+        if (originalSwitchTab && !window._enhancedSwitchTabOverridden) {
+            window._enhancedSwitchTabOverridden = true;
+            window.switchTab = function(tabName, event) {
+                originalSwitchTab(tabName, event);
+                
+                if (tabName === 'resources') {
+                    setTimeout(enhanceResourcesTab, 100);
+                } else if (tabName === 'output') {
+                    setTimeout(enhanceOutputTab, 100);
+                }
+            };
+        }
     }
+    
+    // Try to override immediately and also after a delay
+    overrideSwitchTab();
+    setTimeout(overrideSwitchTab, 500);
     
     // Add CSS animations
     const style = document.createElement('style');
@@ -443,4 +472,17 @@ Segment | Size | Growth Rate | Our Fit | Priority
     document.head.appendChild(style);
     
     console.log('✅ Enhanced Resources and Output Handler loaded');
+    
+    // Auto-enhance if tabs are already visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const resourcesTab = document.querySelector('[data-tab="resources"].active');
+        if (resourcesTab) {
+            enhanceResourcesTab();
+        }
+        
+        const outputTab = document.querySelector('[data-tab="output"].active');
+        if (outputTab) {
+            enhanceOutputTab();
+        }
+    });
 })();

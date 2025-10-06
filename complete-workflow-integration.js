@@ -16,16 +16,47 @@
         
         // Function to convert subcomponent ID to agent key
         function getAgentKey(subcomponentId) {
+            // Try multiple formats to find the agent
+            // Format 1: "1-1" stays as "1-1"
+            // Format 2: "1-1" becomes "1a"
             const [block, subIndex] = subcomponentId.split('-');
             const letterIndex = parseInt(subIndex) - 1;
             const letter = String.fromCharCode(97 + letterIndex); // 97 is 'a' in ASCII
-            return `${block}${letter}`;
+            
+            return {
+                dashFormat: subcomponentId,  // e.g., "1-1"
+                letterFormat: `${block}${letter}`  // e.g., "1a"
+            };
         }
         
         // Get agent for current subcomponent
         function getAgentForSubcomponent(subcomponentId) {
-            const agentKey = getAgentKey(subcomponentId);
-            return window.AgentLibrary && window.AgentLibrary[agentKey];
+            if (!window.AgentLibrary) {
+                console.warn('⚠️ AgentLibrary not loaded yet');
+                return null;
+            }
+            
+            const keys = getAgentKey(subcomponentId);
+            
+            // Try dash format first (e.g., "1-1")
+            let agent = window.AgentLibrary[keys.dashFormat];
+            
+            // If not found, try letter format (e.g., "1a")
+            if (!agent) {
+                agent = window.AgentLibrary[keys.letterFormat];
+            }
+            
+            // If still not found, try to get from window.currentAgentData
+            if (!agent && window.currentAgentData) {
+                agent = window.currentAgentData;
+            }
+            
+            if (!agent) {
+                console.log('🔍 Available agent keys:', Object.keys(window.AgentLibrary));
+                console.log('🔍 Looking for:', keys);
+            }
+            
+            return agent;
         }
         
         // ============= STEP 1: WORKSPACE COMPLETION =============
@@ -34,11 +65,37 @@
             
             const urlParams = new URLSearchParams(window.location.search);
             const subcomponentId = urlParams.get('id') || '1-1';
-            const agent = getAgentForSubcomponent(subcomponentId);
+            
+            // Wait a bit for AgentLibrary to load if needed
+            let agent = getAgentForSubcomponent(subcomponentId);
+            
+            if (!agent) {
+                // Try waiting for AgentLibrary to load
+                await new Promise(resolve => setTimeout(resolve, 500));
+                agent = getAgentForSubcomponent(subcomponentId);
+            }
             
             if (!agent) {
                 console.error('❌ No agent found for', subcomponentId);
-                return;
+                console.log('📋 Using fallback agent configuration');
+                
+                // Use a fallback agent configuration
+                agent = {
+                    name: window.currentAgentName || 'Analysis Agent',
+                    description: 'Professional analysis agent for GTM evaluation',
+                    scoringDimensions: [
+                        { name: 'Completeness', weight: 25, description: 'How complete are your answers' },
+                        { name: 'Clarity', weight: 25, description: 'How clear and specific are your responses' },
+                        { name: 'Feasibility', weight: 25, description: 'How feasible is your approach' },
+                        { name: 'Impact', weight: 25, description: 'What is the potential impact' }
+                    ],
+                    evaluationCriteria: {
+                        '0-39': 'Needs significant improvement',
+                        '40-59': 'Developing - continue refining',
+                        '60-79': 'Good progress - ready to advance',
+                        '80-100': 'Excellent - ready for implementation'
+                    }
+                };
             }
             
             // Collect workspace data

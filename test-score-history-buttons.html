@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Score History Buttons</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-info {
+            background: #2a2a2a;
+            border: 2px solid #FF5500;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #FF5500;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #4CAF50;
+            color: white;
+        }
+        .error {
+            background: #f44336;
+            color: white;
+        }
+        .info {
+            background: #2196F3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>Score History Button Test</h1>
+        <p>This page tests the Score History button functionality directly.</p>
+        <div id="status"></div>
+    </div>
+
+    <div id="score-history-content"></div>
+
+    <script>
+        // Mock history data for testing
+        const mockHistory = [
+            {
+                timestamp: new Date().toISOString(),
+                score: 75,
+                source: 'Audit Score',
+                user: 'ST6C0',
+                subcomponentId: '1-1',
+                analysis: {
+                    findings: [
+                        'Strong problem statement clarity',
+                        'Well-defined target market',
+                        'Clear value proposition'
+                    ],
+                    recommendations: [
+                        'Expand customer research',
+                        'Develop MVP prototype',
+                        'Create go-to-market timeline'
+                    ]
+                },
+                dimensions: {
+                    'Problem Clarity': 80,
+                    'Market Relevance': 70,
+                    'Solution Viability': 75,
+                    'Customer Understanding': 70
+                }
+            },
+            {
+                timestamp: new Date(Date.now() - 86400000).toISOString(),
+                score: 65,
+                source: 'Audit Score',
+                user: 'ST6C0',
+                subcomponentId: '1-1'
+            }
+        ];
+
+        // Store globally for button access
+        window.scoreHistoryData = mockHistory;
+
+        // Display the mock data
+        function displayMockHistory() {
+            const container = document.getElementById('score-history-content');
+            let html = `
+                <div style="padding: 30px; max-width: 1200px; margin: 0 auto;">
+                    <h2 style="color: #FF5500; margin-bottom: 30px; font-size: 28px;">
+                        📊 Score History & Progress (Test Data)
+                    </h2>
+                    <div style="display: grid; gap: 20px;">
+            `;
+            
+            mockHistory.forEach((entry, index) => {
+                const date = new Date(entry.timestamp);
+                const scoreColor = entry.score >= 80 ? '#4CAF50' : 
+                                 entry.score >= 60 ? '#F59E0B' : 
+                                 entry.score >= 40 ? '#3B82F6' : '#EF4444';
+                
+                const entryNumber = mockHistory.length - index;
+                
+                html += `
+                    <div style="background: rgba(255, 255, 255, 0.02); 
+                                border: 2px solid rgba(255, 85, 0, 0.3); 
+                                border-radius: 15px; 
+                                padding: 25px;
+                                cursor: pointer;
+                                transition: all 0.3s ease;"
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255, 85, 0, 0.3)'; this.style.borderColor='#FF5500';"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255, 85, 0, 0.3)';">
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="flex: 1;">
+                                <div style="color: #999; font-size: 14px; margin-bottom: 8px;">
+                                    ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}
+                                </div>
+                                <h3 style="color: #fff; font-size: 20px; margin: 0;">
+                                    Audit Score #${entryNumber}
+                                </h3>
+                                <div style="color: #666; font-size: 12px; margin-top: 5px;">
+                                    User: ${entry.user || 'ST6C0'} | Subcomponent: ${entry.subcomponentId || '1-1'}
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 48px; font-weight: 700; color: ${scoreColor};">
+                                    ${entry.score}%
+                                </div>
+                                <div style="color: #999; font-size: 14px; text-transform: uppercase;">
+                                    Score
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                            <button onclick="testViewAnalysis(${index}, ${entryNumber})" 
+                                    style="background: linear-gradient(135deg, #FF5500, #FF8800); 
+                                           color: white; 
+                                           border: none; 
+                                           padding: 10px 20px; 
+                                           border-radius: 8px; 
+                                           font-size: 14px; 
+                                           font-weight: 600; 
+                                           cursor: pointer;
+                                           margin-right: 10px;
+                                           transition: all 0.3s ease;"
+                                    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(255, 85, 0, 0.4)';"
+                                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                                👁️ View Analysis
+                            </button>
+                            <button onclick="testDownload(${index}, ${entryNumber})" 
+                                    style="background: transparent; 
+                                           color: #FF5500; 
+                                           border: 2px solid #FF5500; 
+                                           padding: 10px 20px; 
+                                           border-radius: 8px; 
+                                           font-size: 14px; 
+                                           font-weight: 600; 
+                                           cursor: pointer;
+                                           transition: all 0.3s ease;"
+                                    onmouseover="this.style.background='#FF5500'; this.style.color='white';"
+                                    onmouseout="this.style.background='transparent'; this.style.color='#FF5500';">
+                                📥 Download
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+
+        // Test view analysis function
+        function testViewAnalysis(index, entryNumber) {
+            const status = document.getElementById('status');
+            status.innerHTML = `<div class="status success">✅ View Analysis button clicked for entry #${entryNumber}</div>`;
+            
+            // Load the actual function if available
+            if (window.viewScoreHistoryAnalysis) {
+                window.viewScoreHistoryAnalysis(window.scoreHistoryData[index], entryNumber);
+            } else {
+                alert(`View Analysis #${entryNumber} - Function would open modal with analysis details`);
+            }
+        }
+
+        // Test download function
+        function testDownload(index, entryNumber) {
+            const status = document.getElementById('status');
+            status.innerHTML = `<div class="status success">✅ Download button clicked for entry #${entryNumber}</div>`;
+            
+            // Load the actual function if available
+            if (window.downloadScoreHistoryReport) {
+                window.downloadScoreHistoryReport(window.scoreHistoryData[index], entryNumber);
+            } else {
+                alert(`Download Report #${entryNumber} - Function would download report file`);
+            }
+        }
+
+        // Display on load
+        displayMockHistory();
+        
+        // Load the button fix script
+        const script = document.createElement('script');
+        script.src = 'fix-score-history-buttons.js?v=' + Date.now();
+        script.onload = function() {
+            const status = document.getElementById('status');
+            status.innerHTML += `<div class="status info">ℹ️ Button fix script loaded successfully</div>`;
+        };
+        script.onerror = function() {
+            const status = document.getElementById('status');
+            status.innerHTML += `<div class="status error">❌ Failed to load button fix script</div>`;
+        };
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>

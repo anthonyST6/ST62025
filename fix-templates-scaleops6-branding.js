@@ -569,17 +569,44 @@
         `;
     }
     
-    // Generate Customer Interview Guide (similar styling)
+    // Generate Customer Interview Guide - delegate to complete implementation
     function generateCustomerInterviewGuide(answers, score) {
-        // Similar structure with purple theme
-        return `<!-- Customer Interview Guide with ScaleOps6 branding -->`;
+        // Check if the complete implementation exists
+        if (typeof window.generateCustomerInterviewGuide === 'function') {
+            return window.generateCustomerInterviewGuide(answers, score);
+        }
+        // Fallback placeholder
+        return `<div style="padding: 50px; text-align: center; color: #999;">Customer Interview Guide template loading...</div>`;
     }
     
-    // Generate Market Validation Scorecard (similar styling)
+    // Generate Market Validation Scorecard - delegate to complete implementation
     function generateMarketValidationScorecard(answers, score) {
-        // Similar structure with blue theme
-        return `<!-- Market Validation Scorecard with ScaleOps6 branding -->`;
+        // Check if the complete implementation exists
+        if (typeof window.generateMarketValidationScorecard === 'function') {
+            return window.generateMarketValidationScorecard(answers, score);
+        }
+        // Fallback placeholder
+        return `<div style="padding: 50px; text-align: center; color: #999;">Market Validation Scorecard template loading...</div>`;
     }
+    
+    // Expose the main generateTemplate function globally
+    window.generateTemplate = function(templateType, answers, score) {
+        switch(templateType) {
+            case 'problem-statement':
+                return generateProblemStatementCanvas(answers, score);
+            case 'customer-interview':
+                return generateCustomerInterviewGuide(answers, score);
+            case 'market-validation':
+                return generateMarketValidationScorecard(answers, score);
+            default:
+                return `<div style="padding: 50px; text-align: center; color: #999;">Unknown template type: ${templateType}</div>`;
+        }
+    };
+    
+    // Also expose individual functions globally for direct access
+    window.generateProblemStatementCanvas = generateProblemStatementCanvas;
+    window.generateCustomerInterviewGuide = generateCustomerInterviewGuide;
+    window.generateMarketValidationScorecard = generateMarketValidationScorecard;
     
     console.log('✅ ScaleOps6 brand styling applied to templates!');
     

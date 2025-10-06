@@ -15,7 +15,29 @@
         
         // Extract and process data
         const score = analysis.score || analysis.overallScore || 75;
-        const dimensions = analysis.dimensionScores || analysis.dimensions || [];
+        
+        // Ensure dimensions is always an array
+        let dimensions = [];
+        if (Array.isArray(analysis.dimensions)) {
+            dimensions = analysis.dimensions;
+        } else if (Array.isArray(analysis.dimensionScores)) {
+            dimensions = analysis.dimensionScores;
+        } else if (analysis.dimensions && typeof analysis.dimensions === 'object') {
+            // Convert object to array format
+            dimensions = Object.entries(analysis.dimensions).map(([key, value]) => ({
+                dimension: key,
+                name: key,
+                score: typeof value === 'number' ? value : (value.score || 0)
+            }));
+        } else if (analysis.dimensionScores && typeof analysis.dimensionScores === 'object') {
+            // Convert object to array format
+            dimensions = Object.entries(analysis.dimensionScores).map(([key, value]) => ({
+                dimension: key,
+                name: key,
+                score: typeof value === 'number' ? value : (value.score || 0)
+            }));
+        }
+        
         const strengths = analysis.strengths || [];
         const weaknesses = analysis.weaknesses || [];
         const recommendations = analysis.recommendations || [];

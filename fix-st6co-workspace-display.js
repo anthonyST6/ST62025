@@ -168,7 +168,7 @@
                 },
                 body: JSON.stringify({
                     subcomponentId: subcomponentId,
-                    responses: responses
+                    responses: responses  // Already correct - using "responses"
                 })
             });
             
