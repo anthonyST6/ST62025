@@ -1923,7 +1923,81 @@ ${new Date().toLocaleString()}`;
    <!-- SYSTEMIC FIX: Correct template mapping - DISABLED (redundant with inline implementation) -->
    <!-- <script src="fix-template-mapping-systemic.js"></script> -->
    
-   <!-- SIMPLE FIX: Override to remove only the 3 specific templates -->
-   <script src="fix-remove-three-templates.js"></script>
+   <!-- REMOVED: fix-remove-three-templates.js - Now using SSOT from server API -->
+   <!-- Client now renders templates directly from API response (SSOT-driven) -->
+   
+   <!-- SSOT Validation Script -->
+   <script>
+       // Validate SSOT alignment on page load
+       function validateSSOTAlignment(data) {
+           console.log('🔍 Validating SSOT alignment...');
+           
+           const checks = {
+               hasSSotMetadata: !!data._ssot,
+               domainMatch: data.resources?.domain === data.name,
+               templatesMatch: JSON.stringify(data.resources?.templates) ===
+                              JSON.stringify(data.outputs?.templates),
+               templatesExist: (data.resources?.templates?.length || 0) > 0,
+               ssotComplete: data._ssot?.isComplete
+           };
+           
+           console.log('✅ SSOT Validation Results:', checks);
+           
+           // Log any failures
+           Object.entries(checks).forEach(([check, passed]) => {
+               if (!passed) {
+                   console.error(`❌ SSOT Check Failed: ${check}`);
+               }
+           });
+           
+           // Show warning banner if validation fails
+           if (!Object.values(checks).every(v => v)) {
+               showSSOTWarning(checks);
+           }
+           
+           return checks;
+       }
+       
+       function showSSOTWarning(checks) {
+           const banner = document.createElement('div');
+           banner.style.cssText = `
+               position: fixed;
+               top: 80px;
+               left: 50%;
+               transform: translateX(-50%);
+               background: linear-gradient(135deg, #FF5500, #FF8800);
+               color: white;
+               padding: 15px 30px;
+               border-radius: 10px;
+               box-shadow: 0 5px 20px rgba(255, 85, 0, 0.3);
+               z-index: 9999;
+               font-weight: 600;
+               max-width: 600px;
+               text-align: center;
+           `;
+           banner.innerHTML = `
+               ⚠️ SSOT Validation Warning<br>
+               <small style="font-size: 12px; opacity: 0.9;">
+                   Some data may not be aligned with the Single Source of Truth
+               </small>
+           `;
+           document.body.appendChild(banner);
+           
+           setTimeout(() => banner.remove(), 5000);
+       }
+       
+       // Hook into existing loadSubcomponentData function
+       const originalLoadSubcomponentData = window.loadSubcomponentData;
+       if (originalLoadSubcomponentData) {
+           window.loadSubcomponentData = async function() {
+               await originalLoadSubcomponentData();
+               
+               // Validate after data is loaded
+               if (window.subcomponentData) {
+                   validateSSOTAlignment(window.subcomponentData);
+               }
+           };
+       }
+   </script>
 </body>
 </html>

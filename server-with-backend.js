@@ -11,7 +11,10 @@ const DatabaseService = require('./database-service.js');
 const fileGenerator = new FileGenerationService();
 const database = new DatabaseService();
 
-// Load integrated agent library with correct mappings
+// Load SSOT Registry - Single Source of Truth
+const { COMPLETE_SSOT_REGISTRY, getSubcomponent } = require('./core/complete-ssot-registry.js');
+
+// Load integrated agent library with correct mappings (for backward compatibility)
 const {
     IntegratedAgentLibrary,
     getAgentForSubcomponent,
@@ -749,68 +752,94 @@ const server = http.createServer(async (req, res) => {
         return;
     }
     
-    // Route: GET /api/subcomponents/:id
+    // Route: GET /api/subcomponents/:id - NOW USING SSOT
     const subcomponentMatch = pathname.match(/^\/api\/subcomponents\/(.+)$/);
     if (subcomponentMatch && req.method === 'GET') {
         const subcomponentId = subcomponentMatch[1];
-        const agent = getAgentForSubcomponent(subcomponentId);
-        const agentName = AGENT_CORRECT_MAPPING[subcomponentId];
         
-        if (agent) {
-            const subcomponentName = SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`;
+        try {
+            // ✅ GET DATA FROM SSOT REGISTRY
+            const ssotData = getSubcomponent(subcomponentId);
             const blockId = parseInt(subcomponentId.split('-')[0]);
             const block = blocks.find(b => b.id === blockId);
             
-            console.log(`📍 Breadcrumb Debug for ${subcomponentId}:`);
-            console.log(`   - Subcomponent Name: ${subcomponentName}`);
-            console.log(`   - Agent Name: ${agentName}`);
-            console.log(`   - Block Name: ${block ? block.name : 'Unknown'}`);
+            console.log(`📍 Loading from SSOT for ${subcomponentId}:`);
+            console.log(`   - Subcomponent Name: ${ssotData.name}`);
+            console.log(`   - Agent Name: ${ssotData.agent.name}`);
+            console.log(`   - Block Name: ${ssotData.blockName}`);
+            console.log(`   - Templates: ${ssotData.resources.templates.length}`);
             
             const response = {
                 id: subcomponentId,
-                name: subcomponentName,
-                agent: agentName,
-                agentObject: agent,
-                description: agent.description,
-                blockName: block ? block.name : 'Unknown Block',
+                name: ssotData.name,
+                agent: ssotData.agent.name,
+                agentObject: ssotData.agent,
+                description: ssotData.agent.description,
+                blockName: ssotData.blockName,
+                
+                // ✅ EDUCATION FROM SSOT
                 education: {
-                    title: agentName,
-                    what: `${agentName} is a specialized agent that ${agent.description}.`,
-                    why: `Mastering ${subcomponentName} is crucial for success.`,
-                    how: `The ${agentName} evaluates your performance.`,
+                    ...ssotData.education,
                     examples: getRealWorldExamples(subcomponentId),
-                    metrics: agent.scoringDimensions.map(d => `${d.name}: Target 80%+`),
                     agentInfo: {
-                        name: agentName,
-                        role: agent.description,
-                        dimensions: agent.scoringDimensions,
-                        criteria: agent.evaluationCriteria
+                        name: ssotData.agent.name,
+                        role: ssotData.agent.description,
+                        dimensions: ssotData.analysis.dimensions,
+                        criteria: ssotData.analysis.evaluationCriteria
                     }
                 },
+                
+                // ✅ WORKSPACE FROM SSOT
                 workspace: {
-                    questions: generateWorkspaceQuestions(agent, subcomponentId)
+                    ...ssotData.workspace,
+                    questions: generateWorkspaceQuestions(ssotData.agent, subcomponentId)
                 },
-                templates: getTemplatesForSubcomponent ? getTemplatesForSubcomponent(subcomponentId) : [],
+                
+                // ✅ TEMPLATES FROM SSOT
+                templates: ssotData.resources.templates,
                 resources: {
-                    templates: getTemplatesForSubcomponent ? getTemplatesForSubcomponent(subcomponentId) : [],
+                    templates: ssotData.resources.templates,
+                    domain: ssotData.resources.domain,
                     files: []
                 },
-                scoringDimensions: agent.scoringDimensions,
-                evaluationCriteria: agent.evaluationCriteria,
+                
+                // ✅ OUTPUTS FROM SSOT
+                outputs: {
+                    templates: ssotData.outputs.templates,
+                    domain: ssotData.outputs.domain
+                },
+                
+                // ✅ ANALYSIS FROM SSOT
+                scoringDimensions: ssotData.analysis.dimensions,
+                evaluationCriteria: ssotData.analysis.evaluationCriteria,
+                
                 companyData: {
                     name: testCompany.name,
                     product: "ScaleOps6Product",
                     metrics: testCompany.profile.keyMetrics
+                },
+                
+                // ✅ ADD SSOT METADATA FOR VALIDATION
+                _ssot: {
+                    version: ssotData.meta.version,
+                    lastValidated: ssotData.meta.lastValidated,
+                    isComplete: ssotData.meta.completeness.isComplete,
+                    dataSource: 'complete-ssot-registry'
                 }
             };
             
             res.setHeader('Content-Type', 'application/json');
             res.writeHead(200);
             res.end(JSON.stringify(response));
-        } else {
+            
+        } catch (error) {
+            console.error(`❌ Error loading subcomponent ${subcomponentId} from SSOT:`, error);
             res.setHeader('Content-Type', 'application/json');
             res.writeHead(404);
-            res.end(JSON.stringify({ error: `Agent not found for subcomponent ${subcomponentId}` }));
+            res.end(JSON.stringify({
+                error: `Subcomponent not found: ${subcomponentId}`,
+                message: error.message
+            }));
         }
         return;
     }
