@@ -586,14 +586,29 @@ ${entry.weaknesses ? entry.weaknesses.join('\n') : 'No weaknesses recorded'}
         resourcesContent.innerHTML = html;
     };
     
-    // Template functions
+    // Template functions - Use the enhanced template viewer from fix-output-templates-enhanced.js
     window.viewTemplate = function(index) {
-        alert('Template preview will open in a modal (coming soon)');
+        const urlParams = new URLSearchParams(window.location.search);
+        const subcomponentId = urlParams.get('id') || '1-1';
+        
+        // Call the enhanced template viewer if it exists
+        if (typeof window.viewEnhancedTemplate === 'function') {
+            window.viewEnhancedTemplate(index, subcomponentId);
+        } else {
+            alert('Template preview will open in a modal (loading...)');
+        }
     };
     
     window.downloadTemplate = function(index) {
-        const templates = ['Problem Statement Canvas', 'Customer Interview Guide', 'Market Validation Scorecard'];
-        alert(`Downloading ${templates[index]}...`);
+        const urlParams = new URLSearchParams(window.location.search);
+        const subcomponentId = urlParams.get('id') || '1-1';
+        
+        // Call the enhanced template downloader if it exists
+        if (typeof window.downloadEnhancedTemplate === 'function') {
+            window.downloadEnhancedTemplate(index, subcomponentId);
+        } else {
+            alert('Download functionality loading...');
+        }
     };
     
     window.downloadResourceTemplate = function(index) {
