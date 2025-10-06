@@ -1,0 +1,722 @@
+{
+  "timestamp": "2025-10-06T00:07:19.952Z",
+  "summary": {
+    "total": 96,
+    "passed": 96,
+    "failed": 0,
+    "errors": 0,
+    "passRate": "100.0%"
+  },
+  "blockSummary": {
+    "1": {
+      "name": "Mission Discovery",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Problem Definition Evaluator",
+        "Mission Alignment Advisor",
+        "VoC Synthesizer",
+        "Team Gap Identifier",
+        "Market Mapper",
+        "Launch Plan Assessor"
+      ]
+    },
+    "2": {
+      "name": "Customer Insights",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "JTBD Specialist",
+        "Persona Framework Builder",
+        "Interview Cadence Analyzer",
+        "Pain Point Mapper",
+        "Signal Grader",
+        "Insight Loop Manager"
+      ]
+    },
+    "3": {
+      "name": "Strategic Prioritization",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Use Case Scorer",
+        "Segment Tier Analyst",
+        "Prioritization Expert",
+        "Tradeoff Tracker",
+        "Hypothesis Validator",
+        "Decision Archivist"
+      ]
+    },
+    "4": {
+      "name": "Prototype Launch",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Feature Matrix Builder",
+        "Technical Scope Expert",
+        "Pilot Group Selector",
+        "QA Criteria Setter",
+        "Timeline Planner",
+        "Post-Mortem Analyst"
+      ]
+    },
+    "5": {
+      "name": "Go-to-Market Strategy",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "GTMMessagingAgent",
+        "SalesEnablementAgent",
+        "PricingPackagingAgent",
+        "ChannelPartnerAgent",
+        "CompetitivePositioningAgent",
+        "LaunchPlanningAgent"
+      ]
+    },
+    "6": {
+      "name": "Customer Engagement Flywheel",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Usage Heatmap Analyst",
+        "Milestone Tracker",
+        "CS Dashboard Builder",
+        "Activation Expert",
+        "Feedback Collector",
+        "Power User Analyst"
+      ]
+    },
+    "7": {
+      "name": "Quantifiable Impact",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Time/Cost Analyst",
+        "Revenue Impact Tracker",
+        "Productivity Measurer",
+        "Retention Analyst",
+        "System Reduction Expert",
+        "Friction Analyzer"
+      ]
+    },
+    "8": {
+      "name": "Customer Success Expansion",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Upsell Funnel Designer",
+        "Team Expansion Tracker",
+        "Organic Growth Analyst",
+        "Champion Mapper",
+        "Sentiment Tracker",
+        "Renewal Readiness Expert"
+      ]
+    },
+    "9": {
+      "name": "Proof of Execution",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Inbound Conversion Analyst",
+        "Outbound Performance Tracker",
+        "Channel Economics Expert",
+        "Discovery Call Evaluator",
+        "Demo-to-Close Optimizer",
+        "Founder Sales Analyst"
+      ]
+    },
+    "10": {
+      "name": "Sales Team Empowerment",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Enablement Asset Manager",
+        "Rep Ramp Planner",
+        "Win/Loss Analyst",
+        "Objection Handler",
+        "ICP Filter Expert",
+        "Sales Call Librarian"
+      ]
+    },
+    "11": {
+      "name": "High Performance Teams",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Scorecard Designer",
+        "Quota Structure Expert",
+        "Deal Review Manager",
+        "Forecast Framework Builder",
+        "Coaching Loop Designer",
+        "Talent Gap Analyst"
+      ]
+    },
+    "12": {
+      "name": "Retention Systems",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Onboarding Optimizer",
+        "Activation Tracker",
+        "Success Playbook Builder",
+        "Escalation Manager",
+        "Renewal Pipeline Expert",
+        "Churn Root-Cause Analyst"
+      ]
+    },
+    "13": {
+      "name": "Market Domination Strategies",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Category Narrative Designer",
+        "Strategic Moat Builder",
+        "Ecosystem Mapper",
+        "Competitor Monitor",
+        "Brand Architect",
+        "Defensive GTM Strategist"
+      ]
+    },
+    "14": {
+      "name": "Operational Infrastructure",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "System Architecture Expert",
+        "Revenue Engine Mapper",
+        "Dashboard Designer",
+        "Tool Consolidator",
+        "RevOps Playbook Builder",
+        "SLA Policy Manager"
+      ]
+    },
+    "15": {
+      "name": "Leadership Expansion",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "ExecutiveHiringAgent",
+        "BoardGovernanceAgent",
+        "SuccessionPlanningAgent",
+        "StakeholderAlignmentAgent",
+        "InvestorRelationsAgent",
+        "LeadershipDynamicsAgent"
+      ]
+    },
+    "16": {
+      "name": "Global Expansion Opportunities",
+      "passed": 6,
+      "failed": 0,
+      "passRate": "100%",
+      "agents": [
+        "Market Entry Analyst",
+        "Localization Expert",
+        "International Pricing Strategist",
+        "Compliance Tracker",
+        "Geo-GTM Specialist",
+        "Expansion Risk Assessor"
+      ]
+    }
+  },
+  "results": {
+    "passed": [
+      {
+        "subcomponentId": "1-1",
+        "subcomponentName": "Problem Statement Definition",
+        "agent": "Problem Definition Evaluator"
+      },
+      {
+        "subcomponentId": "1-2",
+        "subcomponentName": "Mission Statement",
+        "agent": "Mission Alignment Advisor"
+      },
+      {
+        "subcomponentId": "1-3",
+        "subcomponentName": "Voice of Customer",
+        "agent": "VoC Synthesizer"
+      },
+      {
+        "subcomponentId": "1-4",
+        "subcomponentName": "Team Assessment",
+        "agent": "Team Gap Identifier"
+      },
+      {
+        "subcomponentId": "1-5",
+        "subcomponentName": "Market Landscape",
+        "agent": "Market Mapper"
+      },
+      {
+        "subcomponentId": "1-6",
+        "subcomponentName": "Launch Readiness",
+        "agent": "Launch Plan Assessor"
+      },
+      {
+        "subcomponentId": "2-1",
+        "subcomponentName": "Jobs to be Done",
+        "agent": "JTBD Specialist"
+      },
+      {
+        "subcomponentId": "2-2",
+        "subcomponentName": "Personas Framework",
+        "agent": "Persona Framework Builder"
+      },
+      {
+        "subcomponentId": "2-3",
+        "subcomponentName": "Interview Cadence",
+        "agent": "Interview Cadence Analyzer"
+      },
+      {
+        "subcomponentId": "2-4",
+        "subcomponentName": "Pain Point Mapping",
+        "agent": "Pain Point Mapper"
+      },
+      {
+        "subcomponentId": "2-5",
+        "subcomponentName": "Insight Action",
+        "agent": "Signal Grader"
+      },
+      {
+        "subcomponentId": "2-6",
+        "subcomponentName": "Customer Journey",
+        "agent": "Insight Loop Manager"
+      },
+      {
+        "subcomponentId": "3-1",
+        "subcomponentName": "Use Case Prioritization",
+        "agent": "Use Case Scorer"
+      },
+      {
+        "subcomponentId": "3-2",
+        "subcomponentName": "Resource Allocation",
+        "agent": "Segment Tier Analyst"
+      },
+      {
+        "subcomponentId": "3-3",
+        "subcomponentName": "Risk Assessment",
+        "agent": "Prioritization Expert"
+      },
+      {
+        "subcomponentId": "3-4",
+        "subcomponentName": "Timeline Planning",
+        "agent": "Tradeoff Tracker"
+      },
+      {
+        "subcomponentId": "3-5",
+        "subcomponentName": "Success Metrics",
+        "agent": "Hypothesis Validator"
+      },
+      {
+        "subcomponentId": "3-6",
+        "subcomponentName": "Decision Framework",
+        "agent": "Decision Archivist"
+      },
+      {
+        "subcomponentId": "4-1",
+        "subcomponentName": "MVP Definition",
+        "agent": "Feature Matrix Builder"
+      },
+      {
+        "subcomponentId": "4-2",
+        "subcomponentName": "Feature Prioritization",
+        "agent": "Technical Scope Expert"
+      },
+      {
+        "subcomponentId": "4-3",
+        "subcomponentName": "Testing Strategy",
+        "agent": "Pilot Group Selector"
+      },
+      {
+        "subcomponentId": "4-4",
+        "subcomponentName": "Feedback Loops",
+        "agent": "QA Criteria Setter"
+      },
+      {
+        "subcomponentId": "4-5",
+        "subcomponentName": "Iteration Planning",
+        "agent": "Timeline Planner"
+      },
+      {
+        "subcomponentId": "4-6",
+        "subcomponentName": "Launch Strategy",
+        "agent": "Post-Mortem Analyst"
+      },
+      {
+        "subcomponentId": "5-1",
+        "subcomponentName": "Target Identification",
+        "agent": "GTMMessagingAgent"
+      },
+      {
+        "subcomponentId": "5-2",
+        "subcomponentName": "Messaging Framework",
+        "agent": "SalesEnablementAgent"
+      },
+      {
+        "subcomponentId": "5-3",
+        "subcomponentName": "Channel Strategy",
+        "agent": "PricingPackagingAgent"
+      },
+      {
+        "subcomponentId": "5-4",
+        "subcomponentName": "Pricing Model",
+        "agent": "ChannelPartnerAgent"
+      },
+      {
+        "subcomponentId": "5-5",
+        "subcomponentName": "Sales Enablement",
+        "agent": "CompetitivePositioningAgent"
+      },
+      {
+        "subcomponentId": "5-6",
+        "subcomponentName": "Launch Planning",
+        "agent": "LaunchPlanningAgent"
+      },
+      {
+        "subcomponentId": "6-1",
+        "subcomponentName": "Acquisition Strategy",
+        "agent": "Usage Heatmap Analyst"
+      },
+      {
+        "subcomponentId": "6-2",
+        "subcomponentName": "Activation Process",
+        "agent": "Milestone Tracker"
+      },
+      {
+        "subcomponentId": "6-3",
+        "subcomponentName": "Retention Programs",
+        "agent": "CS Dashboard Builder"
+      },
+      {
+        "subcomponentId": "6-4",
+        "subcomponentName": "Referral Systems",
+        "agent": "Activation Expert"
+      },
+      {
+        "subcomponentId": "6-5",
+        "subcomponentName": "Revenue Optimization",
+        "agent": "Feedback Collector"
+      },
+      {
+        "subcomponentId": "6-6",
+        "subcomponentName": "Engagement Metrics",
+        "agent": "Power User Analyst"
+      },
+      {
+        "subcomponentId": "7-1",
+        "subcomponentName": "KPI Framework",
+        "agent": "Time/Cost Analyst"
+      },
+      {
+        "subcomponentId": "7-2",
+        "subcomponentName": "Data Collection",
+        "agent": "Revenue Impact Tracker"
+      },
+      {
+        "subcomponentId": "7-3",
+        "subcomponentName": "Analytics Setup",
+        "agent": "Productivity Measurer"
+      },
+      {
+        "subcomponentId": "7-4",
+        "subcomponentName": "Impact Metrics",
+        "agent": "Retention Analyst"
+      },
+      {
+        "subcomponentId": "7-5",
+        "subcomponentName": "ROI Calculation",
+        "agent": "System Reduction Expert"
+      },
+      {
+        "subcomponentId": "7-6",
+        "subcomponentName": "Reporting Systems",
+        "agent": "Friction Analyzer"
+      },
+      {
+        "subcomponentId": "8-1",
+        "subcomponentName": "Success Planning",
+        "agent": "Upsell Funnel Designer"
+      },
+      {
+        "subcomponentId": "8-2",
+        "subcomponentName": "Onboarding Process",
+        "agent": "Team Expansion Tracker"
+      },
+      {
+        "subcomponentId": "8-3",
+        "subcomponentName": "Support Systems",
+        "agent": "Organic Growth Analyst"
+      },
+      {
+        "subcomponentId": "8-4",
+        "subcomponentName": "Upsell Strategy",
+        "agent": "Champion Mapper"
+      },
+      {
+        "subcomponentId": "8-5",
+        "subcomponentName": "Renewal Process",
+        "agent": "Sentiment Tracker"
+      },
+      {
+        "subcomponentId": "8-6",
+        "subcomponentName": "Advocacy Programs",
+        "agent": "Renewal Readiness Expert"
+      },
+      {
+        "subcomponentId": "9-1",
+        "subcomponentName": "Pilot Programs",
+        "agent": "Inbound Conversion Analyst"
+      },
+      {
+        "subcomponentId": "9-2",
+        "subcomponentName": "Case Studies",
+        "agent": "Outbound Performance Tracker"
+      },
+      {
+        "subcomponentId": "9-3",
+        "subcomponentName": "Reference Customers",
+        "agent": "Channel Economics Expert"
+      },
+      {
+        "subcomponentId": "9-4",
+        "subcomponentName": "Success Stories",
+        "agent": "Discovery Call Evaluator"
+      },
+      {
+        "subcomponentId": "9-5",
+        "subcomponentName": "ROI Documentation",
+        "agent": "Demo-to-Close Optimizer"
+      },
+      {
+        "subcomponentId": "9-6",
+        "subcomponentName": "Market Validation",
+        "agent": "Founder Sales Analyst"
+      },
+      {
+        "subcomponentId": "10-1",
+        "subcomponentName": "Sales Training",
+        "agent": "Enablement Asset Manager"
+      },
+      {
+        "subcomponentId": "10-2",
+        "subcomponentName": "Playbook Development",
+        "agent": "Rep Ramp Planner"
+      },
+      {
+        "subcomponentId": "10-3",
+        "subcomponentName": "Tool Implementation",
+        "agent": "Win/Loss Analyst"
+      },
+      {
+        "subcomponentId": "10-4",
+        "subcomponentName": "Performance Tracking",
+        "agent": "Objection Handler"
+      },
+      {
+        "subcomponentId": "10-5",
+        "subcomponentName": "Incentive Design",
+        "agent": "ICP Filter Expert"
+      },
+      {
+        "subcomponentId": "10-6",
+        "subcomponentName": "Team Scaling",
+        "agent": "Sales Call Librarian"
+      },
+      {
+        "subcomponentId": "11-1",
+        "subcomponentName": "Team Structure",
+        "agent": "Scorecard Designer"
+      },
+      {
+        "subcomponentId": "11-2",
+        "subcomponentName": "Hiring Process",
+        "agent": "Quota Structure Expert"
+      },
+      {
+        "subcomponentId": "11-3",
+        "subcomponentName": "Culture Building",
+        "agent": "Deal Review Manager"
+      },
+      {
+        "subcomponentId": "11-4",
+        "subcomponentName": "Performance Management",
+        "agent": "Forecast Framework Builder"
+      },
+      {
+        "subcomponentId": "11-5",
+        "subcomponentName": "Development Programs",
+        "agent": "Coaching Loop Designer"
+      },
+      {
+        "subcomponentId": "11-6",
+        "subcomponentName": "Leadership Pipeline",
+        "agent": "Talent Gap Analyst"
+      },
+      {
+        "subcomponentId": "12-1",
+        "subcomponentName": "Churn Analysis",
+        "agent": "Onboarding Optimizer"
+      },
+      {
+        "subcomponentId": "12-2",
+        "subcomponentName": "Retention Strategies",
+        "agent": "Activation Tracker"
+      },
+      {
+        "subcomponentId": "12-3",
+        "subcomponentName": "Customer Health",
+        "agent": "Success Playbook Builder"
+      },
+      {
+        "subcomponentId": "12-4",
+        "subcomponentName": "Engagement Programs",
+        "agent": "Escalation Manager"
+      },
+      {
+        "subcomponentId": "12-5",
+        "subcomponentName": "Win-back Campaigns",
+        "agent": "Renewal Pipeline Expert"
+      },
+      {
+        "subcomponentId": "12-6",
+        "subcomponentName": "Loyalty Programs",
+        "agent": "Churn Root-Cause Analyst"
+      },
+      {
+        "subcomponentId": "13-1",
+        "subcomponentName": "Competitive Analysis",
+        "agent": "Category Narrative Designer"
+      },
+      {
+        "subcomponentId": "13-2",
+        "subcomponentName": "Market Positioning",
+        "agent": "Strategic Moat Builder"
+      },
+      {
+        "subcomponentId": "13-3",
+        "subcomponentName": "Category Creation",
+        "agent": "Ecosystem Mapper"
+      },
+      {
+        "subcomponentId": "13-4",
+        "subcomponentName": "Thought Leadership",
+        "agent": "Competitor Monitor"
+      },
+      {
+        "subcomponentId": "13-5",
+        "subcomponentName": "Strategic Partnerships",
+        "agent": "Brand Architect"
+      },
+      {
+        "subcomponentId": "13-6",
+        "subcomponentName": "Market Expansion",
+        "agent": "Defensive GTM Strategist"
+      },
+      {
+        "subcomponentId": "14-1",
+        "subcomponentName": "Process Optimization",
+        "agent": "System Architecture Expert"
+      },
+      {
+        "subcomponentId": "14-2",
+        "subcomponentName": "Technology Stack",
+        "agent": "Revenue Engine Mapper"
+      },
+      {
+        "subcomponentId": "14-3",
+        "subcomponentName": "Automation Systems",
+        "agent": "Dashboard Designer"
+      },
+      {
+        "subcomponentId": "14-4",
+        "subcomponentName": "Quality Control",
+        "agent": "Tool Consolidator"
+      },
+      {
+        "subcomponentId": "14-5",
+        "subcomponentName": "Supply Chain",
+        "agent": "RevOps Playbook Builder"
+      },
+      {
+        "subcomponentId": "14-6",
+        "subcomponentName": "Risk Management",
+        "agent": "SLA Policy Manager"
+      },
+      {
+        "subcomponentId": "15-1",
+        "subcomponentName": "Executive Development",
+        "agent": "ExecutiveHiringAgent"
+      },
+      {
+        "subcomponentId": "15-2",
+        "subcomponentName": "Board Relations",
+        "agent": "BoardGovernanceAgent"
+      },
+      {
+        "subcomponentId": "15-3",
+        "subcomponentName": "Succession Planning",
+        "agent": "SuccessionPlanningAgent"
+      },
+      {
+        "subcomponentId": "15-4",
+        "subcomponentName": "Leadership Training",
+        "agent": "StakeholderAlignmentAgent"
+      },
+      {
+        "subcomponentId": "15-5",
+        "subcomponentName": "Vision Alignment",
+        "agent": "InvestorRelationsAgent"
+      },
+      {
+        "subcomponentId": "15-6",
+        "subcomponentName": "Strategic Planning",
+        "agent": "LeadershipDynamicsAgent"
+      },
+      {
+        "subcomponentId": "16-1",
+        "subcomponentName": "Market Selection",
+        "agent": "Market Entry Analyst"
+      },
+      {
+        "subcomponentId": "16-2",
+        "subcomponentName": "Entry Strategy",
+        "agent": "Localization Expert"
+      },
+      {
+        "subcomponentId": "16-3",
+        "subcomponentName": "Localization",
+        "agent": "International Pricing Strategist"
+      },
+      {
+        "subcomponentId": "16-4",
+        "subcomponentName": "Global Partnerships",
+        "agent": "Compliance Tracker"
+      },
+      {
+        "subcomponentId": "16-5",
+        "subcomponentName": "Regulatory Compliance",
+        "agent": "Geo-GTM Specialist"
+      },
+      {
+        "subcomponentId": "16-6",
+        "subcomponentName": "Global Operations",
+        "agent": "Expansion Risk Assessor"
+      }
+    ],
+    "failed": [],
+    "errors": []
+  }
+}

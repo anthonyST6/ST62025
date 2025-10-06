@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="score-analysis-engine.js"></script>
+    <script></script>
+    <script></script>
     <style>
         * {
             margin: 0;
@@ -738,14 +738,115 @@
 
     <!-- Load recommendation display handlers -->
     <!-- Load agent system files -->
-    <script src="agent-library.js"></script>
-    <script src="agent-content-loader.js"></script>
-    <script src="enhanced-agent-content-loader.js"></script>
-    <script src="agent-worksheet-integration.js"></script>
-    <script src="recommendations-component.js"></script>
-    <script src="enhanced-display-handler.js"></script>
+    <script></script>
+    <script></script>
+    <script></script>
+    <script></script>
+    <script></script>
+    <script></script>
     
     <script>
+    // Correct Subcomponent Names
+    const SUBCOMPONENT_NAMES = {
+        "1-1": "Problem Statement Definition",
+        "1-2": "Mission Statement",
+        "1-3": "Voice of Customer",
+        "1-4": "Founding Team Capability",
+        "1-5": "Market Landscape",
+        "1-6": "Launch Readiness",
+        "2-1": "Jobs to be Done",
+        "2-2": "Personas Framework",
+        "2-3": "Interview Cadence",
+        "2-4": "Pain Point Mapping",
+        "2-5": "Insight Action",
+        "2-6": "Customer Journey",
+        "3-1": "Use Case Scoring Model",
+        "3-2": "Segment Tiering",
+        "3-3": "Prioritization Rubric",
+        "3-4": "Tradeoff Tracker",
+        "3-5": "Hypothesis Board",
+        "3-6": "Decision Archive",
+        "4-1": "Feature Inclusion Matrix",
+        "4-2": "Technical Scope Tracker",
+        "4-3": "Pilot Group Selection",
+        "4-4": "QA & Success Criteria",
+        "4-5": "Timeline GANTT or Roadmap",
+        "4-6": "Post-Mortem Template",
+        "5-1": "GTM Messaging Framework",
+        "5-2": "Sales Enablement Assets",
+        "5-3": "Pricing & Packaging Strategy",
+        "5-4": "Channel Partner Strategy",
+        "5-5": "Competitive Positioning",
+        "5-6": "Launch Planning & Execution",
+        "6-1": "Usage Heatmap",
+        "6-2": "Milestone Triggers",
+        "6-3": "CS Dashboard",
+        "6-4": "Activation Metric Model",
+        "6-5": "Feedback Collector",
+        "6-6": "Power User Behavior Signals",
+        "7-1": "Time/Cost Savings Metrics",
+        "7-2": "Revenue-Impact Attribution",
+        "7-3": "Productivity Lift Metrics",
+        "7-4": "Net Retention Trends",
+        "7-5": "Downstream System Reductions",
+        "7-6": "Friction Reduction Evidence",
+        "8-1": "Upsell Funnel Model",
+        "8-2": "Team Expansion Signals",
+        "8-3": "Organic Adoption Pattern",
+        "8-4": "Champion Mapping",
+        "8-5": "CSAT/NPS Tracking",
+        "8-6": "Renewal Readiness Tracker",
+        "9-1": "Inbound Conversion Rates",
+        "9-2": "Outbound Play Performance",
+        "9-3": "Channel Economics Clarity",
+        "9-4": "Discovery Call Effectiveness",
+        "9-5": "Demo-to-Close Flow",
+        "9-6": "Founders Selling Model",
+        "10-1": "Enablement Asset Pack",
+        "10-2": "Rep Ramp Plan",
+        "10-3": "Win/Loss Tracker",
+        "10-4": "Objection Handling Guide",
+        "10-5": "ICP Filter Checklist",
+        "10-6": "Sales Call Library",
+        "11-1": "Scorecard Model",
+        "11-2": "Quota Structure",
+        "11-3": "Weekly Deal Reviews",
+        "11-4": "Forecasting Framework",
+        "11-5": "Manager Coaching Loop",
+        "11-6": "Talent Gap Identification",
+        "12-1": "Onboarding Checklist",
+        "12-2": "Activation Tracker",
+        "12-3": "Success Playbooks",
+        "12-4": "Escalation SOPs",
+        "12-5": "Renewals Pipelines",
+        "12-6": "Churn Root-Cause Engine",
+        "13-1": "Category Narrative Canvas",
+        "13-2": "Strategic MOAT Design",
+        "13-3": "Ecosystem Leverage Map",
+        "13-4": "Competitor GTM Monitoring",
+        "13-5": "Brand Architecture Plan",
+        "13-6": "Defensive GTM Tactics",
+        "14-1": "System Architecture Diagram",
+        "14-2": "Revenue Engine Map",
+        "14-3": "Internal Dashboards",
+        "14-4": "Tool Consolidation Tracker",
+        "14-5": "RevOps Playbook",
+        "14-6": "Internal SLA Policy",
+        "15-1": "Executive Team",
+        "15-2": "Board Development",
+        "15-3": "Succession Planning",
+        "15-4": "Stakeholder Alignment",
+        "15-5": "Investor Relations",
+        "15-6": "Leadership Dynamics",
+        "16-1": "Market Selection",
+        "16-2": "Localization Infrastructure",
+        "16-3": "International Pricing Matrix",
+        "16-4": "Regional Compliance Tracker",
+        "16-5": "Geo-Specific GTM Playbooks",
+        "16-6": "Expansion Risk Assessment"
+};
+
+
         // Chart.js configuration
         let scoreChart = null;
         let blockData = null;
@@ -1259,12 +1360,12 @@
                 if (blockData.details) {
                     document.getElementById('block-details').textContent = blockData.details;
                 }
-                document.getElementById('block-score').textContent = `${blockData.score}%`;
+                document.getElementById('block-score').textContent = `${Math.round(blockData.score)}%`;
                 
                 // Update progress bar with dynamic color
                 const progressFill = document.getElementById('progress-fill');
-                progressFill.style.width = `${blockData.score}%`;
-                progressFill.textContent = `${blockData.score}% Complete`;
+                progressFill.style.width = `${Math.round(blockData.score)}%`;
+                progressFill.textContent = `${Math.round(blockData.score)}% Complete`;
                 progressFill.className = 'progress-fill ' + scoreClass;
                 
                 // Set phase name
@@ -1321,23 +1422,26 @@
                         
                         totalPotentialImprovement += improvement;
                         
+                        // Get the correct subcomponent name
+                        const correctSubcomponentName = SUBCOMPONENT_NAMES[subBlock.id] || subBlock.name;
+                        
                         // Create recommendation object
                         recommendations.push({
-                            area: subBlock.name,
-                            action: `Improve ${subBlock.name} from ${subBlock.score}% to target`,
+                            area: correctSubcomponentName,
+                            action: `Improve ${correctSubcomponentName} from ${Math.round(subBlock.score)}% to target`,
                             priority: priority,
                             impact: `+${improvement} points`,
-                            currentScore: subBlock.score,
-                            targetScore: Math.min(100, subBlock.score + improvement * 3),
+                            currentScore: Math.round(subBlock.score),
+                            targetScore: Math.min(100, Math.round(subBlock.score) + improvement * 3),
                             actionPlan: [
-                                `Complete the ${subBlock.name} worksheet with detailed information`,
+                                `Complete the ${correctSubcomponentName} worksheet with detailed information`,
                                 `Run AI analysis to identify specific weaknesses`,
                                 `Implement the top 3 recommendations from the analysis`,
                                 `Document evidence and validation for each improvement`,
                                 `Re-run analysis to confirm score improvement`
                             ],
                             successMetrics: [
-                                `${subBlock.name} score increases by at least ${improvement} points`,
+                                `${correctSubcomponentName} score increases by at least ${improvement} points`,
                                 `All critical gaps identified in analysis are addressed`,
                                 `Documentation is complete and validated`,
                                 `Block overall score improves as a result`
@@ -1592,12 +1696,12 @@
                     // Update UI elements
                     const scoreClass = getScoreClass(blockData.score);
                     document.querySelector('.block-header').className = 'block-header ' + scoreClass;
-                    document.getElementById('block-score').textContent = `${blockData.score}%`;
+                    document.getElementById('block-score').textContent = `${Math.round(blockData.score)}%`;
                     
                     // Update progress bar
                     const progressFill = document.getElementById('progress-fill');
-                    progressFill.style.width = `${blockData.score}%`;
-                    progressFill.textContent = `${blockData.score}% Complete`;
+                    progressFill.style.width = `${Math.round(blockData.score)}%`;
+                    progressFill.textContent = `${Math.round(blockData.score)}% Complete`;
                     progressFill.className = 'progress-fill ' + scoreClass;
                     
                     console.log(`Block score updated to ${blockData.score}%`);
@@ -1613,7 +1717,7 @@
                             // Update the specific subcomponent score display
                             const scoreElement = document.getElementById(`subblock-score-${subBlock.id}`);
                             if (scoreElement) {
-                                scoreElement.textContent = `${subBlock.score}%`;
+                                scoreElement.textContent = `${Math.round(subBlock.score)}%`;
                                 
                                 // Update the parent div's class for color
                                 const parentDiv = scoreElement.closest('.subblock');
@@ -1622,7 +1726,7 @@
                                     parentDiv.className = `subblock ${newScoreClass}`;
                                 }
                                 
-                                console.log(`Subcomponent ${subBlock.name} score updated from ${oldScore}% to ${subBlock.score}%`);
+                                console.log(`Subcomponent ${subBlock.name} score updated from ${Math.round(oldScore)}% to ${Math.round(subBlock.score)}%`);
                             }
                         }
                     });
@@ -1641,10 +1745,14 @@
                 const div = document.createElement('div');
                 const scoreClass = getScoreClass(subBlock.score);
                 div.className = `subblock ${scoreClass}`;
+                
+                // Use the correct subcomponent name from the mapping
+                const correctName = SUBCOMPONENT_NAMES[subBlock.id] || subBlock.name;
+                
                 div.innerHTML = `
-                    <div class="subblock-name">${subBlock.name}</div>
+                    <div class="subblock-name">${correctName.toUpperCase()}</div>
                     ${subBlock.description ? `<p style="font-size: 12px; color: #999; margin: 5px 0 10px 0;">${subBlock.description}</p>` : ''}
-                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${subBlock.score}%</div>
+                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${Math.round(subBlock.score)}%</div>
                     <span class="subblock-status">In Progress</span>
                 `;
                 // Navigate to subcomponent detail page

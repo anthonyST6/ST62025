@@ -1,0 +1,832 @@
+{
+  "timestamp": "2025-10-06T00:52:57.657Z",
+  "totalAgents": 96,
+  "validations": {
+    "agentMapping": {
+      "passed": 0,
+      "failed": 96,
+      "details": [
+        {
+          "subcomponentId": "1-1",
+          "agentName": {
+            "name": "Problem Definition Evaluator",
+            "role": "Problem Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "1-2",
+          "agentName": {
+            "name": "Mission Alignment Advisor",
+            "role": "Vision Clarity"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "1-3",
+          "agentName": {
+            "name": "VoC Synthesizer",
+            "role": "Customer Voice Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "1-4",
+          "agentName": {
+            "name": "Team Gap Identifier",
+            "role": "Team Assessment"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "1-5",
+          "agentName": {
+            "name": "Market Mapper",
+            "role": "Market Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "1-6",
+          "agentName": {
+            "name": "Launch Plan Assessor",
+            "role": "Launch Readiness"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "2-1",
+          "agentName": {
+            "name": "JTBD Specialist",
+            "role": "Jobs Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "2-2",
+          "agentName": {
+            "name": "Persona Framework Builder",
+            "role": "Customer Profiling"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "2-3",
+          "agentName": {
+            "name": "Interview Cadence Analyzer",
+            "role": "Research Planning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "2-4",
+          "agentName": {
+            "name": "Pain Point Mapper",
+            "role": "Pain Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "2-5",
+          "agentName": {
+            "name": "Signal Grader",
+            "role": "Insight Evaluation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "2-6",
+          "agentName": {
+            "name": "Insight Loop Manager",
+            "role": "Journey Mapping"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "3-1",
+          "agentName": {
+            "name": "Use Case Scorer",
+            "role": "Use Case Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "3-2",
+          "agentName": {
+            "name": "Segment Tier Analyst",
+            "role": "Resource Allocation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "3-3",
+          "agentName": {
+            "name": "Prioritization Expert",
+            "role": "Risk Assessment"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "3-4",
+          "agentName": {
+            "name": "Tradeoff Tracker",
+            "role": "Timeline Management"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "3-5",
+          "agentName": {
+            "name": "Hypothesis Validator",
+            "role": "Success Metrics"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "3-6",
+          "agentName": {
+            "name": "Decision Archivist",
+            "role": "Decision Framework"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "4-1",
+          "agentName": {
+            "name": "Feature Matrix Builder",
+            "role": "MVP Definition"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "4-2",
+          "agentName": {
+            "name": "Technical Scope Expert",
+            "role": "Feature Prioritization"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "4-3",
+          "agentName": {
+            "name": "Pilot Group Selector",
+            "role": "Testing Strategy"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "4-4",
+          "agentName": {
+            "name": "QA Criteria Setter",
+            "role": "Feedback Systems"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "4-5",
+          "agentName": {
+            "name": "Timeline Planner",
+            "role": "Iteration Planning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "4-6",
+          "agentName": {
+            "name": "Post-Mortem Analyst",
+            "role": "Launch Strategy"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "5-1",
+          "agentName": {
+            "name": "GTMMessagingAgent",
+            "role": "Target Identification"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "5-2",
+          "agentName": {
+            "name": "SalesEnablementAgent",
+            "role": "Messaging Framework"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "5-3",
+          "agentName": {
+            "name": "PricingPackagingAgent",
+            "role": "Channel Strategy"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "5-4",
+          "agentName": {
+            "name": "ChannelPartnerAgent",
+            "role": "Pricing Model"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "5-5",
+          "agentName": {
+            "name": "CompetitivePositioningAgent",
+            "role": "Sales Enablement"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "5-6",
+          "agentName": {
+            "name": "LaunchPlanningAgent",
+            "role": "Launch Planning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "6-1",
+          "agentName": {
+            "name": "Usage Heatmap Analyst",
+            "role": "Acquisition Strategy"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "6-2",
+          "agentName": {
+            "name": "Milestone Tracker",
+            "role": "Activation Process"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "6-3",
+          "agentName": {
+            "name": "CS Dashboard Builder",
+            "role": "Retention Programs"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "6-4",
+          "agentName": {
+            "name": "Activation Expert",
+            "role": "Referral Systems"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "6-5",
+          "agentName": {
+            "name": "Feedback Collector",
+            "role": "Revenue Optimization"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "6-6",
+          "agentName": {
+            "name": "Power User Analyst",
+            "role": "Engagement Metrics"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "7-1",
+          "agentName": {
+            "name": "Time/Cost Analyst",
+            "role": "KPI Framework"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "7-2",
+          "agentName": {
+            "name": "Revenue Impact Tracker",
+            "role": "Data Collection"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "7-3",
+          "agentName": {
+            "name": "Productivity Measurer",
+            "role": "Analytics Setup"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "7-4",
+          "agentName": {
+            "name": "Retention Analyst",
+            "role": "Impact Metrics"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "7-5",
+          "agentName": {
+            "name": "System Reduction Expert",
+            "role": "ROI Calculation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "7-6",
+          "agentName": {
+            "name": "Friction Analyzer",
+            "role": "Reporting Systems"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "8-1",
+          "agentName": {
+            "name": "Upsell Funnel Designer",
+            "role": "Success Planning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "8-2",
+          "agentName": {
+            "name": "Team Expansion Tracker",
+            "role": "Onboarding Process"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "8-3",
+          "agentName": {
+            "name": "Organic Growth Analyst",
+            "role": "Support Systems"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "8-4",
+          "agentName": {
+            "name": "Champion Mapper",
+            "role": "Upsell Strategy"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "8-5",
+          "agentName": {
+            "name": "Sentiment Tracker",
+            "role": "Renewal Process"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "8-6",
+          "agentName": {
+            "name": "Renewal Readiness Expert",
+            "role": "Advocacy Programs"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "9-1",
+          "agentName": {
+            "name": "Inbound Conversion Analyst",
+            "role": "Pilot Programs"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "9-2",
+          "agentName": {
+            "name": "Outbound Performance Tracker",
+            "role": "Case Studies"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "9-3",
+          "agentName": {
+            "name": "Channel Economics Expert",
+            "role": "Reference Customers"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "9-4",
+          "agentName": {
+            "name": "Discovery Call Evaluator",
+            "role": "Success Stories"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "9-5",
+          "agentName": {
+            "name": "Demo-to-Close Optimizer",
+            "role": "ROI Documentation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "9-6",
+          "agentName": {
+            "name": "Founder Sales Analyst",
+            "role": "Market Validation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "10-1",
+          "agentName": {
+            "name": "Enablement Asset Manager",
+            "role": "Sales Training"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "10-2",
+          "agentName": {
+            "name": "Rep Ramp Planner",
+            "role": "Playbook Development"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "10-3",
+          "agentName": {
+            "name": "Win/Loss Analyst",
+            "role": "Tool Implementation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "10-4",
+          "agentName": {
+            "name": "Objection Handler",
+            "role": "Performance Tracking"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "10-5",
+          "agentName": {
+            "name": "ICP Filter Expert",
+            "role": "Incentive Design"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "10-6",
+          "agentName": {
+            "name": "Sales Call Librarian",
+            "role": "Team Scaling"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "11-1",
+          "agentName": {
+            "name": "Scorecard Designer",
+            "role": "Team Structure"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "11-2",
+          "agentName": {
+            "name": "Quota Structure Expert",
+            "role": "Hiring Process"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "11-3",
+          "agentName": {
+            "name": "Deal Review Manager",
+            "role": "Culture Building"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "11-4",
+          "agentName": {
+            "name": "Forecast Framework Builder",
+            "role": "Performance Management"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "11-5",
+          "agentName": {
+            "name": "Coaching Loop Designer",
+            "role": "Development Programs"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "11-6",
+          "agentName": {
+            "name": "Talent Gap Analyst",
+            "role": "Leadership Pipeline"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "12-1",
+          "agentName": {
+            "name": "Onboarding Optimizer",
+            "role": "Churn Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "12-2",
+          "agentName": {
+            "name": "Activation Tracker",
+            "role": "Retention Strategies"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "12-3",
+          "agentName": {
+            "name": "Success Playbook Builder",
+            "role": "Customer Health"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "12-4",
+          "agentName": {
+            "name": "Escalation Manager",
+            "role": "Engagement Programs"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "12-5",
+          "agentName": {
+            "name": "Renewal Pipeline Expert",
+            "role": "Win-back Campaigns"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "12-6",
+          "agentName": {
+            "name": "Churn Root-Cause Analyst",
+            "role": "Loyalty Programs"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "13-1",
+          "agentName": {
+            "name": "Category Narrative Designer",
+            "role": "Competitive Analysis"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "13-2",
+          "agentName": {
+            "name": "Strategic Moat Builder",
+            "role": "Market Positioning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "13-3",
+          "agentName": {
+            "name": "Ecosystem Mapper",
+            "role": "Category Creation"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "13-4",
+          "agentName": {
+            "name": "Competitor Monitor",
+            "role": "Thought Leadership"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "13-5",
+          "agentName": {
+            "name": "Brand Architect",
+            "role": "Strategic Partnerships"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "13-6",
+          "agentName": {
+            "name": "Defensive GTM Strategist",
+            "role": "Market Expansion"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "14-1",
+          "agentName": {
+            "name": "System Architecture Expert",
+            "role": "Process Optimization"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "14-2",
+          "agentName": {
+            "name": "Revenue Engine Mapper",
+            "role": "Technology Stack"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "14-3",
+          "agentName": {
+            "name": "Dashboard Designer",
+            "role": "Automation Systems"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "14-4",
+          "agentName": {
+            "name": "Tool Consolidator",
+            "role": "Quality Control"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "14-5",
+          "agentName": {
+            "name": "RevOps Playbook Builder",
+            "role": "Supply Chain"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "14-6",
+          "agentName": {
+            "name": "SLA Policy Manager",
+            "role": "Risk Management"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "15-1",
+          "agentName": {
+            "name": "ExecutiveHiringAgent",
+            "role": "Executive Development"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "15-2",
+          "agentName": {
+            "name": "BoardGovernanceAgent",
+            "role": "Board Relations"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "15-3",
+          "agentName": {
+            "name": "SuccessionPlanningAgent",
+            "role": "Succession Planning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "15-4",
+          "agentName": {
+            "name": "StakeholderAlignmentAgent",
+            "role": "Leadership Training"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "15-5",
+          "agentName": {
+            "name": "InvestorRelationsAgent",
+            "role": "Vision Alignment"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "15-6",
+          "agentName": {
+            "name": "LeadershipDynamicsAgent",
+            "role": "Strategic Planning"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "16-1",
+          "agentName": {
+            "name": "Market Entry Analyst",
+            "role": "Market Selection"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "16-2",
+          "agentName": {
+            "name": "Localization Expert",
+            "role": "Entry Strategy"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "16-3",
+          "agentName": {
+            "name": "International Pricing Strategist",
+            "role": "Localization"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "16-4",
+          "agentName": {
+            "name": "Compliance Tracker",
+            "role": "Global Partnerships"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "16-5",
+          "agentName": {
+            "name": "Geo-GTM Specialist",
+            "role": "Regulatory Compliance"
+          },
+          "issue": "Agent not found in library"
+        },
+        {
+          "subcomponentId": "16-6",
+          "agentName": {
+            "name": "Expansion Risk Assessor",
+            "role": "Global Operations"
+          },
+          "issue": "Agent not found in library"
+        }
+      ]
+    },
+    "educationContent": {
+      "passed": 0,
+      "failed": 96,
+      "details": []
+    },
+    "workspaceQuestions": {
+      "passed": 0,
+      "failed": 96,
+      "details": []
+    },
+    "scoringAnalysis": {
+      "passed": 0,
+      "failed": 96,
+      "details": []
+    },
+    "scoreHistory": {
+      "passed": 0,
+      "failed": 96,
+      "details": []
+    },
+    "templates": {
+      "passed": 96,
+      "failed": 0,
+      "details": []
+    },
+    "outputFiles": {
+      "passed": 96,
+      "failed": 0,
+      "details": []
+    },
+    "layoutCSS": {
+      "passed": 0,
+      "failed": 96,
+      "details": []
+    },
+    "subcomponentNames": {
+      "passed": 96,
+      "failed": 0,
+      "details": []
+    }
+  },
+  "summary": {
+    "allPassed": false,
+    "passRate": 33.3,
+    "criticalIssues": [
+      "agentMapping: 96 failures",
+      "educationContent: 96 failures",
+      "workspaceQuestions: 96 failures",
+      "scoringAnalysis: 96 failures",
+      "scoreHistory: 96 failures",
+      "layoutCSS: 96 failures"
+    ]
+  }
+}

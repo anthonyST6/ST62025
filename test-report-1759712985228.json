@@ -1,0 +1,2971 @@
+{
+  "timestamp": "2025-10-06T01:09:44.892Z",
+  "totalAgents": 96,
+  "blocks": {
+    "1": {
+      "blockId": 1,
+      "subcomponents": {
+        "1-1": {
+          "agent": "Problem Definition Evaluator",
+          "name": "Problem Statement Definition",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Problem Definition Evaluator, Role: N/A, Sub: Problem Statement Definition"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "1-2": {
+          "agent": "Mission Alignment Advisor",
+          "name": "Mission Statement",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Mission Alignment Advisor, Role: N/A, Sub: Mission Statement"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "1-3": {
+          "agent": "VoC Synthesizer",
+          "name": "Voice of Customer",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: VoC Synthesizer, Role: N/A, Sub: Voice of Customer"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "1-4": {
+          "agent": "Team Gap Identifier",
+          "name": "Founding Team Capability",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Team Gap Identifier, Role: N/A, Sub: Founding Team Capability"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "1-5": {
+          "agent": "Market Mapper",
+          "name": "Market Landscape",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Market Mapper, Role: N/A, Sub: Market Landscape"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "1-6": {
+          "agent": "Launch Plan Assessor",
+          "name": "Launch Readiness",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Launch Plan Assessor, Role: N/A, Sub: Launch Readiness"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "blockId": 2,
+      "subcomponents": {
+        "2-1": {
+          "agent": "JTBD Specialist",
+          "name": "Jobs to be Done",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: JTBD Specialist, Role: N/A, Sub: Jobs to be Done"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "2-2": {
+          "agent": "Persona Framework Builder",
+          "name": "Personas Framework",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Persona Framework Builder, Role: N/A, Sub: Personas Framework"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "2-3": {
+          "agent": "Interview Cadence Analyzer",
+          "name": "Interview Cadence",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Interview Cadence Analyzer, Role: N/A, Sub: Interview Cadence"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "2-4": {
+          "agent": "Pain Point Mapper",
+          "name": "Pain Point Mapping",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Pain Point Mapper, Role: N/A, Sub: Pain Point Mapping"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "2-5": {
+          "agent": "Signal Grader",
+          "name": "Insight Action",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Signal Grader, Role: N/A, Sub: Insight Action"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "2-6": {
+          "agent": "Insight Loop Manager",
+          "name": "Customer Journey",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Insight Loop Manager, Role: N/A, Sub: Customer Journey"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "blockId": 3,
+      "subcomponents": {
+        "3-1": {
+          "agent": "Use Case Scorer",
+          "name": "Use Case Scoring Model",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Use Case Scorer, Role: N/A, Sub: Use Case Scoring Model"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "3-2": {
+          "agent": "Segment Tier Analyst",
+          "name": "Segment Tiering",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Segment Tier Analyst, Role: N/A, Sub: Segment Tiering"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "3-3": {
+          "agent": "Prioritization Expert",
+          "name": "Prioritization Rubric",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Prioritization Expert, Role: N/A, Sub: Prioritization Rubric"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "3-4": {
+          "agent": "Tradeoff Tracker",
+          "name": "Tradeoff Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Tradeoff Tracker, Role: N/A, Sub: Tradeoff Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "3-5": {
+          "agent": "Hypothesis Validator",
+          "name": "Hypothesis Board",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Hypothesis Validator, Role: N/A, Sub: Hypothesis Board"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "3-6": {
+          "agent": "Decision Archivist",
+          "name": "Decision Archive",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Decision Archivist, Role: N/A, Sub: Decision Archive"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "4": {
+      "blockId": 4,
+      "subcomponents": {
+        "4-1": {
+          "agent": "Feature Matrix Builder",
+          "name": "Feature Inclusion Matrix",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Feature Matrix Builder, Role: N/A, Sub: Feature Inclusion Matrix"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "4-2": {
+          "agent": "Technical Scope Expert",
+          "name": "Technical Scope Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Technical Scope Expert, Role: N/A, Sub: Technical Scope Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "4-3": {
+          "agent": "Pilot Group Selector",
+          "name": "Pilot Group Selection",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Pilot Group Selector, Role: N/A, Sub: Pilot Group Selection"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "4-4": {
+          "agent": "QA Criteria Setter",
+          "name": "QA & Success Criteria",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: QA Criteria Setter, Role: N/A, Sub: QA & Success Criteria"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "4-5": {
+          "agent": "Timeline Planner",
+          "name": "Timeline GANTT or Roadmap",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Timeline Planner, Role: N/A, Sub: Timeline GANTT or Roadmap"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "4-6": {
+          "agent": "Post-Mortem Analyst",
+          "name": "Post-Mortem Template",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Post-Mortem Analyst, Role: N/A, Sub: Post-Mortem Template"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "5": {
+      "blockId": 5,
+      "subcomponents": {
+        "5-1": {
+          "agent": "GTMMessagingAgent",
+          "name": "GTM Messaging Framework",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: GTMMessagingAgent, Role: N/A, Sub: GTM Messaging Framework"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "5-2": {
+          "agent": "SalesEnablementAgent",
+          "name": "Sales Enablement Assets",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: SalesEnablementAgent, Role: N/A, Sub: Sales Enablement Assets"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "5-3": {
+          "agent": "PricingPackagingAgent",
+          "name": "Pricing & Packaging Strategy",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: PricingPackagingAgent, Role: N/A, Sub: Pricing & Packaging Strategy"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "5-4": {
+          "agent": "ChannelPartnerAgent",
+          "name": "Channel Partner Strategy",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: ChannelPartnerAgent, Role: N/A, Sub: Channel Partner Strategy"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "5-5": {
+          "agent": "CompetitivePositioningAgent",
+          "name": "Competitive Positioning",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: CompetitivePositioningAgent, Role: N/A, Sub: Competitive Positioning"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "5-6": {
+          "agent": "LaunchPlanningAgent",
+          "name": "Launch Planning & Execution",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: LaunchPlanningAgent, Role: N/A, Sub: Launch Planning & Execution"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "6": {
+      "blockId": 6,
+      "subcomponents": {
+        "6-1": {
+          "agent": "Usage Heatmap Analyst",
+          "name": "Usage Heatmap",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Usage Heatmap Analyst, Role: N/A, Sub: Usage Heatmap"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "6-2": {
+          "agent": "Milestone Tracker",
+          "name": "Milestone Triggers",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Milestone Tracker, Role: N/A, Sub: Milestone Triggers"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "6-3": {
+          "agent": "CS Dashboard Builder",
+          "name": "CS Dashboard",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: CS Dashboard Builder, Role: N/A, Sub: CS Dashboard"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "6-4": {
+          "agent": "Activation Expert",
+          "name": "Activation Metric Model",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Activation Expert, Role: N/A, Sub: Activation Metric Model"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "6-5": {
+          "agent": "Feedback Collector",
+          "name": "Feedback Collector",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Feedback Collector, Role: N/A, Sub: Feedback Collector"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "6-6": {
+          "agent": "Power User Analyst",
+          "name": "Power User Behavior Signals",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Power User Analyst, Role: N/A, Sub: Power User Behavior Signals"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "7": {
+      "blockId": 7,
+      "subcomponents": {
+        "7-1": {
+          "agent": "Time/Cost Analyst",
+          "name": "Time/Cost Savings Metrics",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Time/Cost Analyst, Role: N/A, Sub: Time/Cost Savings Metrics"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "7-2": {
+          "agent": "Revenue Impact Tracker",
+          "name": "Revenue-Impact Attribution",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Revenue Impact Tracker, Role: N/A, Sub: Revenue-Impact Attribution"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "7-3": {
+          "agent": "Productivity Measurer",
+          "name": "Productivity Lift Metrics",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Productivity Measurer, Role: N/A, Sub: Productivity Lift Metrics"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "7-4": {
+          "agent": "Retention Analyst",
+          "name": "Net Retention Trends",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Retention Analyst, Role: N/A, Sub: Net Retention Trends"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "7-5": {
+          "agent": "System Reduction Expert",
+          "name": "Downstream System Reductions",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: System Reduction Expert, Role: N/A, Sub: Downstream System Reductions"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "7-6": {
+          "agent": "Friction Analyzer",
+          "name": "Friction Reduction Evidence",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Friction Analyzer, Role: N/A, Sub: Friction Reduction Evidence"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "8": {
+      "blockId": 8,
+      "subcomponents": {
+        "8-1": {
+          "agent": "Upsell Funnel Designer",
+          "name": "Upsell Funnel Model",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Upsell Funnel Designer, Role: N/A, Sub: Upsell Funnel Model"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "8-2": {
+          "agent": "Team Expansion Tracker",
+          "name": "Team Expansion Signals",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Team Expansion Tracker, Role: N/A, Sub: Team Expansion Signals"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "8-3": {
+          "agent": "Organic Growth Analyst",
+          "name": "Organic Adoption Pattern",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Organic Growth Analyst, Role: N/A, Sub: Organic Adoption Pattern"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "8-4": {
+          "agent": "Champion Mapper",
+          "name": "Champion Mapping",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Champion Mapper, Role: N/A, Sub: Champion Mapping"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "8-5": {
+          "agent": "Sentiment Tracker",
+          "name": "CSAT/NPS Tracking",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Sentiment Tracker, Role: N/A, Sub: CSAT/NPS Tracking"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "8-6": {
+          "agent": "Renewal Readiness Expert",
+          "name": "Renewal Readiness Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Renewal Readiness Expert, Role: N/A, Sub: Renewal Readiness Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "9": {
+      "blockId": 9,
+      "subcomponents": {
+        "9-1": {
+          "agent": "Inbound Conversion Analyst",
+          "name": "Inbound Conversion Rates",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Inbound Conversion Analyst, Role: N/A, Sub: Inbound Conversion Rates"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "9-2": {
+          "agent": "Outbound Performance Tracker",
+          "name": "Outbound Play Performance",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Outbound Performance Tracker, Role: N/A, Sub: Outbound Play Performance"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "9-3": {
+          "agent": "Channel Economics Expert",
+          "name": "Channel Economics Clarity",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Channel Economics Expert, Role: N/A, Sub: Channel Economics Clarity"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "9-4": {
+          "agent": "Discovery Call Evaluator",
+          "name": "Discovery Call Effectiveness",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Discovery Call Evaluator, Role: N/A, Sub: Discovery Call Effectiveness"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "9-5": {
+          "agent": "Demo-to-Close Optimizer",
+          "name": "Demo-to-Close Flow",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Demo-to-Close Optimizer, Role: N/A, Sub: Demo-to-Close Flow"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "9-6": {
+          "agent": "Founder Sales Analyst",
+          "name": "Founders Selling Model",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Founder Sales Analyst, Role: N/A, Sub: Founders Selling Model"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "10": {
+      "blockId": 10,
+      "subcomponents": {
+        "10-1": {
+          "agent": "Enablement Asset Manager",
+          "name": "Enablement Asset Pack",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Enablement Asset Manager, Role: N/A, Sub: Enablement Asset Pack"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "10-2": {
+          "agent": "Rep Ramp Planner",
+          "name": "Rep Ramp Plan",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Rep Ramp Planner, Role: N/A, Sub: Rep Ramp Plan"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "10-3": {
+          "agent": "Win/Loss Analyst",
+          "name": "Win/Loss Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Win/Loss Analyst, Role: N/A, Sub: Win/Loss Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "10-4": {
+          "agent": "Objection Handler",
+          "name": "Objection Handling Guide",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Objection Handler, Role: N/A, Sub: Objection Handling Guide"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "10-5": {
+          "agent": "ICP Filter Expert",
+          "name": "ICP Filter Checklist",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: ICP Filter Expert, Role: N/A, Sub: ICP Filter Checklist"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "10-6": {
+          "agent": "Sales Call Librarian",
+          "name": "Sales Call Library",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Sales Call Librarian, Role: N/A, Sub: Sales Call Library"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "11": {
+      "blockId": 11,
+      "subcomponents": {
+        "11-1": {
+          "agent": "Scorecard Designer",
+          "name": "Scorecard Model",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Scorecard Designer, Role: N/A, Sub: Scorecard Model"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "11-2": {
+          "agent": "Quota Structure Expert",
+          "name": "Quota Structure",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Quota Structure Expert, Role: N/A, Sub: Quota Structure"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "11-3": {
+          "agent": "Deal Review Manager",
+          "name": "Weekly Deal Reviews",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Deal Review Manager, Role: N/A, Sub: Weekly Deal Reviews"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "11-4": {
+          "agent": "Forecast Framework Builder",
+          "name": "Forecasting Framework",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Forecast Framework Builder, Role: N/A, Sub: Forecasting Framework"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "11-5": {
+          "agent": "Coaching Loop Designer",
+          "name": "Manager Coaching Loop",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Coaching Loop Designer, Role: N/A, Sub: Manager Coaching Loop"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "11-6": {
+          "agent": "Talent Gap Analyst",
+          "name": "Talent Gap Identification",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Talent Gap Analyst, Role: N/A, Sub: Talent Gap Identification"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "12": {
+      "blockId": 12,
+      "subcomponents": {
+        "12-1": {
+          "agent": "Onboarding Optimizer",
+          "name": "Onboarding Checklist",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Onboarding Optimizer, Role: N/A, Sub: Onboarding Checklist"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "12-2": {
+          "agent": "Activation Tracker",
+          "name": "Activation Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Activation Tracker, Role: N/A, Sub: Activation Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "12-3": {
+          "agent": "Success Playbook Builder",
+          "name": "Success Playbooks",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Success Playbook Builder, Role: N/A, Sub: Success Playbooks"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "12-4": {
+          "agent": "Escalation Manager",
+          "name": "Escalation SOPs",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Escalation Manager, Role: N/A, Sub: Escalation SOPs"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "12-5": {
+          "agent": "Renewal Pipeline Expert",
+          "name": "Renewals Pipelines",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Renewal Pipeline Expert, Role: N/A, Sub: Renewals Pipelines"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "12-6": {
+          "agent": "Churn Root-Cause Analyst",
+          "name": "Churn Root-Cause Engine",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Churn Root-Cause Analyst, Role: N/A, Sub: Churn Root-Cause Engine"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "13": {
+      "blockId": 13,
+      "subcomponents": {
+        "13-1": {
+          "agent": "Category Narrative Designer",
+          "name": "Category Narrative Canvas",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Category Narrative Designer, Role: N/A, Sub: Category Narrative Canvas"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "13-2": {
+          "agent": "Strategic Moat Builder",
+          "name": "Strategic MOAT Design",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Strategic Moat Builder, Role: N/A, Sub: Strategic MOAT Design"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "13-3": {
+          "agent": "Ecosystem Mapper",
+          "name": "Ecosystem Leverage Map",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Ecosystem Mapper, Role: N/A, Sub: Ecosystem Leverage Map"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "13-4": {
+          "agent": "Competitor Monitor",
+          "name": "Competitor GTM Monitoring",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Competitor Monitor, Role: N/A, Sub: Competitor GTM Monitoring"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "13-5": {
+          "agent": "Brand Architect",
+          "name": "Brand Architecture Plan",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Brand Architect, Role: N/A, Sub: Brand Architecture Plan"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "13-6": {
+          "agent": "Defensive GTM Strategist",
+          "name": "Defensive GTM Tactics",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Defensive GTM Strategist, Role: N/A, Sub: Defensive GTM Tactics"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "14": {
+      "blockId": 14,
+      "subcomponents": {
+        "14-1": {
+          "agent": "System Architecture Expert",
+          "name": "System Architecture Diagram",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: System Architecture Expert, Role: N/A, Sub: System Architecture Diagram"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "14-2": {
+          "agent": "Revenue Engine Mapper",
+          "name": "Revenue Engine Map",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Revenue Engine Mapper, Role: N/A, Sub: Revenue Engine Map"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "14-3": {
+          "agent": "Dashboard Designer",
+          "name": "Internal Dashboards",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Dashboard Designer, Role: N/A, Sub: Internal Dashboards"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "14-4": {
+          "agent": "Tool Consolidator",
+          "name": "Tool Consolidation Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Tool Consolidator, Role: N/A, Sub: Tool Consolidation Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "14-5": {
+          "agent": "RevOps Playbook Builder",
+          "name": "RevOps Playbook",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: RevOps Playbook Builder, Role: N/A, Sub: RevOps Playbook"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "14-6": {
+          "agent": "SLA Policy Manager",
+          "name": "Internal SLA Policy",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: SLA Policy Manager, Role: N/A, Sub: Internal SLA Policy"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "15": {
+      "blockId": 15,
+      "subcomponents": {
+        "15-1": {
+          "agent": "ExecutiveHiringAgent",
+          "name": "Executive Team",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: ExecutiveHiringAgent, Role: N/A, Sub: Executive Team"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "15-2": {
+          "agent": "BoardGovernanceAgent",
+          "name": "Board Development",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: BoardGovernanceAgent, Role: N/A, Sub: Board Development"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "15-3": {
+          "agent": "SuccessionPlanningAgent",
+          "name": "Succession Planning",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: SuccessionPlanningAgent, Role: N/A, Sub: Succession Planning"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "15-4": {
+          "agent": "StakeholderAlignmentAgent",
+          "name": "Stakeholder Alignment",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: StakeholderAlignmentAgent, Role: N/A, Sub: Stakeholder Alignment"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "15-5": {
+          "agent": "InvestorRelationsAgent",
+          "name": "Investor Relations",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: InvestorRelationsAgent, Role: N/A, Sub: Investor Relations"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "15-6": {
+          "agent": "LeadershipDynamicsAgent",
+          "name": "Leadership Dynamics",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: LeadershipDynamicsAgent, Role: N/A, Sub: Leadership Dynamics"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    },
+    "16": {
+      "blockId": 16,
+      "subcomponents": {
+        "16-1": {
+          "agent": "Market Entry Analyst",
+          "name": "Market Selection",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Market Entry Analyst, Role: N/A, Sub: Market Selection"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "16-2": {
+          "agent": "Localization Expert",
+          "name": "Localization Infrastructure",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Localization Expert, Role: N/A, Sub: Localization Infrastructure"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "16-3": {
+          "agent": "International Pricing Strategist",
+          "name": "International Pricing Matrix",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: International Pricing Strategist, Role: N/A, Sub: International Pricing Matrix"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "16-4": {
+          "agent": "Compliance Tracker",
+          "name": "Regional Compliance Tracker",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Compliance Tracker, Role: N/A, Sub: Regional Compliance Tracker"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "16-5": {
+          "agent": "Geo-GTM Specialist",
+          "name": "Geo-Specific GTM Playbooks",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Geo-GTM Specialist, Role: N/A, Sub: Geo-Specific GTM Playbooks"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        },
+        "16-6": {
+          "agent": "Expansion Risk Assessor",
+          "name": "Expansion Risk Assessment",
+          "tests": {
+            "educationContent": {
+              "details": "No content found"
+            },
+            "workspaceQuestions": {
+              "details": "No questions"
+            },
+            "agentRoleRelevance": {
+              "details": "Agent: Expansion Risk Assessor, Role: N/A, Sub: Expansion Risk Assessment"
+            },
+            "scoringAnalysis": {
+              "details": "Framework: No, Criteria: No"
+            },
+            "templates": {
+              "passed": false,
+              "details": "0 templates found"
+            },
+            "resources": {
+              "passed": false,
+              "details": "0 resources defined"
+            },
+            "layoutConsistency": {
+              "passed": true,
+              "details": "Using standard block-detail.html template"
+            }
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "passed": 96,
+    "failed": 576,
+    "warnings": 0
+  }
+}

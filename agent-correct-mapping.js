@@ -1,5 +1,6 @@
 // Correct Agent-Subcomponent Mapping based on "Subcomponent Agents Correct 10_04_25.docx"
 // This file provides the authoritative mapping between subcomponent IDs and agent names
+// FIXED: Block 2 agents now correctly aligned with their logical subcomponents
 
 const AGENT_CORRECT_MAPPING = {
     // Block 1: Mission Discovery
@@ -10,13 +11,13 @@ const AGENT_CORRECT_MAPPING = {
     '1-5': 'Market Mapper',
     '1-6': 'Launch Plan Assessor',
     
-    // Block 2: Customer Insights
-    '2-1': 'Interview Cadence Analyzer',
-    '2-2': 'Persona Framework Builder',
-    '2-3': 'Pain Point Mapper',
-    '2-4': 'JTBD Specialist',
-    '2-5': 'Signal Grader',
-    '2-6': 'Insight Loop Manager',
+    // Block 2: Customer Insights - CORRECTED MAPPING
+    '2-1': 'JTBD Specialist',              // Jobs to be Done
+    '2-2': 'Persona Framework Builder',    // Personas Framework
+    '2-3': 'Interview Cadence Analyzer',   // Interview Cadence
+    '2-4': 'Pain Point Mapper',            // Pain Point Mapping
+    '2-5': 'Signal Grader',                // Insight Action
+    '2-6': 'Insight Loop Manager',         // Customer Journey
     
     // Block 3: Strategic Prioritization
     '3-1': 'Use Case Scorer',
@@ -133,134 +134,104 @@ const AGENT_CORRECT_MAPPING = {
 
 // Reverse mapping to get agent key from agent name
 // This helps us find the existing agent in AgentLibrary
+// FIXED: Now correctly maps to actual positions in agent-library.js
 const AGENT_NAME_TO_KEY = {
-    // Block 1
-    'Problem Definition Evaluator': '1a',
-    'Mission Alignment Advisor': '1b',
-    'VoC Synthesizer': '1c',
-    'Team Gap Identifier': '1d',
-    'Market Mapper': '1e',
-    'Launch Plan Assessor': '1f',
-    
-    // Block 2 - REORDERED
-    'Interview Cadence Analyzer': '2a',
-    'Persona Framework Builder': '2b',
-    'Pain Point Mapper': '2c',
-    'JTBD Specialist': '2d',
-    'Signal Grader': '2e',
-    'Insight Loop Manager': '2f',
-    
-    // Block 3
-    'Use Case Scorer': '3a',
-    'Segment Tier Analyst': '3b',
-    'Prioritization Expert': '3c',
-    'Tradeoff Tracker': '3d',
-    'Hypothesis Validator': '3e',
-    'Decision Archivist': '3f',
-    
-    // Block 4
-    'Feature Matrix Builder': '4a',
-    'Technical Scope Expert': '4b',
-    'Pilot Group Selector': '4c',
-    'QA Criteria Setter': '4d',
-    'Timeline Planner': '4e',
-    'Post-Mortem Analyst': '4f',
-    
-    // Block 5 - NEW GTM AGENTS (need to be created)
-    'GTMMessagingAgent': '5a-gtm',
-    'SalesEnablementAgent': '5b-gtm',
-    'PricingPackagingAgent': '5c-gtm',
-    'ChannelPartnerAgent': '5d-gtm',
-    'CompetitivePositioningAgent': '5e-gtm',
-    'LaunchPlanningAgent': '5f-gtm',
-    
-    // Block 6
-    'Usage Heatmap Analyst': '6a',
-    'Milestone Tracker': '6b',
-    'CS Dashboard Builder': '6c',
-    'Activation Expert': '6d',
-    'Feedback Collector': '6e',
-    'Power User Analyst': '6f',
-    
-    // Block 7
-    'Time/Cost Analyst': '7a',
-    'Revenue Impact Tracker': '7b',
-    'Productivity Measurer': '7c',
-    'Retention Analyst': '7d',
-    'System Reduction Expert': '7e',
-    'Friction Analyzer': '7f',
-    
-    // Block 8
-    'Upsell Funnel Designer': '8a',
-    'Team Expansion Tracker': '8b',
-    'Organic Growth Analyst': '8c',
-    'Champion Mapper': '8d',
-    'Sentiment Tracker': '8e',
-    'Renewal Readiness Expert': '8f',
-    
-    // Block 9
-    'Inbound Conversion Analyst': '9a',
-    'Outbound Performance Tracker': '9b',
-    'Channel Economics Expert': '9c',
-    'Discovery Call Evaluator': '9d',
-    'Demo-to-Close Optimizer': '9e',
-    'Founder Sales Analyst': '9f',
-    
-    // Block 10
-    'Enablement Asset Manager': '10a',
-    'Rep Ramp Planner': '10b',
-    'Win/Loss Analyst': '10c',
-    'Objection Handler': '10d',
-    'ICP Filter Expert': '10e',
-    'Sales Call Librarian': '10f',
-    
-    // Block 11
-    'Scorecard Designer': '11a',
-    'Quota Structure Expert': '11b',
-    'Deal Review Manager': '11c',
-    'Forecast Framework Builder': '11d',
-    'Coaching Loop Designer': '11e',
-    'Talent Gap Analyst': '11f',
-    
-    // Block 12
-    'Onboarding Optimizer': '12a',
-    'Activation Tracker': '12b',
-    'Success Playbook Builder': '12c',
-    'Escalation Manager': '12d',
-    'Renewal Pipeline Expert': '12e',
-    'Churn Root-Cause Analyst': '12f',
-    
-    // Block 13
-    'Category Narrative Designer': '13a',
-    'Strategic Moat Builder': '13b',
-    'Ecosystem Mapper': '13c',
-    'Competitor Monitor': '13d',
-    'Brand Architect': '13e',
-    'Defensive GTM Strategist': '13f',
-    
-    // Block 14
-    'System Architecture Expert': '14a',
-    'Revenue Engine Mapper': '14b',
-    'Dashboard Designer': '14c',
-    'Tool Consolidator': '14d',
-    'RevOps Playbook Builder': '14e',
-    'SLA Policy Manager': '14f',
-    
-    // Block 15 - NEW LEADERSHIP AGENTS (need to be created)
-    'ExecutiveHiringAgent': '15a-lead',
-    'BoardGovernanceAgent': '15b-lead',
-    'SuccessionPlanningAgent': '15c-lead',
-    'StakeholderAlignmentAgent': '15d-lead',
-    'InvestorRelationsAgent': '15e-lead',
-    'LeadershipDynamicsAgent': '15f-lead',
-    
-    // Block 16
-    'Market Entry Analyst': '16a',
-    'Localization Expert': '16b',
-    'International Pricing Strategist': '16c',
-    'Compliance Tracker': '16d',
-    'Geo-GTM Specialist': '16e',
-    'Expansion Risk Assessor': '16f'
+    "Problem Definition Evaluator": "1a",
+    "Mission Alignment Advisor": "1b",
+    "VoC Synthesizer": "1c",
+    "Team Gap Identifier": "1d",
+    "Market Mapper": "1e",
+    "Launch Plan Assessor": "1f",
+    "Interview Cadence Analyzer": "2a",
+    "Persona Framework Builder": "2b",
+    "Pain Point Mapper": "2c",
+    "JTBD Specialist": "2d",
+    "Signal Grader": "2e",
+    "Insight Loop Manager": "2f",
+    "Use Case Scorer": "3a",
+    "Segment Tier Analyst": "3b",
+    "Prioritization Expert": "3c",
+    "Tradeoff Tracker": "3d",
+    "Hypothesis Validator": "3e",
+    "Decision Archivist": "3f",
+    "Feature Matrix Builder": "4a",
+    "Technical Scope Expert": "4b",
+    "Pilot Group Selector": "4c",
+    "QA Criteria Setter": "4d",
+    "Timeline Planner": "4e",
+    "Post-Mortem Analyst": "4f",
+    "GTMMessagingAgent": "5a-gtm",
+    "SalesEnablementAgent": "5b-gtm",
+    "PricingPackagingAgent": "5c-gtm",
+    "ChannelPartnerAgent": "5d-gtm",
+    "CompetitivePositioningAgent": "5e-gtm",
+    "LaunchPlanningAgent": "5f-gtm",
+    "Usage Heatmap Analyst": "6a",
+    "Milestone Tracker": "6b",
+    "CS Dashboard Builder": "6c",
+    "Activation Expert": "6d",
+    "Feedback Collector": "6e",
+    "Power User Analyst": "6f",
+    "Time/Cost Analyst": "7a",
+    "Revenue Impact Tracker": "7b",
+    "Productivity Measurer": "7c",
+    "Retention Analyst": "7d",
+    "System Reduction Expert": "7e",
+    "Friction Analyzer": "7f",
+    "Upsell Funnel Designer": "8a",
+    "Team Expansion Tracker": "8b",
+    "Organic Growth Analyst": "8c",
+    "Champion Mapper": "8d",
+    "Sentiment Tracker": "8e",
+    "Renewal Readiness Expert": "8f",
+    "Inbound Conversion Analyst": "9a",
+    "Outbound Performance Tracker": "9b",
+    "Channel Economics Expert": "9c",
+    "Discovery Call Evaluator": "9d",
+    "Demo-to-Close Optimizer": "9e",
+    "Founder Sales Analyst": "9f",
+    "Enablement Asset Manager": "10a",
+    "Rep Ramp Planner": "10b",
+    "Win/Loss Analyst": "10c",
+    "Objection Handler": "10d",
+    "ICP Filter Expert": "10e",
+    "Sales Call Librarian": "10f",
+    "Scorecard Designer": "11a",
+    "Quota Structure Expert": "11b",
+    "Deal Review Manager": "11c",
+    "Forecast Framework Builder": "11d",
+    "Coaching Loop Designer": "11e",
+    "Talent Gap Analyst": "11f",
+    "Onboarding Optimizer": "12a",
+    "Activation Tracker": "12b",
+    "Success Playbook Builder": "12c",
+    "Escalation Manager": "12d",
+    "Renewal Pipeline Expert": "12e",
+    "Churn Root-Cause Analyst": "12f",
+    "Category Narrative Designer": "13a",
+    "Strategic Moat Builder": "13b",
+    "Ecosystem Mapper": "13c",
+    "Competitor Monitor": "13d",
+    "Brand Architect": "13e",
+    "Defensive GTM Strategist": "13f",
+    "System Architecture Expert": "14a",
+    "Revenue Engine Mapper": "14b",
+    "Dashboard Designer": "14c",
+    "Tool Consolidator": "14d",
+    "RevOps Playbook Builder": "14e",
+    "SLA Policy Manager": "14f",
+    "ExecutiveHiringAgent": "15a-lead",
+    "BoardGovernanceAgent": "15b-lead",
+    "SuccessionPlanningAgent": "15c-lead",
+    "StakeholderAlignmentAgent": "15d-lead",
+    "InvestorRelationsAgent": "15e-lead",
+    "LeadershipDynamicsAgent": "15f-lead",
+    "Market Entry Analyst": "16a",
+    "Localization Expert": "16b",
+    "International Pricing Strategist": "16c",
+    "Compliance Tracker": "16d",
+    "Geo-GTM Specialist": "16e",
+    "Expansion Risk Assessor": "16f"
 };
 
 // Export for use in Node.js
