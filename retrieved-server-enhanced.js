@@ -11,22 +11,13 @@ const {
 } = require('./integrated-agent-library.js');
 
 // Load correct subcomponent names (NOT agent names)
-const { SUBCOMPONENT_NAMES } = require('./subcomponent-names-mapping.js');
-
-// Load real-world examples for education tab
-const { getRealWorldExamples } = require('./real-world-examples-all-96-complete.js');
+const SUBCOMPONENT_NAMES = require('./subcomponent-names-mapping.js');
 
 // CRITICAL FIX: Import the question generation infrastructure
 const AgentQuestionGenerator = require('./agent-question-generator.js');
 const agentGeneratedQuestions = require('./agent-generated-questions-complete.js'); // Use complete set with all 96
 const DynamicWorksheetGenerator = require('./dynamic-worksheet-generator.js');
 const { testCompany } = require('./test-company.js');
-
-// Load enhanced ST6Co answers for better scoring
-const { enhancedST6CoAnswers, getEnhancedAnswers } = require('./enhance-st6co-answers.js');
-
-// Load templates from get-templates.js (simplified version)
-const { getTemplatesForSubcomponent } = require('./get-templates.js');
 
 // Log successful loading
 console.log('🚀 Enhanced Server Loading...');
@@ -120,62 +111,40 @@ function integrateCompanyData(questions, companyData) {
                 .replace(/\[Product\]/g, "ScaleOps6Product");
         }
 
-        // ENHANCED: Pre-fill with detailed ST6Co answers based on question content
+        // ENHANCED: Pre-fill with ST6Co data based on question content
         const questionText = (q.text || q.question || '').toLowerCase();
         const qId = (q.id || '').toLowerCase();
         
-        // Get enhanced answers for this specific subcomponent
-        const [blockId, subId] = workspaceQuestion.id ? workspaceQuestion.id.split('-').slice(0, 2) : ['1', '1'];
-        const subcomponentKey = `${blockId}-${subId}`;
-        const enhancedData = getEnhancedAnswers(blockId, subId);
-        
         if (qId.includes('problem') || questionText.includes('problem') || questionText.includes('challenge')) {
-            workspaceQuestion.defaultValue = enhancedData.problem || enhancedST6CoAnswers['1-1'].problem;
-        }
+            workspaceQuestion.defaultValue = `${companyData.profile.mission}. Target: ${companyData.profile.targetMarket}. Stage: ${companyData.stage} with ${companyData.revenue} ARR.`;
+        } 
         else if (qId.includes('solution') || questionText.includes('solution') || questionText.includes('approach')) {
-            workspaceQuestion.defaultValue = enhancedData.solution || enhancedST6CoAnswers['1-1'].solution;
-        }
+            workspaceQuestion.defaultValue = `${companyData.profile.product} - AI-powered platform with 16 operational blocks for systematic GTM maturity.`;
+        } 
         else if (qId.includes('evidence') || questionText.includes('evidence') || questionText.includes('validation')) {
-            workspaceQuestion.defaultValue = enhancedData.evidence || enhancedST6CoAnswers['1-1'].evidence;
+            workspaceQuestion.defaultValue = `Metrics: ${companyData.profile.keyMetrics.customers} customers, ${companyData.profile.keyMetrics.nps} NPS, ${companyData.profile.keyMetrics.monthlyGrowth} growth, CAC: ${companyData.profile.keyMetrics.cac}, LTV: ${companyData.profile.keyMetrics.ltv}`;
         }
         else if (questionText.includes('metric') || questionText.includes('measure') || questionText.includes('track')) {
-            workspaceQuestion.defaultValue = enhancedData.metrics ?
-                `Key metrics: ${JSON.stringify(enhancedData.metrics, null, 2)}` :
-                enhancedST6CoAnswers['1-1'].metrics ?
-                    `Customers: ${enhancedST6CoAnswers['1-1'].metrics.customers}, NPS: ${enhancedST6CoAnswers['1-1'].metrics.nps}, ARR: $${enhancedST6CoAnswers['1-1'].metrics.arr.toLocaleString()}, Growth: 15% MoM` :
-                    `Key metrics: NPS ${companyData.profile.keyMetrics.nps}, Growth ${companyData.profile.keyMetrics.monthlyGrowth}, Churn ${companyData.profile.keyMetrics.churnRate}`;
+            workspaceQuestion.defaultValue = `Key metrics: NPS ${companyData.profile.keyMetrics.nps}, Growth ${companyData.profile.keyMetrics.monthlyGrowth}, Churn ${companyData.profile.keyMetrics.churnRate}`;
         }
-        else if (questionText.includes('customer') || questionText.includes('user') || questionText.includes('feedback')) {
-            workspaceQuestion.defaultValue = enhancedData.feedback_loops || enhancedST6CoAnswers['1-3']?.feedback_loops ||
-                `${companyData.profile.keyMetrics.customers} customers actively engaged, conducting 50+ interviews monthly, NPS: ${companyData.profile.keyMetrics.nps}`;
+        else if (questionText.includes('customer') || questionText.includes('user')) {
+            workspaceQuestion.defaultValue = `${companyData.profile.keyMetrics.customers} customers, Target: ${companyData.profile.targetMarket}`;
         }
-        else if (questionText.includes('team') || questionText.includes('employee') || questionText.includes('capability')) {
-            workspaceQuestion.defaultValue = enhancedData.team_composition || enhancedST6CoAnswers['1-4']?.team_composition ||
-                `Team of ${companyData.employees} with deep GTM expertise, 3 successful exits among leadership`;
+        else if (questionText.includes('team') || questionText.includes('employee')) {
+            workspaceQuestion.defaultValue = `Team size: ${companyData.employees} employees, Stage: ${companyData.stage}`;
         }
         else if (questionText.includes('revenue') || questionText.includes('financial')) {
-            workspaceQuestion.defaultValue = `Current ARR: $${companyData.revenue}, growing at 15% MoM, CAC payback: 2.3 months, LTV/CAC: 3.2x`;
+            workspaceQuestion.defaultValue = `Current ARR: ${companyData.revenue}, CAC: ${companyData.profile.keyMetrics.cac}, LTV: ${companyData.profile.keyMetrics.ltv}`;
         }
-        else if (questionText.includes('market') || questionText.includes('industry') || questionText.includes('competitive')) {
-            workspaceQuestion.defaultValue = enhancedData.market_size || enhancedST6CoAnswers['1-5']?.market_size ||
-                `TAM: $45B GTM tools market, SAM: $12B AI-powered platforms, SOM: $500M early-stage B2B SaaS`;
+        else if (questionText.includes('market') || questionText.includes('industry')) {
+            workspaceQuestion.defaultValue = `Industry: ${companyData.industry}, Target: ${companyData.profile.targetMarket}`;
         }
-        else if (questionText.includes('goal') || questionText.includes('objective') || questionText.includes('vision')) {
-            workspaceQuestion.defaultValue = enhancedData.vision_clarity || enhancedST6CoAnswers['1-2']?.vision_clarity ||
-                `Democratize startup success by making enterprise-grade GTM expertise accessible to every founder`;
-        }
-        else if (questionText.includes('implementation') || questionText.includes('process')) {
-            workspaceQuestion.defaultValue = enhancedData.implementation ||
-                `Fully implemented with automated workflows, AI-powered insights, 20+ integrations, real-time dashboards. Result: 89% adoption rate, 4.6/5 satisfaction.`;
-        }
-        else if (questionText.includes('result') || questionText.includes('outcome') || questionText.includes('impact')) {
-            workspaceQuestion.defaultValue = enhancedData.results ||
-                `Achieved: 3x faster time to market, 70% operational cost reduction, 92% customer retention, 1200% ROI in year 1.`;
+        else if (questionText.includes('goal') || questionText.includes('objective')) {
+            workspaceQuestion.defaultValue = `Mission: ${companyData.profile.mission}. Current focus: Scale to Series A with improved unit economics.`;
         }
         else if (workspaceQuestion.type === 'text' && !workspaceQuestion.defaultValue) {
-            // Generic default with more detail
-            workspaceQuestion.defaultValue = enhancedData.current_state ||
-                `ScaleOps6 actively uses this capability with 47 customers achieving measurable improvements. Our implementation shows 89% adoption rate and 4.6/5 satisfaction score.`;
+            // Generic default for any text question
+            workspaceQuestion.defaultValue = `[${companyData.name}] ${companyData.stage} stage, ${companyData.industry}, ${companyData.employees} employees`;
         }
 
         // Add example answer with ST6Co context
@@ -247,17 +216,14 @@ function generateFallbackQuestions(agent, subcomponentId) {
     questions.push({
         id: "st6_context",
         category: "Company Context",
-        question: "ST6Co/ScaleOps6 Meta-Experiment Assessment",
+        question: "ST6Co/ScaleOps6Product Assessment",
         type: "info",
         content: {
             company: testCompany.name,
-            product: "ScaleOps6",
-            description: "Using our own platform to validate and scale ScaleOps6 itself",
+            product: "ScaleOps6Product",
             blockScore: blockScore ? blockScore.score : 'N/A',
             industry: testCompany.industry,
-            stage: testCompany.stage,
-            validation: "This is a meta-experiment where ScaleOps6 uses its own 96 AI agents to optimize its own GTM strategy",
-            metrics: testCompany.profile.keyMetrics
+            stage: testCompany.stage
         }
     });
     
@@ -499,12 +465,6 @@ const server = http.createServer((req, res) => {
             const blockId = parseInt(subcomponentId.split('-')[0]);
             const block = blocks.find(b => b.id === blockId);
             
-            // Debug logging for breadcrumb issue
-            console.log(`📍 Breadcrumb Debug for ${subcomponentId}:`);
-            console.log(`   - Subcomponent Name: ${subcomponentName}`);
-            console.log(`   - Agent Name: ${agentName}`);
-            console.log(`   - Block Name: ${block ? block.name : 'Unknown'}`);
-            
             const response = {
                 id: subcomponentId,
                 name: subcomponentName,  // This is the subcomponent name (e.g., "Win-back Campaigns")
@@ -517,7 +477,17 @@ const server = http.createServer((req, res) => {
                     what: `${agentName} is a specialized agent that ${agent.description}. This agent helps you master ${subcomponentName} by evaluating your organization's capabilities across ${agent.scoringDimensions.length} key dimensions.`,
                     why: `Mastering ${subcomponentName} through the ${agentName} agent is crucial for your go-to-market success. Organizations that excel in this area typically see 2.5x faster growth, 68% higher win rates, and 45% lower customer acquisition costs.`,
                     how: `The ${agentName} evaluates your performance across these dimensions: ${agent.scoringDimensions.map(d => d.name).join(', ')}. Complete the workspace assessment to establish your baseline, then follow the agent's recommendations to improve.`,
-                    examples: getRealWorldExamples(subcomponentId),
+                    examples: [
+                        `${testCompany.name} Case Study: When ${testCompany.name} first implemented the ${agentName} framework for ${subcomponentName}, they were struggling with a baseline score of just 42%. By focusing on the top three scoring dimensions identified by the agent, they systematically improved their processes over a 3-month period. The team implemented weekly reviews, established clear KPIs for each dimension, and created accountability systems. As a result, they achieved a remarkable 35% improvement in their overall score, reaching 77% by the end of Q3. This improvement directly correlated with a ${testCompany.profile.keyMetrics.monthlyGrowth} increase in monthly growth rate and a significant reduction in customer churn.`,
+                        
+                        `Industry Leadership Example: Leading B2B SaaS companies consistently leverage ${agentName} insights to drive strategic decisions in ${subcomponentName}. These organizations typically maintain scores above 80% by embedding the agent's recommendations into their operational DNA. They use the dimensional scoring as a north star metric in executive dashboards and quarterly business reviews. The most successful companies create cross-functional teams specifically dedicated to improving low-scoring dimensions. This systematic approach has enabled them to achieve 2.5x faster growth rates compared to their competitors. Their success demonstrates that excellence in ${subcomponentName} is not just about tools, but about creating a culture of continuous improvement.`,
+                        
+                        `ROI Impact Analysis: Companies that achieve and maintain 80%+ scores in ${subcomponentName} through the ${agentName} framework consistently outperform their peers across all key metrics. These high performers report an average of ${testCompany.profile.keyMetrics.monthlyGrowth} monthly growth, compared to just 8% for those scoring below 50%. The financial impact extends beyond growth - they also see a 45% reduction in customer acquisition costs and a 91% improvement in retention rates. The compound effect of these improvements typically results in 3x valuation multiples within 18 months. Most importantly, these companies report that the structured approach provided by ${agentName} helped them identify and fix critical gaps they didn't even know existed.`,
+                        
+                        `Transformation Journey: A mid-market software company recently used ${agentName} to transform their approach to ${subcomponentName}. Starting with a score of 38%, they were losing customers and struggling to scale. The agent identified critical weaknesses in three key dimensions that were creating a domino effect across their entire operation. Over six months, they methodically addressed each dimension, using the agent's recommendations to guide their improvement initiatives. They invested in training, upgraded their technology stack, and restructured their teams around the scoring dimensions. By month six, they had achieved a score of 82% and saw immediate business impact: ${testCompany.profile.keyMetrics.nps} NPS score, 68% win rate improvement, and $2.3M in recovered revenue from prevented churn.`,
+                        
+                        `Best Practice Implementation: The most successful implementations of ${agentName} for ${subcomponentName} follow a consistent pattern that any organization can replicate. First, companies establish a baseline by completing the comprehensive workspace assessment with honest, data-driven responses. Second, they focus intensively on the lowest-scoring dimension for 30 days before moving to the next. Third, they implement weekly measurement cycles to track progress and adjust tactics quickly. Fourth, they celebrate small wins to maintain momentum and engagement across the team. Fifth, they document their learnings and create playbooks for sustaining improvements. Companies following this methodology typically see their first meaningful improvements within 2-3 weeks and achieve 70%+ scores within 90 days.`
+                    ],
                     metrics: agent.scoringDimensions.map(d => `${d.name}: Target 80%+ (Weight: ${d.weight}%)`),
                     agentInfo: {
                         name: agentName,
@@ -529,11 +499,8 @@ const server = http.createServer((req, res) => {
                 workspace: {
                     questions: generateWorkspaceQuestions(agent, subcomponentId)
                 },
-                templates: getTemplatesForSubcomponent ? getTemplatesForSubcomponent(subcomponentId) : [],
-                resources: {
-                    templates: getTemplatesForSubcomponent ? getTemplatesForSubcomponent(subcomponentId) : [],
-                    files: generateResources(agent, subcomponentId)
-                },
+                templates: generateTemplates(agent, subcomponentId),
+                resources: generateResources(agent, subcomponentId),
                 scoringDimensions: agent.scoringDimensions,
                 evaluationCriteria: agent.evaluationCriteria,
                 companyData: {
@@ -598,23 +565,17 @@ const server = http.createServer((req, res) => {
                     
                     const finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 75;
                     
-                    // Get the subcomponent name for display
-                    const subcomponentName = SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`;
-                    
-                    // Generate professional agent-specific analysis
+                    // Generate agent-specific analysis
                     const analysis = {
                         score: finalScore,
-                        overallScore: finalScore, // Include both for compatibility
                         agentName: agentName,
-                        subcomponentName: subcomponentName, // Add subcomponent name for display
                         timestamp: new Date().toISOString(),
                         company: testCompany.name,
                         product: "ScaleOps6Product",
-                        dimensionScores: generateDimensionScores(agent, responses),
-                        dimensions: generateDimensionScores(agent, responses), // Include both for compatibility
-                        strengths: generateStrengths(generateDimensionScores(agent, responses), agent),
-                        weaknesses: generateWeaknesses(generateDimensionScores(agent, responses), agent),
-                        recommendations: generateRecommendations(generateDimensionScores(agent, responses), agent, testCompany),
+                        dimensionScores: dimensionScores,
+                        strengths: generateStrengths(dimensionScores, agent),
+                        weaknesses: generateWeaknesses(dimensionScores, agent),
+                        recommendations: generateRecommendations(dimensionScores, agent, testCompany),
                         nextSteps: generateNextSteps(subcomponentId, finalScore, testCompany)
                     };
                     
@@ -709,306 +670,63 @@ const server = http.createServer((req, res) => {
     });
 });
 
-// Helper functions for analysis generation - PROFESSIONAL VERSION
+// Helper functions for analysis generation
 function generateStrengths(dimensionScores, agent) {
     const strengths = [];
-    
-    // Generate professional, detailed strengths based on dimension scores
     dimensionScores.forEach(ds => {
-        if (ds.score >= 90) {
-            strengths.push(`Exceptional mastery in ${ds.dimension} (${Math.round(ds.score)}%) demonstrating industry-leading performance and best practices`);
-            strengths.push(`${ds.dimension}: World-class implementation with proven ROI and scalable frameworks that drive competitive advantage`);
-        } else if (ds.score >= 80) {
-            strengths.push(`Strong excellence in ${ds.dimension} (${Math.round(ds.score)}%) positioning you well above market standards`);
-            strengths.push(`${ds.dimension}: Robust operational framework with demonstrated scalability and consistent execution`);
+        if (ds.score >= 80) {
+            strengths.push(`Excellent performance in ${ds.dimension}`);
         } else if (ds.score >= 70) {
-            strengths.push(`Solid foundation in ${ds.dimension} (${Math.round(ds.score)}%) providing competitive market positioning`);
-            strengths.push(`${ds.dimension}: Effective processes established with clear optimization pathways identified`);
-        } else if (ds.score >= 60) {
-            strengths.push(`Developing capability in ${ds.dimension} (${Math.round(ds.score)}%) showing strong potential for growth`);
+            strengths.push(`Good foundation in ${ds.dimension}`);
         }
     });
     
-    // Add sophisticated agent-specific strengths
-    if (agent.name) {
-        if (agent.name.includes('Problem') || agent.name.includes('Definition')) {
-            strengths.push("Crystal-clear problem statement with quantifiable market opportunity validated through customer research");
-            strengths.push("Strong customer pain point validation with documented evidence and measurable impact metrics");
-            strengths.push("Well-articulated value proposition directly aligned with identified market needs and customer expectations");
-        } else if (agent.name.includes('Customer') || agent.name.includes('Insight')) {
-            strengths.push("Deep customer insights derived from systematic research and continuous feedback loops");
-            strengths.push("Comprehensive persona development with detailed behavioral patterns and journey mapping");
-            strengths.push("Established voice-of-customer programs driving product and service improvements");
-        } else if (agent.name.includes('Market') || agent.name.includes('Strategy')) {
-            strengths.push("Thorough market analysis with clear competitive positioning and differentiation strategy");
-            strengths.push("Well-defined TAM/SAM/SOM with realistic growth projections and market penetration plans");
-            strengths.push("Strategic go-to-market approach with risk mitigation and contingency planning");
-        } else if (agent.name.includes('Execution') || agent.name.includes('Operations')) {
-            strengths.push("Strong operational execution with consistent delivery against commitments");
-            strengths.push("Effective cross-functional coordination driving organizational alignment");
-            strengths.push("Proven ability to scale operations while maintaining quality standards");
-        }
+    if (strengths.length === 0) {
+        strengths.push("Commitment to improvement demonstrated");
+        strengths.push("Clear understanding of requirements");
     }
     
-    // Add performance-based strengths with context
-    const avgScore = dimensionScores.reduce((sum, ds) => sum + ds.score, 0) / dimensionScores.length;
-    if (avgScore >= 75) {
-        strengths.push("Consistently high performance across multiple evaluation dimensions indicating operational maturity");
-        strengths.push("Strong execution capability with measurable business outcomes and positive ROI");
-        strengths.push("Effective resource allocation and prioritization driving maximum impact");
-    }
-    
-    // Add sophisticated company-specific strengths
-    strengths.push("ST6Co's proven methodology with 47 successful client implementations across diverse industries");
-    strengths.push("Established operational framework validated through extensive real-world application");
-    strengths.push("Deep domain expertise combined with innovative approaches to problem-solving");
-    strengths.push("Strong cultural foundation supporting continuous improvement and excellence");
-    
-    return strengths.slice(0, 10); // Return up to 10 high-quality strengths
+    return strengths;
 }
 
 function generateWeaknesses(dimensionScores, agent) {
     const weaknesses = [];
-    
-    // Generate professional improvement areas based on dimension scores
     dimensionScores.forEach(ds => {
-        if (ds.score < 40) {
-            weaknesses.push(`Critical gap in ${ds.dimension} (${Math.round(ds.score)}%) requiring immediate strategic intervention`);
-            weaknesses.push(`${ds.dimension}: Fundamental capabilities need structured development program`);
-        } else if (ds.score < 50) {
-            weaknesses.push(`Significant opportunity in ${ds.dimension} (${Math.round(ds.score)}%) to reach market baseline performance`);
-            weaknesses.push(`${ds.dimension}: Core processes require redesign and optimization`);
+        if (ds.score < 50) {
+            weaknesses.push(`Needs significant improvement in ${ds.dimension}`);
         } else if (ds.score < 60) {
-            weaknesses.push(`${ds.dimension} needs focused attention (${Math.round(ds.score)}%) to prevent competitive disadvantage`);
-            weaknesses.push(`${ds.dimension}: Clear optimization opportunities with high ROI potential`);
-        } else if (ds.score < 70) {
-            weaknesses.push(`${ds.dimension} has enhancement potential (${Math.round(ds.score)}%) - target 80%+ for excellence`);
+            weaknesses.push(`${ds.dimension} requires attention`);
         }
     });
     
-    // Add sophisticated agent-specific improvement areas
-    if (agent.name) {
-        if (agent.name.includes('Problem') || agent.name.includes('Definition')) {
-            weaknesses.push("Problem quantification would benefit from additional specific metrics and data points");
-            weaknesses.push("Customer validation sample size could be expanded for greater statistical confidence");
-            weaknesses.push("Competitive differentiation narrative requires stronger articulation and evidence");
-        } else if (agent.name.includes('Customer') || agent.name.includes('Insight')) {
-            weaknesses.push("Customer segmentation could benefit from more granular analysis and targeting");
-            weaknesses.push("Journey mapping needs deeper behavioral insights and touchpoint optimization");
-            weaknesses.push("Feedback collection frequency and methodology could be enhanced");
-        } else if (agent.name.includes('Market') || agent.name.includes('Strategy')) {
-            weaknesses.push("Market sizing methodology would benefit from additional validation sources");
-            weaknesses.push("Competitive intelligence gathering requires more systematic approach");
-            weaknesses.push("Go-to-market timeline could be accelerated with focused execution");
-        } else if (agent.name.includes('Execution') || agent.name.includes('Operations')) {
-            weaknesses.push("Operational processes need better documentation and standardization");
-            weaknesses.push("Performance metrics require more granular tracking and reporting");
-            weaknesses.push("Cross-functional handoffs could be streamlined for efficiency");
-        }
+    if (weaknesses.length === 0) {
+        weaknesses.push("Documentation could be more comprehensive");
+        weaknesses.push("Metrics tracking could be enhanced");
     }
     
-    // Add sophisticated performance-based improvement areas
-    const avgScore = dimensionScores.reduce((sum, ds) => sum + ds.score, 0) / dimensionScores.length;
-    if (avgScore < 60) {
-        weaknesses.push("Overall performance indicates need for comprehensive transformation program");
-        weaknesses.push("Cross-functional alignment requires structured improvement initiatives");
-        weaknesses.push("Execution velocity could be accelerated through process optimization");
-    }
-    
-    // Add strategic operational improvements
-    weaknesses.push("Documentation standards could be enhanced for better knowledge management");
-    weaknesses.push("Analytics and reporting infrastructure needs modernization for real-time insights");
-    weaknesses.push("Automation opportunities exist across multiple operational areas");
-    
-    return weaknesses.slice(0, 10); // Return up to 10 high-quality weaknesses
-}
-
-// Enhanced dimension score generation
-function generateDimensionScores(agent, responses) {
-    const dimensionScores = [];
-    
-    if (agent.scoringDimensions && agent.scoringDimensions.length > 0) {
-        agent.scoringDimensions.forEach((dimension, index) => {
-            const response = responses[`q${index + 1}`] || responses[`dimension-${index + 1}`] || '';
-            let score = 50; // Base score
-            
-            // Sophisticated scoring based on response quality
-            if (response) {
-                const responseLength = response.length;
-                const hasMetrics = /\d+/.test(response);
-                const hasSpecifics = /specific|example|instance|case/i.test(response);
-                const hasStrategy = /plan|strategy|approach|framework/i.test(response);
-                const hasEvidence = /data|evidence|proof|validated/i.test(response);
-                
-                // Length-based scoring
-                if (responseLength >= 500) score += 20;
-                else if (responseLength >= 300) score += 15;
-                else if (responseLength >= 150) score += 10;
-                else if (responseLength >= 50) score += 5;
-                
-                // Quality indicators
-                if (hasMetrics) score += 10;
-                if (hasSpecifics) score += 10;
-                if (hasStrategy) score += 10;
-                if (hasEvidence) score += 10;
-                
-                // Cap at 100
-                score = Math.min(100, score);
-            }
-            
-            // Generate professional feedback
-            let feedback = '';
-            if (score >= 85) {
-                feedback = `Outstanding performance in ${dimension.name}. Your approach demonstrates industry-leading practices with clear evidence of success. Continue refining and scaling these capabilities.`;
-            } else if (score >= 70) {
-                feedback = `Strong foundation in ${dimension.name} with good operational maturity. Focus on optimization and consistency to achieve excellence level performance.`;
-            } else if (score >= 55) {
-                feedback = `${dimension.name} shows developing capabilities with clear improvement opportunities. Implement structured processes and measurement frameworks to accelerate progress.`;
-            } else {
-                feedback = `${dimension.name} requires strategic focus and investment. Establishing strong fundamentals here will unlock significant value for your organization.`;
-            }
-            
-            // Generate dimension-specific strengths and improvements
-            const strengths = [];
-            const improvements = [];
-            
-            if (score >= 70) {
-                strengths.push(`Strong understanding of ${dimension.name} principles`);
-                strengths.push(`Clear implementation approach demonstrated`);
-            }
-            if (score >= 85) {
-                strengths.push(`Best-in-class execution in this dimension`);
-                strengths.push(`Measurable business impact achieved`);
-            }
-            
-            if (score < 80) {
-                improvements.push(`Enhance measurement and tracking capabilities`);
-                improvements.push(`Document and standardize successful practices`);
-            }
-            if (score < 60) {
-                improvements.push(`Develop comprehensive improvement plan`);
-                improvements.push(`Seek external expertise or benchmarking`);
-            }
-            
-            dimensionScores.push({
-                dimension: dimension.name,
-                score: score,
-                weight: dimension.weight,
-                feedback: feedback,
-                strengths: strengths,
-                improvements: improvements,
-                description: dimension.description
-            });
-        });
-    } else {
-        // Fallback dimensions if agent doesn't have them defined
-        const defaultDimensions = [
-            { name: 'Strategic Clarity', weight: 25 },
-            { name: 'Execution Excellence', weight: 25 },
-            { name: 'Customer Focus', weight: 25 },
-            { name: 'Operational Maturity', weight: 25 }
-        ];
-        
-        defaultDimensions.forEach((dim, index) => {
-            const response = responses[`q${index + 1}`] || '';
-            const score = 50 + Math.random() * 40; // Random score between 50-90 for demo
-            
-            dimensionScores.push({
-                dimension: dim.name,
-                score: Math.round(score),
-                weight: dim.weight,
-                feedback: `Assessment of ${dim.name} indicates ${score >= 70 ? 'strong' : 'developing'} capabilities.`,
-                strengths: score >= 70 ? [`Good foundation in ${dim.name}`] : [],
-                improvements: score < 80 ? [`Opportunity to enhance ${dim.name}`] : []
-            });
-        });
-    }
-    
-    return dimensionScores;
+    return weaknesses;
 }
 
 function generateRecommendations(dimensionScores, agent, company) {
     const recommendations = [];
     
-    // Priority-based recommendations
+    // Add specific recommendations based on scores
     dimensionScores.forEach(ds => {
-        if (ds.score < 50) {
-            recommendations.push({
-                priority: 'CRITICAL',
-                area: ds.dimension,
-                action: `Immediate focus on ${ds.dimension} - Implement 30-day improvement sprint`,
-                expectedImprovement: `+${Math.round(30 - ds.score/2)}% score increase`,
-                timeline: '30 days'
-            });
-        } else if (ds.score < 70) {
-            recommendations.push({
-                priority: 'HIGH',
-                area: ds.dimension,
-                action: `Enhance ${ds.dimension} through structured optimization program`,
-                expectedImprovement: `+${Math.round(20 - ds.score/4)}% score increase`,
-                timeline: '60 days'
-            });
-        } else if (ds.score < 85) {
-            recommendations.push({
-                priority: 'MEDIUM',
-                area: ds.dimension,
-                action: `Refine ${ds.dimension} to achieve excellence`,
-                expectedImprovement: `+${Math.round(15 - ds.score/6)}% score increase`,
-                timeline: '90 days'
-            });
+        if (ds.score < 70) {
+            recommendations.push(`Focus on improving ${ds.dimension} through targeted initiatives`);
         }
     });
     
-    // Agent-specific recommendations
-    if (agent.evaluationCriteria && agent.evaluationCriteria.length > 0) {
-        recommendations.push({
-            priority: 'HIGH',
-            area: 'Agent Best Practices',
-            action: `Implement ${agent.name} framework: ${agent.evaluationCriteria[0]}`,
-            expectedImprovement: '+15% overall effectiveness',
-            timeline: '45 days'
-        });
+    // Add company-specific recommendations
+    recommendations.push(`Leverage ${company.name}'s ${company.profile.keyMetrics.customers} customers for validation`);
+    recommendations.push(`Use ${company.profile.keyMetrics.nps} NPS score as baseline for improvement`);
+    
+    // Add agent-specific recommendations
+    if (agent.evaluationCriteria) {
+        recommendations.push(`Implement ${agent.name} best practices`);
     }
     
-    // Company-specific recommendations
-    recommendations.push({
-        priority: 'HIGH',
-        area: 'Customer Validation',
-        action: `Leverage ${company.name}'s ${company.profile.keyMetrics.customers} customers for expanded validation`,
-        expectedImprovement: '2x validation coverage',
-        timeline: '30 days'
-    });
-    
-    recommendations.push({
-        priority: 'MEDIUM',
-        area: 'NPS Improvement',
-        action: `Implement NPS improvement program targeting ${company.profile.keyMetrics.nps + 10} score`,
-        expectedImprovement: '+10 NPS points',
-        timeline: '90 days'
-    });
-    
-    // Strategic recommendations
-    recommendations.push({
-        priority: 'HIGH',
-        area: 'GTM Acceleration',
-        action: 'Deploy rapid experimentation framework for faster market feedback',
-        expectedImprovement: '50% faster iteration cycles',
-        timeline: '60 days'
-    });
-    
-    recommendations.push({
-        priority: 'MEDIUM',
-        area: 'Data Analytics',
-        action: 'Implement advanced analytics dashboard for real-time insights',
-        expectedImprovement: '3x faster decision making',
-        timeline: '45 days'
-    });
-    
-    // Sort by priority
-    const priorityOrder = { 'CRITICAL': 0, 'HIGH': 1, 'MEDIUM': 2, 'LOW': 3 };
-    recommendations.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
-    
-    return recommendations.slice(0, 8); // Return top 8 recommendations
+    return recommendations.slice(0, 5); // Limit to 5 recommendations
 }
 
 function generateNextSteps(subcomponentId, score, company) {

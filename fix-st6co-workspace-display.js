@@ -109,16 +109,8 @@
             html += '</div>';
         });
         
-        html += `
-            <div class="action-buttons" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid rgba(255, 255, 255, 0.1);">
-                <button class="btn-primary" onclick="saveWorksheet()" style="background: #FF5500; color: #fff; border: none; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; margin-right: 15px;">
-                    💾 Save Progress
-                </button>
-                <button class="btn-primary" onclick="analyzeWithST6Context()" style="background: #4CAF50; color: #fff; border: none; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer;">
-                    🤖 Analyze with ST6Co Context
-                </button>
-            </div>
-        </div>`;
+        // Don't add buttons here - they already exist in the HTML
+        html += '</div>';
         
         workspaceContainer.innerHTML = html;
         
@@ -139,9 +131,14 @@
         console.log('✅ ST6Co workspace loaded successfully');
     };
     
-    // New analyze function that includes ST6Co context
-    window.analyzeWithST6Context = async function() {
-        console.log('🤖 Analyzing with ST6Co context...');
+    // Enhance the existing analyzeWorksheet function to include ST6Co context
+    // Store original if it exists
+    if (!window.originalAnalyzeWorksheet && window.analyzeWorksheet) {
+        window.originalAnalyzeWorksheet = window.analyzeWorksheet;
+    }
+    
+    window.analyzeWorksheet = async function() {
+        console.log('🤖 Analyzing worksheet...');
         
         const urlParams = new URLSearchParams(window.location.search);
         const subcomponentId = urlParams.get('id') || '1-1';
@@ -187,6 +184,35 @@
             alert('Error during analysis. Please check console.');
         }
     };
+    
+    // Ensure saveWorksheet function exists if not already defined
+    if (!window.saveWorksheet) {
+        window.saveWorksheet = function() {
+            console.log('💾 Saving worksheet progress...');
+            
+            // Collect all responses
+            const responses = {};
+            
+            // Collect text responses
+            document.querySelectorAll('.worksheet-textarea').forEach(textarea => {
+                if (textarea.id && textarea.value) {
+                    responses[textarea.id] = textarea.value;
+                }
+            });
+            
+            // Collect scale responses
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                responses[radio.name] = parseInt(radio.value);
+            });
+            
+            // Save to localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const subcomponentId = urlParams.get('id') || '1-1';
+            localStorage.setItem(`worksheet_${subcomponentId}`, JSON.stringify(responses));
+            
+            alert('Progress saved successfully!');
+        };
+    }
     
     // Display analysis with ST6Co context
     window.displayST6Analysis = function(analysis, responses) {

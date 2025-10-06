@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Real-World Examples</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .test-title {
+            color: #FF5500;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .subcomponent-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background: rgba(255, 85, 0, 0.2);
+            color: #FF5500;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #FF5500;
+            transition: all 0.3s ease;
+        }
+        .subcomponent-link:hover {
+            background: #FF5500;
+            color: #000;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .status.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+        .status.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+            color: #f44336;
+        }
+        .status.info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196F3;
+            color: #2196F3;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #FF5500; text-align: center;">Real-World Examples Test Page</h1>
+    
+    <div class="test-section">
+        <h2 class="test-title">📊 Database Status</h2>
+        <div id="database-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-title">🔗 Quick Links to Test Subcomponents</h2>
+        <div>
+            <a href="subcomponent-detail.html?id=1-1" class="subcomponent-link">1-1: Problem Statement</a>
+            <a href="subcomponent-detail.html?id=2-1" class="subcomponent-link">2-1: Customer Segmentation</a>
+            <a href="subcomponent-detail.html?id=3-1" class="subcomponent-link">3-1: Value Proposition</a>
+            <a href="subcomponent-detail.html?id=6-1" class="subcomponent-link">6-1: Customer Journey</a>
+            <a href="subcomponent-detail.html?id=9-1" class="subcomponent-link">9-1: Case Studies</a>
+            <a href="subcomponent-detail.html?id=10-1" class="subcomponent-link">10-1: Sales Enablement</a>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-title">🧪 Test Results</h2>
+        <div id="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2 class="test-title">📝 Sample Data for Subcomponent 1-1</h2>
+        <div id="sample-data"></div>
+    </div>
+
+    <script src="real-world-examples-complete-96-final.js"></script>
+    <script>
+        // Test the database loading
+        function testDatabase() {
+            const statusDiv = document.getElementById('database-status');
+            const resultsDiv = document.getElementById('test-results');
+            const sampleDiv = document.getElementById('sample-data');
+            
+            // Check if database loaded
+            if (window.getRealWorldExamples) {
+                statusDiv.innerHTML = '<div class="status success">✅ Database loaded successfully via getRealWorldExamples function</div>';
+                
+                // Test specific subcomponents
+                const testIds = ['1-1', '2-1', '3-1', '6-1', '9-1', '10-1'];
+                let results = '<h3>Testing Subcomponents:</h3>';
+                
+                testIds.forEach(id => {
+                    const data = window.getRealWorldExamples(id);
+                    if (data && data.examples && data.examples.length > 0) {
+                        results += `<div class="status success">✅ ${id}: Found ${data.examples.length} examples - "${data.title}"</div>`;
+                    } else {
+                        results += `<div class="status error">❌ ${id}: No examples found</div>`;
+                    }
+                });
+                
+                resultsDiv.innerHTML = results;
+                
+                // Show sample data for 1-1
+                const sample = window.getRealWorldExamples('1-1');
+                if (sample && sample.examples && sample.examples.length > 0) {
+                    sampleDiv.innerHTML = `
+                        <h3>${sample.title}</h3>
+                        <p>Number of examples: ${sample.examples.length}</p>
+                        <h4>First Example:</h4>
+                        <pre>${JSON.stringify(sample.examples[0], null, 2)}</pre>
+                        <h4>All Companies:</h4>
+                        <ul>
+                            ${sample.examples.map(ex => `<li>${ex.company} (${ex.year}) - ${ex.valuation}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+            } else if (window.realWorldExamplesComplete) {
+                statusDiv.innerHTML = '<div class="status info">ℹ️ Database loaded via realWorldExamplesComplete object</div>';
+                
+                // Count total examples
+                const totalSubcomponents = Object.keys(window.realWorldExamplesComplete).length;
+                resultsDiv.innerHTML = `<div class="status info">Found ${totalSubcomponents} subcomponents with examples</div>`;
+            } else {
+                statusDiv.innerHTML = '<div class="status error">❌ Database not loaded - check console for errors</div>';
+            }
+        }
+        
+        // Run test when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(testDatabase, 1000); // Give time for script to load
+        });
+        
+        // Also test immediately
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(testDatabase, 1000);
+        }
+    </script>
+</body>
+</html>
