@@ -1246,6 +1246,44 @@
     <!-- Load additional scripts -->
     <!-- Load the COMPLETE education display fix with all sections -->
     <script src="fix-education-complete-display.js"></script>
+    <!-- Load COMPLETE real-world examples database and injection system -->
+    <script>
+        // Load all database scripts in sequence
+        function loadScriptsInSequence() {
+            // First load the base database (blocks 1-7)
+            const dbScript = document.createElement('script');
+            dbScript.src = 'real-world-examples-all-96-complete.js';
+            document.head.appendChild(dbScript);
+            
+            dbScript.onload = function() {
+                // Then load blocks 8-12 completion
+                const completeScript1 = document.createElement('script');
+                completeScript1.src = 'complete-all-96-examples-final.js';
+                document.head.appendChild(completeScript1);
+                
+                completeScript1.onload = function() {
+                    // Then load blocks 13-16 completion
+                    const completeScript2 = document.createElement('script');
+                    completeScript2.src = 'complete-blocks-13-16-final.js';
+                    document.head.appendChild(completeScript2);
+                    
+                    completeScript2.onload = function() {
+                        // Finally load the injection system
+                        const injectionScript = document.createElement('script');
+                        injectionScript.src = 'fix-real-world-examples-injection.js';
+                        document.head.appendChild(injectionScript);
+                        
+                        injectionScript.onload = function() {
+                            console.log('✅ All 96 subcomponents loaded with real-world examples!');
+                        };
+                    };
+                };
+            };
+        }
+        
+        // Start the loading sequence
+        loadScriptsInSequence();
+    </script>
     <!-- Load ST6Co workspace display fix for workspace questions -->
     <script src="fix-st6co-workspace-display.js"></script>
     <!-- Load safe analysis and output fix -->
