@@ -28,9 +28,9 @@
     // Override the incomplete functions with full implementations
     window.generateCustomerInterviewGuide = function(answers, score) {
         return `
-            <!-- Header with Purple Gradient -->
+            <!-- Header with Orange Gradient -->
             <div style="
-                background: ${BRAND.purpleGradient};
+                background: linear-gradient(135deg, #FF5500, #ff8844);
                 padding: 50px;
                 text-align: center;
                 position: relative;
@@ -291,9 +291,9 @@
     // Market Validation Scorecard with full content
     window.generateMarketValidationScorecard = function(answers, score) {
         return `
-            <!-- Header with Blue Gradient -->
+            <!-- Header with Orange Gradient -->
             <div style="
-                background: ${BRAND.blueGradient};
+                background: linear-gradient(135deg, #FF5500, #ff8844);
                 padding: 50px;
                 text-align: center;
                 position: relative;
