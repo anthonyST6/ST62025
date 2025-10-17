@@ -18,7 +18,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Problem Statement Definition for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Problem Statement Definition"
       },
       {
         "id": "1-1-q2",
@@ -27,7 +27,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Problem Statement Definition for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Problem Statement Definition"
       },
       {
         "id": "1-1-q3",
@@ -36,7 +36,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Problem Statement Definition for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Problem Statement Definition"
       },
       {
         "id": "1-1-q4",
@@ -784,7 +784,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Segment Tiering for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Segment Tiering"
       },
       {
         "id": "3-2-q2",
@@ -793,7 +793,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Segment Tiering for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Segment Tiering"
       },
       {
         "id": "3-2-q3",
@@ -802,7 +802,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Segment Tiering for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Segment Tiering"
       },
       {
         "id": "3-2-q4",
@@ -834,7 +834,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Prioritization Rubric for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Prioritization Rubric"
       },
       {
         "id": "3-3-q2",
@@ -843,7 +843,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Prioritization Rubric for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Prioritization Rubric"
       },
       {
         "id": "3-3-q3",
@@ -852,7 +852,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Prioritization Rubric for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Prioritization Rubric"
       },
       {
         "id": "3-3-q4",
@@ -884,7 +884,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Tradeoff Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Tradeoff Tracker"
       },
       {
         "id": "3-4-q2",
@@ -893,7 +893,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Tradeoff Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Tradeoff Tracker"
       },
       {
         "id": "3-4-q3",
@@ -902,7 +902,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Tradeoff Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Tradeoff Tracker"
       },
       {
         "id": "3-4-q4",
@@ -934,7 +934,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Hypothesis Board for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Hypothesis Board"
       },
       {
         "id": "3-5-q2",
@@ -943,7 +943,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Hypothesis Board for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Hypothesis Board"
       },
       {
         "id": "3-5-q3",
@@ -952,7 +952,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Hypothesis Board for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Hypothesis Board"
       },
       {
         "id": "3-5-q4",
@@ -984,7 +984,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Decision Framework for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Decision Framework"
       },
       {
         "id": "3-6-q2",
@@ -993,7 +993,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Decision Framework for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Decision Framework"
       },
       {
         "id": "3-6-q3",
@@ -1002,7 +1002,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Decision Framework for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Decision Framework"
       },
       {
         "id": "3-6-q4",
@@ -1034,7 +1034,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Feature Inclusion Matrix for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Feature Inclusion Matrix"
       },
       {
         "id": "4-1-q2",
@@ -1043,7 +1043,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Feature Inclusion Matrix for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Feature Inclusion Matrix"
       },
       {
         "id": "4-1-q3",
@@ -1052,7 +1052,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Feature Inclusion Matrix for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Feature Inclusion Matrix"
       },
       {
         "id": "4-1-q4",
@@ -1084,7 +1084,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Technical Scope Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Technical Scope Tracker"
       },
       {
         "id": "4-2-q2",
@@ -1093,7 +1093,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Technical Scope Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Technical Scope Tracker"
       },
       {
         "id": "4-2-q3",
@@ -1102,7 +1102,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Technical Scope Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Technical Scope Tracker"
       },
       {
         "id": "4-2-q4",
@@ -1134,7 +1134,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Pilot Group Selection for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Pilot Group Selection"
       },
       {
         "id": "4-3-q2",
@@ -1143,7 +1143,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Pilot Group Selection for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Pilot Group Selection"
       },
       {
         "id": "4-3-q3",
@@ -1152,7 +1152,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Pilot Group Selection for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Pilot Group Selection"
       },
       {
         "id": "4-3-q4",
@@ -1184,7 +1184,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about QA & Success Criteria for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for QA & Success Criteria"
       },
       {
         "id": "4-4-q2",
@@ -1193,7 +1193,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about QA & Success Criteria for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for QA & Success Criteria"
       },
       {
         "id": "4-4-q3",
@@ -1202,7 +1202,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about QA & Success Criteria for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for QA & Success Criteria"
       },
       {
         "id": "4-4-q4",
@@ -1234,7 +1234,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Timeline GANTT or Roadmap for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Timeline GANTT or Roadmap"
       },
       {
         "id": "4-5-q2",
@@ -1243,7 +1243,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Timeline GANTT or Roadmap for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Timeline GANTT or Roadmap"
       },
       {
         "id": "4-5-q3",
@@ -1252,7 +1252,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Timeline GANTT or Roadmap for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Timeline GANTT or Roadmap"
       },
       {
         "id": "4-5-q4",
@@ -1284,7 +1284,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Post-Mortem Template for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Post-Mortem Template"
       },
       {
         "id": "4-6-q2",
@@ -1293,7 +1293,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Post-Mortem Template for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Post-Mortem Template"
       },
       {
         "id": "4-6-q3",
@@ -1302,7 +1302,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Post-Mortem Template for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Post-Mortem Template"
       },
       {
         "id": "4-6-q4",
@@ -1393,7 +1393,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Sales Enablement Assets Assets for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Sales Enablement Assets Assets"
       },
       {
         "id": "5-2-q2",
@@ -1402,7 +1402,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Sales Enablement Assets Assets for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Sales Enablement Assets Assets"
       },
       {
         "id": "5-2-q3",
@@ -1411,7 +1411,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Sales Enablement Assets Assets for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Sales Enablement Assets Assets"
       },
       {
         "id": "5-2-q4",
@@ -1451,7 +1451,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Pricing & Packaging Strategy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Pricing & Packaging Strategy"
       },
       {
         "id": "5-3-q2",
@@ -1460,7 +1460,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Pricing & Packaging Strategy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Pricing & Packaging Strategy"
       },
       {
         "id": "5-3-q3",
@@ -1469,7 +1469,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Pricing & Packaging Strategy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Pricing & Packaging Strategy"
       },
       {
         "id": "5-3-q4",
@@ -1509,7 +1509,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Channel Partner Strategy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Channel Partner Strategy"
       },
       {
         "id": "5-4-q2",
@@ -1518,7 +1518,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Channel Partner Strategy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Channel Partner Strategy"
       },
       {
         "id": "5-4-q3",
@@ -1527,7 +1527,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Channel Partner Strategy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Channel Partner Strategy"
       },
       {
         "id": "5-4-q4",
@@ -1567,7 +1567,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Competitive Positioning for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Competitive Positioning"
       },
       {
         "id": "5-5-q2",
@@ -1576,7 +1576,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Competitive Positioning for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Competitive Positioning"
       },
       {
         "id": "5-5-q3",
@@ -1585,7 +1585,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Competitive Positioning for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Competitive Positioning"
       },
       {
         "id": "5-5-q4",
@@ -1625,7 +1625,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Launch Planning & Execution for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Launch Planning & Execution"
       },
       {
         "id": "5-6-q2",
@@ -1634,7 +1634,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Launch Planning & Execution for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Launch Planning & Execution"
       },
       {
         "id": "5-6-q3",
@@ -1643,7 +1643,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Launch Planning & Execution for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Launch Planning & Execution"
       },
       {
         "id": "5-6-q4",
@@ -1683,7 +1683,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Usage Heatmap for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Usage Heatmap"
       },
       {
         "id": "6-1-q2",
@@ -1692,7 +1692,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Usage Heatmap for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Usage Heatmap"
       },
       {
         "id": "6-1-q3",
@@ -1701,7 +1701,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Usage Heatmap for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Usage Heatmap"
       },
       {
         "id": "6-1-q4",
@@ -1733,7 +1733,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Milestone Triggers for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Milestone Triggers"
       },
       {
         "id": "6-2-q2",
@@ -1742,7 +1742,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Milestone Triggers for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Milestone Triggers"
       },
       {
         "id": "6-2-q3",
@@ -1751,7 +1751,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Milestone Triggers for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Milestone Triggers"
       },
       {
         "id": "6-2-q4",
@@ -1783,7 +1783,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about CS Dashboard for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for CS Dashboard"
       },
       {
         "id": "6-3-q2",
@@ -1792,7 +1792,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about CS Dashboard for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for CS Dashboard"
       },
       {
         "id": "6-3-q3",
@@ -1801,7 +1801,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about CS Dashboard for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for CS Dashboard"
       },
       {
         "id": "6-3-q4",
@@ -1833,7 +1833,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Activation Metric Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Activation Metric Model"
       },
       {
         "id": "6-4-q2",
@@ -1842,7 +1842,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Activation Metric Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Activation Metric Model"
       },
       {
         "id": "6-4-q3",
@@ -1851,7 +1851,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Activation Metric Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Activation Metric Model"
       },
       {
         "id": "6-4-q4",
@@ -1883,7 +1883,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Feedback Collector for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Feedback Collector"
       },
       {
         "id": "6-5-q2",
@@ -1892,7 +1892,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Feedback Collector for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Feedback Collector"
       },
       {
         "id": "6-5-q3",
@@ -1901,7 +1901,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Feedback Collector for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Feedback Collector"
       },
       {
         "id": "6-5-q4",
@@ -1933,7 +1933,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Power User Behavior Signals for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Power User Behavior Signals"
       },
       {
         "id": "6-6-q2",
@@ -1942,7 +1942,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Power User Behavior Signals for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Power User Behavior Signals"
       },
       {
         "id": "6-6-q3",
@@ -1951,7 +1951,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Power User Behavior Signals for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Power User Behavior Signals"
       },
       {
         "id": "6-6-q4",
@@ -1983,7 +1983,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Time/Cost Savings Metrics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Time/Cost Savings Metrics"
       },
       {
         "id": "7-1-q2",
@@ -1992,7 +1992,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Time/Cost Savings Metrics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Time/Cost Savings Metrics"
       },
       {
         "id": "7-1-q3",
@@ -2001,7 +2001,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Time/Cost Savings Metrics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Time/Cost Savings Metrics"
       },
       {
         "id": "7-1-q4",
@@ -2033,7 +2033,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Revenue-Impact Attribution for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Revenue-Impact Attribution"
       },
       {
         "id": "7-2-q2",
@@ -2042,7 +2042,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Revenue-Impact Attribution for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Revenue-Impact Attribution"
       },
       {
         "id": "7-2-q3",
@@ -2051,7 +2051,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Revenue-Impact Attribution for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Revenue-Impact Attribution"
       },
       {
         "id": "7-2-q4",
@@ -2083,7 +2083,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Productivity Lift Metrics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Productivity Lift Metrics"
       },
       {
         "id": "7-3-q2",
@@ -2092,7 +2092,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Productivity Lift Metrics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Productivity Lift Metrics"
       },
       {
         "id": "7-3-q3",
@@ -2101,7 +2101,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Productivity Lift Metrics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Productivity Lift Metrics"
       },
       {
         "id": "7-3-q4",
@@ -2133,7 +2133,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Net Retention Trends for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Net Retention Trends"
       },
       {
         "id": "7-4-q2",
@@ -2142,7 +2142,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Net Retention Trends for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Net Retention Trends"
       },
       {
         "id": "7-4-q3",
@@ -2151,7 +2151,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Net Retention Trends for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Net Retention Trends"
       },
       {
         "id": "7-4-q4",
@@ -2183,7 +2183,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Downstream System Reductions for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Downstream System Reductions"
       },
       {
         "id": "7-5-q2",
@@ -2192,7 +2192,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Downstream System Reductions for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Downstream System Reductions"
       },
       {
         "id": "7-5-q3",
@@ -2201,7 +2201,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Downstream System Reductions for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Downstream System Reductions"
       },
       {
         "id": "7-5-q4",
@@ -2233,7 +2233,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Friction Reduction Evidence for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Friction Reduction Evidence"
       },
       {
         "id": "7-6-q2",
@@ -2242,7 +2242,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Friction Reduction Evidence for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Friction Reduction Evidence"
       },
       {
         "id": "7-6-q3",
@@ -2251,7 +2251,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Friction Reduction Evidence for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Friction Reduction Evidence"
       },
       {
         "id": "7-6-q4",
@@ -2283,7 +2283,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Upsell Funnel Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Upsell Funnel Model"
       },
       {
         "id": "8-1-q2",
@@ -2292,7 +2292,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Upsell Funnel Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Upsell Funnel Model"
       },
       {
         "id": "8-1-q3",
@@ -2301,7 +2301,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Upsell Funnel Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Upsell Funnel Model"
       },
       {
         "id": "8-1-q4",
@@ -2333,7 +2333,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Team Expansion Signals for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Team Expansion Signals"
       },
       {
         "id": "8-2-q2",
@@ -2342,7 +2342,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Team Expansion Signals for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Team Expansion Signals"
       },
       {
         "id": "8-2-q3",
@@ -2351,7 +2351,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Team Expansion Signals for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Team Expansion Signals"
       },
       {
         "id": "8-2-q4",
@@ -2383,7 +2383,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Organic Adoption Pattern for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Organic Adoption Pattern"
       },
       {
         "id": "8-3-q2",
@@ -2392,7 +2392,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Organic Adoption Pattern for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Organic Adoption Pattern"
       },
       {
         "id": "8-3-q3",
@@ -2401,7 +2401,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Organic Adoption Pattern for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Organic Adoption Pattern"
       },
       {
         "id": "8-3-q4",
@@ -2433,7 +2433,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Champion Mapping for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Champion Mapping"
       },
       {
         "id": "8-4-q2",
@@ -2442,7 +2442,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Champion Mapping for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Champion Mapping"
       },
       {
         "id": "8-4-q3",
@@ -2451,7 +2451,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Champion Mapping for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Champion Mapping"
       },
       {
         "id": "8-4-q4",
@@ -2483,7 +2483,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about CSAT/NPS Tracking for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for CSAT/NPS Tracking"
       },
       {
         "id": "8-5-q2",
@@ -2492,7 +2492,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about CSAT/NPS Tracking for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for CSAT/NPS Tracking"
       },
       {
         "id": "8-5-q3",
@@ -2501,7 +2501,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about CSAT/NPS Tracking for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for CSAT/NPS Tracking"
       },
       {
         "id": "8-5-q4",
@@ -2533,7 +2533,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Renewal Readiness Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Renewal Readiness Tracker"
       },
       {
         "id": "8-6-q2",
@@ -2542,7 +2542,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Renewal Readiness Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Renewal Readiness Tracker"
       },
       {
         "id": "8-6-q3",
@@ -2551,7 +2551,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Renewal Readiness Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Renewal Readiness Tracker"
       },
       {
         "id": "8-6-q4",
@@ -2583,7 +2583,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Inbound Conversion Rates for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Inbound Conversion Rates"
       },
       {
         "id": "9-1-q2",
@@ -2592,7 +2592,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Inbound Conversion Rates for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Inbound Conversion Rates"
       },
       {
         "id": "9-1-q3",
@@ -2601,7 +2601,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Inbound Conversion Rates for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Inbound Conversion Rates"
       },
       {
         "id": "9-1-q4",
@@ -2633,7 +2633,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Outbound Play Performance for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Outbound Play Performance"
       },
       {
         "id": "9-2-q2",
@@ -2642,7 +2642,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Outbound Play Performance for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Outbound Play Performance"
       },
       {
         "id": "9-2-q3",
@@ -2651,7 +2651,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Outbound Play Performance for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Outbound Play Performance"
       },
       {
         "id": "9-2-q4",
@@ -2683,7 +2683,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Channel Economics Clarity for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Channel Economics Clarity"
       },
       {
         "id": "9-3-q2",
@@ -2692,7 +2692,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Channel Economics Clarity for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Channel Economics Clarity"
       },
       {
         "id": "9-3-q3",
@@ -2701,7 +2701,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Channel Economics Clarity for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Channel Economics Clarity"
       },
       {
         "id": "9-3-q4",
@@ -2733,7 +2733,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Discovery Call Effectiveness for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Discovery Call Effectiveness"
       },
       {
         "id": "9-4-q2",
@@ -2742,7 +2742,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Discovery Call Effectiveness for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Discovery Call Effectiveness"
       },
       {
         "id": "9-4-q3",
@@ -2751,7 +2751,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Discovery Call Effectiveness for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Discovery Call Effectiveness"
       },
       {
         "id": "9-4-q4",
@@ -2783,7 +2783,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Demo-to-Close Flow for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Demo-to-Close Flow"
       },
       {
         "id": "9-5-q2",
@@ -2792,7 +2792,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Demo-to-Close Flow for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Demo-to-Close Flow"
       },
       {
         "id": "9-5-q3",
@@ -2801,7 +2801,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Demo-to-Close Flow for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Demo-to-Close Flow"
       },
       {
         "id": "9-5-q4",
@@ -2833,7 +2833,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Founders Selling Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Founders Selling Model"
       },
       {
         "id": "9-6-q2",
@@ -2842,7 +2842,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Founders Selling Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Founders Selling Model"
       },
       {
         "id": "9-6-q3",
@@ -2851,7 +2851,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Founders Selling Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Founders Selling Model"
       },
       {
         "id": "9-6-q4",
@@ -2942,7 +2942,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Rep Ramp Plan for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Rep Ramp Plan"
       },
       {
         "id": "10-2-q2",
@@ -2951,7 +2951,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Rep Ramp Plan for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Rep Ramp Plan"
       },
       {
         "id": "10-2-q3",
@@ -2960,7 +2960,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Rep Ramp Plan for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Rep Ramp Plan"
       },
       {
         "id": "10-2-q4",
@@ -3000,7 +3000,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Win/Loss Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Win/Loss Tracker"
       },
       {
         "id": "10-3-q2",
@@ -3009,7 +3009,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Win/Loss Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Win/Loss Tracker"
       },
       {
         "id": "10-3-q3",
@@ -3018,7 +3018,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Win/Loss Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Win/Loss Tracker"
       },
       {
         "id": "10-3-q4",
@@ -3058,7 +3058,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Objection Handling Guide for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Objection Handling Guide"
       },
       {
         "id": "10-4-q2",
@@ -3067,7 +3067,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Objection Handling Guide for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Objection Handling Guide"
       },
       {
         "id": "10-4-q3",
@@ -3076,7 +3076,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Objection Handling Guide for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Objection Handling Guide"
       },
       {
         "id": "10-4-q4",
@@ -3116,7 +3116,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about ICP Filter Checklist for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for ICP Filter Checklist"
       },
       {
         "id": "10-5-q2",
@@ -3125,7 +3125,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about ICP Filter Checklist for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for ICP Filter Checklist"
       },
       {
         "id": "10-5-q3",
@@ -3134,7 +3134,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about ICP Filter Checklist for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for ICP Filter Checklist"
       },
       {
         "id": "10-5-q4",
@@ -3174,7 +3174,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Sales Call Library for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Sales Call Library"
       },
       {
         "id": "10-6-q2",
@@ -3183,7 +3183,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Sales Call Library for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Sales Call Library"
       },
       {
         "id": "10-6-q3",
@@ -3192,7 +3192,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Sales Call Library for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Sales Call Library"
       },
       {
         "id": "10-6-q4",
@@ -3232,7 +3232,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Scorecard Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Scorecard Model"
       },
       {
         "id": "11-1-q2",
@@ -3241,7 +3241,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Scorecard Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Scorecard Model"
       },
       {
         "id": "11-1-q3",
@@ -3250,7 +3250,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Scorecard Model for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Scorecard Model"
       },
       {
         "id": "11-1-q4",
@@ -3282,7 +3282,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Quota Structure for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Quota Structure"
       },
       {
         "id": "11-2-q2",
@@ -3291,7 +3291,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Quota Structure for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Quota Structure"
       },
       {
         "id": "11-2-q3",
@@ -3300,7 +3300,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Quota Structure for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Quota Structure"
       },
       {
         "id": "11-2-q4",
@@ -3332,7 +3332,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Weekly Deal Reviews for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Weekly Deal Reviews"
       },
       {
         "id": "11-3-q2",
@@ -3341,7 +3341,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Weekly Deal Reviews for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Weekly Deal Reviews"
       },
       {
         "id": "11-3-q3",
@@ -3350,7 +3350,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Weekly Deal Reviews for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Weekly Deal Reviews"
       },
       {
         "id": "11-3-q4",
@@ -3382,7 +3382,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Forecasting Framework for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Forecasting Framework"
       },
       {
         "id": "11-4-q2",
@@ -3391,7 +3391,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Forecasting Framework for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Forecasting Framework"
       },
       {
         "id": "11-4-q3",
@@ -3400,7 +3400,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Forecasting Framework for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Forecasting Framework"
       },
       {
         "id": "11-4-q4",
@@ -3432,7 +3432,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Manager Coaching Loop for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Manager Coaching Loop"
       },
       {
         "id": "11-5-q2",
@@ -3441,7 +3441,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Manager Coaching Loop for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Manager Coaching Loop"
       },
       {
         "id": "11-5-q3",
@@ -3450,7 +3450,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Manager Coaching Loop for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Manager Coaching Loop"
       },
       {
         "id": "11-5-q4",
@@ -3482,7 +3482,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Talent Gap Identification for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Talent Gap Identification"
       },
       {
         "id": "11-6-q2",
@@ -3491,7 +3491,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Talent Gap Identification for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Talent Gap Identification"
       },
       {
         "id": "11-6-q3",
@@ -3500,7 +3500,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Talent Gap Identification for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Talent Gap Identification"
       },
       {
         "id": "11-6-q4",
@@ -3532,7 +3532,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Onboarding Checklist for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Onboarding Checklist"
       },
       {
         "id": "12-1-q2",
@@ -3541,7 +3541,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Onboarding Checklist for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Onboarding Checklist"
       },
       {
         "id": "12-1-q3",
@@ -3550,7 +3550,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Onboarding Checklist for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Onboarding Checklist"
       },
       {
         "id": "12-1-q4",
@@ -3582,7 +3582,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Activation Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Activation Tracker"
       },
       {
         "id": "12-2-q2",
@@ -3591,7 +3591,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Activation Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Activation Tracker"
       },
       {
         "id": "12-2-q3",
@@ -3600,7 +3600,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Activation Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Activation Tracker"
       },
       {
         "id": "12-2-q4",
@@ -3632,7 +3632,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Success Playbooks for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Success Playbooks"
       },
       {
         "id": "12-3-q2",
@@ -3641,7 +3641,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Success Playbooks for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Success Playbooks"
       },
       {
         "id": "12-3-q3",
@@ -3650,7 +3650,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Success Playbooks for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Success Playbooks"
       },
       {
         "id": "12-3-q4",
@@ -3682,7 +3682,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Escalation SOPs for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Escalation SOPs"
       },
       {
         "id": "12-4-q2",
@@ -3691,7 +3691,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Escalation SOPs for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Escalation SOPs"
       },
       {
         "id": "12-4-q3",
@@ -3700,7 +3700,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Escalation SOPs for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Escalation SOPs"
       },
       {
         "id": "12-4-q4",
@@ -3732,7 +3732,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Renewals Pipelines for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Renewals Pipelines"
       },
       {
         "id": "12-5-q2",
@@ -3741,7 +3741,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Renewals Pipelines for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Renewals Pipelines"
       },
       {
         "id": "12-5-q3",
@@ -3750,7 +3750,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Renewals Pipelines for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Renewals Pipelines"
       },
       {
         "id": "12-5-q4",
@@ -3782,7 +3782,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Churn Root-Cause Engine for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Churn Root-Cause Engine"
       },
       {
         "id": "12-6-q2",
@@ -3791,7 +3791,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Churn Root-Cause Engine for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Churn Root-Cause Engine"
       },
       {
         "id": "12-6-q3",
@@ -3800,7 +3800,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Churn Root-Cause Engine for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Churn Root-Cause Engine"
       },
       {
         "id": "12-6-q4",
@@ -3832,7 +3832,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Category Narrative Canvas for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Category Narrative Canvas"
       },
       {
         "id": "13-1-q2",
@@ -3841,7 +3841,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Category Narrative Canvas for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Category Narrative Canvas"
       },
       {
         "id": "13-1-q3",
@@ -3850,7 +3850,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Category Narrative Canvas for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Category Narrative Canvas"
       },
       {
         "id": "13-1-q4",
@@ -3882,7 +3882,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Strategic MOAT Design for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Strategic MOAT Design"
       },
       {
         "id": "13-2-q2",
@@ -3891,7 +3891,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Strategic MOAT Design for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Strategic MOAT Design"
       },
       {
         "id": "13-2-q3",
@@ -3900,7 +3900,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Strategic MOAT Design for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Strategic MOAT Design"
       },
       {
         "id": "13-2-q4",
@@ -3932,7 +3932,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Ecosystem Leverage Map for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Ecosystem Leverage Map"
       },
       {
         "id": "13-3-q2",
@@ -3941,7 +3941,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Ecosystem Leverage Map for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Ecosystem Leverage Map"
       },
       {
         "id": "13-3-q3",
@@ -3950,7 +3950,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Ecosystem Leverage Map for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Ecosystem Leverage Map"
       },
       {
         "id": "13-3-q4",
@@ -3982,7 +3982,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Competitor GTM Monitoring for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Competitor GTM Monitoring"
       },
       {
         "id": "13-4-q2",
@@ -3991,7 +3991,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Competitor GTM Monitoring for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Competitor GTM Monitoring"
       },
       {
         "id": "13-4-q3",
@@ -4000,7 +4000,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Competitor GTM Monitoring for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Competitor GTM Monitoring"
       },
       {
         "id": "13-4-q4",
@@ -4032,7 +4032,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Brand Architecture Plan for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Brand Architecture Plan"
       },
       {
         "id": "13-5-q2",
@@ -4041,7 +4041,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Brand Architecture Plan for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Brand Architecture Plan"
       },
       {
         "id": "13-5-q3",
@@ -4050,7 +4050,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Brand Architecture Plan for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Brand Architecture Plan"
       },
       {
         "id": "13-5-q4",
@@ -4082,7 +4082,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Defensive GTM Tactics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Defensive GTM Tactics"
       },
       {
         "id": "13-6-q2",
@@ -4091,7 +4091,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Defensive GTM Tactics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Defensive GTM Tactics"
       },
       {
         "id": "13-6-q3",
@@ -4100,7 +4100,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Defensive GTM Tactics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Defensive GTM Tactics"
       },
       {
         "id": "13-6-q4",
@@ -4132,7 +4132,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about System Architecture Diagram for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for System Architecture Diagram"
       },
       {
         "id": "14-1-q2",
@@ -4141,7 +4141,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about System Architecture Diagram for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for System Architecture Diagram"
       },
       {
         "id": "14-1-q3",
@@ -4150,7 +4150,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about System Architecture Diagram for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for System Architecture Diagram"
       },
       {
         "id": "14-1-q4",
@@ -4182,7 +4182,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Revenue Engine Map for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Revenue Engine Map"
       },
       {
         "id": "14-2-q2",
@@ -4191,7 +4191,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Revenue Engine Map for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Revenue Engine Map"
       },
       {
         "id": "14-2-q3",
@@ -4200,7 +4200,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Revenue Engine Map for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Revenue Engine Map"
       },
       {
         "id": "14-2-q4",
@@ -4232,7 +4232,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Internal Dashboards for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Internal Dashboards"
       },
       {
         "id": "14-3-q2",
@@ -4241,7 +4241,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Internal Dashboards for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Internal Dashboards"
       },
       {
         "id": "14-3-q3",
@@ -4250,7 +4250,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Internal Dashboards for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Internal Dashboards"
       },
       {
         "id": "14-3-q4",
@@ -4282,7 +4282,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Tool Consolidation Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Tool Consolidation Tracker"
       },
       {
         "id": "14-4-q2",
@@ -4291,7 +4291,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Tool Consolidation Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Tool Consolidation Tracker"
       },
       {
         "id": "14-4-q3",
@@ -4300,7 +4300,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Tool Consolidation Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Tool Consolidation Tracker"
       },
       {
         "id": "14-4-q4",
@@ -4332,7 +4332,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about RevOps Playbook for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for RevOps Playbook"
       },
       {
         "id": "14-5-q2",
@@ -4341,7 +4341,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about RevOps Playbook for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for RevOps Playbook"
       },
       {
         "id": "14-5-q3",
@@ -4350,7 +4350,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about RevOps Playbook for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for RevOps Playbook"
       },
       {
         "id": "14-5-q4",
@@ -4382,7 +4382,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Internal SLA Policy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Internal SLA Policy"
       },
       {
         "id": "14-6-q2",
@@ -4391,7 +4391,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Internal SLA Policy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Internal SLA Policy"
       },
       {
         "id": "14-6-q3",
@@ -4400,7 +4400,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Internal SLA Policy for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Internal SLA Policy"
       },
       {
         "id": "14-6-q4",
@@ -4432,7 +4432,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Executive Team for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Executive Team"
       },
       {
         "id": "15-1-q2",
@@ -4441,7 +4441,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Executive Team for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Executive Team"
       },
       {
         "id": "15-1-q3",
@@ -4450,7 +4450,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Executive Team for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Executive Team"
       },
       {
         "id": "15-1-q4",
@@ -4490,7 +4490,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Board Development for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Board Development"
       },
       {
         "id": "15-2-q2",
@@ -4499,7 +4499,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Board Development for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Board Development"
       },
       {
         "id": "15-2-q3",
@@ -4508,7 +4508,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Board Development for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Board Development"
       },
       {
         "id": "15-2-q4",
@@ -4548,7 +4548,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Succession Planning for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Succession Planning"
       },
       {
         "id": "15-3-q2",
@@ -4557,7 +4557,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Succession Planning for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Succession Planning"
       },
       {
         "id": "15-3-q3",
@@ -4566,7 +4566,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Succession Planning for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Succession Planning"
       },
       {
         "id": "15-3-q4",
@@ -4606,7 +4606,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Stakeholder Alignment for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Stakeholder Alignment"
       },
       {
         "id": "15-4-q2",
@@ -4615,7 +4615,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Stakeholder Alignment for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Stakeholder Alignment"
       },
       {
         "id": "15-4-q3",
@@ -4624,7 +4624,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Stakeholder Alignment for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Stakeholder Alignment"
       },
       {
         "id": "15-4-q4",
@@ -4664,7 +4664,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Investor Relations for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Investor Relations"
       },
       {
         "id": "15-5-q2",
@@ -4673,7 +4673,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Investor Relations for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Investor Relations"
       },
       {
         "id": "15-5-q3",
@@ -4682,7 +4682,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Investor Relations for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Investor Relations"
       },
       {
         "id": "15-5-q4",
@@ -4722,7 +4722,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Leadership Dynamics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Leadership Dynamics"
       },
       {
         "id": "15-6-q2",
@@ -4731,7 +4731,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Leadership Dynamics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Leadership Dynamics"
       },
       {
         "id": "15-6-q3",
@@ -4740,7 +4740,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Leadership Dynamics for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Leadership Dynamics"
       },
       {
         "id": "15-6-q4",
@@ -4780,7 +4780,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Market Selection for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Market Selection"
       },
       {
         "id": "16-1-q2",
@@ -4789,7 +4789,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Market Selection for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Market Selection"
       },
       {
         "id": "16-1-q3",
@@ -4798,7 +4798,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Market Selection for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Market Selection"
       },
       {
         "id": "16-1-q4",
@@ -4830,7 +4830,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Localization Infrastructure Infrastructure for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Localization Infrastructure Infrastructure"
       },
       {
         "id": "16-2-q2",
@@ -4839,7 +4839,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Localization Infrastructure Infrastructure for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Localization Infrastructure Infrastructure"
       },
       {
         "id": "16-2-q3",
@@ -4848,7 +4848,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Localization Infrastructure Infrastructure for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Localization Infrastructure Infrastructure"
       },
       {
         "id": "16-2-q4",
@@ -4880,7 +4880,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about International Pricing Matrix for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for International Pricing Matrix"
       },
       {
         "id": "16-3-q2",
@@ -4889,7 +4889,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about International Pricing Matrix for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for International Pricing Matrix"
       },
       {
         "id": "16-3-q3",
@@ -4898,7 +4898,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about International Pricing Matrix for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for International Pricing Matrix"
       },
       {
         "id": "16-3-q4",
@@ -4930,7 +4930,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Regional Compliance Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Regional Compliance Tracker"
       },
       {
         "id": "16-4-q2",
@@ -4939,7 +4939,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Regional Compliance Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Regional Compliance Tracker"
       },
       {
         "id": "16-4-q3",
@@ -4948,7 +4948,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Regional Compliance Tracker for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Regional Compliance Tracker"
       },
       {
         "id": "16-4-q4",
@@ -4980,7 +4980,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Geo-Specific GTM Playbooks for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Geo-Specific GTM Playbooks"
       },
       {
         "id": "16-5-q2",
@@ -4989,7 +4989,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Geo-Specific GTM Playbooks for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Geo-Specific GTM Playbooks"
       },
       {
         "id": "16-5-q3",
@@ -4998,7 +4998,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Geo-Specific GTM Playbooks for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Geo-Specific GTM Playbooks"
       },
       {
         "id": "16-5-q4",
@@ -5030,7 +5030,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Expansion Risk Assessment for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Expansion Risk Assessment"
       },
       {
         "id": "16-6-q2",
@@ -5039,7 +5039,7 @@ const agentGeneratedQuestions = {
         "required": true,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Expansion Risk Assessment for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Expansion Risk Assessment"
       },
       {
         "id": "16-6-q3",
@@ -5048,7 +5048,7 @@ const agentGeneratedQuestions = {
         "required": false,
         "minLength": 100,
         "maxLength": 1000,
-        "hint": "Provide specific details about Expansion Risk Assessment for ST6Co/ScaleOps6Product"
+        "hint": "Describe your current approach, challenges, and goals for Expansion Risk Assessment"
       },
       {
         "id": "16-6-q4",

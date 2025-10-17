@@ -78,25 +78,6 @@ const subcomponents = {
 
 // Helper function to integrate ST6Co data into questions with proper defaults
 function integrateCompanyData(questions, companyData) {
-    // Create ST6Co context questions
-    const contextQuestions = [
-        {
-            id: "st6_context",
-            category: "Company Context",
-            question: "Company/Product Information",
-            type: "info",
-            content: {
-                company: companyData.name,
-                product: "ScaleOps6Product",
-                industry: companyData.industry,
-                stage: companyData.stage,
-                employees: companyData.employees,
-                revenue: companyData.revenue,
-                metrics: companyData.profile.keyMetrics
-            }
-        }
-    ];
-
     // Map pre-generated questions to workspace format with defaults
     const formattedQuestions = questions.map((q, index) => {
         const workspaceQuestion = {
@@ -108,108 +89,20 @@ function integrateCompanyData(questions, companyData) {
             minLength: q.minLength,
             maxLength: q.maxLength,
             hint: q.hint || q.helpText,
-            placeholder: q.hint || "Provide detailed response..."
+            placeholder: q.hint || "Provide detailed response...",
+            defaultValue: "" // Always empty - no pre-filled data
         };
 
-        // Add ST6Co context to questions
-        if (workspaceQuestion.question) {
-            workspaceQuestion.question = workspaceQuestion.question
-                .replace(/your company/gi, companyData.name)
-                .replace(/your product/gi, "ScaleOps6Product")
-                .replace(/\[Company\]/g, companyData.name)
-                .replace(/\[Product\]/g, "ScaleOps6Product");
-        }
-
-        // ENHANCED: Pre-fill with detailed ST6Co answers based on question content
-        const questionText = (q.text || q.question || '').toLowerCase();
-        const qId = (q.id || '').toLowerCase();
-        
-        // Get enhanced answers for this specific subcomponent
-        const [blockId, subId] = workspaceQuestion.id ? workspaceQuestion.id.split('-').slice(0, 2) : ['1', '1'];
-        const subcomponentKey = `${blockId}-${subId}`;
-        const enhancedData = getEnhancedAnswers(blockId, subId);
-        
-        if (qId.includes('problem') || questionText.includes('problem') || questionText.includes('challenge')) {
-            workspaceQuestion.defaultValue = enhancedData.problem || enhancedST6CoAnswers['1-1'].problem;
-        }
-        else if (qId.includes('solution') || questionText.includes('solution') || questionText.includes('approach')) {
-            workspaceQuestion.defaultValue = enhancedData.solution || enhancedST6CoAnswers['1-1'].solution;
-        }
-        else if (qId.includes('evidence') || questionText.includes('evidence') || questionText.includes('validation')) {
-            workspaceQuestion.defaultValue = enhancedData.evidence || enhancedST6CoAnswers['1-1'].evidence;
-        }
-        else if (questionText.includes('metric') || questionText.includes('measure') || questionText.includes('track')) {
-            workspaceQuestion.defaultValue = enhancedData.metrics ?
-                `Key metrics: ${JSON.stringify(enhancedData.metrics, null, 2)}` :
-                enhancedST6CoAnswers['1-1'].metrics ?
-                    `Customers: ${enhancedST6CoAnswers['1-1'].metrics.customers}, NPS: ${enhancedST6CoAnswers['1-1'].metrics.nps}, ARR: $${enhancedST6CoAnswers['1-1'].metrics.arr.toLocaleString()}, Growth: 15% MoM` :
-                    `Key metrics: NPS ${companyData.profile.keyMetrics.nps}, Growth ${companyData.profile.keyMetrics.monthlyGrowth}, Churn ${companyData.profile.keyMetrics.churnRate}`;
-        }
-        else if (questionText.includes('customer') || questionText.includes('user') || questionText.includes('feedback')) {
-            workspaceQuestion.defaultValue = enhancedData.feedback_loops || enhancedST6CoAnswers['1-3']?.feedback_loops ||
-                `${companyData.profile.keyMetrics.customers} customers actively engaged, conducting 50+ interviews monthly, NPS: ${companyData.profile.keyMetrics.nps}`;
-        }
-        else if (questionText.includes('team') || questionText.includes('employee') || questionText.includes('capability')) {
-            workspaceQuestion.defaultValue = enhancedData.team_composition || enhancedST6CoAnswers['1-4']?.team_composition ||
-                `Team of ${companyData.employees} with deep GTM expertise, 3 successful exits among leadership`;
-        }
-        else if (questionText.includes('revenue') || questionText.includes('financial')) {
-            workspaceQuestion.defaultValue = `Current ARR: $${companyData.revenue}, growing at 15% MoM, CAC payback: 2.3 months, LTV/CAC: 3.2x`;
-        }
-        else if (questionText.includes('market') || questionText.includes('industry') || questionText.includes('competitive')) {
-            workspaceQuestion.defaultValue = enhancedData.market_size || enhancedST6CoAnswers['1-5']?.market_size ||
-                `TAM: $45B GTM tools market, SAM: $12B AI-powered platforms, SOM: $500M early-stage B2B SaaS`;
-        }
-        else if (questionText.includes('goal') || questionText.includes('objective') || questionText.includes('vision')) {
-            workspaceQuestion.defaultValue = enhancedData.vision_clarity || enhancedST6CoAnswers['1-2']?.vision_clarity ||
-                `Democratize startup success by making enterprise-grade GTM expertise accessible to every founder`;
-        }
-        else if (questionText.includes('implementation') || questionText.includes('process')) {
-            workspaceQuestion.defaultValue = enhancedData.implementation ||
-                `Fully implemented with automated workflows, AI-powered insights, 20+ integrations, real-time dashboards. Result: 89% adoption rate, 4.6/5 satisfaction.`;
-        }
-        else if (questionText.includes('result') || questionText.includes('outcome') || questionText.includes('impact')) {
-            workspaceQuestion.defaultValue = enhancedData.results ||
-                `Achieved: 3x faster time to market, 70% operational cost reduction, 92% customer retention, 1200% ROI in year 1.`;
-        }
-        else if (workspaceQuestion.type === 'text' && !workspaceQuestion.defaultValue) {
-            // Generic default with more detail
-            workspaceQuestion.defaultValue = enhancedData.current_state ||
-                `ScaleOps6 actively uses this capability with 47 customers achieving measurable improvements. Our implementation shows 89% adoption rate and 4.6/5 satisfaction score.`;
-        }
-
-        // Add example answer with ST6Co context
+        // Add example answer if provided
         if (q.exampleAnswer) {
-            workspaceQuestion.example = typeof q.exampleAnswer === 'object' ? 
+            workspaceQuestion.example = typeof q.exampleAnswer === 'object' ?
                 q.exampleAnswer.good : q.exampleAnswer;
-        }
-
-        // Update placeholder with company context
-        if (workspaceQuestion.placeholder) {
-            workspaceQuestion.placeholder = workspaceQuestion.placeholder
-                .replace(/your company/gi, companyData.name)
-                .replace(/your product/gi, "ScaleOps6Product");
         }
 
         return workspaceQuestion;
     });
 
-    // Add block-specific ST6Co data
-    const blockQuestions = [
-        {
-            id: "st6_block_score",
-            category: "Current Performance",
-            question: "Current Block Score",
-            type: "info",
-            content: {
-                score: testCompany.blockScores[1].score, // Will be updated per block
-                trend: testCompany.blockScores[1].trend,
-                lastChange: testCompany.blockScores[1].lastChange
-            }
-        }
-    ];
-
-    return [...contextQuestions, ...formattedQuestions, ...blockQuestions];
+    return formattedQuestions;
 }
 
 // ENHANCED: Generate workspace questions using agent-specific generators

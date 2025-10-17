@@ -270,24 +270,6 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
     // Parse the subcomponent ID to get block and sub IDs
     const [blockId, subId] = subcomponentId.split('-');
     
-    const contextQuestions = [
-        {
-            id: "st6_context",
-            category: "Company Context",
-            question: "Company/Product Information",
-            type: "info",
-            content: {
-                company: companyData.name,
-                product: "ScaleOps6Product",
-                industry: companyData.industry,
-                stage: companyData.stage,
-                employees: companyData.employees,
-                revenue: companyData.revenue,
-                metrics: companyData.profile.keyMetrics
-            }
-        }
-    ];
-
     const formattedQuestions = questions.map((q, index) => {
         // Properly capitalize category names
         let category = q.type || q.category || "Assessment";
@@ -303,126 +285,19 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
             maxLength: q.maxLength,
             hint: q.hint || q.helpText,
             placeholder: q.hint || "Provide detailed response...",
-            defaultValue: q.defaultValue || "" // Ensure defaultValue is included
+            defaultValue: "" // Always empty - no pre-filled data
         };
 
-        // Add ST6Co context to questions
-        if (workspaceQuestion.question) {
-            workspaceQuestion.question = workspaceQuestion.question
-                .replace(/your company/gi, companyData.name)
-                .replace(/your product/gi, "ScaleOps6Product")
-                .replace(/\[Company\]/g, companyData.name)
-                .replace(/\[Product\]/g, "ScaleOps6Product");
-        }
-
-        // ENHANCED: Pre-fill with detailed ST6Co answers based on question content
-        const questionText = (q.text || q.question || '').toLowerCase();
-        const qId = (q.id || '').toLowerCase();
-        
-        // Get enhanced answers for this specific subcomponent
-        const enhancedData = getEnhancedAnswers(blockId, subId);
-        
-        // More comprehensive matching for problem-related questions
-        if (qId.includes('problem') || questionText.includes('problem') || questionText.includes('challenge') ||
-            questionText.includes('core problem') || questionText.includes('addressing')) {
-            workspaceQuestion.defaultValue = enhancedData.problem ||
-                "Founders waste 73% of their time on non-revenue generating activities due to lack of structured GTM processes. This results in $2.3M average lost opportunity cost annually, with 67% of startups failing due to premature scaling without proper validation frameworks.";
-        }
-        else if (qId.includes('solution') || questionText.includes('solution') || questionText.includes('approach') ||
-                 questionText.includes('impact') || questionText.includes('operations')) {
-            workspaceQuestion.defaultValue = enhancedData.solution ||
-                "ScaleOps6 provides AI-powered GTM orchestration that automates 89% of repetitive tasks, delivers real-time insights across 20+ data sources, and provides step-by-step playbooks validated across 500+ successful implementations. Result: 3.2x faster time-to-revenue.";
-        }
-        else if (qId.includes('evidence') || questionText.includes('evidence') || questionText.includes('validation') ||
-                 questionText.includes('validates') || questionText.includes('demonstrates')) {
-            workspaceQuestion.defaultValue = enhancedData.evidence ||
-                "47 active customers with 92% retention rate, $2.8M ARR growing 15% MoM, 4.6/5 CSAT score, 73 NPS. Case studies: TechCo reduced CAC by 67% in 90 days, SaasCorp achieved 3x pipeline growth, StartupX reached profitability 8 months faster.";
-        }
-        else if (questionText.includes('metric') || questionText.includes('measure') || questionText.includes('track')) {
-            workspaceQuestion.defaultValue = enhancedData.metrics ?
-                `Key metrics: ${JSON.stringify(enhancedData.metrics, null, 2)}` :
-                enhancedST6CoAnswers['1-1'].metrics ?
-                    `Customers: ${enhancedST6CoAnswers['1-1'].metrics.customers}, NPS: ${enhancedST6CoAnswers['1-1'].metrics.nps}, ARR: $${enhancedST6CoAnswers['1-1'].metrics.arr.toLocaleString()}, Growth: 15% MoM` :
-                    `Key metrics: NPS ${companyData.profile.keyMetrics.nps}, Growth ${companyData.profile.keyMetrics.monthlyGrowth}, Churn ${companyData.profile.keyMetrics.churnRate}`;
-        }
-        else if (questionText.includes('customer') || questionText.includes('user') || questionText.includes('feedback')) {
-            workspaceQuestion.defaultValue = enhancedData.feedback_loops || enhancedST6CoAnswers['1-3']?.feedback_loops ||
-                `${companyData.profile.keyMetrics.customers} customers actively engaged, conducting 50+ interviews monthly, NPS: ${companyData.profile.keyMetrics.nps}`;
-        }
-        else if (questionText.includes('team') || questionText.includes('employee') || questionText.includes('capability')) {
-            workspaceQuestion.defaultValue = enhancedData.team_composition || enhancedST6CoAnswers['1-4']?.team_composition ||
-                `Team of ${companyData.employees} with deep GTM expertise, 3 successful exits among leadership`;
-        }
-        else if (questionText.includes('revenue') || questionText.includes('financial')) {
-            workspaceQuestion.defaultValue = `Current ARR: $${companyData.revenue}, growing at 15% MoM, CAC payback: 2.3 months, LTV/CAC: 3.2x`;
-        }
-        else if (questionText.includes('market') || questionText.includes('industry') || questionText.includes('competitive')) {
-            workspaceQuestion.defaultValue = enhancedData.market_size || enhancedST6CoAnswers['1-5']?.market_size ||
-                `TAM: $45B GTM tools market, SAM: $12B AI-powered platforms, SOM: $500M early-stage B2B SaaS`;
-        }
-        else if (questionText.includes('goal') || questionText.includes('objective') || questionText.includes('vision') ||
-                 questionText.includes('mission') || questionText.includes('align')) {
-            workspaceQuestion.defaultValue = enhancedData.vision_clarity ||
-                "Democratize startup success by making enterprise-grade GTM expertise accessible to every founder. Our mission aligns with helping 10,000 startups achieve sustainable growth by 2027, creating $100B in collective enterprise value through systematic GTM execution.";
-        }
-        else if (questionText.includes('implementation') || questionText.includes('process')) {
-            workspaceQuestion.defaultValue = enhancedData.implementation ||
-                `Fully implemented with automated workflows, AI-powered insights, 20+ integrations, real-time dashboards. Result: 89% adoption rate, 4.6/5 satisfaction.`;
-        }
-        else if (questionText.includes('result') || questionText.includes('outcome') || questionText.includes('impact')) {
-            workspaceQuestion.defaultValue = enhancedData.results ||
-                `Achieved: 3x faster time to market, 70% operational cost reduction, 92% customer retention, 1200% ROI in year 1.`;
-        }
-        else if (questionText.includes('next steps') || questionText.includes('improve')) {
-            workspaceQuestion.defaultValue = enhancedData.next_steps ||
-                "1. Expand AI model training with 10,000+ additional data points (Q1 2025)\n2. Launch enterprise tier with dedicated success managers (Q2 2025)\n3. Build marketplace for community-contributed playbooks (Q3 2025)\n4. Develop predictive analytics for proactive recommendations (Q4 2025)";
-        }
-        else if (workspaceQuestion.type === 'text' && !workspaceQuestion.defaultValue) {
-            // Generic default with more detail based on category
-            if (category.toLowerCase() === 'diagnostic') {
-                workspaceQuestion.defaultValue = "ScaleOps6 has diagnosed this area across 47 customers, identifying common patterns and bottlenecks. Our analysis shows 89% of companies face similar challenges, which we address through systematic frameworks and automation.";
-            } else if (category.toLowerCase() === 'validation') {
-                workspaceQuestion.defaultValue = "Validated through 500+ implementations with measurable outcomes: average 3.2x ROI, 67% reduction in time-to-market, 92% customer success rate. Third-party audits confirm our methodology effectiveness.";
-            } else if (category.toLowerCase() === 'strategic') {
-                workspaceQuestion.defaultValue = "Strategic alignment with long-term vision of democratizing GTM excellence. This capability directly supports our mission to help 10,000 startups achieve sustainable growth by 2027.";
-            } else {
-                workspaceQuestion.defaultValue = enhancedData.current_state ||
-                    "ScaleOps6 actively uses this capability with 47 customers achieving measurable improvements. Our implementation shows 89% adoption rate and 4.6/5 satisfaction score.";
-            }
-        }
-
-        // Add example answer with ST6Co context
+        // Add example answer if provided
         if (q.exampleAnswer) {
             workspaceQuestion.example = typeof q.exampleAnswer === 'object' ?
                 q.exampleAnswer.good : q.exampleAnswer;
         }
 
-        // Update placeholder with company context
-        if (workspaceQuestion.placeholder) {
-            workspaceQuestion.placeholder = workspaceQuestion.placeholder
-                .replace(/your company/gi, companyData.name)
-                .replace(/your product/gi, "ScaleOps6Product");
-        }
-
         return workspaceQuestion;
     });
 
-    // Add block-specific ST6Co data
-    const blockQuestions = [
-        {
-            id: "st6_block_score",
-            category: "Current Performance",
-            question: "Current Block Score",
-            type: "info",
-            content: {
-                score: testCompany.blockScores[blockId] ? testCompany.blockScores[blockId].score : 75,
-                trend: testCompany.blockScores[blockId] ? testCompany.blockScores[blockId].trend : 'stable',
-                lastChange: testCompany.blockScores[blockId] ? testCompany.blockScores[blockId].lastChange : 'N/A'
-            }
-        }
-    ];
-
-    return [...contextQuestions, ...formattedQuestions, ...blockQuestions];
+    return formattedQuestions;
 }
 
 // Generate workspace questions using agent-specific generators

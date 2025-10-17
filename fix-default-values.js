@@ -93,86 +93,20 @@ function integrateCompanyData(questions, companyData) {
             minLength: q.minLength,
             maxLength: q.maxLength,
             hint: q.hint || q.helpText,
-            placeholder: q.hint || "Provide detailed response..."
+            placeholder: q.hint || "Provide detailed response...",
+            defaultValue: "" // Always empty - no pre-filled data
         };
 
-        // Add ST6Co context to questions
-        if (workspaceQuestion.question) {
-            workspaceQuestion.question = workspaceQuestion.question
-                .replace(/your company/gi, companyData.name)
-                .replace(/your product/gi, "ScaleOps6Product")
-                .replace(/\\[Company\\]/g, companyData.name)
-                .replace(/\\[Product\\]/g, "ScaleOps6Product");
-        }
-
-        // ENHANCED: Pre-fill with ST6Co data based on question content
-        const questionText = (q.text || q.question || '').toLowerCase();
-        const qId = (q.id || '').toLowerCase();
-        
-        if (qId.includes('problem') || questionText.includes('problem') || questionText.includes('challenge')) {
-            workspaceQuestion.defaultValue = \`\${companyData.profile.mission}. Target: \${companyData.profile.targetMarket}. Stage: \${companyData.stage} with \${companyData.revenue} ARR.\`;
-        } 
-        else if (qId.includes('solution') || questionText.includes('solution') || questionText.includes('approach')) {
-            workspaceQuestion.defaultValue = \`\${companyData.profile.product} - AI-powered platform with 16 operational blocks for systematic GTM maturity.\`;
-        } 
-        else if (qId.includes('evidence') || questionText.includes('evidence') || questionText.includes('validation')) {
-            workspaceQuestion.defaultValue = \`Metrics: \${companyData.profile.keyMetrics.customers} customers, \${companyData.profile.keyMetrics.nps} NPS, \${companyData.profile.keyMetrics.monthlyGrowth} growth, CAC: \${companyData.profile.keyMetrics.cac}, LTV: \${companyData.profile.keyMetrics.ltv}\`;
-        }
-        else if (questionText.includes('metric') || questionText.includes('measure') || questionText.includes('track')) {
-            workspaceQuestion.defaultValue = \`Key metrics: NPS \${companyData.profile.keyMetrics.nps}, Growth \${companyData.profile.keyMetrics.monthlyGrowth}, Churn \${companyData.profile.keyMetrics.churnRate}\`;
-        }
-        else if (questionText.includes('customer') || questionText.includes('user')) {
-            workspaceQuestion.defaultValue = \`\${companyData.profile.keyMetrics.customers} customers, Target: \${companyData.profile.targetMarket}\`;
-        }
-        else if (questionText.includes('team') || questionText.includes('employee')) {
-            workspaceQuestion.defaultValue = \`Team size: \${companyData.employees} employees, Stage: \${companyData.stage}\`;
-        }
-        else if (questionText.includes('revenue') || questionText.includes('financial')) {
-            workspaceQuestion.defaultValue = \`Current ARR: \${companyData.revenue}, CAC: \${companyData.profile.keyMetrics.cac}, LTV: \${companyData.profile.keyMetrics.ltv}\`;
-        }
-        else if (questionText.includes('market') || questionText.includes('industry')) {
-            workspaceQuestion.defaultValue = \`Industry: \${companyData.industry}, Target: \${companyData.profile.targetMarket}\`;
-        }
-        else if (questionText.includes('goal') || questionText.includes('objective')) {
-            workspaceQuestion.defaultValue = \`Mission: \${companyData.profile.mission}. Current focus: Scale to Series A with improved unit economics.\`;
-        }
-        else if (workspaceQuestion.type === 'text' && !workspaceQuestion.defaultValue) {
-            // Generic default for any text question
-            workspaceQuestion.defaultValue = \`[\${companyData.name}] \${companyData.stage} stage, \${companyData.industry}, \${companyData.employees} employees\`;
-        }
-
-        // Add example answer with ST6Co context
+        // Add example answer if provided
         if (q.exampleAnswer) {
-            workspaceQuestion.example = typeof q.exampleAnswer === 'object' ? 
+            workspaceQuestion.example = typeof q.exampleAnswer === 'object' ?
                 q.exampleAnswer.good : q.exampleAnswer;
-        }
-
-        // Update placeholder with company context
-        if (workspaceQuestion.placeholder) {
-            workspaceQuestion.placeholder = workspaceQuestion.placeholder
-                .replace(/your company/gi, companyData.name)
-                .replace(/your product/gi, "ScaleOps6Product");
         }
 
         return workspaceQuestion;
     });
 
-    // Add block-specific ST6Co data
-    const blockQuestions = [
-        {
-            id: "st6_block_score",
-            category: "Current Performance",
-            question: "Current Block Score",
-            type: "info",
-            content: {
-                score: testCompany.blockScores[1].score, // Will be updated per block
-                trend: testCompany.blockScores[1].trend,
-                lastChange: testCompany.blockScores[1].lastChange
-            }
-        }
-    ];
-
-    return [...contextQuestions, ...formattedQuestions, ...blockQuestions];
+    return [...contextQuestions, ...formattedQuestions];
 }`;
 
     // Replace the existing function
