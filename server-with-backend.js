@@ -1115,27 +1115,81 @@ const server = http.createServer(async (req, res) => {
                     // Save workspace answers
                     await database.saveWorkspaceAnswers(subcomponentId, responses, sessionId);
                     
-                    // Score based on agent's dimensions
+                    // Score based on SSOT-defined dimensions (fallback to agent if SSOT missing)
                     let totalScore = 0;
                     let totalWeight = 0;
                     let dimensionScores = {};
                     
-                    if (agent.scoringDimensions) {
-                        agent.scoringDimensions.forEach((dimension, index) => {
-                            const response = responses[`q${index + 1}`];
-                            if (response) {
-                                let score = 0;
-                                if (typeof response === 'number') {
-                                    score = (response / 5) * 100;
-                                } else if (typeof response === 'string') {
-                                    score = Math.min(100, 50 + (response.length / 10));
-                                }
-                                dimensionScores[dimension.name] = Math.round(score);
-                                totalScore += score * dimension.weight;
-                                totalWeight += dimension.weight;
-                            }
-                        });
+                    // Attempt to load dimensions from SSOT for this subcomponent
+                    let ssotDimensions = [];
+                    try {
+                        const ssotData = getSubcomponent(subcomponentId);
+                        if (ssotData && ssotData.analysis && Array.isArray(ssotData.analysis.dimensions)) {
+                            ssotDimensions = ssotData.analysis.dimensions;
+                        }
+                    } catch (e) {
+                        console.warn(`⚠️ SSOT not available for ${subcomponentId}: ${e.message}`);
                     }
+                    
+                    const dimensionsToUse = (ssotDimensions && ssotDimensions.length > 0)
+                        ? ssotDimensions
+                        : (agent.scoringDimensions || []);
+                    
+                    if (!dimensionsToUse || dimensionsToUse.length === 0) {
+                        console.warn(`⚠️ No scoring dimensions found for ${subcomponentId} (agent: ${agentName})`);
+                    }
+                    
+                    dimensionsToUse.forEach((dimension, index) => {
+                        // Try multiple key patterns to map responses to dimensions
+                        // Prepare a sequential fallback list of responses (non-empty)
+                        const responsesList = Object.values(responses || {}).filter(v => v !== undefined && v !== null && String(v).trim() !== '');
+                        
+                        let response =
+                            responses[`q${index + 1}`] ??
+                            responses[`dimension-${index + 1}`] ??
+                            responses[dimension.name];
+                        
+                        // If no direct match, use nth available response as fallback
+                        if ((response === undefined || response === null) && responsesList.length > index) {
+                            response = responsesList[index];
+                        }
+                        
+                        // If still nothing, try first available as a last resort
+                        if (response === undefined || response === null) {
+                            response = responsesList[0];
+                        }
+                        
+                        // Score calculation
+                        let score = 0;
+                        if (typeof response === 'number') {
+                            // If 1-5 Likert, convert to percentage; if already 0-100, clamp
+                            score = response <= 5 ? (response / 5) * 100 : Math.min(100, response);
+                        } else if (typeof response === 'string') {
+                            // Heuristic: length-based proxy score for text responses
+                            score = Math.min(100, 50 + (response.length / 10));
+                        } else {
+                            score = 50; // neutral default
+                        }
+                        
+                        const weight = (typeof dimension.weight === 'number') ? dimension.weight : 20;
+                        
+                        // Record in object map for persistence/PDF
+                        dimensionScores[dimension.name] = Math.round(score);
+                        
+                        // Also build an array with weight so frontend can show correct 20% weight
+                        if (!Array.isArray(globalThis.__dimensionArrayTemp)) {
+                            globalThis.__dimensionArrayTemp = [];
+                        }
+                        globalThis.__dimensionArrayTemp.push({
+                            dimension: dimension.name,
+                            name: dimension.name,
+                            score: Math.round(score),
+                            weight: weight
+                        });
+                        
+                        totalScore += score * weight;
+                        totalWeight += weight;
+                    });
                     
                     const finalScore = totalWeight > 0 ? Math.round(totalScore / totalWeight) : 75;
                     
@@ -1159,6 +1213,10 @@ const server = http.createServer(async (req, res) => {
                         })) : 
                         generateDefaultRecommendations(dimensionScores, agent);
                     
+                    // Build dimensions array from temp (if created), then clear temp
+                    const dimensionArray = Array.isArray(globalThis.__dimensionArrayTemp) ? globalThis.__dimensionArrayTemp : [];
+                    globalThis.__dimensionArrayTemp = [];
+                    
                     const analysis = {
                         score: finalScore,
                         overallScore: finalScore,
@@ -1169,8 +1227,10 @@ const server = http.createServer(async (req, res) => {
                         sessionId: sessionId,
                         company: testCompany.name,
                         product: "ScaleOps6Product",
+                        // Keep object for persistence/exports
                         dimensionScores: dimensionScores,
-                        dimensions: dimensionScores,
+                        // Provide array (with weights) for frontend display
+                        dimensions: dimensionArray,
                         strengths: strengths,
                         weaknesses: weaknesses,
                         recommendations: recommendations,
