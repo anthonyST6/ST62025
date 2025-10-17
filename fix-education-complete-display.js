@@ -86,38 +86,54 @@
                         <h2 style="color: #FF5500; font-size: 30px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
                             <span style="font-size: 36px;">💡</span> Why ${title} Matters
                         </h2>
-                        <div style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; 
+                        <div style="background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px;
                                     border: 1px solid rgba(255, 255, 255, 0.1);">
                             <p style="font-size: 17px; line-height: 1.9; color: #e0e0e0; margin-bottom: 30px;">
                                 ${education.why || `Excellence in this area directly impacts your ability to scale efficiently and win in the market. Organizations that master these capabilities see significant improvements across all key metrics.`}
                             </p>
                             
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-                                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05)); 
-                                            padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
-                                            text-align: center; transition: transform 0.3s ease;">
-                                    <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">2.5x</div>
-                                    <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Faster Growth Rate</div>
+                            ${education.keyMetrics && education.keyMetrics.length > 0 ? `
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                                    ${education.keyMetrics.map(metric => `
+                                        <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+                                                    padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
+                                                    text-align: center; transition: transform 0.3s ease;"
+                                             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(76, 175, 80, 0.3)';"
+                                             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                            <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">${metric.value}</div>
+                                            <div style="color: #e0e0e0; font-size: 14px; font-weight: 500; margin-bottom: 5px;">${metric.label}</div>
+                                            ${metric.description ? `<div style="color: #999; font-size: 12px;">${metric.description}</div>` : ''}
+                                        </div>
+                                    `).join('')}
                                 </div>
-                                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05)); 
-                                            padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
-                                            text-align: center; transition: transform 0.3s ease;">
-                                    <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">68%</div>
-                                    <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Higher Win Rates</div>
+                            ` : `
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+                                                padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
+                                                text-align: center; transition: transform 0.3s ease;">
+                                        <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">2.5x</div>
+                                        <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Faster Growth Rate</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+                                                padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
+                                                text-align: center; transition: transform 0.3s ease;">
+                                        <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">68%</div>
+                                        <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Higher Win Rates</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+                                                padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
+                                                text-align: center; transition: transform 0.3s ease;">
+                                        <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">45%</div>
+                                        <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Lower CAC</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+                                                padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
+                                                text-align: center; transition: transform 0.3s ease;">
+                                        <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">91%</div>
+                                        <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Retention Rate</div>
+                                    </div>
                                 </div>
-                                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05)); 
-                                            padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
-                                            text-align: center; transition: transform 0.3s ease;">
-                                    <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">45%</div>
-                                    <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Lower CAC</div>
-                                </div>
-                                <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05)); 
-                                            padding: 20px; border-radius: 12px; border: 1px solid rgba(76, 175, 80, 0.3);
-                                            text-align: center; transition: transform 0.3s ease;">
-                                    <div style="color: #4CAF50; font-size: 32px; font-weight: bold; margin-bottom: 8px;">91%</div>
-                                    <div style="color: #e0e0e0; font-size: 14px; font-weight: 500;">Retention Rate</div>
-                                </div>
-                            </div>
+                            `}
                         </div>
                     </div>
                     

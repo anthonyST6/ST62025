@@ -1,8 +1,10 @@
 /**
  * Complete Agent-Generated Questions Library
- * DEEP FIX VERSION - Domains AND question content aligned
- * Generated: 2025-10-06T16:41:21.348Z
- * Fixed: Question text and hints to match correct domains
+ * SSOT-ALIGNED VERSION - All domains match subcomponent names exactly
+ * Generated: 2025-10-06T18:03:18.756Z
+ * 
+ * This file is generated from core/subcomponent-registry.js (SSOT)
+ * DO NOT edit domains manually - regenerate using migrations/migrate-questions.js
  */
 
 const agentGeneratedQuestions = {
@@ -364,55 +366,55 @@ const agentGeneratedQuestions = {
     "questions": [
       {
         "id": "2-1-q1",
-        "text": "What challenges do you face in maintaining consistent customer interview schedules?",
+        "text": "What primary jobs are customers hiring your product to accomplish?",
         "type": "diagnostic",
         "required": true,
-        "hint": "Describe scheduling conflicts, resource constraints, or engagement difficulties.",
+        "hint": "Describe functional, emotional, and social jobs customers need done.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-1-q2",
-        "text": "How many customer interviews do you conduct monthly and what is your target frequency?",
+        "text": "What metrics demonstrate how well you help customers complete these jobs?",
         "type": "quantitative",
         "required": true,
-        "hint": "Provide specific numbers of interviews, coverage across segments, and goals.",
+        "hint": "Provide success rates, time savings, or outcome improvements.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-1-q3",
-        "text": "How does your interview cadence support your product development cycle?",
+        "text": "How do jobs-to-be-done insights influence your product strategy?",
         "type": "strategic",
         "required": true,
-        "hint": "Explain how interview timing aligns with sprint planning and feature releases.",
+        "hint": "Explain how JTBD framework drives feature decisions and positioning.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-1-q4",
-        "text": "What evidence shows your interview frequency yields actionable insights?",
+        "text": "What evidence shows customers successfully complete their jobs with your solution?",
         "type": "validation",
         "required": false,
-        "hint": "Share examples of insights gained and decisions influenced by interviews.",
+        "hint": "Share case studies, testimonials, or usage data demonstrating job completion.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-1-q5",
-        "text": "How do you ensure stakeholder coverage across different user personas?",
-        "type": "diagnostic",
+        "text": "How do the jobs differ across customer segments or use cases?",
+        "type": "comparative",
         "required": false,
-        "hint": "Describe your approach to interviewing diverse user types and decision makers.",
+        "hint": "Describe variations in jobs by industry, company size, or user role.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-1-q6",
-        "text": "What systems do you use to track and synthesize interview insights?",
-        "type": "strategic",
+        "text": "What alternative solutions do customers consider for these jobs?",
+        "type": "comparative",
         "required": false,
-        "hint": "Detail tools and processes for recording, analyzing, and sharing learnings.",
+        "hint": "Identify competitive alternatives including manual processes or other tools.",
         "minLength": 100,
         "maxLength": 1000
       }
@@ -482,55 +484,55 @@ const agentGeneratedQuestions = {
     "questions": [
       {
         "id": "2-3-q1",
-        "text": "What are the top 3-5 customer pain points you have identified and their business impact?",
+        "text": "What challenges do you face in maintaining consistent customer interview schedules?",
         "type": "diagnostic",
         "required": true,
-        "hint": "List specific problems customers face with quantified time, cost, or efficiency impact.",
+        "hint": "Describe scheduling conflicts, resource constraints, or engagement difficulties with interview cadence.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-3-q2",
-        "text": "What percentage of customers experience each pain point and how severe is the impact?",
+        "text": "How many customer interviews do you conduct monthly and what is your target frequency?",
         "type": "quantitative",
         "required": true,
-        "hint": "Provide prevalence rates and severity scores for each identified pain point.",
+        "hint": "Provide specific numbers of interviews, coverage across segments, and interview cadence goals.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-3-q3",
-        "text": "How do identified pain points align with your product roadmap priorities?",
+        "text": "How does your interview cadence support your product development cycle?",
         "type": "strategic",
         "required": true,
-        "hint": "Explain how pain point severity drives feature development and resource allocation.",
+        "hint": "Explain how interview timing and cadence align with sprint planning and feature releases.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-3-q4",
-        "text": "What evidence validates these are the most critical pain points to address?",
+        "text": "What evidence shows your interview frequency yields actionable insights?",
         "type": "validation",
         "required": false,
-        "hint": "Share customer feedback, support tickets, or churn data supporting prioritization.",
+        "hint": "Share examples of insights gained from your interview cadence and decisions influenced.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-3-q5",
-        "text": "How do customer pain points vary across different segments or personas?",
+        "text": "How do you ensure stakeholder coverage across different user personas in your interview cadence?",
         "type": "comparative",
         "required": false,
-        "hint": "Describe differences in pain point priority or severity by customer type.",
+        "hint": "Describe your approach to interviewing diverse user types and decision makers regularly.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-3-q6",
-        "text": "What is your process for continuously discovering and validating new pain points?",
+        "text": "What systems do you use to track and synthesize interview insights from your cadence?",
         "type": "diagnostic",
         "required": false,
-        "hint": "Detail ongoing research, feedback loops, and validation methods.",
+        "hint": "Detail tools and processes for recording, analyzing, and sharing learnings from interviews.",
         "minLength": 100,
         "maxLength": 1000
       }
@@ -541,55 +543,55 @@ const agentGeneratedQuestions = {
     "questions": [
       {
         "id": "2-4-q1",
-        "text": "What primary jobs are customers hiring your product to accomplish?",
+        "text": "What are the top 3-5 customer pain points you have identified and their business impact?",
         "type": "diagnostic",
         "required": true,
-        "hint": "Describe functional, emotional, and social jobs customers need done.",
+        "hint": "List specific pain points customers face with quantified time, cost, or efficiency impact.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-4-q2",
-        "text": "What metrics demonstrate how well you help customers complete these jobs?",
+        "text": "What percentage of customers experience each pain point and how severe is the impact?",
         "type": "quantitative",
         "required": true,
-        "hint": "Provide success rates, time savings, or outcome improvements.",
+        "hint": "Provide prevalence rates and severity scores for each identified pain point.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-4-q3",
-        "text": "How do jobs-to-be-done insights influence your product strategy?",
+        "text": "How do identified pain points align with your product roadmap priorities?",
         "type": "strategic",
         "required": true,
-        "hint": "Explain how JTBD framework drives feature decisions and positioning.",
+        "hint": "Explain how pain point severity drives feature development and resource allocation.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-4-q4",
-        "text": "What evidence shows customers successfully complete their jobs with your solution?",
+        "text": "What evidence validates these are the most critical pain points to address?",
         "type": "validation",
         "required": false,
-        "hint": "Share case studies, testimonials, or usage data demonstrating job completion.",
+        "hint": "Share customer feedback, support tickets, or churn data supporting pain point prioritization.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-4-q5",
-        "text": "How do the jobs differ across customer segments or use cases?",
+        "text": "How do customer pain points vary across different segments or personas?",
         "type": "comparative",
         "required": false,
-        "hint": "Describe variations in jobs by industry, company size, or user role.",
+        "hint": "Describe differences in pain point priority or severity by customer type.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-4-q6",
-        "text": "What alternative solutions do customers consider for these jobs?",
-        "type": "comparative",
+        "text": "What is your process for continuously discovering and validating new pain points?",
+        "type": "diagnostic",
         "required": false,
-        "hint": "Identify competitive alternatives including manual processes or other tools.",
+        "hint": "Detail ongoing research, feedback loops, and pain point validation methods.",
         "minLength": 100,
         "maxLength": 1000
       }
@@ -600,55 +602,55 @@ const agentGeneratedQuestions = {
     "questions": [
       {
         "id": "2-5-q1",
-        "text": "What demand signals indicate strong market interest in your solution?",
+        "text": "What gaps exist in your process for converting customer insights into action?",
         "type": "diagnostic",
         "required": true,
-        "hint": "Describe inbound inquiries, organic traffic, waitlist signups, or referrals.",
+        "hint": "Identify breakdowns in insight capture, prioritization, or implementation of actions.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-5-q2",
-        "text": "What quantitative metrics track demand and what are the trends?",
+        "text": "What is your average time from insight discovery to action implementation?",
         "type": "quantitative",
         "required": true,
-        "hint": "Provide lead volume, conversion rates, pipeline velocity with growth trends.",
+        "hint": "Provide cycle times and implementation rates for different insight types and actions.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-5-q3",
-        "text": "How do demand signals inform your go-to-market strategy?",
+        "text": "How does your insight-to-action loop support continuous improvement?",
         "type": "strategic",
         "required": true,
-        "hint": "Explain how demand patterns drive channel, messaging, and resource decisions.",
+        "hint": "Explain how insights drive iterative product and GTM improvements through action.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-5-q4",
-        "text": "What validates that current demand signals predict future growth?",
+        "text": "What evidence shows your insight action loop drives meaningful outcomes?",
         "type": "validation",
         "required": false,
-        "hint": "Share historical correlation between early signals and revenue growth.",
+        "hint": "Share examples of insights that led to measurable improvements through action.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-5-q5",
-        "text": "How do demand signals vary across different channels or segments?",
-        "type": "comparative",
+        "text": "How do you prioritize which insights to act upon?",
+        "type": "strategic",
         "required": false,
-        "hint": "Compare signal strength from different sources or customer types.",
+        "hint": "Describe your framework for evaluating impact and effort of insight-driven actions.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-5-q6",
-        "text": "What systems capture and analyze demand signals in real-time?",
+        "text": "What feedback mechanisms validate the actions taken from insights?",
         "type": "diagnostic",
         "required": false,
-        "hint": "Describe analytics, attribution, and alerting systems for demand monitoring.",
+        "hint": "Detail how you measure success of insight-driven changes and actions.",
         "minLength": 100,
         "maxLength": 1000
       }
@@ -659,55 +661,55 @@ const agentGeneratedQuestions = {
     "questions": [
       {
         "id": "2-6-q1",
-        "text": "What gaps exist in your process for converting insights into action?",
+        "text": "What are the key stages in your customer journey and where do friction points occur?",
         "type": "diagnostic",
         "required": true,
-        "hint": "Identify breakdowns in insight capture, prioritization, or implementation.",
+        "hint": "Map the complete customer journey from awareness to advocacy, identifying pain points at each stage.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-6-q2",
-        "text": "What is your average time from insight discovery to implementation?",
+        "text": "What metrics do you track at each stage of the customer journey?",
         "type": "quantitative",
         "required": true,
-        "hint": "Provide cycle times and implementation rates for different insight types.",
+        "hint": "Provide conversion rates, time in stage, and drop-off rates for each customer journey phase.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-6-q3",
-        "text": "How does your insight loop support continuous improvement?",
+        "text": "How does your customer journey mapping inform product and GTM strategy?",
         "type": "strategic",
         "required": true,
-        "hint": "Explain how insights drive iterative product and GTM improvements.",
+        "hint": "Explain how journey insights drive feature development, messaging, and customer success initiatives.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-6-q4",
-        "text": "What evidence shows your insight loop drives meaningful outcomes?",
+        "text": "What evidence validates your understanding of the customer journey?",
         "type": "validation",
         "required": false,
-        "hint": "Share examples of insights that led to measurable improvements.",
+        "hint": "Share customer feedback, behavioral data, or research supporting your journey map.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-6-q5",
-        "text": "How do you prioritize which insights to act upon?",
-        "type": "strategic",
+        "text": "How does the customer journey differ across segments or personas?",
+        "type": "comparative",
         "required": false,
-        "hint": "Describe your framework for evaluating impact and effort of insights.",
+        "hint": "Describe variations in journey paths, touchpoints, or timelines by customer type.",
         "minLength": 100,
         "maxLength": 1000
       },
       {
         "id": "2-6-q6",
-        "text": "What feedback mechanisms validate implemented changes?",
+        "text": "What processes ensure continuous customer journey optimization?",
         "type": "diagnostic",
         "required": false,
-        "hint": "Detail how you measure success of insight-driven changes.",
+        "hint": "Detail how you regularly update journey maps based on new data and customer feedback.",
         "minLength": 100,
         "maxLength": 1000
       }

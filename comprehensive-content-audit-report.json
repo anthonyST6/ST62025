@@ -1,0 +1,511 @@
+{
+  "total": 96,
+  "criticalIssues": [],
+  "majorIssues": [
+    {
+      "id": "6-3",
+      "name": "CS Dashboard",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 156
+        }
+      ]
+    },
+    {
+      "id": "6-4",
+      "name": "Activation Metric Model",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 139
+        }
+      ]
+    },
+    {
+      "id": "6-5",
+      "name": "Feedback Collector",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 136
+        }
+      ]
+    },
+    {
+      "id": "6-6",
+      "name": "Power User Behavior Signals",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 150
+        }
+      ]
+    },
+    {
+      "id": "9-3",
+      "name": "Channel Economics Clarity",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 176
+        }
+      ]
+    },
+    {
+      "id": "9-4",
+      "name": "Discovery Call Effectiveness",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 170
+        }
+      ]
+    },
+    {
+      "id": "9-5",
+      "name": "Demo-to-Close Flow",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 122
+        }
+      ]
+    },
+    {
+      "id": "9-6",
+      "name": "Founders Selling Model",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 124
+        }
+      ]
+    },
+    {
+      "id": "14-3",
+      "name": "Internal Dashboards",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 138
+        }
+      ]
+    },
+    {
+      "id": "14-4",
+      "name": "Tool Consolidation Tracker",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 147
+        }
+      ]
+    },
+    {
+      "id": "14-5",
+      "name": "RevOps Playbook",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 132
+        }
+      ]
+    },
+    {
+      "id": "14-6",
+      "name": "Internal SLA Policy",
+      "issues": [
+        {
+          "section": "how",
+          "severity": "major",
+          "issue": "Implementation guide too short or missing",
+          "current": 140
+        }
+      ]
+    }
+  ],
+  "minorIssues": [],
+  "passed": [
+    {
+      "id": "1-1",
+      "name": "Problem Statement Definition"
+    },
+    {
+      "id": "1-2",
+      "name": "Mission Statement"
+    },
+    {
+      "id": "1-3",
+      "name": "Voice of Customer"
+    },
+    {
+      "id": "1-4",
+      "name": "Founding Team Capability"
+    },
+    {
+      "id": "1-5",
+      "name": "Market Landscape"
+    },
+    {
+      "id": "1-6",
+      "name": "Launch Readiness"
+    },
+    {
+      "id": "2-1",
+      "name": "Jobs to be Done"
+    },
+    {
+      "id": "2-2",
+      "name": "Personas Framework"
+    },
+    {
+      "id": "2-3",
+      "name": "Interview Cadence"
+    },
+    {
+      "id": "2-4",
+      "name": "Pain Point Mapping"
+    },
+    {
+      "id": "2-5",
+      "name": "Insight Action"
+    },
+    {
+      "id": "2-6",
+      "name": "Customer Journey"
+    },
+    {
+      "id": "3-1",
+      "name": "Use Case Scoring Model"
+    },
+    {
+      "id": "3-2",
+      "name": "Segment Tiering"
+    },
+    {
+      "id": "3-3",
+      "name": "Prioritization Rubric"
+    },
+    {
+      "id": "3-4",
+      "name": "Tradeoff Tracker"
+    },
+    {
+      "id": "3-5",
+      "name": "Hypothesis Board"
+    },
+    {
+      "id": "3-6",
+      "name": "Decision Archive"
+    },
+    {
+      "id": "4-1",
+      "name": "Feature Inclusion Matrix"
+    },
+    {
+      "id": "4-2",
+      "name": "Technical Scope Tracker"
+    },
+    {
+      "id": "4-3",
+      "name": "Pilot Group Selection"
+    },
+    {
+      "id": "4-4",
+      "name": "QA & Success Criteria"
+    },
+    {
+      "id": "4-5",
+      "name": "Timeline GANTT or Roadmap"
+    },
+    {
+      "id": "4-6",
+      "name": "Post-Mortem Template"
+    },
+    {
+      "id": "5-1",
+      "name": "GTM Messaging Framework"
+    },
+    {
+      "id": "5-2",
+      "name": "Sales Enablement Assets"
+    },
+    {
+      "id": "5-3",
+      "name": "Pricing & Packaging Strategy"
+    },
+    {
+      "id": "5-4",
+      "name": "Channel Partner Strategy"
+    },
+    {
+      "id": "5-5",
+      "name": "Competitive Positioning"
+    },
+    {
+      "id": "5-6",
+      "name": "Launch Planning & Execution"
+    },
+    {
+      "id": "6-1",
+      "name": "Usage Heatmap"
+    },
+    {
+      "id": "6-2",
+      "name": "Milestone Triggers"
+    },
+    {
+      "id": "7-1",
+      "name": "Time/Cost Savings Metrics"
+    },
+    {
+      "id": "7-2",
+      "name": "Revenue-Impact Attribution"
+    },
+    {
+      "id": "7-3",
+      "name": "Productivity Lift Metrics"
+    },
+    {
+      "id": "7-4",
+      "name": "Net Retention Trends"
+    },
+    {
+      "id": "7-5",
+      "name": "Downstream System Reductions"
+    },
+    {
+      "id": "7-6",
+      "name": "Friction Reduction Evidence"
+    },
+    {
+      "id": "8-1",
+      "name": "Upsell Funnel Model"
+    },
+    {
+      "id": "8-2",
+      "name": "Team Expansion Signals"
+    },
+    {
+      "id": "8-3",
+      "name": "Organic Adoption Pattern"
+    },
+    {
+      "id": "8-4",
+      "name": "Champion Mapping"
+    },
+    {
+      "id": "8-5",
+      "name": "CSAT/NPS Tracking"
+    },
+    {
+      "id": "8-6",
+      "name": "Renewal Readiness Tracker"
+    },
+    {
+      "id": "9-1",
+      "name": "Inbound Conversion Rates"
+    },
+    {
+      "id": "9-2",
+      "name": "Outbound Play Performance"
+    },
+    {
+      "id": "10-1",
+      "name": "Enablement Asset Pack"
+    },
+    {
+      "id": "10-2",
+      "name": "Rep Ramp Plan"
+    },
+    {
+      "id": "10-3",
+      "name": "Win/Loss Tracker"
+    },
+    {
+      "id": "10-4",
+      "name": "Objection Handling Guide"
+    },
+    {
+      "id": "10-5",
+      "name": "ICP Filter Checklist"
+    },
+    {
+      "id": "10-6",
+      "name": "Sales Call Library"
+    },
+    {
+      "id": "11-1",
+      "name": "Scorecard Model"
+    },
+    {
+      "id": "11-2",
+      "name": "Quota Structure"
+    },
+    {
+      "id": "11-3",
+      "name": "Weekly Deal Reviews"
+    },
+    {
+      "id": "11-4",
+      "name": "Forecasting Framework"
+    },
+    {
+      "id": "11-5",
+      "name": "Manager Coaching Loop"
+    },
+    {
+      "id": "11-6",
+      "name": "Talent Gap Identification"
+    },
+    {
+      "id": "12-1",
+      "name": "Onboarding Checklist"
+    },
+    {
+      "id": "12-2",
+      "name": "Activation Tracker"
+    },
+    {
+      "id": "12-3",
+      "name": "Success Playbooks"
+    },
+    {
+      "id": "12-4",
+      "name": "Escalation SOPs"
+    },
+    {
+      "id": "12-5",
+      "name": "Renewals Pipelines"
+    },
+    {
+      "id": "12-6",
+      "name": "Churn Root-Cause Engine"
+    },
+    {
+      "id": "13-1",
+      "name": "Category Narrative Canvas"
+    },
+    {
+      "id": "13-2",
+      "name": "Strategic MOAT Design"
+    },
+    {
+      "id": "13-3",
+      "name": "Ecosystem Leverage Map"
+    },
+    {
+      "id": "13-4",
+      "name": "Competitor GTM Monitoring"
+    },
+    {
+      "id": "13-5",
+      "name": "Brand Architecture Plan"
+    },
+    {
+      "id": "13-6",
+      "name": "Defensive GTM Tactics"
+    },
+    {
+      "id": "14-1",
+      "name": "System Architecture Diagram"
+    },
+    {
+      "id": "14-2",
+      "name": "Revenue Engine Map"
+    },
+    {
+      "id": "15-1",
+      "name": "Executive Team"
+    },
+    {
+      "id": "15-2",
+      "name": "Board Development"
+    },
+    {
+      "id": "15-3",
+      "name": "Succession Planning"
+    },
+    {
+      "id": "15-4",
+      "name": "Stakeholder Alignment"
+    },
+    {
+      "id": "15-5",
+      "name": "Investor Relations"
+    },
+    {
+      "id": "15-6",
+      "name": "Leadership Dynamics"
+    },
+    {
+      "id": "16-1",
+      "name": "Market Selection"
+    },
+    {
+      "id": "16-2",
+      "name": "Localization Infrastructure"
+    },
+    {
+      "id": "16-3",
+      "name": "International Pricing Matrix"
+    },
+    {
+      "id": "16-4",
+      "name": "Regional Compliance Tracker"
+    },
+    {
+      "id": "16-5",
+      "name": "Geo-Specific GTM Playbooks"
+    },
+    {
+      "id": "16-6",
+      "name": "Expansion Risk Assessment"
+    }
+  ],
+  "bySection": {
+    "what": {
+      "passed": 96,
+      "failed": 0
+    },
+    "why": {
+      "passed": 96,
+      "failed": 0
+    },
+    "how": {
+      "passed": 84,
+      "failed": 12
+    },
+    "examples": {
+      "passed": 96,
+      "failed": 0
+    },
+    "keyMetrics": {
+      "passed": 96,
+      "failed": 0
+    }
+  }
+}

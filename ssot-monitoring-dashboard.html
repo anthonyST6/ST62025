@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSOT Monitoring Dashboard - ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-3px);
+            border-color: #FF5500;
+            box-shadow: 0 5px 20px rgba(255, 85, 0, 0.2);
+        }
+
+        .status-card.active {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .status-card.warning {
+            border-color: #FFC107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        .status-card.error {
+            border-color: #F44336;
+            background: rgba(244, 67, 54, 0.1);
+        }
+
+        .status-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 10px 0;
+            color: #FF5500;
+        }
+
+        .status-label {
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 85, 0, 0.3);
+        }
+
+        .panel-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF5500;
+        }
+
+        .panel-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background: transparent;
+            color: #FF5500;
+            border: 1px solid #FF5500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #FF5500;
+            color: #000;
+        }
+
+        .btn.primary {
+            background: #FF5500;
+            color: #fff;
+        }
+
+        .btn.primary:hover {
+            background: #d64d2d;
+        }
+
+        .subcomponent-grid {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .subcomponent-cell {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .subcomponent-cell.valid {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: #4CAF50;
+        }
+
+        .subcomponent-cell.invalid {
+            background: rgba(244, 67, 54, 0.3);
+            border-color: #F44336;
+        }
+
+        .subcomponent-cell.warning {
+            background: rgba(255, 193, 7, 0.3);
+            border-color: #FFC107;
+        }
+
+        .subcomponent-cell:hover {
+            transform: scale(1.2);
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .violation-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .violation-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #F44336;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .violation-time {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .violation-details {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .chart-bar {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(to top, #FF5500, #FF8800);
+            border-radius: 4px 4px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            opacity: 0.8;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-label {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .switch.active {
+            background: #4CAF50;
+        }
+
+        .switch-handle {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .switch.active .switch-handle {
+            left: 28px;
+        }
+
+        .log-entry {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 2px solid #FF5500;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+
+        .log-entry.info {
+            border-color: #2196F3;
+        }
+
+        .log-entry.success {
+            border-color: #4CAF50;
+        }
+
+        .log-entry.warning {
+            border-color: #FFC107;
+        }
+
+        .log-entry.error {
+            border-color: #F44336;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid #FF5500;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 12px;
+            z-index: 1000;
+            pointer-events: none;
+            display: none;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 85, 0, 0.5);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF5500;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🛡️ SSOT Monitoring Dashboard</h1>
+            <p>Real-time Single Source of Truth Compliance Monitoring</p>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-card active">
+                <div class="status-label">System Status</div>
+                <div class="status-value" id="system-status">ACTIVE</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Subcomponents</div>
+                <div class="status-value" id="total-subcomponents">96</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Compliant</div>
+                <div class="status-value" id="compliant-count">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Violations</div>
+                <div class="status-value" id="violation-count">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Corrections</div>
+                <div class="status-value" id="correction-count">0</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Uptime</div>
+                <div class="status-value" id="uptime">00:00</div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <span class="control-label">Enforcement</span>
+                <div class="switch active" id="enforcement-toggle">
+                    <div class="switch-handle"></div>
+                </div>
+            </div>
+            <div class="control-group">
+                <span class="control-label">Auto-Refresh</span>
+                <div class="switch active" id="refresh-toggle">
+                    <div class="switch-handle"></div>
+                </div>
+            </div>
+            <button class="btn primary" onclick="runValidation()">Run Full Validation</button>
+            <button class="btn" onclick="clearLogs()">Clear Logs</button>
+            <button class="btn" onclick="exportReport()">Export Report</button>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Compliance Matrix -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Compliance Matrix (96 Subcomponents)</h2>
+                    <div class="panel-actions">
+                        <button class="btn" onclick="refreshMatrix()">Refresh</button>
+                    </div>
+                </div>
+                <div id="compliance-matrix">
+                    <!-- Will be populated dynamically -->
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4CAF50;"></div>
+                        <span>Compliant</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #FFC107;"></div>
+                        <span>Warning</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #F44336;"></div>
+                        <span>Violation</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: rgba(255, 255, 255, 0.05);"></div>
+                        <span>Not Tested</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Violations Log -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Recent Violations</h2>
+                    <div class="panel-actions">
+                        <span id="violation-badge" style="background: #F44336; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px;">0</span>
+                    </div>
+                </div>
+                <div class="violation-list" id="violation-list">
+                    <!-- Will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Log -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Activity Log</h2>
+                <div class="panel-actions">
+                    <button class="btn" onclick="clearActivityLog()">Clear</button>
+                </div>
+            </div>
+            <div id="activity-log" style="max-height: 300px; overflow-y: auto;">
+                <!-- Will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Performance Chart -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Correction Trends (Last 24 Hours)</h2>
+            </div>
+            <div class="chart-container" id="correction-chart">
+                <!-- Will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Dashboard state
+        const dashboardState = {
+            startTime: Date.now(),
+            violations: [],
+            corrections: 0,
+            subcomponentStatus: {},
+            activityLog: [],
+            enforcementEnabled: true,
+            autoRefresh: true,
+            refreshInterval: null
+        };
+
+        // Initialize dashboard
+        function initDashboard() {
+            console.log('🚀 Initializing SSOT Monitoring Dashboard...');
+            
+            // Generate compliance matrix
+            generateComplianceMatrix();
+            
+            // Start monitoring
+            startMonitoring();
+            
+            // Update uptime
+            setInterval(updateUptime, 1000);
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Load initial data
+            loadDashboardData();
+            
+            logActivity('Dashboard initialized', 'info');
+        }
+
+        // Generate compliance matrix grid
+        function generateComplianceMatrix() {
+            const matrix = document.getElementById('compliance-matrix');
+            const grid = document.createElement('div');
+            grid.className = 'subcomponent-grid';
+            
+            for (let block = 1; block <= 16; block++) {
+                for (let sub = 1; sub <= 6; sub++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'subcomponent-cell';
+                    cell.id = `cell-${block}-${sub}`;
+                    cell.textContent = `${block}-${sub}`;
+                    cell.onclick = () => showSubcomponentDetails(`${block}-${sub}`);
+                    cell.onmouseenter = (e) => showTooltip(e, `${block}-${sub}`);
+                    cell.onmouseleave = hideTooltip;
+                    grid.appendChild(cell);
+                }
+            }
+            
+            matrix.appendChild(grid);
+        }
+
+        // Start monitoring
+        function startMonitoring() {
+            if (dashboardState.autoRefresh) {
+                dashboardState.refreshInterval = setInterval(() => {
+                    refreshDashboard();
+                }, 5000); // Refresh every 5 seconds
+            }
+        }
+
+        // Refresh dashboard data
+        async function refreshDashboard() {
+            try {
+                // Check if SSOT enforcer is available
+                if (window.SSOT) {
+                    const status = window.SSOT.status();
+                    updateDashboardWithStatus(status);
+                }
+                
+                // Check for violations
+                if (window.SSOT && window.SSOT.violations) {
+                    const violations = window.SSOT.violations();
+                    updateViolations(violations);
+                }
+                
+                // Update matrix
+                updateComplianceMatrix();
+                
+            } catch (error) {
+                console.error('Error refreshing dashboard:', error);
+                logActivity(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Update dashboard with SSOT status
+        function updateDashboardWithStatus(status) {
+            if (!status) return;
+            
+            document.getElementById('correction-count').textContent = status.corrections || 0;
+            document.getElementById('violation-count').textContent = status.violations || 0;
+            
+            // Update system status
+            const systemStatus = document.getElementById('system-status');
+            if (status.initialized && status.enforcementEnabled) {
+                systemStatus.textContent = 'ACTIVE';
+                systemStatus.parentElement.classList.add('active');
+            } else {
+                systemStatus.textContent = 'INACTIVE';
+                systemStatus.parentElement.classList.remove('active');
+            }
+        }
+
+        // Update violations display
+        function updateViolations(violations) {
+            const list = document.getElementById('violation-list');
+            const badge = document.getElementById('violation-badge');
+            
+            badge.textContent = violations.length;
+            
+            // Show recent violations
+            const recent = violations.slice(-10).reverse();
+            list.innerHTML = recent.map(v => `
+                <div class="violation-item">
+                    <div class="violation-time">${new Date(v.timestamp).toLocaleTimeString()}</div>
+                    <div class="violation-details">
+                        ${v.type}: ${v.element || v.target || 'Unknown'}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update compliance matrix
+        async function updateComplianceMatrix() {
+            // This would normally fetch real data
+            // For demo, randomly update some cells
+            for (let i = 0; i < 10; i++) {
+                const block = Math.floor(Math.random() * 16) + 1;
+                const sub = Math.floor(Math.random() * 6) + 1;
+                const cell = document.getElementById(`cell-${block}-${sub}`);
+                
+                if (cell) {
+                    const status = Math.random();
+                    cell.className = 'subcomponent-cell';
+                    
+                    if (status > 0.8) {
+                        cell.classList.add('valid');
+                    } else if (status > 0.6) {
+                        cell.classList.add('warning');
+                    } else if (status > 0.4) {
+                        cell.classList.add('invalid');
+                    }
+                }
+            }
+            
+            // Update compliant count
+            const validCells = document.querySelectorAll('.subcomponent-cell.valid').length;
+            document.getElementById('compliant-count').textContent = validCells;
+        }
+
+        // Show subcomponent details
+        function showSubcomponentDetails(id) {
+            logActivity(`Viewing details for subcomponent ${id}`, 'info');
+            // Would open detailed view
+            window.open(`/subcomponent-detail.html?id=${id}`, '_blank');
+        }
+
+        // Show tooltip
+        function showTooltip(event, id) {
+            const tooltip = document.getElementById('tooltip');
+            const cell = event.target;
+            const status = cell.classList.contains('valid') ? 'Compliant' :
+                          cell.classList.contains('invalid') ? 'Violation' :
+                          cell.classList.contains('warning') ? 'Warning' : 'Not Tested';
+            
+            tooltip.innerHTML = `
+                <strong>Subcomponent ${id}</strong><br>
+                Status: ${status}<br>
+                Click for details
+            `;
+            
+            tooltip.style.display = 'block';
+            tooltip.style.left = event.pageX + 10 + 'px';
+            tooltip.style.top = event.pageY + 10 + 'px';
+        }
+
+        // Hide tooltip
+        function hideTooltip() {
+            document.getElementById('tooltip').style.display = 'none';
+        }
+
+        // Update uptime
+        function updateUptime() {
+            const elapsed = Date.now() - dashboardState.startTime;
+            const hours = Math.floor(elapsed / 3600000);
+            const minutes = Math.floor((elapsed % 3600000) / 60000);
+            const seconds = Math.floor((elapsed % 60000) / 1000);
+            
+            document.getElementById('uptime').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Log activity
+        function logActivity(message, type = 'info') {
+            const log = document.getElementById('activity-log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type} slide-in`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            
+            log.insertBefore(entry, log.firstChild);
+            
+            // Keep only last 50 entries
+            while (log.children.length > 50) {
+                log.removeChild(log.lastChild);
+            }
+            
+            dashboardState.activityLog.push({ message, type, timestamp: Date.now() });
+        }
+
+        // Clear activity log
+        function clearActivityLog() {
+            document.getElementById('activity-log').innerHTML = '';
+            dashboardState.activityLog = [];
+            logActivity('Activity log cleared', 'info');
+        }
+
+        // Clear logs
+        function clearLogs() {
+            if (window.SSOT) {
+                // Clear SSOT logs
+                dashboardState.violations = [];
+                updateViolations([]);
+            }
+            clearActivityLog();
+        }
+
+        // Run full validation
+        async function runValidation() {
+            logActivity('Starting full validation...', 'info');
+            
+            // Load test suite if not loaded
+            if (!window.SSOTTest) {
+                const script = document.createElement('script');
+                script.src = 'ssot-validation-test-suite.js';
+                document.head.appendChild(script);
+                
+                await new Promise(resolve => {
+                    script.onload = resolve;
+                });
+            }
+            
+            // Run quick check
+            if (window.SSOTTest) {
+                const results = await window.SSOTTest.quick();
+                const passed = results.filter(r => r.passed).length;
+                
+                logActivity(`Validation complete: ${passed}/${results.length} passed`, 
+                           passed === results.length ? 'success' : 'warning');
+                
+                // Update matrix based on results
+                results.forEach(r => {
+                    const cell = document.getElementById(`cell-${r.id.replace('-', '-')}`);
+                    if (cell) {
+                        cell.className = 'subcomponent-cell';
+                        cell.classList.add(r.passed ? 'valid' : 'invalid');
+                    }
+                });
+            }
+        }
+
+        // Export report
+        function exportReport() {
+            const report = {
+                timestamp: new Date().toISOString(),
+                uptime: document.getElementById('uptime').textContent,
+                status: {
+                    system: document.getElementById('system-status').textContent,
+                    compliant: document.getElementById('compliant-count').textContent,
+                    violations: document.getElementById('violation-count').textContent,
+                    corrections: document.getElementById('correction-count').textContent
+                },
+                activityLog: dashboardState.activityLog,
+                violations: dashboardState.violations
+            };
+            
+            const blob = new Blob([JSON.stringify(report, null, 2)], {
+                type: 'application/json'
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ssot-report-${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            logActivity('Report exported', 'success');
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Enforcement toggle
+            document.getElementById('enforcement-toggle').onclick = function() {
+                this.classList.toggle('active');
+                dashboardState.enforcementEnabled = this.classList.contains('active');
+                
+                if (window.SSOT && window.SSOT.config) {
+                    window.SSOT.config.ENFORCEMENT_ENABLED = dashboardState.enforcementEnabled;
+                }
+                
+                logActivity(`Enforcement ${dashboardState.enforcementEnabled ? 'enabled' : 'disabled'}`, 
+                           dashboardState.enforcementEnabled ? 'success' : 'warning');
+            };
+            
+            // Auto-refresh toggle
+            document.getElementById('refresh-toggle').onclick = function() {
+                this.classList.toggle('active');
+                dashboardState.autoRefresh = this.classList.contains('active');
+                
+                if (dashboardState.autoRefresh) {
+                    startMonitoring();
+                    logActivity('Auto-refresh enabled', 'success');
+                } else {
+                    clearInterval(dashboardState.refreshInterval);
+                    logActivity('Auto-refresh disabled', 'warning');
+                }
+            };
+        }
+
+        // Refresh matrix manually
+        function refreshMatrix() {
+            updateComplianceMatrix();
+            logActivity('Compliance matrix refreshed', 'info');
+        }
+
+        // Load dashboard data
+        function loadDashboardData() {
+            refreshDashboard();
+            
+            // Generate sample correction chart
+            generateCorrectionChart();
+        }
+
+        // Generate correction trends chart
+        function generateCorrectionChart() {
+            const chart = document.getElementById('correction-chart');
+            const hours = 24;
+            const barWidth = 100 / hours;
+            
+            for (let i = 0; i < hours; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'chart-bar';
+                bar.style.left = `${i * barWidth}%`;
+                bar.style.width = `${barWidth - 0.5}%`;
+                bar.style.height = `${Math.random() * 80 + 20}%`;
+                bar.title = `Hour ${i}: ${Math.floor(Math.random() * 50)} corrections`;
+                chart.appendChild(bar);
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>

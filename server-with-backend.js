@@ -6,13 +6,46 @@ const url = require('url');
 // Import our new services
 const FileGenerationService = require('./file-generation-service.js');
 const DatabaseService = require('./database-service.js');
+// UnifiedContentService is a browser-side script, not for server use
 
 // Initialize services
 const fileGenerator = new FileGenerationService();
 const database = new DatabaseService();
+// UnifiedContentService removed - it's a browser-side script
 
 // Load SSOT Registry - Single Source of Truth
-const { COMPLETE_SSOT_REGISTRY, getSubcomponent } = require('./core/complete-ssot-registry.js');
+let { COMPLETE_SSOT_REGISTRY, getSubcomponent } = require('./core/complete-ssot-registry.js');
+
+// Load enhanced use cases for Block 1
+const EnhancedUseCasesBlock1 = require('./enhanced-use-cases-block-1.js');
+
+// Load and apply use case enhancements to SSOT IMMEDIATELY
+const { enhanceSSOTWithUseCases, USE_CASES_DATA } = require('./ssot-use-cases-enhancer.js');
+
+// Apply enhancements at startup and get the enhanced registry
+const ENHANCED_SSOT_REGISTRY = enhanceSSOTWithUseCases();
+
+// Override with Block 1 enhanced content
+Object.keys(EnhancedUseCasesBlock1).forEach(subId => {
+    if (ENHANCED_SSOT_REGISTRY[subId]) {
+        ENHANCED_SSOT_REGISTRY[subId].education.useCases = EnhancedUseCasesBlock1[subId].useCases;
+        ENHANCED_SSOT_REGISTRY[subId].education.examples = EnhancedUseCasesBlock1[subId].useCases;
+        console.log(`✅ Applied enhanced use cases to ${subId}`);
+    }
+});
+
+console.log('✅ SSOT enhanced with detailed Block 1 use cases');
+
+// Override getSubcomponent to use enhanced registry
+const originalGetSubcomponent = getSubcomponent;
+getSubcomponent = function(id) {
+    // Use enhanced registry instead of original
+    if (ENHANCED_SSOT_REGISTRY[id]) {
+        return ENHANCED_SSOT_REGISTRY[id];
+    }
+    // Fallback to original
+    return originalGetSubcomponent(id);
+};
 
 // Load integrated agent library with correct mappings (for backward compatibility)
 const {
@@ -43,6 +76,7 @@ const { getTemplatesForSubcomponent } = require('./get-templates.js');
 console.log('🚀 Enhanced Server with Full Backend Loading...');
 console.log(`✅ File Generation Service: ${!!fileGenerator}`);
 console.log(`✅ Database Service: ${!!database}`);
+// UnifiedContentService is browser-side only
 console.log(`✅ Question generators loaded: ${!!AgentQuestionGenerator}`);
 console.log(`✅ Pre-generated questions available for ${Object.keys(agentGeneratedQuestions).length} subcomponents`);
 console.log(`✅ ST6Co company data loaded: ${testCompany.name}`);
@@ -615,6 +649,168 @@ const server = http.createServer(async (req, res) => {
         return;
     }
     
+    // ==================== UNIFIED CONTENT ROUTE ====================
+    
+    // Route: GET /api/unified-content/:subcomponentId
+    const unifiedContentMatch = pathname.match(/^\/api\/unified-content\/(.+)$/);
+    if (unifiedContentMatch && req.method === 'GET') {
+        const subcomponentId = unifiedContentMatch[1];
+        
+        try {
+            console.log(`🔄 Fetching unified content for ${subcomponentId}`);
+            const content = unifiedContentService.getContent(subcomponentId);
+            
+            // Add cache headers
+            res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+            res.setHeader('Pragma', 'no-cache');
+            res.setHeader('Expires', '0');
+            res.setHeader('ETag', unifiedContentService.getContentHash(content));
+            res.setHeader('X-Content-Version', content._metadata ? content._metadata.version : 'unknown');
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                content: content,
+                timestamp: Date.now()
+            }));
+        } catch (error) {
+            console.error(`Error fetching unified content for ${subcomponentId}:`, error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                success: false,
+                error: error.message,
+                subcomponentId
+            }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/validate-content/:subcomponentId
+    const validateContentMatch = pathname.match(/^\/api\/validate-content\/(.+)$/);
+    if (validateContentMatch && req.method === 'GET') {
+        const subcomponentId = validateContentMatch[1];
+        
+        try {
+            const content = unifiedContentService.getContent(subcomponentId);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                subcomponentId,
+                valid: content._metadata ? content._metadata.validated : false,
+                violations: content._metadata ? content._metadata.violations : [],
+                sources: content._metadata ? content._metadata.sources : []
+            }));
+        } catch (error) {
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                success: false,
+                error: error.message
+            }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/validate-all
+    if (pathname === '/api/validate-all' && req.method === 'GET') {
+        try {
+            const results = unifiedContentService.validateAllContent();
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify(results));
+        } catch (error) {
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                success: false,
+                error: error.message
+            }));
+        }
+        return;
+    }
+    
+    // Route: POST /api/clear-cache/:subcomponentId?
+    const clearCacheMatch = pathname.match(/^\/api\/clear-cache\/(.*)$/);
+    if (pathname.startsWith('/api/clear-cache') && req.method === 'POST') {
+        const subcomponentId = clearCacheMatch ? clearCacheMatch[1] : null;
+        
+        try {
+            unifiedContentService.clearCache(subcomponentId || null);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                message: subcomponentId ?
+                    `Cache cleared for ${subcomponentId}` :
+                    'All cache cleared'
+            }));
+        } catch (error) {
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                success: false,
+                error: error.message
+            }));
+        }
+        return;
+    }
+    
+    // ==================== REAL WORLD EXAMPLES API ROUTES ====================
+    
+    // Route: GET /api/real-world-examples/:subcomponentId
+    const realWorldMatch = pathname.match(/^\/api\/real-world-examples\/(.+)$/);
+    if (realWorldMatch && req.method === 'GET') {
+        const subcomponentId = realWorldMatch[1];
+        
+        try {
+            // Get examples from SSOT instead of getRealWorldExamples
+            const ssotData = getSubcomponent(subcomponentId);
+            const examples = ssotData.education.examples || [];
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                subcomponentId,
+                examples: examples,
+                hasExamples: examples.length > 0,
+                count: examples.length
+            }));
+        } catch (error) {
+            console.error(`Error fetching real world examples for ${subcomponentId}:`, error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                error: 'Failed to fetch real world examples',
+                subcomponentId
+            }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/real-world-examples-status
+    if (pathname === '/api/real-world-examples-status' && req.method === 'GET') {
+        try {
+            const RealWorldExamplesTracker = require('./real-world-examples-tracker.js');
+            const tracker = new RealWorldExamplesTracker();
+            const report = tracker.getStatusReport();
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify(report));
+        } catch (error) {
+            console.error('Error generating real world examples status:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({
+                error: 'Failed to generate status report',
+                message: error.message
+            }));
+        }
+        return;
+    }
+    
     // ==================== EXISTING API ROUTES ====================
     
     // Route: GET /api/blocks
@@ -777,10 +973,12 @@ const server = http.createServer(async (req, res) => {
                 description: ssotData.agent.description,
                 blockName: ssotData.blockName,
                 
-                // ✅ EDUCATION FROM SSOT
+                // ✅ EDUCATION FROM SSOT - Including Real World Examples
                 education: {
                     ...ssotData.education,
-                    examples: getRealWorldExamples(subcomponentId),
+                    // Include both use cases (rich format) and examples (backward compatibility)
+                    useCases: ssotData.education.useCases || ssotData.education.examples || [],
+                    examples: ssotData.education.examples || [],
                     agentInfo: {
                         name: ssotData.agent.name,
                         role: ssotData.agent.description,
@@ -788,6 +986,9 @@ const server = http.createServer(async (req, res) => {
                         criteria: ssotData.analysis.evaluationCriteria
                     }
                 },
+                
+                // ✅ REAL WORLD EXAMPLES - Use rich use cases from SSOT
+                realWorldExamples: ssotData.education.useCases || ssotData.education.examples || [],
                 
                 // ✅ WORKSPACE FROM SSOT
                 workspace: {

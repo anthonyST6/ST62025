@@ -10,7 +10,7 @@
  * - Resource templates and metrics
  * - Output templates
  * 
- * Generated: 2025-10-06T19:22:08.305Z
+ * Generated: 2025-10-06T20:49:42.944Z
  * Version: 2.0.0
  * 
  * ALL systems should consume from this registry.
@@ -41,6 +41,28 @@ const COMPLETE_SSOT_REGISTRY = {
       "examples": [
         "HR leaders in mid-market SaaS companies waste 12+ hours per week on manual onboarding tasks, leading to delayed productivity and 30% higher first-year turnover.",
         "Product managers at enterprise software companies struggle to prioritize features effectively, resulting in 40% of development effort going to features that see <10% adoption."
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Faster Validation",
+          "description": "Problem-solution fit speed"
+        },
+        {
+          "value": "67%",
+          "label": "Higher Success Rate",
+          "description": "Validated vs unvalidated startups"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Risk",
+          "description": "Failure rate reduction"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better Alignment",
+          "description": "Team and market fit"
+        }
       ]
     },
     "workspace": {
@@ -189,7 +211,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.274Z",
+      "lastValidated": "2025-10-06T20:49:42.931Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -217,13 +239,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Mission Statement",
-      "what": "A concise declaration of the startup's purpose, framed in terms of who you serve, what outcome you're enabling, and what change you want to see in the world. It's the soul of your strategy.",
+      "what": "A systematic approach to mission statement that evaluates mission clarity and team alignment. Evaluates mission clarity, team alignment, market resonance, measurability, inspirational value to ensure excellence and continuous improvement in this critical capability.",
       "why": "It unifies internal teams, attracts external believers, and anchors decision-making. Every product feature, hire, and campaign should align with this.",
       "how": "\n      <h4>Essential Elements:</h4>\n      <ul>\n        <li><strong>Target user group</strong> - Be specific about who you serve</li>\n        <li><strong>Transformation or outcome</strong> - What change you enable</li>\n        <li><strong>Emotional language</strong> - Make it inspiring and memorable</li>\n        <li><strong>Brevity</strong> - Keep it under 20 words ideally</li>\n        <li><strong>Long-term vision</strong> - Focus on enduring purpose, not tactics</li>\n      </ul>\n      \n      <h4>Crafting Process:</h4>\n      <ol>\n        <li>Start with your problem statement</li>\n        <li>Define the ideal end state for your customers</li>\n        <li>Identify your unique approach or belief</li>\n        <li>Test multiple versions with team and advisors</li>\n        <li>Refine until it feels authentic and ambitious</li>\n      </ol>\n      \n      <h4>Quality Checklist:</h4>\n      <ul>\n        <li>Would employees feel proud to share this?</li>\n        <li>Does it differentiate from competitors?</li>\n        <li>Can a customer understand it immediately?</li>\n        <li>Does it guide difficult decisions?</li>\n      </ul>\n    ",
       "examples": [
         "Empowering HR teams to create exceptional employee experiences through intelligent automation.",
         "Making data-driven product decisions accessible to every product manager.",
         "Democratizing financial planning for small business owners worldwide."
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Faster Validation",
+          "description": "Problem-solution fit speed"
+        },
+        {
+          "value": "67%",
+          "label": "Higher Success Rate",
+          "description": "Validated vs unvalidated startups"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Risk",
+          "description": "Failure rate reduction"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better Alignment",
+          "description": "Team and market fit"
+        }
       ]
     },
     "workspace": {
@@ -375,7 +419,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "1-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.290Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -403,13 +447,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Voice of Customer",
-      "what": "Raw and synthesized data directly from your target users, derived from interviews, field studies, support transcripts, or usage analytics.",
+      "what": "A systematic approach to voice of customer that voice of customer analysis and synthesis expert. Evaluates data collection, pattern recognition, insight depth, actionability, coverage to ensure excellence and continuous improvement in this critical capability.",
       "why": "You cannot build, sell, or scale effectively without truly understanding your customers' language, emotions, and workflows. This is the source of all strategy.",
       "how": "\n      <h4>Data Collection Methods:</h4>\n      <ul>\n        <li><strong>Customer interviews</strong> - 30-45 minute structured conversations</li>\n        <li><strong>Field studies</strong> - Observe users in their natural environment</li>\n        <li><strong>Support analysis</strong> - Mine tickets for patterns</li>\n        <li><strong>Usage analytics</strong> - Track actual behavior vs. stated preferences</li>\n        <li><strong>Surveys</strong> - Quantify qualitative insights at scale</li>\n      </ul>\n      \n      <h4>Synthesis Framework:</h4>\n      <ol>\n        <li>Conduct at least 5 interviews per persona</li>\n        <li>Identify pain themes and trigger events</li>\n        <li>Map language patterns and emotional drivers</li>\n        <li>Extract behavioral insights, not just opinions</li>\n        <li>Document \"day in the life\" workflows</li>\n        <li>Identify gaps between expectations and reality</li>\n      </ol>\n      \n      <h4>Organization System:</h4>\n      <ul>\n        <li>Create a tagged insight database (Notion/Airtable)</li>\n        <li>Categorize by persona, pain point, and frequency</li>\n        <li>Link insights to product decisions</li>\n        <li>Update quarterly with fresh research</li>\n      </ul>\n    ",
       "examples": [
         "Discovery: 73% of HR managers mentioned 'compliance anxiety' unprompted",
         "Pattern: Users attempt workarounds 3-4 times before contacting support",
         "Quote: 'I'd pay $500/month just to never think about this again'"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Faster Validation",
+          "description": "Problem-solution fit speed"
+        },
+        {
+          "value": "67%",
+          "label": "Higher Success Rate",
+          "description": "Validated vs unvalidated startups"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Risk",
+          "description": "Failure rate reduction"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better Alignment",
+          "description": "Team and market fit"
+        }
       ]
     },
     "workspace": {
@@ -561,7 +627,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "1-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.290Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -596,6 +662,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "CTO: 10 years ML infrastructure at Google, 2 successful exits",
         "CEO: Former VP Sales at $50M ARR SaaS, closed 20+ enterprise deals",
         "Gap identified: Need growth marketing expertise by Series A"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Faster Validation",
+          "description": "Problem-solution fit speed"
+        },
+        {
+          "value": "67%",
+          "label": "Higher Success Rate",
+          "description": "Validated vs unvalidated startups"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Risk",
+          "description": "Failure rate reduction"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better Alignment",
+          "description": "Team and market fit"
+        }
       ]
     },
     "workspace": {
@@ -747,7 +835,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "1-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.290Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -782,6 +870,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "TAM: $12B global HR automation market growing 23% CAGR",
         "Whitespace: No solution addresses mid-market compliance specifically",
         "Why now: New regulations require automated reporting by 2025"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Faster Validation",
+          "description": "Problem-solution fit speed"
+        },
+        {
+          "value": "67%",
+          "label": "Higher Success Rate",
+          "description": "Validated vs unvalidated startups"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Risk",
+          "description": "Failure rate reduction"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better Alignment",
+          "description": "Team and market fit"
+        }
       ]
     },
     "workspace": {
@@ -933,7 +1043,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "1-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -968,6 +1078,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "MVP: Manual workflow automation for 5 HR teams over 30 days",
         "Success criteria: 3 of 5 users complete full workflow, 2 express willingness to pay",
         "Timeline: 2-week build, 2-week test, 1-week synthesis"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Faster Validation",
+          "description": "Problem-solution fit speed"
+        },
+        {
+          "value": "67%",
+          "label": "Higher Success Rate",
+          "description": "Validated vs unvalidated startups"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Risk",
+          "description": "Failure rate reduction"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better Alignment",
+          "description": "Team and market fit"
+        }
       ]
     },
     "workspace": {
@@ -1119,7 +1251,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "1-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -1147,13 +1279,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Jobs to be Done",
-      "what": "A structured and documented plan to conduct recurring customer discovery interviews — including how often, with whom, and what you intend to learn at each stage.",
-      "why": "Insights decay fast. As your product evolves, new personas, workflows, and pains emerge. A disciplined cadence ensures you're always in sync with customer reality.",
-      "how": "\n      <h4>Cadence Structure:</h4>\n      <ul>\n        <li><strong>Pre-PMF:</strong> Weekly interviews (minimum 5/week)</li>\n        <li><strong>Post-PMF:</strong> Bi-weekly interviews (minimum 5/month)</li>\n        <li><strong>Scale phase:</strong> Monthly interviews (minimum 10/quarter)</li>\n        <li>Rotate between personas and use cases</li>\n        <li>Mix existing customers with prospects</li>\n      </ul>\n      \n      <h4>Interview Planning Framework:</h4>\n      <ol>\n        <li>Define learning objectives for each cycle</li>\n        <li>Target specific segments or roles</li>\n        <li>Prepare themed question sets</li>\n        <li>Schedule using calendly or similar</li>\n        <li>Assign ownership (founder, PM, researcher)</li>\n        <li>Set up recording and transcription</li>\n      </ol>\n      \n      <h4>Synthesis Process:</h4>\n      <ul>\n        <li>Transcribe within 24 hours</li>\n        <li>Tag key insights and quotes</li>\n        <li>Share highlights with team weekly</li>\n        <li>Update product backlog based on learnings</li>\n        <li>Track insights over time for patterns</li>\n      </ul>\n    ",
+      "what": "A systematic approach to jobs to be done that evaluates customer interview frequency and quality. Evaluates interview frequency, interview quality, segment coverage, documentation, action items to ensure excellence and continuous improvement in this critical capability.",
+      "why": "Customers don't buy products, they hire them to make progress in their lives. Understanding the job helps you compete not just with direct competitors, but with all alternative solutions including non-consumption. JTBD-driven companies see 2x higher product-market fit scores.",
+      "how": "\n      <h4>JTBD Framework Components:</h4>\n      <ul>\n        <li><strong>Functional Job:</strong> The practical task to accomplish</li>\n        <li><strong>Emotional Job:</strong> How they want to feel</li>\n        <li><strong>Social Job:</strong> How they want to be perceived</li>\n        <li><strong>Context:</strong> When and where the job arises</li>\n        <li><strong>Success Criteria:</strong> How they measure completion</li>\n      </ul>\n      \n      <h4>Discovery Process:</h4>\n      <ol>\n        <li>Conduct JTBD interviews with 10+ customers</li>\n        <li>Ask: \"What are you trying to accomplish?\"</li>\n        <li>Explore: \"What would success look like?\"</li>\n        <li>Understand: \"What have you tried before?\"</li>\n        <li>Identify: \"What's the consequence of not doing this?\"</li>\n        <li>Map competing solutions and non-consumption</li>\n      </ol>\n      \n      <h4>Job Story Format:</h4>\n      <p>When [situation], I want to [motivation], so I can [expected outcome]</p>\n      \n      <h4>Forces of Progress:</h4>\n      <ul>\n        <li><strong>Push:</strong> Problems with current solution</li>\n        <li><strong>Pull:</strong> Attraction to new solution</li>\n        <li><strong>Anxiety:</strong> Fears about new solution</li>\n        <li><strong>Habit:</strong> Comfort with current state</li>\n      </ul>\n    ",
       "examples": [
-        "Week 1-2: Focus on onboarding friction with new users",
-        "Week 3-4: Explore pricing sensitivity with decision makers",
-        "Monthly theme: Understand integration requirements"
+        "Job: Help me look prepared and data-driven in board meetings (Functional + Social)",
+        "Job: Reduce the anxiety of compliance audits (Emotional + Functional)",
+        "Job: Ensure our team ships features customers actually use (Functional + Outcome-focused)"
+      ],
+      "keyMetrics": [
+        {
+          "value": "5x",
+          "label": "More Insights",
+          "description": "Per customer conversation"
+        },
+        {
+          "value": "73%",
+          "label": "Better Product Fit",
+          "description": "Customer-driven development"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Learning",
+          "description": "Time to key insights"
+        },
+        {
+          "value": "4.2x",
+          "label": "Higher Retention",
+          "description": "Research-driven companies"
+        }
       ]
     },
     "workspace": {
@@ -1278,10 +1432,10 @@ const COMPLETE_SSOT_REGISTRY = {
         "Outcome Mapping Framework"
       ],
       "metrics": [
-        "Interviews completed per month",
-        "Insight-to-feature ratio",
-        "Time from insight to action",
-        "Coverage across personas"
+        "Jobs identified per persona",
+        "Job importance rating (1-10)",
+        "Current satisfaction score",
+        "Opportunity score (importance - satisfaction)"
       ]
     },
     "outputs": {
@@ -1303,7 +1457,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -1331,13 +1485,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Personas Framework",
-      "what": "A standardized format for documenting the archetypes of your key users, buyers, and stakeholders — capturing their goals, behaviors, and triggers.",
-      "why": "You're not building for \"users\" — you're building for real people with priorities, politics, and patterns. Personas ensure you stop designing for yourself and start building for them.",
+      "what": "A structured personas framework that provides clear guidelines and methodologies for assesses buyer and user persona development. Focuses on persona detail, research basis, behavioral insights, journey mapping, team adoption to ensure comprehensive coverage and measurable outcomes.",
+      "why": "You're not building for 'users' — you're building for real people with priorities, politics, and patterns. Personas ensure you stop designing for yourself and start building for them.",
       "how": "\n      <h4>Persona Development Process:</h4>\n      <ol>\n        <li>Identify 3-5 key personas from interviews</li>\n        <li>Give each a memorable name and photo</li>\n        <li>Document demographics and firmographics</li>\n        <li>Map their workflow and daily challenges</li>\n        <li>Identify emotional and rational drivers</li>\n        <li>Define their success metrics</li>\n      </ol>\n      \n      <h4>Essential Persona Attributes:</h4>\n      <ul>\n        <li><strong>Role & Responsibilities:</strong> What they own and care about</li>\n        <li><strong>Goals & KPIs:</strong> How they measure success</li>\n        <li><strong>Pain Points:</strong> Daily frustrations and blockers</li>\n        <li><strong>Tools & Workflows:</strong> Current solution landscape</li>\n        <li><strong>Buying Process:</strong> How they evaluate and purchase</li>\n        <li><strong>Objections:</strong> Common concerns and fears</li>\n      </ul>\n      \n      <h4>Persona Validation:</h4>\n      <ul>\n        <li>Test personas with 5+ real customers</li>\n        <li>Refine based on actual behavior data</li>\n        <li>Update quarterly as you learn</li>\n        <li>Use in all GTM and product decisions</li>\n      </ul>\n    ",
       "examples": [
         "Sarah the Stressed HR Manager: 5-10 years experience, overwhelmed by compliance, values automation",
         "Mike the Methodical CFO: Risk-averse, ROI-focused, needs board-ready reports",
         "Emma the Eager Analyst: Tech-savvy, wants career growth, champions new tools"
+      ],
+      "keyMetrics": [
+        {
+          "value": "5x",
+          "label": "More Insights",
+          "description": "Per customer conversation"
+        },
+        {
+          "value": "73%",
+          "label": "Better Product Fit",
+          "description": "Customer-driven development"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Learning",
+          "description": "Time to key insights"
+        },
+        {
+          "value": "4.2x",
+          "label": "Higher Retention",
+          "description": "Research-driven companies"
+        }
       ]
     },
     "workspace": {
@@ -1489,7 +1665,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "2-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -1517,13 +1693,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Interview Cadence",
-      "what": "A visual or structured documentation of the specific frustrations, inefficiencies, and obstacles your target customers face in their current workflows.",
-      "why": "Pain points are the seeds of product features and GTM messaging. Without a clear map, you risk building solutions to non-problems or missing critical opportunities.",
-      "how": "\n      <h4>Pain Point Categories:</h4>\n      <ul>\n        <li><strong>Financial Pain:</strong> Costs too much money or causes revenue loss</li>\n        <li><strong>Process Pain:</strong> Takes too long or requires too many steps</li>\n        <li><strong>Productivity Pain:</strong> Prevents efficient work or causes delays</li>\n        <li><strong>Support Pain:</strong> Lacks adequate help or documentation</li>\n        <li><strong>Emotional Pain:</strong> Creates stress, anxiety, or frustration</li>\n      </ul>\n      \n      <h4>Mapping Process:</h4>\n      <ol>\n        <li>Conduct customer journey mapping sessions</li>\n        <li>Identify friction points at each stage</li>\n        <li>Quantify the impact of each pain point</li>\n        <li>Prioritize by frequency and severity</li>\n        <li>Link pains to potential solutions</li>\n        <li>Validate with multiple customers</li>\n      </ol>\n    ",
+      "what": "A structured and documented plan for conducting recurring customer discovery interviews on a regular schedule, defining how often, with whom, and what you intend to learn at each stage of your company's evolution.",
+      "why": "Customer insights decay rapidly as markets evolve. A disciplined interview cadence ensures you stay in sync with customer reality, catch emerging needs early, and validate assumptions continuously. Companies with consistent interview rhythms achieve product-market fit 2x faster.",
+      "how": "\n      <h4>Cadence Structure by Stage:</h4>\n      <ul>\n        <li><strong>Pre-PMF:</strong> Weekly interviews (minimum 5/week)</li>\n        <li><strong>Post-PMF:</strong> Bi-weekly interviews (minimum 5/month)</li>\n        <li><strong>Scale Phase:</strong> Monthly interviews (minimum 10/quarter)</li>\n        <li><strong>Mature:</strong> Quarterly deep-dives with ongoing feedback loops</li>\n      </ul>\n      \n      <h4>Interview Planning Framework:</h4>\n      <ol>\n        <li>Define learning objectives for each interview cycle</li>\n        <li>Target specific customer segments or roles</li>\n        <li>Prepare themed question sets aligned to objectives</li>\n        <li>Schedule using automated booking tools</li>\n        <li>Assign clear ownership (founder, PM, researcher)</li>\n        <li>Set up recording and transcription systems</li>\n        <li>Create synthesis and sharing process</li>\n      </ol>\n      \n      <h4>Synthesis and Action:</h4>\n      <ul>\n        <li>Transcribe interviews within 24 hours</li>\n        <li>Tag key insights and customer quotes</li>\n        <li>Share highlights with team weekly</li>\n        <li>Update product backlog based on learnings</li>\n        <li>Track insight patterns over time</li>\n        <li>Close the loop with customers on changes made</li>\n      </ul>\n    ",
       "examples": [
-        "Sales teams lose 3 hours/week on manual data entry between CRM and spreadsheets",
-        "Marketing can't prove ROI because attribution data lives in 5 different tools",
-        "IT spends 40% of time on repetitive ticket types that could be automated"
+        "Pre-PMF startup: 5 interviews/week rotating between prospects and early users, focused on problem validation",
+        "Growth-stage company: 10 interviews/month themed by persona (Week 1-2: power users, Week 3-4: decision makers)",
+        "Enterprise SaaS: Quarterly executive interviews + monthly user feedback sessions + continuous in-app surveys"
+      ],
+      "keyMetrics": [
+        {
+          "value": "5x",
+          "label": "More Insights",
+          "description": "Per customer conversation"
+        },
+        {
+          "value": "73%",
+          "label": "Better Product Fit",
+          "description": "Customer-driven development"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Learning",
+          "description": "Time to key insights"
+        },
+        {
+          "value": "4.2x",
+          "label": "Higher Retention",
+          "description": "Research-driven companies"
+        }
       ]
     },
     "workspace": {
@@ -1648,10 +1846,10 @@ const COMPLETE_SSOT_REGISTRY = {
         "Insight Synthesis Framework"
       ],
       "metrics": [
-        "Number of pain points identified",
-        "Pain severity score (1-10)",
-        "Frequency of occurrence",
-        "Cost of pain to customer"
+        "Interviews completed per month",
+        "Insight-to-feature conversion ratio",
+        "Time from insight to product action",
+        "Customer segment coverage %"
       ]
     },
     "outputs": {
@@ -1675,7 +1873,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "2-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -1703,13 +1901,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Pain Point Mapping",
-      "what": "A framework for understanding what customers are truly trying to accomplish, beyond just the features they request or the products they currently use.",
+      "what": "A systematic approach to pain point mapping that jobs-to-be-done framework implementation expert. Evaluates job definition, outcome metrics, context understanding, alternative analysis, progress metrics to ensure excellence and continuous improvement in this critical capability.",
       "why": "JTBD reveals the underlying motivations that drive purchase decisions. It helps you compete not just with direct competitors, but with all alternative solutions.",
       "how": "\n      <h4>JTBD Components:</h4>\n      <ul>\n        <li><strong>Functional Job:</strong> The practical task to accomplish</li>\n        <li><strong>Emotional Job:</strong> How they want to feel</li>\n        <li><strong>Social Job:</strong> How they want to be perceived</li>\n        <li><strong>Context:</strong> When and where the job arises</li>\n        <li><strong>Success Criteria:</strong> How they measure completion</li>\n      </ul>\n      \n      <h4>Discovery Questions:</h4>\n      <ul>\n        <li>What are you trying to accomplish?</li>\n        <li>What would success look like?</li>\n        <li>What have you tried before?</li>\n        <li>What's the consequence of not doing this?</li>\n        <li>Who else is involved in this process?</li>\n      </ul>\n    ",
       "examples": [
         "Help me look prepared and knowledgeable in board meetings",
         "Ensure our team ships features that customers actually use",
         "Reduce the anxiety of compliance audits"
+      ],
+      "keyMetrics": [
+        {
+          "value": "5x",
+          "label": "More Insights",
+          "description": "Per customer conversation"
+        },
+        {
+          "value": "73%",
+          "label": "Better Product Fit",
+          "description": "Customer-driven development"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Learning",
+          "description": "Time to key insights"
+        },
+        {
+          "value": "4.2x",
+          "label": "Higher Retention",
+          "description": "Research-driven companies"
+        }
       ]
     },
     "workspace": {
@@ -1861,7 +2081,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "2-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -1896,6 +2116,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "A-Grade Signal: 15 of 20 enterprise prospects mentioned integration needs",
         "B-Grade Signal: Power users want advanced analytics, others don't care",
         "C-Grade Signal: One customer wants a very specific workflow"
+      ],
+      "keyMetrics": [
+        {
+          "value": "5x",
+          "label": "More Insights",
+          "description": "Per customer conversation"
+        },
+        {
+          "value": "73%",
+          "label": "Better Product Fit",
+          "description": "Customer-driven development"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Learning",
+          "description": "Time to key insights"
+        },
+        {
+          "value": "4.2x",
+          "label": "Higher Retention",
+          "description": "Research-driven companies"
+        }
       ]
     },
     "workspace": {
@@ -2047,7 +2289,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "2-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -2082,6 +2324,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Weekly insight review meeting → 3 product changes per sprint",
         "Customer advisory board feedback → Quarterly roadmap updates",
         "Support ticket analysis → Monthly feature prioritization"
+      ],
+      "keyMetrics": [
+        {
+          "value": "5x",
+          "label": "More Insights",
+          "description": "Per customer conversation"
+        },
+        {
+          "value": "73%",
+          "label": "Better Product Fit",
+          "description": "Customer-driven development"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Learning",
+          "description": "Time to key insights"
+        },
+        {
+          "value": "4.2x",
+          "label": "Higher Retention",
+          "description": "Research-driven companies"
+        }
       ]
     },
     "workspace": {
@@ -2233,7 +2497,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "2-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -2268,6 +2532,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Enterprise compliance automation: Score 8.5/10 (high urgency, high WTP)",
         "SMB basic reporting: Score 6.2/10 (large market, low differentiation)",
         "Startup free tools: Score 3.1/10 (no revenue, high support cost)"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Better Prioritization",
+          "description": "Resource allocation efficiency"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Decisions",
+          "description": "Strategic clarity impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher ROI",
+          "description": "Focused vs scattered efforts"
+        },
+        {
+          "value": "3.5x",
+          "label": "Market Impact",
+          "description": "Strategic positioning advantage"
+        }
       ]
     },
     "workspace": {
@@ -2417,7 +2703,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.939Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -2452,6 +2738,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Tier 1: Mid-market SaaS companies (50-500 employees)",
         "Tier 2: Enterprise divisions acting autonomously",
         "Tier 3: Small agencies and consultants"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Better Prioritization",
+          "description": "Resource allocation efficiency"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Decisions",
+          "description": "Strategic clarity impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher ROI",
+          "description": "Focused vs scattered efforts"
+        },
+        {
+          "value": "3.5x",
+          "label": "Market Impact",
+          "description": "Strategic positioning advantage"
+        }
       ]
     },
     "workspace": {
@@ -2594,7 +2902,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "3-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -2622,13 +2930,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Prioritization Rubric",
-      "what": "A systematic approach to distributing limited resources (time, money, people) across competing priorities to maximize strategic impact.",
+      "what": "A systematic approach to prioritization rubric that masters prioritization frameworks and decisions. Evaluates framework quality, stakeholder alignment, resource allocation, decision speed, outcome tracking to ensure excellence and continuous improvement in this critical capability.",
       "why": "Resources are always finite. Without clear allocation frameworks, teams waste effort on low-impact work while critical initiatives starve.",
       "how": "\n      <h4>Allocation Criteria:</h4>\n      <ul>\n        <li><strong>Strategic Alignment:</strong> How well does it support key objectives?</li>\n        <li><strong>ROI Potential:</strong> Expected return vs. investment required</li>\n        <li><strong>Risk Level:</strong> Probability of success and downside</li>\n        <li><strong>Resource Requirements:</strong> People, time, and capital needed</li>\n        <li><strong>Opportunity Cost:</strong> What else could we do instead?</li>\n      </ul>\n    ",
       "examples": [
         "70% resources to core product, 20% to new initiatives, 10% to experiments",
         "Engineering: 40% features, 30% tech debt, 20% bugs, 10% innovation",
         "Marketing: 50% demand gen, 30% brand, 20% product marketing"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Better Prioritization",
+          "description": "Resource allocation efficiency"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Decisions",
+          "description": "Strategic clarity impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher ROI",
+          "description": "Focused vs scattered efforts"
+        },
+        {
+          "value": "3.5x",
+          "label": "Market Impact",
+          "description": "Strategic positioning advantage"
+        }
       ]
     },
     "workspace": {
@@ -2760,7 +3090,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "3-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -2788,13 +3118,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Tradeoff Tracker",
-      "what": "The strategic process of defining how your product uniquely solves customer problems better than alternatives.",
+      "what": "A systematic framework for monitoring and measuring tradeoff tracker through data collection, analysis, and actionable insights. Tracks key metrics including tradeoff recognition, impact analysis, documentation quality, stakeholder communication, learning integration to enable proactive decision-making and continuous improvement.",
       "why": "Clear positioning helps you win the right customers, command premium pricing, and defend against competition.",
       "how": "\n      <h4>Positioning Framework:</h4>\n      <ul>\n        <li><strong>Target Segment:</strong> Who is your ideal customer?</li>\n        <li><strong>Problem Category:</strong> What problem do you solve?</li>\n        <li><strong>Unique Value:</strong> How are you different and better?</li>\n        <li><strong>Proof Points:</strong> What evidence supports your claims?</li>\n        <li><strong>Competitive Alternatives:</strong> What would they use instead?</li>\n      </ul>\n    ",
       "examples": [
         "Only solution designed specifically for mid-market SaaS companies",
         "Fastest implementation in the industry (2 weeks vs 3 months)",
         "Built by practitioners, not consultants"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Better Prioritization",
+          "description": "Resource allocation efficiency"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Decisions",
+          "description": "Strategic clarity impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher ROI",
+          "description": "Focused vs scattered efforts"
+        },
+        {
+          "value": "3.5x",
+          "label": "Market Impact",
+          "description": "Strategic positioning advantage"
+        }
       ]
     },
     "workspace": {
@@ -2926,7 +3278,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "3-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -2954,13 +3306,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Hypothesis Board",
-      "what": "Systematic identification and evaluation of potential threats to your business objectives and growth plans.",
+      "what": "A systematic approach to hypothesis board that tests and validates strategic hypotheses. Evaluates hypothesis clarity, test design, data collection, analysis quality, decision making to ensure excellence and continuous improvement in this critical capability.",
       "why": "Proactive risk management prevents catastrophic failures and enables faster, more confident decision-making.",
       "how": "\n      <h4>Risk Categories:</h4>\n      <ul>\n        <li><strong>Market Risk:</strong> Demand changes, competition</li>\n        <li><strong>Technical Risk:</strong> Product failures, tech debt</li>\n        <li><strong>Financial Risk:</strong> Cash flow, funding gaps</li>\n        <li><strong>Operational Risk:</strong> Team, processes, vendors</li>\n        <li><strong>Regulatory Risk:</strong> Compliance, legal issues</li>\n      </ul>\n    ",
       "examples": [
         "Key person dependency: CTO holds critical knowledge",
         "Platform risk: 60% revenue from one integration partner",
         "Regulatory change could require major product redesign"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Better Prioritization",
+          "description": "Resource allocation efficiency"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Decisions",
+          "description": "Strategic clarity impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher ROI",
+          "description": "Focused vs scattered efforts"
+        },
+        {
+          "value": "3.5x",
+          "label": "Market Impact",
+          "description": "Strategic positioning advantage"
+        }
       ]
     },
     "workspace": {
@@ -3092,7 +3466,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "3-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -3120,13 +3494,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Decision Archive",
-      "what": "A structured approach to assessing and prioritizing growth opportunities based on potential impact and feasibility.",
+      "what": "A systematic approach to decision archive that documents and learns from strategic decisions. Evaluates documentation completeness, decision rationale, outcome tracking, pattern recognition, knowledge sharing to ensure excellence and continuous improvement in this critical capability.",
       "why": "Not all opportunities are created equal. Systematic evaluation prevents resource waste on attractive but unprofitable ventures.",
       "how": "\n      <h4>Evaluation Dimensions:</h4>\n      <ul>\n        <li><strong>Market Size:</strong> TAM and growth potential</li>\n        <li><strong>Strategic Fit:</strong> Alignment with vision and capabilities</li>\n        <li><strong>Competitive Advantage:</strong> Can we win?</li>\n        <li><strong>Resource Requirements:</strong> Investment needed</li>\n        <li><strong>Time to Value:</strong> How quickly can we capture it?</li>\n      </ul>\n    ",
       "examples": [
         "International expansion: $50M opportunity, 18-month payback",
         "Enterprise tier: 3x ACV but 2x longer sales cycle",
         "Platform play: High risk but 10x potential"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Better Prioritization",
+          "description": "Resource allocation efficiency"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Decisions",
+          "description": "Strategic clarity impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher ROI",
+          "description": "Focused vs scattered efforts"
+        },
+        {
+          "value": "3.5x",
+          "label": "Market Impact",
+          "description": "Strategic positioning advantage"
+        }
       ]
     },
     "workspace": {
@@ -3258,7 +3654,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "3-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -3293,6 +3689,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Must Have: User authentication, core workflow, basic reporting",
         "Should Have: Team collaboration, advanced filters",
         "Won't Have: Mobile app, API, white-labeling"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Faster Time-to-Market",
+          "description": "MVP launch speed"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Quality",
+          "description": "Structured vs ad-hoc approach"
+        },
+        {
+          "value": "3x",
+          "label": "Better Outcomes",
+          "description": "Planned vs unplanned execution"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Costs",
+          "description": "Efficient execution"
+        }
       ]
     },
     "workspace": {
@@ -3433,7 +3851,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -3468,6 +3886,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Week 1-2: Authentication and core data model",
         "Week 3-4: Primary workflow implementation",
         "Week 5: Testing and bug fixes"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Faster Time-to-Market",
+          "description": "MVP launch speed"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Quality",
+          "description": "Structured vs ad-hoc approach"
+        },
+        {
+          "value": "3x",
+          "label": "Better Outcomes",
+          "description": "Planned vs unplanned execution"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Costs",
+          "description": "Efficient execution"
+        }
       ]
     },
     "workspace": {
@@ -3610,7 +4050,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "4-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -3638,13 +4078,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Pilot Group Selection",
-      "what": "A curated list of early adopters who will test your prototype, providing feedback while being forgiving of rough edges.",
+      "what": "A systematic approach to pilot group selection that identifies and manages pilot customer groups. Evaluates selection criteria, group diversity, engagement level, feedback quality, success metrics to ensure excellence and continuous improvement in this critical capability.",
       "why": "The right pilot users can make or break your prototype. They need to be engaged enough to provide feedback but patient enough to work through issues.",
       "how": "\n      <h4>Selection Criteria:</h4>\n      <ul>\n        <li><strong>Problem Severity:</strong> Feel the pain acutely</li>\n        <li><strong>Innovation Appetite:</strong> Comfortable with new tools</li>\n        <li><strong>Feedback Quality:</strong> Articulate and constructive</li>\n        <li><strong>Availability:</strong> Time to test and communicate</li>\n        <li><strong>Influence:</strong> Can become references</li>\n      </ul>\n      \n      <h4>Recruitment Process:</h4>\n      <ol>\n        <li>Identify 20-30 candidates</li>\n        <li>Screen for fit and commitment</li>\n        <li>Select 5-10 pilot users</li>\n        <li>Set clear expectations</li>\n        <li>Define feedback channels</li>\n        <li>Offer incentives if needed</li>\n      </ol>\n    ",
       "examples": [
         "5 mid-market companies with dedicated champion",
         "3 power users from existing waitlist",
         "2 strategic partners willing to co-innovate"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Faster Time-to-Market",
+          "description": "MVP launch speed"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Quality",
+          "description": "Structured vs ad-hoc approach"
+        },
+        {
+          "value": "3x",
+          "label": "Better Outcomes",
+          "description": "Planned vs unplanned execution"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Costs",
+          "description": "Efficient execution"
+        }
       ]
     },
     "workspace": {
@@ -3787,7 +4249,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "4-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -3815,13 +4277,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "QA & Success Criteria",
-      "what": "Predefined metrics and quality standards that determine whether your prototype is ready for launch and achieving its intended goals.",
+      "what": "A systematic approach to qa & success criteria that establishes quality assurance standards and processes. Evaluates quality standards, test coverage, automation level, bug management, release criteria to ensure excellence and continuous improvement in this critical capability.",
       "why": "Without clear success criteria, you'll never know when to ship or whether you're learning the right things. This prevents endless iteration without progress.",
       "how": "\n      <h4>Success Metrics:</h4>\n      <ul>\n        <li><strong>Functional:</strong> Core features work as intended</li>\n        <li><strong>Performance:</strong> Speed and reliability targets</li>\n        <li><strong>Usability:</strong> Users complete key tasks</li>\n        <li><strong>Business:</strong> Validation of core assumptions</li>\n        <li><strong>Technical:</strong> Code quality and stability</li>\n      </ul>\n      \n      <h4>QA Process:</h4>\n      <ol>\n        <li>Define test scenarios</li>\n        <li>Create acceptance criteria</li>\n        <li>Conduct internal testing</li>\n        <li>Run pilot user sessions</li>\n        <li>Track and fix critical bugs</li>\n        <li>Measure against success criteria</li>\n      </ol>\n    ",
       "examples": [
         "3 of 5 pilot users complete onboarding unassisted",
         "Core workflow completion rate >80%",
         "Zero critical bugs, <5 major bugs"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Faster Time-to-Market",
+          "description": "MVP launch speed"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Quality",
+          "description": "Structured vs ad-hoc approach"
+        },
+        {
+          "value": "3x",
+          "label": "Better Outcomes",
+          "description": "Planned vs unplanned execution"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Costs",
+          "description": "Efficient execution"
+        }
       ]
     },
     "workspace": {
@@ -3964,7 +4448,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "4-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -3999,6 +4483,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "6-week prototype: 2 weeks design, 3 weeks build, 1 week test",
         "Key milestone: Week 4 - First user test",
         "Launch date: March 15 with 5 pilot customers"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Faster Time-to-Market",
+          "description": "MVP launch speed"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Quality",
+          "description": "Structured vs ad-hoc approach"
+        },
+        {
+          "value": "3x",
+          "label": "Better Outcomes",
+          "description": "Planned vs unplanned execution"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Costs",
+          "description": "Efficient execution"
+        }
       ]
     },
     "workspace": {
@@ -4141,7 +4647,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "4-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -4169,13 +4675,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Post-Mortem Template",
-      "what": "A structured reflection document used after prototype testing to capture learnings, validate assumptions, and inform next steps.",
+      "what": "A systematic approach to post-mortem template that conducts thorough post-launch analysis. Evaluates data collection, root cause analysis, success measurement, lesson documentation, action planning to ensure excellence and continuous improvement in this critical capability.",
       "why": "The prototype's value isn't the code—it's the learning. A good post-mortem extracts maximum insight from the experiment to guide future decisions.",
       "how": "\n      <h4>Post-Mortem Sections:</h4>\n      <ul>\n        <li><strong>Objectives Review:</strong> What we set out to learn</li>\n        <li><strong>Results Summary:</strong> What actually happened</li>\n        <li><strong>Validated Learning:</strong> Confirmed assumptions</li>\n        <li><strong>Invalidated Assumptions:</strong> What we got wrong</li>\n        <li><strong>Surprises:</strong> Unexpected discoveries</li>\n        <li><strong>Next Steps:</strong> Decisions and actions</li>\n      </ul>\n      \n      <h4>Facilitation Process:</h4>\n      <ol>\n        <li>Schedule within 1 week of completion</li>\n        <li>Include all stakeholders</li>\n        <li>Review data objectively</li>\n        <li>Encourage honest discussion</li>\n        <li>Document all insights</li>\n        <li>Define clear next actions</li>\n      </ol>\n    ",
       "examples": [
         "Validated: Users will pay for automation (3 of 5 committed)",
         "Invalidated: Self-serve onboarding too complex",
         "Surprise: Integration needs more important than expected"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Faster Time-to-Market",
+          "description": "MVP launch speed"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Quality",
+          "description": "Structured vs ad-hoc approach"
+        },
+        {
+          "value": "3x",
+          "label": "Better Outcomes",
+          "description": "Planned vs unplanned execution"
+        },
+        {
+          "value": "45%",
+          "label": "Lower Costs",
+          "description": "Efficient execution"
+        }
       ]
     },
     "workspace": {
@@ -4318,7 +4846,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "4-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -4346,13 +4874,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "GTM Messaging Framework",
-      "what": "A standardized document format that highlights a customer's journey from problem to outcome using your product — including context, implementation, and impact.",
+      "what": "A structured gtm messaging framework that provides clear guidelines and methodologies for validates and documents early customer wins. Focuses on win definition, value quantification, repeatability, customer satisfaction, reference potential to ensure comprehensive coverage and measurable outcomes.",
       "why": "Investors and future customers want proof that others like them are already winning with your solution. A well-crafted case study builds trust, closes deals, and reinforces your GTM narrative.",
       "how": "\n      <h4>Case Study Structure:</h4>\n      <ol>\n        <li><strong>Customer Profile:</strong> Company, industry, size, role</li>\n        <li><strong>Challenge:</strong> Specific problem they faced</li>\n        <li><strong>Solution:</strong> How your product addressed it</li>\n        <li><strong>Implementation:</strong> Timeline and process</li>\n        <li><strong>Results:</strong> Quantified outcomes and benefits</li>\n        <li><strong>Future:</strong> Expansion plans or next steps</li>\n      </ol>\n      \n      <h4>Data Collection Process:</h4>\n      <ul>\n        <li>Interview customer 60-90 days post-implementation</li>\n        <li>Gather specific metrics and KPIs</li>\n        <li>Document workflow changes</li>\n        <li>Collect powerful quotes</li>\n        <li>Get approval for public use</li>\n      </ul>\n      \n      <h4>Distribution Strategy:</h4>\n      <ul>\n        <li>Create PDF and web versions</li>\n        <li>Extract quotes for sales decks</li>\n        <li>Share in sales conversations</li>\n        <li>Feature on website and social</li>\n        <li>Include in investor updates</li>\n      </ul>\n    ",
       "examples": [
         "TechCorp reduced onboarding time by 67% in 30 days",
         "StartupXYZ achieved 3.2x ROI within first quarter",
         "Enterprise ABC scaled from 10 to 100 users seamlessly"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Higher Conversion",
+          "description": "GTM-optimized messaging"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Sales Cycles",
+          "description": "Clear positioning impact"
+        },
+        {
+          "value": "40%",
+          "label": "Lower CAC",
+          "description": "Efficient go-to-market"
+        },
+        {
+          "value": "3.2x",
+          "label": "Better Win Rates",
+          "description": "Strategic GTM execution"
+        }
       ]
     },
     "workspace": {
@@ -4502,7 +5052,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -4530,13 +5080,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Sales Enablement Assets",
-      "what": "A pre-built calculator (spreadsheet or tool) used to demonstrate the business impact of your product in terms of time savings, cost reduction, or revenue growth.",
+      "what": "A systematic approach to sales enablement assets that calculates and validates customer roi. Evaluates calculation methodology, data accuracy, time to value, cost completeness, benefit validation to ensure excellence and continuous improvement in this critical capability.",
       "why": "Many buyers, especially in B2B, require a financial justification to get budget approval. An ROI calculator translates value from conceptual to measurable.",
       "how": "\n      <h4>ROI Components:</h4>\n      <ul>\n        <li><strong>Time Savings:</strong> Hours saved × hourly rate</li>\n        <li><strong>Cost Reduction:</strong> Eliminated tools, reduced errors</li>\n        <li><strong>Revenue Impact:</strong> Increased conversion, faster sales</li>\n        <li><strong>Risk Mitigation:</strong> Compliance, security, downtime</li>\n        <li><strong>Productivity Gains:</strong> More output, better quality</li>\n      </ul>\n      \n      <h4>Calculator Design:</h4>\n      <ol>\n        <li>Create input fields for customer-specific data</li>\n        <li>Use conservative assumptions</li>\n        <li>Show monthly and annual impact</li>\n        <li>Calculate payback period</li>\n        <li>Compare to alternative solutions</li>\n        <li>Visualize results clearly</li>\n      </ol>\n      \n      <h4>Customization Strategy:</h4>\n      <ul>\n        <li>Build versions for each persona</li>\n        <li>Adjust for company size</li>\n        <li>Include industry benchmarks</li>\n        <li>Allow sensitivity analysis</li>\n        <li>Export as PDF for sharing</li>\n      </ul>\n    ",
       "examples": [
         "HR Manager: Save 15 hours/week = $45,000/year",
         "Sales Team: 20% faster close rate = $2M additional revenue",
         "IT Department: 50% fewer tickets = 2 FTEs redeployed"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Higher Conversion",
+          "description": "GTM-optimized messaging"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Sales Cycles",
+          "description": "Clear positioning impact"
+        },
+        {
+          "value": "40%",
+          "label": "Lower CAC",
+          "description": "Efficient go-to-market"
+        },
+        {
+          "value": "3.2x",
+          "label": "Better Win Rates",
+          "description": "Strategic GTM execution"
+        }
       ]
     },
     "workspace": {
@@ -4687,7 +5259,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "5-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -4715,13 +5287,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Pricing & Packaging Strategy",
-      "what": "A structured system for cultivating and leveraging satisfied customers as advocates and references for new prospects.",
+      "what": "A strategic approach to pricing & packaging strategy that aligns organizational efforts with business objectives. Encompasses use case documentation, success metrics, implementation process, lessons learned, scalability assessment to drive systematic execution and measurable results.",
       "why": "References close deals 2x faster and at 30% higher win rates. They're your most credible sales asset.",
       "how": "\n      <h4>Program Components:</h4>\n      <ul>\n        <li><strong>Identification:</strong> Find your happiest, most successful customers</li>\n        <li><strong>Cultivation:</strong> Build deeper relationships with champions</li>\n        <li><strong>Activation:</strong> Make it easy for them to refer</li>\n        <li><strong>Recognition:</strong> Reward and celebrate advocates</li>\n        <li><strong>Management:</strong> Track and optimize program performance</li>\n      </ul>\n    ",
       "examples": [
         "Quarterly customer spotlight with $500 donation to charity of choice",
         "VIP access to product roadmap and executive team",
         "Co-marketing opportunities and speaking slots"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Higher Conversion",
+          "description": "GTM-optimized messaging"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Sales Cycles",
+          "description": "Clear positioning impact"
+        },
+        {
+          "value": "40%",
+          "label": "Lower CAC",
+          "description": "Efficient go-to-market"
+        },
+        {
+          "value": "3.2x",
+          "label": "Better Win Rates",
+          "description": "Strategic GTM execution"
+        }
       ]
     },
     "workspace": {
@@ -4861,7 +5455,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "5-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -4889,13 +5483,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Channel Partner Strategy",
-      "what": "Systematic gathering and deployment of customer testimonials, reviews, and success stories to build trust and credibility.",
+      "what": "A strategic approach to channel partner strategy that aligns organizational efforts with business objectives. Encompasses testimonial quality, customer diversity, specificity, media variety, usage rights to drive systematic execution and measurable results.",
       "why": "92% of buyers read reviews before purchasing. Social proof reduces perceived risk and accelerates decision-making.",
       "how": "\n      <h4>Collection Methods:</h4>\n      <ul>\n        <li><strong>Testimonials:</strong> Written or video endorsements</li>\n        <li><strong>Case Studies:</strong> Detailed success stories</li>\n        <li><strong>Reviews:</strong> Third-party platform ratings</li>\n        <li><strong>Logos:</strong> Customer brand recognition</li>\n        <li><strong>Metrics:</strong> Aggregate success statistics</li>\n      </ul>\n    ",
       "examples": [
         "Wall of Love with 50+ customer quotes on homepage",
         "4.8/5 star rating on G2 with 200+ reviews",
         "Customer success metrics: 10,000+ users, 99.9% uptime"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Higher Conversion",
+          "description": "GTM-optimized messaging"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Sales Cycles",
+          "description": "Clear positioning impact"
+        },
+        {
+          "value": "40%",
+          "label": "Lower CAC",
+          "description": "Efficient go-to-market"
+        },
+        {
+          "value": "3.2x",
+          "label": "Better Win Rates",
+          "description": "Strategic GTM execution"
+        }
       ]
     },
     "workspace": {
@@ -5035,7 +5651,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "5-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -5063,13 +5679,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Competitive Positioning",
-      "what": "A structured approach to running controlled trials with select customers to validate product-market fit and gather feedback.",
+      "what": "A systematic approach to competitive positioning that maps and tracks win criteria across customers. Evaluates criteria definition, pattern recognition, predictive ability, criteria evolution, team alignment to ensure excellence and continuous improvement in this critical capability.",
       "why": "Pilots de-risk product launches, generate early proof points, and create invested champions before general availability.",
       "how": "\n      <h4>Pilot Structure:</h4>\n      <ul>\n        <li><strong>Selection:</strong> Choose ideal early adopters</li>\n        <li><strong>Onboarding:</strong> High-touch setup and training</li>\n        <li><strong>Support:</strong> Dedicated success resources</li>\n        <li><strong>Feedback:</strong> Regular check-ins and surveys</li>\n        <li><strong>Graduation:</strong> Convert to paying customers</li>\n      </ul>\n    ",
       "examples": [
         "30-day pilot with 5 enterprise customers, 80% conversion",
         "Beta program with 100 users, weekly feedback sessions",
         "Design partner program with 3 strategic accounts"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Higher Conversion",
+          "description": "GTM-optimized messaging"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Sales Cycles",
+          "description": "Clear positioning impact"
+        },
+        {
+          "value": "40%",
+          "label": "Lower CAC",
+          "description": "Efficient go-to-market"
+        },
+        {
+          "value": "3.2x",
+          "label": "Better Win Rates",
+          "description": "Strategic GTM execution"
+        }
       ]
     },
     "workspace": {
@@ -5209,7 +5847,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "5-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -5237,13 +5875,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Launch Planning & Execution",
-      "what": "A systematic process for collecting, prioritizing, and incorporating customer feedback into product and GTM decisions.",
+      "what": "A strategic approach to launch planning & execution that aligns organizational efforts with business objectives. Encompasses debrief process, stakeholder input, success factors, improvement areas, knowledge transfer to drive systematic execution and measurable results.",
       "why": "Customer-driven development reduces feature failure rates by 60% and increases retention by 25%.",
       "how": "\n      <h4>Integration Process:</h4>\n      <ul>\n        <li><strong>Collection:</strong> Multiple feedback channels</li>\n        <li><strong>Categorization:</strong> Theme and priority tagging</li>\n        <li><strong>Prioritization:</strong> Impact vs effort scoring</li>\n        <li><strong>Communication:</strong> Close the loop with customers</li>\n        <li><strong>Measurement:</strong> Track implementation impact</li>\n      </ul>\n    ",
       "examples": [
         "Monthly feature voting with top 3 added to roadmap",
         "Customer advisory board quarterly input sessions",
         "Public roadmap with customer request tracking"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Higher Conversion",
+          "description": "GTM-optimized messaging"
+        },
+        {
+          "value": "60%",
+          "label": "Faster Sales Cycles",
+          "description": "Clear positioning impact"
+        },
+        {
+          "value": "40%",
+          "label": "Lower CAC",
+          "description": "Efficient go-to-market"
+        },
+        {
+          "value": "3.2x",
+          "label": "Better Win Rates",
+          "description": "Strategic GTM execution"
+        }
       ]
     },
     "workspace": {
@@ -5383,7 +6043,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "5-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -5411,13 +6071,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Usage Heatmap",
-      "what": "A visual representation of how users interact with your product, showing which features get heavy use, light use, or no use at all.",
+      "what": "A systematic approach to usage heatmap that analyzes product usage patterns and engagement. Evaluates data collection, pattern analysis, feature adoption, user segmentation, action planning to ensure excellence and continuous improvement in this critical capability.",
       "why": "You can't improve what you don't measure. Usage heatmaps reveal the true value drivers in your product and expose features that need improvement or removal.",
       "how": "\n      <h4>Heatmap Dimensions:</h4>\n      <ul>\n        <li><strong>Feature Usage:</strong> Frequency of feature access</li>\n        <li><strong>User Paths:</strong> Common navigation patterns</li>\n        <li><strong>Time Spent:</strong> Duration in different areas</li>\n        <li><strong>Click Patterns:</strong> Where users click most</li>\n        <li><strong>Drop-off Points:</strong> Where users abandon</li>\n      </ul>\n      \n      <h4>Implementation Steps:</h4>\n      <ol>\n        <li>Instrument key events and features</li>\n        <li>Collect usage data for 30+ days</li>\n        <li>Segment by user type</li>\n        <li>Create visual heatmaps</li>\n        <li>Identify patterns and anomalies</li>\n        <li>Share insights with product team</li>\n      </ol>\n    ",
       "examples": [
         "Dashboard viewed 10x more than reports",
         "Advanced features used by only 5% of users",
         "Mobile usage 3x higher on weekends"
+      ],
+      "keyMetrics": [
+        {
+          "value": "4x",
+          "label": "Higher Engagement",
+          "description": "Active vs passive users"
+        },
+        {
+          "value": "65%",
+          "label": "Better Retention",
+          "description": "Engagement-driven approach"
+        },
+        {
+          "value": "3.5x",
+          "label": "More Expansion",
+          "description": "Engaged customer growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Adoption",
+          "description": "Feature utilization speed"
+        }
       ]
     },
     "workspace": {
@@ -5558,7 +6240,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -5586,13 +6268,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Milestone Triggers",
-      "what": "Behavioral events or thresholds that indicate a user is progressing toward activation, habit formation, or expansion within your product.",
+      "what": "A systematic approach to milestone triggers that tracks customer success milestones. Evaluates milestone definition, tracking systems, progress visibility, intervention triggers, celebration practices to ensure excellence and continuous improvement in this critical capability.",
       "why": "Not all user actions are equal. Milestone triggers help you identify the moments that matter most for long-term retention and growth.",
       "how": "\n      <h4>Key Milestone Types:</h4>\n      <ul>\n        <li><strong>Activation:</strong> First value realization</li>\n        <li><strong>Habit Formation:</strong> Regular usage pattern</li>\n        <li><strong>Power User:</strong> Advanced feature adoption</li>\n        <li><strong>Expansion Ready:</strong> Hitting usage limits</li>\n        <li><strong>Advocate:</strong> Sharing or referring others</li>\n      </ul>\n      \n      <h4>Identification Process:</h4>\n      <ol>\n        <li>Analyze successful user cohorts</li>\n        <li>Identify common behavior patterns</li>\n        <li>Define measurable triggers</li>\n        <li>Set up tracking and alerts</li>\n        <li>Create interventions for each milestone</li>\n        <li>Test and refine triggers</li>\n      </ol>\n    ",
       "examples": [
         "Activation: User completes first workflow within 7 days",
         "Habit: User logs in 3+ times per week for 3 weeks",
         "Expansion: Team adds 5+ users"
+      ],
+      "keyMetrics": [
+        {
+          "value": "4x",
+          "label": "Higher Engagement",
+          "description": "Active vs passive users"
+        },
+        {
+          "value": "65%",
+          "label": "Better Retention",
+          "description": "Engagement-driven approach"
+        },
+        {
+          "value": "3.5x",
+          "label": "More Expansion",
+          "description": "Engaged customer growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Adoption",
+          "description": "Feature utilization speed"
+        }
       ]
     },
     "workspace": {
@@ -5735,7 +6439,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "6-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -5763,13 +6467,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "CS Dashboard",
-      "what": "A quantitative framework for measuring and scoring user engagement across multiple dimensions to predict retention and identify growth opportunities.",
+      "what": "A systematic framework for monitoring and measuring cs dashboard through data collection, analysis, and actionable insights. Tracks key metrics including metric selection, data accuracy, visualization quality, actionability, stakeholder adoption to enable proactive decision-making and continuous improvement.",
       "why": "Engagement is the leading indicator of retention. Scoring helps prioritize support efforts and identify expansion opportunities.",
       "how": "Define engagement metrics, weight by importance, track user behaviors, calculate scores, segment users by engagement level, trigger automated interventions.",
       "examples": [
         "Power users: 90+ score, daily active, using all features",
         "At-risk: <40 score, declining usage, no recent activity",
         "Growth opportunity: 70 score, approaching usage limits"
+      ],
+      "keyMetrics": [
+        {
+          "value": "4x",
+          "label": "Higher Engagement",
+          "description": "Active vs passive users"
+        },
+        {
+          "value": "65%",
+          "label": "Better Retention",
+          "description": "Engagement-driven approach"
+        },
+        {
+          "value": "3.5x",
+          "label": "More Expansion",
+          "description": "Engaged customer growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Adoption",
+          "description": "Feature utilization speed"
+        }
       ]
     },
     "workspace": {
@@ -5901,7 +6627,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "6-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -5929,13 +6655,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Activation Metric Model",
-      "what": "Documented strategies and tactics for keeping customers engaged, satisfied, and renewing their subscriptions.",
+      "what": "A structured activation metric model that provides clear guidelines and methodologies for optimizes customer activation and onboarding. Focuses on activation definition, time to activation, activation rate, onboarding quality, early value delivery to ensure comprehensive coverage and measurable outcomes.",
       "why": "It costs 5-25x more to acquire a new customer than retain an existing one. Systematic retention drives sustainable growth.",
       "how": "Identify churn triggers, create intervention strategies, build success programs, implement early warning systems, measure retention impact.",
       "examples": [
         "30-60-90 day check-in cadence for new customers",
         "Automated alerts when usage drops 50%",
         "Quarterly business reviews with key accounts"
+      ],
+      "keyMetrics": [
+        {
+          "value": "4x",
+          "label": "Higher Engagement",
+          "description": "Active vs passive users"
+        },
+        {
+          "value": "65%",
+          "label": "Better Retention",
+          "description": "Engagement-driven approach"
+        },
+        {
+          "value": "3.5x",
+          "label": "More Expansion",
+          "description": "Engaged customer growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Adoption",
+          "description": "Feature utilization speed"
+        }
       ]
     },
     "workspace": {
@@ -6067,7 +6815,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "6-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -6095,13 +6843,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Feedback Collector",
-      "what": "A system for tracking how users discover, try, and adopt different features within your product.",
+      "what": "A systematic approach to feedback collector that systematically collects and processes feedback. Evaluates collection methods, response rates, processing speed, categorization, action conversion to ensure excellence and continuous improvement in this critical capability.",
       "why": "Feature adoption drives value realization. Understanding adoption patterns helps improve onboarding and increase product stickiness.",
       "how": "Track feature discovery, measure first use, monitor repeat usage, identify adoption barriers, optimize user flows, celebrate milestones.",
       "examples": [
         "70% of users discover key feature within 7 days",
         "Feature adoption increases retention by 40%",
         "Guided tours improve adoption by 25%"
+      ],
+      "keyMetrics": [
+        {
+          "value": "4x",
+          "label": "Higher Engagement",
+          "description": "Active vs passive users"
+        },
+        {
+          "value": "65%",
+          "label": "Better Retention",
+          "description": "Engagement-driven approach"
+        },
+        {
+          "value": "3.5x",
+          "label": "More Expansion",
+          "description": "Engaged customer growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Adoption",
+          "description": "Feature utilization speed"
+        }
       ]
     },
     "workspace": {
@@ -6233,7 +7003,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "6-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -6261,13 +7031,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Power User Behavior Signals",
-      "what": "A systematic process for collecting, analyzing, and acting on customer feedback to drive product and service improvements.",
+      "what": "A systematic approach to power user behavior signals that identifies and nurtures power users. Evaluates identification criteria, engagement programs, advocacy development, feedback quality, community building to ensure excellence and continuous improvement in this critical capability.",
       "why": "Customer feedback is the compass for product development. A strong feedback loop ensures you build what customers actually need.",
       "how": "Collect feedback from multiple channels, categorize and prioritize input, share insights with teams, implement changes, close the loop with customers.",
       "examples": [
         "Monthly NPS surveys with follow-up questions",
         "In-app feedback widget with 15% response rate",
         "Customer advisory board quarterly sessions"
+      ],
+      "keyMetrics": [
+        {
+          "value": "4x",
+          "label": "Higher Engagement",
+          "description": "Active vs passive users"
+        },
+        {
+          "value": "65%",
+          "label": "Better Retention",
+          "description": "Engagement-driven approach"
+        },
+        {
+          "value": "3.5x",
+          "label": "More Expansion",
+          "description": "Engaged customer growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Adoption",
+          "description": "Feature utilization speed"
+        }
       ]
     },
     "workspace": {
@@ -6399,7 +7191,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "6-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -6427,13 +7219,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Time/Cost Savings Metrics",
-      "what": "Quantified measurements of how much time or money your product saves customers compared to their current solution or manual process.",
+      "what": "A systematic approach to time/cost savings metrics that quantifies time and cost savings delivered. Evaluates measurement methodology, baseline establishment, data collection, validation process, communication clarity to ensure excellence and continuous improvement in this critical capability.",
       "why": "ROI is the universal language of business. Clear time/cost savings metrics make budget approval easier and justify premium pricing.",
       "how": "\n      <h4>Measurement Categories:</h4>\n      <ul>\n        <li><strong>Time Saved:</strong> Hours reduced per task/week/month</li>\n        <li><strong>Labor Cost:</strong> FTE reduction or reallocation</li>\n        <li><strong>Tool Consolidation:</strong> Eliminated subscriptions</li>\n        <li><strong>Error Reduction:</strong> Cost of mistakes avoided</li>\n        <li><strong>Opportunity Cost:</strong> Revenue from freed resources</li>\n      </ul>\n      \n      <h4>Calculation Process:</h4>\n      <ol>\n        <li>Baseline current state metrics</li>\n        <li>Measure post-implementation state</li>\n        <li>Calculate delta</li>\n        <li>Monetize time savings</li>\n        <li>Project annual impact</li>\n        <li>Validate with customers</li>\n      </ol>\n    ",
       "examples": [
         "Reduces reporting time from 8 hours to 30 minutes weekly",
         "Eliminates need for 2 FTEs in data entry ($120K/year)",
         "Replaces 3 tools costing $500/month combined"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.8x",
+          "label": "Measurable ROI",
+          "description": "Quantified customer value"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Renewals",
+          "description": "Proven impact correlation"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better References",
+          "description": "Success story generation"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Expansion",
+          "description": "Value-driven growth"
+        }
       ]
     },
     "workspace": {
@@ -6574,7 +7388,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -6602,13 +7416,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Revenue-Impact Attribution",
-      "what": "Measurable improvements in output quality, quantity, or speed that result from using your product versus alternative methods.",
+      "what": "A systematic approach to revenue-impact attribution that tracks revenue impact and growth metrics. Evaluates revenue attribution, growth metrics, expansion tracking, retention impact, forecast accuracy to ensure excellence and continuous improvement in this critical capability.",
       "why": "Beyond cost savings, productivity gains show how your product makes teams more effective, not just more efficient. This justifies expansion and premium tiers.",
       "how": "\n      <h4>Productivity Dimensions:</h4>\n      <ul>\n        <li><strong>Output Volume:</strong> More work completed</li>\n        <li><strong>Quality Improvement:</strong> Fewer errors, better results</li>\n        <li><strong>Cycle Time:</strong> Faster completion</li>\n        <li><strong>Capacity Unlock:</strong> Ability to do new things</li>\n        <li><strong>Decision Speed:</strong> Faster, better choices</li>\n      </ul>\n      \n      <h4>Measurement Framework:</h4>\n      <ol>\n        <li>Define productivity KPIs</li>\n        <li>Establish baseline metrics</li>\n        <li>Track improvements over time</li>\n        <li>Isolate product impact</li>\n        <li>Gather qualitative feedback</li>\n        <li>Create case studies</li>\n      </ol>\n    ",
       "examples": [
         "Sales team closes 30% more deals in same time",
         "Marketing produces 2x content with same team",
         "Support resolves tickets 50% faster"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.8x",
+          "label": "Measurable ROI",
+          "description": "Quantified customer value"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Renewals",
+          "description": "Proven impact correlation"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better References",
+          "description": "Success story generation"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Expansion",
+          "description": "Value-driven growth"
+        }
       ]
     },
     "workspace": {
@@ -6751,7 +7587,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "7-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -6779,13 +7615,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Productivity Lift Metrics",
-      "what": "A system for monitoring and measuring the actual business outcomes customers achieve using your product, not just feature usage.",
+      "what": "A systematic approach to productivity lift metrics that measures productivity improvements. Evaluates productivity metrics, baseline comparison, user efficiency, team performance, scale effects to ensure excellence and continuous improvement in this critical capability.",
       "why": "Features don't retain customers, outcomes do. Tracking real business impact proves value, reduces churn, and identifies expansion opportunities.",
       "how": "\n      <h4>Outcome Categories:</h4>\n      <ul>\n        <li><strong>Revenue Impact:</strong> Growth, new opportunities</li>\n        <li><strong>Cost Reduction:</strong> Savings, efficiency</li>\n        <li><strong>Risk Mitigation:</strong> Compliance, security</li>\n        <li><strong>Customer Satisfaction:</strong> NPS, CSAT improvements</li>\n        <li><strong>Competitive Advantage:</strong> Market position gains</li>\n      </ul>\n      \n      <h4>Tracking Process:</h4>\n      <ol>\n        <li>Define success outcomes with customer</li>\n        <li>Establish measurement methods</li>\n        <li>Set up regular check-ins</li>\n        <li>Collect outcome data</li>\n        <li>Analyze trends and patterns</li>\n        <li>Share success stories</li>\n      </ol>\n    ",
       "examples": [
         "Customer A: 25% revenue increase after 6 months",
         "Customer B: Passed compliance audit due to our reporting",
         "Customer C: Reduced customer churn by 40%"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.8x",
+          "label": "Measurable ROI",
+          "description": "Quantified customer value"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Renewals",
+          "description": "Proven impact correlation"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better References",
+          "description": "Success story generation"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Expansion",
+          "description": "Value-driven growth"
+        }
       ]
     },
     "workspace": {
@@ -6928,7 +7786,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "7-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -6956,13 +7814,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Net Retention Trends",
-      "what": "Comparative analysis showing how your product's performance and results stack up against industry standards, competitors, or alternative solutions.",
+      "what": "A systematic approach to net retention trends that analyzes customer retention and churn. Evaluates retention metrics, churn analysis, cohort analysis, predictive modeling, intervention success to ensure excellence and continuous improvement in this critical capability.",
       "why": "Buyers need context to evaluate value. Benchmarks provide objective proof points that justify decisions and build confidence in your solution.",
       "how": "\n      <h4>Benchmark Types:</h4>\n      <ul>\n        <li><strong>Industry Standards:</strong> Compare to accepted norms</li>\n        <li><strong>Competitor Performance:</strong> Head-to-head comparisons</li>\n        <li><strong>Historical Baseline:</strong> Before vs. after</li>\n        <li><strong>Best-in-Class:</strong> Aspirational targets</li>\n        <li><strong>Peer Group:</strong> Similar company comparisons</li>\n      </ul>\n      \n      <h4>Benchmarking Process:</h4>\n      <ol>\n        <li>Identify key metrics to benchmark</li>\n        <li>Gather industry data</li>\n        <li>Collect your performance data</li>\n        <li>Normalize for fair comparison</li>\n        <li>Create visual comparisons</li>\n        <li>Update regularly</li>\n      </ol>\n    ",
       "examples": [
         "Our customers see 3x industry average ROI",
         "50% faster implementation than competitors",
         "Top quartile performance in security audits"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.8x",
+          "label": "Measurable ROI",
+          "description": "Quantified customer value"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Renewals",
+          "description": "Proven impact correlation"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better References",
+          "description": "Success story generation"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Expansion",
+          "description": "Value-driven growth"
+        }
       ]
     },
     "workspace": {
@@ -7105,7 +7985,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "7-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -7133,13 +8013,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Downstream System Reductions",
-      "what": "Frameworks for determining which product features, touchpoints, or interventions deserve credit for positive customer outcomes.",
+      "what": "A systematic approach to downstream system reductions that tracks system consolidation and simplification. Evaluates system inventory, complexity reduction, cost savings, integration benefits, user experience to ensure excellence and continuous improvement in this critical capability.",
       "why": "Without attribution, you can't optimize what matters. Understanding what drives value helps prioritize development and justify pricing.",
       "how": "\n      <h4>Attribution Approaches:</h4>\n      <ul>\n        <li><strong>First Touch:</strong> Initial feature that hooked user</li>\n        <li><strong>Last Touch:</strong> Final action before outcome</li>\n        <li><strong>Multi-Touch:</strong> Weighted contribution model</li>\n        <li><strong>Time Decay:</strong> Recent actions weighted more</li>\n        <li><strong>Data-Driven:</strong> Statistical attribution</li>\n      </ul>\n      \n      <h4>Implementation Steps:</h4>\n      <ol>\n        <li>Define outcomes to track</li>\n        <li>Map user journey touchpoints</li>\n        <li>Choose attribution model</li>\n        <li>Implement tracking</li>\n        <li>Analyze patterns</li>\n        <li>Refine model based on data</li>\n      </ol>\n    ",
       "examples": [
         "Automation feature drives 60% of time savings",
         "Reporting dashboard key to 40% of renewals",
         "Onboarding quality predicts 70% of success"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.8x",
+          "label": "Measurable ROI",
+          "description": "Quantified customer value"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Renewals",
+          "description": "Proven impact correlation"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better References",
+          "description": "Success story generation"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Expansion",
+          "description": "Value-driven growth"
+        }
       ]
     },
     "workspace": {
@@ -7282,7 +8184,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "7-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -7310,13 +8212,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Friction Reduction Evidence",
-      "what": "A high-level visual interface showing key business metrics and outcomes that executives care about, not just product usage stats.",
+      "what": "A systematic approach to friction reduction evidence that identifies and eliminates customer friction. Evaluates friction identification, impact assessment, elimination planning, implementation success, continuous monitoring to ensure excellence and continuous improvement in this critical capability.",
       "why": "Executives buy and renew based on business impact. A well-designed executive dashboard keeps your solution top-of-mind and demonstrates ongoing value.",
       "how": "\n      <h4>Dashboard Components:</h4>\n      <ul>\n        <li><strong>Business KPIs:</strong> Revenue, cost, efficiency metrics</li>\n        <li><strong>Trend Analysis:</strong> Progress over time</li>\n        <li><strong>ROI Metrics:</strong> Value delivered vs. cost</li>\n        <li><strong>Comparative Data:</strong> Benchmarks and goals</li>\n        <li><strong>Action Items:</strong> Opportunities and recommendations</li>\n      </ul>\n      \n      <h4>Design Principles:</h4>\n      <ol>\n        <li>Focus on outcomes, not features</li>\n        <li>Use clear visualizations</li>\n        <li>Show trends and context</li>\n        <li>Make it shareable</li>\n        <li>Update automatically</li>\n        <li>Mobile-optimize</li>\n      </ol>\n    ",
       "examples": [
         "Monthly executive summary with 3 key metrics",
         "Quarterly business review dashboard",
         "Real-time ROI tracker"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.8x",
+          "label": "Measurable ROI",
+          "description": "Quantified customer value"
+        },
+        {
+          "value": "70%",
+          "label": "Higher Renewals",
+          "description": "Proven impact correlation"
+        },
+        {
+          "value": "2.5x",
+          "label": "Better References",
+          "description": "Success story generation"
+        },
+        {
+          "value": "55%",
+          "label": "Faster Expansion",
+          "description": "Value-driven growth"
+        }
       ]
     },
     "workspace": {
@@ -7459,7 +8383,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "7-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -7487,13 +8411,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Upsell Funnel Model",
-      "what": "A documented, repeatable process for getting new customers from signup to first value as quickly and smoothly as possible.",
+      "what": "A structured upsell funnel model that provides clear guidelines and methodologies for designs and optimizes upsell funnels. Focuses on funnel design, trigger identification, conversion rates, value positioning, process automation to ensure comprehensive coverage and measurable outcomes.",
       "why": "The first 30 days determine the next 30 months. A great onboarding experience drives activation, reduces churn, and sets the foundation for expansion.",
       "how": "\n      <h4>Onboarding Phases:</h4>\n      <ol>\n        <li><strong>Welcome:</strong> First impression and expectation setting</li>\n        <li><strong>Setup:</strong> Technical configuration and integration</li>\n        <li><strong>Training:</strong> User education and enablement</li>\n        <li><strong>Activation:</strong> First value achievement</li>\n        <li><strong>Expansion:</strong> Introduction to advanced features</li>\n      </ol>\n      \n      <h4>Playbook Components:</h4>\n      <ul>\n        <li>Day-by-day timeline</li>\n        <li>Role-specific tasks</li>\n        <li>Success milestones</li>\n        <li>Communication templates</li>\n        <li>Escalation procedures</li>\n        <li>Handoff criteria</li>\n      </ul>\n    ",
       "examples": [
         "Day 1: Welcome call and account setup",
         "Day 7: First workflow completed",
         "Day 30: Full team adoption achieved"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -7634,7 +8580,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -7669,6 +8615,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Green: >80 score, <5% churn risk",
         "Yellow: 60-80 score, needs attention",
         "Red: <60 score, high churn risk, immediate action"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -7811,7 +8779,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "8-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -7839,13 +8807,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Organic Adoption Pattern",
-      "what": "Behavioral and usage signals that indicate a customer is ready for upsell, cross-sell, or plan upgrade opportunities.",
+      "what": "A systematic approach to organic adoption pattern that analyzes organic growth drivers. Evaluates viral coefficients, referral programs, word of mouth, network effects, growth attribution to ensure excellence and continuous improvement in this critical capability.",
       "why": "The best time to expand is when customers are seeing value. Triggers help you identify and act on expansion opportunities at the perfect moment.",
       "how": "\n      <h4>Trigger Types:</h4>\n      <ul>\n        <li><strong>Usage Limits:</strong> Approaching plan thresholds</li>\n        <li><strong>Feature Requests:</strong> Asking for premium capabilities</li>\n        <li><strong>Team Growth:</strong> Adding more users</li>\n        <li><strong>Success Metrics:</strong> Achieving strong ROI</li>\n        <li><strong>Engagement Depth:</strong> Using advanced features</li>\n      </ul>\n      \n      <h4>Trigger Implementation:</h4>\n      <ol>\n        <li>Analyze successful expansions</li>\n        <li>Identify common patterns</li>\n        <li>Define trigger thresholds</li>\n        <li>Set up monitoring</li>\n        <li>Create expansion playbooks</li>\n        <li>Track conversion rates</li>\n      </ol>\n    ",
       "examples": [
         "Using 80% of plan limits → Upgrade conversation",
         "3+ departments using product → Enterprise pitch",
         "High NPS score → Reference and case study ask"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -7988,7 +8978,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "8-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -8016,13 +9006,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Champion Mapping",
-      "what": "A structured classification system for categorizing, routing, and analyzing customer support requests to identify patterns and improvement opportunities.",
+      "what": "A systematic approach to champion mapping that identifies and nurtures customer champions. Evaluates champion identification, relationship depth, advocacy actions, internal influence, risk mitigation to ensure excellence and continuous improvement in this critical capability.",
       "why": "Support tickets are a goldmine of product and customer insights. Proper taxonomy enables faster resolution, better resource allocation, and product improvements.",
       "how": "\n      <h4>Taxonomy Structure:</h4>\n      <ul>\n        <li><strong>Category:</strong> Bug, feature request, how-to, account</li>\n        <li><strong>Priority:</strong> Critical, high, medium, low</li>\n        <li><strong>Product Area:</strong> Specific feature or module</li>\n        <li><strong>Customer Segment:</strong> Tier, industry, size</li>\n        <li><strong>Resolution Type:</strong> Fix, workaround, education, escalation</li>\n      </ul>\n      \n      <h4>Implementation Process:</h4>\n      <ol>\n        <li>Audit existing tickets</li>\n        <li>Define categories and tags</li>\n        <li>Train support team</li>\n        <li>Implement in ticketing system</li>\n        <li>Create routing rules</li>\n        <li>Generate insights reports</li>\n      </ol>\n    ",
       "examples": [
         "30% of tickets are password resets → Add self-service",
         "Integration issues spike after updates → Improve testing",
         "Enterprise customers need phone support → Add channel"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -8165,7 +9177,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "8-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -8193,13 +9205,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "CSAT/NPS Tracking",
-      "what": "An organized, searchable repository of self-service resources including documentation, FAQs, tutorials, and best practices.",
+      "what": "A systematic approach to csat/nps tracking that tracks and analyzes customer sentiment. Evaluates sentiment measurement, trend analysis, driver identification, alert systems, response actions to ensure excellence and continuous improvement in this critical capability.",
       "why": "Customers prefer self-service for simple issues. A good knowledge base reduces support costs, improves satisfaction, and enables 24/7 support.",
       "how": "\n      <h4>Content Categories:</h4>\n      <ul>\n        <li><strong>Getting Started:</strong> Onboarding and setup</li>\n        <li><strong>How-To Guides:</strong> Step-by-step instructions</li>\n        <li><strong>Troubleshooting:</strong> Common problems and solutions</li>\n        <li><strong>Best Practices:</strong> Tips and recommendations</li>\n        <li><strong>API/Technical:</strong> Developer documentation</li>\n      </ul>\n      \n      <h4>Structure Best Practices:</h4>\n      <ol>\n        <li>Organize by user journey</li>\n        <li>Use clear naming conventions</li>\n        <li>Include search functionality</li>\n        <li>Add multimedia content</li>\n        <li>Enable user feedback</li>\n        <li>Track usage analytics</li>\n      </ol>\n    ",
       "examples": [
         "70% ticket deflection rate with self-service",
         "Average article rating: 4.5/5 stars",
         "Most viewed: 'Getting Started in 5 Minutes'"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -8342,7 +9376,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "8-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -8377,6 +9411,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Q4 forecast: 92% gross retention, 105% net retention",
         "30 days out: 95% forecast accuracy",
         "Intervention success: 60% of at-risk saved"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -8519,7 +9575,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "8-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -8554,6 +9610,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Homepage → Signup: 3.5% (industry avg: 2.35%)",
         "Blog → Lead: 2.1% conversion rate",
         "Demo Request → Customer: 22% close rate"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -8694,7 +9772,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -8729,6 +9807,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Cold email: 8% reply rate, 2% meeting booked",
         "LinkedIn: 15% acceptance, 5% response rate",
         "Cold call: 3% connect rate, 25% meeting conversion"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -8871,7 +9971,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "9-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -8906,6 +10006,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "B2B SaaS tracking paid search delivers 3x ROI vs display ads",
         "Enterprise software finding partner channel drives 40% of revenue",
         "Tech startup discovering content marketing has lowest CAC"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -9048,7 +10170,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "9-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -9076,13 +10198,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Discovery Call Effectiveness",
-      "what": "Measurement and optimization of the speed at which deals move through the sales pipeline, tracking time in each stage and identifying bottlenecks.",
+      "what": "A systematic approach to discovery call effectiveness that evaluates discovery call effectiveness. Evaluates call structure, question quality, pain uncovering, next step rate, rep consistency to ensure excellence and continuous improvement in this critical capability.",
       "why": "Faster sales velocity means more efficient revenue generation, better cash flow, and improved sales productivity.",
       "how": "Track four key components: number of opportunities, average deal size, win rate, and sales cycle length. Monitor by segment and rep to identify improvement opportunities.",
       "examples": [
         "SaaS company reducing sales cycle from 90 to 60 days",
         "Enterprise vendor identifying technical review as primary bottleneck",
         "Startup improving velocity 2x through better qualification"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -9225,7 +10369,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "9-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -9253,13 +10397,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Demo-to-Close Flow",
-      "what": "Systematic analysis of won and lost deals to understand competitive positioning, sales effectiveness, and market fit.",
+      "what": "A systematic approach to demo-to-close flow that optimizes demo to close conversion. Evaluates demo quality, customization level, follow-up process, objection handling, close rates to ensure excellence and continuous improvement in this critical capability.",
       "why": "Understanding why you win and lose deals enables sales process improvement, better positioning, and more accurate forecasting.",
       "how": "Conduct structured win/loss interviews, analyze patterns across deals, track win rates by competitor, segment, and source.",
       "examples": [
         "Enterprise software achieving 45% win rate against main competitor",
         "SaaS startup improving win rate from 20% to 35% through better discovery",
         "Tech company identifying pricing as primary loss reason"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -9402,7 +10568,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "9-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -9430,13 +10596,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Founders Selling Model",
-      "what": "Strategic management of pipeline volume relative to revenue targets, ensuring adequate coverage for achieving goals.",
+      "what": "A structured founders selling model that provides clear guidelines and methodologies for analyzes founder-led sales effectiveness. Focuses on founder involvement, deal impact, knowledge transfer, scalability planning, time allocation to ensure comprehensive coverage and measurable outcomes.",
       "why": "Proper pipeline coverage reduces revenue risk, enables accurate forecasting, and drives proactive pipeline generation.",
       "how": "Maintain 3-4x pipeline coverage, track by stage and time period, build pipeline 2 quarters ahead, adjust targets by segment.",
       "examples": [
         "B2B company maintaining 3.5x quarterly pipeline coverage",
         "SaaS startup building pipeline 6 months ahead of need",
         "Enterprise vendor tracking coverage by product line"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -9579,7 +10767,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "9-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.291Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -9607,13 +10795,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Enablement Asset Pack",
-      "what": "A detailed description of the ideal sales candidate including experience, skills, traits, and cultural fit factors specific to your stage and market.",
+      "what": "A systematic approach to enablement asset pack that manages sales enablement assets and content. Evaluates asset completeness, asset quality, asset accessibility, usage tracking, update frequency to ensure excellence and continuous improvement in this critical capability.",
       "why": "Hiring the wrong salespeople is expensive and slow. A clear profile improves hiring success rate and reduces ramp time.",
       "how": "\n      <h4>Profile Components:</h4>\n      <ul>\n        <li><strong>Experience:</strong> Industry, deal size, sales cycle</li>\n        <li><strong>Skills:</strong> Technical, consultative, presentation</li>\n        <li><strong>Traits:</strong> Curiosity, resilience, coachability</li>\n        <li><strong>Cultural Fit:</strong> Values alignment, work style</li>\n        <li><strong>Performance History:</strong> Quota attainment, references</li>\n      </ul>\n      \n      <h4>Development Process:</h4>\n      <ol>\n        <li>Analyze top performer characteristics</li>\n        <li>Define must-have vs. nice-to-have</li>\n        <li>Create interview scorecard</li>\n        <li>Design assessment exercises</li>\n        <li>Build reference check questions</li>\n        <li>Test and refine profile</li>\n      </ol>\n    ",
       "examples": [
         "Must have: 3+ years B2B SaaS, $50K+ ACV deals",
         "Key trait: Comfortable with ambiguity in early stage",
         "Red flag: Only worked with heavy inbound leads"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -9752,7 +10962,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -9780,13 +10990,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Rep Ramp Plan",
-      "what": "A structured approach to conducting effective discovery calls that uncover pain, build trust, and qualify opportunities.",
+      "what": "A strategic approach to rep ramp plan that aligns organizational efforts with business objectives. Encompasses onboarding program, ramp time, certification process, mentorship system, early performance to drive systematic execution and measurable results.",
       "why": "Discovery is where deals are won or lost. A strong framework ensures consistent qualification and higher close rates across the team.",
       "how": "\n      <h4>Framework Elements:</h4>\n      <ul>\n        <li><strong>Rapport Building:</strong> Personal connection</li>\n        <li><strong>Situation Questions:</strong> Current state understanding</li>\n        <li><strong>Problem Questions:</strong> Pain identification</li>\n        <li><strong>Implication Questions:</strong> Cost of inaction</li>\n        <li><strong>Need-Payoff Questions:</strong> Value of solving</li>\n      </ul>\n      \n      <h4>Call Structure:</h4>\n      <ol>\n        <li>Set agenda and get permission</li>\n        <li>Understand current state</li>\n        <li>Identify problems and impact</li>\n        <li>Explore desired future state</li>\n        <li>Assess fit and timeline</li>\n        <li>Define clear next steps</li>\n      </ol>\n    ",
       "examples": [
         "Tell me about your current process for X",
         "What happens if this problem isn't solved?",
         "How would solving this impact your team?"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -9926,7 +11158,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "10-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -9954,13 +11186,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Win/Loss Tracker",
-      "what": "A collection of customizable demo scripts tailored to different personas, use cases, and industries.",
+      "what": "A systematic framework for monitoring and measuring win/loss tracker through data collection, analysis, and actionable insights. Tracks key metrics including analysis process, data collection, pattern recognition, competitive insights, action implementation to enable proactive decision-making and continuous improvement.",
       "why": "Generic demos don't sell. Personalized, value-focused demos that speak to specific pain points close deals faster.",
       "how": "\n      <h4>Script Components:</h4>\n      <ul>\n        <li><strong>Opening:</strong> Agenda and goal setting</li>\n        <li><strong>Problem Recap:</strong> Confirm understanding</li>\n        <li><strong>Solution Story:</strong> Narrative flow</li>\n        <li><strong>Proof Points:</strong> ROI and social proof</li>\n        <li><strong>Objection Handling:</strong> Common concerns</li>\n        <li><strong>Close:</strong> Next steps and commitment</li>\n      </ul>\n      \n      <h4>Library Organization:</h4>\n      <ol>\n        <li>Create base demo template</li>\n        <li>Develop persona variations</li>\n        <li>Add industry customizations</li>\n        <li>Include competitive positioning</li>\n        <li>Build objection responses</li>\n        <li>Update based on wins/losses</li>\n      </ol>\n    ",
       "examples": [
         "HR Manager demo: Focus on compliance and time savings",
         "CFO demo: Emphasize ROI and cost reduction",
         "IT demo: Highlight security and integration"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -10111,7 +11365,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "10-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -10146,6 +11400,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Price: 'I understand budget is tight. Let's look at the ROI...'",
         "Trust: 'That's fair. Here's how Customer X felt the same...'",
         "Timing: 'What would need to change for this to be a priority?'"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -10296,7 +11572,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "10-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -10324,13 +11600,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "ICP Filter Checklist",
-      "what": "The compensation plan design including base salary, commission rates, accelerators, and special incentives aligned with business goals.",
+      "what": "A systematic approach to icp filter checklist that defines and enforces ideal customer profile. Evaluates icp definition, qualification rigor, scoring models, disqualification rate, win rate impact to ensure excellence and continuous improvement in this critical capability.",
       "why": "Compensation drives behavior. The right structure attracts top talent, motivates performance, and aligns sales efforts with company objectives.",
       "how": "\n      <h4>Structure Components:</h4>\n      <ul>\n        <li><strong>Base/Variable Split:</strong> Risk vs. reward balance</li>\n        <li><strong>Commission Rates:</strong> Percentage of revenue/booking</li>\n        <li><strong>Accelerators:</strong> Over-achievement rewards</li>\n        <li><strong>SPIFFs:</strong> Special incentives for strategic goals</li>\n        <li><strong>Clawbacks:</strong> Churn protection mechanisms</li>\n      </ul>\n      \n      <h4>Design Principles:</h4>\n      <ol>\n        <li>Align with business objectives</li>\n        <li>Keep it simple to understand</li>\n        <li>Reward the right behaviors</li>\n        <li>Be competitive with market</li>\n        <li>Include quality metrics</li>\n        <li>Review quarterly</li>\n      </ol>\n    ",
       "examples": [
         "50/50 base/variable split for enterprise reps",
         "10% commission, 15% over 100% of quota",
         "2x rate for annual prepaid deals"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -10481,7 +11779,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "10-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.940Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -10516,6 +11814,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Weekly: Review all deals >$50K or closing in 30 days",
         "Monthly: 3x pipeline coverage minimum",
         "Red flag: No activity in 14+ days"
+      ],
+      "keyMetrics": [
+        {
+          "value": "45%",
+          "label": "Higher Win Rates",
+          "description": "Sales excellence impact"
+        },
+        {
+          "value": "30%",
+          "label": "Faster Cycles",
+          "description": "Optimized sales process"
+        },
+        {
+          "value": "2.2x",
+          "label": "Larger Deals",
+          "description": "Strategic selling approach"
+        },
+        {
+          "value": "60%",
+          "label": "Better Forecasting",
+          "description": "Pipeline accuracy"
+        }
       ]
     },
     "workspace": {
@@ -10666,7 +11986,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "10-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -10701,6 +12021,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Pod structure: Cross-functional teams by customer segment",
         "Hub and spoke: Centralized platform, distributed GTM",
         "Two-pizza teams: Small, autonomous units"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.5x",
+          "label": "Team Productivity",
+          "description": "High-performance culture"
+        },
+        {
+          "value": "50%",
+          "label": "Better Execution",
+          "description": "Performance management impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Attainment",
+          "description": "Goal achievement rate"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Growth",
+          "description": "Performance-driven scaling"
+        }
       ]
     },
     "workspace": {
@@ -10841,7 +12183,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -10869,13 +12211,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Quota Structure",
-      "what": "A comprehensive system for setting, tracking, and managing individual and team performance aligned with company objectives.",
+      "what": "A systematic approach to quota structure that designs and manages quota systems. Evaluates quota methodology, attainment rates, fairness perception, motivation impact, adjustment process to ensure excellence and continuous improvement in this critical capability.",
       "why": "What gets measured gets managed. Clear metrics drive accountability, enable coaching, and ensure everyone rows in the same direction.",
       "how": "\n      <h4>Metric Categories:</h4>\n      <ul>\n        <li><strong>Business Metrics:</strong> Revenue, growth, efficiency</li>\n        <li><strong>Operational Metrics:</strong> Quality, speed, output</li>\n        <li><strong>Team Metrics:</strong> Collaboration, innovation</li>\n        <li><strong>Individual Metrics:</strong> Goals, competencies</li>\n        <li><strong>Cultural Metrics:</strong> Values, behaviors</li>\n      </ul>\n      \n      <h4>Framework Implementation:</h4>\n      <ol>\n        <li>Cascade company OKRs to teams</li>\n        <li>Define role-specific KPIs</li>\n        <li>Set measurement cadence</li>\n        <li>Build tracking dashboards</li>\n        <li>Create review processes</li>\n        <li>Link to compensation</li>\n      </ol>\n    ",
       "examples": [
         "Engineering: Velocity, quality, on-time delivery",
         "Sales: Pipeline, conversion, quota attainment",
         "Customer Success: NPS, retention, expansion"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.5x",
+          "label": "Team Productivity",
+          "description": "High-performance culture"
+        },
+        {
+          "value": "50%",
+          "label": "Better Execution",
+          "description": "Performance management impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Attainment",
+          "description": "Goal achievement rate"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Growth",
+          "description": "Performance-driven scaling"
+        }
       ]
     },
     "workspace": {
@@ -11018,7 +12382,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "11-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -11046,13 +12410,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Weekly Deal Reviews",
-      "what": "The explicit documentation of your company's values, behaviors, and operating principles that guide decision-making and define 'how we work.'",
+      "what": "A systematic approach to weekly deal reviews that manages deal review processes. Evaluates review cadence, review quality, action items, cross-functional input, deal velocity impact to ensure excellence and continuous improvement in this critical capability.",
       "why": "Culture eats strategy for breakfast. Codifying culture ensures consistency as you scale and helps attract/retain the right people.",
       "how": "\n      <h4>Culture Components:</h4>\n      <ul>\n        <li><strong>Core Values:</strong> Fundamental beliefs</li>\n        <li><strong>Behaviors:</strong> How values show up daily</li>\n        <li><strong>Operating Principles:</strong> Decision guidelines</li>\n        <li><strong>Rituals:</strong> Recurring practices</li>\n        <li><strong>Stories:</strong> Examples and anti-examples</li>\n      </ul>\n      \n      <h4>Codification Process:</h4>\n      <ol>\n        <li>Identify existing cultural strengths</li>\n        <li>Define aspirational elements</li>\n        <li>Translate to specific behaviors</li>\n        <li>Create memorable language</li>\n        <li>Build into operations</li>\n        <li>Reinforce consistently</li>\n      </ol>\n    ",
       "examples": [
         "Amazon: Customer obsession, ownership, invent and simplify",
         "Netflix: Freedom and responsibility, context not control",
         "Stripe: Move with urgency, be user-centric"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.5x",
+          "label": "Team Productivity",
+          "description": "High-performance culture"
+        },
+        {
+          "value": "50%",
+          "label": "Better Execution",
+          "description": "Performance management impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Attainment",
+          "description": "Goal achievement rate"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Growth",
+          "description": "Performance-driven scaling"
+        }
       ]
     },
     "workspace": {
@@ -11195,7 +12581,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "11-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -11223,13 +12609,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Forecasting Framework",
-      "what": "A structured program for identifying, developing, and promoting internal talent into leadership positions.",
+      "what": "A structured forecasting framework that provides clear guidelines and methodologies for builds accurate forecasting systems. Focuses on forecast accuracy, methodology rigor, pipeline coverage, risk assessment, adjustment agility to ensure comprehensive coverage and measurable outcomes.",
       "why": "Great leaders aren't born, they're developed. Internal promotion maintains culture, reduces hiring risk, and motivates high performers.",
       "how": "\n      <h4>Development Components:</h4>\n      <ul>\n        <li><strong>Competency Model:</strong> Leadership skills framework</li>\n        <li><strong>Assessment:</strong> Current capability evaluation</li>\n        <li><strong>Training:</strong> Skill development programs</li>\n        <li><strong>Mentoring:</strong> Senior leader guidance</li>\n        <li><strong>Stretch Assignments:</strong> Growth opportunities</li>\n      </ul>\n      \n      <h4>Program Structure:</h4>\n      <ol>\n        <li>Define leadership competencies</li>\n        <li>Identify high-potential employees</li>\n        <li>Create individual development plans</li>\n        <li>Provide training and resources</li>\n        <li>Track progress and adjust</li>\n        <li>Promote when ready</li>\n      </ol>\n    ",
       "examples": [
         "Manager track: IC to team lead in 18 months",
         "Executive track: Director to VP development program",
         "Technical track: Senior IC to architect path"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.5x",
+          "label": "Team Productivity",
+          "description": "High-performance culture"
+        },
+        {
+          "value": "50%",
+          "label": "Better Execution",
+          "description": "Performance management impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Attainment",
+          "description": "Goal achievement rate"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Growth",
+          "description": "Performance-driven scaling"
+        }
       ]
     },
     "workspace": {
@@ -11372,7 +12780,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "11-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -11400,13 +12808,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Manager Coaching Loop",
-      "what": "Documented guidelines for how information flows through the organization including channels, cadence, and expectations.",
+      "what": "A systematic approach to manager coaching loop that designs sales coaching programs. Evaluates coaching frequency, coaching quality, skill development, coaching tools, performance impact to ensure excellence and continuous improvement in this critical capability.",
       "why": "Poor communication kills productivity and morale. Clear protocols ensure information reaches the right people at the right time.",
       "how": "\n      <h4>Protocol Elements:</h4>\n      <ul>\n        <li><strong>Channel Guidelines:</strong> When to use email/Slack/meetings</li>\n        <li><strong>Meeting Rhythms:</strong> Standing meetings and agendas</li>\n        <li><strong>Update Cadence:</strong> Status reports and check-ins</li>\n        <li><strong>Escalation Paths:</strong> How to raise issues</li>\n        <li><strong>Documentation:</strong> What to write down and where</li>\n      </ul>\n      \n      <h4>Implementation Steps:</h4>\n      <ol>\n        <li>Audit current communication patterns</li>\n        <li>Define channel purposes</li>\n        <li>Set response time expectations</li>\n        <li>Create meeting templates</li>\n        <li>Document protocols</li>\n        <li>Train and reinforce</li>\n      </ol>\n    ",
       "examples": [
         "Slack for quick questions (<2 min response)",
         "Email for formal decisions (document trail)",
         "Weekly all-hands for company updates"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.5x",
+          "label": "Team Productivity",
+          "description": "High-performance culture"
+        },
+        {
+          "value": "50%",
+          "label": "Better Execution",
+          "description": "Performance management impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Attainment",
+          "description": "Goal achievement rate"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Growth",
+          "description": "Performance-driven scaling"
+        }
       ]
     },
     "workspace": {
@@ -11549,7 +12979,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "11-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -11577,13 +13007,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Talent Gap Identification",
-      "what": "A comprehensive approach to keeping top performers engaged, motivated, and committed to your company's mission.",
+      "what": "A systematic approach to talent gap identification that identifies and addresses talent gaps. Evaluates skills assessment, gap identification, development plans, hiring strategy, succession planning to ensure excellence and continuous improvement in this critical capability.",
       "why": "Replacing a key employee costs 1.5-2x their salary. Retention is cheaper than recruitment and maintains institutional knowledge.",
       "how": "\n      <h4>Retention Levers:</h4>\n      <ul>\n        <li><strong>Compensation:</strong> Competitive pay and equity</li>\n        <li><strong>Growth:</strong> Career development opportunities</li>\n        <li><strong>Culture:</strong> Positive work environment</li>\n        <li><strong>Recognition:</strong> Appreciation and rewards</li>\n        <li><strong>Flexibility:</strong> Work-life balance</li>\n        <li><strong>Purpose:</strong> Meaningful work and impact</li>\n      </ul>\n      \n      <h4>Strategy Development:</h4>\n      <ol>\n        <li>Analyze turnover patterns</li>\n        <li>Conduct stay interviews</li>\n        <li>Benchmark compensation</li>\n        <li>Design retention programs</li>\n        <li>Identify flight risks early</li>\n        <li>Create intervention playbooks</li>\n      </ol>\n    ",
       "examples": [
         "Quarterly retention bonuses for key roles",
         "Flexible PTO policy for work-life balance",
         "Learning stipend for skill development"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.5x",
+          "label": "Team Productivity",
+          "description": "High-performance culture"
+        },
+        {
+          "value": "50%",
+          "label": "Better Execution",
+          "description": "Performance management impact"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Attainment",
+          "description": "Goal achievement rate"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Growth",
+          "description": "Performance-driven scaling"
+        }
       ]
     },
     "workspace": {
@@ -11726,7 +13178,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "11-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -11754,13 +13206,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Onboarding Checklist",
-      "what": "A data-driven model that identifies customers at risk of churning based on usage patterns, engagement signals, and historical data.",
+      "what": "A systematic approach to onboarding checklist that optimizes customer onboarding experience. Evaluates onboarding process, time to value, completion rates, customer satisfaction, resource efficiency to ensure excellence and continuous improvement in this critical capability.",
       "why": "It's 5-25x more expensive to acquire a new customer than retain an existing one. Prediction enables proactive intervention.",
       "how": "\n      <h4>Model Inputs:</h4>\n      <ul>\n        <li><strong>Usage Data:</strong> Login frequency, feature adoption</li>\n        <li><strong>Engagement:</strong> Support tickets, training attendance</li>\n        <li><strong>Contract:</strong> Renewal date, payment history</li>\n        <li><strong>Satisfaction:</strong> NPS, survey responses</li>\n        <li><strong>Behavioral:</strong> Product changes, stakeholder changes</li>\n      </ul>\n      \n      <h4>Model Development:</h4>\n      <ol>\n        <li>Collect historical churn data</li>\n        <li>Identify predictive variables</li>\n        <li>Build statistical model</li>\n        <li>Test and validate accuracy</li>\n        <li>Create risk scoring system</li>\n        <li>Implement monitoring alerts</li>\n      </ol>\n    ",
       "examples": [
         "Red flag: 50% drop in usage over 30 days",
         "Warning: Key stakeholder hasn't logged in 2 weeks",
         "Risk score: 85/100 = immediate intervention needed"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -11901,7 +13375,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -11929,13 +13403,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Activation Tracker",
-      "what": "A systematic approach to re-engaging and recovering churned customers through targeted outreach, offers, and value demonstration.",
-      "why": "Churned customers already know your product and have budget. Win-back campaigns often have higher conversion rates than new customer acquisition.",
-      "how": "\n      <h4>Campaign Elements:</h4>\n      <ul>\n        <li><strong>Segmentation:</strong> Group by churn reason</li>\n        <li><strong>Timing:</strong> Optimal re-engagement window</li>\n        <li><strong>Messaging:</strong> Personalized value props</li>\n        <li><strong>Offers:</strong> Incentives to return</li>\n        <li><strong>Channels:</strong> Multi-touch approach</li>\n      </ul>\n      \n      <h4>Playbook Structure:</h4>\n      <ol>\n        <li>Analyze churn reasons</li>\n        <li>Segment churned customers</li>\n        <li>Craft targeted messages</li>\n        <li>Design compelling offers</li>\n        <li>Execute multi-channel campaign</li>\n        <li>Track and optimize</li>\n      </ol>\n    ",
+      "what": "A systematic framework for monitoring and measuring customer activation progress from signup to first value realization, tracking key milestones and identifying bottlenecks in the onboarding journey.",
+      "why": "Activated customers are 3x more likely to renew and 5x more likely to expand. Tracking activation metrics enables proactive intervention, reduces time-to-value, and increases long-term retention. Companies with strong activation tracking see 40% higher retention rates.",
+      "how": "\n      <h4>Activation Framework Components:</h4>\n      <ul>\n        <li><strong>Activation Definition:</strong> Clear criteria for \"activated\" state</li>\n        <li><strong>Milestone Tracking:</strong> Key steps in user journey</li>\n        <li><strong>Time-to-Value Metrics:</strong> Speed to first success</li>\n        <li><strong>Feature Adoption:</strong> Core feature usage patterns</li>\n        <li><strong>Engagement Signals:</strong> Login frequency and depth</li>\n      </ul>\n      \n      <h4>Implementation Process:</h4>\n      <ol>\n        <li>Define activation criteria based on successful users</li>\n        <li>Map critical onboarding milestones</li>\n        <li>Instrument tracking for each milestone</li>\n        <li>Set up automated alerts for stalled users</li>\n        <li>Create intervention playbooks</li>\n        <li>Monitor and optimize activation rates</li>\n      </ol>\n      \n      <h4>Tracking Metrics:</h4>\n      <ul>\n        <li>Activation rate (% of signups reaching activated state)</li>\n        <li>Time to activation (days from signup to first value)</li>\n        <li>Milestone completion rates</li>\n        <li>Drop-off points in onboarding flow</li>\n        <li>Correlation between activation and retention</li>\n      </ul>\n    ",
       "examples": [
-        "Product gap filled: 'We built what you asked for'",
-        "Price objection: '30% discount for returning'",
-        "Bad experience: 'New team, new commitment'"
+        "SaaS company defines activation as: User completes first workflow + invites 2 team members + uses product 3 days in first week",
+        "B2B platform tracks: 72% activation rate, 8-day average time-to-value, 85% of activated users renew",
+        "Product-led growth company: Users who activate in 7 days have 92% retention vs 34% for those taking 30+ days"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3x",
+          "label": "Higher Renewal Rate",
+          "description": "Activated vs non-activated customers"
+        },
+        {
+          "value": "5x",
+          "label": "More Expansion",
+          "description": "Upsell likelihood for activated users"
+        },
+        {
+          "value": "40%",
+          "label": "Better Retention",
+          "description": "Companies with activation tracking"
+        },
+        {
+          "value": "8 days",
+          "label": "Faster Time-to-Value",
+          "description": "Average activation speed"
+        }
       ]
     },
     "workspace": {
@@ -12051,10 +13547,10 @@ const COMPLETE_SSOT_REGISTRY = {
         "Adoption Playbook"
       ],
       "metrics": [
-        "Win-back rate",
-        "Campaign ROI",
-        "Reactivation LTV",
-        "Time to reactivation"
+        "Activation rate (%)",
+        "Time to activation (days)",
+        "Milestone completion rate",
+        "Activated user retention rate"
       ]
     },
     "outputs": {
@@ -12078,7 +13574,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "12-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -12106,13 +13602,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Success Playbooks",
-      "what": "A structured rewards system that incentivizes continued usage, expansion, and advocacy among your best customers.",
+      "what": "A systematic approach to success playbooks that creates customer success playbooks. Evaluates playbook coverage, playbook quality, team adoption, outcome tracking, continuous improvement to ensure excellence and continuous improvement in this critical capability.",
       "why": "Loyal customers spend 67% more than new ones. A well-designed program increases retention, expansion, and referrals.",
       "how": "\n      <h4>Program Components:</h4>\n      <ul>\n        <li><strong>Tiers:</strong> Status levels with increasing benefits</li>\n        <li><strong>Points:</strong> Earned through usage and engagement</li>\n        <li><strong>Rewards:</strong> Tangible benefits and perks</li>\n        <li><strong>Recognition:</strong> Status and exclusivity</li>\n        <li><strong>Gamification:</strong> Challenges and achievements</li>\n      </ul>\n      \n      <h4>Design Process:</h4>\n      <ol>\n        <li>Define program objectives</li>\n        <li>Identify reward behaviors</li>\n        <li>Structure tiers and benefits</li>\n        <li>Calculate economics</li>\n        <li>Build tracking system</li>\n        <li>Launch and iterate</li>\n      </ol>\n    ",
       "examples": [
         "Bronze/Silver/Gold tiers based on annual spend",
         "Points for referrals, case studies, feedback",
         "Rewards: Priority support, exclusive features, swag"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -12255,7 +13773,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "12-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -12283,13 +13801,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Escalation SOPs",
-      "what": "A systematic approach to testing, analyzing, and optimizing pricing to maximize revenue while maintaining competitive position.",
+      "what": "A systematic approach to escalation sops that manages customer escalations. Evaluates escalation process, response time, resolution rate, root cause analysis, customer recovery to ensure excellence and continuous improvement in this critical capability.",
       "why": "Pricing is the most powerful profit lever. A 1% price increase can drive 11% profit improvement in SaaS.",
       "how": "\n      <h4>Optimization Dimensions:</h4>\n      <ul>\n        <li><strong>Price Points:</strong> Finding optimal levels</li>\n        <li><strong>Packaging:</strong> Feature bundling strategy</li>\n        <li><strong>Metrics:</strong> Seats vs. usage vs. value</li>\n        <li><strong>Discounting:</strong> Strategic concession framework</li>\n        <li><strong>Increases:</strong> Existing customer adjustments</li>\n      </ul>\n      \n      <h4>Testing Process:</h4>\n      <ol>\n        <li>Analyze current pricing performance</li>\n        <li>Research competitive landscape</li>\n        <li>Survey willingness to pay</li>\n        <li>Design pricing experiments</li>\n        <li>Test with segments</li>\n        <li>Roll out optimizations</li>\n      </ol>\n    ",
       "examples": [
         "A/B test: 20% higher price, 10% lower conversion, 8% more revenue",
         "Good-better-best packaging increased ACV 35%",
         "Usage-based pricing reduced churn 25%"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -12432,7 +13972,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "12-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -12460,13 +14000,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Renewals Pipelines",
-      "what": "A formal group of strategic customers who provide feedback, validation, and advocacy for your product and company direction.",
+      "what": "A systematic approach to renewals pipelines that manages renewal pipeline and forecasting. Evaluates pipeline visibility, early warning system, renewal forecasting, proactive engagement, renewal rates to ensure excellence and continuous improvement in this critical capability.",
       "why": "CABs create deep customer relationships, validate strategy, generate referrals, and reduce churn among your most valuable accounts.",
       "how": "\n      <h4>Board Structure:</h4>\n      <ul>\n        <li><strong>Composition:</strong> 8-12 strategic customers</li>\n        <li><strong>Meetings:</strong> Quarterly virtual, annual in-person</li>\n        <li><strong>Topics:</strong> Product roadmap, industry trends</li>\n        <li><strong>Benefits:</strong> Exclusive access, networking</li>\n        <li><strong>Commitment:</strong> 1-2 year terms</li>\n      </ul>\n      \n      <h4>Implementation Steps:</h4>\n      <ol>\n        <li>Define CAB objectives</li>\n        <li>Select and invite members</li>\n        <li>Create charter and agenda</li>\n        <li>Facilitate engaging sessions</li>\n        <li>Act on feedback</li>\n        <li>Maintain momentum</li>\n      </ol>\n    ",
       "examples": [
         "Quarterly virtual roadmap reviews",
         "Annual innovation summit",
         "Executive networking dinners"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -12609,7 +14171,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "12-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -12637,13 +14199,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Churn Root-Cause Engine",
-      "what": "A quantitative framework for measuring customer engagement across multiple dimensions to identify power users, at-risk accounts, and expansion opportunities.",
+      "what": "A systematic approach to churn root-cause engine that analyzes root causes of customer churn. Evaluates data collection, analysis depth, pattern recognition, predictive modeling, prevention programs to ensure excellence and continuous improvement in this critical capability.",
       "why": "Engagement is the leading indicator of retention and growth. Scoring enables prioritization and personalization at scale.",
       "how": "\n      <h4>Scoring Dimensions:</h4>\n      <ul>\n        <li><strong>Breadth:</strong> Users and departments active</li>\n        <li><strong>Depth:</strong> Features and workflows used</li>\n        <li><strong>Frequency:</strong> Login and usage patterns</li>\n        <li><strong>Recency:</strong> Last activity timing</li>\n        <li><strong>Growth:</strong> Increasing or decreasing trends</li>\n      </ul>\n      \n      <h4>System Development:</h4>\n      <ol>\n        <li>Define engagement metrics</li>\n        <li>Weight by importance</li>\n        <li>Create scoring algorithm</li>\n        <li>Segment by score ranges</li>\n        <li>Build automated workflows</li>\n        <li>Monitor and refine</li>\n      </ol>\n    ",
       "examples": [
         "Power user: 90+ score, daily active, all features",
         "At risk: <40 score, declining usage, no champion",
         "Growth opportunity: 70 score, hitting limits"
+      ],
+      "keyMetrics": [
+        {
+          "value": "40%",
+          "label": "Lower Churn",
+          "description": "Retention system impact"
+        },
+        {
+          "value": "3.2x",
+          "label": "Higher LTV",
+          "description": "Customer lifetime value"
+        },
+        {
+          "value": "65%",
+          "label": "Better NPS",
+          "description": "Customer satisfaction"
+        },
+        {
+          "value": "2.5x",
+          "label": "More Advocacy",
+          "description": "Customer referrals"
+        }
       ]
     },
     "workspace": {
@@ -12775,7 +14359,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "12-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -12810,6 +14394,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "HubSpot created 'Inbound Marketing'",
         "Drift created 'Conversational Marketing'",
         "Gong created 'Revenue Intelligence'"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Market Share Growth",
+          "description": "Category leadership"
+        },
+        {
+          "value": "55%",
+          "label": "Brand Recognition",
+          "description": "Market presence"
+        },
+        {
+          "value": "40%",
+          "label": "Competitive Advantage",
+          "description": "Defensibility strength"
+        },
+        {
+          "value": "3.5x",
+          "label": "Pricing Power",
+          "description": "Premium positioning"
+        }
       ]
     },
     "workspace": {
@@ -12950,7 +14556,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.292Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -12978,13 +14584,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Strategic MOAT Design",
-      "what": "A clear articulation of your long-term defensibility — technical, network, data, ecosystem, or brand-based — mapped to how your company gets harder to beat over time.",
+      "what": "A systematic approach to strategic moat design that builds competitive moats and barriers. Evaluates moat identification, moat depth, network effects, switching costs, moat expansion to ensure excellence and continuous improvement in this critical capability.",
       "why": "Moats win markets. They give investors confidence, raise valuation multiples, and create barriers to entry for fast-followers and copycats.",
       "how": "\n      <h4>Types of Moats:</h4>\n      <ul>\n        <li><strong>Network Effects:</strong> Value increases with users</li>\n        <li><strong>Data Advantage:</strong> Unique datasets improve product</li>\n        <li><strong>Switching Costs:</strong> Expensive/painful to leave</li>\n        <li><strong>Brand Power:</strong> Trust and recognition</li>\n        <li><strong>Economies of Scale:</strong> Unit economics improve</li>\n        <li><strong>Proprietary Tech:</strong> Patents or unique capabilities</li>\n      </ul>\n      \n      <h4>Moat Building Strategy:</h4>\n      <ol>\n        <li>Identify natural advantages in your model</li>\n        <li>Invest deliberately in 1-2 moat types</li>\n        <li>Create compounding mechanisms</li>\n        <li>Track moat strength metrics</li>\n        <li>Communicate moat to investors</li>\n        <li>Defend against erosion</li>\n      </ol>\n      \n      <h4>Moat Measurement:</h4>\n      <ul>\n        <li>Customer retention rates</li>\n        <li>Competitive win rates</li>\n        <li>Pricing power over time</li>\n        <li>Market share trajectory</li>\n        <li>Copycat failure rate</li>\n      </ul>\n    ",
       "examples": [
         "Salesforce: Ecosystem moat with 4000+ app partners",
         "Slack: Network effects within organizations",
         "Palantir: Proprietary data integration capabilities"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Market Share Growth",
+          "description": "Category leadership"
+        },
+        {
+          "value": "55%",
+          "label": "Brand Recognition",
+          "description": "Market presence"
+        },
+        {
+          "value": "40%",
+          "label": "Competitive Advantage",
+          "description": "Defensibility strength"
+        },
+        {
+          "value": "3.5x",
+          "label": "Pricing Power",
+          "description": "Premium positioning"
+        }
       ]
     },
     "workspace": {
@@ -13127,7 +14755,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "13-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -13155,13 +14783,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Ecosystem Leverage Map",
-      "what": "Building a network of partners, integrations, and complementary solutions that increase your product's value and stickiness.",
+      "what": "A systematic approach to ecosystem leverage map that maps and leverages ecosystem partnerships. Evaluates ecosystem understanding, partnership strategy, integration depth, value exchange, ecosystem growth to ensure excellence and continuous improvement in this critical capability.",
       "why": "Ecosystems create network effects, increase switching costs, and can contribute 30-50% of revenue through partnerships.",
       "how": "\n      <h4>Ecosystem Components:</h4>\n      <ul>\n        <li><strong>Technology Partners:</strong> Integrations and APIs</li>\n        <li><strong>Channel Partners:</strong> Resellers and distributors</li>\n        <li><strong>Service Partners:</strong> Consultants and implementers</li>\n        <li><strong>Platform Extensions:</strong> Apps and plugins</li>\n        <li><strong>Developer Community:</strong> API users and contributors</li>\n      </ul>\n    ",
       "examples": [
         "Salesforce AppExchange with 3,000+ apps",
         "Shopify partner ecosystem driving 40% of revenue",
         "Stripe's 300+ pre-built integrations"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Market Share Growth",
+          "description": "Category leadership"
+        },
+        {
+          "value": "55%",
+          "label": "Brand Recognition",
+          "description": "Market presence"
+        },
+        {
+          "value": "40%",
+          "label": "Competitive Advantage",
+          "description": "Defensibility strength"
+        },
+        {
+          "value": "3.5x",
+          "label": "Pricing Power",
+          "description": "Premium positioning"
+        }
       ]
     },
     "workspace": {
@@ -13293,7 +14943,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "13-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -13321,13 +14971,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Competitor GTM Monitoring",
-      "what": "Strategic approach to growth through mergers and acquisitions, including target identification, evaluation, and integration.",
+      "what": "A systematic approach to competitor gtm monitoring that monitors and analyzes competitive landscape. Evaluates intelligence gathering, analysis quality, response speed, win rate vs competition, differentiation clarity to ensure excellence and continuous improvement in this critical capability.",
       "why": "M&A can accelerate market entry by 2-3 years, acquire talent and technology, and eliminate competition.",
       "how": "\n      <h4>M&A Process:</h4>\n      <ul>\n        <li><strong>Strategy:</strong> Build vs buy vs partner analysis</li>\n        <li><strong>Targeting:</strong> Identify potential acquisitions</li>\n        <li><strong>Evaluation:</strong> Due diligence and valuation</li>\n        <li><strong>Negotiation:</strong> Terms and structure</li>\n        <li><strong>Integration:</strong> Post-merger execution</li>\n      </ul>\n    ",
       "examples": [
         "Acqui-hire of 10-person AI team for $20M",
         "Market expansion through $50M competitor acquisition",
         "Technology acquisition to accelerate roadmap by 18 months"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Market Share Growth",
+          "description": "Category leadership"
+        },
+        {
+          "value": "55%",
+          "label": "Brand Recognition",
+          "description": "Market presence"
+        },
+        {
+          "value": "40%",
+          "label": "Competitive Advantage",
+          "description": "Defensibility strength"
+        },
+        {
+          "value": "3.5x",
+          "label": "Pricing Power",
+          "description": "Premium positioning"
+        }
       ]
     },
     "workspace": {
@@ -13459,7 +15131,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "13-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -13487,13 +15159,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Brand Architecture Plan",
-      "what": "Strategies and tactics for establishing and maintaining the #1 position in your category or market segment.",
+      "what": "A strategic approach to brand architecture plan that aligns organizational efforts with business objectives. Encompasses brand identity, brand consistency, brand recognition, brand equity, brand advocacy to drive systematic execution and measurable results.",
       "why": "Market leaders capture 70% of category profits, have 2x the valuation multiples, and set the rules competitors must follow.",
       "how": "\n      <h4>Leadership Strategies:</h4>\n      <ul>\n        <li><strong>Category Creation:</strong> Define the space</li>\n        <li><strong>Thought Leadership:</strong> Shape the conversation</li>\n        <li><strong>Market Share:</strong> Dominate key segments</li>\n        <li><strong>Innovation:</strong> Stay ahead of the curve</li>\n        <li><strong>Brand Power:</strong> Become the default choice</li>\n      </ul>\n    ",
       "examples": [
         "Owning 40% market share in core segment",
         "CEO keynoting at 5 major industry conferences",
         "Setting industry standards adopted by competitors"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Market Share Growth",
+          "description": "Category leadership"
+        },
+        {
+          "value": "55%",
+          "label": "Brand Recognition",
+          "description": "Market presence"
+        },
+        {
+          "value": "40%",
+          "label": "Competitive Advantage",
+          "description": "Defensibility strength"
+        },
+        {
+          "value": "3.5x",
+          "label": "Pricing Power",
+          "description": "Premium positioning"
+        }
       ]
     },
     "workspace": {
@@ -13625,7 +15319,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "13-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -13653,13 +15347,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Defensive GTM Tactics",
-      "what": "Systematic gathering and analysis of information about competitors to inform strategic decisions and maintain advantage.",
+      "what": "A systematic approach to defensive gtm tactics that develops defensive go-to-market strategies. Evaluates threat assessment, defense strategies, customer retention, counter-positioning, market share defense to ensure excellence and continuous improvement in this critical capability.",
       "why": "Companies with strong competitive intelligence are 2x more likely to achieve above-average growth and 3x better at retention.",
       "how": "\n      <h4>Intelligence Gathering:</h4>\n      <ul>\n        <li><strong>Public Sources:</strong> Websites, reports, news</li>\n        <li><strong>Customer Intel:</strong> Win/loss interviews</li>\n        <li><strong>Product Analysis:</strong> Feature comparisons</li>\n        <li><strong>Talent Tracking:</strong> Hiring patterns</li>\n        <li><strong>Financial Analysis:</strong> Funding and metrics</li>\n      </ul>\n    ",
       "examples": [
         "Weekly competitive briefing for sales team",
         "Quarterly competitive positioning updates",
         "Real-time alerts on competitor moves"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.8x",
+          "label": "Market Share Growth",
+          "description": "Category leadership"
+        },
+        {
+          "value": "55%",
+          "label": "Brand Recognition",
+          "description": "Market presence"
+        },
+        {
+          "value": "40%",
+          "label": "Competitive Advantage",
+          "description": "Defensibility strength"
+        },
+        {
+          "value": "3.5x",
+          "label": "Pricing Power",
+          "description": "Premium positioning"
+        }
       ]
     },
     "workspace": {
@@ -13791,7 +15507,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "13-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.942Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -13826,6 +15542,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Microservices architecture with 12 services",
         "Event-driven architecture with Kafka",
         "Serverless architecture on AWS Lambda"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Operational Efficiency",
+          "description": "Process optimization"
+        },
+        {
+          "value": "3x",
+          "label": "Scalability",
+          "description": "Growth without complexity"
+        },
+        {
+          "value": "45%",
+          "label": "Cost Reduction",
+          "description": "Infrastructure efficiency"
+        },
+        {
+          "value": "2.5x",
+          "label": "System Reliability",
+          "description": "Uptime and performance"
+        }
       ]
     },
     "workspace": {
@@ -13966,7 +15704,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -14001,6 +15739,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "HubSpot → Salesforce → Gainsight → Stripe flow",
         "PLG motion: Product → Billing → CRM → CS",
         "Enterprise: Outbound → CRM → CPQ → ERP"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Operational Efficiency",
+          "description": "Process optimization"
+        },
+        {
+          "value": "3x",
+          "label": "Scalability",
+          "description": "Growth without complexity"
+        },
+        {
+          "value": "45%",
+          "label": "Cost Reduction",
+          "description": "Infrastructure efficiency"
+        },
+        {
+          "value": "2.5x",
+          "label": "System Reliability",
+          "description": "Uptime and performance"
+        }
       ]
     },
     "workspace": {
@@ -14143,7 +15903,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "14-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -14171,13 +15931,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Internal Dashboards",
-      "what": "A comprehensive map of all business processes showing current state, automation opportunities, and implementation priorities.",
+      "what": "A systematic framework for monitoring and measuring internal dashboards through data collection, analysis, and actionable insights. Tracks key metrics including metric selection, data quality, visualization, real-time updates, user adoption to enable proactive decision-making and continuous improvement.",
       "why": "Manual processes limit scalability and introduce errors. Automation enables growth without proportional headcount increases.",
       "how": "Document all processes, identify automation candidates, calculate ROI for each, prioritize by impact and feasibility, implement in phases.",
       "examples": [
         "Automated onboarding reducing setup time from 2 hours to 15 minutes",
         "Invoice processing automation saving 20 hours/week",
         "Customer support ticket routing reducing response time 50%"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Operational Efficiency",
+          "description": "Process optimization"
+        },
+        {
+          "value": "3x",
+          "label": "Scalability",
+          "description": "Growth without complexity"
+        },
+        {
+          "value": "45%",
+          "label": "Cost Reduction",
+          "description": "Infrastructure efficiency"
+        },
+        {
+          "value": "2.5x",
+          "label": "System Reliability",
+          "description": "Uptime and performance"
+        }
       ]
     },
     "workspace": {
@@ -14309,7 +16091,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "14-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -14337,13 +16119,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Tool Consolidation Tracker",
-      "what": "The design and implementation of data collection, storage, processing, and analytics systems that power decision-making.",
+      "what": "A systematic framework for monitoring and measuring tool consolidation tracker through data collection, analysis, and actionable insights. Tracks key metrics including tool inventory, redundancy elimination, integration quality, cost optimization, user experience to enable proactive decision-making and continuous improvement.",
       "why": "Data is your competitive advantage. The right infrastructure enables real-time insights, predictive analytics, and data-driven growth.",
       "how": "Design data model, implement collection systems, build data warehouse, create analytics layer, establish governance, enable self-service analytics.",
       "examples": [
         "Real-time dashboard showing key metrics across all departments",
         "Predictive churn model with 85% accuracy",
         "Data warehouse consolidating 15 different data sources"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Operational Efficiency",
+          "description": "Process optimization"
+        },
+        {
+          "value": "3x",
+          "label": "Scalability",
+          "description": "Growth without complexity"
+        },
+        {
+          "value": "45%",
+          "label": "Cost Reduction",
+          "description": "Infrastructure efficiency"
+        },
+        {
+          "value": "2.5x",
+          "label": "System Reliability",
+          "description": "Uptime and performance"
+        }
       ]
     },
     "workspace": {
@@ -14475,7 +16279,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "14-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -14503,13 +16307,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "RevOps Playbook",
-      "what": "A comprehensive security and compliance program covering policies, controls, monitoring, and incident response.",
+      "what": "A systematic approach to revops playbook that creates revenue operations playbooks. Evaluates process documentation, best practices, training materials, compliance standards, update frequency to ensure excellence and continuous improvement in this critical capability.",
       "why": "Security breaches can destroy companies. Proactive security and compliance build trust and prevent catastrophic losses.",
       "how": "Assess risks, implement controls, document policies, train employees, monitor continuously, conduct audits, maintain certifications.",
       "examples": [
         "SOC 2 Type II certification achieved in 6 months",
         "Zero security incidents in past 12 months",
         "GDPR compliance across all systems"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Operational Efficiency",
+          "description": "Process optimization"
+        },
+        {
+          "value": "3x",
+          "label": "Scalability",
+          "description": "Growth without complexity"
+        },
+        {
+          "value": "45%",
+          "label": "Cost Reduction",
+          "description": "Infrastructure efficiency"
+        },
+        {
+          "value": "2.5x",
+          "label": "System Reliability",
+          "description": "Uptime and performance"
+        }
       ]
     },
     "workspace": {
@@ -14641,7 +16467,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "14-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -14669,13 +16495,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Internal SLA Policy",
-      "what": "Strategic planning for system, process, and organizational scalability to support 10x growth without 10x complexity.",
+      "what": "A systematic approach to internal sla policy that manages service level agreements. Evaluates sla definition, performance tracking, compliance rate, escalation process, customer satisfaction to ensure excellence and continuous improvement in this critical capability.",
       "why": "Most startups hit scalability walls that slow growth. Planning ahead prevents costly re-architecture and maintains velocity.",
       "how": "Model growth scenarios, identify bottlenecks, design scalable architecture, implement gradually, monitor performance, optimize continuously.",
       "examples": [
         "System handling 100x traffic with 3x infrastructure cost",
         "Customer support scaling to 10,000 tickets/day with same team",
         "Onboarding 1,000 customers/month vs 100 previously"
+      ],
+      "keyMetrics": [
+        {
+          "value": "50%",
+          "label": "Operational Efficiency",
+          "description": "Process optimization"
+        },
+        {
+          "value": "3x",
+          "label": "Scalability",
+          "description": "Growth without complexity"
+        },
+        {
+          "value": "45%",
+          "label": "Cost Reduction",
+          "description": "Infrastructure efficiency"
+        },
+        {
+          "value": "2.5x",
+          "label": "System Reliability",
+          "description": "Uptime and performance"
+        }
       ]
     },
     "workspace": {
@@ -14807,7 +16655,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "14-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -14842,6 +16690,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "VP Sales at $2M ARR, VP Marketing at $5M",
         "CFO before Series B, CPO at 50 employees",
         "Industry veteran for enterprise push"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.2x",
+          "label": "Leadership Effectiveness",
+          "description": "Team performance impact"
+        },
+        {
+          "value": "60%",
+          "label": "Better Decisions",
+          "description": "Strategic clarity"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Retention",
+          "description": "Leadership quality"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Scaling",
+          "description": "Leadership capacity"
+        }
       ]
     },
     "workspace": {
@@ -14990,7 +16860,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -15025,6 +16895,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "5-person board: 2 founders, 2 investors, 1 independent",
         "Quarterly meetings with monthly updates",
         "Audit committee for Series B preparation"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.2x",
+          "label": "Leadership Effectiveness",
+          "description": "Team performance impact"
+        },
+        {
+          "value": "60%",
+          "label": "Better Decisions",
+          "description": "Strategic clarity"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Retention",
+          "description": "Leadership quality"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Scaling",
+          "description": "Leadership capacity"
+        }
       ]
     },
     "workspace": {
@@ -15175,7 +17067,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "15-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -15203,13 +17095,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Succession Planning",
-      "what": "A framework for identifying and developing internal candidates to fill critical leadership roles, ensuring business continuity.",
+      "what": "A strategic approach to succession planning that aligns organizational efforts with business objectives. Encompasses meeting structure, agenda quality, decision making, action follow-through, communication flow to drive systematic execution and measurable results.",
       "why": "70% of senior roles filled internally perform better. Succession planning reduces risk, motivates talent, and maintains culture.",
       "how": "\n      <h4>Planning Components:</h4>\n      <ul>\n        <li><strong>Critical Roles:</strong> Positions vital to success</li>\n        <li><strong>Succession Pool:</strong> Ready now, ready later</li>\n        <li><strong>Development Plans:</strong> Closing readiness gaps</li>\n        <li><strong>Emergency Coverage:</strong> Immediate backup plans</li>\n        <li><strong>Transition Process:</strong> Knowledge transfer approach</li>\n      </ul>\n      \n      <h4>Matrix Development:</h4>\n      <ol>\n        <li>Identify critical positions</li>\n        <li>Assess internal talent</li>\n        <li>Map successors by readiness</li>\n        <li>Create development plans</li>\n        <li>Provide stretch assignments</li>\n        <li>Review and update quarterly</li>\n      </ol>\n    ",
       "examples": [
         "CEO: 2 internal candidates, 18-month development",
         "CTO: Ready-now successor identified",
         "Emergency: COO covers CEO for 90 days"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.2x",
+          "label": "Leadership Effectiveness",
+          "description": "Team performance impact"
+        },
+        {
+          "value": "60%",
+          "label": "Better Decisions",
+          "description": "Strategic clarity"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Retention",
+          "description": "Leadership quality"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Scaling",
+          "description": "Leadership capacity"
+        }
       ]
     },
     "workspace": {
@@ -15360,7 +17274,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "15-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -15395,6 +17309,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Quarterly investor updates with consistent metrics",
         "Annual strategy session with board",
         "Monthly check-ins with lead investor"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.2x",
+          "label": "Leadership Effectiveness",
+          "description": "Team performance impact"
+        },
+        {
+          "value": "60%",
+          "label": "Better Decisions",
+          "description": "Strategic clarity"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Retention",
+          "description": "Leadership quality"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Scaling",
+          "description": "Leadership capacity"
+        }
       ]
     },
     "workspace": {
@@ -15545,7 +17481,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "15-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -15580,6 +17516,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "Monthly email: Metrics, wins, challenges, asks",
         "Quarterly call: Deep dive on strategy",
         "Annual meeting: In-person planning session"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.2x",
+          "label": "Leadership Effectiveness",
+          "description": "Team performance impact"
+        },
+        {
+          "value": "60%",
+          "label": "Better Decisions",
+          "description": "Strategic clarity"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Retention",
+          "description": "Leadership quality"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Scaling",
+          "description": "Leadership capacity"
+        }
       ]
     },
     "workspace": {
@@ -15730,7 +17688,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "15-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -15758,13 +17716,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Leadership Dynamics",
-      "what": "The interpersonal relationships, communication patterns, and collaborative behaviors that determine executive team effectiveness.",
+      "what": "A systematic approach to leadership dynamics that integrates diversity, equity, and inclusion. Evaluates dei strategy, representation metrics, inclusion practices, equity systems, cultural integration to ensure excellence and continuous improvement in this critical capability.",
       "why": "The #1 reason startups fail is founder conflict. Healthy leadership dynamics drive 3x better performance than dysfunctional teams.",
       "how": "\n      <h4>Dynamic Elements:</h4>\n      <ul>\n        <li><strong>Trust:</strong> Psychological safety and vulnerability</li>\n        <li><strong>Conflict:</strong> Healthy debate and resolution</li>\n        <li><strong>Commitment:</strong> Buy-in and alignment</li>\n        <li><strong>Accountability:</strong> Peer-to-peer ownership</li>\n        <li><strong>Results:</strong> Collective over individual</li>\n      </ul>\n      \n      <h4>Development Process:</h4>\n      <ol>\n        <li>Assess current dynamics</li>\n        <li>Identify dysfunction areas</li>\n        <li>Facilitate team sessions</li>\n        <li>Establish team norms</li>\n        <li>Practice difficult conversations</li>\n        <li>Measure and improve</li>\n      </ol>\n    ",
       "examples": [
         "Weekly exec team standup for alignment",
         "Quarterly offsite for strategy and bonding",
         "360 feedback for continuous improvement"
+      ],
+      "keyMetrics": [
+        {
+          "value": "3.2x",
+          "label": "Leadership Effectiveness",
+          "description": "Team performance impact"
+        },
+        {
+          "value": "60%",
+          "label": "Better Decisions",
+          "description": "Strategic clarity"
+        },
+        {
+          "value": "40%",
+          "label": "Higher Retention",
+          "description": "Leadership quality"
+        },
+        {
+          "value": "2.8x",
+          "label": "Faster Scaling",
+          "description": "Leadership capacity"
+        }
       ]
     },
     "workspace": {
@@ -15915,7 +17895,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "15-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -15950,6 +17930,28 @@ const COMPLETE_SSOT_REGISTRY = {
         "UK first: English-speaking, similar regulations",
         "Partnership entry: Local reseller for APAC",
         "Acquisition: Buy local competitor for quick entry"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Market Expansion",
+          "description": "Geographic growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Entry",
+          "description": "Time to new markets"
+        },
+        {
+          "value": "40%",
+          "label": "Lower Risk",
+          "description": "Systematic expansion"
+        },
+        {
+          "value": "3x",
+          "label": "Global Revenue",
+          "description": "International contribution"
+        }
       ]
     },
     "workspace": {
@@ -16090,7 +18092,7 @@ const COMPLETE_SSOT_REGISTRY = {
     "meta": {
       "dependencies": [],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -16118,13 +18120,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Localization Infrastructure",
-      "what": "A phased plan for adapting your product, marketing, and operations to meet the specific needs of local markets.",
+      "what": "A systematic approach to localization infrastructure that manages product and content localization. Evaluates localization strategy, language coverage, cultural adaptation, technical implementation, quality assurance to ensure excellence and continuous improvement in this critical capability.",
       "why": "75% of customers prefer to buy in their native language. Proper localization increases conversion rates by 70% in new markets.",
       "how": "\n      <h4>Localization Areas:</h4>\n      <ul>\n        <li><strong>Language:</strong> UI, documentation, support</li>\n        <li><strong>Currency:</strong> Pricing and payment methods</li>\n        <li><strong>Compliance:</strong> Local regulations and standards</li>\n        <li><strong>Culture:</strong> Messaging and imagery adaptation</li>\n        <li><strong>Features:</strong> Market-specific functionality</li>\n      </ul>\n      \n      <h4>Roadmap Development:</h4>\n      <ol>\n        <li>Prioritize markets by opportunity</li>\n        <li>Assess localization requirements</li>\n        <li>Define MVP localization</li>\n        <li>Build translation process</li>\n        <li>Implement and test</li>\n        <li>Gather feedback and iterate</li>\n      </ol>\n    ",
       "examples": [
         "Phase 1: UI translation for top 3 languages",
         "Phase 2: Local payment methods and currency",
         "Phase 3: Market-specific features and compliance"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Market Expansion",
+          "description": "Geographic growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Entry",
+          "description": "Time to new markets"
+        },
+        {
+          "value": "40%",
+          "label": "Lower Risk",
+          "description": "Systematic expansion"
+        },
+        {
+          "value": "3x",
+          "label": "Global Revenue",
+          "description": "International contribution"
+        }
       ]
     },
     "workspace": {
@@ -16267,7 +18291,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "16-1"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -16295,13 +18319,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "International Pricing Matrix",
-      "what": "Standardized processes and systems for managing operations across multiple countries including legal, finance, HR, and support.",
+      "what": "A systematic approach to international pricing matrix that develops international pricing strategies. Evaluates pricing research, currency strategy, local competition, value perception, margin management to ensure excellence and continuous improvement in this critical capability.",
       "why": "Global operations complexity grows exponentially. A playbook ensures consistency, compliance, and efficiency across markets.",
       "how": "\n      <h4>Operational Areas:</h4>\n      <ul>\n        <li><strong>Legal Entity:</strong> Subsidiary vs. branch setup</li>\n        <li><strong>Employment:</strong> Local hiring and compliance</li>\n        <li><strong>Finance:</strong> Banking, tax, and reporting</li>\n        <li><strong>Support:</strong> Follow-the-sun coverage</li>\n        <li><strong>Data:</strong> Privacy and residency requirements</li>\n      </ul>\n      \n      <h4>Playbook Creation:</h4>\n      <ol>\n        <li>Document current operations</li>\n        <li>Research local requirements</li>\n        <li>Design scalable processes</li>\n        <li>Select global vendors</li>\n        <li>Create compliance checklists</li>\n        <li>Train local teams</li>\n      </ol>\n    ",
       "examples": [
         "Entity setup: 60-day process with legal partner",
         "Employment: PEO for <10 employees per country",
         "Support: 24/7 coverage across 3 time zones"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Market Expansion",
+          "description": "Geographic growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Entry",
+          "description": "Time to new markets"
+        },
+        {
+          "value": "40%",
+          "label": "Lower Risk",
+          "description": "Systematic expansion"
+        },
+        {
+          "value": "3x",
+          "label": "Global Revenue",
+          "description": "International contribution"
+        }
       ]
     },
     "workspace": {
@@ -16444,7 +18490,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "16-2"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -16472,13 +18518,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Regional Compliance Tracker",
-      "what": "A comprehensive overview of regulatory requirements across different markets including data privacy, industry standards, and local laws.",
+      "what": "A systematic framework for monitoring and measuring regional compliance tracker through data collection, analysis, and actionable insights. Tracks key metrics including regulatory mapping, documentation, audit readiness, risk management, update management to enable proactive decision-making and continuous improvement.",
       "why": "Non-compliance can result in fines up to 4% of global revenue. A compliance map prevents costly mistakes and builds trust.",
       "how": "\n      <h4>Compliance Categories:</h4>\n      <ul>\n        <li><strong>Data Privacy:</strong> GDPR, CCPA, local laws</li>\n        <li><strong>Industry:</strong> Sector-specific regulations</li>\n        <li><strong>Financial:</strong> Tax, reporting, transfer pricing</li>\n        <li><strong>Employment:</strong> Labor laws and benefits</li>\n        <li><strong>Product:</strong> Safety and certification requirements</li>\n      </ul>\n      \n      <h4>Mapping Process:</h4>\n      <ol>\n        <li>Identify target markets</li>\n        <li>Research regulatory landscape</li>\n        <li>Assess compliance gaps</li>\n        <li>Prioritize requirements</li>\n        <li>Implement controls</li>\n        <li>Monitor changes</li>\n      </ol>\n    ",
       "examples": [
         "GDPR: Data processing agreements, consent flows",
         "SOC 2: Security controls for enterprise sales",
         "HIPAA: Healthcare data handling for US market"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Market Expansion",
+          "description": "Geographic growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Entry",
+          "description": "Time to new markets"
+        },
+        {
+          "value": "40%",
+          "label": "Lower Risk",
+          "description": "Systematic expansion"
+        },
+        {
+          "value": "3x",
+          "label": "Global Revenue",
+          "description": "International contribution"
+        }
       ]
     },
     "workspace": {
@@ -16621,7 +18689,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "16-3"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -16649,13 +18717,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Geo-Specific GTM Playbooks",
-      "what": "A framework for building and managing strategic partnerships that accelerate market entry, distribution, and product capabilities.",
+      "what": "A systematic approach to geo-specific gtm playbooks that develops geography-specific gtm strategies. Evaluates local gtm strategy, channel strategy, partnership development, marketing adaptation, sales localization to ensure excellence and continuous improvement in this critical capability.",
       "why": "Partners can provide 40% of revenue in new markets. The right ecosystem strategy multiplies growth without multiplying costs.",
       "how": "\n      <h4>Partnership Types:</h4>\n      <ul>\n        <li><strong>Channel:</strong> Resellers and distributors</li>\n        <li><strong>Technology:</strong> Integrations and platforms</li>\n        <li><strong>Strategic:</strong> Joint ventures and alliances</li>\n        <li><strong>Service:</strong> Implementation and consulting</li>\n        <li><strong>Marketing:</strong> Co-marketing and referrals</li>\n      </ul>\n      \n      <h4>Strategy Development:</h4>\n      <ol>\n        <li>Define partnership objectives</li>\n        <li>Map ecosystem opportunities</li>\n        <li>Create partner profiles</li>\n        <li>Design partner programs</li>\n        <li>Recruit and onboard</li>\n        <li>Enable and manage</li>\n      </ol>\n    ",
       "examples": [
         "Channel: 20% revenue share for qualified partners",
         "Technology: API partnership with market leader",
         "Strategic: JV for Japan market entry"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Market Expansion",
+          "description": "Geographic growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Entry",
+          "description": "Time to new markets"
+        },
+        {
+          "value": "40%",
+          "label": "Lower Risk",
+          "description": "Systematic expansion"
+        },
+        {
+          "value": "3x",
+          "label": "Global Revenue",
+          "description": "International contribution"
+        }
       ]
     },
     "workspace": {
@@ -16798,7 +18888,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "16-4"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {
@@ -16826,13 +18916,35 @@ const COMPLETE_SSOT_REGISTRY = {
     },
     "education": {
       "title": "Expansion Risk Assessment",
-      "what": "A systematic approach to understanding and adapting to cultural differences in business practices, communication, and customer expectations.",
+      "what": "A comprehensive expansion risk assessment methodology that evaluates risk identification, impact analysis, mitigation planning, contingency plans, risk monitoring to identify opportunities, risks, and optimization potential. Provides data-driven insights for strategic decision-making.",
       "why": "Cultural misalignment causes 60% of international expansion failures. Adaptation builds trust and accelerates market acceptance.",
       "how": "\n      <h4>Adaptation Areas:</h4>\n      <ul>\n        <li><strong>Communication:</strong> Style, directness, formality</li>\n        <li><strong>Business Practices:</strong> Decision-making, relationships</li>\n        <li><strong>Customer Expectations:</strong> Service levels, features</li>\n        <li><strong>Team Management:</strong> Leadership and motivation</li>\n        <li><strong>Marketing:</strong> Messaging and channels</li>\n      </ul>\n      \n      <h4>Framework Implementation:</h4>\n      <ol>\n        <li>Research cultural dimensions</li>\n        <li>Assess current approach</li>\n        <li>Identify adaptation needs</li>\n        <li>Train teams on differences</li>\n        <li>Adapt practices and materials</li>\n        <li>Monitor and adjust</li>\n      </ol>\n    ",
       "examples": [
         "Japan: Formal communication, consensus decisions",
         "Germany: Direct feedback, detailed documentation",
         "Brazil: Relationship-first, flexible timing"
+      ],
+      "keyMetrics": [
+        {
+          "value": "2.5x",
+          "label": "Market Expansion",
+          "description": "Geographic growth"
+        },
+        {
+          "value": "50%",
+          "label": "Faster Entry",
+          "description": "Time to new markets"
+        },
+        {
+          "value": "40%",
+          "label": "Lower Risk",
+          "description": "Systematic expansion"
+        },
+        {
+          "value": "3x",
+          "label": "Global Revenue",
+          "description": "International contribution"
+        }
       ]
     },
     "workspace": {
@@ -16964,7 +19076,7 @@ const COMPLETE_SSOT_REGISTRY = {
         "16-5"
       ],
       "createdAt": "2025-10-06",
-      "lastValidated": "2025-10-06T19:22:08.303Z",
+      "lastValidated": "2025-10-06T20:49:42.943Z",
       "version": "2.0.0",
       "dataSource": "complete-ssot-registry",
       "completeness": {

@@ -1762,47 +1762,33 @@ ${new Date().toLocaleString()}`;
         });
     </script>
     
-    <!-- Load additional scripts -->
-    <!-- Load the COMPLETE education display fix with all sections -->
-    <script src="fix-education-complete-display.js"></script>
-    <!-- Load COMPLETE real-world examples database and injection system -->
-    <script>
-        // Load all database scripts in sequence
-        function loadScriptsInSequence() {
-            // First load the base database (blocks 1-7)
-            const dbScript = document.createElement('script');
-            dbScript.src = 'real-world-examples-all-96-complete.js';
-            document.head.appendChild(dbScript);
-            
-            dbScript.onload = function() {
-                // Then load blocks 8-12 completion
-                const completeScript1 = document.createElement('script');
-                completeScript1.src = 'complete-all-96-examples-final.js';
-                document.head.appendChild(completeScript1);
-                
-                completeScript1.onload = function() {
-                    // Then load blocks 13-16 completion
-                    const completeScript2 = document.createElement('script');
-                    completeScript2.src = 'complete-blocks-13-16-final.js';
-                    document.head.appendChild(completeScript2);
-                    
-                    completeScript2.onload = function() {
-                        // Finally load the injection system
-                        const injectionScript = document.createElement('script');
-                        injectionScript.src = 'fix-real-world-examples-injection.js';
-                        document.head.appendChild(injectionScript);
-                        
-                        injectionScript.onload = function() {
-                            console.log('✅ All 96 subcomponents loaded with real-world examples!');
-                        };
-                    };
-                };
-            };
-        }
-        
-        // Start the loading sequence
-        loadScriptsInSequence();
-    </script>
+    <!-- ============================================ -->
+    <!-- SSOT PROTECTION - LOADS FIRST TO PREVENT CONFLICTS -->
+    <!-- ============================================ -->
+    <!-- NEW: Universal SSOT System Enforcer v2.0 -->
+    <script src="ssot-system-enforcer.js"></script>
+    <!-- Legacy enforcers for backward compatibility -->
+    <script src="ssot-enforcer.js"></script>
+    <script src="fix-ssot-override-immediate.js"></script>
+    
+    <!-- ============================================ -->
+    <!-- CONTENT REGISTRY SYSTEM - DISABLED BY FIX ABOVE -->
+    <!-- These scripts are loaded but neutralized by fix-ssot-override-immediate.js -->
+    <!-- ============================================ -->
+    <!-- TEMPORARILY DISABLED TO PREVENT CONFLICTS
+    <script src="content-registry.js"></script>
+    <script src="providers/real-world-provider.js"></script>
+    <script src="providers/education-provider.js"></script>
+    <script src="providers/workspace-provider.js"></script>
+    <script src="validators/content-validators.js"></script>
+    <script src="transformers/content-transformers.js"></script>
+    <script src="registry-config.js"></script>
+    <script src="unified-content-service-v2.js"></script>
+    <script src="monitor-real-world-examples.js"></script>
+    -->
+    
+    <!-- Load additional scripts that don't conflict -->
+    
     <!-- Load ST6Co workspace display fix for workspace questions -->
     <script src="fix-st6co-workspace-display.js"></script>
     
@@ -1910,21 +1896,58 @@ ${new Date().toLocaleString()}`;
    <script src="systemic-tab-functionality.js"></script>
    <!-- DEBUG: Output Templates Diagnostic -->
    <script src="debug-output-templates.js"></script>
-   <!-- SYSTEMIC: Greenwich Time (GMT/UTC) for All 96 Subcomponents -->
+   <!-- TEMPORARILY DISABLED TO FIX CONTENT MISALIGNMENT -->
+   <!-- These scripts were causing content override issues -->
+   <!--
    <script src="fix-greenwich-time-systemic.js"></script>
-   <!-- 8i REVISIONS: Complete Systemic Fix for All 96 Subcomponents -->
    <script src="systemic-complete-fix-8i.js"></script>
-   <!-- FINAL 8i FIX: Output Modal Orange Header and Remove Circles -->
    <script src="fix-output-modal-final-8i.js"></script>
-   <!-- FINAL 8i FIX: Banner Colors Only to ScaleOps6 Orange -->
    <script src="fix-banner-colors-only-8i.js"></script>
-   <!-- This MUST be the LAST script to ensure it overrides all other implementations -->
+   -->
+   
+   <!-- SSOT Validation and Monitoring -->
+   <script>
+       // Monitor SSOT compliance
+       document.addEventListener('DOMContentLoaded', function() {
+           console.log('🔍 SSOT Compliance Check Started');
+           
+           // Check SSOT enforcer is active
+           if (window.SSOT_ENFORCER) {
+               setTimeout(() => {
+                   const stats = window.SSOT_ENFORCER.getStats();
+                   console.log('📊 SSOT Enforcer Stats:', stats);
+                   
+                   // Check specific elements
+                   const elements = ['subcomponent-title', 'subcomponent-name', 'subcomponent-description'];
+                   elements.forEach(id => {
+                       const result = window.SSOT_ENFORCER.checkElement(id);
+                       if (result && !result.isCorrect) {
+                           console.error(`❌ SSOT Violation on ${id}:`, result);
+                           // Force correction
+                           window.SSOT_ENFORCER.enforce();
+                       }
+                   });
+               }, 2000);
+           } else {
+               console.error('❌ SSOT Enforcer not loaded!');
+           }
+       });
+   </script>
    
    <!-- SYSTEMIC FIX: Correct template mapping - DISABLED (redundant with inline implementation) -->
    <!-- <script src="fix-template-mapping-systemic.js"></script> -->
    
    <!-- REMOVED: fix-remove-three-templates.js - Now using SSOT from server API -->
    <!-- Client now renders templates directly from API response (SSOT-driven) -->
+   
+   <!-- NEW: Enhanced Use Cases Renderer - Always-Expanded Detailed Format -->
+   <script src="render-enhanced-use-cases.js"></script>
+   <!-- Features:
+        - Renders detailed use cases with Challenge, Approach, Definition, Results, Key Insight
+        - Always-expanded format (no collapse)
+        - Highlights Definition section (what great [subcomponent] looks like)
+        - Clean, text-focused design without decorative icons
+        - 200-300 words per use case for educational value -->
    
    <!-- SSOT Validation Script -->
    <script>

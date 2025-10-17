@@ -1,0 +1,1160 @@
+{
+  "total": 96,
+  "passed": 96,
+  "failed": 0,
+  "warnings": 0,
+  "details": [
+    {
+      "id": "1-1",
+      "name": "Problem Statement Definition",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "1-2",
+      "name": "Mission Statement",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "1-3",
+      "name": "Voice of Customer",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "1-4",
+      "name": "Founding Team Capability",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "1-5",
+      "name": "Market Landscape",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "1-6",
+      "name": "Launch Readiness",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "2-1",
+      "name": "Jobs to be Done",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "2-2",
+      "name": "Personas Framework",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "2-3",
+      "name": "Interview Cadence",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "2-4",
+      "name": "Pain Point Mapping",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "2-5",
+      "name": "Insight Action",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "2-6",
+      "name": "Customer Journey",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "3-1",
+      "name": "Use Case Scoring Model",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "3-2",
+      "name": "Segment Tiering",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "3-3",
+      "name": "Prioritization Rubric",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "3-4",
+      "name": "Tradeoff Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "3-5",
+      "name": "Hypothesis Board",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "3-6",
+      "name": "Decision Archive",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "4-1",
+      "name": "Feature Inclusion Matrix",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "4-2",
+      "name": "Technical Scope Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "4-3",
+      "name": "Pilot Group Selection",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "4-4",
+      "name": "QA & Success Criteria",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "4-5",
+      "name": "Timeline GANTT or Roadmap",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "4-6",
+      "name": "Post-Mortem Template",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "5-1",
+      "name": "GTM Messaging Framework",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "5-2",
+      "name": "Sales Enablement Assets",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "5-3",
+      "name": "Pricing & Packaging Strategy",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "5-4",
+      "name": "Channel Partner Strategy",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "5-5",
+      "name": "Competitive Positioning",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "5-6",
+      "name": "Launch Planning & Execution",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "6-1",
+      "name": "Usage Heatmap",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "6-2",
+      "name": "Milestone Triggers",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "6-3",
+      "name": "CS Dashboard",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "6-4",
+      "name": "Activation Metric Model",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "6-5",
+      "name": "Feedback Collector",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "6-6",
+      "name": "Power User Behavior Signals",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "7-1",
+      "name": "Time/Cost Savings Metrics",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "7-2",
+      "name": "Revenue-Impact Attribution",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "7-3",
+      "name": "Productivity Lift Metrics",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "7-4",
+      "name": "Net Retention Trends",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "7-5",
+      "name": "Downstream System Reductions",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "7-6",
+      "name": "Friction Reduction Evidence",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "8-1",
+      "name": "Upsell Funnel Model",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "8-2",
+      "name": "Team Expansion Signals",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "8-3",
+      "name": "Organic Adoption Pattern",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "8-4",
+      "name": "Champion Mapping",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "8-5",
+      "name": "CSAT/NPS Tracking",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "8-6",
+      "name": "Renewal Readiness Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "9-1",
+      "name": "Inbound Conversion Rates",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "9-2",
+      "name": "Outbound Play Performance",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "9-3",
+      "name": "Channel Economics Clarity",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "9-4",
+      "name": "Discovery Call Effectiveness",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "9-5",
+      "name": "Demo-to-Close Flow",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "9-6",
+      "name": "Founders Selling Model",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "10-1",
+      "name": "Enablement Asset Pack",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "10-2",
+      "name": "Rep Ramp Plan",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "10-3",
+      "name": "Win/Loss Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "10-4",
+      "name": "Objection Handling Guide",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "10-5",
+      "name": "ICP Filter Checklist",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "10-6",
+      "name": "Sales Call Library",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "11-1",
+      "name": "Scorecard Model",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "11-2",
+      "name": "Quota Structure",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "11-3",
+      "name": "Weekly Deal Reviews",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "11-4",
+      "name": "Forecasting Framework",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "11-5",
+      "name": "Manager Coaching Loop",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "11-6",
+      "name": "Talent Gap Identification",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "12-1",
+      "name": "Onboarding Checklist",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "12-2",
+      "name": "Activation Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "12-3",
+      "name": "Success Playbooks",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "12-4",
+      "name": "Escalation SOPs",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "12-5",
+      "name": "Renewals Pipelines",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "12-6",
+      "name": "Churn Root-Cause Engine",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "13-1",
+      "name": "Category Narrative Canvas",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "13-2",
+      "name": "Strategic MOAT Design",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "13-3",
+      "name": "Ecosystem Leverage Map",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "13-4",
+      "name": "Competitor GTM Monitoring",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "13-5",
+      "name": "Brand Architecture Plan",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "13-6",
+      "name": "Defensive GTM Tactics",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "14-1",
+      "name": "System Architecture Diagram",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "14-2",
+      "name": "Revenue Engine Map",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "14-3",
+      "name": "Internal Dashboards",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "14-4",
+      "name": "Tool Consolidation Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "14-5",
+      "name": "RevOps Playbook",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "14-6",
+      "name": "Internal SLA Policy",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "15-1",
+      "name": "Executive Team",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "15-2",
+      "name": "Board Development",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "15-3",
+      "name": "Succession Planning",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "15-4",
+      "name": "Stakeholder Alignment",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "15-5",
+      "name": "Investor Relations",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "15-6",
+      "name": "Leadership Dynamics",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "16-1",
+      "name": "Market Selection",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "16-2",
+      "name": "Localization Infrastructure",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "16-3",
+      "name": "International Pricing Matrix",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "16-4",
+      "name": "Regional Compliance Tracker",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "16-5",
+      "name": "Geo-Specific GTM Playbooks",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    },
+    {
+      "id": "16-6",
+      "name": "Expansion Risk Assessment",
+      "checks": {
+        "registry": true,
+        "agent": true,
+        "questions": true,
+        "education": true,
+        "domainAlignment": true
+      },
+      "issues": []
+    }
+  ]
+}

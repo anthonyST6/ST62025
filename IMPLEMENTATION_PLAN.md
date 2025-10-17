@@ -1,396 +1,358 @@
-# Implementation Plan: Agent User Journey Fixes
-## Comprehensive Solution Architecture
+# Implementation Plan: Fix Content Misalignment
 
-### Overview
-This document outlines the implementation strategy to ensure all 96 agents properly handle the complete user journey with agent-specific content, questions, scoring, and reporting.
+## Overview
+This plan provides step-by-step instructions to fix the content misalignment issue where the UI doesn't reflect the SSOT (Single Source of Truth) for subcomponent 2-1 and potentially all 96 subcomponents.
 
----
+## Phase 1: Immediate Fix (15 minutes)
 
-## Critical Issues to Fix
-
-### 1. Workspace Question Integration
-**Problem**: All subcomponents show the same generic questions
-**Solution**: Integrate the existing question generation infrastructure
-
-#### Files to Modify:
-- `combined-server.js` - Update `generateWorkspaceQuestions()` function
-- `subcomponent-detail.html` - Ensure proper workspace rendering
-
-#### Implementation:
+### Step 1: Create SSOT Enforcer Script
+**File:** `ssot-enforcer.js`
 ```javascript
-// In combined-server.js, replace current generateWorkspaceQuestions with:
-const AgentQuestionGenerator = require('./agent-question-generator');
-const agentGeneratedQuestions = require('./agent-generated-questions');
-
-function generateWorkspaceQuestions(subcomponentId, agent) {
-    // Use pre-generated questions if available
-    if (agentGeneratedQuestions[subcomponentId]) {
-        return formatQuestionsForWorkspace(
-            agentGeneratedQuestions[subcomponentId],
-            agent
-        );
+// This script ensures SSOT data is never overridden
+(function() {
+    let SSOT_DATA = null;
+    let PROTECTION_ACTIVE = true;
+    
+    // Fetch and store SSOT data
+    async function loadSSoTData() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const subcomponentId = urlParams.get('id') || '1-1';
+        
+        try {
+            const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+            const data = await response.json();
+            SSOT_DATA = data;
+            console.log('✅ SSOT Data Loaded:', {
+                id: subcomponentId,
+                name: data.name,
+                agent: data.agent,
+                title: data.education?.title
+            });
+            enforceSSoT();
+        } catch (error) {
+            console.error('❌ Failed to load SSOT data:', error);
+        }
     }
     
-    // Fall back to dynamic generation
-    const generator = new AgentQuestionGenerator();
-    return generator.generateQuestions(subcomponentId, educationalContent);
+    // Enforce SSOT values
+    function enforceSSoT() {
+        if (!SSOT_DATA || !PROTECTION_ACTIVE) return;
+        
+        // Fix title
+        const titleElement = document.getElementById('subcomponent-title');
+        if (titleElement && SSOT_DATA.agent) {
+            const currentTitle = titleElement.textContent.trim();
+            const correctTitle = SSOT_DATA.agent.toUpperCase();
+            if (currentTitle !== correctTitle) {
+                console.warn(`🔧 Correcting title from "${currentTitle}" to "${correctTitle}"`);
+                titleElement.textContent = correctTitle;
+            }
+        }
+        
+        // Fix subcomponent name
+        const nameElement = document.getElementById('subcomponent-name');
+        if (nameElement && SSOT_DATA.name) {
+            const currentName = nameElement.textContent.trim();
+            if (currentName !== SSOT_DATA.name) {
+                console.warn(`🔧 Correcting name from "${currentName}" to "${SSOT_DATA.name}"`);
+                nameElement.textContent = SSOT_DATA.name;
+            }
+        }
+        
+        // Fix description
+        const descElement = document.getElementById('subcomponent-description');
+        if (descElement && SSOT_DATA.description) {
+            descElement.textContent = SSOT_DATA.description;
+        }
+    }
+    
+    // Monitor for changes
+    function startMonitoring() {
+        const observer = new MutationObserver((mutations) => {
+            enforceSSoT();
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            characterData: true
+        });
+        
+        // Also enforce periodically
+        setInterval(enforceSSoT, 1000);
+    }
+    
+    // Initialize
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSSoTData();
+            startMonitoring();
+        });
+    } else {
+        loadSSoTData();
+        startMonitoring();
+    }
+    
+    // Expose for debugging
+    window.SSOT_ENFORCER = {
+        getData: () => SSOT_DATA,
+        reload: loadSSoTData,
+        enforce: enforceSSoT,
+        disable: () => { PROTECTION_ACTIVE = false; },
+        enable: () => { PROTECTION_ACTIVE = true; enforceSSoT(); }
+    };
+})();
+```
+
+### Step 2: Update HTML File
+**File:** `subcomponent-detail.html`
+
+Add this script FIRST, before all other scripts (after line 1765):
+```html
+<!-- SSOT ENFORCER - MUST BE FIRST -->
+<script src="ssot-enforcer.js"></script>
+```
+
+Comment out problematic scripts (lines 1791, 1767, 1916):
+```html
+<!-- TEMPORARILY DISABLED FOR SSOT FIX
+<script src="fix-real-world-examples-injection.js"></script>
+<script src="fix-education-complete-display.js"></script>
+<script src="systemic-complete-fix-8i.js"></script>
+-->
+```
+
+### Step 3: Test the Fix
+1. Restart the server: `node server-with-backend.js`
+2. Navigate to: http://localhost:3001/subcomponent-detail.html?id=2-1
+3. Open browser console
+4. Verify:
+   - Title shows "JOBS TO BE DONE" (not "JTBD SPECIALIST")
+   - Console shows "✅ SSOT Data Loaded"
+   - No content flickering
+
+## Phase 2: Unified Content Service (1 hour)
+
+### Step 1: Create Unified Content Service
+**File:** `unified-content-service.js`
+
+Use the implementation from `UNIFIED_CONTENT_SERVICE_IMPLEMENTATION.md`
+
+### Step 2: Update Server
+**File:** `server-with-backend.js`
+
+Add new endpoint:
+```javascript
+const UnifiedContentService = require('./unified-content-service');
+const contentService = new UnifiedContentService();
+
+// New unified content endpoint
+app.get('/api/unified-content/:subcomponentId', (req, res) => {
+    const { subcomponentId } = req.params;
+    
+    try {
+        const content = contentService.getContent(subcomponentId);
+        res.json({
+            success: true,
+            content: content,
+            timestamp: Date.now()
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+```
+
+### Step 3: Update Client
+**File:** `unified-content-loader.js`
+
+Create client-side loader (from implementation doc)
+
+### Step 4: Update HTML
+Replace the loadSubcomponentData function:
+```javascript
+async function loadSubcomponentData() {
+    try {
+        const response = await fetch(`/api/unified-content/${subcomponentId}`);
+        const data = await response.json();
+        
+        if (data.success) {
+            updatePageContent(data.content);
+            updateEducationTab(data.content.education);
+            // ... rest of updates
+        }
+    } catch (error) {
+        console.error('Error loading unified content:', error);
+    }
 }
 ```
 
-### 2. ST6Co Data Integration
-**Problem**: ST6Co/ScaleOps6Product data not pre-filled
-**Solution**: Integrate test-company.js data into all worksheets
+## Phase 3: Clean Up (30 minutes)
 
-#### Implementation:
+### Step 1: Remove Redundant Scripts
+Delete or archive these files:
+- `fix-real-world-examples-injection.js`
+- `fix-education-complete-display.js`
+- `systemic-complete-fix-8i.js`
+- All other "fix-" prefixed files
+
+### Step 2: Consolidate Content Sources
+1. Move all content to SSOT registry
+2. Update educational content to reference SSOT
+3. Ensure agent mappings use SSOT
+
+### Step 3: Add Monitoring
+**File:** `content-monitor.js`
 ```javascript
-// Create new file: st6co-data-provider.js
-const { testCompany } = require('./test-company');
-
-class ST6CoDataProvider {
-    getContextForSubcomponent(subcomponentId) {
-        const [blockId, subId] = subcomponentId.split('-');
-        
-        return {
-            company: testCompany.name,
-            product: 'ScaleOps6Product',
-            industry: testCompany.industry,
-            stage: testCompany.stage,
-            blockScore: testCompany.blockScores[blockId],
-            profile: testCompany.profile,
-            metrics: testCompany.profile.keyMetrics
-        };
-    }
-    
-    getPrefilledAnswers(subcomponentId) {
-        // Return ST6Co-specific answers based on subcomponent
-        const context = this.getContextForSubcomponent(subcomponentId);
-        
-        return {
-            problem: this.getProblemStatement(context),
-            solution: this.getSolutionStatement(context),
-            evidence: this.getEvidenceStatement(context),
-            metrics: this.getMetricsData(context)
-        };
-    }
-}
-```
-
-### 3. Agent-Specific Education Content
-**Problem**: Education content may not be agent-specific
-**Solution**: Ensure each agent loads unique educational content
-
-#### Files to Create:
-- `agent-education-provider.js` - Centralized education content system
-
-#### Implementation:
-```javascript
-class AgentEducationProvider {
+class ContentMonitor {
     constructor() {
-        this.educationContent = new Map();
-        this.initializeContent();
+        this.violations = [];
+        this.startTime = Date.now();
     }
     
-    initializeContent() {
-        // Problem Statement Agent (1-1)
-        this.educationContent.set('1-1', {
-            title: 'Problem Statement Mastery',
-            sections: [
-                {
-                    heading: 'Understanding Problem Definition',
-                    content: 'A clear problem statement is the foundation...',
-                    examples: ['ST6Co Example: GTM complexity for startups']
-                },
-                {
-                    heading: 'Validation Techniques',
-                    content: 'Methods to validate problem severity...',
-                    tools: ['Customer interviews', 'Market research']
-                }
-            ],
-            resources: [
-                'problem-statement-template.pdf',
-                'validation-checklist.xlsx'
-            ]
-        });
+    logViolation(type, details) {
+        const violation = {
+            type,
+            details,
+            timestamp: Date.now(),
+            url: window.location.href
+        };
+        this.violations.push(violation);
+        console.error('SSOT Violation:', violation);
         
-        // Continue for all 96 agents...
+        // Send to server for tracking
+        fetch('/api/log-violation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(violation)
+        });
     }
     
-    getEducationContent(subcomponentId) {
-        return this.educationContent.get(subcomponentId);
-    }
-}
-```
-
-### 4. Agent Scoring Integration
-**Problem**: Scoring not performed by correct agent
-**Solution**: Connect each agent to the scoring engine
-
-#### Implementation:
-```javascript
-// Update scoring-engine.js
-class EnhancedScoringEngine {
-    async scoreWorksheet(subcomponentId, responses, agentName) {
-        const agent = this.getAgentForSubcomponent(subcomponentId);
-        
-        // Agent-specific scoring logic
-        const scoringCriteria = this.getAgentScoringCriteria(agent);
-        const weights = this.getAgentWeights(agent);
-        
-        // Calculate score using agent expertise
-        const score = await this.calculateAgentScore(
-            responses,
-            scoringCriteria,
-            weights,
-            agent
-        );
-        
-        // Save to history with agent attribution
-        await this.saveScoreHistory({
-            subcomponentId,
-            agentName,
-            score,
-            timestamp: new Date(),
-            responses,
-            analysis: this.generateAgentAnalysis(agent, responses, score)
-        });
-        
-        return score;
-    }
-}
-```
-
-### 5. Templates & Reports Generation
-**Problem**: Templates not differentiated by agent
-**Solution**: Create agent-specific report templates
-
-#### Implementation:
-```javascript
-// Create agent-report-generator.js
-class AgentReportGenerator {
-    generateReport(subcomponentId, agentName, scoreData) {
-        const template = this.getAgentTemplate(agentName);
-        
+    getReport() {
         return {
-            title: `${agentName} Analysis Report`,
-            company: 'ST6Co',
-            product: 'ScaleOps6Product',
-            date: new Date(),
-            sections: [
-                this.generateExecutiveSummary(scoreData),
-                this.generateDetailedAnalysis(scoreData, agentName),
-                this.generateRecommendations(scoreData, agentName),
-                this.generateActionPlan(scoreData, agentName)
-            ],
-            format: 'pdf',
-            filename: `${subcomponentId}-${agentName.replace(/\s+/g, '-')}-report.pdf`
+            totalViolations: this.violations.length,
+            uptime: Date.now() - this.startTime,
+            violations: this.violations
         };
     }
 }
+
+window.contentMonitor = new ContentMonitor();
 ```
-
-### 6. Resources File Generation
-**Problem**: Output files not generated with correct naming
-**Solution**: Implement automatic resource generation after scoring
-
-#### Implementation:
-```javascript
-// Create resource-generator.js
-class ResourceGenerator {
-    async generateResources(subcomponentId, agentName, analysis) {
-        const resources = [];
-        
-        // Generate worksheet export
-        resources.push({
-            name: `${subcomponentId}-worksheet.xlsx`,
-            type: 'worksheet',
-            content: await this.exportWorksheet(analysis)
-        });
-        
-        // Generate analysis report
-        resources.push({
-            name: `${subcomponentId}-analysis.pdf`,
-            type: 'report',
-            content: await this.generateReport(analysis)
-        });
-        
-        // Generate action plan
-        resources.push({
-            name: `${subcomponentId}-action-plan.docx`,
-            type: 'actionPlan',
-            content: await this.generateActionPlan(analysis)
-        });
-        
-        // Save to resources directory
-        await this.saveResources(resources, subcomponentId);
-        
-        return resources;
-    }
-}
-```
-
----
-
-## Implementation Sequence
-
-### Phase 1: Core Infrastructure (Day 1)
-1. **Update combined-server.js**
-   - Integrate question generators
-   - Add ST6Co data provider
-   - Fix workspace generation
-
-2. **Create data providers**
-   - st6co-data-provider.js
-   - agent-education-provider.js
-
-### Phase 2: Agent Integration (Day 2)
-1. **Connect agents to scoring**
-   - Update scoring engine
-   - Add agent-specific criteria
-   - Implement score persistence
-
-2. **Test first block completely**
-   - Block 1: Mission Discovery
-   - All 6 agents
-   - Document issues
-
-### Phase 3: Content Generation (Day 3)
-1. **Implement report generation**
-   - Agent-specific templates
-   - Export functionality
-   - Resource file creation
-
-2. **Complete education content**
-   - All 96 agents
-   - Consistent format
-   - ST6Co examples
-
-### Phase 4: UI Consistency (Day 4)
-1. **Standardize layouts**
-   - Match Problem Statement design
-   - Consistent CSS across blocks
-   - Responsive design
-
-2. **Test all blocks**
-   - Complete user journey
-   - Document findings
-   - Fix critical issues
-
-### Phase 5: Final Testing (Day 5)
-1. **End-to-end testing**
-   - All 96 agents
-   - Complete workflows
-   - Performance testing
-
-2. **Documentation**
-   - Update test results
-   - Create user guide
-   - Technical documentation
-
----
-
-## File Structure After Implementation
-
-```
-ST6 Nexus Ops/
-├── combined-server.js (UPDATED)
-├── agent-question-generator.js (EXISTING)
-├── agent-generated-questions.js (EXISTING)
-├── dynamic-worksheet-generator.js (EXISTING)
-├── test-company.js (EXISTING)
-├── st6co-data-provider.js (NEW)
-├── agent-education-provider.js (NEW)
-├── enhanced-scoring-engine.js (NEW)
-├── agent-report-generator.js (NEW)
-├── resource-generator.js (NEW)
-├── agent-workspace-integration.js (NEW)
-├── subcomponent-detail.html (UPDATED)
-└── resources/
-    ├── block-1/
-    │   ├── 1-1-problem-statement-report.pdf
-    │   ├── 1-1-worksheet.xlsx
-    │   └── 1-1-action-plan.docx
-    └── ... (for all 96 subcomponents)
-```
-
----
 
 ## Testing Checklist
 
-### For Each Implementation:
-- [ ] Unit tests written
-- [ ] Integration tested
-- [ ] UI verified
-- [ ] Performance acceptable
-- [ ] Documentation updated
+### Subcomponent 2-1 Specific Tests
+- [ ] Navigate to http://localhost:3001/subcomponent-detail.html?id=2-1
+- [ ] Verify title shows "JOBS TO BE DONE"
+- [ ] Verify description mentions JTBD framework
+- [ ] Check education tab content is correct
+- [ ] Verify no console errors
+- [ ] Check network tab shows unified content API call
 
-### Acceptance Criteria:
-1. ✅ Each agent shows unique education content
-2. ✅ Workspace questions are agent-specific
-3. ✅ ST6Co data is pre-filled
-4. ✅ Scoring uses agent expertise
-5. ✅ Reports are agent-specific
-6. ✅ Resources are properly named
-7. ✅ UI is consistent
-8. ✅ All 96 agents work correctly
+### All Subcomponents Test
+- [ ] Test 5 random subcomponents (e.g., 1-1, 5-3, 10-2, 12-4, 16-6)
+- [ ] Verify each shows correct agent name
+- [ ] Verify each shows correct subcomponent name
+- [ ] Check templates match SSOT
+- [ ] Verify workspace questions load correctly
 
----
+### Performance Tests
+- [ ] Page load time < 2 seconds
+- [ ] No content flickering
+- [ ] No multiple API calls for same content
+- [ ] Cache working correctly
+
+## Rollback Plan
+
+If issues occur:
+1. **Immediate Rollback:**
+   - Remove `ssot-enforcer.js` script tag
+   - Uncomment disabled scripts
+   - Restart server
+
+2. **Partial Rollback:**
+   - Keep SSOT enforcer
+   - Re-enable specific scripts as needed
+   - Monitor for conflicts
+
+3. **Data Backup:**
+   - Backup current SSOT registry
+   - Export current educational content
+   - Save agent mappings
+
+## Success Criteria
+
+### Must Have (P0)
+- ✅ Subcomponent 2-1 shows correct content
+- ✅ No SSOT violations in console
+- ✅ All 96 subcomponents display correctly
+
+### Should Have (P1)
+- ✅ Unified content service operational
+- ✅ Single API endpoint for content
+- ✅ Content caching working
+
+### Nice to Have (P2)
+- ✅ Monitoring dashboard
+- ✅ Automated violation alerts
+- ✅ Performance metrics
+
+## Timeline
+
+### Day 1 (Today)
+- **Hour 1:** Implement Phase 1 (Immediate Fix)
+- **Hour 2:** Test and verify fix works
+- **Hour 3:** Document findings
+
+### Day 2
+- **Morning:** Implement Phase 2 (Unified Service)
+- **Afternoon:** Testing and validation
+
+### Day 3
+- **Morning:** Phase 3 (Clean up)
+- **Afternoon:** Full system test
+- **End of Day:** Deploy to production
+
+## Commands for Implementation
+
+```bash
+# 1. Create enforcer script
+echo "Creating SSOT enforcer..."
+touch ssot-enforcer.js
+
+# 2. Backup current HTML
+cp subcomponent-detail.html subcomponent-detail.html.backup
+
+# 3. Create unified service
+touch unified-content-service.js
+
+# 4. Test the fix
+node server-with-backend.js
+
+# 5. Open browser
+open http://localhost:3001/subcomponent-detail.html?id=2-1
+```
 
 ## Risk Mitigation
 
-### Potential Issues:
-1. **Performance degradation**
-   - Solution: Implement caching for questions
-   - Monitor server load
+### Risk 1: Breaking existing functionality
+**Mitigation:** Keep all changes additive initially, don't remove existing code
 
-2. **Data consistency**
-   - Solution: Single source of truth for ST6Co data
-   - Validation at each step
+### Risk 2: Performance degradation
+**Mitigation:** Implement caching, use debouncing for enforcement
 
-3. **UI breaking changes**
-   - Solution: Incremental updates
-   - Thorough testing per block
-
----
-
-## Success Metrics
-
-### Quantitative:
-- 96/96 agents passing all tests
-- < 2 second load time per subcomponent
-- 100% score persistence success rate
-- Zero UI inconsistencies
-
-### Qualitative:
-- Agent-specific content is relevant
-- User journey is seamless
-- Reports provide value
-- System is maintainable
-
----
-
-## Next Steps
-
-1. **Immediate Action**: 
-   - Switch to Code mode
-   - Begin Phase 1 implementation
-   - Fix workspace question generation
-
-2. **Communication**:
-   - Update stakeholders on plan
-   - Set expectations for timeline
-   - Request testing resources
-
-3. **Monitoring**:
-   - Track implementation progress
-   - Document all changes
-   - Maintain test results
-
----
+### Risk 3: Incomplete SSOT data
+**Mitigation:** Fallback to existing data sources when SSOT incomplete
 
 ## Conclusion
 
-This implementation plan provides a systematic approach to fixing all identified issues in the agent user journey. By following this plan, we will ensure that all 96 agents properly handle education, workspace questions, scoring, and reporting with agent-specific, ST6Co-contextualized content.
+This implementation plan provides a systematic approach to fixing the content misalignment issue. The phased approach ensures:
+1. **Immediate relief** through the SSOT enforcer
+2. **Long-term solution** through unified content service
+3. **Clean architecture** through consolidation
 
-**Estimated Timeline**: 5 days
-**Resources Required**: 1 developer, 1 tester
-**Risk Level**: Medium (with mitigation strategies in place)
+The plan is designed to be executed in code mode with clear, actionable steps and verification points.

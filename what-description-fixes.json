@@ -1,0 +1,873 @@
+{
+  "1-2": {
+    "name": "Mission Statement",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to mission statement that evaluates mission clarity and team alignment. Evaluates mission clarity, team alignment, market resonance, measurability, inspirational value to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Mission Alignment Advisor",
+    "dimensions": [
+      "Mission Clarity",
+      "Team Alignment",
+      "Market Resonance",
+      "Measurability",
+      "Inspirational Value"
+    ]
+  },
+  "1-3": {
+    "name": "Voice of Customer",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to voice of customer that voice of customer analysis and synthesis expert. Evaluates data collection, pattern recognition, insight depth, actionability, coverage to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "VoC Synthesizer",
+    "dimensions": [
+      "Data Collection",
+      "Pattern Recognition",
+      "Insight Depth",
+      "Actionability",
+      "Coverage"
+    ]
+  },
+  "2-1": {
+    "name": "Jobs to be Done",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to jobs to be done that evaluates customer interview frequency and quality. Evaluates interview frequency, interview quality, segment coverage, documentation, action items to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "JTBD Specialist",
+    "dimensions": [
+      "Interview Frequency",
+      "Interview Quality",
+      "Segment Coverage",
+      "Documentation",
+      "Action Items"
+    ]
+  },
+  "2-2": {
+    "name": "Personas Framework",
+    "currentWhat": "",
+    "newWhat": "A structured personas framework that provides clear guidelines and methodologies for assesses buyer and user persona development. Focuses on persona detail, research basis, behavioral insights, journey mapping, team adoption to ensure comprehensive coverage and measurable outcomes.",
+    "agent": "Persona Framework Builder",
+    "dimensions": [
+      "Persona Detail",
+      "Research Basis",
+      "Behavioral Insights",
+      "Journey Mapping",
+      "Team Adoption"
+    ]
+  },
+  "2-4": {
+    "name": "Pain Point Mapping",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to pain point mapping that jobs-to-be-done framework implementation expert. Evaluates job definition, outcome metrics, context understanding, alternative analysis, progress metrics to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Pain Point Mapper",
+    "dimensions": [
+      "Job Definition",
+      "Outcome Metrics",
+      "Context Understanding",
+      "Alternative Analysis",
+      "Progress Metrics"
+    ]
+  },
+  "3-3": {
+    "name": "Prioritization Rubric",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to prioritization rubric that masters prioritization frameworks and decisions. Evaluates framework quality, stakeholder alignment, resource allocation, decision speed, outcome tracking to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Prioritization Expert",
+    "dimensions": [
+      "Framework Quality",
+      "Stakeholder Alignment",
+      "Resource Allocation",
+      "Decision Speed",
+      "Outcome Tracking"
+    ]
+  },
+  "3-4": {
+    "name": "Tradeoff Tracker",
+    "currentWhat": "",
+    "newWhat": "A systematic framework for monitoring and measuring tradeoff tracker through data collection, analysis, and actionable insights. Tracks key metrics including tradeoff recognition, impact analysis, documentation quality, stakeholder communication, learning integration to enable proactive decision-making and continuous improvement.",
+    "agent": "Tradeoff Tracker",
+    "dimensions": [
+      "Tradeoff Recognition",
+      "Impact Analysis",
+      "Documentation Quality",
+      "Stakeholder Communication",
+      "Learning Integration"
+    ]
+  },
+  "3-5": {
+    "name": "Hypothesis Board",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to hypothesis board that tests and validates strategic hypotheses. Evaluates hypothesis clarity, test design, data collection, analysis quality, decision making to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Hypothesis Validator",
+    "dimensions": [
+      "Hypothesis Clarity",
+      "Test Design",
+      "Data Collection",
+      "Analysis Quality",
+      "Decision Making"
+    ]
+  },
+  "3-6": {
+    "name": "Decision Archive",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to decision archive that documents and learns from strategic decisions. Evaluates documentation completeness, decision rationale, outcome tracking, pattern recognition, knowledge sharing to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Decision Archivist",
+    "dimensions": [
+      "Documentation Completeness",
+      "Decision Rationale",
+      "Outcome Tracking",
+      "Pattern Recognition",
+      "Knowledge Sharing"
+    ]
+  },
+  "4-3": {
+    "name": "Pilot Group Selection",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to pilot group selection that identifies and manages pilot customer groups. Evaluates selection criteria, group diversity, engagement level, feedback quality, success metrics to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Pilot Group Selector",
+    "dimensions": [
+      "Selection Criteria",
+      "Group Diversity",
+      "Engagement Level",
+      "Feedback Quality",
+      "Success Metrics"
+    ]
+  },
+  "4-4": {
+    "name": "QA & Success Criteria",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to qa & success criteria that establishes quality assurance standards and processes. Evaluates quality standards, test coverage, automation level, bug management, release criteria to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "QA Criteria Setter",
+    "dimensions": [
+      "Quality Standards",
+      "Test Coverage",
+      "Automation Level",
+      "Bug Management",
+      "Release Criteria"
+    ]
+  },
+  "4-6": {
+    "name": "Post-Mortem Template",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to post-mortem template that conducts thorough post-launch analysis. Evaluates data collection, root cause analysis, success measurement, lesson documentation, action planning to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Post-Mortem Analyst",
+    "dimensions": [
+      "Data Collection",
+      "Root Cause Analysis",
+      "Success Measurement",
+      "Lesson Documentation",
+      "Action Planning"
+    ]
+  },
+  "5-1": {
+    "name": "GTM Messaging Framework",
+    "currentWhat": "",
+    "newWhat": "A structured gtm messaging framework that provides clear guidelines and methodologies for validates and documents early customer wins. Focuses on win definition, value quantification, repeatability, customer satisfaction, reference potential to ensure comprehensive coverage and measurable outcomes.",
+    "agent": "GTMMessagingAgent",
+    "dimensions": [
+      "Win Definition",
+      "Value Quantification",
+      "Repeatability",
+      "Customer Satisfaction",
+      "Reference Potential"
+    ]
+  },
+  "5-2": {
+    "name": "Sales Enablement Assets",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to sales enablement assets that calculates and validates customer roi. Evaluates calculation methodology, data accuracy, time to value, cost completeness, benefit validation to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "SalesEnablementAgent",
+    "dimensions": [
+      "Calculation Methodology",
+      "Data Accuracy",
+      "Time to Value",
+      "Cost Completeness",
+      "Benefit Validation"
+    ]
+  },
+  "5-3": {
+    "name": "Pricing & Packaging Strategy",
+    "currentWhat": "",
+    "newWhat": "A strategic approach to pricing & packaging strategy that aligns organizational efforts with business objectives. Encompasses use case documentation, success metrics, implementation process, lessons learned, scalability assessment to drive systematic execution and measurable results.",
+    "agent": "PricingPackagingAgent",
+    "dimensions": [
+      "Use Case Documentation",
+      "Success Metrics",
+      "Implementation Process",
+      "Lessons Learned",
+      "Scalability Assessment"
+    ]
+  },
+  "5-4": {
+    "name": "Channel Partner Strategy",
+    "currentWhat": "",
+    "newWhat": "A strategic approach to channel partner strategy that aligns organizational efforts with business objectives. Encompasses testimonial quality, customer diversity, specificity, media variety, usage rights to drive systematic execution and measurable results.",
+    "agent": "ChannelPartnerAgent",
+    "dimensions": [
+      "Testimonial Quality",
+      "Customer Diversity",
+      "Specificity",
+      "Media Variety",
+      "Usage Rights"
+    ]
+  },
+  "5-5": {
+    "name": "Competitive Positioning",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to competitive positioning that maps and tracks win criteria across customers. Evaluates criteria definition, pattern recognition, predictive ability, criteria evolution, team alignment to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "CompetitivePositioningAgent",
+    "dimensions": [
+      "Criteria Definition",
+      "Pattern Recognition",
+      "Predictive Ability",
+      "Criteria Evolution",
+      "Team Alignment"
+    ]
+  },
+  "5-6": {
+    "name": "Launch Planning & Execution",
+    "currentWhat": "",
+    "newWhat": "A strategic approach to launch planning & execution that aligns organizational efforts with business objectives. Encompasses debrief process, stakeholder input, success factors, improvement areas, knowledge transfer to drive systematic execution and measurable results.",
+    "agent": "LaunchPlanningAgent",
+    "dimensions": [
+      "Debrief Process",
+      "Stakeholder Input",
+      "Success Factors",
+      "Improvement Areas",
+      "Knowledge Transfer"
+    ]
+  },
+  "6-1": {
+    "name": "Usage Heatmap",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to usage heatmap that analyzes product usage patterns and engagement. Evaluates data collection, pattern analysis, feature adoption, user segmentation, action planning to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Usage Heatmap Analyst",
+    "dimensions": [
+      "Data Collection",
+      "Pattern Analysis",
+      "Feature Adoption",
+      "User Segmentation",
+      "Action Planning"
+    ]
+  },
+  "6-2": {
+    "name": "Milestone Triggers",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to milestone triggers that tracks customer success milestones. Evaluates milestone definition, tracking systems, progress visibility, intervention triggers, celebration practices to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Milestone Tracker",
+    "dimensions": [
+      "Milestone Definition",
+      "Tracking Systems",
+      "Progress Visibility",
+      "Intervention Triggers",
+      "Celebration Practices"
+    ]
+  },
+  "6-3": {
+    "name": "CS Dashboard",
+    "currentWhat": "",
+    "newWhat": "A systematic framework for monitoring and measuring cs dashboard through data collection, analysis, and actionable insights. Tracks key metrics including metric selection, data accuracy, visualization quality, actionability, stakeholder adoption to enable proactive decision-making and continuous improvement.",
+    "agent": "CS Dashboard Builder",
+    "dimensions": [
+      "Metric Selection",
+      "Data Accuracy",
+      "Visualization Quality",
+      "Actionability",
+      "Stakeholder Adoption"
+    ]
+  },
+  "6-4": {
+    "name": "Activation Metric Model",
+    "currentWhat": "",
+    "newWhat": "A structured activation metric model that provides clear guidelines and methodologies for optimizes customer activation and onboarding. Focuses on activation definition, time to activation, activation rate, onboarding quality, early value delivery to ensure comprehensive coverage and measurable outcomes.",
+    "agent": "Activation Expert",
+    "dimensions": [
+      "Activation Definition",
+      "Time to Activation",
+      "Activation Rate",
+      "Onboarding Quality",
+      "Early Value Delivery"
+    ]
+  },
+  "6-5": {
+    "name": "Feedback Collector",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to feedback collector that systematically collects and processes feedback. Evaluates collection methods, response rates, processing speed, categorization, action conversion to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Feedback Collector",
+    "dimensions": [
+      "Collection Methods",
+      "Response Rates",
+      "Processing Speed",
+      "Categorization",
+      "Action Conversion"
+    ]
+  },
+  "6-6": {
+    "name": "Power User Behavior Signals",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to power user behavior signals that identifies and nurtures power users. Evaluates identification criteria, engagement programs, advocacy development, feedback quality, community building to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Power User Analyst",
+    "dimensions": [
+      "Identification Criteria",
+      "Engagement Programs",
+      "Advocacy Development",
+      "Feedback Quality",
+      "Community Building"
+    ]
+  },
+  "7-1": {
+    "name": "Time/Cost Savings Metrics",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to time/cost savings metrics that quantifies time and cost savings delivered. Evaluates measurement methodology, baseline establishment, data collection, validation process, communication clarity to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Time/Cost Analyst",
+    "dimensions": [
+      "Measurement Methodology",
+      "Baseline Establishment",
+      "Data Collection",
+      "Validation Process",
+      "Communication Clarity"
+    ]
+  },
+  "7-2": {
+    "name": "Revenue-Impact Attribution",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to revenue-impact attribution that tracks revenue impact and growth metrics. Evaluates revenue attribution, growth metrics, expansion tracking, retention impact, forecast accuracy to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Revenue Impact Tracker",
+    "dimensions": [
+      "Revenue Attribution",
+      "Growth Metrics",
+      "Expansion Tracking",
+      "Retention Impact",
+      "Forecast Accuracy"
+    ]
+  },
+  "7-3": {
+    "name": "Productivity Lift Metrics",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to productivity lift metrics that measures productivity improvements. Evaluates productivity metrics, baseline comparison, user efficiency, team performance, scale effects to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Productivity Measurer",
+    "dimensions": [
+      "Productivity Metrics",
+      "Baseline Comparison",
+      "User Efficiency",
+      "Team Performance",
+      "Scale Effects"
+    ]
+  },
+  "7-4": {
+    "name": "Net Retention Trends",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to net retention trends that analyzes customer retention and churn. Evaluates retention metrics, churn analysis, cohort analysis, predictive modeling, intervention success to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Retention Analyst",
+    "dimensions": [
+      "Retention Metrics",
+      "Churn Analysis",
+      "Cohort Analysis",
+      "Predictive Modeling",
+      "Intervention Success"
+    ]
+  },
+  "7-5": {
+    "name": "Downstream System Reductions",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to downstream system reductions that tracks system consolidation and simplification. Evaluates system inventory, complexity reduction, cost savings, integration benefits, user experience to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "System Reduction Expert",
+    "dimensions": [
+      "System Inventory",
+      "Complexity Reduction",
+      "Cost Savings",
+      "Integration Benefits",
+      "User Experience"
+    ]
+  },
+  "7-6": {
+    "name": "Friction Reduction Evidence",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to friction reduction evidence that identifies and eliminates customer friction. Evaluates friction identification, impact assessment, elimination planning, implementation success, continuous monitoring to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Friction Analyzer",
+    "dimensions": [
+      "Friction Identification",
+      "Impact Assessment",
+      "Elimination Planning",
+      "Implementation Success",
+      "Continuous Monitoring"
+    ]
+  },
+  "8-1": {
+    "name": "Upsell Funnel Model",
+    "currentWhat": "",
+    "newWhat": "A structured upsell funnel model that provides clear guidelines and methodologies for designs and optimizes upsell funnels. Focuses on funnel design, trigger identification, conversion rates, value positioning, process automation to ensure comprehensive coverage and measurable outcomes.",
+    "agent": "Upsell Funnel Designer",
+    "dimensions": [
+      "Funnel Design",
+      "Trigger Identification",
+      "Conversion Rates",
+      "Value Positioning",
+      "Process Automation"
+    ]
+  },
+  "8-3": {
+    "name": "Organic Adoption Pattern",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to organic adoption pattern that analyzes organic growth drivers. Evaluates viral coefficients, referral programs, word of mouth, network effects, growth attribution to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Organic Growth Analyst",
+    "dimensions": [
+      "Viral Coefficients",
+      "Referral Programs",
+      "Word of Mouth",
+      "Network Effects",
+      "Growth Attribution"
+    ]
+  },
+  "8-4": {
+    "name": "Champion Mapping",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to champion mapping that identifies and nurtures customer champions. Evaluates champion identification, relationship depth, advocacy actions, internal influence, risk mitigation to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Champion Mapper",
+    "dimensions": [
+      "Champion Identification",
+      "Relationship Depth",
+      "Advocacy Actions",
+      "Internal Influence",
+      "Risk Mitigation"
+    ]
+  },
+  "8-5": {
+    "name": "CSAT/NPS Tracking",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to csat/nps tracking that tracks and analyzes customer sentiment. Evaluates sentiment measurement, trend analysis, driver identification, alert systems, response actions to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Sentiment Tracker",
+    "dimensions": [
+      "Sentiment Measurement",
+      "Trend Analysis",
+      "Driver Identification",
+      "Alert Systems",
+      "Response Actions"
+    ]
+  },
+  "9-4": {
+    "name": "Discovery Call Effectiveness",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to discovery call effectiveness that evaluates discovery call effectiveness. Evaluates call structure, question quality, pain uncovering, next step rate, rep consistency to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Discovery Call Evaluator",
+    "dimensions": [
+      "Call Structure",
+      "Question Quality",
+      "Pain Uncovering",
+      "Next Step Rate",
+      "Rep Consistency"
+    ]
+  },
+  "9-5": {
+    "name": "Demo-to-Close Flow",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to demo-to-close flow that optimizes demo to close conversion. Evaluates demo quality, customization level, follow-up process, objection handling, close rates to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Demo-to-Close Optimizer",
+    "dimensions": [
+      "Demo Quality",
+      "Customization Level",
+      "Follow-up Process",
+      "Objection Handling",
+      "Close Rates"
+    ]
+  },
+  "9-6": {
+    "name": "Founders Selling Model",
+    "currentWhat": "",
+    "newWhat": "A structured founders selling model that provides clear guidelines and methodologies for analyzes founder-led sales effectiveness. Focuses on founder involvement, deal impact, knowledge transfer, scalability planning, time allocation to ensure comprehensive coverage and measurable outcomes.",
+    "agent": "Founder Sales Analyst",
+    "dimensions": [
+      "Founder Involvement",
+      "Deal Impact",
+      "Knowledge Transfer",
+      "Scalability Planning",
+      "Time Allocation"
+    ]
+  },
+  "10-1": {
+    "name": "Enablement Asset Pack",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to enablement asset pack that manages sales enablement assets and content. Evaluates asset completeness, asset quality, asset accessibility, usage tracking, update frequency to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Enablement Asset Manager",
+    "dimensions": [
+      "Asset Completeness",
+      "Asset Quality",
+      "Asset Accessibility",
+      "Usage Tracking",
+      "Update Frequency"
+    ]
+  },
+  "10-2": {
+    "name": "Rep Ramp Plan",
+    "currentWhat": "",
+    "newWhat": "A strategic approach to rep ramp plan that aligns organizational efforts with business objectives. Encompasses onboarding program, ramp time, certification process, mentorship system, early performance to drive systematic execution and measurable results.",
+    "agent": "Rep Ramp Planner",
+    "dimensions": [
+      "Onboarding Program",
+      "Ramp Time",
+      "Certification Process",
+      "Mentorship System",
+      "Early Performance"
+    ]
+  },
+  "10-3": {
+    "name": "Win/Loss Tracker",
+    "currentWhat": "",
+    "newWhat": "A systematic framework for monitoring and measuring win/loss tracker through data collection, analysis, and actionable insights. Tracks key metrics including analysis process, data collection, pattern recognition, competitive insights, action implementation to enable proactive decision-making and continuous improvement.",
+    "agent": "Win/Loss Analyst",
+    "dimensions": [
+      "Analysis Process",
+      "Data Collection",
+      "Pattern Recognition",
+      "Competitive Insights",
+      "Action Implementation"
+    ]
+  },
+  "10-5": {
+    "name": "ICP Filter Checklist",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to icp filter checklist that defines and enforces ideal customer profile. Evaluates icp definition, qualification rigor, scoring models, disqualification rate, win rate impact to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "ICP Filter Expert",
+    "dimensions": [
+      "ICP Definition",
+      "Qualification Rigor",
+      "Scoring Models",
+      "Disqualification Rate",
+      "Win Rate Impact"
+    ]
+  },
+  "11-2": {
+    "name": "Quota Structure",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to quota structure that designs and manages quota systems. Evaluates quota methodology, attainment rates, fairness perception, motivation impact, adjustment process to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Quota Structure Expert",
+    "dimensions": [
+      "Quota Methodology",
+      "Attainment Rates",
+      "Fairness Perception",
+      "Motivation Impact",
+      "Adjustment Process"
+    ]
+  },
+  "11-3": {
+    "name": "Weekly Deal Reviews",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to weekly deal reviews that manages deal review processes. Evaluates review cadence, review quality, action items, cross-functional input, deal velocity impact to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Deal Review Manager",
+    "dimensions": [
+      "Review Cadence",
+      "Review Quality",
+      "Action Items",
+      "Cross-functional Input",
+      "Deal Velocity Impact"
+    ]
+  },
+  "11-4": {
+    "name": "Forecasting Framework",
+    "currentWhat": "",
+    "newWhat": "A structured forecasting framework that provides clear guidelines and methodologies for builds accurate forecasting systems. Focuses on forecast accuracy, methodology rigor, pipeline coverage, risk assessment, adjustment agility to ensure comprehensive coverage and measurable outcomes.",
+    "agent": "Forecast Framework Builder",
+    "dimensions": [
+      "Forecast Accuracy",
+      "Methodology Rigor",
+      "Pipeline Coverage",
+      "Risk Assessment",
+      "Adjustment Agility"
+    ]
+  },
+  "11-5": {
+    "name": "Manager Coaching Loop",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to manager coaching loop that designs sales coaching programs. Evaluates coaching frequency, coaching quality, skill development, coaching tools, performance impact to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Coaching Loop Designer",
+    "dimensions": [
+      "Coaching Frequency",
+      "Coaching Quality",
+      "Skill Development",
+      "Coaching Tools",
+      "Performance Impact"
+    ]
+  },
+  "11-6": {
+    "name": "Talent Gap Identification",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to talent gap identification that identifies and addresses talent gaps. Evaluates skills assessment, gap identification, development plans, hiring strategy, succession planning to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Talent Gap Analyst",
+    "dimensions": [
+      "Skills Assessment",
+      "Gap Identification",
+      "Development Plans",
+      "Hiring Strategy",
+      "Succession Planning"
+    ]
+  },
+  "12-1": {
+    "name": "Onboarding Checklist",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to onboarding checklist that optimizes customer onboarding experience. Evaluates onboarding process, time to value, completion rates, customer satisfaction, resource efficiency to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Onboarding Optimizer",
+    "dimensions": [
+      "Onboarding Process",
+      "Time to Value",
+      "Completion Rates",
+      "Customer Satisfaction",
+      "Resource Efficiency"
+    ]
+  },
+  "12-3": {
+    "name": "Success Playbooks",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to success playbooks that creates customer success playbooks. Evaluates playbook coverage, playbook quality, team adoption, outcome tracking, continuous improvement to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Success Playbook Builder",
+    "dimensions": [
+      "Playbook Coverage",
+      "Playbook Quality",
+      "Team Adoption",
+      "Outcome Tracking",
+      "Continuous Improvement"
+    ]
+  },
+  "12-4": {
+    "name": "Escalation SOPs",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to escalation sops that manages customer escalations. Evaluates escalation process, response time, resolution rate, root cause analysis, customer recovery to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Escalation Manager",
+    "dimensions": [
+      "Escalation Process",
+      "Response Time",
+      "Resolution Rate",
+      "Root Cause Analysis",
+      "Customer Recovery"
+    ]
+  },
+  "12-5": {
+    "name": "Renewals Pipelines",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to renewals pipelines that manages renewal pipeline and forecasting. Evaluates pipeline visibility, early warning system, renewal forecasting, proactive engagement, renewal rates to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Renewal Pipeline Expert",
+    "dimensions": [
+      "Pipeline Visibility",
+      "Early Warning System",
+      "Renewal Forecasting",
+      "Proactive Engagement",
+      "Renewal Rates"
+    ]
+  },
+  "12-6": {
+    "name": "Churn Root-Cause Engine",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to churn root-cause engine that analyzes root causes of customer churn. Evaluates data collection, analysis depth, pattern recognition, predictive modeling, prevention programs to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Churn Root-Cause Analyst",
+    "dimensions": [
+      "Data Collection",
+      "Analysis Depth",
+      "Pattern Recognition",
+      "Predictive Modeling",
+      "Prevention Programs"
+    ]
+  },
+  "13-2": {
+    "name": "Strategic MOAT Design",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to strategic moat design that builds competitive moats and barriers. Evaluates moat identification, moat depth, network effects, switching costs, moat expansion to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Strategic Moat Builder",
+    "dimensions": [
+      "Moat Identification",
+      "Moat Depth",
+      "Network Effects",
+      "Switching Costs",
+      "Moat Expansion"
+    ]
+  },
+  "13-3": {
+    "name": "Ecosystem Leverage Map",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to ecosystem leverage map that maps and leverages ecosystem partnerships. Evaluates ecosystem understanding, partnership strategy, integration depth, value exchange, ecosystem growth to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Ecosystem Mapper",
+    "dimensions": [
+      "Ecosystem Understanding",
+      "Partnership Strategy",
+      "Integration Depth",
+      "Value Exchange",
+      "Ecosystem Growth"
+    ]
+  },
+  "13-4": {
+    "name": "Competitor GTM Monitoring",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to competitor gtm monitoring that monitors and analyzes competitive landscape. Evaluates intelligence gathering, analysis quality, response speed, win rate vs competition, differentiation clarity to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Competitor Monitor",
+    "dimensions": [
+      "Intelligence Gathering",
+      "Analysis Quality",
+      "Response Speed",
+      "Win Rate vs Competition",
+      "Differentiation Clarity"
+    ]
+  },
+  "13-5": {
+    "name": "Brand Architecture Plan",
+    "currentWhat": "",
+    "newWhat": "A strategic approach to brand architecture plan that aligns organizational efforts with business objectives. Encompasses brand identity, brand consistency, brand recognition, brand equity, brand advocacy to drive systematic execution and measurable results.",
+    "agent": "Brand Architect",
+    "dimensions": [
+      "Brand Identity",
+      "Brand Consistency",
+      "Brand Recognition",
+      "Brand Equity",
+      "Brand Advocacy"
+    ]
+  },
+  "13-6": {
+    "name": "Defensive GTM Tactics",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to defensive gtm tactics that develops defensive go-to-market strategies. Evaluates threat assessment, defense strategies, customer retention, counter-positioning, market share defense to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Defensive GTM Strategist",
+    "dimensions": [
+      "Threat Assessment",
+      "Defense Strategies",
+      "Customer Retention",
+      "Counter-positioning",
+      "Market Share Defense"
+    ]
+  },
+  "14-3": {
+    "name": "Internal Dashboards",
+    "currentWhat": "",
+    "newWhat": "A systematic framework for monitoring and measuring internal dashboards through data collection, analysis, and actionable insights. Tracks key metrics including metric selection, data quality, visualization, real-time updates, user adoption to enable proactive decision-making and continuous improvement.",
+    "agent": "Dashboard Designer",
+    "dimensions": [
+      "Metric Selection",
+      "Data Quality",
+      "Visualization",
+      "Real-time Updates",
+      "User Adoption"
+    ]
+  },
+  "14-4": {
+    "name": "Tool Consolidation Tracker",
+    "currentWhat": "",
+    "newWhat": "A systematic framework for monitoring and measuring tool consolidation tracker through data collection, analysis, and actionable insights. Tracks key metrics including tool inventory, redundancy elimination, integration quality, cost optimization, user experience to enable proactive decision-making and continuous improvement.",
+    "agent": "Tool Consolidator",
+    "dimensions": [
+      "Tool Inventory",
+      "Redundancy Elimination",
+      "Integration Quality",
+      "Cost Optimization",
+      "User Experience"
+    ]
+  },
+  "14-5": {
+    "name": "RevOps Playbook",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to revops playbook that creates revenue operations playbooks. Evaluates process documentation, best practices, training materials, compliance standards, update frequency to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "RevOps Playbook Builder",
+    "dimensions": [
+      "Process Documentation",
+      "Best Practices",
+      "Training Materials",
+      "Compliance Standards",
+      "Update Frequency"
+    ]
+  },
+  "14-6": {
+    "name": "Internal SLA Policy",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to internal sla policy that manages service level agreements. Evaluates sla definition, performance tracking, compliance rate, escalation process, customer satisfaction to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "SLA Policy Manager",
+    "dimensions": [
+      "SLA Definition",
+      "Performance Tracking",
+      "Compliance Rate",
+      "Escalation Process",
+      "Customer Satisfaction"
+    ]
+  },
+  "15-3": {
+    "name": "Succession Planning",
+    "currentWhat": "",
+    "newWhat": "A strategic approach to succession planning that aligns organizational efforts with business objectives. Encompasses meeting structure, agenda quality, decision making, action follow-through, communication flow to drive systematic execution and measurable results.",
+    "agent": "SuccessionPlanningAgent",
+    "dimensions": [
+      "Meeting Structure",
+      "Agenda Quality",
+      "Decision Making",
+      "Action Follow-through",
+      "Communication Flow"
+    ]
+  },
+  "15-6": {
+    "name": "Leadership Dynamics",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to leadership dynamics that integrates diversity, equity, and inclusion. Evaluates dei strategy, representation metrics, inclusion practices, equity systems, cultural integration to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "LeadershipDynamicsAgent",
+    "dimensions": [
+      "DEI Strategy",
+      "Representation Metrics",
+      "Inclusion Practices",
+      "Equity Systems",
+      "Cultural Integration"
+    ]
+  },
+  "16-2": {
+    "name": "Localization Infrastructure",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to localization infrastructure that manages product and content localization. Evaluates localization strategy, language coverage, cultural adaptation, technical implementation, quality assurance to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Localization Expert",
+    "dimensions": [
+      "Localization Strategy",
+      "Language Coverage",
+      "Cultural Adaptation",
+      "Technical Implementation",
+      "Quality Assurance"
+    ]
+  },
+  "16-3": {
+    "name": "International Pricing Matrix",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to international pricing matrix that develops international pricing strategies. Evaluates pricing research, currency strategy, local competition, value perception, margin management to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "International Pricing Strategist",
+    "dimensions": [
+      "Pricing Research",
+      "Currency Strategy",
+      "Local Competition",
+      "Value Perception",
+      "Margin Management"
+    ]
+  },
+  "16-4": {
+    "name": "Regional Compliance Tracker",
+    "currentWhat": "",
+    "newWhat": "A systematic framework for monitoring and measuring regional compliance tracker through data collection, analysis, and actionable insights. Tracks key metrics including regulatory mapping, documentation, audit readiness, risk management, update management to enable proactive decision-making and continuous improvement.",
+    "agent": "Compliance Tracker",
+    "dimensions": [
+      "Regulatory Mapping",
+      "Documentation",
+      "Audit Readiness",
+      "Risk Management",
+      "Update Management"
+    ]
+  },
+  "16-5": {
+    "name": "Geo-Specific GTM Playbooks",
+    "currentWhat": "",
+    "newWhat": "A systematic approach to geo-specific gtm playbooks that develops geography-specific gtm strategies. Evaluates local gtm strategy, channel strategy, partnership development, marketing adaptation, sales localization to ensure excellence and continuous improvement in this critical capability.",
+    "agent": "Geo-GTM Specialist",
+    "dimensions": [
+      "Local GTM Strategy",
+      "Channel Strategy",
+      "Partnership Development",
+      "Marketing Adaptation",
+      "Sales Localization"
+    ]
+  },
+  "16-6": {
+    "name": "Expansion Risk Assessment",
+    "currentWhat": "",
+    "newWhat": "A comprehensive expansion risk assessment methodology that evaluates risk identification, impact analysis, mitigation planning, contingency plans, risk monitoring to identify opportunities, risks, and optimization potential. Provides data-driven insights for strategic decision-making.",
+    "agent": "Expansion Risk Assessor",
+    "dimensions": [
+      "Risk Identification",
+      "Impact Analysis",
+      "Mitigation Planning",
+      "Contingency Plans",
+      "Risk Monitoring"
+    ]
+  }
+}

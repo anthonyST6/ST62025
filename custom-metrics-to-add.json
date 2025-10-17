@@ -1,0 +1,2472 @@
+{
+  "1-1": {
+    "name": "Problem Statement Definition",
+    "metrics": [
+      {
+        "value": "3x",
+        "label": "Faster Validation",
+        "description": "Problem-solution fit speed"
+      },
+      {
+        "value": "67%",
+        "label": "Higher Success Rate",
+        "description": "Validated vs unvalidated startups"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Risk",
+        "description": "Failure rate reduction"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better Alignment",
+        "description": "Team and market fit"
+      }
+    ],
+    "category": "foundation"
+  },
+  "1-2": {
+    "name": "Mission Statement",
+    "metrics": [
+      {
+        "value": "3x",
+        "label": "Faster Validation",
+        "description": "Problem-solution fit speed"
+      },
+      {
+        "value": "67%",
+        "label": "Higher Success Rate",
+        "description": "Validated vs unvalidated startups"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Risk",
+        "description": "Failure rate reduction"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better Alignment",
+        "description": "Team and market fit"
+      }
+    ],
+    "category": "foundation"
+  },
+  "1-3": {
+    "name": "Voice of Customer",
+    "metrics": [
+      {
+        "value": "3x",
+        "label": "Faster Validation",
+        "description": "Problem-solution fit speed"
+      },
+      {
+        "value": "67%",
+        "label": "Higher Success Rate",
+        "description": "Validated vs unvalidated startups"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Risk",
+        "description": "Failure rate reduction"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better Alignment",
+        "description": "Team and market fit"
+      }
+    ],
+    "category": "foundation"
+  },
+  "1-4": {
+    "name": "Founding Team Capability",
+    "metrics": [
+      {
+        "value": "3x",
+        "label": "Faster Validation",
+        "description": "Problem-solution fit speed"
+      },
+      {
+        "value": "67%",
+        "label": "Higher Success Rate",
+        "description": "Validated vs unvalidated startups"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Risk",
+        "description": "Failure rate reduction"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better Alignment",
+        "description": "Team and market fit"
+      }
+    ],
+    "category": "foundation"
+  },
+  "1-5": {
+    "name": "Market Landscape",
+    "metrics": [
+      {
+        "value": "3x",
+        "label": "Faster Validation",
+        "description": "Problem-solution fit speed"
+      },
+      {
+        "value": "67%",
+        "label": "Higher Success Rate",
+        "description": "Validated vs unvalidated startups"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Risk",
+        "description": "Failure rate reduction"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better Alignment",
+        "description": "Team and market fit"
+      }
+    ],
+    "category": "foundation"
+  },
+  "1-6": {
+    "name": "Launch Readiness",
+    "metrics": [
+      {
+        "value": "3x",
+        "label": "Faster Validation",
+        "description": "Problem-solution fit speed"
+      },
+      {
+        "value": "67%",
+        "label": "Higher Success Rate",
+        "description": "Validated vs unvalidated startups"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Risk",
+        "description": "Failure rate reduction"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better Alignment",
+        "description": "Team and market fit"
+      }
+    ],
+    "category": "foundation"
+  },
+  "2-1": {
+    "name": "Jobs to be Done",
+    "metrics": [
+      {
+        "value": "5x",
+        "label": "More Insights",
+        "description": "Per customer conversation"
+      },
+      {
+        "value": "73%",
+        "label": "Better Product Fit",
+        "description": "Customer-driven development"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Learning",
+        "description": "Time to key insights"
+      },
+      {
+        "value": "4.2x",
+        "label": "Higher Retention",
+        "description": "Research-driven companies"
+      }
+    ],
+    "category": "research"
+  },
+  "2-2": {
+    "name": "Personas Framework",
+    "metrics": [
+      {
+        "value": "5x",
+        "label": "More Insights",
+        "description": "Per customer conversation"
+      },
+      {
+        "value": "73%",
+        "label": "Better Product Fit",
+        "description": "Customer-driven development"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Learning",
+        "description": "Time to key insights"
+      },
+      {
+        "value": "4.2x",
+        "label": "Higher Retention",
+        "description": "Research-driven companies"
+      }
+    ],
+    "category": "research"
+  },
+  "2-3": {
+    "name": "Interview Cadence",
+    "metrics": [
+      {
+        "value": "5x",
+        "label": "More Insights",
+        "description": "Per customer conversation"
+      },
+      {
+        "value": "73%",
+        "label": "Better Product Fit",
+        "description": "Customer-driven development"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Learning",
+        "description": "Time to key insights"
+      },
+      {
+        "value": "4.2x",
+        "label": "Higher Retention",
+        "description": "Research-driven companies"
+      }
+    ],
+    "category": "research"
+  },
+  "2-4": {
+    "name": "Pain Point Mapping",
+    "metrics": [
+      {
+        "value": "5x",
+        "label": "More Insights",
+        "description": "Per customer conversation"
+      },
+      {
+        "value": "73%",
+        "label": "Better Product Fit",
+        "description": "Customer-driven development"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Learning",
+        "description": "Time to key insights"
+      },
+      {
+        "value": "4.2x",
+        "label": "Higher Retention",
+        "description": "Research-driven companies"
+      }
+    ],
+    "category": "research"
+  },
+  "2-5": {
+    "name": "Insight Action",
+    "metrics": [
+      {
+        "value": "5x",
+        "label": "More Insights",
+        "description": "Per customer conversation"
+      },
+      {
+        "value": "73%",
+        "label": "Better Product Fit",
+        "description": "Customer-driven development"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Learning",
+        "description": "Time to key insights"
+      },
+      {
+        "value": "4.2x",
+        "label": "Higher Retention",
+        "description": "Research-driven companies"
+      }
+    ],
+    "category": "research"
+  },
+  "2-6": {
+    "name": "Customer Journey",
+    "metrics": [
+      {
+        "value": "5x",
+        "label": "More Insights",
+        "description": "Per customer conversation"
+      },
+      {
+        "value": "73%",
+        "label": "Better Product Fit",
+        "description": "Customer-driven development"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Learning",
+        "description": "Time to key insights"
+      },
+      {
+        "value": "4.2x",
+        "label": "Higher Retention",
+        "description": "Research-driven companies"
+      }
+    ],
+    "category": "research"
+  },
+  "3-1": {
+    "name": "Use Case Scoring Model",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Better Prioritization",
+        "description": "Resource allocation efficiency"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Decisions",
+        "description": "Strategic clarity impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher ROI",
+        "description": "Focused vs scattered efforts"
+      },
+      {
+        "value": "3.5x",
+        "label": "Market Impact",
+        "description": "Strategic positioning advantage"
+      }
+    ],
+    "category": "strategy"
+  },
+  "3-2": {
+    "name": "Segment Tiering",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Better Prioritization",
+        "description": "Resource allocation efficiency"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Decisions",
+        "description": "Strategic clarity impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher ROI",
+        "description": "Focused vs scattered efforts"
+      },
+      {
+        "value": "3.5x",
+        "label": "Market Impact",
+        "description": "Strategic positioning advantage"
+      }
+    ],
+    "category": "strategy"
+  },
+  "3-3": {
+    "name": "Prioritization Rubric",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Better Prioritization",
+        "description": "Resource allocation efficiency"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Decisions",
+        "description": "Strategic clarity impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher ROI",
+        "description": "Focused vs scattered efforts"
+      },
+      {
+        "value": "3.5x",
+        "label": "Market Impact",
+        "description": "Strategic positioning advantage"
+      }
+    ],
+    "category": "strategy"
+  },
+  "3-4": {
+    "name": "Tradeoff Tracker",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Better Prioritization",
+        "description": "Resource allocation efficiency"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Decisions",
+        "description": "Strategic clarity impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher ROI",
+        "description": "Focused vs scattered efforts"
+      },
+      {
+        "value": "3.5x",
+        "label": "Market Impact",
+        "description": "Strategic positioning advantage"
+      }
+    ],
+    "category": "strategy"
+  },
+  "3-5": {
+    "name": "Hypothesis Board",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Better Prioritization",
+        "description": "Resource allocation efficiency"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Decisions",
+        "description": "Strategic clarity impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher ROI",
+        "description": "Focused vs scattered efforts"
+      },
+      {
+        "value": "3.5x",
+        "label": "Market Impact",
+        "description": "Strategic positioning advantage"
+      }
+    ],
+    "category": "strategy"
+  },
+  "3-6": {
+    "name": "Decision Archive",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Better Prioritization",
+        "description": "Resource allocation efficiency"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Decisions",
+        "description": "Strategic clarity impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher ROI",
+        "description": "Focused vs scattered efforts"
+      },
+      {
+        "value": "3.5x",
+        "label": "Market Impact",
+        "description": "Strategic positioning advantage"
+      }
+    ],
+    "category": "strategy"
+  },
+  "4-1": {
+    "name": "Feature Inclusion Matrix",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Faster Time-to-Market",
+        "description": "MVP launch speed"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Quality",
+        "description": "Structured vs ad-hoc approach"
+      },
+      {
+        "value": "3x",
+        "label": "Better Outcomes",
+        "description": "Planned vs unplanned execution"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Costs",
+        "description": "Efficient execution"
+      }
+    ],
+    "category": "execution"
+  },
+  "4-2": {
+    "name": "Technical Scope Tracker",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Faster Time-to-Market",
+        "description": "MVP launch speed"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Quality",
+        "description": "Structured vs ad-hoc approach"
+      },
+      {
+        "value": "3x",
+        "label": "Better Outcomes",
+        "description": "Planned vs unplanned execution"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Costs",
+        "description": "Efficient execution"
+      }
+    ],
+    "category": "execution"
+  },
+  "4-3": {
+    "name": "Pilot Group Selection",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Faster Time-to-Market",
+        "description": "MVP launch speed"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Quality",
+        "description": "Structured vs ad-hoc approach"
+      },
+      {
+        "value": "3x",
+        "label": "Better Outcomes",
+        "description": "Planned vs unplanned execution"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Costs",
+        "description": "Efficient execution"
+      }
+    ],
+    "category": "execution"
+  },
+  "4-4": {
+    "name": "QA & Success Criteria",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Faster Time-to-Market",
+        "description": "MVP launch speed"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Quality",
+        "description": "Structured vs ad-hoc approach"
+      },
+      {
+        "value": "3x",
+        "label": "Better Outcomes",
+        "description": "Planned vs unplanned execution"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Costs",
+        "description": "Efficient execution"
+      }
+    ],
+    "category": "execution"
+  },
+  "4-5": {
+    "name": "Timeline GANTT or Roadmap",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Faster Time-to-Market",
+        "description": "MVP launch speed"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Quality",
+        "description": "Structured vs ad-hoc approach"
+      },
+      {
+        "value": "3x",
+        "label": "Better Outcomes",
+        "description": "Planned vs unplanned execution"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Costs",
+        "description": "Efficient execution"
+      }
+    ],
+    "category": "execution"
+  },
+  "4-6": {
+    "name": "Post-Mortem Template",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Faster Time-to-Market",
+        "description": "MVP launch speed"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Quality",
+        "description": "Structured vs ad-hoc approach"
+      },
+      {
+        "value": "3x",
+        "label": "Better Outcomes",
+        "description": "Planned vs unplanned execution"
+      },
+      {
+        "value": "45%",
+        "label": "Lower Costs",
+        "description": "Efficient execution"
+      }
+    ],
+    "category": "execution"
+  },
+  "5-1": {
+    "name": "GTM Messaging Framework",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Higher Conversion",
+        "description": "GTM-optimized messaging"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Sales Cycles",
+        "description": "Clear positioning impact"
+      },
+      {
+        "value": "40%",
+        "label": "Lower CAC",
+        "description": "Efficient go-to-market"
+      },
+      {
+        "value": "3.2x",
+        "label": "Better Win Rates",
+        "description": "Strategic GTM execution"
+      }
+    ],
+    "category": "gtm"
+  },
+  "5-2": {
+    "name": "Sales Enablement Assets",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Higher Conversion",
+        "description": "GTM-optimized messaging"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Sales Cycles",
+        "description": "Clear positioning impact"
+      },
+      {
+        "value": "40%",
+        "label": "Lower CAC",
+        "description": "Efficient go-to-market"
+      },
+      {
+        "value": "3.2x",
+        "label": "Better Win Rates",
+        "description": "Strategic GTM execution"
+      }
+    ],
+    "category": "gtm"
+  },
+  "5-3": {
+    "name": "Pricing & Packaging Strategy",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Higher Conversion",
+        "description": "GTM-optimized messaging"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Sales Cycles",
+        "description": "Clear positioning impact"
+      },
+      {
+        "value": "40%",
+        "label": "Lower CAC",
+        "description": "Efficient go-to-market"
+      },
+      {
+        "value": "3.2x",
+        "label": "Better Win Rates",
+        "description": "Strategic GTM execution"
+      }
+    ],
+    "category": "gtm"
+  },
+  "5-4": {
+    "name": "Channel Partner Strategy",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Higher Conversion",
+        "description": "GTM-optimized messaging"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Sales Cycles",
+        "description": "Clear positioning impact"
+      },
+      {
+        "value": "40%",
+        "label": "Lower CAC",
+        "description": "Efficient go-to-market"
+      },
+      {
+        "value": "3.2x",
+        "label": "Better Win Rates",
+        "description": "Strategic GTM execution"
+      }
+    ],
+    "category": "gtm"
+  },
+  "5-5": {
+    "name": "Competitive Positioning",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Higher Conversion",
+        "description": "GTM-optimized messaging"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Sales Cycles",
+        "description": "Clear positioning impact"
+      },
+      {
+        "value": "40%",
+        "label": "Lower CAC",
+        "description": "Efficient go-to-market"
+      },
+      {
+        "value": "3.2x",
+        "label": "Better Win Rates",
+        "description": "Strategic GTM execution"
+      }
+    ],
+    "category": "gtm"
+  },
+  "5-6": {
+    "name": "Launch Planning & Execution",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Higher Conversion",
+        "description": "GTM-optimized messaging"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Sales Cycles",
+        "description": "Clear positioning impact"
+      },
+      {
+        "value": "40%",
+        "label": "Lower CAC",
+        "description": "Efficient go-to-market"
+      },
+      {
+        "value": "3.2x",
+        "label": "Better Win Rates",
+        "description": "Strategic GTM execution"
+      }
+    ],
+    "category": "gtm"
+  },
+  "6-1": {
+    "name": "Usage Heatmap",
+    "metrics": [
+      {
+        "value": "4x",
+        "label": "Higher Engagement",
+        "description": "Active vs passive users"
+      },
+      {
+        "value": "65%",
+        "label": "Better Retention",
+        "description": "Engagement-driven approach"
+      },
+      {
+        "value": "3.5x",
+        "label": "More Expansion",
+        "description": "Engaged customer growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Adoption",
+        "description": "Feature utilization speed"
+      }
+    ],
+    "category": "engagement"
+  },
+  "6-2": {
+    "name": "Milestone Triggers",
+    "metrics": [
+      {
+        "value": "4x",
+        "label": "Higher Engagement",
+        "description": "Active vs passive users"
+      },
+      {
+        "value": "65%",
+        "label": "Better Retention",
+        "description": "Engagement-driven approach"
+      },
+      {
+        "value": "3.5x",
+        "label": "More Expansion",
+        "description": "Engaged customer growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Adoption",
+        "description": "Feature utilization speed"
+      }
+    ],
+    "category": "engagement"
+  },
+  "6-3": {
+    "name": "CS Dashboard",
+    "metrics": [
+      {
+        "value": "4x",
+        "label": "Higher Engagement",
+        "description": "Active vs passive users"
+      },
+      {
+        "value": "65%",
+        "label": "Better Retention",
+        "description": "Engagement-driven approach"
+      },
+      {
+        "value": "3.5x",
+        "label": "More Expansion",
+        "description": "Engaged customer growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Adoption",
+        "description": "Feature utilization speed"
+      }
+    ],
+    "category": "engagement"
+  },
+  "6-4": {
+    "name": "Activation Metric Model",
+    "metrics": [
+      {
+        "value": "4x",
+        "label": "Higher Engagement",
+        "description": "Active vs passive users"
+      },
+      {
+        "value": "65%",
+        "label": "Better Retention",
+        "description": "Engagement-driven approach"
+      },
+      {
+        "value": "3.5x",
+        "label": "More Expansion",
+        "description": "Engaged customer growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Adoption",
+        "description": "Feature utilization speed"
+      }
+    ],
+    "category": "engagement"
+  },
+  "6-5": {
+    "name": "Feedback Collector",
+    "metrics": [
+      {
+        "value": "4x",
+        "label": "Higher Engagement",
+        "description": "Active vs passive users"
+      },
+      {
+        "value": "65%",
+        "label": "Better Retention",
+        "description": "Engagement-driven approach"
+      },
+      {
+        "value": "3.5x",
+        "label": "More Expansion",
+        "description": "Engaged customer growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Adoption",
+        "description": "Feature utilization speed"
+      }
+    ],
+    "category": "engagement"
+  },
+  "6-6": {
+    "name": "Power User Behavior Signals",
+    "metrics": [
+      {
+        "value": "4x",
+        "label": "Higher Engagement",
+        "description": "Active vs passive users"
+      },
+      {
+        "value": "65%",
+        "label": "Better Retention",
+        "description": "Engagement-driven approach"
+      },
+      {
+        "value": "3.5x",
+        "label": "More Expansion",
+        "description": "Engaged customer growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Adoption",
+        "description": "Feature utilization speed"
+      }
+    ],
+    "category": "engagement"
+  },
+  "7-1": {
+    "name": "Time/Cost Savings Metrics",
+    "metrics": [
+      {
+        "value": "3.8x",
+        "label": "Measurable ROI",
+        "description": "Quantified customer value"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Renewals",
+        "description": "Proven impact correlation"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better References",
+        "description": "Success story generation"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Expansion",
+        "description": "Value-driven growth"
+      }
+    ],
+    "category": "impact"
+  },
+  "7-2": {
+    "name": "Revenue-Impact Attribution",
+    "metrics": [
+      {
+        "value": "3.8x",
+        "label": "Measurable ROI",
+        "description": "Quantified customer value"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Renewals",
+        "description": "Proven impact correlation"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better References",
+        "description": "Success story generation"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Expansion",
+        "description": "Value-driven growth"
+      }
+    ],
+    "category": "impact"
+  },
+  "7-3": {
+    "name": "Productivity Lift Metrics",
+    "metrics": [
+      {
+        "value": "3.8x",
+        "label": "Measurable ROI",
+        "description": "Quantified customer value"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Renewals",
+        "description": "Proven impact correlation"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better References",
+        "description": "Success story generation"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Expansion",
+        "description": "Value-driven growth"
+      }
+    ],
+    "category": "impact"
+  },
+  "7-4": {
+    "name": "Net Retention Trends",
+    "metrics": [
+      {
+        "value": "3.8x",
+        "label": "Measurable ROI",
+        "description": "Quantified customer value"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Renewals",
+        "description": "Proven impact correlation"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better References",
+        "description": "Success story generation"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Expansion",
+        "description": "Value-driven growth"
+      }
+    ],
+    "category": "impact"
+  },
+  "7-5": {
+    "name": "Downstream System Reductions",
+    "metrics": [
+      {
+        "value": "3.8x",
+        "label": "Measurable ROI",
+        "description": "Quantified customer value"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Renewals",
+        "description": "Proven impact correlation"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better References",
+        "description": "Success story generation"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Expansion",
+        "description": "Value-driven growth"
+      }
+    ],
+    "category": "impact"
+  },
+  "7-6": {
+    "name": "Friction Reduction Evidence",
+    "metrics": [
+      {
+        "value": "3.8x",
+        "label": "Measurable ROI",
+        "description": "Quantified customer value"
+      },
+      {
+        "value": "70%",
+        "label": "Higher Renewals",
+        "description": "Proven impact correlation"
+      },
+      {
+        "value": "2.5x",
+        "label": "Better References",
+        "description": "Success story generation"
+      },
+      {
+        "value": "55%",
+        "label": "Faster Expansion",
+        "description": "Value-driven growth"
+      }
+    ],
+    "category": "impact"
+  },
+  "8-1": {
+    "name": "Upsell Funnel Model",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "8-2": {
+    "name": "Team Expansion Signals",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "8-3": {
+    "name": "Organic Adoption Pattern",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "8-4": {
+    "name": "Champion Mapping",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "8-5": {
+    "name": "CSAT/NPS Tracking",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "8-6": {
+    "name": "Renewal Readiness Tracker",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "9-1": {
+    "name": "Inbound Conversion Rates",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "9-2": {
+    "name": "Outbound Play Performance",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "9-3": {
+    "name": "Channel Economics Clarity",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "9-4": {
+    "name": "Discovery Call Effectiveness",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "9-5": {
+    "name": "Demo-to-Close Flow",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "9-6": {
+    "name": "Founders Selling Model",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "10-1": {
+    "name": "Enablement Asset Pack",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "10-2": {
+    "name": "Rep Ramp Plan",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "10-3": {
+    "name": "Win/Loss Tracker",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "10-4": {
+    "name": "Objection Handling Guide",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "10-5": {
+    "name": "ICP Filter Checklist",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "10-6": {
+    "name": "Sales Call Library",
+    "metrics": [
+      {
+        "value": "45%",
+        "label": "Higher Win Rates",
+        "description": "Sales excellence impact"
+      },
+      {
+        "value": "30%",
+        "label": "Faster Cycles",
+        "description": "Optimized sales process"
+      },
+      {
+        "value": "2.2x",
+        "label": "Larger Deals",
+        "description": "Strategic selling approach"
+      },
+      {
+        "value": "60%",
+        "label": "Better Forecasting",
+        "description": "Pipeline accuracy"
+      }
+    ],
+    "category": "sales"
+  },
+  "11-1": {
+    "name": "Scorecard Model",
+    "metrics": [
+      {
+        "value": "3.5x",
+        "label": "Team Productivity",
+        "description": "High-performance culture"
+      },
+      {
+        "value": "50%",
+        "label": "Better Execution",
+        "description": "Performance management impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Attainment",
+        "description": "Goal achievement rate"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Growth",
+        "description": "Performance-driven scaling"
+      }
+    ],
+    "category": "performance"
+  },
+  "11-2": {
+    "name": "Quota Structure",
+    "metrics": [
+      {
+        "value": "3.5x",
+        "label": "Team Productivity",
+        "description": "High-performance culture"
+      },
+      {
+        "value": "50%",
+        "label": "Better Execution",
+        "description": "Performance management impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Attainment",
+        "description": "Goal achievement rate"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Growth",
+        "description": "Performance-driven scaling"
+      }
+    ],
+    "category": "performance"
+  },
+  "11-3": {
+    "name": "Weekly Deal Reviews",
+    "metrics": [
+      {
+        "value": "3.5x",
+        "label": "Team Productivity",
+        "description": "High-performance culture"
+      },
+      {
+        "value": "50%",
+        "label": "Better Execution",
+        "description": "Performance management impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Attainment",
+        "description": "Goal achievement rate"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Growth",
+        "description": "Performance-driven scaling"
+      }
+    ],
+    "category": "performance"
+  },
+  "11-4": {
+    "name": "Forecasting Framework",
+    "metrics": [
+      {
+        "value": "3.5x",
+        "label": "Team Productivity",
+        "description": "High-performance culture"
+      },
+      {
+        "value": "50%",
+        "label": "Better Execution",
+        "description": "Performance management impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Attainment",
+        "description": "Goal achievement rate"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Growth",
+        "description": "Performance-driven scaling"
+      }
+    ],
+    "category": "performance"
+  },
+  "11-5": {
+    "name": "Manager Coaching Loop",
+    "metrics": [
+      {
+        "value": "3.5x",
+        "label": "Team Productivity",
+        "description": "High-performance culture"
+      },
+      {
+        "value": "50%",
+        "label": "Better Execution",
+        "description": "Performance management impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Attainment",
+        "description": "Goal achievement rate"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Growth",
+        "description": "Performance-driven scaling"
+      }
+    ],
+    "category": "performance"
+  },
+  "11-6": {
+    "name": "Talent Gap Identification",
+    "metrics": [
+      {
+        "value": "3.5x",
+        "label": "Team Productivity",
+        "description": "High-performance culture"
+      },
+      {
+        "value": "50%",
+        "label": "Better Execution",
+        "description": "Performance management impact"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Attainment",
+        "description": "Goal achievement rate"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Growth",
+        "description": "Performance-driven scaling"
+      }
+    ],
+    "category": "performance"
+  },
+  "12-1": {
+    "name": "Onboarding Checklist",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "12-3": {
+    "name": "Success Playbooks",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "12-4": {
+    "name": "Escalation SOPs",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "12-5": {
+    "name": "Renewals Pipelines",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "12-6": {
+    "name": "Churn Root-Cause Engine",
+    "metrics": [
+      {
+        "value": "40%",
+        "label": "Lower Churn",
+        "description": "Retention system impact"
+      },
+      {
+        "value": "3.2x",
+        "label": "Higher LTV",
+        "description": "Customer lifetime value"
+      },
+      {
+        "value": "65%",
+        "label": "Better NPS",
+        "description": "Customer satisfaction"
+      },
+      {
+        "value": "2.5x",
+        "label": "More Advocacy",
+        "description": "Customer referrals"
+      }
+    ],
+    "category": "retention"
+  },
+  "13-1": {
+    "name": "Category Narrative Canvas",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Market Share Growth",
+        "description": "Category leadership"
+      },
+      {
+        "value": "55%",
+        "label": "Brand Recognition",
+        "description": "Market presence"
+      },
+      {
+        "value": "40%",
+        "label": "Competitive Advantage",
+        "description": "Defensibility strength"
+      },
+      {
+        "value": "3.5x",
+        "label": "Pricing Power",
+        "description": "Premium positioning"
+      }
+    ],
+    "category": "market"
+  },
+  "13-2": {
+    "name": "Strategic MOAT Design",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Market Share Growth",
+        "description": "Category leadership"
+      },
+      {
+        "value": "55%",
+        "label": "Brand Recognition",
+        "description": "Market presence"
+      },
+      {
+        "value": "40%",
+        "label": "Competitive Advantage",
+        "description": "Defensibility strength"
+      },
+      {
+        "value": "3.5x",
+        "label": "Pricing Power",
+        "description": "Premium positioning"
+      }
+    ],
+    "category": "market"
+  },
+  "13-3": {
+    "name": "Ecosystem Leverage Map",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Market Share Growth",
+        "description": "Category leadership"
+      },
+      {
+        "value": "55%",
+        "label": "Brand Recognition",
+        "description": "Market presence"
+      },
+      {
+        "value": "40%",
+        "label": "Competitive Advantage",
+        "description": "Defensibility strength"
+      },
+      {
+        "value": "3.5x",
+        "label": "Pricing Power",
+        "description": "Premium positioning"
+      }
+    ],
+    "category": "market"
+  },
+  "13-4": {
+    "name": "Competitor GTM Monitoring",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Market Share Growth",
+        "description": "Category leadership"
+      },
+      {
+        "value": "55%",
+        "label": "Brand Recognition",
+        "description": "Market presence"
+      },
+      {
+        "value": "40%",
+        "label": "Competitive Advantage",
+        "description": "Defensibility strength"
+      },
+      {
+        "value": "3.5x",
+        "label": "Pricing Power",
+        "description": "Premium positioning"
+      }
+    ],
+    "category": "market"
+  },
+  "13-5": {
+    "name": "Brand Architecture Plan",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Market Share Growth",
+        "description": "Category leadership"
+      },
+      {
+        "value": "55%",
+        "label": "Brand Recognition",
+        "description": "Market presence"
+      },
+      {
+        "value": "40%",
+        "label": "Competitive Advantage",
+        "description": "Defensibility strength"
+      },
+      {
+        "value": "3.5x",
+        "label": "Pricing Power",
+        "description": "Premium positioning"
+      }
+    ],
+    "category": "market"
+  },
+  "13-6": {
+    "name": "Defensive GTM Tactics",
+    "metrics": [
+      {
+        "value": "2.8x",
+        "label": "Market Share Growth",
+        "description": "Category leadership"
+      },
+      {
+        "value": "55%",
+        "label": "Brand Recognition",
+        "description": "Market presence"
+      },
+      {
+        "value": "40%",
+        "label": "Competitive Advantage",
+        "description": "Defensibility strength"
+      },
+      {
+        "value": "3.5x",
+        "label": "Pricing Power",
+        "description": "Premium positioning"
+      }
+    ],
+    "category": "market"
+  },
+  "14-1": {
+    "name": "System Architecture Diagram",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Operational Efficiency",
+        "description": "Process optimization"
+      },
+      {
+        "value": "3x",
+        "label": "Scalability",
+        "description": "Growth without complexity"
+      },
+      {
+        "value": "45%",
+        "label": "Cost Reduction",
+        "description": "Infrastructure efficiency"
+      },
+      {
+        "value": "2.5x",
+        "label": "System Reliability",
+        "description": "Uptime and performance"
+      }
+    ],
+    "category": "operations"
+  },
+  "14-2": {
+    "name": "Revenue Engine Map",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Operational Efficiency",
+        "description": "Process optimization"
+      },
+      {
+        "value": "3x",
+        "label": "Scalability",
+        "description": "Growth without complexity"
+      },
+      {
+        "value": "45%",
+        "label": "Cost Reduction",
+        "description": "Infrastructure efficiency"
+      },
+      {
+        "value": "2.5x",
+        "label": "System Reliability",
+        "description": "Uptime and performance"
+      }
+    ],
+    "category": "operations"
+  },
+  "14-3": {
+    "name": "Internal Dashboards",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Operational Efficiency",
+        "description": "Process optimization"
+      },
+      {
+        "value": "3x",
+        "label": "Scalability",
+        "description": "Growth without complexity"
+      },
+      {
+        "value": "45%",
+        "label": "Cost Reduction",
+        "description": "Infrastructure efficiency"
+      },
+      {
+        "value": "2.5x",
+        "label": "System Reliability",
+        "description": "Uptime and performance"
+      }
+    ],
+    "category": "operations"
+  },
+  "14-4": {
+    "name": "Tool Consolidation Tracker",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Operational Efficiency",
+        "description": "Process optimization"
+      },
+      {
+        "value": "3x",
+        "label": "Scalability",
+        "description": "Growth without complexity"
+      },
+      {
+        "value": "45%",
+        "label": "Cost Reduction",
+        "description": "Infrastructure efficiency"
+      },
+      {
+        "value": "2.5x",
+        "label": "System Reliability",
+        "description": "Uptime and performance"
+      }
+    ],
+    "category": "operations"
+  },
+  "14-5": {
+    "name": "RevOps Playbook",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Operational Efficiency",
+        "description": "Process optimization"
+      },
+      {
+        "value": "3x",
+        "label": "Scalability",
+        "description": "Growth without complexity"
+      },
+      {
+        "value": "45%",
+        "label": "Cost Reduction",
+        "description": "Infrastructure efficiency"
+      },
+      {
+        "value": "2.5x",
+        "label": "System Reliability",
+        "description": "Uptime and performance"
+      }
+    ],
+    "category": "operations"
+  },
+  "14-6": {
+    "name": "Internal SLA Policy",
+    "metrics": [
+      {
+        "value": "50%",
+        "label": "Operational Efficiency",
+        "description": "Process optimization"
+      },
+      {
+        "value": "3x",
+        "label": "Scalability",
+        "description": "Growth without complexity"
+      },
+      {
+        "value": "45%",
+        "label": "Cost Reduction",
+        "description": "Infrastructure efficiency"
+      },
+      {
+        "value": "2.5x",
+        "label": "System Reliability",
+        "description": "Uptime and performance"
+      }
+    ],
+    "category": "operations"
+  },
+  "15-1": {
+    "name": "Executive Team",
+    "metrics": [
+      {
+        "value": "3.2x",
+        "label": "Leadership Effectiveness",
+        "description": "Team performance impact"
+      },
+      {
+        "value": "60%",
+        "label": "Better Decisions",
+        "description": "Strategic clarity"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Retention",
+        "description": "Leadership quality"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Scaling",
+        "description": "Leadership capacity"
+      }
+    ],
+    "category": "leadership"
+  },
+  "15-2": {
+    "name": "Board Development",
+    "metrics": [
+      {
+        "value": "3.2x",
+        "label": "Leadership Effectiveness",
+        "description": "Team performance impact"
+      },
+      {
+        "value": "60%",
+        "label": "Better Decisions",
+        "description": "Strategic clarity"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Retention",
+        "description": "Leadership quality"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Scaling",
+        "description": "Leadership capacity"
+      }
+    ],
+    "category": "leadership"
+  },
+  "15-3": {
+    "name": "Succession Planning",
+    "metrics": [
+      {
+        "value": "3.2x",
+        "label": "Leadership Effectiveness",
+        "description": "Team performance impact"
+      },
+      {
+        "value": "60%",
+        "label": "Better Decisions",
+        "description": "Strategic clarity"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Retention",
+        "description": "Leadership quality"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Scaling",
+        "description": "Leadership capacity"
+      }
+    ],
+    "category": "leadership"
+  },
+  "15-4": {
+    "name": "Stakeholder Alignment",
+    "metrics": [
+      {
+        "value": "3.2x",
+        "label": "Leadership Effectiveness",
+        "description": "Team performance impact"
+      },
+      {
+        "value": "60%",
+        "label": "Better Decisions",
+        "description": "Strategic clarity"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Retention",
+        "description": "Leadership quality"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Scaling",
+        "description": "Leadership capacity"
+      }
+    ],
+    "category": "leadership"
+  },
+  "15-5": {
+    "name": "Investor Relations",
+    "metrics": [
+      {
+        "value": "3.2x",
+        "label": "Leadership Effectiveness",
+        "description": "Team performance impact"
+      },
+      {
+        "value": "60%",
+        "label": "Better Decisions",
+        "description": "Strategic clarity"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Retention",
+        "description": "Leadership quality"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Scaling",
+        "description": "Leadership capacity"
+      }
+    ],
+    "category": "leadership"
+  },
+  "15-6": {
+    "name": "Leadership Dynamics",
+    "metrics": [
+      {
+        "value": "3.2x",
+        "label": "Leadership Effectiveness",
+        "description": "Team performance impact"
+      },
+      {
+        "value": "60%",
+        "label": "Better Decisions",
+        "description": "Strategic clarity"
+      },
+      {
+        "value": "40%",
+        "label": "Higher Retention",
+        "description": "Leadership quality"
+      },
+      {
+        "value": "2.8x",
+        "label": "Faster Scaling",
+        "description": "Leadership capacity"
+      }
+    ],
+    "category": "leadership"
+  },
+  "16-1": {
+    "name": "Market Selection",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Market Expansion",
+        "description": "Geographic growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Entry",
+        "description": "Time to new markets"
+      },
+      {
+        "value": "40%",
+        "label": "Lower Risk",
+        "description": "Systematic expansion"
+      },
+      {
+        "value": "3x",
+        "label": "Global Revenue",
+        "description": "International contribution"
+      }
+    ],
+    "category": "global"
+  },
+  "16-2": {
+    "name": "Localization Infrastructure",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Market Expansion",
+        "description": "Geographic growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Entry",
+        "description": "Time to new markets"
+      },
+      {
+        "value": "40%",
+        "label": "Lower Risk",
+        "description": "Systematic expansion"
+      },
+      {
+        "value": "3x",
+        "label": "Global Revenue",
+        "description": "International contribution"
+      }
+    ],
+    "category": "global"
+  },
+  "16-3": {
+    "name": "International Pricing Matrix",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Market Expansion",
+        "description": "Geographic growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Entry",
+        "description": "Time to new markets"
+      },
+      {
+        "value": "40%",
+        "label": "Lower Risk",
+        "description": "Systematic expansion"
+      },
+      {
+        "value": "3x",
+        "label": "Global Revenue",
+        "description": "International contribution"
+      }
+    ],
+    "category": "global"
+  },
+  "16-4": {
+    "name": "Regional Compliance Tracker",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Market Expansion",
+        "description": "Geographic growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Entry",
+        "description": "Time to new markets"
+      },
+      {
+        "value": "40%",
+        "label": "Lower Risk",
+        "description": "Systematic expansion"
+      },
+      {
+        "value": "3x",
+        "label": "Global Revenue",
+        "description": "International contribution"
+      }
+    ],
+    "category": "global"
+  },
+  "16-5": {
+    "name": "Geo-Specific GTM Playbooks",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Market Expansion",
+        "description": "Geographic growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Entry",
+        "description": "Time to new markets"
+      },
+      {
+        "value": "40%",
+        "label": "Lower Risk",
+        "description": "Systematic expansion"
+      },
+      {
+        "value": "3x",
+        "label": "Global Revenue",
+        "description": "International contribution"
+      }
+    ],
+    "category": "global"
+  },
+  "16-6": {
+    "name": "Expansion Risk Assessment",
+    "metrics": [
+      {
+        "value": "2.5x",
+        "label": "Market Expansion",
+        "description": "Geographic growth"
+      },
+      {
+        "value": "50%",
+        "label": "Faster Entry",
+        "description": "Time to new markets"
+      },
+      {
+        "value": "40%",
+        "label": "Lower Risk",
+        "description": "Systematic expansion"
+      },
+      {
+        "value": "3x",
+        "label": "Global Revenue",
+        "description": "International contribution"
+      }
+    ],
+    "category": "global"
+  }
+}

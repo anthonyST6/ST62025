@@ -160,7 +160,8 @@ function generateCompleteRegistry() {
                 what: eduData?.what || `Information about ${name}`,
                 why: eduData?.why || `Understanding ${name} is critical for success`,
                 how: eduData?.how || `Implementation guidance for ${name}`,
-                examples: eduData?.examples || []
+                examples: eduData?.examples || [],
+                keyMetrics: eduData?.keyMetrics || [] // ✅ ADD CUSTOM METRICS
             },
             
             // ═══════════════════════════════════════

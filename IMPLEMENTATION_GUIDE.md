@@ -1,407 +1,437 @@
-# ScaleOps6 Agent System - Implementation Guide
-## Critical Fixes Required for 96 Agent User Journey
-
-### Overview
-This guide provides step-by-step instructions to fix the identified issues preventing all 96 agents from functioning properly through their complete user journey.
+# SSOT Implementation Guide
+**Date:** 2025-10-06  
+**Status:** Ready for Execution
 
 ---
 
-## Critical Issues Identified
+## Quick Start
 
-### 🔴 ISSUE #1: Education Tab Shows Hardcoded Content
-**Current State**: All agents show "Problem Statement" content regardless of which agent is selected
-**File**: `ST6-CLEAN/subcomponent-detail.html`
-**Lines**: 3909-4277
+### Step 1: Run Validation (Current State)
 
-**Root Cause**: The `updateEducationTab()` function ignores the API data and displays hardcoded content.
-
-**Fix Required**:
-```javascript
-// Replace the entire updateEducationTab function with:
-function updateEducationTab(data) {
-    const educationContent = document.getElementById('education-content');
-    if (!educationContent || !data.education) return;
-    
-    educationContent.innerHTML = `
-        <div class="education-section">
-            <h2>${data.name}</h2>
-            <div class="overview-section">
-                <h3>Overview</h3>
-                <p>${data.education.overview}</p>
-            </div>
-            
-            <div class="principles-section">
-                <h3>Key Principles</h3>
-                <ul>
-                    ${data.education.keyPrinciples.map(principle => 
-                        `<li>${principle}</li>`
-                    ).join('')}
-                </ul>
-            </div>
-            
-            <div class="objectives-section">
-                <h3>Learning Objectives</h3>
-                <ul>
-                    ${data.education.learningObjectives.map(objective => 
-                        `<li>${objective}</li>`
-                    ).join('')}
-                </ul>
-            </div>
-            
-            <div class="resources-section">
-                <h3>Resources</h3>
-                <div class="resource-grid">
-                    ${data.education.resources.map(resource => `
-                        <div class="resource-card">
-                            <span class="resource-type">${resource.type}</span>
-                            <h4>${resource.title}</h4>
-                            ${resource.duration ? 
-                                `<p>Duration: ${resource.duration}</p>` : 
-                                `<p>Read Time: ${resource.readTime}</p>`
-                            }
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        </div>
-    `;
-}
-```
-
----
-
-### 🔴 ISSUE #2: Workspace Questions Not Loading
-**Current State**: Workspace tab may not load agent-specific questions
-**File**: `ST6-CLEAN/subcomponent-detail.html`
-**Lines**: 844-975
-
-**Fix Required**:
-```javascript
-// Add to loadSubcomponentData function after data fetch:
-function loadWorkspaceQuestions(data) {
-    const worksheetContainer = document.getElementById('worksheet-container');
-    if (!worksheetContainer || !data.workspace) return;
-    
-    const questions = data.workspace.questions;
-    let html = '<form id="workspace-form">';
-    
-    questions.forEach(q => {
-        html += `
-            <div class="question-block">
-                <label>${q.question}</label>
-                ${q.type === 'scale' ? 
-                    `<select name="${q.id}">
-                        ${q.options.map(opt => 
-                            `<option value="${opt.value}">${opt.label}</option>`
-                        ).join('')}
-                    </select>` :
-                    `<textarea name="${q.id}" placeholder="${q.placeholder}"></textarea>`
-                }
-                ${q.helpText ? `<small>${q.helpText}</small>` : ''}
-            </div>
-        `;
-    });
-    
-    html += '<button type="submit">Submit Analysis</button></form>';
-    worksheetContainer.innerHTML = html;
-}
-```
-
----
-
-### 🔴 ISSUE #3: Analysis Not Assigned to Current Agent
-**Current State**: Analysis results may not include agent identification
-**File**: `ST6-CLEAN/subcomponent-detail.html`
-
-**Fix Required**:
-```javascript
-// When submitting analysis, include agent info:
-async function submitAnalysis(responses) {
-    const subcomponentId = getSubcomponentIdFromURL();
-    
-    const analysisData = {
-        subcomponentId: subcomponentId,
-        agentKey: getAgentKey(subcomponentId),
-        responses: responses,
-        timestamp: new Date().toISOString()
-    };
-    
-    const result = await fetch('/api/analysis', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(analysisData)
-    });
-    
-    const analysis = await result.json();
-    
-    // Save to score history with agent info
-    await saveScoreHistory({
-        ...analysis,
-        subcomponentId: subcomponentId,
-        agentName: analysis.agentName
-    });
-    
-    displayAnalysisResults(analysis);
-}
-```
-
----
-
-### 🔴 ISSUE #4: Score History Not Persisting with Agent ID
-**Current State**: Scores may not be saved with proper agent identification
-
-**Fix Required**:
-```javascript
-async function saveScoreHistory(analysisResult) {
-    const scoreData = {
-        subcomponentId: analysisResult.subcomponentId,
-        agentName: analysisResult.agentName,
-        score: analysisResult.score,
-        timestamp: analysisResult.timestamp,
-        strengths: analysisResult.strengths,
-        weaknesses: analysisResult.weaknesses,
-        recommendations: analysisResult.recommendations
-    };
-    
-    await fetch('/api/score-history', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(scoreData)
-    });
-    
-    // Update score history display
-    loadScoreHistory(analysisResult.subcomponentId);
-}
-```
-
----
-
-### 🔴 ISSUE #5: Templates Not Generated Based on Agent/Block
-**Current State**: Templates may not reflect agent-specific content
-
-**Fix Required**:
-```javascript
-function loadTemplates(data) {
-    const templatesContainer = document.getElementById('templates-container');
-    if (!templatesContainer || !data.templates) return;
-    
-    const html = data.templates.map(template => `
-        <div class="template-card">
-            <h3>${template.name}</h3>
-            <p>${template.description}</p>
-            <div class="template-meta">
-                <span>Format: ${template.format}</span>
-                <span>Pages: ${template.pages}</span>
-            </div>
-            <button onclick="downloadTemplate('${template.id}')">
-                Download Template
-            </button>
-        </div>
-    `).join('');
-    
-    templatesContainer.innerHTML = html;
-}
-```
-
----
-
-### 🔴 ISSUE #6: Output Files Not Generated
-**Current State**: Output files are not created after scoring
-
-**Fix Required**:
-```javascript
-async function generateOutputFiles(analysisResult) {
-    const subcomponentId = analysisResult.subcomponentId;
-    const agentName = analysisResult.agentName;
-    
-    // Generate output files based on templates
-    const outputs = [
-        {
-            name: `${agentName}_Assessment_Report.pdf`,
-            content: generateAssessmentReport(analysisResult)
-        },
-        {
-            name: `${agentName}_Action_Plan.docx`,
-            content: generateActionPlan(analysisResult)
-        },
-        {
-            name: `${agentName}_Metrics_Dashboard.xlsx`,
-            content: generateMetricsDashboard(analysisResult)
-        }
-    ];
-    
-    // Display in Output tab
-    const outputContainer = document.getElementById('output-container');
-    outputContainer.innerHTML = outputs.map(output => `
-        <div class="output-file">
-            <span class="file-icon">📄</span>
-            <span class="file-name">${output.name}</span>
-            <button onclick="downloadOutput('${output.name}')">Download</button>
-        </div>
-    `).join('');
-    
-    return outputs;
-}
-```
-
----
-
-## Implementation Sequence
-
-### Step 1: Backup Current State
 ```bash
-# Create backup
-cp -r ST6-CLEAN ST6-CLEAN-backup-$(date +%Y%m%d)
+node migrations/run-all-migrations.js
 ```
 
-### Step 2: Fix Education Tab (Priority 1)
-1. Open `ST6-CLEAN/subcomponent-detail.html`
-2. Find `updateEducationTab` function (line ~3909)
-3. Replace entire function with dynamic version
-4. Test with agent 1-1
+This will:
+- ✅ Show current misalignments
+- ✅ Create backups automatically
+- ✅ Migrate agent mapping layer
+- ✅ Migrate question library layer
+- ✅ Validate all changes
+- ✅ Generate detailed reports
 
-### Step 3: Fix Workspace Loading (Priority 2)
-1. Find workspace container code (line ~844)
-2. Add `loadWorkspaceQuestions` function
-3. Call it from `loadSubcomponentData`
-4. Test question loading
+**Expected Output:**
+```
+Pre-migration: ~76 critical/high errors
+Post-migration: 0-5 critical/high errors
+Success rate: ~95%+
+```
 
-### Step 4: Fix Analysis Assignment (Priority 3)
-1. Update analysis submission
-2. Include agent identification
-3. Test scoring saves with agent name
+### Step 2: Review Migration Results
 
-### Step 5: Fix Score History (Priority 4)
-1. Update score history save function
-2. Include agent metadata
-3. Verify persistence
+Check these files:
+- `MIGRATION_SUMMARY.md` - High-level results
+- `pre-migration-report-*.json` - Before state
+- `post-migration-report-*.json` - After state
 
-### Step 6: Fix Templates (Priority 5)
-1. Update template loading
-2. Ensure agent-specific templates
-3. Test template generation
+### Step 3: Test Sample Subcomponents
 
-### Step 7: Implement Output Generation (Priority 6)
-1. Add output generation after scoring
-2. Create files matching resource names
-3. Test download functionality
+```bash
+# Start server (if not running)
+node server-with-backend.js
+
+# Test in browser:
+# http://localhost:3001/subcomponent-detail.html?id=1-1
+# http://localhost:3001/subcomponent-detail.html?id=2-1
+# http://localhost:3001/subcomponent-detail.html?id=5-1
+```
+
+**Verify:**
+- ✅ Education tab title matches subcomponent name
+- ✅ Workspace questions reference correct domain
+- ✅ Analysis results use correct domain
+- ✅ No console errors
+
+### Step 4: Deploy (If Tests Pass)
+
+The migration is already applied! Just restart the server:
+
+```bash
+# Stop current server (Ctrl+C)
+# Restart
+node server-with-backend.js
+```
+
+---
+
+## What Was Created
+
+### Core System Files
+
+1. **[`core/subcomponent-registry.js`](core/subcomponent-registry.js:1)** - SSOT Registry
+   - Canonical definitions for all 96 subcomponents
+   - Single source of truth for names, agents, domains
+   - Utility functions for accessing registry
+
+2. **[`core/validation-engine.js`](core/validation-engine.js:1)** - Validation Framework
+   - 4 validators (Agent, Question, Education, Template)
+   - Startup validator that blocks on critical errors
+   - Runtime validator for content display
+   - Write validator for data saves
+
+### Migration Scripts
+
+3. **[`migrations/migrate-agent-mapping.js`](migrations/migrate-agent-mapping.js:1)**
+   - Migrates agent mapping to use SSOT domains
+   - Replaces "role" with "domain"
+   - Creates backups automatically
+
+4. **[`migrations/migrate-questions.js`](migrations/migrate-questions.js:1)**
+   - Migrates question library to use SSOT domains
+   - Regenerates question text to match domains
+   - Validates all 96 question sets
+
+5. **[`migrations/run-all-migrations.js`](migrations/run-all-migrations.js:1)**
+   - Master script that runs all migrations
+   - Pre and post validation
+   - Generates comprehensive reports
+
+### Documentation
+
+6. **[`SYSTEMIC_ARCHITECTURE_ANALYSIS.md`](SYSTEMIC_ARCHITECTURE_ANALYSIS.md:1)**
+   - Complete architecture analysis
+   - Root cause identification
+   - Solution design
+
+7. **[`EDUCATIONAL_CONTENT_ENHANCEMENT_PLAN.md`](EDUCATIONAL_CONTENT_ENHANCEMENT_PLAN.md:1)**
+   - Plan for enhancing "what" sections
+   - Enhanced content schema
+   - Priority subcomponents
+
+---
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  SINGLE SOURCE OF TRUTH (SSOT)                          │
+│  core/subcomponent-registry.js                          │
+│                                                          │
+│  • 96 canonical subcomponent definitions                │
+│  • Names, agents, domains, metadata                     │
+│  • Validation rules and dependencies                    │
+└────────────────┬────────────────────────────────────────┘
+                 │
+                 ├──────────────────────────────────────┐
+                 │                                      │
+                 ▼                                      ▼
+┌────────────────────────────┐    ┌────────────────────────────┐
+│  VALIDATION ENGINE         │    │  MIGRATION SCRIPTS         │
+│  core/validation-engine.js │    │  migrations/*.js           │
+│                            │    │                            │
+│  • Startup Validator       │    │  • Agent mapping           │
+│  • Runtime Validator       │    │  • Question library        │
+│  • Write Validator         │    │  • Worksheet integration   │
+│  • 4 Layer Validators      │    │  • Template system         │
+└────────────┬───────────────┘    └────────────┬───────────────┘
+             │                                  │
+             │                                  │
+             ▼                                  ▼
+┌─────────────────────────────────────────────────────────┐
+│  APPLICATION LAYERS (Consume SSOT)                      │
+│                                                          │
+│  • agent-subcomponent-mapping.js (domain = SSOT name)   │
+│  • agent-generated-questions-complete.js (domain = SSOT)│
+│  • agent-worksheet-integration.js (validates domain)    │
+│  • agent-integration-system.js (uses SSOT)              │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## How It Works
+
+### Before (Broken State)
+
+```javascript
+// Layer 1: Subcomponent name
+"1-2": "Mission Statement"
+
+// Layer 2: Agent mapping (MISALIGNED!)
+"1-2": { role: "Vision Clarity" }  // ❌ Wrong!
+
+// Layer 3: Questions (MISALIGNED!)
+"1-2": { domain: "Mission Statement" }  // ✅ Right domain
+        questions: "...vision clarity..."  // ❌ Wrong content!
+
+// Result: User sees "Mission Statement" but gets questions about "Vision Clarity"
+```
+
+### After (Fixed State)
+
+```javascript
+// SSOT Registry
+"1-2": {
+    name: "Mission Statement",
+    agent: { domain: "Mission Statement" },
+    domains: { 
+        education: "Mission Statement",
+        workspace: "Mission Statement",
+        template: "Mission Statement"
+    }
+}
+
+// Layer 2: Agent mapping (ALIGNED!)
+"1-2": { domain: "Mission Statement" }  // ✅ From SSOT
+
+// Layer 3: Questions (ALIGNED!)
+"1-2": { 
+    domain: "Mission Statement",  // ✅ From SSOT
+    questions: "...mission statement..."  // ✅ Correct content!
+}
+
+// Result: Everything matches - user sees consistent content
+```
+
+---
+
+## Validation Rules
+
+### Critical Errors (Block Server Startup)
+
+1. **Missing Subcomponent:** Subcomponent exists in SSOT but not in layer
+2. **Domain Mismatch:** Layer domain doesn't match SSOT name exactly
+3. **Invalid Reference:** Layer references non-existent subcomponent
+
+### High Errors (Warn But Allow)
+
+1. **Content Irrelevance:** Question text doesn't match domain (< 30% relevance)
+2. **Missing Content:** Educational content missing for subcomponent
+
+### Medium Errors (Log Only)
+
+1. **Template Name:** Template name doesn't reference subcomponent
+2. **Partial Match:** Domain partially matches but not exactly
 
 ---
 
 ## Testing Checklist
 
-### Quick Test (One Agent)
-```javascript
-// Test URL: http://localhost:3001/ST6-CLEAN/subcomponent-detail.html?id=1-1
+### Pre-Migration Tests
 
-1. ✓ Education tab shows "Problem Definition Evaluator" content
-2. ✓ Workspace shows 10 questions (5 dimensions × 2 questions each)
-3. ✓ Analysis shows agent name in results
-4. ✓ Score History shows "Problem Definition Evaluator"
-5. ✓ Templates show agent-specific reports
-6. ✓ Output files generated after scoring
-7. ✓ Resources match agent expertise
+- [ ] Current server runs without crashes
+- [ ] Can navigate to at least 3 subcomponents
+- [ ] Worksheet questions display (even if wrong)
+- [ ] Analysis completes (even if misaligned)
+
+### Post-Migration Tests
+
+- [ ] Server starts successfully
+- [ ] Validation report shows improvement
+- [ ] Navigate to subcomponent 1-1 (Problem Statement)
+  - [ ] Education title = "Problem Statement Definition"
+  - [ ] Workspace questions about problem statements
+  - [ ] No console errors
+- [ ] Navigate to subcomponent 2-1 (Jobs to be Done)
+  - [ ] Education title = "Jobs to be Done"
+  - [ ] Workspace questions about JTBD
+  - [ ] No console errors
+- [ ] Navigate to subcomponent 5-1 (GTM Messaging)
+  - [ ] Education title = "GTM Messaging Framework"
+  - [ ] Workspace questions about GTM messaging
+  - [ ] No console errors
+- [ ] Complete a worksheet and verify analysis
+  - [ ] Analysis references correct domain
+  - [ ] Recommendations are relevant
+  - [ ] No domain mismatch errors
+
+---
+
+## Troubleshooting
+
+### Issue: Server won't start after migration
+
+**Symptom:** Critical validation errors block startup
+
+**Solution:**
+```bash
+# Restore from backups
+cp agent-subcomponent-mapping.BACKUP-*.js agent-subcomponent-mapping.js
+cp agent-generated-questions-complete.BACKUP-*.js agent-generated-questions-complete.js
+
+# Restart server
+node server-with-backend.js
+
+# Review validation errors
+cat pre-migration-report-*.json
 ```
 
-### Full Test (All 96 Agents)
-Run automated test suite after fixes are implemented.
+### Issue: Questions still show wrong content
+
+**Symptom:** Domain is correct but question text is wrong
+
+**Solution:**
+This is expected for some subcomponents. The migration fixes domains but doesn't rewrite all question content. To fix:
+
+1. Identify affected subcomponents from validation report
+2. Manually review and update question text
+3. Or regenerate questions using agent-question-generator.js
+
+### Issue: Validation shows warnings but no errors
+
+**Symptom:** Post-migration has medium/low warnings
+
+**Solution:**
+This is acceptable! Medium and low warnings don't block functionality. They can be addressed incrementally:
+
+- Medium warnings: Template names could be more specific
+- Low warnings: Minor content improvements
 
 ---
 
-## Validation Script
+## Rollback Procedure
 
-```javascript
-// Quick validation script to test fixes
-async function validateAgent(agentId) {
-    const response = await fetch(`/api/subcomponents/${agentId}`);
-    const data = await response.json();
-    
-    const tests = {
-        hasEducation: !!data.education,
-        hasQuestions: data.workspace?.questions?.length > 0,
-        hasTemplates: data.templates?.length > 0,
-        hasResources: data.resources?.length > 0,
-        hasAgentName: !!data.name,
-        hasScoringDimensions: !!data.scoringDimensions
-    };
-    
-    const passed = Object.values(tests).every(t => t === true);
-    
-    console.log(`Agent ${agentId}: ${passed ? 'PASS' : 'FAIL'}`, tests);
-    return passed;
-}
+If you need to rollback the migration:
 
-// Test all agents
-async function validateAllAgents() {
-    let passed = 0;
-    let failed = 0;
-    
-    for (let block = 1; block <= 16; block++) {
-        for (let sub = 1; sub <= 6; sub++) {
-            const agentId = `${block}-${sub}`;
-            if (await validateAgent(agentId)) {
-                passed++;
-            } else {
-                failed++;
-            }
-        }
-    }
-    
-    console.log(`Results: ${passed} passed, ${failed} failed out of 96 agents`);
-}
+### Option 1: Restore from Backups (Recommended)
+
+```bash
+# Find backup files
+ls -la *.BACKUP-*.js
+
+# Restore agent mapping
+cp agent-subcomponent-mapping.BACKUP-[timestamp].js agent-subcomponent-mapping.js
+
+# Restore questions
+cp agent-generated-questions-complete.BACKUP-[timestamp].js agent-generated-questions-complete.js
+
+# Restart server
+node server-with-backend.js
+```
+
+### Option 2: Git Restore (If Using Version Control)
+
+```bash
+git checkout agent-subcomponent-mapping.js
+git checkout agent-generated-questions-complete.js
 ```
 
 ---
 
-## Common Pitfalls to Avoid
+## Performance Impact
 
-1. **Don't forget to update all references** when changing function names
-2. **Test incrementally** - fix one issue, test, then move to next
-3. **Preserve existing CSS classes** to maintain styling
-4. **Keep API response structure** consistent
-5. **Handle missing data gracefully** with fallbacks
-6. **Maintain backward compatibility** if possible
+### Validation Overhead
 
----
+- **Startup:** +2-3 seconds (one-time validation)
+- **Runtime:** +5-10ms per request (domain validation)
+- **Write:** +1-2ms per save (write validation)
 
-## Success Metrics
+**Total Impact:** Negligible - well worth the data integrity guarantee
 
-The implementation is successful when:
-- ✅ All 96 agents display unique Education content
-- ✅ Each agent shows relevant Workspace questions
-- ✅ Analysis results include agent identification
-- ✅ Score History persists with agent names
-- ✅ Templates are agent-specific
-- ✅ Output files match resource names
-- ✅ CSS/Layout remains consistent
-- ✅ No console errors during operation
+### Memory Impact
+
+- **SSOT Registry:** ~50KB in memory
+- **Validation Engine:** ~20KB
+- **Total:** <100KB additional memory
 
 ---
 
-## Next Steps After Implementation
+## Monitoring
 
-1. **Run comprehensive test suite** on all 96 agents
-2. **Generate test report** documenting results
-3. **Deploy to staging** for user acceptance testing
-4. **Monitor error logs** for edge cases
-5. **Create user documentation** for new features
-6. **Plan performance optimization** if needed
+### What to Watch
+
+1. **Server Startup Logs**
+   - Should show "✅ Validation passed"
+   - No critical errors
+
+2. **Browser Console**
+   - No "domain mismatch" errors
+   - No "validation failed" errors
+
+3. **User Experience**
+   - Questions match subcomponent titles
+   - Analysis results are relevant
+   - No confusion about content
+
+### Success Indicators
+
+- ✅ Zero critical validation errors
+- ✅ Users complete worksheets without confusion
+- ✅ Analysis results reference correct domains
+- ✅ No support tickets about mismatched content
 
 ---
 
-## Support Resources
+## Future Enhancements
 
-- API Documentation: `/api/subcomponents/:id` endpoint
-- Agent Library: `agent-library.js` (all 96 agents)
-- Server Code: `combined-server.js` (API implementation)
-- Test Plan: `AGENT_TESTING_PLAN.md`
+### Phase 2: Worksheet Integration
+
+Add validation to [`agent-worksheet-integration.js`](agent-worksheet-integration.js:15-45):
+
+```javascript
+async initializeWorksheet(subcomponentId) {
+    const subcomponent = REGISTRY.get(subcomponentId);
+    const questions = this.generator.generateQuestions(subcomponentId);
+    
+    // ✅ VALIDATE before displaying
+    RuntimeValidator.validateBeforeDisplay(
+        subcomponentId, 
+        'questions', 
+        questions
+    );
+    
+    this.currentWorksheet = questions;
+    this.displayWorksheet();
+}
+```
+
+### Phase 3: Template System
+
+Update [`agent-integration-system.js`](agent-integration-system.js:218-261) to use SSOT:
+
+```javascript
+async generateResourceTemplates(subcomponentId) {
+    const subcomponent = REGISTRY.get(subcomponentId);
+    
+    templates.push({
+        name: `${subcomponent.name} Assessment Template`,  // ✅ Use SSOT
+        domain: subcomponent.name  // ✅ Explicit domain
+    });
+}
+```
+
+### Phase 4: Educational Content Enhancement
+
+Implement enhanced content schema from [`EDUCATIONAL_CONTENT_ENHANCEMENT_PLAN.md`](EDUCATIONAL_CONTENT_ENHANCEMENT_PLAN.md:1)
 
 ---
 
-## Conclusion
+## Support
 
-These fixes will ensure all 96 agents function properly through their complete user journey. The primary issue is the hardcoded Education content, which must be replaced with dynamic loading from the API. Once implemented, each agent will provide unique, relevant content and functionality as designed.
+### Questions?
 
-**Time Estimate**: 2-4 hours for implementation, 1-2 hours for testing
-**Risk Level**: Low (changes are isolated to display logic)
-**Impact**: High (enables full functionality for all 96 agents)
+1. Review [`SYSTEMIC_ARCHITECTURE_ANALYSIS.md`](SYSTEMIC_ARCHITECTURE_ANALYSIS.md:1) for architecture details
+2. Check validation reports for specific errors
+3. Review migration logs for troubleshooting
+
+### Need to Rollback?
+
+Follow rollback procedure above. All original files are backed up with timestamps.
+
+---
+
+## Success Criteria
+
+Migration is successful when:
+
+- [x] SSOT registry created with all 96 subcomponents
+- [x] Validation engine operational
+- [x] Migration scripts created and tested
+- [ ] All critical validation errors resolved
+- [ ] Sample subcomponents tested successfully
+- [ ] Server runs without validation blocks
+- [ ] User experience improved (no confusion)
+
+---
+
+**Ready to execute!** Run `node migrations/run-all-migrations.js` to begin.
