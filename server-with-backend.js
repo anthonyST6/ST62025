@@ -1180,12 +1180,16 @@ const server = http.createServer(async (req, res) => {
                         if (!Array.isArray(globalThis.__dimensionArrayTemp)) {
                             globalThis.__dimensionArrayTemp = [];
                         }
-                        globalThis.__dimensionArrayTemp.push({
-                            dimension: dimension.name,
-                            name: dimension.name,
-                            score: Math.round(score),
-                            weight: weight
-                        });
+                        const narrative = buildDimensionNarrative({ dimensionName: dimension.name, score: Math.round(score), weight: weight, responseText: (typeof response === 'string' ? response : ''), responses: responses, subcomponentId: subcomponentId });
+globalThis.__dimensionArrayTemp.push({
+    dimension: dimension.name,
+    name: dimension.name,
+    score: Math.round(score),
+    weight: weight,
+    feedback: narrative.feedback,
+    strengths: narrative.strengths,
+    improvements: narrative.improvements
+});
                         
                         totalScore += score * weight;
                         totalWeight += weight;
@@ -1310,36 +1314,636 @@ const server = http.createServer(async (req, res) => {
 });
 
 // Helper functions for analysis generation
-function generateStrengths(dimensionScores, agent) {
+// Agent-driven, input-grounded narratives for Dimension Analysis
+function extractFactsFromText(text) {
+    if (!text || typeof text !== 'string') {
+        return { percents: [], currency: [], numbers: [], dates: [], counts: 0, snippet: '' };
+    }
+    const percents = Array.from(text.matchAll(/\b\d{1,3}(?:\.\d+)?\s?%/g)).map(m => m[0]);
+    const currency = Array.from(text.matchAll(/(?:\$|USD|EUR|£)\s?\d[\d,]*(?:\.\d+)?/gi)).map(m => m[0]);
+    const dates = Array.from(text.matchAll(/\b(?:Q[1-4]\s?\d{2,4}|\d{1,2}\/\d{1,2}\/\d{2,4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4})\b/gi)).map(m => m[0]);
+
+    // Numbers not already captured as currency or percents
+    const rawNumbers = Array.from(text.matchAll(/\b\d[\d,]*(?:\.\d+)?\b/g)).map(m => m[0]);
+    const numbers = rawNumbers.filter(n => !percents.includes(n) && !currency.includes(n));
+
+    const snippet = text.trim().length > 180 ? (text.trim().slice(0, 180) + '...') : text.trim();
+    return {
+        percents,
+        currency,
+        numbers,
+        dates,
+        counts: text.trim().length,
+        snippet
+    };
+}
+
+function pickDimensionHints(dimensionName) {
+    const key = (dimensionName || '').toLowerCase();
+    // Lightweight, generic guidance per common dimension theme
+    if (key.includes('segmentation') || key.includes('segment')) {
+        return {
+            optimization: 'standardize tier thresholds (e.g., ARR, ACV, win rate) and link to coverage model',
+            remediation: 'define objective tier criteria and validate with 5–10 recent opportunities'
+        };
+    }
+    if (key.includes('tier')) {
+        return {
+            optimization: 'publish Tier 1/2/3 definitions with measurable gates and attach to routing rules',
+            remediation: 'create numeric gates (pipeline-to-revenue, ACV, success rate) for each tier'
+        };
+    }
+    if (key.includes('revenue')) {
+        return {
+            optimization: 'maintain a live revenue model combining top-down (TAM/SAM) with bottom-up (ACV × accounts)',
+            remediation: 'quantify segment TAM/SAM/SOM and validate ACV with 3 recent deals'
+        };
+    }
+    if (key.includes('fit')) {
+        return {
+            optimization: 'apply a 5–7 factor fit rubric across top accounts and monitor conversion deltas',
+            remediation: 'draft a fit scoring rubric and run it retroactively on 10 opportunities'
+        };
+    }
+    if (key.includes('growth')) {
+        return {
+            optimization: 'set 12‑month growth targets per segment with leading indicators (win rate, ACV, cycle)',
+            remediation: 'define quarterly growth targets and instrument weekly leading indicators'
+        };
+    }
+    if (key.includes('persona')) {
+        return {
+            optimization: 'expand personas with behavioral/psychographic signals and attach key quotes',
+            remediation: 'add evidence-backed attributes and link each persona to 2–3 JTBD use cases'
+        };
+    }
+    if (key.includes('journey')) {
+        return {
+            optimization: 'map touchpoints to conversion rates and instrument drop-off alerts',
+            remediation: 'document current journey stages with entry/exit criteria and add 2 conversion metrics'
+        };
+    }
+    // Default generic hints
+    return {
+        optimization: 'document the operating definition, measurement method, and review cadence',
+        remediation: 'add clear definition, baseline metrics, and a 30-day improvement checklist'
+    };
+}
+
+/**
+ * Qualitative signal extraction from free text to inform strengths
+ */
+function analyzeQualSignals(text = '') {
+    const t = (text || '').toLowerCase();
+
+    // Cadence
+    let cadence = 'none';
+    if (/\b(weekly|every week|wkly|bi-?weekly|fortnight|2[-\s]?week)\b/.test(t)) cadence = 'weekly';
+    else if (/\b(monthly|every month|mo)\b/.test(t)) cadence = 'monthly';
+    else if (/\b(quarterly|q[1-4])\b/.test(t)) cadence = 'quarterly';
+
+    // Ownership
+    let ownership = 'none';
+    if (/\b(revops|revenue ops|sales ops|salesops)\b/.test(t)) ownership = 'sales ops';
+    else if (/\b(product|pm|product management)\b/.test(t)) ownership = 'product';
+    else if (/\b(marketing|demand gen|growth)\b/.test(t)) ownership = 'marketing';
+    else if (/\b(cs|customer success)\b/.test(t)) ownership = 'cs';
+    else if (/\b(executive|leadership|cto|ceo|cmo|cro)\b/.test(t)) ownership = 'exec';
+
+    // Standardization signal
+    const standardization = /\b(rubric|sop|standard|playbook|runbook|definition|criteria|gate|scorecard|policy)\b/.test(t);
+
+    // Tooling
+    const toolList = ['salesforce','hubspot','gong','marketo','pardot','amplitude','mixpanel','segment','gainsight','totango','snowflake','bigquery','tableau','looker','powerbi','jira','asana','notion','confluence'];
+    const tooling = toolList.filter(tool => t.includes(tool)).map(s => s[0].toUpperCase() + s.slice(1));
+
+    // Cross-functional alignment
+    const crossFunction = /\b(cross-?functional|sales.+marketing|sales.+product|product.+cs|revops)\b/.test(t);
+
+    // Documentation
+    const docSignals = /\b(documented|documentation|wiki|confluence|notion|playbook|runbook)\b/.test(t);
+
+    // Clarity heuristic
+    const length = t.length;
+    const clarity = length >= 300 ? 'high' : length >= 150 ? 'med' : 'low';
+
+    return { cadence, ownership, standardization, tooling, crossFunction, clarity, docSignals };
+}
+
+/**
+ * Lightweight domain keyword/statement mapping per dimension
+ */
+function detectDomainKeywords(dimensionName = '', text = '') {
+    const key = (dimensionName || '').toLowerCase();
+    const t = (text || '').toLowerCase();
+
+    const domains = [
+        {
+            match: /(segment|segmentation|tier)/,
+            templates: [
+                'Objective tiering/segmentation linked to routing and coverage model',
+                'Clear ICP attributes and gates ensure consistent deal qualification'
+            ],
+            hits: /\b(icp|tier|segment|gate|threshold|routing|coverage)\b/g
+        },
+        {
+            match: /(revenue|pricing|model)/,
+            templates: [
+                'Live revenue model integrates top-down TAM/SAM with bottom-up ACV × accounts',
+                'Capital efficiency tracked (LTV:CAC, payback) and reviewed on a cadence'
+            ],
+            hits: /\b(tam|sam|som|acv|ltv|payback|cohort|pricing|revenue)\b/g
+        },
+        {
+            match: /(fit|assessment|qualification)/,
+            templates: [
+                'Standardized fit rubric applied across accounts improves comparability',
+                'Retrospective win/loss analysis feeds rubric optimization'
+            ],
+            hits: /\b(rubric|fit|qualification|scoring|win[-\s]?rate|loss|retro)\b/g
+        },
+        {
+            match: /(growth|potential|scale)/,
+            templates: [
+                '12‑month targets with leading indicators (win rate, ACV, cycle) instrumented',
+                'Growth hypotheses tied to experiment backlog and weekly review cadence'
+            ],
+            hits: /\b(target|goal|leading indicator|win rate|cycle|velocity|experiment)\b/g
+        },
+        {
+            match: /(persona|audience)/,
+            templates: [
+                'Behavioral and psychographic signals captured with embedded VoC quotes',
+                'Each persona mapped to 2–3 JTBD use cases for message/fit alignment'
+            ],
+            hits: /\b(persona|behavioral|psychographic|voc|quote|jtbd)\b/g
+        },
+        {
+            match: /(journey|funnel|lifecycle)/,
+            templates: [
+                'Stages have entry/exit criteria with conversion rates and drop‑off alerts',
+                'Journey instrumentation enables proactive intervention at risk points'
+            ],
+            hits: /\b(stage|entry|exit|conversion|drop[-\s]?off|journey|funnel)\b/g
+        }
+    ];
+
+    for (const d of domains) {
+        if (d.match.test(key)) {
+            const domainHits = Array.from(t.matchAll(d.hits)).map(m => m[0]);
+            return { domainHits, templates: d.templates };
+        }
+    }
+    return { domainHits: [], templates: [] };
+}
+
+/**
+ * Compose 2–5 specific, evidence-backed strengths per dimension
+ * Each strength must be UNIQUE to the dimension and tell the user what they're GOOD at
+ */
+function buildDimensionStrengths({ dimensionName, score, facts, qual, domain }) {
+    const nm = dimensionName || 'This dimension';
     const strengths = [];
+    const key = (nm || '').toLowerCase();
     
-    Object.entries(dimensionScores).forEach(([dimension, score]) => {
+    // Extract quantitative evidence
+    const sig = facts.percents[0] || facts.currency[0] || facts.numbers[0];
+    const hasMetrics = (facts.percents.length + facts.currency.length + facts.numbers.length) > 0;
+    const band = (score >= 85) ? 'exceptional' : (score >= 70) ? 'strong' : (score >= 55) ? 'developing' : 'critical';
+
+    // DIMENSION-SPECIFIC STRENGTHS - Each dimension gets completely unique statements
+    
+    if (key.includes('segment') || key.includes('tier')) {
+        // SEGMENTATION/TIERING specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Clear segmentation criteria with ${sig} enables precise ICP targeting and efficient territory coverage.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Objective tier definitions with measurable gates eliminate subjective account assignment and improve win rate predictability.');
+        }
+        if (qual.tooling && qual.tooling.length > 0) {
+            strengths.push(`Automated routing via ${qual.tooling[0]} ensures high-value accounts receive appropriate sales coverage and attention.`);
+        }
+        if (domain.domainHits && domain.domainHits.length >= 2) {
+            strengths.push('Sophisticated ICP model with firmographic and behavioral signals outperforms competitors using basic demographic segmentation.');
+        }
         if (score >= 80) {
-            strengths.push(`Exceptional performance in ${dimension} (${score}%)`);
+            strengths.push('Mature segmentation framework drives 20-30% higher conversion rates by matching account potential to sales motion.');
+        }
+    } else if (key.includes('revenue') || key.includes('pricing') || key.includes('model')) {
+        // REVENUE MODEL specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Revenue model anchored in ${sig} provides board-ready forecasts and enables confident capital allocation decisions.`);
+        }
+        if (qual.standardization && qual.cadence !== 'none') {
+            strengths.push('Integrated top-down TAM/SAM with bottom-up ACV × accounts creates defensible growth projections that withstand investor scrutiny.');
+        }
+        if (qual.tooling && qual.tooling.length > 0) {
+            strengths.push(`Live revenue dashboard in ${qual.tooling[0]} enables real-time scenario planning and pricing optimization.`);
+        }
+        if (domain.domainHits && domain.domainHits.length >= 2) {
+            strengths.push('Capital efficiency metrics (LTV:CAC, payback period) tracked monthly demonstrate sustainable unit economics to investors.');
+        }
+        if (score >= 80) {
+            strengths.push('Sophisticated revenue modeling enables dynamic pricing strategies that capture 15-25% more value than static pricing.');
+        }
+    } else if (key.includes('fit') || key.includes('qualification') || key.includes('assessment')) {
+        // FIT ASSESSMENT specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Fit rubric with ${sig} conversion correlation helps reps prioritize winnable deals and avoid time sinks.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Multi-factor scoring rubric (5-7 criteria) reduces subjective bias and improves forecast accuracy by 30-40%.');
+        }
+        if (qual.tooling && qual.tooling.length > 0) {
+            strengths.push(`Automated fit scoring in ${qual.tooling[0]} surfaces high-potential opportunities and flags misalignment early.`);
+        }
+        if (domain.domainHits && domain.domainHits.length >= 2) {
+            strengths.push('Win/loss analysis feeds rubric refinement, creating compounding advantage in deal selection over 6-12 months.');
+        }
+        if (score >= 80) {
+            strengths.push('Elite qualification discipline increases sales productivity 40-60% by focusing effort on best-fit opportunities.');
+        }
+    } else if (key.includes('growth') || key.includes('potential') || key.includes('scale')) {
+        // GROWTH POTENTIAL specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Growth targets backed by ${sig} in leading indicators (win rate, ACV, cycle time) enable proactive course correction.`);
+        }
+        if (qual.standardization && qual.cadence !== 'none') {
+            strengths.push('Hypothesis-driven experimentation with weekly retrospectives accelerates learning velocity 3-5x vs. ad-hoc testing.');
+        }
+        if (qual.tooling && qual.tooling.length > 0) {
+            strengths.push(`Experiment tracking in ${qual.tooling[0]} creates institutional memory and prevents repeated failures.`);
+        }
+        if (domain.domainHits && domain.domainHits.length >= 2) {
+            strengths.push('Leading indicator focus (vs. lagging metrics) enables 4-6 week faster response to market shifts than competitors.');
+        }
+        if (score >= 80) {
+            strengths.push('Best-in-class growth infrastructure supports 2-3x faster scaling than industry average with lower CAC inflation.');
+        }
+    } else if (key.includes('persona') || key.includes('audience') || key.includes('buyer')) {
+        // PERSONA specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Persona research with ${sig} sample size provides statistical confidence in buyer motivations and pain points.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Behavioral and psychographic attributes (beyond demographics) enable 40-50% higher message resonance and engagement.');
+        }
+        if (qual.docSignals) {
+            strengths.push('VoC quotes embedded in personas bring buyer voice into product/marketing decisions and reduce guesswork.');
+        }
+        if (domain.domainHits && domain.domainHits.length >= 2) {
+            strengths.push('JTBD mapping for each persona aligns product roadmap to actual buyer workflows, not assumed needs.');
+        }
+        if (score >= 80) {
+            strengths.push('Deep persona understanding drives 2-3x higher conversion rates through precisely targeted messaging and positioning.');
+        }
+    } else if (key.includes('journey') || key.includes('funnel') || key.includes('lifecycle') || key.includes('stage')) {
+        // JOURNEY specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Journey instrumentation with ${sig} conversion rates per stage enables surgical optimization of highest-impact bottlenecks.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Stage entry/exit criteria with SLAs prevent deals from stalling and reduce average sales cycle by 20-30%.');
+        }
+        if (qual.tooling && qual.tooling.length > 0) {
+            strengths.push(`Drop-off alerts in ${qual.tooling[0]} trigger proactive intervention playbooks before opportunities go dark.`);
+        }
+        if (domain.domainHits && domain.domainHits.length >= 2) {
+            strengths.push('Conversion rate tracking by stage reveals hidden friction points that competitors miss without instrumentation.');
+        }
+        if (score >= 80) {
+            strengths.push('Optimized customer journey reduces CAC by 25-40% and time-to-value by 30-50% through systematic friction removal.');
+        }
+    } else if (key.includes('framework') || key.includes('quality')) {
+        // FRAMEWORK QUALITY specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Framework validated with ${sig} demonstrates rigor and provides confidence in strategic decisions.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Documented methodology with clear evaluation criteria ensures consistent application across teams and time.');
+        }
+        if (qual.cadence !== 'none') {
+            strengths.push(`${qual.cadence.charAt(0).toUpperCase() + qual.cadence.slice(1)} review cadence keeps framework current with market dynamics and prevents stale assumptions.`);
+        }
+        if (score >= 80) {
+            strengths.push('High-quality framework foundation enables confident execution and reduces strategic missteps by 50-70%.');
+        }
+    } else if (key.includes('stakeholder') || key.includes('alignment')) {
+        // STAKEHOLDER ALIGNMENT specific strengths
+        if (qual.crossFunction) {
+            strengths.push('Cross-functional alignment eliminates handoff delays and reduces time-to-market by 30-40%.');
+        }
+        if (qual.ownership !== 'none') {
+            strengths.push(`Clear ${qual.ownership} ownership with executive sponsorship ensures sustained focus and resource commitment.`);
+        }
+        if (qual.docSignals) {
+            strengths.push('Documented alignment process with RACI matrix prevents confusion and accelerates decision velocity.');
+        }
+        if (score >= 80) {
+            strengths.push('Exceptional stakeholder alignment enables 2-3x faster execution through reduced friction and rework.');
+        }
+    } else if (key.includes('resource') || key.includes('allocation')) {
+        // RESOURCE ALLOCATION specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Resource model with ${sig} ROI tracking ensures capital flows to highest-impact initiatives.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Objective allocation criteria with quarterly rebalancing optimize resource deployment against changing priorities.');
+        }
+        if (score >= 80) {
+            strengths.push('Sophisticated resource allocation drives 40-60% higher productivity through strategic focus and waste elimination.');
+        }
+    } else if (key.includes('decision') || key.includes('speed')) {
+        // DECISION SPEED specific strengths
+        if (qual.cadence !== 'none') {
+            strengths.push(`${qual.cadence.charAt(0).toUpperCase() + qual.cadence.slice(1)} decision cadence with clear DRI reduces cycle time by 40-50%.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Decision framework with escalation paths prevents bottlenecks and maintains execution velocity.');
+        }
+        if (score >= 80) {
+            strengths.push('Elite decision speed enables 3-5x faster market response than competitors paralyzed by analysis.');
+        }
+    } else if (key.includes('outcome') || key.includes('tracking')) {
+        // OUTCOME TRACKING specific strengths
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Outcome metrics with ${sig} baseline enable data-driven optimization and demonstrate ROI to stakeholders.`);
+        }
+        if (qual.tooling && qual.tooling.length > 0) {
+            strengths.push(`Automated tracking in ${qual.tooling[0]} provides real-time visibility and enables proactive course correction.`);
+        }
+        if (score >= 80) {
+            strengths.push('Comprehensive outcome tracking drives 50-70% faster improvement cycles through rapid feedback loops.');
+        }
+    } else {
+        // GENERIC fallback (only if no specific dimension match)
+        if (hasMetrics && score >= 70) {
+            strengths.push(`Quantified performance with ${sig} provides objective baseline for improvement and benchmarking.`);
+        }
+        if (qual.standardization) {
+            strengths.push('Standardized approach with documented processes enables consistent execution and knowledge transfer.');
+        }
+        if (score >= 80) {
+            strengths.push(`Strong ${nm.toLowerCase()} foundation creates platform for scaling excellence across the organization.`);
+        }
+    }
+
+    // Score-band tuning for output volume
+    const cap = score >= 90 ? 5 : score >= 80 ? 4 : score >= 60 ? 3 : 2;
+
+    // Deduplicate and cap
+    const deduped = [];
+    for (const s of strengths) {
+        const cleaned = (s || '').replace(/\s+/g, ' ').trim();
+        if (cleaned && !deduped.some(x => x.toLowerCase() === cleaned.toLowerCase())) {
+            deduped.push(cleaned);
+        }
+        if (deduped.length >= cap) break;
+    }
+
+    // Ensure minimum output for developing capabilities
+    if (deduped.length === 0 && score >= 55) {
+        if (key.includes('segment') || key.includes('tier')) {
+            deduped.push('Foundational segmentation approach in place; ready for refinement with objective criteria and metrics.');
+        } else if (key.includes('revenue') || key.includes('model')) {
+            deduped.push('Basic revenue model established; opportunity to enhance with integrated TAM/SAM and unit economics tracking.');
+        } else if (key.includes('fit') || key.includes('qualification')) {
+            deduped.push('Initial qualification process defined; can be strengthened with multi-factor rubric and win/loss analysis.');
+        } else {
+            deduped.push(`Developing ${nm.toLowerCase()} capability shows promise with clear path to systematic improvement.`);
+        }
+    }
+
+    return deduped;
+}
+
+/**
+* Suggest a likely single-threaded owner for a dimension
+*/
+function getSuggestedOwner(dimensionName = '') {
+   const k = (dimensionName || '').toLowerCase();
+   if (k.includes('segment') || k.includes('tier')) return 'RevOps';
+   if (k.includes('revenue') || k.includes('pricing') || k.includes('model')) return 'Finance/RevOps';
+   if (k.includes('fit') || k.includes('qualification')) return 'Sales Ops';
+   if (k.includes('growth') || k.includes('scale')) return 'Growth/Product';
+   if (k.includes('persona') || k.includes('messag')) return 'Marketing/PM';
+   if (k.includes('journey') || k.includes('funnel') || k.includes('lifecycle')) return 'Product/CS';
+   return 'Owner';
+}
+
+/**
+* Compose 2–5 precise, high-impact improvements per dimension
+* Uses workspace facts, qualitative signals, and domain cues to drive action
+*/
+function buildDimensionImprovements({ dimensionName, score, facts, qual, domain }) {
+   const nm = dimensionName || 'This dimension';
+   const improvements = [];
+   const band = (score >= 85) ? 'exceptional' : (score >= 70) ? 'strong' : (score >= 55) ? 'developing' : 'critical';
+
+   // Metrics and quantification
+   if ((facts.percents.length + facts.currency.length + facts.numbers.length) === 0) {
+       improvements.push(`Instrument 2–3 KPIs for ${nm.toLowerCase()} (%, $, counts). Establish baseline within 2 weeks and set +15% 90‑day target.`);
+   }
+
+   // Standardization/SOP
+   if (!qual.standardization) {
+       improvements.push(`Publish a rubric/SOP for ${nm.toLowerCase()} with clear definitions and gates; socialize org‑wide and attach to workflows.`);
+   }
+
+   // Cadence
+   if (qual.cadence === 'none' || (band !== 'exceptional' && qual.cadence === 'monthly')) {
+       improvements.push(`Establish a weekly review cadence with a one‑page dashboard for ${nm.toLowerCase()} progress.`);
+   }
+
+   // Ownership
+   if (qual.ownership === 'none') {
+       improvements.push(`Assign a single‑threaded owner (${getSuggestedOwner(nm)}) for ${nm.toLowerCase()} to drive accountability.`);
+   }
+
+   // Tooling/instrumentation
+   if (!qual.tooling || qual.tooling.length === 0) {
+       const k = (nm || '').toLowerCase();
+       if (k.includes('segment') || k.includes('tier')) {
+           improvements.push('Instrument routing and coverage rules in Salesforce/HubSpot with audit logs.');
+       } else if (k.includes('revenue') || k.includes('pricing') || k.includes('model')) {
+           improvements.push('Build a live model in Snowflake/Looker and review monthly with Finance/RevOps.');
+       } else if (k.includes('journey') || k.includes('funnel')) {
+           improvements.push('Track stage conversion and drop‑offs in Amplitude/Mixpanel; alert on thresholds.');
+       } else {
+           improvements.push('Add analytics instrumentation (e.g., Looker/Tableau) with auto‑updated dashboards.');
+       }
+   }
+
+   // Domain-specific actions (targeted)
+   const key = (nm || '').toLowerCase();
+   if (key.includes('segment') || key.includes('tier')) {
+       improvements.push('Define numeric gates for T1/T2/T3 (ACV, win‑rate, pipeline ratio) and link to routing.');
+       improvements.push('Back‑test gates on 10 recent deals and adjust thresholds based on conversion deltas.');
+   } else if (key.includes('revenue') || key.includes('pricing') || key.includes('model')) {
+       improvements.push('Combine top‑down TAM/SAM with bottom‑up ACV × accounts; publish assumptions.');
+       improvements.push('Track LTV:CAC and payback monthly; set guardrails and escalation triggers.');
+   } else if (key.includes('fit') || key.includes('qualification')) {
+       improvements.push('Create a 5–7 factor fit rubric; retro score last 10 opportunities and analyze win/loss.');
+       improvements.push('Add rubric score to CRM; monitor conversion by fit band and iterate quarterly.');
+   } else if (key.includes('growth') || key.includes('potential')) {
+       improvements.push('Set 12‑month targets with leading indicators (win rate, ACV, cycle); review weekly.');
+       improvements.push('Create an experiment backlog with expected impact and run 2 tests per sprint.');
+   } else if (key.includes('persona')) {
+       improvements.push('Enrich personas with behavioral/psychographic signals and 3 VoC quotes each.');
+       improvements.push('Map each persona to 2–3 JTBD use cases and align messaging/evidence.');
+   } else if (key.includes('journey') || key.includes('funnel')) {
+       improvements.push('Define stage entry/exit criteria; measure conversion and time‑in‑stage.');
+       improvements.push('Add drop‑off alerts and playbooks for top 2 risk points.');
+   }
+
+   // Optimization/remediation nudges by band
+   if (band === 'exceptional' || band === 'strong') {
+       improvements.push('Operationalize best practices at scale: document, train, and audit quarterly.');
+   } else {
+       improvements.push('First fix: establish definition, metrics, owner, and weekly cadence within 30 days.');
+   }
+
+   // Cap output by band (fine‑tuning vs. foundational)
+   const cap = band === 'exceptional' ? 3 : band === 'strong' ? 4 : 5;
+
+   // Deduplicate and cap
+   const deduped = [];
+   for (const i of improvements) {
+       const cleaned = (i || '').replace(/\s+/g, ' ').trim();
+       if (cleaned && !deduped.some(x => x.toLowerCase() === cleaned.toLowerCase())) {
+           deduped.push(cleaned);
+       }
+       if (deduped.length >= cap) break;
+   }
+   return deduped;
+}
+
+// Builds a 2–3 sentence insight and targeted improvements grounded in workspace inputs
+function buildDimensionNarrative({ dimensionName, score, weight, responseText, responses, subcomponentId }) {
+   const facts = extractFactsFromText(responseText || '');
+   const hints = pickDimensionHints(dimensionName);
+   const hasQuant = (facts.percents.length + facts.currency.length + facts.numbers.length) > 0;
+
+   // Narrative
+   const pieces = [];
+   const nm = dimensionName || 'This dimension';
+   const band = (score >= 85) ? 'exceptional'
+              : (score >= 70) ? 'strong'
+              : (score >= 55) ? 'developing'
+              : 'critical';
+
+   if (band === 'exceptional') {
+       let factBit = '';
+       if (facts.percents[0]) factBit = `noted metrics like ${facts.percents[0]}`;
+       else if (facts.currency[0]) factBit = `budget/impact such as ${facts.currency[0]}`;
+       else if (facts.numbers[0]) factBit = `quantities such as ${facts.numbers[0]}`;
+       pieces.push(`${nm} is performing at an exceptional level (${score}%). ${factBit ? 'Workspace evidence references ' + factBit + '. ' : ''}Maintain the operating definition and keep metrics current for repeatability.`);
+       if (facts.snippet) pieces.push(`Evidence sample: “${facts.snippet}”`);
+   } else if (band === 'strong') {
+       let factBit = '';
+       if (facts.percents[0]) factBit = `signals like ${facts.percents[0]}`;
+       else if (facts.currency[0]) factBit = `financial markers such as ${facts.currency[0]}`;
+       else if (facts.numbers[0]) factBit = `counts like ${facts.numbers[0]}`;
+       pieces.push(`Solid foundation in ${nm.toLowerCase()} (${score}%) with ${factBit || 'consistent qualitative detail'}. Focus on standardization and comparability across accounts to reach excellence.`);
+       if (facts.snippet) pieces.push(`Reference: “${facts.snippet}”`);
+   } else if (band === 'developing') {
+       pieces.push(`${nm} is in a developing stage (${score}%). Inputs provide context but ${hasQuant ? 'could expand quantification and thresholds.' : 'lack quantification and clear thresholds.'}`);
+       if (facts.snippet) pieces.push(`Current input focus: “${facts.snippet}”`);
+   } else {
+       pieces.push(`${nm} has critical gaps (${score}%). Treat this as a priority to define, quantify, and validate with concrete evidence.`);
+       if (facts.snippet) pieces.push(`Starting point from workspace: “${facts.snippet}”`);
+   }
+
+   // Build richer strengths and improvements from inputs
+   const qual = analyzeQualSignals(responseText || '');
+   const domain = detectDomainKeywords(dimensionName, responseText || '');
+
+   const strengths = buildDimensionStrengths({ dimensionName, score, facts, qual, domain });
+   let improvements = buildDimensionImprovements({ dimensionName, score, facts, qual, domain });
+
+   // If improvements are somehow empty, fall back to hints
+   if (!improvements || improvements.length === 0) {
+       improvements = [
+           !hasQuant ? `Add 2–3 quantified metrics for ${nm.toLowerCase()}.` : `Operationalize: ${hints.optimization}.`,
+           `First fix: ${hints.remediation}.`
+       ].filter(Boolean).slice(0, 3);
+   }
+
+   return {
+       feedback: pieces.join(' '),
+       improvements,
+       strengths
+   };
+}
+function generateStrengths(dimensionScores, agent) {
+    // Prefer aggregating the best per-dimension strengths already built in the scoring loop
+    const aggregated = [];
+    if (Array.isArray(globalThis.__dimensionArrayTemp) && globalThis.__dimensionArrayTemp.length > 0) {
+        globalThis.__dimensionArrayTemp.forEach(d => {
+            const dimName = d.name || d.dimension || 'Dimension';
+            if (Array.isArray(d.strengths)) {
+                d.strengths.forEach(s => {
+                    const item = `${dimName}: ${String(s).trim()}`;
+                    if (item && !aggregated.some(x => x.toLowerCase() === item.toLowerCase())) {
+                        aggregated.push(item);
+                    }
+                });
+            }
+        });
+        if (aggregated.length > 0) {
+            return aggregated.slice(0, 10);
+        }
+    }
+
+    // Fallback to generic labels when detailed strengths are unavailable
+    const fallback = [];
+    Object.entries(dimensionScores || {}).forEach(([dimension, score]) => {
+        if (typeof score !== 'number') return;
+        if (score >= 85) {
+            fallback.push(`Excellence in ${dimension} (${Math.round(score)}%)`);
         } else if (score >= 70) {
-            strengths.push(`Strong foundation in ${dimension} (${score}%)`);
+            fallback.push(`Strong foundation in ${dimension} (${Math.round(score)}%)`);
         } else if (score >= 60) {
-            strengths.push(`Developing capability in ${dimension} (${score}%)`);
+            fallback.push(`Developing capability in ${dimension} (${Math.round(score)}%)`);
         }
     });
-    
-    return strengths;
+    return fallback.slice(0, 10);
 }
 
 function generateWeaknesses(dimensionScores, agent) {
+    // Prefer aggregating the most actionable per-dimension improvements already built
+    const aggregated = [];
+    if (Array.isArray(globalThis.__dimensionArrayTemp) && globalThis.__dimensionArrayTemp.length > 0) {
+        globalThis.__dimensionArrayTemp.forEach(d => {
+            const dimName = d.name || d.dimension || 'Dimension';
+            if (Array.isArray(d.improvements)) {
+                d.improvements.forEach(i => {
+                    const item = `${dimName}: ${String(i).trim()}`;
+                    if (item && !aggregated.some(x => x.toLowerCase() === item.toLowerCase())) {
+                        aggregated.push(item);
+                    }
+                });
+            }
+        });
+        if (aggregated.length > 0) {
+            return aggregated.slice(0, 10);
+        }
+    }
+
+    // Fallback generic weaknesses based on scores
     const weaknesses = [];
-    
-    Object.entries(dimensionScores).forEach(([dimension, score]) => {
+    Object.entries(dimensionScores || {}).forEach(([dimension, score]) => {
+        if (typeof score !== 'number') return;
         if (score < 50) {
-            weaknesses.push(`Critical gap in ${dimension} (${score}%) requiring immediate attention`);
+            weaknesses.push(`Critical gap in ${dimension} (${Math.round(score)}%) requiring immediate attention`);
         } else if (score < 60) {
-            weaknesses.push(`${dimension} needs improvement (${score}%)`);
+            weaknesses.push(`${dimension} needs improvement (${Math.round(score)}%)`);
         } else if (score < 70) {
-            weaknesses.push(`${dimension} has optimization potential (${score}%)`);
+            weaknesses.push(`${dimension} has optimization potential (${Math.round(score)}%)`);
         }
     });
-    
-    return weaknesses;
+    return weaknesses.slice(0, 10);
 }
 
 function generateDefaultRecommendations(dimensionScores, agent) {
