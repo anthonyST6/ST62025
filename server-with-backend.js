@@ -16,8 +16,23 @@ const database = new DatabaseService();
 // Load SSOT Registry - Single Source of Truth
 let { COMPLETE_SSOT_REGISTRY, getSubcomponent } = require('./core/complete-ssot-registry.js');
 
-// Load enhanced use cases for Block 1
+// Load enhanced use cases for ALL Blocks 1-16
 const EnhancedUseCasesBlock1 = require('./enhanced-use-cases-block-1.js');
+const EnhancedUseCasesBlock2 = require('./enhanced-use-cases-block-2.js');
+const EnhancedUseCasesBlock3 = require('./enhanced-use-cases-block-3.js');
+const EnhancedUseCasesBlock4 = require('./enhanced-use-cases-block-4.js');
+const EnhancedUseCasesBlock5 = require('./enhanced-use-cases-block-5.js');
+const EnhancedUseCasesBlock6 = require('./enhanced-use-cases-block-6.js');
+const EnhancedUseCasesBlock7 = require('./enhanced-use-cases-block-7.js');
+const EnhancedUseCasesBlock8 = require('./enhanced-use-cases-block-8.js');
+const EnhancedUseCasesBlock9 = require('./enhanced-use-cases-block-9.js');
+const EnhancedUseCasesBlock10 = require('./enhanced-use-cases-block-10.js');
+const EnhancedUseCasesBlock11 = require('./enhanced-use-cases-block-11.js');
+const EnhancedUseCasesBlock12 = require('./enhanced-use-cases-block-12.js');
+const EnhancedUseCasesBlock13 = require('./enhanced-use-cases-block-13.js');
+const EnhancedUseCasesBlock14 = require('./enhanced-use-cases-block-14.js');
+const EnhancedUseCasesBlock15 = require('./enhanced-use-cases-block-15.js');
+const EnhancedUseCasesBlock16 = require('./enhanced-use-cases-block-16.js');
 
 // Load and apply use case enhancements to SSOT IMMEDIATELY
 const { enhanceSSOTWithUseCases, USE_CASES_DATA } = require('./ssot-use-cases-enhancer.js');
@@ -25,16 +40,156 @@ const { enhanceSSOTWithUseCases, USE_CASES_DATA } = require('./ssot-use-cases-en
 // Apply enhancements at startup and get the enhanced registry
 const ENHANCED_SSOT_REGISTRY = enhanceSSOTWithUseCases();
 
-// Override with Block 1 enhanced content
-Object.keys(EnhancedUseCasesBlock1).forEach(subId => {
-    if (ENHANCED_SSOT_REGISTRY[subId]) {
-        ENHANCED_SSOT_REGISTRY[subId].education.useCases = EnhancedUseCasesBlock1[subId].useCases;
-        ENHANCED_SSOT_REGISTRY[subId].education.examples = EnhancedUseCasesBlock1[subId].useCases;
-        console.log(`✅ Applied enhanced use cases to ${subId}`);
-    }
+/**
+ * Normalizes enhanced use case data structures across all blocks
+ * Converts companies object format (Blocks 7-16) to useCases array format (Blocks 1-6)
+ *
+ * @param {Object} blockData - Raw block data from enhanced use case file
+ * @returns {Object} Normalized block data with consistent useCases array structure
+ */
+function normalizeUseCaseStructure(blockData) {
+    const normalized = {};
+    
+    Object.keys(blockData).forEach(subId => {
+        const subData = blockData[subId];
+        
+        // Detect structure type
+        if (subData.companies && !subData.useCases) {
+            // Transform companies object to useCases array
+            const useCases = Object.entries(subData.companies).map(([companyKey, companyData]) => {
+                // Normalize company name: salesforce -> Salesforce, new_relic -> New Relic
+                const companyName = companyKey
+                    .split('_')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+                
+                return {
+                    company: companyName,
+                    challenge: companyData.challenge,
+                    approach: companyData.approach,
+                    definition: companyData.definition,
+                    results: companyData.results,
+                    keyInsight: companyData.keyInsight
+                };
+            });
+            
+            normalized[subId] = {
+                title: subData.title,
+                useCases: useCases
+            };
+            
+            console.log(`  ✅ Transformed ${subId}: ${useCases.length} use cases from companies object`);
+        } else if (subData.useCases) {
+            // Already in correct format
+            normalized[subId] = subData;
+            console.log(`  ✅ Passed through ${subId}: ${subData.useCases.length} use cases (array format)`);
+        } else {
+            // Unknown format - log warning
+            console.warn(`  ⚠️ Unknown format for ${subId}:`, Object.keys(subData));
+            normalized[subId] = subData;
+        }
+    });
+    
+    return normalized;
+}
+
+// Override with enhanced content from ALL Blocks 1-16
+const enhancedBlocks = [
+    EnhancedUseCasesBlock1,
+    EnhancedUseCasesBlock2,
+    EnhancedUseCasesBlock3,
+    EnhancedUseCasesBlock4,
+    EnhancedUseCasesBlock5,
+    EnhancedUseCasesBlock6,
+    EnhancedUseCasesBlock7,
+    EnhancedUseCasesBlock8,
+    EnhancedUseCasesBlock9,
+    EnhancedUseCasesBlock10,
+    EnhancedUseCasesBlock11,
+    EnhancedUseCasesBlock12,
+    EnhancedUseCasesBlock13,
+    EnhancedUseCasesBlock14,
+    EnhancedUseCasesBlock15,
+    EnhancedUseCasesBlock16
+];
+
+console.log('\n📦 Normalizing enhanced use case data structures...');
+
+// NORMALIZE ALL BLOCKS BEFORE APPLICATION
+const normalizedBlocks = enhancedBlocks.map((blockData, blockIndex) => {
+    console.log(`\n📦 Processing Block ${blockIndex + 1}...`);
+    return normalizeUseCaseStructure(blockData);
 });
 
-console.log('✅ SSOT enhanced with detailed Block 1 use cases');
+console.log('\n✅ All blocks normalized successfully!\n');
+
+// APPLY NORMALIZED DATA TO SSOT
+let totalEnhanced = 0;
+let totalUseCases = 0;
+normalizedBlocks.forEach((blockData, blockIndex) => {
+    Object.keys(blockData).forEach(subId => {
+        if (ENHANCED_SSOT_REGISTRY[subId] && blockData[subId] && blockData[subId].useCases) {
+            const useCases = blockData[subId].useCases;
+            ENHANCED_SSOT_REGISTRY[subId].education.useCases = useCases;
+            ENHANCED_SSOT_REGISTRY[subId].education.examples = useCases;
+            totalEnhanced++;
+            totalUseCases += useCases.length;
+            console.log(`✅ Applied enhanced use cases to ${subId} (${useCases.length} use cases)`);
+        }
+    });
+});
+
+console.log(`\n🎉 SSOT enhanced with detailed use cases for ALL 16 Blocks!`);
+console.log(`📊 Total subcomponents enhanced: ${totalEnhanced}/96`);
+console.log(`📚 Total use cases loaded: ${totalUseCases}`);
+
+// VALIDATION: Check all 96 subcomponents
+console.log(`\n🔍 Validating SSOT Enhancement...`);
+
+const validationResults = {
+    total: 96,
+    enhanced: 0,
+    missing: [],
+    incomplete: []
+};
+
+for (let blockId = 1; blockId <= 16; blockId++) {
+    for (let subId = 1; subId <= 6; subId++) {
+        const subcomponentId = `${blockId}-${subId}`;
+        const ssotData = ENHANCED_SSOT_REGISTRY[subcomponentId];
+        
+        if (ssotData && ssotData.education && ssotData.education.useCases) {
+            const useCaseCount = ssotData.education.useCases.length;
+            if (useCaseCount >= 6) {
+                validationResults.enhanced++;
+            } else {
+                validationResults.incomplete.push({
+                    id: subcomponentId,
+                    count: useCaseCount
+                });
+            }
+        } else {
+            validationResults.missing.push(subcomponentId);
+        }
+    }
+}
+
+console.log(`\n📊 SSOT Enhancement Validation Results:`);
+console.log(`   ✅ Enhanced: ${validationResults.enhanced}/96`);
+console.log(`   ⚠️ Incomplete: ${validationResults.incomplete.length}`);
+console.log(`   ❌ Missing: ${validationResults.missing.length}`);
+
+if (validationResults.missing.length > 0) {
+    console.log(`\n❌ Missing enhanced use cases for:`, validationResults.missing);
+}
+
+if (validationResults.incomplete.length > 0) {
+    console.log(`\n⚠️ Incomplete use cases for:`, validationResults.incomplete);
+}
+
+if (validationResults.enhanced === 96) {
+    console.log(`\n🎉 SUCCESS: All 96 subcomponents have enhanced use cases!`);
+}
 
 // Override getSubcomponent to use enhanced registry
 const originalGetSubcomponent = getSubcomponent;
