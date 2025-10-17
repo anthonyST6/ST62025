@@ -11,6 +11,19 @@ const AgentLibrary = eval('(' + agentLibraryMatch[1] + ')');
 // Load agent integration system
 const agentIntegrationContent = fs.readFileSync('./agent-integration-system.js', 'utf8');
 
+// Load customized questions library
+const questionsContent = fs.readFileSync('./agent-generated-questions-complete.js', 'utf8');
+const questionsMatch = questionsContent.match(/const\s+agentGeneratedQuestions\s*=\s*({[\s\S]*?});/);
+const agentGeneratedQuestions = eval('(' + questionsMatch[1] + ')');
+
+// Load demo data with customized answers
+const demoDataContent = fs.readFileSync('./st6co-demo-data-complete.js', 'utf8');
+const demoDataMatch = demoDataContent.match(/const\s+demoData\s*=\s*({[\s\S]*?});/);
+const st6coDemoData = eval('(' + demoDataMatch[1] + ')');
+
+console.log('✅ Loaded customized questions for', Object.keys(agentGeneratedQuestions).length, 'subcomponents');
+console.log('✅ Loaded demo data for', Object.keys(st6coDemoData).length, 'subcomponents');
+
 // Block data structure
 const blocks = [
     { id: 1, name: "MISSION DISCOVERY", phase: 1, score: 85, description: "Define your core purpose and vision" },
@@ -84,13 +97,19 @@ function generateEducationContent(agent) {
 }
 
 // Helper function to generate workspace questions from agent
-function generateWorkspaceQuestions(agent) {
+// KEEPS EXISTING QUESTIONS - ONLY ADDS DEMO DATA AS PRE-FILLED ANSWERS
+function generateWorkspaceQuestions(agent, subcomponentId) {
     const questions = [];
+    
+    // Get demo data for this subcomponent to pre-fill answers
+    const demoAnswers = st6coDemoData[subcomponentId] || {};
+    console.log(`📝 Loading questions for ${subcomponentId} with demo data:`, Object.keys(demoAnswers).length, 'answers available');
     
     if (agent.scoringDimensions) {
         agent.scoringDimensions.forEach((dimension, index) => {
+            const scaleQuestionId = `q${index + 1}`;
             questions.push({
-                id: `q${index + 1}`,
+                id: scaleQuestionId,
                 category: dimension.name,
                 question: `How well does your organization perform in ${dimension.name}?`,
                 type: "scale",
@@ -102,18 +121,25 @@ function generateWorkspaceQuestions(agent) {
                     { value: 5, label: "Extremely well" }
                 ],
                 weight: dimension.weight,
-                helpText: `This measures your capability in ${dimension.name.toLowerCase()}`
+                helpText: `This measures your capability in ${dimension.name.toLowerCase()}`,
+                defaultValue: demoAnswers[scaleQuestionId] || null // Pre-fill with demo data if available
             });
             
-            // Add a follow-up question
+            // Add a follow-up question with demo data
+            const textQuestionId = `q${index + 1}b`;
             questions.push({
-                id: `q${index + 1}b`,
+                id: textQuestionId,
                 category: dimension.name,
                 question: `What specific evidence supports your ${dimension.name} assessment?`,
                 type: "text",
                 placeholder: "Provide specific examples, metrics, or achievements...",
-                required: false
+                required: false,
+                defaultValue: demoAnswers[textQuestionId] || "" // Pre-fill with demo data if available
             });
+            
+            if (demoAnswers[textQuestionId]) {
+                console.log(`  ✅ Question ${textQuestionId} has demo data (${demoAnswers[textQuestionId].substring(0, 50)}...)`);
+            }
         });
     }
     
@@ -292,7 +318,7 @@ const server = http.createServer((req, res) => {
                 description: agent.description,
                 education: generateEducationContent(agent),
                 workspace: {
-                    questions: generateWorkspaceQuestions(agent)
+                    questions: generateWorkspaceQuestions(agent, subcomponentId)
                 },
                 templates: generateTemplates(agent),
                 resources: generateResources(agent),

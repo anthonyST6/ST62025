@@ -221,8 +221,9 @@ const agentGeneratedQuestions = require('./agent-generated-questions-complete.js
 const DynamicWorksheetGenerator = require('./dynamic-worksheet-generator.js');
 const { testCompany } = require('./test-company.js');
 
-// Load enhanced ST6Co answers for better scoring
-const { enhancedST6CoAnswers, getEnhancedAnswers } = require('./enhance-st6co-answers.js');
+// Load complete ST6Co demo data for pre-filled worksheets
+const { demoData: st6coDemoData, getDemoAnswer } = require('./st6co-demo-data-complete.js');
+console.log('✅ ST6Co demo data loaded:', Object.keys(st6coDemoData).length, 'subcomponents');
 
 // Load templates from get-templates.js (simplified version)
 const { getTemplatesForSubcomponent } = require('./get-templates.js');
@@ -270,13 +271,28 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
     // Parse the subcomponent ID to get block and sub IDs
     const [blockId, subId] = subcomponentId.split('-');
     
+    // Get demo data directly from the demoData object
+    const subcomponentDemoData = st6coDemoData[subcomponentId] || {};
+    
+    console.log(`📝 Integrating demo data for ${subcomponentId}:`, Object.keys(subcomponentDemoData).length, 'answers available');
+    
     const formattedQuestions = questions.map((q, index) => {
         // Properly capitalize category names
         let category = q.type || q.category || "Assessment";
         category = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
         
+        // Get demo answer using the question ID directly from the demo data object
+        const questionId = q.id || `${subcomponentId}-q${index + 1}`;
+        const demoAnswer = subcomponentDemoData[questionId] || "";
+        
+        if (demoAnswer) {
+            console.log(`  ✅ Question ${questionId} has demo data (${demoAnswer.substring(0, 80)}...)`);
+        } else {
+            console.log(`  ⚠️ Question ${questionId} has NO demo data`);
+        }
+        
         const workspaceQuestion = {
-            id: q.id || `q${index + 1}`,
+            id: questionId,
             category: category,
             question: q.text || q.question,
             type: q.inputType || "text",
@@ -285,7 +301,7 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
             maxLength: q.maxLength,
             hint: q.hint || q.helpText,
             placeholder: q.hint || "Provide detailed response...",
-            defaultValue: "" // Always empty - no pre-filled data
+            defaultValue: demoAnswer // Use demo data if available
         };
 
         // Add example answer if provided
