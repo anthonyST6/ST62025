@@ -1,0 +1,234 @@
+<!-- Shared Navigation and Styles for all ScaleOps6 pages -->
+<!-- Include this file in all pages for consistent branding -->
+
+<style>
+    /* Global Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #000000;
+        color: #ffffff;
+        min-height: 100vh;
+    }
+
+    /* Consistent Navigation Bar */
+    .navbar {
+        background: #000000;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid rgba(255, 85, 0, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .logo {
+        font-size: 32px;
+        font-weight: 800;
+        color: #ffffff;
+        text-decoration: none;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .logo .scale {
+        color: #ffffff;
+    }
+
+    .logo .ops {
+        color: #FF5500;
+    }
+
+    .logo sup {
+        font-size: 18px;
+        color: #FF5500;
+        margin-left: 2px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s;
+        padding: 8px 16px;
+        border-radius: 6px;
+    }
+
+    .nav-links a:hover {
+        color: #FF5500;
+        background: rgba(255, 85, 0, 0.1);
+    }
+
+    .nav-links a.active {
+        color: #FF5500;
+        background: rgba(255, 85, 0, 0.15);
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .user-info {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .logout-btn {
+        background: transparent;
+        border: 2px solid #FF5500;
+        color: #FF5500;
+        padding: 8px 24px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .logout-btn:hover {
+        background: #FF5500;
+        color: #000000;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 85, 0, 0.3);
+    }
+
+    .powered-by {
+        color: #666;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .powered-by .scaleteam {
+        color: #FF5500;
+        font-weight: 600;
+    }
+
+    /* Dynamic Score-Based Colors */
+    .score-excellent { /* 90-100% */
+        border-color: #10B981 !important;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .score-high { /* 70-89% */
+        border-color: #4CAF50 !important;
+        box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+    }
+
+    .score-medium { /* 50-69% */
+        border-color: #FF9800 !important;
+        box-shadow: 0 0 15px rgba(255, 152, 0, 0.3);
+    }
+
+    .score-low { /* 30-49% */
+        border-color: #FF5500 !important;
+        box-shadow: 0 0 15px rgba(255, 85, 0, 0.3);
+    }
+
+    .score-critical { /* 0-29% */
+        border-color: #F44336 !important;
+        box-shadow: 0 0 15px rgba(244, 67, 54, 0.3);
+    }
+
+    /* Progress Bar Colors */
+    .progress-excellent {
+        background: linear-gradient(90deg, #10B981, #34D399);
+    }
+
+    .progress-high {
+        background: linear-gradient(90deg, #4CAF50, #66BB6A);
+    }
+
+    .progress-medium {
+        background: linear-gradient(90deg, #FF9800, #FFB74D);
+    }
+
+    .progress-low {
+        background: linear-gradient(90deg, #FF5500, #FF7733);
+    }
+
+    .progress-critical {
+        background: linear-gradient(90deg, #F44336, #EF5350);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .powered-by {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .navbar {
+            padding: 1rem;
+        }
+        
+        .logo {
+            font-size: 24px;
+        }
+    }
+</style>
+
+<script>
+    // Function to get score class based on percentage
+    function getScoreClass(score) {
+        if (score >= 90) return 'score-excellent';
+        if (score >= 70) return 'score-high';
+        if (score >= 50) return 'score-medium';
+        if (score >= 30) return 'score-low';
+        return 'score-critical';
+    }
+
+    // Function to get progress class based on percentage
+    function getProgressClass(score) {
+        if (score >= 90) return 'progress-excellent';
+        if (score >= 70) return 'progress-high';
+        if (score >= 50) return 'progress-medium';
+        if (score >= 30) return 'progress-low';
+        return 'progress-critical';
+    }
+
+    // Function to create consistent navigation
+    function createNavigation() {
+        return `
+            
+        `;
+    }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
+    </script>

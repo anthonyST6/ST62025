@@ -262,14 +262,9 @@
             color: #ff6b6b;
             display: block;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🤖 Agent-Based Worksheet Generator</h1>
-            <p>Dynamic Question Generation for ScaleOps6 Subcomponents</p>
-        </div>
+    </style></head>
+<body>    <div class="container">
+        
         
         <div class="test-controls">
             <h2>Select a Subcomponent to Test</h2>
@@ -363,13 +358,7 @@
             const container = document.getElementById('worksheet-container');
             
             let html = `
-                <div class="worksheet-header">
-                    <h3>📋 ${worksheet.domain} Assessment</h3>
-                    <p class="worksheet-instructions">
-                        Complete the following questions to assess your ${worksheet.domain.toLowerCase()} readiness.
-                        Required questions are marked with an asterisk (*).
-                    </p>
-                </div>
+                
                 
                 <div class="questions-container">
             `;
@@ -379,12 +368,7 @@
                 
                 html += `
                     <div class="question-block">
-                        <div class="question-header">
-                            <label class="question-label">
-                                ${requiredMark} Question ${index + 1}: ${question.text}
-                            </label>
-                            <span class="question-type">${question.type}</span>
-                        </div>
+                        
                         
                         <div class="question-hint">
                             💡 ${question.hint}
@@ -472,6 +456,13 @@
             alert(`Analysis Complete!\n\nOverall Score: ${analysis.overallScore}%\n\nStrengths:\n${analysis.strengths.join('\n')}\n\nAreas for Improvement:\n${analysis.weaknesses.join('\n')}`);
             
             showStatus(`Analysis complete! Overall score: ${analysis.overallScore}%`, 'success');
+        }
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
         }
     </script>
 </body>

@@ -1,0 +1,117 @@
+{
+  "id": "4-1",
+  "name": "Prototype Launch",
+  "agent": "Prototype Launch Evaluator",
+  "description": "Launch your prototype effectively to gather real-world feedback and validate your solution with early adopters.",
+  "blockName": "Block 4: Prototype & Launch",
+  "education": {
+    "title": "Prototype Launch",
+    "what": "A prototype launch is the strategic release of your minimum viable product (MVP) to a select group of early adopters to validate your solution, gather feedback, and refine your go-to-market approach before full-scale launch.",
+    "why": "Launching a prototype allows you to test your assumptions, identify issues early, and build momentum with real users before investing heavily in full production. It reduces risk and increases your chances of product-market fit.",
+    "how": "<h3>Step 1: Define Launch Objectives</h3><p>Set clear, measurable goals for your prototype launch including user acquisition targets, feedback metrics, and success criteria.</p><h3>Step 2: Select Early Adopters</h3><p>Identify and recruit a diverse group of early adopters who represent your target market and are willing to provide honest feedback.</p><h3>Step 3: Prepare Launch Materials</h3><p>Create onboarding documentation, support resources, and feedback collection mechanisms to ensure a smooth user experience.</p>",
+    "examples": [
+      "Dropbox launched with a simple video demo that generated 75,000 signups overnight",
+      "Airbnb started by renting air mattresses in their apartment to validate demand",
+      "Buffer launched with a landing page MVP that validated pricing before building the product"
+    ],
+    "metrics": [
+      "User activation rate within first 7 days",
+      "Net Promoter Score (NPS) from early adopters",
+      "Feature usage and engagement metrics",
+      "Time to first value for new users"
+    ]
+  },
+  "resources": {
+    "templates": [
+      "Prototype Launch Checklist",
+      "Early Adopter Recruitment Guide",
+      "Feedback Collection Framework"
+    ]
+  },
+  "dimensionScores": [
+    {
+      "dimension": "Feature Definition",
+      "name": "Feature Definition",
+      "score": 87,
+      "weight": 20,
+      "feedback": "Feature Definition is performing at an exceptional level (87%). Workspace evidence references metrics like 89%. Maintain the operating definition and keep metrics current for repeatability.",
+      "strengths": [
+        "Quantified performance with 89% provides objective baseline for improvement and benchmarking.",
+        "Standardized approach with documented processes enables consistent execution and knowledge transfer.",
+        "Strong feature definition foundation creates platform for scaling excellence across the organization."
+      ],
+      "improvements": [
+        "Establish a weekly review cadence with a one-page dashboard for feature definition progress.",
+        "Assign a single-threaded owner (Owner) for feature definition to drive accountability.",
+        "Operationalize best practices at scale: document, train, and audit quarterly."
+      ]
+    },
+    {
+      "dimension": "Value Scoring",
+      "name": "Value Scoring",
+      "score": 80,
+      "weight": 20,
+      "feedback": "Solid foundation in value scoring (80%) with consistent qualitative detail. Focus on standardization and comparability across accounts to reach excellence.",
+      "strengths": [
+        "Strong value scoring foundation creates platform for scaling excellence across the organization."
+      ],
+      "improvements": [
+        "Instrument 2–3 KPIs for value scoring (%, counts). Establish baseline within 2 weeks and set +15% 90-day target.",
+        "Publish a rubric/SOP for value scoring with clear definitions and gates; socialize org-wide and attach to workflows.",
+        "Add analytics instrumentation (e.g., Looker/Tableau) with auto-updated dashboards.",
+        "Operationalize best practices at scale: document, train, and audit quarterly."
+      ]
+    },
+    {
+      "dimension": "Effort Estimation",
+      "name": "Effort Estimation",
+      "score": 80,
+      "weight": 20,
+      "feedback": "Solid foundation in effort estimation (80%) with signals like 22%. Focus on standardization and comparability across accounts to reach excellence.",
+      "strengths": [
+        "Quantified performance with 22% provides objective baseline for improvement and benchmarking.",
+        "Standardized approach with documented processes enables consistent execution and knowledge transfer.",
+        "Strong effort estimation foundation creates platform for scaling excellence across the organization."
+      ],
+      "improvements": [
+        "Establish a weekly review cadence with a one-page dashboard for effort estimation progress.",
+        "Assign a single-threaded owner (Owner) for effort estimation to drive accountability.",
+        "Add analytics instrumentation (e.g., Looker/Tableau) with auto-updated dashboards.",
+        "Operationalize best practices at scale: document, train, and audit quarterly."
+      ]
+    },
+    {
+      "dimension": "Dependency Mapping",
+      "name": "Dependency Mapping",
+      "score": 83,
+      "weight": 20,
+      "feedback": "Solid foundation in dependency mapping (83%) with signals like 89%. Focus on standardization and comparability across accounts to reach excellence.",
+      "strengths": [
+        "Quantified performance with 89% provides objective baseline for improvement and benchmarking.",
+        "Strong dependency mapping foundation creates platform for scaling excellence across the organization."
+      ],
+      "improvements": [
+        "Publish a rubric/SOP for dependency mapping with clear definitions and gates; socialize org-wide and attach to workflows.",
+        "Establish a weekly review cadence with a one-page dashboard for dependency mapping progress.",
+        "Assign a single-threaded owner (Owner) for dependency mapping to drive accountability.",
+        "Add analytics instrumentation (e.g., Looker/Tableau) with auto-updated dashboards."
+      ]
+    },
+    {
+      "dimension": "Roadmap Alignment",
+      "name": "Roadmap Alignment",
+      "score": 81,
+      "weight": 20,
+      "feedback": "Solid foundation in roadmap alignment (81%) with signals like 89%. Focus on standardization and comparability across accounts to reach excellence.",
+      "strengths": [
+        "Exceptional stakeholder alignment enables 2-3x faster execution through reduced friction and rework."
+      ],
+      "improvements": [
+        "Publish a rubric/SOP for roadmap alignment with clear definitions and gates; socialize org-wide and attach to workflows.",
+        "Establish a weekly review cadence with a one-page dashboard for roadmap alignment progress.",
+        "Assign a single-threaded owner (Owner) for roadmap alignment to drive accountability.",
+        "Add analytics instrumentation (e.g., Looker/Tableau) with auto-updated dashboards."
+      ]
+    }
+  ]
+}

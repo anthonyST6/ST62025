@@ -457,24 +457,10 @@
             font-size: 1.1em;
             margin-bottom: 20px;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
+    </style></head>
+<body>    <div class="container">
         <!-- Header -->
-        <div class="header">
-            <h1>🚀 Dynamic Worksheet Test</h1>
-            <p>Testing the fully dynamic, agent-powered worksheet generation system for Problem Statement</p>
-        </div>
         
-        <!-- Control Panel -->
-        <div class="control-panel">
-            <h2>User Context Configuration</h2>
-            <div class="control-group">
-                <div class="control-item">
-                    <label>Company Name</label>
-                    <input type="text" id="companyName" placeholder="e.g., TechStartup Inc." value="TestCo">
-                </div>
                 <div class="control-item">
                     <label>Industry</label>
                     <select id="industry">
@@ -670,12 +656,7 @@
             
             // Create worksheet header
             const headerHTML = `
-                <div class="worksheet-header">
-                    <h2 class="worksheet-title">Dynamic Problem Statement Worksheet</h2>
-                    <div class="worksheet-meta">
-                        <div class="meta-item">
-                            Questions: <span class="value">${worksheet.questions.length}</span>
-                        </div>
+                
                         <div class="meta-item">
                             Adaptive: <span class="value">Yes</span>
                         </div>
@@ -703,12 +684,7 @@
                 
                 questionsHTML += `
                     <div class="question-card" id="question_${question.id}">
-                        <div class="question-header">
-                            <span class="question-number">Question ${index + 1}</span>
-                            <div class="question-badges">
-                                ${badges.join('')}
-                            </div>
-                        </div>
+                        
                         
                         <div class="question-text">${question.text}</div>
                         
@@ -738,9 +714,7 @@
             // Create progress section
             const progressHTML = `
                 <div class="progress-section">
-                    <div class="progress-header">
-                        <h3 class="progress-title">Session Progress</h3>
-                    </div>
+                    
                     <div class="progress-stats">
                         <div class="stat-item">
                             <div class="stat-value" id="answeredCount">0</div>
@@ -1133,6 +1107,13 @@
         window.addEventListener('DOMContentLoaded', () => {
             initializeSystem();
         });
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>

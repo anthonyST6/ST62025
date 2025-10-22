@@ -80,10 +80,8 @@
             color: #4CAF50;
             font-weight: 600;
         }
-    </style>
-</head>
-<body>
-    <h1>🔍 Recommendation Debugging Tool</h1>
+    </style></head>
+<body>    <h1>🔍 Recommendation Debugging Tool</h1>
     
     <div class="test-section">
         <div class="test-title">1. Browser Cache Status</div>
@@ -417,6 +415,13 @@
         window.addEventListener('load', () => {
             checkCache();
         });
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>

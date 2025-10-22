@@ -1248,12 +1248,13 @@
                 if (blockData.details) {
                     document.getElementById('block-details').textContent = blockData.details;
                 }
-                document.getElementById('block-score').textContent = `${blockData.score}%`;
+                document.getElementById('block-score').textContent = `${Math.round(blockData.score)}%`;
                 
                 // Update progress bar with dynamic color
                 const progressFill = document.getElementById('progress-fill');
-                progressFill.style.width = `${blockData.score}%`;
-                progressFill.textContent = `${blockData.score}% Complete`;
+                const roundedScore = Math.round(blockData.score);
+                progressFill.style.width = `${roundedScore}%`;
+                progressFill.textContent = `${roundedScore}% Complete`;
                 progressFill.className = 'progress-fill ' + scoreClass;
                 
                 // Set phase name
@@ -1580,13 +1581,14 @@
                     
                     // Update UI elements
                     const scoreClass = getScoreClass(blockData.score);
+                    const roundedScore = Math.round(blockData.score);
                     document.querySelector('.block-header').className = 'block-header ' + scoreClass;
-                    document.getElementById('block-score').textContent = `${blockData.score}%`;
+                    document.getElementById('block-score').textContent = `${roundedScore}%`;
                     
                     // Update progress bar
                     const progressFill = document.getElementById('progress-fill');
-                    progressFill.style.width = `${blockData.score}%`;
-                    progressFill.textContent = `${blockData.score}% Complete`;
+                    progressFill.style.width = `${roundedScore}%`;
+                    progressFill.textContent = `${roundedScore}% Complete`;
                     progressFill.className = 'progress-fill ' + scoreClass;
                     
                     console.log(`Block score updated to ${blockData.score}%`);
@@ -1602,7 +1604,7 @@
                             // Update the specific subcomponent score display
                             const scoreElement = document.getElementById(`subblock-score-${subBlock.id}`);
                             if (scoreElement) {
-                                scoreElement.textContent = `${subBlock.score}%`;
+                                scoreElement.textContent = `${Math.round(subBlock.score)}%`;
                                 
                                 // Update the parent div's class for color
                                 const parentDiv = scoreElement.closest('.subblock');
@@ -1633,7 +1635,7 @@
                 div.innerHTML = `
                     <div class="subblock-name">${subBlock.name}</div>
                     ${subBlock.description ? `<p style="font-size: 12px; color: #999; margin: 5px 0 10px 0;">${subBlock.description}</p>` : ''}
-                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${subBlock.score}%</div>
+                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${Math.round(subBlock.score)}%</div>
                     <span class="subblock-status">In Progress</span>
                 `;
                 // Navigate to subcomponent detail page

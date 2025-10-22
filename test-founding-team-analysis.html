@@ -70,10 +70,8 @@
             background: linear-gradient(90deg, #FF5500, #FF8800);
             transition: width 0.3s ease;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
+    </style></head>
+<body>    <div class="container">
         <h1>👨‍👩‍👧‍👦 Founding Team Capability Analysis Test</h1>
         <p>Testing the Founding Team analysis agent with sample data</p>
         
@@ -232,6 +230,13 @@
             `;
             
             resultsDiv.innerHTML = html;
+        }
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
         }
     </script>
 </body>

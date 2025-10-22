@@ -65,10 +65,8 @@
         .link-button:hover {
             background: rgba(255, 85, 0, 0.1);
         }
-    </style>
-</head>
-<body>
-    <h1>🚀 ST6 Data Population for ScaleOps6Product</h1>
+    </style></head>
+<body>    <h1>🚀 ST6 Data Population for ScaleOps6Product</h1>
     
     <div class="status">
         <h2>Status</h2>
@@ -263,6 +261,13 @@
 
         // Check on page load
         checkExistingData();
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>

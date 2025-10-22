@@ -72,10 +72,8 @@
         button:hover {
             background: #ff6611;
         }
-    </style>
-</head>
-<body>
-    <div class="test-container">
+    </style></head>
+<body>    <div class="test-container">
         <h1>🧪 ScaleOps6 Routing Test</h1>
         
         <div class="controls">
@@ -257,6 +255,13 @@
         document.querySelectorAll('.subcomponent').forEach(el => {
             el.addEventListener('click', () => testSubcomponent(el.dataset.id));
         });
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>

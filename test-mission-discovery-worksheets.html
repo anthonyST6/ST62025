@@ -101,15 +101,8 @@
         .result-icon.success { color: #4CAF50; }
         .result-icon.error { color: #F44336; }
         .result-icon.warning { color: #FF9800; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>🧪 Mission Discovery Dynamic Worksheets Test</h1>
-        <p>Testing dynamic worksheet integration for all Mission Discovery subcomponents</p>
-    </div>
-
-    <div class="test-grid">
+    </style></head>
+<body>    <div class="test-grid">
         <!-- 1A: Problem Statement (Already Working) -->
         <div class="test-card">
             <span class="subcomponent-badge">1A</span>
@@ -304,6 +297,13 @@
         window.addEventListener('load', () => {
             setTimeout(testSubcomponents, 1000);
         });
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>

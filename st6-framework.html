@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST6 Growth Execution Framework - ScaleOps6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo .ops {
+            color: #FF4500;
+        }
+
+        .logo sup {
+            color: #FF4500;
+            font-size: 14px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #FF4500;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logout-btn {
+            padding: 8px 20px;
+            border: 1px solid #FF4500;
+            border-radius: 4px;
+            background: transparent;
+            color: #FF4500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .logout-btn:hover {
+            background: #FF4500;
+            color: #ffffff;
+        }
+
+        .powered-by {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .powered-by a {
+            color: #FF4500;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-container {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .framework-title {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .framework-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* Phase Section */
+        .phase-section {
+            margin-bottom: 40px;
+        }
+
+        .phase-header {
+            background: #FF4500;
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .phase-title {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            flex-grow: 1;
+        }
+
+        .phase-progress {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Blocks Grid */
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .block-card {
+            background: transparent;
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #ffffff;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .block-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
+        }
+
+        .block-number {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .block-score {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .block-title {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .block-status {
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Status Colors */
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .status-progress {
+            background: rgba(255, 69, 0, 0.2);
+            color: #FF4500;
+        }
+
+        .status-pending {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Border colors based on score */
+        .score-high {
+            border-color: #10B981;
+        }
+
+        .score-high .block-score {
+            color: #10B981;
+        }
+
+        .score-medium {
+            border-color: #FF4500;
+        }
+
+        .score-medium .block-score {
+            color: #FF4500;
+        }
+
+        .score-low {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .score-low .block-score {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .blocks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blocks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .framework-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="Official_ScaleOps6_Logo.png" alt="ScaleOps6" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+            scale<span class="ops">ops</span><sup>6</sup>
+        </a>
+        
+        <nav class="nav-menu">
+            <a href="/">Dashboard</a>
+            <a href="#">Analytics</a>
+            <a href="#">Help</a>
+        </nav>
+
+        <div class="user-section">
+            <span style="color: rgba(255, 255, 255, 0.6);">Guest User</span>
+            <a href="#" class="logout-btn">Logout</a>
+            <span class="powered-by">powered by <a href="#">scaleteam</a><sup>®</sup></span>
+        </div>
+    </header>
+    
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <h1 class="framework-title">ST6 Growth Execution Framework</h1>
+        <p class="framework-subtitle">Interactive maturity assessment across your startup journey</p>
+
+        <!-- Phase 1: Idea Market Fit -->
+        <div class="phase-section">
+            <div class="phase-header">
+                <div class="phase-title">IDEA MARKET FIT</div>
+                <div class="phase-progress">4 BLOCKS</div>
+            </div>
+            <div class="blocks-grid">
+                <a href="block-1-mission-discovery.html" class="block-card score-high">
+                    <span class="block-number">1</span>
+                    <div class="block-score">85%</div>
+                    <div class="block-title">MISSION DISCOVERY</div>
+                    <div class="block-status status-active">ACTIVE</div>
+                </a>
+                <a href="block-2-customer-insights.html" class="block-card score-medium">
+                    <span class="block-number">2</span>
+                    <div class="block-score">78%</div>
+                    <div class="block-title">CUSTOMER INSIGHTS</div>
+                    <div class="block-status status-progress">IN PROGRESS</div>
+                </a>
+                <a href="block-3-strategic-prioritization.html" class="block-card score-medium">
+                    <span class="block-number">3</span>
+                    <div class="block-score">72%</div>
+                    <div class="block-title">STRATEGIC PRIORITIZATION</div>
+                    <div class="block-status status-progress">IN PROGRESS</div>
+                </a>
+                <a href="block-4-prototype-launch.html" class="block-card score-low">
+                    <span class="block-number">4</span>
+                    <div class="block-score">65%</div>
+                    <div class="block-title">PROTOTYPE LAUNCH</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Phase 2: Product Market Fit -->
+        <div class="phase-section">
+            <div class="phase-header">
+                <div class="phase-title">PRODUCT MARKET FIT</div>
+                <div class="phase-progress">4 BLOCKS</div>
+            </div>
+            <div class="blocks-grid">
+                <a href="block-5-early-adopter-wins.html" class="block-card score-high">
+                    <span class="block-number">5</span>
+                    <div class="block-score">88%</div>
+                    <div class="block-title">GO-TO-MARKET STRATEGY</div>
+                    <div class="block-status status-active">ACTIVE</div>
+                </a>
+                <a href="block-6-customer-engagement-flywheel.html" class="block-card score-high">
+                    <span class="block-number">6</span>
+                    <div class="block-score">82%</div>
+                    <div class="block-title">CUSTOMER ENGAGEMENT FLYWHEEL</div>
+                    <div class="block-status status-active">ACTIVE</div>
+                </a>
+                <a href="block-7-quantifiable-impact.html" class="block-card score-medium">
+                    <span class="block-number">7</span>
+                    <div class="block-score">79%</div>
+                    <div class="block-title">QUANTIFIABLE IMPACT</div>
+                    <div class="block-status status-progress">IN PROGRESS</div>
+                </a>
+                <a href="block-8-customer-success-expansion.html" class="block-card score-high">
+                    <span class="block-number">8</span>
+                    <div class="block-score">80%</div>
+                    <div class="block-title">CUSTOMER SUCCESS EXPANSION</div>
+                    <div class="block-status status-active">ACTIVE</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Phase 3: Go-To-Market -->
+        <div class="phase-section">
+            <div class="phase-header">
+                <div class="phase-title">GO-TO-MARKET</div>
+                <div class="phase-progress">4 BLOCKS</div>
+            </div>
+            <div class="blocks-grid">
+                <a href="block-9-proof-execution.html" class="block-card score-medium">
+                    <span class="block-number">9</span>
+                    <div class="block-score">75%</div>
+                    <div class="block-title">PROOF EXECUTION</div>
+                    <div class="block-status status-active">ACTIVE</div>
+                </a>
+                <a href="block-10-sales-team-empowerment.html" class="block-card score-medium">
+                    <span class="block-number">10</span>
+                    <div class="block-score">70%</div>
+                    <div class="block-title">SALES TEAM EMPOWERMENT</div>
+                    <div class="block-status status-progress">IN PROGRESS</div>
+                </a>
+                <a href="block-11-high-performance-teams.html" class="block-card score-low">
+                    <span class="block-number">11</span>
+                    <div class="block-score">65%</div>
+                    <div class="block-title">HIGH PERFORMANCE TEAMS</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+                <a href="block-12-retention-systems.html" class="block-card score-low">
+                    <span class="block-number">12</span>
+                    <div class="block-score">62%</div>
+                    <div class="block-title">RETENTION SYSTEMS</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Phase 4: Scaling Impact -->
+        <div class="phase-section">
+            <div class="phase-header">
+                <div class="phase-title">SCALING IMPACT</div>
+                <div class="phase-progress">1 BLOCK</div>
+            </div>
+            <div class="blocks-grid">
+                <a href="block-13-market-domination-strategies.html" class="block-card score-low">
+                    <span class="block-number">13</span>
+                    <div class="block-score">45%</div>
+                    <div class="block-title">MARKET DOMINATION STRATEGIES</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Phase 5: Scale -->
+        <div class="phase-section">
+            <div class="phase-header">
+                <div class="phase-title">SCALE</div>
+                <div class="phase-progress">3 BLOCKS</div>
+            </div>
+            <div class="blocks-grid">
+                <a href="block-14-operational-infrastructure.html" class="block-card score-low">
+                    <span class="block-number">14</span>
+                    <div class="block-score">35%</div>
+                    <div class="block-title">OPERATIONAL INFRASTRUCTURE</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+                <a href="block-15-leadership-expansion.html" class="block-card score-low">
+                    <span class="block-number">15</span>
+                    <div class="block-score">28%</div>
+                    <div class="block-title">LEADERSHIP EXPANSION</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+                <a href="block-16-global-expansion-opportunities.html" class="block-card score-low">
+                    <span class="block-number">16</span>
+                    <div class="block-score">27%</div>
+                    <div class="block-title">GLOBAL EXPANSION OPPORTUNITIES</div>
+                    <div class="block-status status-pending">PENDING</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check authentication
+        const authToken = localStorage.getItem('authToken');
+        if (!authToken) {
+            console.log('Guest access');
+        }
+
+        // Logout function
+        document.querySelector('.logout-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        });
+
+        // Apply score-based styling
+        document.querySelectorAll('.block-card').forEach(card => {
+            const scoreText = card.querySelector('.block-score').textContent;
+            const score = parseInt(scoreText);
+            
+            card.classList.remove('score-low', 'score-medium', 'score-high');
+            
+            if (score >= 80) {
+                card.classList.add('score-high');
+            } else if (score >= 70) {
+                card.classList.add('score-medium');
+            } else {
+                card.classList.add('score-low');
+            }
+        });
+
+        // Fetch and update block data from API
+        async function loadBlockData() {
+            try {
+                const response = await fetch('/api/blocks');
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Block data loaded:', data);
+                    // Update UI with real data if needed
+                }
+            } catch (error) {
+                console.log('Using static data');
+            }
+        }
+
+        // Load data on page load
+        loadBlockData();
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+</html>

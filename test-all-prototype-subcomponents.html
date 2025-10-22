@@ -79,10 +79,8 @@
             color: #ff4444;
             font-weight: bold;
         }
-    </style>
-</head>
-<body>
-    <h1>🧪 Test All Prototype Launch Subcomponents</h1>
+    </style></head>
+<body>    <h1>🧪 Test All Prototype Launch Subcomponents</h1>
     <p>Testing all 6 subcomponents with comprehensive answers to verify proper field mapping and scoring</p>
     
     <div class="test-grid">
@@ -253,6 +251,13 @@
         window.addEventListener('load', () => {
             console.log('Ready to test all Prototype Launch subcomponents');
         });
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>

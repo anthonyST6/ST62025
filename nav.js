@@ -189,34 +189,10 @@ function createNavigation() {
                 </div>
             </div>
             
-            <!-- Quick Stats Bar -->
-            ${sessionId && !isGuest ? `
-                <div style="
-                    margin-top: 15px;
-                    padding-top: 15px;
-                    border-top: 1px solid #333;
-                    display: flex;
-                    gap: 30px;
-                    font-size: 12px;
-                ">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="color: #666;">Overall Progress:</span>
-                        <span style="color: #FF5500; font-weight: 600;">73%</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="color: #666;">Completed Blocks:</span>
-                        <span style="color: #4CAF50; font-weight: 600;">8/16</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="color: #666;">Active Phase:</span>
-                        <span style="color: #FF9800; font-weight: 600;">Go-To Market</span>
-                    </div>
-                </div>
-            ` : ''}
         </nav>
         
         <!-- Spacer to push content below fixed nav -->
-        <div style="height: ${sessionId && !isGuest ? '140px' : '120px'};"></div>
+        <div style="height: 100px;"></div>
     `;
     
     // Insert navigation at the beginning of body

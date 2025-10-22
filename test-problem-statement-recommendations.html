@@ -69,10 +69,8 @@
             border: 1px solid #2196F3;
             color: #2196F3;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
+    </style></head>
+<body>    <div class="container">
         <h1>🧪 Problem Statement Recommendations Test</h1>
         
         <div class="test-section">
@@ -310,6 +308,13 @@ ${JSON.stringify(analysis.recommendations, null, 2)}
                     </pre>
                 </div>
             `;
+        }
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
         }
     </script>
 </body>

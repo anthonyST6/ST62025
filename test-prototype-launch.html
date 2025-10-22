@@ -71,10 +71,8 @@
             background: #2a2a2a;
             border-left: 3px solid #ff6b35;
         }
-    </style>
-</head>
-<body>
-    <h1>Test Prototype Launch Agent - Subcomponent 4-6</h1>
+    </style></head>
+<body>    <h1>Test Prototype Launch Agent - Subcomponent 4-6</h1>
     
     <div class="test-form">
         <h2>Post-Mortem Template Questions</h2>
@@ -176,6 +174,13 @@
                 console.error('Error:', error);
                 alert('Error testing agent: ' + error.message);
             }
+        }
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
         }
     </script>
 </body>

@@ -113,10 +113,8 @@
         .incorrect {
             color: #ff4444;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
+    </style></head>
+<body>    <div class="container">
         <h1>🧪 Block Routing Test - Phase 1 & 2</h1>
         
         <div id="phase1" class="block-section">
@@ -466,6 +464,13 @@
         
         // Initialize on load
         window.addEventListener('load', initializeTests);
+    
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('clientId');
+            window.location.href = '/login.html';
+        }
     </script>
 </body>
 </html>
