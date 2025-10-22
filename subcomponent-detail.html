@@ -1806,6 +1806,14 @@ ${new Date().toLocaleString()}`;
          - SAFE: Only modifies display HTML/CSS, doesn't touch API or data generation
          - Can be easily disabled by removing this script tag -->
     
+    <!-- FIX: Analysis Font Consistency and Percentage Accuracy -->
+    <script src="fix-analysis-fonts-and-percentages.js"></script>
+    <!-- Features:
+         - Ensures consistent Inter font family throughout analysis page
+         - Corrects dimension percentage calculations (was showing 450%, 415% instead of 90%, 83%)
+         - Fixes percentage display to show proper 0-100 range
+         - Maintains all existing functionality while fixing display issues -->
+    
     <!-- COMPLETE WORKFLOW INTEGRATION - SYSTEMIC FOR ALL 96 SUBCOMPONENTS -->
     <!-- Complete Workflow Integration Script -->
     <script src="complete-workflow-integration.js"></script>
