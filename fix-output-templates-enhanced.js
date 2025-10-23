@@ -853,14 +853,6 @@
     
     <div style="background: #0a0a0a; padding: 40px; border: 2px solid #333;">
         <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(255,85,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
-            <h2 style="color: #FF5500; border-bottom: 3px solid #FF5500; padding-bottom: 10px;">Company Information</h2>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Company:</strong> ${workspaceAnswers['company-name']?.answer || 'ST6Co'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Product:</strong> ${workspaceAnswers['product-name']?.answer || 'ScaleOps6Product'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Date:</strong> ${new Date().toLocaleDateString()}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Performance Score:</strong> <span style="color: ${latestScore >= 80 ? '#4CAF50' : '#F59E0B'}; font-size: 24px; font-weight: bold;">${latestScore}%</span></p>
-        </div>
-        
-        <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(255,85,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
             <h2 style="color: #FF5500; border-bottom: 3px solid #FF5500; padding-bottom: 10px;">1. THE PROBLEM</h2>
             
             <h3 style="color: #fff; margin-top: 20px;">Who experiences this problem?</h3>
@@ -947,14 +939,6 @@
     </div>
     
     <div style="background: #0a0a0a; padding: 40px; border: 2px solid #333;">
-        <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(156,39,176,0.2); border: 1px solid rgba(255,255,255,0.1);">
-            <h2 style="color: #9C27B0; border-bottom: 3px solid #9C27B0; padding-bottom: 10px;">Interview Context</h2>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Company:</strong> ${workspaceAnswers['company-name']?.answer || 'ST6Co'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Target Segment:</strong> ${workspaceAnswers['target-audience']?.answer || 'B2B SaaS Startups'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Performance Score:</strong> <span style="color: ${latestScore >= 80 ? '#4CAF50' : '#F59E0B'}; font-size: 24px; font-weight: bold;">${latestScore}%</span></p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Interview Objective:</strong> Validate problem assumptions and solution requirements</p>
-        </div>
-        
         <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(156,39,176,0.2); border: 1px solid rgba(255,255,255,0.1);">
             <h2 style="color: #9C27B0; border-bottom: 3px solid #9C27B0; padding-bottom: 10px;">OPENING QUESTIONS (5 minutes)</h2>
             <ol style="line-height: 2; color: #e0e0e0;">
@@ -1045,15 +1029,6 @@
     </div>
     
     <div style="background: #0a0a0a; padding: 40px; border: 2px solid #333;">
-        <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(33,150,243,0.2); border: 1px solid rgba(255,255,255,0.1);">
-            <h2 style="color: #2196F3; border-bottom: 3px solid #2196F3; padding-bottom: 10px;">Assessment Overview</h2>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Company:</strong> ${workspaceAnswers['company-name']?.answer || 'ST6Co'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Product:</strong> ${workspaceAnswers['product-name']?.answer || 'ScaleOps6Product'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Market:</strong> ${workspaceAnswers['target-market']?.answer || 'B2B SaaS GTM Solutions'}</p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Overall Score:</strong> <span style="color: ${latestScore >= 80 ? '#4CAF50' : '#F59E0B'}; font-size: 24px; font-weight: bold;">${latestScore}%</span></p>
-            <p style="color: #e0e0e0;"><strong style="color: #fff;">Assessment Date:</strong> ${new Date().toLocaleDateString()}</p>
-        </div>
-        
         <div style="background: #1a1a1a; padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(33,150,243,0.2); border: 1px solid rgba(255,255,255,0.1);">
             <h2 style="color: #2196F3; border-bottom: 3px solid #2196F3; padding-bottom: 10px;">MARKET OPPORTUNITY</h2>
             
@@ -1277,8 +1252,29 @@
         modal.style.display = 'block';
     };
     
-    // Download enhanced template
+    // Download enhanced template - NOW USES PDF GENERATION
     window.downloadEnhancedTemplate = function(index, subcomponentId) {
+        console.log('📥 Downloading template as PDF...');
+        
+        // Check if PDF generator is available
+        if (typeof window.downloadTemplatePDF === 'function') {
+            const workspaceAnswers = getWorkspaceAnswers();
+            const scoreHistory = getAllScoreHistory();
+            const latestScore = scoreHistory[0]?.score || 75;
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentSubId = subcomponentId || urlParams.get('id') || '1-1';
+            
+            // Get template name from SSOT
+            const templates = window.subcomponentData?.resources?.templates || [];
+            const templateName = templates[index] || 'Template';
+            
+            // Use PDF generator
+            window.downloadTemplatePDF(templateName, currentSubId, workspaceAnswers, latestScore);
+            return;
+        }
+        
+        // Fallback to HTML if PDF generator not available
+        console.warn('⚠️ PDF generator not available, falling back to HTML');
         const workspaceAnswers = getWorkspaceAnswers();
         const scoreHistory = getAllScoreHistory();
         const latestScore = scoreHistory[0]?.score || 75;

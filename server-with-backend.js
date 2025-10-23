@@ -456,13 +456,89 @@ const server = http.createServer(async (req, res) => {
         
         req.on('end', async () => {
             try {
-                const analysisData = JSON.parse(body);
+                const requestData = JSON.parse(body);
                 
-                // Add subcomponent and agent names
-                analysisData.subcomponentName = SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`;
-                analysisData.agentName = AGENT_CORRECT_MAPPING[subcomponentId] || 'AI Agent';
+                // Get the latest analysis from score history or create from workspace data
+                let analysisData;
                 
-                // Generate DOCX
+                try {
+                    // Try to get the most recent analysis from database
+                    const history = await database.getScoreHistory(subcomponentId, 1);
+                    
+                    if (history && history.length > 0) {
+                        const latestEntry = history[0];
+                        
+                        // Parse JSON fields
+                        let dimensionScores = {};
+                        let strengths = [];
+                        let weaknesses = [];
+                        let recommendations = [];
+                        
+                        try {
+                            if (latestEntry.dimension_scores) {
+                                dimensionScores = typeof latestEntry.dimension_scores === 'string' ?
+                                    JSON.parse(latestEntry.dimension_scores) : latestEntry.dimension_scores;
+                            }
+                            if (latestEntry.strengths) {
+                                strengths = typeof latestEntry.strengths === 'string' ?
+                                    JSON.parse(latestEntry.strengths) : latestEntry.strengths;
+                            }
+                            if (latestEntry.weaknesses) {
+                                weaknesses = typeof latestEntry.weaknesses === 'string' ?
+                                    JSON.parse(latestEntry.weaknesses) : latestEntry.weaknesses;
+                            }
+                            if (latestEntry.recommendations) {
+                                recommendations = typeof latestEntry.recommendations === 'string' ?
+                                    JSON.parse(latestEntry.recommendations) : latestEntry.recommendations;
+                            }
+                        } catch (e) {
+                            console.error('Error parsing JSON fields:', e);
+                        }
+                        
+                        analysisData = {
+                            overallScore: latestEntry.overall_score || requestData.score || 75,
+                            dimensionScores: dimensionScores,
+                            strengths: strengths,
+                            weaknesses: weaknesses,
+                            recommendations: recommendations,
+                            subcomponentName: latestEntry.subcomponent_name || SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`,
+                            agentName: latestEntry.agent_name || AGENT_CORRECT_MAPPING[subcomponentId] || 'AI Agent',
+                            timestamp: latestEntry.created_at || new Date().toISOString()
+                        };
+                        
+                        console.log(`✅ Using analysis from database for ${subcomponentId}`);
+                    } else {
+                        throw new Error('No history found');
+                    }
+                } catch (historyError) {
+                    console.log(`⚠️ No analysis history found, creating from request data`);
+                    
+                    // Fallback: Create basic analysis from request data
+                    analysisData = {
+                        overallScore: requestData.score || 75,
+                        dimensionScores: requestData.dimensionScores || {},
+                        strengths: requestData.strengths || [
+                            'Workspace data captured',
+                            'Initial assessment completed',
+                            'Foundation established'
+                        ],
+                        weaknesses: requestData.weaknesses || [
+                            'Complete full analysis for detailed insights',
+                            'Run scoring to generate comprehensive recommendations'
+                        ],
+                        recommendations: requestData.recommendations || [
+                            {
+                                title: 'Complete Full Analysis',
+                                description: 'Run the analysis tool to generate detailed recommendations based on your workspace inputs.'
+                            }
+                        ],
+                        subcomponentName: SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`,
+                        agentName: AGENT_CORRECT_MAPPING[subcomponentId] || 'AI Agent',
+                        timestamp: new Date().toISOString()
+                    };
+                }
+                
+                // Generate DOCX with properly formatted analysis data
                 const result = await fileGenerator.generateAnalysisDOCX(analysisData, subcomponentId);
                 
                 res.setHeader('Content-Type', 'application/json');
@@ -470,6 +546,123 @@ const server = http.createServer(async (req, res) => {
                 res.end(JSON.stringify(result));
             } catch (error) {
                 console.error('Error generating DOCX:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: POST /api/generate-template-docx/:subcomponentId - Generate BLANK template document (Resources tab)
+    const generateTemplateDocxMatch = pathname.match(/^\/api\/generate-template-docx\/(.+)$/);
+    if (generateTemplateDocxMatch && req.method === 'POST') {
+        const subcomponentId = generateTemplateDocxMatch[1];
+        let body = '';
+        
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        
+        req.on('end', async () => {
+            try {
+                const requestData = JSON.parse(body);
+                
+                // Prepare template data (NO workspace data for blank templates)
+                const templateData = {
+                    templateName: requestData.templateName || 'Template',
+                    subcomponentName: SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`,
+                    subcomponentId: subcomponentId
+                    // NOTE: No workspaceData or score - this is a BLANK template
+                };
+                
+                // Generate BLANK template DOCX (for Resources tab)
+                const result = await fileGenerator.generateBlankTemplateDOCX(templateData, subcomponentId);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify(result));
+            } catch (error) {
+                console.error('Error generating template DOCX:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: POST /api/generate-populated-template-docx/:subcomponentId - Generate populated template (Output tab)
+    const generatePopulatedTemplateMatch = pathname.match(/^\/api\/generate-populated-template-docx\/(.+)$/);
+    if (generatePopulatedTemplateMatch && req.method === 'POST') {
+        const subcomponentId = generatePopulatedTemplateMatch[1];
+        let body = '';
+        
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        
+        req.on('end', async () => {
+            try {
+                const requestData = JSON.parse(body);
+                
+                // Prepare template data WITH workspace data for populated templates
+                const templateData = {
+                    templateName: requestData.templateName || 'Template',
+                    subcomponentName: SUBCOMPONENT_NAMES[subcomponentId] || `Subcomponent ${subcomponentId}`,
+                    subcomponentId: subcomponentId,
+                    workspaceData: requestData.workspaceData || {},
+                    score: requestData.score || 0
+                };
+                
+                // Generate POPULATED template DOCX (for Output tab)
+                const result = await fileGenerator.generatePopulatedTemplateDOCX(templateData, subcomponentId);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify(result));
+            } catch (error) {
+                console.error('Error generating populated template DOCX:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: POST /api/generate-score-history-docx/:subcomponentId - Generate score history report
+    const generateScoreHistoryDocxMatch = pathname.match(/^\/api\/generate-score-history-docx\/(.+)$/);
+    if (generateScoreHistoryDocxMatch && req.method === 'POST') {
+        const subcomponentId = generateScoreHistoryDocxMatch[1];
+        let body = '';
+        
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        
+        req.on('end', async () => {
+            try {
+                const requestData = JSON.parse(body);
+                
+                // Create history entry object from request data
+                const historyEntry = {
+                    id: requestData.entryId || requestData.timestamp,
+                    score: requestData.score || 0,
+                    timestamp: requestData.timestamp || new Date().toISOString(),
+                    user: requestData.user || 'ST6C0',
+                    source: requestData.source || 'Audit Score',
+                    subcomponentId: subcomponentId
+                };
+                
+                // Generate score history DOCX using the new dedicated function
+                const result = await fileGenerator.generateScoreHistoryDOCX(historyEntry, subcomponentId);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify(result));
+            } catch (error) {
+                console.error('Error generating score history DOCX:', error);
                 res.setHeader('Content-Type', 'application/json');
                 res.writeHead(500);
                 res.end(JSON.stringify({ error: error.message }));
@@ -506,6 +699,42 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(500);
             res.end(JSON.stringify({ error: error.message }));
         }
+        return;
+    }
+    
+    // Route: POST /api/download-template-pdf - Generate PDF for template download
+    if (pathname === '/api/download-template-pdf' && req.method === 'POST') {
+        let body = '';
+        
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        
+        req.on('end', async () => {
+            try {
+                const { templateName, subcomponentId, workspaceData, score } = JSON.parse(body);
+                
+                // Generate PDF using the pdf-generator service
+                const pdfGenerator = require('./pdf-generator-service.js');
+                const pdfBuffer = await pdfGenerator.generateTemplatePDF(
+                    templateName,
+                    subcomponentId,
+                    workspaceData || {},
+                    score || 0
+                );
+                
+                // Send PDF file
+                res.setHeader('Content-Type', 'application/pdf');
+                res.setHeader('Content-Disposition', `attachment; filename="${templateName.toLowerCase().replace(/\s+/g, '-')}-${subcomponentId}.pdf"`);
+                res.writeHead(200);
+                res.end(pdfBuffer);
+            } catch (error) {
+                console.error('Error generating template PDF:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
         return;
     }
     

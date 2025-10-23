@@ -1,5 +1,22 @@
 
 -- Database schema for agent analysis storage
+
+-- Generated documents table
+CREATE TABLE IF NOT EXISTS generated_documents (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    subcomponent_id VARCHAR(10) NOT NULL,
+    document_type VARCHAR(10) NOT NULL,
+    document_name VARCHAR(255) NOT NULL,
+    file_path TEXT NOT NULL,
+    file_size INTEGER,
+    mime_type VARCHAR(100),
+    metadata TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_generated_docs_subcomponent ON generated_documents(subcomponent_id);
+CREATE INDEX idx_generated_docs_type ON generated_documents(document_type);
+
 CREATE TABLE IF NOT EXISTS agent_analyses (
     id SERIAL PRIMARY KEY,
     subcomponent_id VARCHAR(10) NOT NULL,

@@ -466,15 +466,15 @@ ${entry.weaknesses ? entry.weaknesses.join('\n') : 'No weaknesses recorded'}
                         ${template.description}
                     </p>
                     
-                    <button onclick="window.downloadResourceTemplate(${index})" 
+                    <button onclick="event.stopPropagation(); if(window.downloadTemplateFile) { window.downloadTemplateFile('${template.name.replace(/'/g, "\\'")}', '${subcomponentId}'); } else { window.downloadResourceTemplate(${index}); }"
                             style="width: 100%;
-                                   background: linear-gradient(135deg, ${ST6_STYLES.successGreen}, #66BB6A); 
-                                   color: white; 
-                                   border: none; 
-                                   padding: 12px; 
-                                   border-radius: 8px; 
-                                   font-size: 14px; 
-                                   font-weight: 600; 
+                                   background: linear-gradient(135deg, ${ST6_STYLES.successGreen}, #66BB6A);
+                                   color: white;
+                                   border: none;
+                                   padding: 12px;
+                                   border-radius: 8px;
+                                   font-size: 14px;
+                                   font-weight: 600;
                                    cursor: pointer;
                                    transition: all 0.3s ease;"
                             onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(76, 175, 80, 0.3)';"
@@ -616,23 +616,14 @@ ${entry.weaknesses ? entry.weaknesses.join('\n') : 'No weaknesses recorded'}
         const scoreHistory = JSON.parse(localStorage.getItem(historyKey) || '[]');
         const latestScore = scoreHistory[0]?.score || 0;
         
-        // Generate populated template content
-        const content = generatePopulatedTemplateHTML(templateName, workspaceAnswers, latestScore);
-        
-        // Download as HTML file
-        const blob = new Blob([content], { type: 'text/html' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${templateName.toLowerCase().replace(/\s+/g, '-')}-populated.html`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-        
-        // Show success notification
-        if (window.showSuccessNotification) {
-            window.showSuccessNotification(`✅ ${templateName} downloaded!`);
+        // Call DOCX download endpoint instead of creating HTML blob
+        if (window.downloadDOCXTemplate) {
+            window.downloadDOCXTemplate(templateName, subcomponentId, workspaceAnswers, latestScore);
+        } else {
+            console.error('DOCX download function not available');
+            if (window.showSuccessNotification) {
+                window.showSuccessNotification('❌ Download service not available');
+            }
         }
     };
     
@@ -742,14 +733,6 @@ ${entry.weaknesses ? entry.weaknesses.join('\n') : 'No weaknesses recorded'}
         </div>
         
         <div class="content">
-            <div class="section">
-                <h2>Company Information</h2>
-                <p><strong>Company:</strong> ST6Co</p>
-                <p><strong>Product:</strong> ScaleOps6Product</p>
-                <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
-                <p><strong>Subcomponent:</strong> ${subcomponentId}</p>
-            </div>
-            
             ${answersArray.length > 0 ? `
             <div class="section">
                 <h2>Workspace Responses</h2>
@@ -829,10 +812,7 @@ ${new Date().toLocaleString()}`;
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
         
-        // Show success notification
-        if (window.showSuccessNotification) {
-            window.showSuccessNotification(`✅ ${templateName} downloaded successfully!`);
-        }
+        // Removed success notification - silent download
     };
     
     // Override tab switching to apply ST6 branding

@@ -391,7 +391,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Mission Statement Builder",
         "Vision-Mission-Values Framework",
-        "Strategic Narrative Template"
+        "Strategic Narrative Template",
+        "Mission Statement Action Plan"
       ],
       "metrics": [
         "Team alignment score",
@@ -405,7 +406,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Mission Statement Builder",
         "Vision-Mission-Values Framework",
-        "Strategic Narrative Template"
+        "Strategic Narrative Template",
+        "Mission Statement Action Plan"
       ]
     },
     "validation": {
@@ -809,7 +811,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Founding Team Scorecard",
         "Skills Gap Analysis",
-        "Advisor Recruitment Plan"
+        "Advisor Recruitment Plan",
+        "Founding Team Capability Action Plan"
       ],
       "metrics": [
         "Skill coverage percentage",
@@ -823,7 +826,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Founding Team Scorecard",
         "Skills Gap Analysis",
-        "Advisor Recruitment Plan"
+        "Advisor Recruitment Plan",
+        "Founding Team Capability Action Plan"
       ]
     },
     "validation": {
@@ -1017,7 +1021,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Market Sizing Calculator",
         "Competitive Matrix Template",
-        "Positioning Quadrant Builder"
+        "Positioning Quadrant Builder",
+        "Market Landscape Action Plan"
       ],
       "metrics": [
         "Market growth rate",
@@ -1031,7 +1036,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Market Sizing Calculator",
         "Competitive Matrix Template",
-        "Positioning Quadrant Builder"
+        "Positioning Quadrant Builder",
+        "Market Landscape Action Plan"
       ]
     },
     "validation": {
@@ -1225,7 +1231,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "MVP Planning Canvas",
         "Prototype Test Protocol",
-        "Launch Readiness Checklist"
+        "Launch Readiness Checklist",
+        "Launch Readiness Action Plan"
       ],
       "metrics": [
         "Time to first user test",
@@ -1239,7 +1246,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "MVP Planning Canvas",
         "Prototype Test Protocol",
-        "Launch Readiness Checklist"
+        "Launch Readiness Checklist",
+        "Launch Readiness Action Plan"
       ]
     },
     "validation": {
@@ -1433,7 +1441,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "JTBD Interview Script",
         "Job Story Template",
-        "Outcome Mapping Framework"
+        "Outcome Mapping Framework",
+        "Jobs to be Done Action Plan"
       ],
       "metrics": [
         "Jobs identified per persona",
@@ -1447,7 +1456,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "JTBD Interview Script",
         "Job Story Template",
-        "Outcome Mapping Framework"
+        "Outcome Mapping Framework",
+        "Jobs to be Done Action Plan"
       ]
     },
     "validation": {
@@ -1639,7 +1649,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Persona Canvas Template",
         "Buyer Journey Map",
-        "Persona Interview Guide"
+        "Persona Interview Guide",
+        "Personas Framework Action Plan"
       ],
       "metrics": [
         "Persona coverage in features",
@@ -1653,7 +1664,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Persona Canvas Template",
         "Buyer Journey Map",
-        "Persona Interview Guide"
+        "Persona Interview Guide",
+        "Personas Framework Action Plan"
       ]
     },
     "validation": {
@@ -1847,7 +1859,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Interview Schedule Template",
         "Question Bank by Stage",
-        "Insight Synthesis Framework"
+        "Insight Synthesis Framework",
+        "Interview Cadence Action Plan"
       ],
       "metrics": [
         "Interviews completed per month",
@@ -1861,7 +1874,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Interview Schedule Template",
         "Question Bank by Stage",
-        "Insight Synthesis Framework"
+        "Insight Synthesis Framework",
+        "Interview Cadence Action Plan"
       ]
     },
     "validation": {
@@ -2055,7 +2069,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Pain Point Matrix Template",
         "Customer Journey Map",
-        "Pain-to-Feature Mapping"
+        "Pain-to-Feature Mapping",
+        "Pain Point Mapping Action Plan"
       ],
       "metrics": [
         "Jobs identified per persona",
@@ -2069,7 +2084,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Pain Point Matrix Template",
         "Customer Journey Map",
-        "Pain-to-Feature Mapping"
+        "Pain-to-Feature Mapping",
+        "Pain Point Mapping Action Plan"
       ]
     },
     "validation": {
@@ -2263,7 +2279,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Signal Scoring Rubric",
         "Feedback Prioritization Matrix",
-        "Signal Tracking Dashboard"
+        "Signal Tracking Dashboard",
+        "Insight Action Action Plan"
       ],
       "metrics": [
         "Signal strength score",
@@ -2277,7 +2294,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Signal Scoring Rubric",
         "Feedback Prioritization Matrix",
-        "Signal Tracking Dashboard"
+        "Signal Tracking Dashboard",
+        "Insight Action Action Plan"
       ]
     },
     "validation": {
@@ -2471,7 +2489,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Insight Action Plan",
         "Decision Log Template",
-        "Impact Tracking Sheet"
+        "Impact Tracking Sheet",
+        "Customer Journey Action Plan"
       ],
       "metrics": [
         "Insight to action time",
@@ -2485,7 +2504,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Insight Action Plan",
         "Decision Log Template",
-        "Impact Tracking Sheet"
+        "Impact Tracking Sheet",
+        "Customer Journey Action Plan"
       ]
     },
     "validation": {
@@ -2679,7 +2699,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Use Case Scoring Matrix",
         "Market Opportunity Calculator",
-        "Feasibility Assessment"
+        "Feasibility Assessment",
+        "Use Case Scoring Model Action Plan"
       ],
       "metrics": [
         "Use case score",
@@ -2693,7 +2714,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Use Case Scoring Matrix",
         "Market Opportunity Calculator",
-        "Feasibility Assessment"
+        "Feasibility Assessment",
+        "Use Case Scoring Model Action Plan"
       ]
     },
     "validation": {
@@ -2876,7 +2898,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Segment Scoring Card",
         "ICP Definition Framework",
-        "Tiering Decision Matrix"
+        "Tiering Decision Matrix",
+        "Segment Tiering Action Plan"
       ],
       "metrics": [
         "Revenue by tier",
@@ -2890,7 +2913,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Segment Scoring Card",
         "ICP Definition Framework",
-        "Tiering Decision Matrix"
+        "Tiering Decision Matrix",
+        "Segment Tiering Action Plan"
       ]
     },
     "validation": {
@@ -3064,7 +3088,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Resource Allocation Matrix",
         "Priority Scoring Framework",
-        "Strategic Initiative Tracker"
+        "Strategic Initiative Tracker",
+        "Prioritization Rubric Action Plan"
       ],
       "metrics": [
         "Resource utilization rate",
@@ -3078,7 +3103,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Resource Allocation Matrix",
         "Priority Scoring Framework",
-        "Strategic Initiative Tracker"
+        "Strategic Initiative Tracker",
+        "Prioritization Rubric Action Plan"
       ]
     },
     "validation": {
@@ -3252,7 +3278,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Tradeoff Analysis Template",
         "Decision Matrix",
-        "Impact Assessment Framework"
+        "Impact Assessment Framework",
+        "Tradeoff Tracker Action Plan"
       ],
       "metrics": [
         "Win rate vs competitors",
@@ -3266,7 +3293,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Tradeoff Analysis Template",
         "Decision Matrix",
-        "Impact Assessment Framework"
+        "Impact Assessment Framework",
+        "Tradeoff Tracker Action Plan"
       ]
     },
     "validation": {
@@ -3440,7 +3468,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Hypothesis Testing Canvas",
         "Experiment Design Template",
-        "Learning Tracker"
+        "Learning Tracker",
+        "Hypothesis Board Action Plan"
       ],
       "metrics": [
         "Risk exposure score",
@@ -3454,7 +3483,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Hypothesis Testing Canvas",
         "Experiment Design Template",
-        "Learning Tracker"
+        "Learning Tracker",
+        "Hypothesis Board Action Plan"
       ]
     },
     "validation": {
@@ -3628,7 +3658,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Decision Log Template",
         "ADR Template",
-        "Retrospective Framework"
+        "Retrospective Framework",
+        "Decision Archive Action Plan"
       ],
       "metrics": [
         "Opportunity pipeline value",
@@ -3642,7 +3673,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Decision Log Template",
         "ADR Template",
-        "Retrospective Framework"
+        "Retrospective Framework",
+        "Decision Archive Action Plan"
       ]
     },
     "validation": {
@@ -3827,7 +3859,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Feature Prioritization Matrix",
         "MVP Scoping Canvas",
-        "MoSCoW Analysis Template"
+        "MoSCoW Analysis Template",
+        "Feature Inclusion Matrix Action Plan"
       ],
       "metrics": [
         "Features in MVP vs backlog",
@@ -3841,7 +3874,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Feature Prioritization Matrix",
         "MVP Scoping Canvas",
-        "MoSCoW Analysis Template"
+        "MoSCoW Analysis Template",
+        "Feature Inclusion Matrix Action Plan"
       ]
     },
     "validation": {
@@ -4024,7 +4058,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Technical Roadmap Template",
         "Sprint Planning Board",
-        "Architecture Decision Record"
+        "Architecture Decision Record",
+        "Technical Scope Tracker Action Plan"
       ],
       "metrics": [
         "Story points completed",
@@ -4038,7 +4073,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Technical Roadmap Template",
         "Sprint Planning Board",
-        "Architecture Decision Record"
+        "Architecture Decision Record",
+        "Technical Scope Tracker Action Plan"
       ]
     },
     "validation": {
@@ -4223,7 +4259,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Pilot User Agreement",
         "Screening Questionnaire",
-        "Feedback Collection Plan"
+        "Feedback Collection Plan",
+        "Pilot Group Selection Action Plan"
       ],
       "metrics": [
         "Pilot user engagement rate",
@@ -4237,7 +4274,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Pilot User Agreement",
         "Screening Questionnaire",
-        "Feedback Collection Plan"
+        "Feedback Collection Plan",
+        "Pilot Group Selection Action Plan"
       ]
     },
     "validation": {
@@ -4422,7 +4460,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "QA Test Plan",
         "Success Criteria Checklist",
-        "Bug Tracking Template"
+        "Bug Tracking Template",
+        "QA & Success Criteria Action Plan"
       ],
       "metrics": [
         "Test coverage percentage",
@@ -4436,7 +4475,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "QA Test Plan",
         "Success Criteria Checklist",
-        "Bug Tracking Template"
+        "Bug Tracking Template",
+        "QA & Success Criteria Action Plan"
       ]
     },
     "validation": {
@@ -4621,7 +4661,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Gantt Chart Template",
         "Agile Roadmap Canvas",
-        "Milestone Tracker"
+        "Milestone Tracker",
+        "Timeline GANTT or Roadmap Action Plan"
       ],
       "metrics": [
         "On-time delivery rate",
@@ -4635,7 +4676,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Gantt Chart Template",
         "Agile Roadmap Canvas",
-        "Milestone Tracker"
+        "Milestone Tracker",
+        "Timeline GANTT or Roadmap Action Plan"
       ]
     },
     "validation": {
@@ -4820,7 +4862,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Post-Mortem Agenda",
         "Learning Canvas",
-        "Decision Log Template"
+        "Decision Log Template",
+        "Post-Mortem Template Action Plan"
       ],
       "metrics": [
         "Assumptions validated/invalidated",
@@ -4834,7 +4877,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Post-Mortem Agenda",
         "Learning Canvas",
-        "Decision Log Template"
+        "Decision Log Template",
+        "Post-Mortem Template Action Plan"
       ]
     },
     "validation": {
@@ -5028,7 +5072,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Messaging Framework Canvas",
         "Value Proposition Template",
-        "Positioning Statement Builder"
+        "Positioning Statement Builder",
+        "GTM Messaging Framework Action Plan"
       ],
       "metrics": [
         "Time to value achieved",
@@ -5042,7 +5087,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Messaging Framework Canvas",
         "Value Proposition Template",
-        "Positioning Statement Builder"
+        "Positioning Statement Builder",
+        "GTM Messaging Framework Action Plan"
       ]
     },
     "validation": {
@@ -5233,7 +5279,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Sales Deck Template",
         "Battle Cards",
-        "Objection Handling Guide"
+        "Objection Handling Guide",
+        "Sales Enablement Assets Action Plan"
       ],
       "metrics": [
         "Payback period (months)",
@@ -5247,7 +5294,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Sales Deck Template",
         "Battle Cards",
-        "Objection Handling Guide"
+        "Objection Handling Guide",
+        "Sales Enablement Assets Action Plan"
       ]
     },
     "validation": {
@@ -5429,7 +5477,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Pricing Model Calculator",
         "Packaging Matrix",
-        "Competitive Pricing Analysis"
+        "Competitive Pricing Analysis",
+        "Pricing & Packaging Strategy Action Plan"
       ],
       "metrics": [
         "Number of active references",
@@ -5443,7 +5492,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Pricing Model Calculator",
         "Packaging Matrix",
-        "Competitive Pricing Analysis"
+        "Competitive Pricing Analysis",
+        "Pricing & Packaging Strategy Action Plan"
       ]
     },
     "validation": {
@@ -5625,7 +5675,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Partner Program Framework",
         "Channel Economics Model",
-        "Partner Enablement Kit"
+        "Partner Enablement Kit",
+        "Channel Partner Strategy Action Plan"
       ],
       "metrics": [
         "Number of testimonials collected",
@@ -5639,7 +5690,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Partner Program Framework",
         "Channel Economics Model",
-        "Partner Enablement Kit"
+        "Partner Enablement Kit",
+        "Channel Partner Strategy Action Plan"
       ]
     },
     "validation": {
@@ -5821,7 +5873,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Competitive Matrix",
         "Differentiation Canvas",
-        "Win/Loss Analysis Template"
+        "Win/Loss Analysis Template",
+        "Competitive Positioning Action Plan"
       ],
       "metrics": [
         "Pilot-to-customer conversion rate",
@@ -5835,7 +5888,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Competitive Matrix",
         "Differentiation Canvas",
-        "Win/Loss Analysis Template"
+        "Win/Loss Analysis Template",
+        "Competitive Positioning Action Plan"
       ]
     },
     "validation": {
@@ -6017,7 +6071,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Launch Checklist",
         "Go-to-Market Plan",
-        "Launch Metrics Dashboard"
+        "Launch Metrics Dashboard",
+        "Launch Planning & Execution Action Plan"
       ],
       "metrics": [
         "Feedback volume by channel",
@@ -6031,7 +6086,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Launch Checklist",
         "Go-to-Market Plan",
-        "Launch Metrics Dashboard"
+        "Launch Metrics Dashboard",
+        "Launch Planning & Execution Action Plan"
       ]
     },
     "validation": {
@@ -6216,7 +6272,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Feature Usage Matrix",
         "User Journey Heatmap",
-        "Engagement Dashboard"
+        "Engagement Dashboard",
+        "Usage Heatmap Action Plan"
       ],
       "metrics": [
         "Feature adoption rate",
@@ -6230,7 +6287,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Feature Usage Matrix",
         "User Journey Heatmap",
-        "Engagement Dashboard"
+        "Engagement Dashboard",
+        "Usage Heatmap Action Plan"
       ]
     },
     "validation": {
@@ -6413,7 +6471,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Milestone Definition Framework",
         "Trigger Tracking Dashboard",
-        "Intervention Playbook"
+        "Intervention Playbook",
+        "Milestone Triggers Action Plan"
       ],
       "metrics": [
         "Milestone achievement rate",
@@ -6427,7 +6486,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Milestone Definition Framework",
         "Trigger Tracking Dashboard",
-        "Intervention Playbook"
+        "Intervention Playbook",
+        "Milestone Triggers Action Plan"
       ]
     },
     "validation": {
@@ -6601,7 +6661,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Customer Success Dashboard",
         "Health Score Calculator",
-        "Account Review Template"
+        "Account Review Template",
+        "CS Dashboard Action Plan"
       ],
       "metrics": [
         "Average engagement score",
@@ -6615,7 +6676,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Customer Success Dashboard",
         "Health Score Calculator",
-        "Account Review Template"
+        "Account Review Template",
+        "CS Dashboard Action Plan"
       ]
     },
     "validation": {
@@ -6789,7 +6851,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Activation Metrics Framework",
         "Onboarding Checklist",
-        "Time-to-Value Tracker"
+        "Time-to-Value Tracker",
+        "Activation Metric Model Action Plan"
       ],
       "metrics": [
         "Gross retention rate",
@@ -6803,7 +6866,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Activation Metrics Framework",
         "Onboarding Checklist",
-        "Time-to-Value Tracker"
+        "Time-to-Value Tracker",
+        "Activation Metric Model Action Plan"
       ]
     },
     "validation": {
@@ -6977,7 +7041,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Feedback Collection Framework",
         "Survey Templates",
-        "Voice of Customer Report"
+        "Voice of Customer Report",
+        "Feedback Collector Action Plan"
       ],
       "metrics": [
         "Feature discovery rate",
@@ -6991,7 +7056,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Feedback Collection Framework",
         "Survey Templates",
-        "Voice of Customer Report"
+        "Voice of Customer Report",
+        "Feedback Collector Action Plan"
       ]
     },
     "validation": {
@@ -7165,7 +7231,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Power User Profile",
         "Behavior Analytics Dashboard",
-        "Advocacy Program Framework"
+        "Advocacy Program Framework",
+        "Power User Behavior Signals Action Plan"
       ],
       "metrics": [
         "Feedback volume",
@@ -7179,7 +7246,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Power User Profile",
         "Behavior Analytics Dashboard",
-        "Advocacy Program Framework"
+        "Advocacy Program Framework",
+        "Power User Behavior Signals Action Plan"
       ]
     },
     "validation": {
@@ -7364,7 +7432,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "ROI Calculator",
         "Time Study Template",
-        "Cost-Benefit Analysis"
+        "Cost-Benefit Analysis",
+        "Time/Cost Savings Metrics Action Plan"
       ],
       "metrics": [
         "Hours saved per user",
@@ -7378,7 +7447,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "ROI Calculator",
         "Time Study Template",
-        "Cost-Benefit Analysis"
+        "Cost-Benefit Analysis",
+        "Time/Cost Savings Metrics Action Plan"
       ]
     },
     "validation": {
@@ -7561,7 +7631,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Revenue Attribution Model",
         "Impact Tracking Dashboard",
-        "Business Case Template"
+        "Business Case Template",
+        "Performance Baseline Template"
       ],
       "metrics": [
         "Output per person",
@@ -7575,7 +7646,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Revenue Attribution Model",
         "Impact Tracking Dashboard",
-        "Business Case Template"
+        "Business Case Template",
+        "Performance Baseline Template"
       ]
     },
     "validation": {
@@ -7760,7 +7832,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Productivity Measurement Guide",
         "Before/After Analysis",
-        "Impact Assessment Framework"
+        "Impact Assessment Framework",
+        "Productivity Lift Metrics Action Plan"
       ],
       "metrics": [
         "Outcome achievement rate",
@@ -7774,7 +7847,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Productivity Measurement Guide",
         "Before/After Analysis",
-        "Impact Assessment Framework"
+        "Impact Assessment Framework",
+        "Productivity Lift Metrics Action Plan"
       ]
     },
     "validation": {
@@ -7959,7 +8033,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Retention Analysis Dashboard",
         "Cohort Analysis Template",
-        "Churn Prevention Playbook"
+        "Churn Prevention Playbook",
+        "Net Retention Trends Action Plan"
       ],
       "metrics": [
         "Performance vs. industry average",
@@ -7973,7 +8048,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Retention Analysis Dashboard",
         "Cohort Analysis Template",
-        "Churn Prevention Playbook"
+        "Churn Prevention Playbook",
+        "Net Retention Trends Action Plan"
       ]
     },
     "validation": {
@@ -8158,7 +8234,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "System Consolidation Tracker",
         "Integration Map",
-        "Cost Savings Calculator"
+        "Cost Savings Calculator",
+        "Downstream System Reductions Action Plan"
       ],
       "metrics": [
         "Feature attribution score",
@@ -8172,7 +8249,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "System Consolidation Tracker",
         "Integration Map",
-        "Cost Savings Calculator"
+        "Cost Savings Calculator",
+        "Downstream System Reductions Action Plan"
       ]
     },
     "validation": {
@@ -8357,7 +8435,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Friction Analysis Framework",
         "User Journey Optimization",
-        "Process Improvement Tracker"
+        "Process Improvement Tracker",
+        "Friction Reduction Evidence Action Plan"
       ],
       "metrics": [
         "Dashboard engagement rate",
@@ -8371,7 +8450,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Friction Analysis Framework",
         "User Journey Optimization",
-        "Process Improvement Tracker"
+        "Process Improvement Tracker",
+        "Friction Reduction Evidence Action Plan"
       ]
     },
     "validation": {
@@ -8556,7 +8636,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Upsell Opportunity Scorecard",
         "Expansion Playbook",
-        "Upgrade Proposal Template"
+        "Upgrade Proposal Template",
+        "Upsell Funnel Model Action Plan"
       ],
       "metrics": [
         "Time to first value",
@@ -8570,7 +8651,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Upsell Opportunity Scorecard",
         "Expansion Playbook",
-        "Upgrade Proposal Template"
+        "Upgrade Proposal Template",
+        "Upsell Funnel Model Action Plan"
       ]
     },
     "validation": {
@@ -8753,7 +8835,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Expansion Signal Tracker",
         "Account Growth Dashboard",
-        "Multi-User Adoption Plan"
+        "Multi-User Adoption Plan",
+        "Team Expansion Signals Action Plan"
       ],
       "metrics": [
         "Score accuracy (predicted vs. actual churn)",
@@ -8767,7 +8850,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Expansion Signal Tracker",
         "Account Growth Dashboard",
-        "Multi-User Adoption Plan"
+        "Multi-User Adoption Plan",
+        "Team Expansion Signals Action Plan"
       ]
     },
     "validation": {
@@ -8952,7 +9036,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Viral Adoption Tracker",
         "Network Effects Dashboard",
-        "Referral Program Framework"
+        "Referral Program Framework",
+        "Organic Adoption Pattern Action Plan"
       ],
       "metrics": [
         "Trigger to opportunity rate",
@@ -8966,7 +9051,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Viral Adoption Tracker",
         "Network Effects Dashboard",
-        "Referral Program Framework"
+        "Referral Program Framework",
+        "Organic Adoption Pattern Action Plan"
       ]
     },
     "validation": {
@@ -9151,7 +9237,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Champion Identification Guide",
         "Stakeholder Map",
-        "Executive Sponsor Playbook"
+        "Executive Sponsor Playbook",
+        "Champion Mapping Action Plan"
       ],
       "metrics": [
         "Ticket volume by category",
@@ -9165,7 +9252,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Champion Identification Guide",
         "Stakeholder Map",
-        "Executive Sponsor Playbook"
+        "Executive Sponsor Playbook",
+        "Champion Mapping Action Plan"
       ]
     },
     "validation": {
@@ -9350,7 +9438,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "CSAT Survey Template",
         "NPS Dashboard",
-        "Feedback Action Plan"
+        "Feedback Action Plan",
+        "CSAT/NPS Tracking Action Plan"
       ],
       "metrics": [
         "Article views",
@@ -9364,7 +9453,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "CSAT Survey Template",
         "NPS Dashboard",
-        "Feedback Action Plan"
+        "Feedback Action Plan",
+        "CSAT/NPS Tracking Action Plan"
       ]
     },
     "validation": {
@@ -9549,7 +9639,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Renewal Forecast Model",
         "Account Review Template",
-        "Save Plan Playbook"
+        "Save Plan Playbook",
+        "Renewal Readiness Tracker Action Plan"
       ],
       "metrics": [
         "Gross retention rate",
@@ -9563,7 +9654,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Renewal Forecast Model",
         "Account Review Template",
-        "Save Plan Playbook"
+        "Save Plan Playbook",
+        "Renewal Readiness Tracker Action Plan"
       ]
     },
     "validation": {
@@ -9748,7 +9840,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Conversion Tracking Sheet",
         "A/B Test Framework",
-        "Funnel Analysis Template"
+        "Funnel Analysis Template",
+        "Inbound Conversion Rates Action Plan"
       ],
       "metrics": [
         "Conversion rate by stage",
@@ -9762,7 +9855,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Conversion Tracking Sheet",
         "A/B Test Framework",
-        "Funnel Analysis Template"
+        "Funnel Analysis Template",
+        "Inbound Conversion Rates Action Plan"
       ]
     },
     "validation": {
@@ -9945,7 +10039,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Outbound Sequence Template",
         "Cold Email Scripts",
-        "Objection Handling Matrix"
+        "Objection Handling Matrix",
+        "Outbound Play Performance Action Plan"
       ],
       "metrics": [
         "Open and reply rates",
@@ -9959,7 +10054,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Outbound Sequence Template",
         "Cold Email Scripts",
-        "Objection Handling Matrix"
+        "Objection Handling Matrix",
+        "Outbound Play Performance Action Plan"
       ]
     },
     "validation": {
@@ -10144,7 +10240,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Channel Performance Dashboard",
         "CAC by Channel Report",
-        "Channel Mix Model"
+        "Channel Mix Model",
+        "Channel Economics Clarity Action Plan"
       ],
       "metrics": [
         "Channel ROI",
@@ -10158,7 +10255,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Channel Performance Dashboard",
         "CAC by Channel Report",
-        "Channel Mix Model"
+        "Channel Mix Model",
+        "Channel Economics Clarity Action Plan"
       ]
     },
     "validation": {
@@ -10343,7 +10441,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Discovery Call Script",
         "Qualification Framework",
-        "Call Analysis Template"
+        "Call Analysis Template",
+        "Discovery Call Effectiveness Action Plan"
       ],
       "metrics": [
         "Sales Velocity",
@@ -10357,7 +10456,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Discovery Call Script",
         "Qualification Framework",
-        "Call Analysis Template"
+        "Call Analysis Template",
+        "Discovery Call Effectiveness Action Plan"
       ]
     },
     "validation": {
@@ -10542,7 +10642,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Demo Script Template",
         "Demo Preparation Guide",
-        "Follow-up Sequence"
+        "Follow-up Sequence",
+        "Demo-to-Close Flow Action Plan"
       ],
       "metrics": [
         "Overall Win Rate",
@@ -10556,7 +10657,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Demo Script Template",
         "Demo Preparation Guide",
-        "Follow-up Sequence"
+        "Follow-up Sequence",
+        "Demo-to-Close Flow Action Plan"
       ]
     },
     "validation": {
@@ -10741,7 +10843,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Founder-Led Sales Playbook",
         "Early Sales Process",
-        "Customer Development Guide"
+        "Customer Development Guide",
+        "Founders Selling Model Action Plan"
       ],
       "metrics": [
         "Pipeline Coverage Ratio",
@@ -10755,7 +10858,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Founder-Led Sales Playbook",
         "Early Sales Process",
-        "Customer Development Guide"
+        "Customer Development Guide",
+        "Founders Selling Model Action Plan"
       ]
     },
     "validation": {
@@ -10938,7 +11042,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Sales Enablement Library",
         "Training Curriculum",
-        "Certification Program"
+        "Certification Program",
+        "Enablement Asset Pack Action Plan"
       ],
       "metrics": [
         "Hire success rate",
@@ -10952,7 +11057,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Sales Enablement Library",
         "Training Curriculum",
-        "Certification Program"
+        "Certification Program",
+        "Enablement Asset Pack Action Plan"
       ]
     },
     "validation": {
@@ -11132,7 +11238,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Onboarding Checklist",
         "30-60-90 Day Plan",
-        "Ramp Metrics Dashboard"
+        "Ramp Metrics Dashboard",
+        "Rep Ramp Plan Action Plan"
       ],
       "metrics": [
         "Discovery to demo conversion",
@@ -11146,7 +11253,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Onboarding Checklist",
         "30-60-90 Day Plan",
-        "Ramp Metrics Dashboard"
+        "Ramp Metrics Dashboard",
+        "Rep Ramp Plan Action Plan"
       ]
     },
     "validation": {
@@ -11339,7 +11447,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Win/Loss Analysis Form",
         "Competitive Intelligence Report",
-        "Deal Review Template"
+        "Deal Review Template",
+        "Win/Loss Tracker Action Plan"
       ],
       "metrics": [
         "Demo to close rate",
@@ -11353,7 +11462,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Win/Loss Analysis Form",
         "Competitive Intelligence Report",
-        "Deal Review Template"
+        "Deal Review Template",
+        "Win/Loss Tracker Action Plan"
       ]
     },
     "validation": {
@@ -11546,7 +11656,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Objection Response Library",
         "Battle Cards",
-        "Competitive Positioning Guide"
+        "Competitive Positioning Guide",
+        "Objection Handling Guide Action Plan"
       ],
       "metrics": [
         "Objection frequency",
@@ -11560,7 +11671,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Objection Response Library",
         "Battle Cards",
-        "Competitive Positioning Guide"
+        "Competitive Positioning Guide",
+        "Objection Handling Guide Action Plan"
       ]
     },
     "validation": {
@@ -11753,7 +11865,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "ICP Definition Framework",
         "Lead Qualification Scorecard",
-        "Target Account List"
+        "Target Account List",
+        "ICP Filter Checklist Action Plan"
       ],
       "metrics": [
         "OTE attainment rate",
@@ -11767,7 +11880,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "ICP Definition Framework",
         "Lead Qualification Scorecard",
-        "Target Account List"
+        "Target Account List",
+        "ICP Filter Checklist Action Plan"
       ]
     },
     "validation": {
@@ -11960,7 +12074,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Call Recording Library",
         "Best Practices Guide",
-        "Call Analysis Framework"
+        "Call Analysis Framework",
+        "Sales Call Library Action Plan"
       ],
       "metrics": [
         "Pipeline coverage ratio",
@@ -11974,7 +12089,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Call Recording Library",
         "Best Practices Guide",
-        "Call Analysis Framework"
+        "Call Analysis Framework",
+        "Sales Call Library Action Plan"
       ]
     },
     "validation": {
@@ -12159,7 +12275,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Performance Scorecard",
         "KPI Dashboard",
-        "Metrics Definition Guide"
+        "Metrics Definition Guide",
+        "Scorecard Model Action Plan"
       ],
       "metrics": [
         "Span of control",
@@ -12173,7 +12290,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Performance Scorecard",
         "KPI Dashboard",
-        "Metrics Definition Guide"
+        "Metrics Definition Guide",
+        "Scorecard Model Action Plan"
       ]
     },
     "validation": {
@@ -12356,7 +12474,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Quota Setting Framework",
         "Territory Planning Model",
-        "Compensation Plan Calculator"
+        "Compensation Plan Calculator",
+        "Quota Structure Action Plan"
       ],
       "metrics": [
         "Goal achievement rate",
@@ -12370,7 +12489,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Quota Setting Framework",
         "Territory Planning Model",
-        "Compensation Plan Calculator"
+        "Compensation Plan Calculator",
+        "Quota Structure Action Plan"
       ]
     },
     "validation": {
@@ -12555,7 +12675,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Deal Review Agenda",
         "Pipeline Inspection Checklist",
-        "Forecast Call Script"
+        "Forecast Call Script",
+        "Weekly Deal Reviews Action Plan"
       ],
       "metrics": [
         "Values alignment score",
@@ -12569,7 +12690,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Deal Review Agenda",
         "Pipeline Inspection Checklist",
-        "Forecast Call Script"
+        "Forecast Call Script",
+        "Weekly Deal Reviews Action Plan"
       ]
     },
     "validation": {
@@ -12754,7 +12876,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Sales Forecast Model",
         "Pipeline Coverage Calculator",
-        "Forecast Accuracy Tracker"
+        "Forecast Accuracy Tracker",
+        "Forecasting Framework Action Plan"
       ],
       "metrics": [
         "Internal promotion rate",
@@ -12768,7 +12891,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Sales Forecast Model",
         "Pipeline Coverage Calculator",
-        "Forecast Accuracy Tracker"
+        "Forecast Accuracy Tracker",
+        "Forecasting Framework Action Plan"
       ]
     },
     "validation": {
@@ -12953,7 +13077,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Coaching Framework",
         "1-on-1 Template",
-        "Performance Improvement Plan"
+        "Performance Improvement Plan",
+        "Manager Coaching Loop Action Plan"
       ],
       "metrics": [
         "Response time average",
@@ -12967,7 +13092,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Coaching Framework",
         "1-on-1 Template",
-        "Performance Improvement Plan"
+        "Performance Improvement Plan",
+        "Manager Coaching Loop Action Plan"
       ]
     },
     "validation": {
@@ -13152,7 +13278,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Skills Assessment Matrix",
         "Hiring Plan Template",
-        "Talent Development Roadmap"
+        "Talent Development Roadmap",
+        "Talent Gap Identification Action Plan"
       ],
       "metrics": [
         "Voluntary turnover rate",
@@ -13166,7 +13293,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Skills Assessment Matrix",
         "Hiring Plan Template",
-        "Talent Development Roadmap"
+        "Talent Development Roadmap",
+        "Talent Gap Identification Action Plan"
       ]
     },
     "validation": {
@@ -13351,7 +13479,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Customer Onboarding Plan",
         "Welcome Email Sequence",
-        "Success Milestone Tracker"
+        "Success Milestone Tracker",
+        "Onboarding Checklist Action Plan"
       ],
       "metrics": [
         "Model accuracy (precision/recall)",
@@ -13365,7 +13494,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Customer Onboarding Plan",
         "Welcome Email Sequence",
-        "Success Milestone Tracker"
+        "Success Milestone Tracker",
+        "Onboarding Checklist Action Plan"
       ]
     },
     "validation": {
@@ -13548,7 +13678,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Activation Metrics Dashboard",
         "Time-to-Value Framework",
-        "Adoption Playbook"
+        "Adoption Playbook",
+        "Activation Tracker Action Plan"
       ],
       "metrics": [
         "Activation rate (%)",
@@ -13562,7 +13693,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Activation Metrics Dashboard",
         "Time-to-Value Framework",
-        "Adoption Playbook"
+        "Adoption Playbook",
+        "Activation Tracker Action Plan"
       ]
     },
     "validation": {
@@ -13747,7 +13879,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Customer Success Playbook",
         "Use Case Library",
-        "Best Practices Guide"
+        "Best Practices Guide",
+        "Success Playbooks Action Plan"
       ],
       "metrics": [
         "Program participation rate",
@@ -13761,7 +13894,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Customer Success Playbook",
         "Use Case Library",
-        "Best Practices Guide"
+        "Best Practices Guide",
+        "Success Playbooks Action Plan"
       ]
     },
     "validation": {
@@ -13946,7 +14080,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Escalation Process Guide",
         "Issue Resolution Template",
-        "Crisis Management Plan"
+        "Crisis Management Plan",
+        "Escalation SOPs Action Plan"
       ],
       "metrics": [
         "Price elasticity",
@@ -13960,7 +14095,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Escalation Process Guide",
         "Issue Resolution Template",
-        "Crisis Management Plan"
+        "Crisis Management Plan",
+        "Escalation SOPs Action Plan"
       ]
     },
     "validation": {
@@ -14145,7 +14281,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Renewal Forecast Model",
         "Renewal Playbook",
-        "Contract Negotiation Guide"
+        "Contract Negotiation Guide",
+        "Renewals Pipelines Action Plan"
       ],
       "metrics": [
         "Member engagement rate",
@@ -14159,7 +14296,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Renewal Forecast Model",
         "Renewal Playbook",
-        "Contract Negotiation Guide"
+        "Contract Negotiation Guide",
+        "Renewals Pipelines Action Plan"
       ]
     },
     "validation": {
@@ -14333,7 +14471,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Churn Analysis Framework",
         "Exit Interview Template",
-        "Win-Back Strategy"
+        "Win-Back Strategy",
+        "Churn Root-Cause Engine Action Plan"
       ],
       "metrics": [
         "Average engagement score",
@@ -14347,7 +14486,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Churn Analysis Framework",
         "Exit Interview Template",
-        "Win-Back Strategy"
+        "Win-Back Strategy",
+        "Churn Root-Cause Engine Action Plan"
       ]
     },
     "validation": {
@@ -14532,7 +14672,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Category Design Framework",
         "Point of View Document",
-        "Category Manifesto Template"
+        "Category Manifesto Template",
+        "Category Narrative Canvas Action Plan"
       ],
       "metrics": [
         "Category search volume",
@@ -14546,7 +14687,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Category Design Framework",
         "Point of View Document",
-        "Category Manifesto Template"
+        "Category Manifesto Template",
+        "Category Narrative Canvas Action Plan"
       ]
     },
     "validation": {
@@ -14729,7 +14871,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Moat Assessment Framework",
         "Competitive Defensibility Map",
-        "Moat Investment Plan"
+        "Moat Investment Plan",
+        "Strategic MOAT Design Action Plan"
       ],
       "metrics": [
         "Moat depth score",
@@ -14743,7 +14886,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Moat Assessment Framework",
         "Competitive Defensibility Map",
-        "Moat Investment Plan"
+        "Moat Investment Plan",
+        "Strategic MOAT Design Action Plan"
       ]
     },
     "validation": {
@@ -14917,7 +15061,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Ecosystem Development Plan",
         "Platform Strategy Canvas",
-        "Network Effects Calculator"
+        "Network Effects Calculator",
+        "Ecosystem Leverage Map Action Plan"
       ],
       "metrics": [
         "Number of ecosystem partners",
@@ -14931,7 +15076,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Ecosystem Development Plan",
         "Platform Strategy Canvas",
-        "Network Effects Calculator"
+        "Network Effects Calculator",
+        "Ecosystem Leverage Map Action Plan"
       ]
     },
     "validation": {
@@ -15105,7 +15251,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Competitive Intelligence Framework",
         "Market Share Tracker",
-        "Strategic Response Playbook"
+        "Strategic Response Playbook",
+        "Competitor GTM Monitoring Action Plan"
       ],
       "metrics": [
         "M&A pipeline value",
@@ -15119,7 +15266,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Competitive Intelligence Framework",
         "Market Share Tracker",
-        "Strategic Response Playbook"
+        "Strategic Response Playbook",
+        "Competitor GTM Monitoring Action Plan"
       ]
     },
     "validation": {
@@ -15293,7 +15441,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Brand Strategy Framework",
         "Brand Guidelines",
-        "Messaging Hierarchy"
+        "Messaging Hierarchy",
+        "Brand Architecture Plan Action Plan"
       ],
       "metrics": [
         "Market share %",
@@ -15307,7 +15456,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Brand Strategy Framework",
         "Brand Guidelines",
-        "Messaging Hierarchy"
+        "Messaging Hierarchy",
+        "Brand Architecture Plan Action Plan"
       ]
     },
     "validation": {
@@ -15481,7 +15631,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Competitive Defense Playbook",
         "Market Protection Strategy",
-        "Counter-Positioning Guide"
+        "Counter-Positioning Guide",
+        "Defensive GTM Tactics Action Plan"
       ],
       "metrics": [
         "Competitive win rate",
@@ -15495,7 +15646,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Competitive Defense Playbook",
         "Market Protection Strategy",
-        "Counter-Positioning Guide"
+        "Counter-Positioning Guide",
+        "Defensive GTM Tactics Action Plan"
       ]
     },
     "validation": {
@@ -15680,7 +15832,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Architecture Diagram Template",
         "System Documentation Guide",
-        "Integration Checklist"
+        "Integration Checklist",
+        "System Architecture Diagram Action Plan"
       ],
       "metrics": [
         "System uptime %",
@@ -15694,7 +15847,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Architecture Diagram Template",
         "System Documentation Guide",
-        "Integration Checklist"
+        "Integration Checklist",
+        "System Architecture Diagram Action Plan"
       ]
     },
     "validation": {
@@ -15877,7 +16031,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Revenue Operations Map",
         "Systems Integration Plan",
-        "GTM Tech Stack Audit"
+        "GTM Tech Stack Audit",
+        "Revenue Engine Map Action Plan"
       ],
       "metrics": [
         "Pipeline velocity",
@@ -15891,7 +16046,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Revenue Operations Map",
         "Systems Integration Plan",
-        "GTM Tech Stack Audit"
+        "GTM Tech Stack Audit",
+        "Revenue Engine Map Action Plan"
       ]
     },
     "validation": {
@@ -16065,7 +16221,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Executive Dashboard Template",
         "Operational Metrics Dashboard",
-        "KPI Tracking System"
+        "KPI Tracking System",
+        "Internal Dashboards Action Plan"
       ],
       "metrics": [
         "Process automation percentage",
@@ -16079,7 +16236,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Executive Dashboard Template",
         "Operational Metrics Dashboard",
-        "KPI Tracking System"
+        "KPI Tracking System",
+        "Internal Dashboards Action Plan"
       ]
     },
     "validation": {
@@ -16253,7 +16411,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Tool Audit Template",
         "Consolidation Roadmap",
-        "ROI Analysis Framework"
+        "ROI Analysis Framework",
+        "Tool Consolidation Tracker Action Plan"
       ],
       "metrics": [
         "Data quality score",
@@ -16267,7 +16426,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Tool Audit Template",
         "Consolidation Roadmap",
-        "ROI Analysis Framework"
+        "ROI Analysis Framework",
+        "Tool Consolidation Tracker Action Plan"
       ]
     },
     "validation": {
@@ -16441,7 +16601,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Revenue Operations Playbook",
         "Process Documentation",
-        "SOP Library"
+        "SOP Library",
+        "RevOps Playbook Action Plan"
       ],
       "metrics": [
         "Security incident frequency",
@@ -16455,7 +16616,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Revenue Operations Playbook",
         "Process Documentation",
-        "SOP Library"
+        "SOP Library",
+        "RevOps Playbook Action Plan"
       ]
     },
     "validation": {
@@ -16629,7 +16791,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "SLA Definition Template",
         "Service Level Agreement",
-        "Performance Standards Guide"
+        "Performance Standards Guide",
+        "Internal SLA Policy Action Plan"
       ],
       "metrics": [
         "System capacity utilization",
@@ -16643,7 +16806,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "SLA Definition Template",
         "Service Level Agreement",
-        "Performance Standards Guide"
+        "Performance Standards Guide",
+        "Internal SLA Policy Action Plan"
       ]
     },
     "validation": {
@@ -16836,7 +17000,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Executive Job Description",
         "Interview Scorecard",
-        "90-Day Plan Template"
+        "90-Day Plan Template",
+        "Executive Team Action Plan"
       ],
       "metrics": [
         "Time to hire",
@@ -16850,7 +17015,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Executive Job Description",
         "Interview Scorecard",
-        "90-Day Plan Template"
+        "90-Day Plan Template",
+        "Executive Team Action Plan"
       ]
     },
     "validation": {
@@ -17041,7 +17207,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Board Charter",
         "Board Deck Template",
-        "Director Onboarding Kit"
+        "Director Onboarding Kit",
+        "Board Development Action Plan"
       ],
       "metrics": [
         "Board meeting attendance",
@@ -17055,7 +17222,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Board Charter",
         "Board Deck Template",
-        "Director Onboarding Kit"
+        "Director Onboarding Kit",
+        "Board Development Action Plan"
       ]
     },
     "validation": {
@@ -17248,7 +17416,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Succession Planning Grid",
         "Talent Review Template",
-        "Development Action Plan"
+        "Development Action Plan",
+        "Succession Planning Action Plan"
       ],
       "metrics": [
         "Succession coverage ratio",
@@ -17262,7 +17431,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Succession Planning Grid",
         "Talent Review Template",
-        "Development Action Plan"
+        "Development Action Plan",
+        "Succession Planning Action Plan"
       ]
     },
     "validation": {
@@ -17455,7 +17625,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Stakeholder Map",
         "Alignment Canvas",
-        "Communication Calendar"
+        "Communication Calendar",
+        "Stakeholder Alignment Action Plan"
       ],
       "metrics": [
         "Stakeholder NPS",
@@ -17469,7 +17640,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Stakeholder Map",
         "Alignment Canvas",
-        "Communication Calendar"
+        "Communication Calendar",
+        "Stakeholder Alignment Action Plan"
       ]
     },
     "validation": {
@@ -17662,7 +17834,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Investor Update Template",
         "Board Report Format",
-        "Data Room Checklist"
+        "Data Room Checklist",
+        "Investor Relations Action Plan"
       ],
       "metrics": [
         "Update consistency",
@@ -17676,7 +17849,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Investor Update Template",
         "Board Report Format",
-        "Data Room Checklist"
+        "Data Room Checklist",
+        "Investor Relations Action Plan"
       ]
     },
     "validation": {
@@ -17869,7 +18043,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Team Assessment Survey",
         "Team Charter Template",
-        "Conflict Resolution Guide"
+        "Conflict Resolution Guide",
+        "Leadership Dynamics Action Plan"
       ],
       "metrics": [
         "Team effectiveness score",
@@ -17883,7 +18058,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Team Assessment Survey",
         "Team Charter Template",
-        "Conflict Resolution Guide"
+        "Conflict Resolution Guide",
+        "Leadership Dynamics Action Plan"
       ]
     },
     "validation": {
@@ -18068,7 +18244,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Market Entry Canvas",
         "Market Sizing Model",
-        "Entry Strategy Framework"
+        "Entry Strategy Framework",
+        "Market Selection Action Plan"
       ],
       "metrics": [
         "Market penetration rate",
@@ -18082,7 +18259,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Market Entry Canvas",
         "Market Sizing Model",
-        "Entry Strategy Framework"
+        "Entry Strategy Framework",
+        "Market Selection Action Plan"
       ]
     },
     "validation": {
@@ -18265,7 +18443,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Localization Requirements Matrix",
         "Translation Style Guide",
-        "Market Launch Checklist"
+        "Market Launch Checklist",
+        "Localization Infrastructure Action Plan"
       ],
       "metrics": [
         "Localization completeness",
@@ -18279,7 +18458,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Localization Requirements Matrix",
         "Translation Style Guide",
-        "Market Launch Checklist"
+        "Market Launch Checklist",
+        "Localization Infrastructure Action Plan"
       ]
     },
     "validation": {
@@ -18464,7 +18644,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Global Pricing Model",
         "Currency Strategy",
-        "Regional Pricing Analysis"
+        "Regional Pricing Analysis",
+        "International Pricing Matrix Action Plan"
       ],
       "metrics": [
         "Setup time per country",
@@ -18478,7 +18659,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Global Pricing Model",
         "Currency Strategy",
-        "Regional Pricing Analysis"
+        "Regional Pricing Analysis",
+        "International Pricing Matrix Action Plan"
       ]
     },
     "validation": {
@@ -18663,7 +18845,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Compliance Requirements Matrix",
         "Risk Assessment Framework",
-        "Audit Preparation Checklist"
+        "Audit Preparation Checklist",
+        "Regional Compliance Tracker Action Plan"
       ],
       "metrics": [
         "Compliance coverage %",
@@ -18677,7 +18860,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Compliance Requirements Matrix",
         "Risk Assessment Framework",
-        "Audit Preparation Checklist"
+        "Audit Preparation Checklist",
+        "Regional Compliance Tracker Action Plan"
       ]
     },
     "validation": {
@@ -18862,7 +19046,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Regional GTM Playbook",
         "Market-Specific Strategy",
-        "Local Partnership Guide"
+        "Local Partnership Guide",
+        "Geo-Specific GTM Playbooks Action Plan"
       ],
       "metrics": [
         "Partner-sourced revenue %",
@@ -18876,7 +19061,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Regional GTM Playbook",
         "Market-Specific Strategy",
-        "Local Partnership Guide"
+        "Local Partnership Guide",
+        "Geo-Specific GTM Playbooks Action Plan"
       ]
     },
     "validation": {
@@ -19050,7 +19236,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Risk Assessment Matrix",
         "Market Entry Risk Analysis",
-        "Mitigation Strategy Framework"
+        "Mitigation Strategy Framework",
+        "Expansion Risk Assessment Action Plan"
       ],
       "metrics": [
         "Local team satisfaction",
@@ -19064,7 +19251,8 @@ const COMPLETE_SSOT_REGISTRY = {
       "templates": [
         "Risk Assessment Matrix",
         "Market Entry Risk Analysis",
-        "Mitigation Strategy Framework"
+        "Mitigation Strategy Framework",
+        "Expansion Risk Assessment Action Plan"
       ]
     },
     "validation": {

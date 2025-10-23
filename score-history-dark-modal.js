@@ -227,9 +227,9 @@
         console.log('✅ DARK THEME modal displayed');
     };
     
-    // Function to download report
-    window.downloadScoreHistoryReport = function(index) {
-        console.log('📥 Downloading report for index:', index);
+    // Function to download report as DOCX (using dedicated score history endpoint)
+    window.downloadScoreHistoryReport = async function(index) {
+        console.log('📥 [SCORE HISTORY] Downloading report for index:', index);
         
         const historyEntry = window.scoreHistoryData && window.scoreHistoryData[index];
         if (!historyEntry) {
@@ -239,41 +239,61 @@
         }
         
         const date = new Date(historyEntry.timestamp);
-        const subcomponentId = historyEntry.subcomponentId || 
+        const subcomponentId = historyEntry.subcomponentId ||
             new URLSearchParams(window.location.search).get('id') || '1-1';
         const entryNumber = window.scoreHistoryData.length - index;
         
-        // Generate report content
-        let reportContent = `SCALEOPS6 GTM ANALYSIS REPORT
-========================================
-Generated: ${new Date().toLocaleString()}
-Analysis Date: ${date.toLocaleString()}
-Subcomponent: ${subcomponentId}
-Analysis #: ${entryNumber}
-
-OVERALL SCORE: ${historyEntry.score}%
-========================================
-
-[Full report content...]
-`;
-        
-        // Create and download the file
-        const blob = new Blob([reportContent], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `ScaleOps6_Analysis_Report_${subcomponentId}_${entryNumber}_${date.getTime()}.txt`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        
-        console.log('✅ Report downloaded successfully');
-        
-        // Close modal if it exists
-        const modal = document.getElementById('analysis-modal');
-        if (modal) {
-            modal.remove();
+        try {
+            // Log progress
+            console.log('📄 [SCORE HISTORY] Generating Word document for score history...');
+            
+            // Call dedicated score history DOCX endpoint
+            const response = await fetch(`/api/generate-score-history-docx/${subcomponentId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    entryId: historyEntry.id || historyEntry.timestamp,
+                    score: historyEntry.score || 0,
+                    timestamp: historyEntry.timestamp,
+                    user: historyEntry.user || 'ST6C0',
+                    source: historyEntry.source || 'Audit Score',
+                    subcomponentId: subcomponentId
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Server returned ${response.status}`);
+            }
+            
+            const result = await response.json();
+            
+            if (result.success && result.url) {
+                // Download the generated DOCX file
+                const downloadLink = document.createElement('a');
+                downloadLink.href = result.url;
+                downloadLink.download = result.filename || `ScaleOps6_Score_History_${subcomponentId}_Entry${entryNumber}.docx`;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                console.log('✅ [SCORE HISTORY] Word document downloaded:', result.filename);
+                console.log('✅ Score history report downloaded!');
+            } else {
+                throw new Error(result.error || 'Failed to generate Word document');
+            }
+            
+            // Close modal if it exists
+            const modal = document.getElementById('analysis-modal');
+            if (modal) {
+                modal.remove();
+            }
+            
+        } catch (error) {
+            console.error('❌ [SCORE HISTORY] Download error:', error);
+            console.error(`❌ Error: ${error.message}`);
+            alert(`Error downloading report: ${error.message}`);
         }
     };
     

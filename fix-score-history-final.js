@@ -6,6 +6,43 @@
     
     console.log('🚀 FINAL Score History Fix - Forcing API Loading...');
     
+    // Add CSS animations for modals and notifications
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+    `;
+    document.head.appendChild(style);
+    
     // Main function to load and display score history from API
     async function forceLoadScoreHistoryFromAPI() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -114,27 +151,33 @@
                             </div>
                             
                             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                                <button onclick="alert('View Analysis #${history.length - index}')" 
-                                        style="background: linear-gradient(135deg, #FF5500, #FF8800); 
-                                               color: white; 
-                                               border: none; 
-                                               padding: 10px 20px; 
-                                               border-radius: 8px; 
-                                               font-size: 14px; 
-                                               font-weight: 600; 
+                                <button onclick="window.viewHistoryAnalysis('${entry.id || entry.timestamp}')"
+                                        style="background: linear-gradient(135deg, #FF5500, #FF8800);
+                                               color: white;
+                                               border: none;
+                                               padding: 10px 20px;
+                                               border-radius: 8px;
+                                               font-size: 14px;
+                                               font-weight: 600;
                                                cursor: pointer;
-                                               margin-right: 10px;">
+                                               margin-right: 10px;
+                                               transition: all 0.3s ease;"
+                                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(255, 85, 0, 0.4)';"
+                                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
                                     👁️ View Analysis
                                 </button>
-                                <button onclick="alert('Download Report #${history.length - index}')" 
-                                        style="background: transparent; 
-                                               color: #FF5500; 
-                                               border: 2px solid #FF5500; 
-                                               padding: 10px 20px; 
-                                               border-radius: 8px; 
-                                               font-size: 14px; 
-                                               font-weight: 600; 
-                                               cursor: pointer;">
+                                <button onclick="window.downloadHistoryReport('${entry.id || entry.timestamp}', '${subcomponentId}')"
+                                        style="background: transparent;
+                                               color: #FF5500;
+                                               border: 2px solid #FF5500;
+                                               padding: 10px 20px;
+                                               border-radius: 8px;
+                                               font-size: 14px;
+                                               font-weight: 600;
+                                               cursor: pointer;
+                                               transition: all 0.3s ease;"
+                                        onmouseover="this.style.background='#FF5500'; this.style.color='white'; this.style.transform='scale(1.05)';"
+                                        onmouseout="this.style.background='transparent'; this.style.color='#FF5500'; this.style.transform='scale(1)';">
                                     📥 Download
                                 </button>
                             </div>
@@ -175,6 +218,265 @@
             `;
         }
     }
+    
+    // Function to view a specific history analysis
+    window.viewHistoryAnalysis = function(entryId) {
+        console.log(`👁️ Viewing analysis for entry: ${entryId}`);
+        
+        // Create a modal to show the analysis details
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+        
+        modal.innerHTML = `
+            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                        border: 2px solid #FF5500;
+                        border-radius: 20px;
+                        padding: 40px;
+                        max-width: 800px;
+                        width: 90%;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                        box-shadow: 0 20px 60px rgba(255, 85, 0, 0.3);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <h2 style="color: #FF5500; font-size: 28px; margin: 0;">
+                        📊 Analysis Details
+                    </h2>
+                    <button onclick="this.closest('[style*=fixed]').remove()"
+                            style="background: transparent;
+                                   border: 2px solid #FF5500;
+                                   color: #FF5500;
+                                   width: 40px;
+                                   height: 40px;
+                                   border-radius: 50%;
+                                   font-size: 24px;
+                                   cursor: pointer;
+                                   transition: all 0.3s ease;"
+                            onmouseover="this.style.background='#FF5500'; this.style.color='white';"
+                            onmouseout="this.style.background='transparent'; this.style.color='#FF5500';">
+                        ×
+                    </button>
+                </div>
+                <div style="color: #fff; line-height: 1.8;">
+                    <p style="font-size: 18px; margin-bottom: 20px;">
+                        <strong style="color: #FF5500;">Entry ID:</strong> ${entryId}
+                    </p>
+                    <p style="font-size: 16px; color: #999; margin-bottom: 30px;">
+                        This feature will display the complete analysis details including:
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 15px; background: rgba(255, 85, 0, 0.1); border-left: 4px solid #FF5500; margin-bottom: 10px; border-radius: 5px;">
+                            ✅ <strong>Score Breakdown</strong> - Detailed scoring metrics
+                        </li>
+                        <li style="padding: 15px; background: rgba(255, 85, 0, 0.1); border-left: 4px solid #FF5500; margin-bottom: 10px; border-radius: 5px;">
+                            📝 <strong>Analysis Summary</strong> - Key findings and insights
+                        </li>
+                        <li style="padding: 15px; background: rgba(255, 85, 0, 0.1); border-left: 4px solid #FF5500; margin-bottom: 10px; border-radius: 5px;">
+                            💡 <strong>Recommendations</strong> - Actionable improvement suggestions
+                        </li>
+                        <li style="padding: 15px; background: rgba(255, 85, 0, 0.1); border-left: 4px solid #FF5500; margin-bottom: 10px; border-radius: 5px;">
+                            📊 <strong>Comparison Data</strong> - Progress vs previous analyses
+                        </li>
+                    </ul>
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(255, 85, 0, 0.05); border-radius: 10px; text-align: center;">
+                        <p style="color: #FF5500; font-size: 14px; margin: 0;">
+                            🚀 Full analysis viewer coming soon!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+    };
+    
+    // Function to download a history report
+    window.downloadHistoryReport = async function(entryId, subcomponentId) {
+        console.log(`📥 Downloading report for entry: ${entryId}, subcomponent: ${subcomponentId}`);
+        
+        // Show download notification
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF5500, #FF8800);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.4);
+            z-index: 10001;
+            animation: slideInRight 0.3s ease;
+            font-size: 16px;
+            font-weight: 600;
+        `;
+        
+        notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="font-size: 24px;">📥</div>
+                <div>
+                    <div style="font-size: 18px; margin-bottom: 5px;">Preparing Download...</div>
+                    <div style="font-size: 14px; opacity: 0.9;">Fetching history data...</div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        try {
+            // Fetch the actual history entry data
+            const response = await fetch(`/api/subcomponents/${subcomponentId}/history`, {
+                headers: { 'x-user-id': '1' }
+            });
+            
+            if (!response.ok) throw new Error('Failed to fetch history');
+            
+            const history = await response.json();
+            const entry = history.find(h => (h.id && h.id === entryId) || h.timestamp === entryId);
+            
+            if (!entry) throw new Error('History entry not found');
+            
+            // Update notification
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 24px;">✅</div>
+                    <div>
+                        <div style="font-size: 18px; margin-bottom: 5px;">Download Ready!</div>
+                        <div style="font-size: 14px; opacity: 0.9;">Report generated successfully</div>
+                    </div>
+                </div>
+            `;
+            
+            // Create detailed report content
+            const date = new Date(entry.timestamp);
+            const scoreLevel = entry.score >= 80 ? 'EXCELLENT' : entry.score >= 60 ? 'GOOD' : entry.score >= 40 ? 'FAIR' : 'NEEDS IMPROVEMENT';
+            const stars = entry.score >= 80 ? '⭐⭐⭐⭐⭐' : entry.score >= 60 ? '⭐⭐⭐⭐' : entry.score >= 40 ? '⭐⭐⭐' : '⭐⭐';
+            
+            const reportContent = `
+╔════════════════════════════════════════════════════════════════════════════╗
+║                      SCALEOPS6 SCORE HISTORY REPORT                        ║
+║                           Powered by ST6Co                                 ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+REPORT DETAILS
+───────────────────────────────────────────────────────────────────
+Entry ID:           ${entry.id || entryId}
+Subcomponent:       ${subcomponentId}
+Analysis Date:      ${date.toLocaleDateString()}
+Analysis Time:      ${date.toLocaleTimeString()}
+User:               ${entry.user || 'ST6C0'}
+Source:             ${entry.source || 'Professional Analysis'}
+Generated:          ${new Date().toLocaleString()}
+
+PERFORMANCE SCORE
+───────────────────────────────────────────────────────────────────
+Overall Score:      ${entry.score}%
+Performance Level:  ${scoreLevel} ${stars}
+
+SCORE INTERPRETATION
+───────────────────────────────────────────────────────────────────
+${entry.score >= 80 ?
+`✅ EXCELLENT PERFORMANCE
+Your subcomponent demonstrates outstanding performance across all key metrics.
+Continue maintaining these high standards while exploring optimization opportunities.` :
+entry.score >= 60 ?
+`✓ GOOD PERFORMANCE
+Your subcomponent shows solid performance with room for targeted improvements.
+Focus on addressing specific weaknesses to reach excellence.` :
+entry.score >= 40 ?
+`⚠ FAIR PERFORMANCE
+Your subcomponent has a foundation but requires significant improvements.
+Prioritize addressing critical gaps and strengthening core capabilities.` :
+`⚠️ NEEDS IMPROVEMENT
+Your subcomponent requires immediate attention and strategic intervention.
+Focus on fundamental improvements and establishing strong foundations.`}
+
+KEY RECOMMENDATIONS
+───────────────────────────────────────────────────────────────────
+${entry.score >= 80 ?
+`1. Scale & Optimize: Leverage your strong foundation to expand capabilities
+2. Innovation Focus: Explore advanced features and cutting-edge solutions
+3. Best Practices: Document and share your successful approaches
+4. Continuous Improvement: Maintain momentum with regular assessments
+5. Strategic Growth: Consider expansion into adjacent areas` :
+entry.score >= 60 ?
+`1. Targeted Improvements: Address specific weaknesses identified in analysis
+2. Process Optimization: Streamline workflows and eliminate inefficiencies
+3. Capability Building: Invest in training and skill development
+4. Quality Assurance: Implement robust testing and validation processes
+5. Performance Monitoring: Establish KPIs and tracking mechanisms` :
+entry.score >= 40 ?
+`1. Foundation Strengthening: Focus on core capabilities and fundamentals
+2. Gap Analysis: Identify and prioritize critical improvement areas
+3. Resource Allocation: Ensure adequate resources for key initiatives
+4. Quick Wins: Implement high-impact, low-effort improvements first
+5. Regular Assessment: Monitor progress with frequent check-ins` :
+`1. Immediate Action: Address critical issues requiring urgent attention
+2. Strategic Reset: Re-evaluate approach and establish clear priorities
+3. Expert Consultation: Seek guidance from specialists and mentors
+4. Incremental Progress: Focus on small, achievable improvements
+5. Foundation Building: Establish basic processes and standards`}
+
+NEXT STEPS
+───────────────────────────────────────────────────────────────────
+• Review this analysis with your team
+• Prioritize recommended actions based on impact and effort
+• Set specific, measurable goals for improvement
+• Schedule follow-up assessment in 30-60 days
+• Track progress against established benchmarks
+• Document lessons learned and best practices
+
+═══════════════════════════════════════════════════════════════════
+© 2025 ScaleOps6 - ST6Co | Professional Business Analysis Platform
+For support: support@scaleops6.com | Visit: www.scaleops6.com
+            `;
+            
+            // Create and trigger download
+            const blob = new Blob([reportContent], { type: 'text/plain; charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            const dateStr = date.toISOString().split('T')[0];
+            a.download = `ScaleOps6_History_Report_${subcomponentId}_${dateStr}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+            
+        } catch (error) {
+            console.error('Download error:', error);
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 24px;">⚠️</div>
+                    <div>
+                        <div style="font-size: 18px; margin-bottom: 5px;">Download Failed</div>
+                        <div style="font-size: 14px; opacity: 0.9;">${error.message}</div>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+    };
     
     // Make it globally available
     window.forceLoadScoreHistoryFromAPI = forceLoadScoreHistoryFromAPI;

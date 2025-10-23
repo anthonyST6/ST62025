@@ -221,58 +221,6 @@
                 background: ${BRAND.darkBg};
                 padding: 50px;
             ">
-                <!-- Company Information Card -->
-                <div class="st6-section" style="
-                    background: ${BRAND.cardBg};
-                    border: 1px solid ${BRAND.borderColor};
-                    border-radius: 15px;
-                    padding: 35px;
-                    margin-bottom: 35px;
-                    box-shadow: ${BRAND.cardShadow};
-                ">
-                    <h2 style="
-                        color: ${BRAND.primary};
-                        font-size: 28px;
-                        margin: 0 0 25px 0;
-                        padding-bottom: 15px;
-                        border-bottom: 3px solid ${BRAND.primary};
-                        font-weight: 700;
-                    ">Company Information</h2>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div>
-                            <p style="color: ${BRAND.textSecondary}; margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Company</p>
-                            <p style="color: ${BRAND.textPrimary}; margin: 5px 0 0 0; font-size: 20px; font-weight: 600;">
-                                ${answers['company-name']?.answer || 'ST6Co'}
-                            </p>
-                        </div>
-                        <div>
-                            <p style="color: ${BRAND.textSecondary}; margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Product</p>
-                            <p style="color: ${BRAND.textPrimary}; margin: 5px 0 0 0; font-size: 20px; font-weight: 600;">
-                                ${answers['product-name']?.answer || 'ScaleOps6Product'}
-                            </p>
-                        </div>
-                        <div>
-                            <p style="color: ${BRAND.textSecondary}; margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Date</p>
-                            <p style="color: ${BRAND.textPrimary}; margin: 5px 0 0 0; font-size: 20px; font-weight: 600;">
-                                ${new Date().toLocaleDateString()}
-                            </p>
-                        </div>
-                        <div>
-                            <p style="color: ${BRAND.textSecondary}; margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Performance Score</p>
-                            <div style="
-                                display: inline-block;
-                                background: linear-gradient(135deg, ${score >= 80 ? '#4CAF50' : score >= 60 ? '#F59E0B' : '#3B82F6'}, ${score >= 80 ? '#66BB6A' : score >= 60 ? '#FBB040' : '#60A5FA'});
-                                padding: 8px 20px;
-                                border-radius: 30px;
-                                margin-top: 5px;
-                            ">
-                                <span style="color: white; font-size: 24px; font-weight: 700;">${score}%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <!-- Problem Section -->
                 <div class="st6-section" style="
                     background: ${BRAND.cardBg};

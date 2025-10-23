@@ -1,0 +1,3493 @@
+{
+  "timestamp": "2025-10-23T15:10:20.872Z",
+  "totalSubcomponents": 96,
+  "passed": 82,
+  "failed": 0,
+  "warnings": 14,
+  "details": [
+    {
+      "id": "1-1",
+      "name": "Problem Statement Definition",
+      "blockId": 1,
+      "blockName": "Mission Discovery",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 4,
+        "outputTemplates": 4,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Customer Pain Interview Guide",
+          "Pain Point Prioritization Matrix",
+          "Problem Statement Canvas",
+          "Problem Validation Scorecard"
+        ],
+        "output": [
+          "Customer Pain Interview Guide",
+          "Pain Point Prioritization Matrix",
+          "Problem Statement Canvas",
+          "Problem Validation Scorecard"
+        ]
+      }
+    },
+    {
+      "id": "1-2",
+      "name": "Mission Statement",
+      "blockId": 1,
+      "blockName": "Mission Discovery",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Mission Statement Builder",
+          "Strategic Narrative Template",
+          "Vision-Mission-Values Framework"
+        ],
+        "output": [
+          "Mission Statement Builder",
+          "Strategic Narrative Template",
+          "Vision-Mission-Values Framework"
+        ]
+      }
+    },
+    {
+      "id": "1-3",
+      "name": "Voice of Customer",
+      "blockId": 1,
+      "blockName": "Mission Discovery",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 4,
+        "outputTemplates": 4,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Customer Interview Script",
+          "Insight Synthesis Canvas",
+          "Insight Tagging Framework",
+          "Voice of Customer Database"
+        ],
+        "output": [
+          "Customer Interview Script",
+          "Insight Synthesis Canvas",
+          "Insight Tagging Framework",
+          "Voice of Customer Database"
+        ]
+      }
+    },
+    {
+      "id": "1-4",
+      "name": "Founding Team Capability",
+      "blockId": 1,
+      "blockName": "Mission Discovery",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Advisor Recruitment Plan",
+          "Founding Team Scorecard",
+          "Skills Gap Analysis"
+        ],
+        "output": [
+          "Advisor Recruitment Plan",
+          "Founding Team Scorecard",
+          "Skills Gap Analysis"
+        ]
+      }
+    },
+    {
+      "id": "1-5",
+      "name": "Market Landscape",
+      "blockId": 1,
+      "blockName": "Mission Discovery",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Matrix Template",
+          "Market Sizing Calculator",
+          "Positioning Quadrant Builder"
+        ],
+        "output": [
+          "Competitive Matrix Template",
+          "Market Sizing Calculator",
+          "Positioning Quadrant Builder"
+        ]
+      }
+    },
+    {
+      "id": "1-6",
+      "name": "Launch Readiness",
+      "blockId": 1,
+      "blockName": "Mission Discovery",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Launch Readiness Checklist",
+          "MVP Planning Canvas",
+          "Prototype Test Protocol"
+        ],
+        "output": [
+          "Launch Readiness Checklist",
+          "MVP Planning Canvas",
+          "Prototype Test Protocol"
+        ]
+      }
+    },
+    {
+      "id": "2-1",
+      "name": "Jobs to be Done",
+      "blockId": 2,
+      "blockName": "Customer Insights",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "JTBD Interview Script",
+          "Job Story Template",
+          "Outcome Mapping Framework"
+        ],
+        "output": [
+          "JTBD Interview Script",
+          "Job Story Template",
+          "Outcome Mapping Framework"
+        ]
+      }
+    },
+    {
+      "id": "2-2",
+      "name": "Personas Framework",
+      "blockId": 2,
+      "blockName": "Customer Insights",
+      "phase": 1,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Buyer Journey Map",
+          "Persona Canvas Template",
+          "Persona Interview Guide"
+        ],
+        "output": [
+          "Buyer Journey Map",
+          "Persona Canvas Template",
+          "Persona Interview Guide"
+        ]
+      }
+    },
+    {
+      "id": "2-3",
+      "name": "Interview Cadence",
+      "blockId": 2,
+      "blockName": "Customer Insights",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Insight Synthesis Framework",
+          "Interview Schedule Template",
+          "Question Bank by Stage"
+        ],
+        "output": [
+          "Insight Synthesis Framework",
+          "Interview Schedule Template",
+          "Question Bank by Stage"
+        ]
+      }
+    },
+    {
+      "id": "2-4",
+      "name": "Pain Point Mapping",
+      "blockId": 2,
+      "blockName": "Customer Insights",
+      "phase": 1,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Customer Journey Map",
+          "Pain Point Matrix Template",
+          "Pain-to-Feature Mapping"
+        ],
+        "output": [
+          "Customer Journey Map",
+          "Pain Point Matrix Template",
+          "Pain-to-Feature Mapping"
+        ]
+      }
+    },
+    {
+      "id": "2-5",
+      "name": "Insight Action",
+      "blockId": 2,
+      "blockName": "Customer Insights",
+      "phase": 1,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Feedback Prioritization Matrix",
+          "Signal Scoring Rubric",
+          "Signal Tracking Dashboard"
+        ],
+        "output": [
+          "Feedback Prioritization Matrix",
+          "Signal Scoring Rubric",
+          "Signal Tracking Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "2-6",
+      "name": "Customer Journey",
+      "blockId": 2,
+      "blockName": "Customer Insights",
+      "phase": 1,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Decision Log Template",
+          "Impact Tracking Sheet",
+          "Insight Action Plan"
+        ],
+        "output": [
+          "Decision Log Template",
+          "Impact Tracking Sheet",
+          "Insight Action Plan"
+        ]
+      }
+    },
+    {
+      "id": "3-1",
+      "name": "Use Case Scoring Model",
+      "blockId": 3,
+      "blockName": "Strategic Prioritization",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Feasibility Assessment",
+          "Market Opportunity Calculator",
+          "Use Case Scoring Matrix"
+        ],
+        "output": [
+          "Feasibility Assessment",
+          "Market Opportunity Calculator",
+          "Use Case Scoring Matrix"
+        ]
+      }
+    },
+    {
+      "id": "3-2",
+      "name": "Segment Tiering",
+      "blockId": 3,
+      "blockName": "Strategic Prioritization",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "ICP Definition Framework",
+          "Segment Scoring Card",
+          "Tiering Decision Matrix"
+        ],
+        "output": [
+          "ICP Definition Framework",
+          "Segment Scoring Card",
+          "Tiering Decision Matrix"
+        ]
+      }
+    },
+    {
+      "id": "3-3",
+      "name": "Prioritization Rubric",
+      "blockId": 3,
+      "blockName": "Strategic Prioritization",
+      "phase": 2,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Priority Scoring Framework",
+          "Resource Allocation Matrix",
+          "Strategic Initiative Tracker"
+        ],
+        "output": [
+          "Priority Scoring Framework",
+          "Resource Allocation Matrix",
+          "Strategic Initiative Tracker"
+        ]
+      }
+    },
+    {
+      "id": "3-4",
+      "name": "Tradeoff Tracker",
+      "blockId": 3,
+      "blockName": "Strategic Prioritization",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Decision Matrix",
+          "Impact Assessment Framework",
+          "Tradeoff Analysis Template"
+        ],
+        "output": [
+          "Decision Matrix",
+          "Impact Assessment Framework",
+          "Tradeoff Analysis Template"
+        ]
+      }
+    },
+    {
+      "id": "3-5",
+      "name": "Hypothesis Board",
+      "blockId": 3,
+      "blockName": "Strategic Prioritization",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Experiment Design Template",
+          "Hypothesis Testing Canvas",
+          "Learning Tracker"
+        ],
+        "output": [
+          "Experiment Design Template",
+          "Hypothesis Testing Canvas",
+          "Learning Tracker"
+        ]
+      }
+    },
+    {
+      "id": "3-6",
+      "name": "Decision Archive",
+      "blockId": 3,
+      "blockName": "Strategic Prioritization",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "ADR Template",
+          "Decision Log Template",
+          "Retrospective Framework"
+        ],
+        "output": [
+          "ADR Template",
+          "Decision Log Template",
+          "Retrospective Framework"
+        ]
+      }
+    },
+    {
+      "id": "4-1",
+      "name": "Feature Inclusion Matrix",
+      "blockId": 4,
+      "blockName": "Prototype Launch",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Feature Prioritization Matrix",
+          "MVP Scoping Canvas",
+          "MoSCoW Analysis Template"
+        ],
+        "output": [
+          "Feature Prioritization Matrix",
+          "MVP Scoping Canvas",
+          "MoSCoW Analysis Template"
+        ]
+      }
+    },
+    {
+      "id": "4-2",
+      "name": "Technical Scope Tracker",
+      "blockId": 4,
+      "blockName": "Prototype Launch",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Architecture Decision Record",
+          "Sprint Planning Board",
+          "Technical Roadmap Template"
+        ],
+        "output": [
+          "Architecture Decision Record",
+          "Sprint Planning Board",
+          "Technical Roadmap Template"
+        ]
+      }
+    },
+    {
+      "id": "4-3",
+      "name": "Pilot Group Selection",
+      "blockId": 4,
+      "blockName": "Prototype Launch",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Feedback Collection Plan",
+          "Pilot User Agreement",
+          "Screening Questionnaire"
+        ],
+        "output": [
+          "Feedback Collection Plan",
+          "Pilot User Agreement",
+          "Screening Questionnaire"
+        ]
+      }
+    },
+    {
+      "id": "4-4",
+      "name": "QA & Success Criteria",
+      "blockId": 4,
+      "blockName": "Prototype Launch",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Bug Tracking Template",
+          "QA Test Plan",
+          "Success Criteria Checklist"
+        ],
+        "output": [
+          "Bug Tracking Template",
+          "QA Test Plan",
+          "Success Criteria Checklist"
+        ]
+      }
+    },
+    {
+      "id": "4-5",
+      "name": "Timeline GANTT or Roadmap",
+      "blockId": 4,
+      "blockName": "Prototype Launch",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Agile Roadmap Canvas",
+          "Gantt Chart Template",
+          "Milestone Tracker"
+        ],
+        "output": [
+          "Agile Roadmap Canvas",
+          "Gantt Chart Template",
+          "Milestone Tracker"
+        ]
+      }
+    },
+    {
+      "id": "4-6",
+      "name": "Post-Mortem Template",
+      "blockId": 4,
+      "blockName": "Prototype Launch",
+      "phase": 2,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Decision Log Template",
+          "Learning Canvas",
+          "Post-Mortem Agenda"
+        ],
+        "output": [
+          "Decision Log Template",
+          "Learning Canvas",
+          "Post-Mortem Agenda"
+        ]
+      }
+    },
+    {
+      "id": "5-1",
+      "name": "GTM Messaging Framework",
+      "blockId": 5,
+      "blockName": "Go-To-Market Strategy",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Messaging Framework Canvas",
+          "Positioning Statement Builder",
+          "Value Proposition Template"
+        ],
+        "output": [
+          "Messaging Framework Canvas",
+          "Positioning Statement Builder",
+          "Value Proposition Template"
+        ]
+      }
+    },
+    {
+      "id": "5-2",
+      "name": "Sales Enablement Assets",
+      "blockId": 5,
+      "blockName": "Go-To-Market Strategy",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Battle Cards",
+          "Objection Handling Guide",
+          "Sales Deck Template"
+        ],
+        "output": [
+          "Battle Cards",
+          "Objection Handling Guide",
+          "Sales Deck Template"
+        ]
+      }
+    },
+    {
+      "id": "5-3",
+      "name": "Pricing & Packaging Strategy",
+      "blockId": 5,
+      "blockName": "Go-To-Market Strategy",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Pricing Analysis",
+          "Packaging Matrix",
+          "Pricing Model Calculator"
+        ],
+        "output": [
+          "Competitive Pricing Analysis",
+          "Packaging Matrix",
+          "Pricing Model Calculator"
+        ]
+      }
+    },
+    {
+      "id": "5-4",
+      "name": "Channel Partner Strategy",
+      "blockId": 5,
+      "blockName": "Go-To-Market Strategy",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Channel Economics Model",
+          "Partner Enablement Kit",
+          "Partner Program Framework"
+        ],
+        "output": [
+          "Channel Economics Model",
+          "Partner Enablement Kit",
+          "Partner Program Framework"
+        ]
+      }
+    },
+    {
+      "id": "5-5",
+      "name": "Competitive Positioning",
+      "blockId": 5,
+      "blockName": "Go-To-Market Strategy",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Matrix",
+          "Differentiation Canvas",
+          "Win/Loss Analysis Template"
+        ],
+        "output": [
+          "Competitive Matrix",
+          "Differentiation Canvas",
+          "Win/Loss Analysis Template"
+        ]
+      }
+    },
+    {
+      "id": "5-6",
+      "name": "Launch Planning & Execution",
+      "blockId": 5,
+      "blockName": "Go-To-Market Strategy",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Go-to-Market Plan",
+          "Launch Checklist",
+          "Launch Metrics Dashboard"
+        ],
+        "output": [
+          "Go-to-Market Plan",
+          "Launch Checklist",
+          "Launch Metrics Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "6-1",
+      "name": "Usage Heatmap",
+      "blockId": 6,
+      "blockName": "Customer Engagement Flywheel",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Engagement Dashboard",
+          "Feature Usage Matrix",
+          "User Journey Heatmap"
+        ],
+        "output": [
+          "Engagement Dashboard",
+          "Feature Usage Matrix",
+          "User Journey Heatmap"
+        ]
+      }
+    },
+    {
+      "id": "6-2",
+      "name": "Milestone Triggers",
+      "blockId": 6,
+      "blockName": "Customer Engagement Flywheel",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Intervention Playbook",
+          "Milestone Definition Framework",
+          "Trigger Tracking Dashboard"
+        ],
+        "output": [
+          "Intervention Playbook",
+          "Milestone Definition Framework",
+          "Trigger Tracking Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "6-3",
+      "name": "CS Dashboard",
+      "blockId": 6,
+      "blockName": "Customer Engagement Flywheel",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Account Review Template",
+          "Customer Success Dashboard",
+          "Health Score Calculator"
+        ],
+        "output": [
+          "Account Review Template",
+          "Customer Success Dashboard",
+          "Health Score Calculator"
+        ]
+      }
+    },
+    {
+      "id": "6-4",
+      "name": "Activation Metric Model",
+      "blockId": 6,
+      "blockName": "Customer Engagement Flywheel",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Activation Metrics Framework",
+          "Onboarding Checklist",
+          "Time-to-Value Tracker"
+        ],
+        "output": [
+          "Activation Metrics Framework",
+          "Onboarding Checklist",
+          "Time-to-Value Tracker"
+        ]
+      }
+    },
+    {
+      "id": "6-5",
+      "name": "Feedback Collector",
+      "blockId": 6,
+      "blockName": "Customer Engagement Flywheel",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Feedback Collection Framework",
+          "Survey Templates",
+          "Voice of Customer Report"
+        ],
+        "output": [
+          "Feedback Collection Framework",
+          "Survey Templates",
+          "Voice of Customer Report"
+        ]
+      }
+    },
+    {
+      "id": "6-6",
+      "name": "Power User Behavior Signals",
+      "blockId": 6,
+      "blockName": "Customer Engagement Flywheel",
+      "phase": 3,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Advocacy Program Framework",
+          "Behavior Analytics Dashboard",
+          "Power User Profile"
+        ],
+        "output": [
+          "Advocacy Program Framework",
+          "Behavior Analytics Dashboard",
+          "Power User Profile"
+        ]
+      }
+    },
+    {
+      "id": "7-1",
+      "name": "Time/Cost Savings Metrics",
+      "blockId": 7,
+      "blockName": "Quantifiable Impact",
+      "phase": 4,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Cost-Benefit Analysis",
+          "ROI Calculator",
+          "Time Study Template"
+        ],
+        "output": [
+          "Cost-Benefit Analysis",
+          "ROI Calculator",
+          "Time Study Template"
+        ]
+      }
+    },
+    {
+      "id": "7-2",
+      "name": "Revenue-Impact Attribution",
+      "blockId": 7,
+      "blockName": "Quantifiable Impact",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 4,
+        "outputTemplates": 4,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Business Case Template",
+          "Impact Tracking Dashboard",
+          "Performance Baseline Template",
+          "Revenue Attribution Model"
+        ],
+        "output": [
+          "Business Case Template",
+          "Impact Tracking Dashboard",
+          "Performance Baseline Template",
+          "Revenue Attribution Model"
+        ]
+      }
+    },
+    {
+      "id": "7-3",
+      "name": "Productivity Lift Metrics",
+      "blockId": 7,
+      "blockName": "Quantifiable Impact",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Before/After Analysis",
+          "Impact Assessment Framework",
+          "Productivity Measurement Guide"
+        ],
+        "output": [
+          "Before/After Analysis",
+          "Impact Assessment Framework",
+          "Productivity Measurement Guide"
+        ]
+      }
+    },
+    {
+      "id": "7-4",
+      "name": "Net Retention Trends",
+      "blockId": 7,
+      "blockName": "Quantifiable Impact",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Churn Prevention Playbook",
+          "Cohort Analysis Template",
+          "Retention Analysis Dashboard"
+        ],
+        "output": [
+          "Churn Prevention Playbook",
+          "Cohort Analysis Template",
+          "Retention Analysis Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "7-5",
+      "name": "Downstream System Reductions",
+      "blockId": 7,
+      "blockName": "Quantifiable Impact",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Cost Savings Calculator",
+          "Integration Map",
+          "System Consolidation Tracker"
+        ],
+        "output": [
+          "Cost Savings Calculator",
+          "Integration Map",
+          "System Consolidation Tracker"
+        ]
+      }
+    },
+    {
+      "id": "7-6",
+      "name": "Friction Reduction Evidence",
+      "blockId": 7,
+      "blockName": "Quantifiable Impact",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Friction Analysis Framework",
+          "Process Improvement Tracker",
+          "User Journey Optimization"
+        ],
+        "output": [
+          "Friction Analysis Framework",
+          "Process Improvement Tracker",
+          "User Journey Optimization"
+        ]
+      }
+    },
+    {
+      "id": "8-1",
+      "name": "Upsell Funnel Model",
+      "blockId": 8,
+      "blockName": "Customer Success Expansion",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Expansion Playbook",
+          "Upgrade Proposal Template",
+          "Upsell Opportunity Scorecard"
+        ],
+        "output": [
+          "Expansion Playbook",
+          "Upgrade Proposal Template",
+          "Upsell Opportunity Scorecard"
+        ]
+      }
+    },
+    {
+      "id": "8-2",
+      "name": "Team Expansion Signals",
+      "blockId": 8,
+      "blockName": "Customer Success Expansion",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Account Growth Dashboard",
+          "Expansion Signal Tracker",
+          "Multi-User Adoption Plan"
+        ],
+        "output": [
+          "Account Growth Dashboard",
+          "Expansion Signal Tracker",
+          "Multi-User Adoption Plan"
+        ]
+      }
+    },
+    {
+      "id": "8-3",
+      "name": "Organic Adoption Pattern",
+      "blockId": 8,
+      "blockName": "Customer Success Expansion",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Network Effects Dashboard",
+          "Referral Program Framework",
+          "Viral Adoption Tracker"
+        ],
+        "output": [
+          "Network Effects Dashboard",
+          "Referral Program Framework",
+          "Viral Adoption Tracker"
+        ]
+      }
+    },
+    {
+      "id": "8-4",
+      "name": "Champion Mapping",
+      "blockId": 8,
+      "blockName": "Customer Success Expansion",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Champion Identification Guide",
+          "Executive Sponsor Playbook",
+          "Stakeholder Map"
+        ],
+        "output": [
+          "Champion Identification Guide",
+          "Executive Sponsor Playbook",
+          "Stakeholder Map"
+        ]
+      }
+    },
+    {
+      "id": "8-5",
+      "name": "CSAT/NPS Tracking",
+      "blockId": 8,
+      "blockName": "Customer Success Expansion",
+      "phase": 4,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "CSAT Survey Template",
+          "Feedback Action Plan",
+          "NPS Dashboard"
+        ],
+        "output": [
+          "CSAT Survey Template",
+          "Feedback Action Plan",
+          "NPS Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "8-6",
+      "name": "Renewal Readiness Tracker",
+      "blockId": 8,
+      "blockName": "Customer Success Expansion",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Account Review Template",
+          "Renewal Forecast Model",
+          "Save Plan Playbook"
+        ],
+        "output": [
+          "Account Review Template",
+          "Renewal Forecast Model",
+          "Save Plan Playbook"
+        ]
+      }
+    },
+    {
+      "id": "9-1",
+      "name": "Inbound Conversion Rates",
+      "blockId": 9,
+      "blockName": "Proof Execution",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "A/B Test Framework",
+          "Conversion Tracking Sheet",
+          "Funnel Analysis Template"
+        ],
+        "output": [
+          "A/B Test Framework",
+          "Conversion Tracking Sheet",
+          "Funnel Analysis Template"
+        ]
+      }
+    },
+    {
+      "id": "9-2",
+      "name": "Outbound Play Performance",
+      "blockId": 9,
+      "blockName": "Proof Execution",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Cold Email Scripts",
+          "Objection Handling Matrix",
+          "Outbound Sequence Template"
+        ],
+        "output": [
+          "Cold Email Scripts",
+          "Objection Handling Matrix",
+          "Outbound Sequence Template"
+        ]
+      }
+    },
+    {
+      "id": "9-3",
+      "name": "Channel Economics Clarity",
+      "blockId": 9,
+      "blockName": "Proof Execution",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "CAC by Channel Report",
+          "Channel Mix Model",
+          "Channel Performance Dashboard"
+        ],
+        "output": [
+          "CAC by Channel Report",
+          "Channel Mix Model",
+          "Channel Performance Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "9-4",
+      "name": "Discovery Call Effectiveness",
+      "blockId": 9,
+      "blockName": "Proof Execution",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Call Analysis Template",
+          "Discovery Call Script",
+          "Qualification Framework"
+        ],
+        "output": [
+          "Call Analysis Template",
+          "Discovery Call Script",
+          "Qualification Framework"
+        ]
+      }
+    },
+    {
+      "id": "9-5",
+      "name": "Demo-to-Close Flow",
+      "blockId": 9,
+      "blockName": "Proof Execution",
+      "phase": 4,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Demo Preparation Guide",
+          "Demo Script Template",
+          "Follow-up Sequence"
+        ],
+        "output": [
+          "Demo Preparation Guide",
+          "Demo Script Template",
+          "Follow-up Sequence"
+        ]
+      }
+    },
+    {
+      "id": "9-6",
+      "name": "Founders Selling Model",
+      "blockId": 9,
+      "blockName": "Proof Execution",
+      "phase": 4,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Customer Development Guide",
+          "Early Sales Process",
+          "Founder-Led Sales Playbook"
+        ],
+        "output": [
+          "Customer Development Guide",
+          "Early Sales Process",
+          "Founder-Led Sales Playbook"
+        ]
+      }
+    },
+    {
+      "id": "10-1",
+      "name": "Enablement Asset Pack",
+      "blockId": 10,
+      "blockName": "Sales Team Empowerment",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Certification Program",
+          "Sales Enablement Library",
+          "Training Curriculum"
+        ],
+        "output": [
+          "Certification Program",
+          "Sales Enablement Library",
+          "Training Curriculum"
+        ]
+      }
+    },
+    {
+      "id": "10-2",
+      "name": "Rep Ramp Plan",
+      "blockId": 10,
+      "blockName": "Sales Team Empowerment",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "30-60-90 Day Plan",
+          "Onboarding Checklist",
+          "Ramp Metrics Dashboard"
+        ],
+        "output": [
+          "30-60-90 Day Plan",
+          "Onboarding Checklist",
+          "Ramp Metrics Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "10-3",
+      "name": "Win/Loss Tracker",
+      "blockId": 10,
+      "blockName": "Sales Team Empowerment",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Intelligence Report",
+          "Deal Review Template",
+          "Win/Loss Analysis Form"
+        ],
+        "output": [
+          "Competitive Intelligence Report",
+          "Deal Review Template",
+          "Win/Loss Analysis Form"
+        ]
+      }
+    },
+    {
+      "id": "10-4",
+      "name": "Objection Handling Guide",
+      "blockId": 10,
+      "blockName": "Sales Team Empowerment",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Battle Cards",
+          "Competitive Positioning Guide",
+          "Objection Response Library"
+        ],
+        "output": [
+          "Battle Cards",
+          "Competitive Positioning Guide",
+          "Objection Response Library"
+        ]
+      }
+    },
+    {
+      "id": "10-5",
+      "name": "ICP Filter Checklist",
+      "blockId": 10,
+      "blockName": "Sales Team Empowerment",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "ICP Definition Framework",
+          "Lead Qualification Scorecard",
+          "Target Account List"
+        ],
+        "output": [
+          "ICP Definition Framework",
+          "Lead Qualification Scorecard",
+          "Target Account List"
+        ]
+      }
+    },
+    {
+      "id": "10-6",
+      "name": "Sales Call Library",
+      "blockId": 10,
+      "blockName": "Sales Team Empowerment",
+      "phase": 4,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Best Practices Guide",
+          "Call Analysis Framework",
+          "Call Recording Library"
+        ],
+        "output": [
+          "Best Practices Guide",
+          "Call Analysis Framework",
+          "Call Recording Library"
+        ]
+      }
+    },
+    {
+      "id": "11-1",
+      "name": "Scorecard Model",
+      "blockId": 11,
+      "blockName": "High Performance Teams",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "KPI Dashboard",
+          "Metrics Definition Guide",
+          "Performance Scorecard"
+        ],
+        "output": [
+          "KPI Dashboard",
+          "Metrics Definition Guide",
+          "Performance Scorecard"
+        ]
+      }
+    },
+    {
+      "id": "11-2",
+      "name": "Quota Structure",
+      "blockId": 11,
+      "blockName": "High Performance Teams",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Compensation Plan Calculator",
+          "Quota Setting Framework",
+          "Territory Planning Model"
+        ],
+        "output": [
+          "Compensation Plan Calculator",
+          "Quota Setting Framework",
+          "Territory Planning Model"
+        ]
+      }
+    },
+    {
+      "id": "11-3",
+      "name": "Weekly Deal Reviews",
+      "blockId": 11,
+      "blockName": "High Performance Teams",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Deal Review Agenda",
+          "Forecast Call Script",
+          "Pipeline Inspection Checklist"
+        ],
+        "output": [
+          "Deal Review Agenda",
+          "Forecast Call Script",
+          "Pipeline Inspection Checklist"
+        ]
+      }
+    },
+    {
+      "id": "11-4",
+      "name": "Forecasting Framework",
+      "blockId": 11,
+      "blockName": "High Performance Teams",
+      "phase": 5,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Forecast Accuracy Tracker",
+          "Pipeline Coverage Calculator",
+          "Sales Forecast Model"
+        ],
+        "output": [
+          "Forecast Accuracy Tracker",
+          "Pipeline Coverage Calculator",
+          "Sales Forecast Model"
+        ]
+      }
+    },
+    {
+      "id": "11-5",
+      "name": "Manager Coaching Loop",
+      "blockId": 11,
+      "blockName": "High Performance Teams",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "1-on-1 Template",
+          "Coaching Framework",
+          "Performance Improvement Plan"
+        ],
+        "output": [
+          "1-on-1 Template",
+          "Coaching Framework",
+          "Performance Improvement Plan"
+        ]
+      }
+    },
+    {
+      "id": "11-6",
+      "name": "Talent Gap Identification",
+      "blockId": 11,
+      "blockName": "High Performance Teams",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Hiring Plan Template",
+          "Skills Assessment Matrix",
+          "Talent Development Roadmap"
+        ],
+        "output": [
+          "Hiring Plan Template",
+          "Skills Assessment Matrix",
+          "Talent Development Roadmap"
+        ]
+      }
+    },
+    {
+      "id": "12-1",
+      "name": "Onboarding Checklist",
+      "blockId": 12,
+      "blockName": "Retention Systems",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Customer Onboarding Plan",
+          "Success Milestone Tracker",
+          "Welcome Email Sequence"
+        ],
+        "output": [
+          "Customer Onboarding Plan",
+          "Success Milestone Tracker",
+          "Welcome Email Sequence"
+        ]
+      }
+    },
+    {
+      "id": "12-2",
+      "name": "Activation Tracker",
+      "blockId": 12,
+      "blockName": "Retention Systems",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Activation Metrics Dashboard",
+          "Adoption Playbook",
+          "Time-to-Value Framework"
+        ],
+        "output": [
+          "Activation Metrics Dashboard",
+          "Adoption Playbook",
+          "Time-to-Value Framework"
+        ]
+      }
+    },
+    {
+      "id": "12-3",
+      "name": "Success Playbooks",
+      "blockId": 12,
+      "blockName": "Retention Systems",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Best Practices Guide",
+          "Customer Success Playbook",
+          "Use Case Library"
+        ],
+        "output": [
+          "Best Practices Guide",
+          "Customer Success Playbook",
+          "Use Case Library"
+        ]
+      }
+    },
+    {
+      "id": "12-4",
+      "name": "Escalation SOPs",
+      "blockId": 12,
+      "blockName": "Retention Systems",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Crisis Management Plan",
+          "Escalation Process Guide",
+          "Issue Resolution Template"
+        ],
+        "output": [
+          "Crisis Management Plan",
+          "Escalation Process Guide",
+          "Issue Resolution Template"
+        ]
+      }
+    },
+    {
+      "id": "12-5",
+      "name": "Renewals Pipelines",
+      "blockId": 12,
+      "blockName": "Retention Systems",
+      "phase": 5,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Contract Negotiation Guide",
+          "Renewal Forecast Model",
+          "Renewal Playbook"
+        ],
+        "output": [
+          "Contract Negotiation Guide",
+          "Renewal Forecast Model",
+          "Renewal Playbook"
+        ]
+      }
+    },
+    {
+      "id": "12-6",
+      "name": "Churn Root-Cause Engine",
+      "blockId": 12,
+      "blockName": "Retention Systems",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Churn Analysis Framework",
+          "Exit Interview Template",
+          "Win-Back Strategy"
+        ],
+        "output": [
+          "Churn Analysis Framework",
+          "Exit Interview Template",
+          "Win-Back Strategy"
+        ]
+      }
+    },
+    {
+      "id": "13-1",
+      "name": "Category Narrative Canvas",
+      "blockId": 13,
+      "blockName": "Market Domination Strategies",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Category Design Framework",
+          "Category Manifesto Template",
+          "Point of View Document"
+        ],
+        "output": [
+          "Category Design Framework",
+          "Category Manifesto Template",
+          "Point of View Document"
+        ]
+      }
+    },
+    {
+      "id": "13-2",
+      "name": "Strategic MOAT Design",
+      "blockId": 13,
+      "blockName": "Market Domination Strategies",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Defensibility Map",
+          "Moat Assessment Framework",
+          "Moat Investment Plan"
+        ],
+        "output": [
+          "Competitive Defensibility Map",
+          "Moat Assessment Framework",
+          "Moat Investment Plan"
+        ]
+      }
+    },
+    {
+      "id": "13-3",
+      "name": "Ecosystem Leverage Map",
+      "blockId": 13,
+      "blockName": "Market Domination Strategies",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Ecosystem Development Plan",
+          "Network Effects Calculator",
+          "Platform Strategy Canvas"
+        ],
+        "output": [
+          "Ecosystem Development Plan",
+          "Network Effects Calculator",
+          "Platform Strategy Canvas"
+        ]
+      }
+    },
+    {
+      "id": "13-4",
+      "name": "Competitor GTM Monitoring",
+      "blockId": 13,
+      "blockName": "Market Domination Strategies",
+      "phase": 5,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Intelligence Framework",
+          "Market Share Tracker",
+          "Strategic Response Playbook"
+        ],
+        "output": [
+          "Competitive Intelligence Framework",
+          "Market Share Tracker",
+          "Strategic Response Playbook"
+        ]
+      }
+    },
+    {
+      "id": "13-5",
+      "name": "Brand Architecture Plan",
+      "blockId": 13,
+      "blockName": "Market Domination Strategies",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Brand Guidelines",
+          "Brand Strategy Framework",
+          "Messaging Hierarchy"
+        ],
+        "output": [
+          "Brand Guidelines",
+          "Brand Strategy Framework",
+          "Messaging Hierarchy"
+        ]
+      }
+    },
+    {
+      "id": "13-6",
+      "name": "Defensive GTM Tactics",
+      "blockId": 13,
+      "blockName": "Market Domination Strategies",
+      "phase": 5,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Competitive Defense Playbook",
+          "Counter-Positioning Guide",
+          "Market Protection Strategy"
+        ],
+        "output": [
+          "Competitive Defense Playbook",
+          "Counter-Positioning Guide",
+          "Market Protection Strategy"
+        ]
+      }
+    },
+    {
+      "id": "14-1",
+      "name": "System Architecture Diagram",
+      "blockId": 14,
+      "blockName": "Operational Infrastructure",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Architecture Diagram Template",
+          "Integration Checklist",
+          "System Documentation Guide"
+        ],
+        "output": [
+          "Architecture Diagram Template",
+          "Integration Checklist",
+          "System Documentation Guide"
+        ]
+      }
+    },
+    {
+      "id": "14-2",
+      "name": "Revenue Engine Map",
+      "blockId": 14,
+      "blockName": "Operational Infrastructure",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "GTM Tech Stack Audit",
+          "Revenue Operations Map",
+          "Systems Integration Plan"
+        ],
+        "output": [
+          "GTM Tech Stack Audit",
+          "Revenue Operations Map",
+          "Systems Integration Plan"
+        ]
+      }
+    },
+    {
+      "id": "14-3",
+      "name": "Internal Dashboards",
+      "blockId": 14,
+      "blockName": "Operational Infrastructure",
+      "phase": 5,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Executive Dashboard Template",
+          "KPI Tracking System",
+          "Operational Metrics Dashboard"
+        ],
+        "output": [
+          "Executive Dashboard Template",
+          "KPI Tracking System",
+          "Operational Metrics Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "14-4",
+      "name": "Tool Consolidation Tracker",
+      "blockId": 14,
+      "blockName": "Operational Infrastructure",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Consolidation Roadmap",
+          "ROI Analysis Framework",
+          "Tool Audit Template"
+        ],
+        "output": [
+          "Consolidation Roadmap",
+          "ROI Analysis Framework",
+          "Tool Audit Template"
+        ]
+      }
+    },
+    {
+      "id": "14-5",
+      "name": "RevOps Playbook",
+      "blockId": 14,
+      "blockName": "Operational Infrastructure",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Process Documentation",
+          "Revenue Operations Playbook",
+          "SOP Library"
+        ],
+        "output": [
+          "Process Documentation",
+          "Revenue Operations Playbook",
+          "SOP Library"
+        ]
+      }
+    },
+    {
+      "id": "14-6",
+      "name": "Internal SLA Policy",
+      "blockId": 14,
+      "blockName": "Operational Infrastructure",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Performance Standards Guide",
+          "SLA Definition Template",
+          "Service Level Agreement"
+        ],
+        "output": [
+          "Performance Standards Guide",
+          "SLA Definition Template",
+          "Service Level Agreement"
+        ]
+      }
+    },
+    {
+      "id": "15-1",
+      "name": "Executive Team",
+      "blockId": 15,
+      "blockName": "Leadership Expansion",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "90-Day Plan Template",
+          "Executive Job Description",
+          "Interview Scorecard"
+        ],
+        "output": [
+          "90-Day Plan Template",
+          "Executive Job Description",
+          "Interview Scorecard"
+        ]
+      }
+    },
+    {
+      "id": "15-2",
+      "name": "Board Development",
+      "blockId": 15,
+      "blockName": "Leadership Expansion",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Board Charter",
+          "Board Deck Template",
+          "Director Onboarding Kit"
+        ],
+        "output": [
+          "Board Charter",
+          "Board Deck Template",
+          "Director Onboarding Kit"
+        ]
+      }
+    },
+    {
+      "id": "15-3",
+      "name": "Succession Planning",
+      "blockId": 15,
+      "blockName": "Leadership Expansion",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Development Action Plan",
+          "Succession Planning Grid",
+          "Talent Review Template"
+        ],
+        "output": [
+          "Development Action Plan",
+          "Succession Planning Grid",
+          "Talent Review Template"
+        ]
+      }
+    },
+    {
+      "id": "15-4",
+      "name": "Stakeholder Alignment",
+      "blockId": 15,
+      "blockName": "Leadership Expansion",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Alignment Canvas",
+          "Communication Calendar",
+          "Stakeholder Map"
+        ],
+        "output": [
+          "Alignment Canvas",
+          "Communication Calendar",
+          "Stakeholder Map"
+        ]
+      }
+    },
+    {
+      "id": "15-5",
+      "name": "Investor Relations",
+      "blockId": 15,
+      "blockName": "Leadership Expansion",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Board Report Format",
+          "Data Room Checklist",
+          "Investor Update Template"
+        ],
+        "output": [
+          "Board Report Format",
+          "Data Room Checklist",
+          "Investor Update Template"
+        ]
+      }
+    },
+    {
+      "id": "15-6",
+      "name": "Leadership Dynamics",
+      "blockId": 15,
+      "blockName": "Leadership Expansion",
+      "phase": 5,
+      "status": "WARNING",
+      "issues": [],
+      "warnings": [
+        "No templates appear directly related to subcomponent domain"
+      ],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Conflict Resolution Guide",
+          "Team Assessment Survey",
+          "Team Charter Template"
+        ],
+        "output": [
+          "Conflict Resolution Guide",
+          "Team Assessment Survey",
+          "Team Charter Template"
+        ]
+      }
+    },
+    {
+      "id": "16-1",
+      "name": "Market Selection",
+      "blockId": 16,
+      "blockName": "Global Expansion Opportunities",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Entry Strategy Framework",
+          "Market Entry Canvas",
+          "Market Sizing Model"
+        ],
+        "output": [
+          "Entry Strategy Framework",
+          "Market Entry Canvas",
+          "Market Sizing Model"
+        ]
+      }
+    },
+    {
+      "id": "16-2",
+      "name": "Localization Infrastructure",
+      "blockId": 16,
+      "blockName": "Global Expansion Opportunities",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Localization Requirements Matrix",
+          "Market Launch Checklist",
+          "Translation Style Guide"
+        ],
+        "output": [
+          "Localization Requirements Matrix",
+          "Market Launch Checklist",
+          "Translation Style Guide"
+        ]
+      }
+    },
+    {
+      "id": "16-3",
+      "name": "International Pricing Matrix",
+      "blockId": 16,
+      "blockName": "Global Expansion Opportunities",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Currency Strategy",
+          "Global Pricing Model",
+          "Regional Pricing Analysis"
+        ],
+        "output": [
+          "Currency Strategy",
+          "Global Pricing Model",
+          "Regional Pricing Analysis"
+        ]
+      }
+    },
+    {
+      "id": "16-4",
+      "name": "Regional Compliance Tracker",
+      "blockId": 16,
+      "blockName": "Global Expansion Opportunities",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Audit Preparation Checklist",
+          "Compliance Requirements Matrix",
+          "Risk Assessment Framework"
+        ],
+        "output": [
+          "Audit Preparation Checklist",
+          "Compliance Requirements Matrix",
+          "Risk Assessment Framework"
+        ]
+      }
+    },
+    {
+      "id": "16-5",
+      "name": "Geo-Specific GTM Playbooks",
+      "blockId": 16,
+      "blockName": "Global Expansion Opportunities",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Local Partnership Guide",
+          "Market-Specific Strategy",
+          "Regional GTM Playbook"
+        ],
+        "output": [
+          "Local Partnership Guide",
+          "Market-Specific Strategy",
+          "Regional GTM Playbook"
+        ]
+      }
+    },
+    {
+      "id": "16-6",
+      "name": "Expansion Risk Assessment",
+      "blockId": 16,
+      "blockName": "Global Expansion Opportunities",
+      "phase": 5,
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "checks": {
+        "hasResources": true,
+        "hasOutputs": true,
+        "resourceTemplates": 3,
+        "outputTemplates": 3,
+        "templatesMatch": true,
+        "domainConsistent": true,
+        "templateCountOk": true,
+        "hasAgent": true,
+        "hasEducation": true,
+        "hasWorkspace": true,
+        "hasAnalysis": true
+      },
+      "templates": {
+        "resources": [
+          "Market Entry Risk Analysis",
+          "Mitigation Strategy Framework",
+          "Risk Assessment Matrix"
+        ],
+        "output": [
+          "Market Entry Risk Analysis",
+          "Mitigation Strategy Framework",
+          "Risk Assessment Matrix"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "templateIssues": [],
+    "missingTemplates": [],
+    "mismatchedTemplates": [],
+    "domainIssues": [],
+    "completeSubcomponents": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-6",
+      "2-1",
+      "2-3",
+      "2-4",
+      "3-1",
+      "3-2",
+      "3-4",
+      "3-5",
+      "3-6",
+      "4-1",
+      "4-2",
+      "4-3",
+      "4-4",
+      "4-5",
+      "4-6",
+      "5-1",
+      "5-2",
+      "5-3",
+      "5-4",
+      "5-5",
+      "5-6",
+      "6-1",
+      "6-2",
+      "6-3",
+      "6-4",
+      "6-5",
+      "6-6",
+      "7-2",
+      "7-3",
+      "7-4",
+      "7-5",
+      "7-6",
+      "8-1",
+      "8-2",
+      "8-3",
+      "8-4",
+      "8-6",
+      "9-1",
+      "9-2",
+      "9-3",
+      "9-4",
+      "10-1",
+      "10-2",
+      "10-3",
+      "10-4",
+      "10-5",
+      "10-6",
+      "11-1",
+      "11-2",
+      "11-3",
+      "11-5",
+      "11-6",
+      "12-1",
+      "12-2",
+      "12-3",
+      "12-4",
+      "12-6",
+      "13-1",
+      "13-2",
+      "13-3",
+      "13-5",
+      "14-1",
+      "14-2",
+      "14-4",
+      "14-5",
+      "14-6",
+      "15-1",
+      "15-2",
+      "15-3",
+      "15-4",
+      "15-5",
+      "16-1",
+      "16-2",
+      "16-3",
+      "16-4",
+      "16-5",
+      "16-6"
+    ]
+  }
+}

@@ -435,6 +435,607 @@ class FileGenerationService {
         });
     }
 
+    // Generate Populated Template DOCX (with workspace answers)
+    async generatePopulatedTemplateDOCX(templateData, subcomponentId) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const templateName = templateData.templateName || 'Template';
+                const fileName = `${templateName.toLowerCase().replace(/\s+/g, '-')}_${subcomponentId}_${Date.now()}.docx`;
+                const filePath = path.join(this.outputDir, 'docx', fileName);
+
+                // Create document sections
+                const sections = [];
+
+                // Title section
+                sections.push(
+                    new Paragraph({
+                        text: templateName,
+                        heading: HeadingLevel.TITLE,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 200 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: `For ${templateData.subcomponentName || subcomponentId}`,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Workspace Responses Section
+                sections.push(
+                    new Paragraph({
+                        text: 'Workspace Responses',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const workspaceData = templateData.workspaceData || {};
+                if (Object.keys(workspaceData).length > 0) {
+                    Object.entries(workspaceData).forEach(([key, data]) => {
+                        const question = data.question || data.text || key;
+                        const answer = data.answer || data.value || data;
+
+                        // Question
+                        sections.push(
+                            new Paragraph({
+                                children: [
+                                    new TextRun({
+                                        text: question,
+                                        bold: true,
+                                        size: 24
+                                    })
+                                ],
+                                spacing: { before: 300, after: 100 }
+                            })
+                        );
+
+                        // Answer
+                        sections.push(
+                            new Paragraph({
+                                text: String(answer),
+                                spacing: { after: 200 }
+                            })
+                        );
+                    });
+                } else {
+                    sections.push(
+                        new Paragraph({
+                            text: 'No workspace data available. Complete the workspace tab to populate this template.',
+                            italics: true,
+                            spacing: { after: 400 }
+                        })
+                    );
+                }
+
+                // Strategic Recommendations Section
+                sections.push(
+                    new Paragraph({
+                        text: 'Strategic Recommendations',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const score = templateData.score || 0;
+                const recommendations = this.generateTemplateRecommendations(score);
+                
+                recommendations.forEach((rec, index) => {
+                    sections.push(
+                        new Paragraph({
+                            text: `${index + 1}. ${rec}`,
+                            spacing: { after: 150 }
+                        })
+                    );
+                });
+
+                // Next Steps Section
+                sections.push(
+                    new Paragraph({
+                        text: 'Strategic Next Steps',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const nextSteps = [
+                    'Immediate (Week 1-2): Validate assumptions with customer interviews',
+                    'Short-term (Month 1): Quantify problem impact with specific metrics',
+                    'Medium-term (Month 2-3): Develop and test MVP solution',
+                    'Long-term (Month 4-6): Scale based on validated learnings',
+                    'Ongoing: Maintain continuous feedback and iteration cycles'
+                ];
+
+                nextSteps.forEach((step, index) => {
+                    sections.push(
+                        new Paragraph({
+                            text: `${index + 1}. ${step}`,
+                            spacing: { after: 150 }
+                        })
+                    );
+                });
+
+                // Footer
+                sections.push(
+                    new Paragraph({
+                        text: `Generated on ${new Date().toLocaleString()}`,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { before: 600 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: '© 2025 ScaleOps6 - ST6Co',
+                        alignment: AlignmentType.CENTER
+                    })
+                );
+
+                // Create document
+                const doc = new Document({
+                    sections: [{
+                        properties: {},
+                        children: sections
+                    }]
+                });
+
+                // Generate and save
+                const buffer = await Packer.toBuffer(doc);
+                fs.writeFileSync(filePath, buffer);
+
+                // Save to database
+                this.saveDocumentRecord(subcomponentId, 'docx', fileName, filePath, 'populated_template');
+
+                resolve({
+                    success: true,
+                    fileName,
+                    filePath,
+                    url: `/generated/docx/${fileName}`,
+                    filename: fileName
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    // Generate BLANK Template DOCX (for Resources tab - no workspace data)
+    async generateBlankTemplateDOCX(templateData, subcomponentId) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const templateName = templateData.templateName || 'Template';
+                const fileName = `${templateName.toLowerCase().replace(/\s+/g, '-')}_blank_${subcomponentId}_${Date.now()}.docx`;
+                const filePath = path.join(this.outputDir, 'docx', fileName);
+
+                // Create document sections
+                const sections = [];
+
+                // Title section
+                sections.push(
+                    new Paragraph({
+                        text: templateName,
+                        heading: HeadingLevel.TITLE,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 200 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: `For ${templateData.subcomponentName || subcomponentId}`,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Instructions Section
+                sections.push(
+                    new Paragraph({
+                        text: 'Instructions',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: 'This is a blank template for you to fill out. Complete each section with your specific information and strategic insights. Use this template to document your analysis, planning, and implementation details.',
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Template Sections (blank for user to fill)
+                const templateSections = [
+                    { title: 'Overview', prompt: 'Provide a comprehensive overview of your initiative, including background, context, and key objectives.' },
+                    { title: 'Current State Analysis', prompt: 'Describe the current situation, challenges, and opportunities you have identified.' },
+                    { title: 'Strategic Objectives', prompt: 'List your key objectives and goals. What are you trying to achieve?' },
+                    { title: 'Approach & Methodology', prompt: 'Outline your strategic approach and the methodology you will use.' },
+                    { title: 'Implementation Plan', prompt: 'Detail your implementation plan, including timeline, resources, and key milestones.' },
+                    { title: 'Success Metrics & KPIs', prompt: 'Define how you will measure success. What are your key performance indicators?' },
+                    { title: 'Risk Assessment', prompt: 'Identify potential risks and your mitigation strategies.' },
+                    { title: 'Next Steps', prompt: 'Outline immediate next steps and action items.' }
+                ];
+
+                templateSections.forEach(section => {
+                    sections.push(
+                        new Paragraph({
+                            text: section.title,
+                            heading: HeadingLevel.HEADING_2,
+                            spacing: { before: 400, after: 200 }
+                        })
+                    );
+
+                    sections.push(
+                        new Paragraph({
+                            children: [
+                                new TextRun({
+                                    text: section.prompt,
+                                    italics: true,
+                                    color: '666666'
+                                })
+                            ],
+                            spacing: { after: 200 }
+                        })
+                    );
+
+                    // Add blank lines for user to fill in
+                    sections.push(
+                        new Paragraph({
+                            text: '[Your response here]',
+                            spacing: { after: 100 }
+                        })
+                    );
+
+                    sections.push(
+                        new Paragraph({
+                            text: '',
+                            spacing: { after: 100 }
+                        })
+                    );
+
+                    sections.push(
+                        new Paragraph({
+                            text: '',
+                            spacing: { after: 100 }
+                        })
+                    );
+
+                    sections.push(
+                        new Paragraph({
+                            text: '',
+                            spacing: { after: 300 }
+                        })
+                    );
+                });
+
+                // Footer
+                sections.push(
+                    new Paragraph({
+                        text: `Template generated on ${new Date().toLocaleString()}`,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { before: 600 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: '© 2025 ScaleOps6 - ST6Co',
+                        alignment: AlignmentType.CENTER
+                    })
+                );
+
+                // Create document
+                const doc = new Document({
+                    sections: [{
+                        properties: {},
+                        children: sections
+                    }]
+                });
+
+                // Generate and save
+                const buffer = await Packer.toBuffer(doc);
+                fs.writeFileSync(filePath, buffer);
+
+                // Save to database
+                this.saveDocumentRecord(subcomponentId, 'docx', fileName, filePath, 'blank_template');
+
+                resolve({
+                    success: true,
+                    fileName,
+                    filePath,
+                    url: `/generated/docx/${fileName}`,
+                    filename: fileName
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    // Generate Score History Report DOCX
+    async generateScoreHistoryDOCX(historyEntry, subcomponentId) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const date = new Date(historyEntry.timestamp);
+                const entryId = historyEntry.id || historyEntry.timestamp;
+                const fileName = `score-history-report_${subcomponentId}_${entryId}_${Date.now()}.docx`;
+                const filePath = path.join(this.outputDir, 'docx', fileName);
+
+                // Create document sections
+                const sections = [];
+
+                // Title section
+                sections.push(
+                    new Paragraph({
+                        text: 'ScaleOps6 Score History Report',
+                        heading: HeadingLevel.TITLE,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 200 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: 'Powered by ST6Co',
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Report Details
+                sections.push(
+                    new Paragraph({
+                        text: 'Report Details',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'Entry ID: ', bold: true }),
+                            new TextRun({ text: String(entryId) })
+                        ],
+                        spacing: { after: 100 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'Subcomponent: ', bold: true }),
+                            new TextRun({ text: subcomponentId })
+                        ],
+                        spacing: { after: 100 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'Analysis Date: ', bold: true }),
+                            new TextRun({ text: date.toLocaleDateString() })
+                        ],
+                        spacing: { after: 100 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'Analysis Time: ', bold: true }),
+                            new TextRun({ text: date.toLocaleTimeString() })
+                        ],
+                        spacing: { after: 100 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'User: ', bold: true }),
+                            new TextRun({ text: historyEntry.user || 'ST6C0' })
+                        ],
+                        spacing: { after: 100 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'Generated: ', bold: true }),
+                            new TextRun({ text: new Date().toLocaleString() })
+                        ],
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Performance Score
+                sections.push(
+                    new Paragraph({
+                        text: 'Performance Score',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const scoreLevel = historyEntry.score >= 80 ? 'EXCELLENT ⭐⭐⭐⭐⭐' :
+                                  historyEntry.score >= 60 ? 'GOOD ⭐⭐⭐⭐' :
+                                  historyEntry.score >= 40 ? 'FAIR ⭐⭐⭐' : 'NEEDS IMPROVEMENT ⭐⭐';
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({
+                                text: `${historyEntry.score}%`,
+                                size: 48,
+                                bold: true,
+                                color: this.getScoreColorHex(historyEntry.score)
+                            })
+                        ],
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 200 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        children: [
+                            new TextRun({ text: 'Performance Level: ', bold: true }),
+                            new TextRun({ text: scoreLevel })
+                        ],
+                        alignment: AlignmentType.CENTER,
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Score Interpretation
+                sections.push(
+                    new Paragraph({
+                        text: 'Score Interpretation',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const interpretation = historyEntry.score >= 80 ?
+                    'EXCELLENT PERFORMANCE - Your subcomponent demonstrates outstanding performance across all key metrics. Continue maintaining these high standards while exploring optimization opportunities.' :
+                    historyEntry.score >= 60 ?
+                    'GOOD PERFORMANCE - Your subcomponent shows solid performance with room for targeted improvements. Focus on addressing specific weaknesses to reach excellence.' :
+                    historyEntry.score >= 40 ?
+                    'FAIR PERFORMANCE - Your subcomponent has a foundation but requires significant improvements. Prioritize addressing critical gaps and strengthening core capabilities.' :
+                    'NEEDS IMPROVEMENT - Your subcomponent requires immediate attention and strategic intervention. Focus on fundamental improvements and establishing strong foundations.';
+
+                sections.push(
+                    new Paragraph({
+                        text: interpretation,
+                        spacing: { after: 400 }
+                    })
+                );
+
+                // Key Recommendations
+                sections.push(
+                    new Paragraph({
+                        text: 'Key Recommendations',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const recommendations = this.generateTemplateRecommendations(historyEntry.score);
+                recommendations.forEach((rec, index) => {
+                    sections.push(
+                        new Paragraph({
+                            text: `${index + 1}. ${rec}`,
+                            spacing: { after: 150 }
+                        })
+                    );
+                });
+
+                // Next Steps
+                sections.push(
+                    new Paragraph({
+                        text: 'Next Steps',
+                        heading: HeadingLevel.HEADING_1,
+                        spacing: { before: 400, after: 200 }
+                    })
+                );
+
+                const nextSteps = [
+                    'Review this analysis with your team',
+                    'Prioritize recommended actions based on impact and effort',
+                    'Set specific, measurable goals for improvement',
+                    'Schedule follow-up assessment in 30-60 days',
+                    'Track progress against established benchmarks',
+                    'Document lessons learned and best practices'
+                ];
+
+                nextSteps.forEach((step, index) => {
+                    sections.push(
+                        new Paragraph({
+                            text: `• ${step}`,
+                            spacing: { after: 100 }
+                        })
+                    );
+                });
+
+                // Footer
+                sections.push(
+                    new Paragraph({
+                        text: `Generated on ${new Date().toLocaleString()}`,
+                        alignment: AlignmentType.CENTER,
+                        spacing: { before: 600 }
+                    })
+                );
+
+                sections.push(
+                    new Paragraph({
+                        text: '© 2025 ScaleOps6 - ST6Co | Professional Business Analysis Platform',
+                        alignment: AlignmentType.CENTER
+                    })
+                );
+
+                // Create document
+                const doc = new Document({
+                    sections: [{
+                        properties: {},
+                        children: sections
+                    }]
+                });
+
+                // Generate and save
+                const buffer = await Packer.toBuffer(doc);
+                fs.writeFileSync(filePath, buffer);
+
+                // Save to database
+                this.saveDocumentRecord(subcomponentId, 'docx', fileName, filePath, 'score_history_report');
+
+                resolve({
+                    success: true,
+                    fileName,
+                    filePath,
+                    url: `/generated/docx/${fileName}`,
+                    filename: fileName
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    // Generate recommendations based on score
+    generateTemplateRecommendations(score) {
+        if (score >= 80) {
+            return [
+                'Scale your validated solution across new market segments',
+                'Document and systematize your successful processes',
+                'Explore strategic partnerships for accelerated growth',
+                'Invest in advanced analytics and automation',
+                'Consider international expansion opportunities'
+            ];
+        } else if (score >= 60) {
+            return [
+                'Focus on optimizing core operational processes',
+                'Implement comprehensive customer feedback systems',
+                'Strengthen product-market fit validation',
+                'Build scalable infrastructure for growth',
+                'Develop clear KPIs and tracking mechanisms'
+            ];
+        } else {
+            return [
+                'Prioritize problem validation with target customers',
+                'Establish clear value proposition',
+                'Focus on achieving initial product-market fit',
+                'Build minimum viable solution for testing',
+                'Implement agile development processes'
+            ];
+        }
+    }
+
     // Generate Template PDF
     async generateTemplatePDF(templateData, subcomponentId) {
         return new Promise((resolve, reject) => {
@@ -532,19 +1133,25 @@ class FileGenerationService {
 
     // Save document record to database
     saveDocumentRecord(subcomponentId, docType, fileName, filePath, category) {
-        const fileSize = fs.statSync(filePath).size;
-        const mimeType = docType === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-        
-        db.run(`
-            INSERT INTO generated_documents 
-            (subcomponent_id, document_type, document_name, file_path, file_size, mime_type, metadata)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        `, [subcomponentId, docType, fileName, filePath, fileSize, mimeType, JSON.stringify({ category })],
-        (err) => {
-            if (err) {
-                console.error('Error saving document record:', err);
-            }
-        });
+        try {
+            const fileSize = fs.statSync(filePath).size;
+            
+            // Simple insert without mime_type column (which doesn't exist in schema)
+            db.run(`
+                INSERT INTO generated_documents
+                (subcomponent_id, document_type, file_path, file_size, metadata)
+                VALUES (?, ?, ?, ?, ?)
+            `, [subcomponentId, docType, filePath, fileSize, JSON.stringify({ category, fileName })],
+            (err) => {
+                if (err) {
+                    console.error('Error saving document record:', err);
+                } else {
+                    console.log('✅ Document record saved successfully');
+                }
+            });
+        } catch (error) {
+            console.error('Error in saveDocumentRecord:', error);
+        }
     }
 
     // Get expert recommendations from database

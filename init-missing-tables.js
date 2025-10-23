@@ -74,8 +74,11 @@ const tables = [
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         subcomponent_id TEXT NOT NULL,
         document_type TEXT NOT NULL,
+        document_name TEXT NOT NULL,
         file_path TEXT NOT NULL,
         file_size INTEGER,
+        mime_type TEXT,
+        metadata TEXT,
         session_id TEXT,
         user_id TEXT DEFAULT 'default',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
