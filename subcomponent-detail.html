@@ -1904,6 +1904,28 @@
          - No script conflicts - uses server-side generation
          - Replaces PDF downloads with downloadable Word documents -->
     
+    <!-- ============================================ -->
+    <!-- DOWNLOAD FUNCTION PROTECTOR - Prevents overrides -->
+    <!-- ============================================ -->
+    <script src="download-function-protector.js"></script>
+    <!-- Features:
+         - Locks download functions after they're defined
+         - Prevents later scripts from overriding
+         - Non-breaking: Only adds protection
+         - Can be disabled by removing this line
+         - SAFE: Rollback by removing this script tag -->
+    
+    <!-- ============================================ -->
+    <!-- TAB SWITCH PROTECTOR - Prevents double-loading -->
+    <!-- ============================================ -->
+    <script src="tab-switch-protector.js"></script>
+    <!-- Features:
+         - Debounces rapid tab clicks
+         - Prevents concurrent tab switches
+         - Wraps existing switchTab without modifying it
+         - Can be disabled by removing this line
+         - SAFE: Rollback by removing this script tag -->
+    
     <!-- FIX: Resources Tab Download Buttons - FINAL VERSION -->
     <script src="fix-resources-downloads-final.js"></script>
     <!-- Features:
