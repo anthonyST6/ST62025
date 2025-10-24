@@ -1134,23 +1134,46 @@ class FileGenerationService {
     // Save document record to database
     saveDocumentRecord(subcomponentId, docType, fileName, filePath, category) {
         try {
-            const fileSize = fs.statSync(filePath).size;
+            // Safely check if file exists before getting size
+            let fileSize = 0;
+            try {
+                if (fs.existsSync(filePath)) {
+                    fileSize = fs.statSync(filePath).size;
+                }
+            } catch (statError) {
+                console.warn('⚠️ Could not get file size:', statError.message);
+            }
             
-            // Simple insert without mime_type column (which doesn't exist in schema)
+            // Determine mime type based on document type
+            const mimeType = docType === 'pdf' ? 'application/pdf' :
+                           docType === 'docx' ? 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' :
+                           'application/octet-stream';
+            
+            // Safe insert with all required columns including document_name
             db.run(`
                 INSERT INTO generated_documents
-                (subcomponent_id, document_type, file_path, file_size, metadata)
-                VALUES (?, ?, ?, ?, ?)
-            `, [subcomponentId, docType, filePath, fileSize, JSON.stringify({ category, fileName })],
+                (subcomponent_id, document_type, document_name, file_path, file_size, mime_type, metadata)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            `, [
+                subcomponentId,
+                docType,
+                fileName,
+                filePath,
+                fileSize,
+                mimeType,
+                JSON.stringify({ category, fileName, generated: new Date().toISOString() })
+            ],
             (err) => {
                 if (err) {
-                    console.error('Error saving document record:', err);
+                    console.error('❌ Error saving document record:', err.message);
+                    // Don't throw - just log the error so document generation still succeeds
                 } else {
                     console.log('✅ Document record saved successfully');
                 }
             });
         } catch (error) {
-            console.error('Error in saveDocumentRecord:', error);
+            console.error('❌ Error in saveDocumentRecord:', error.message);
+            // Don't throw - just log so the document generation can still complete
         }
     }
 

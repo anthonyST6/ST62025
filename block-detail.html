@@ -688,22 +688,22 @@
                 <div class="stat-card">
                     <div class="stat-label">Current Score</div>
                     <div class="stat-value" id="current-score">87%</div>
-                    <div class="stat-change positive">+5% this week</div>
+                    <div class="stat-change positive" id="current-change">+5% this week</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Average Score</div>
                     <div class="stat-value" id="avg-score">82%</div>
-                    <div class="stat-change positive">+3% overall</div>
+                    <div class="stat-change positive" id="avg-change">+3% overall</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Best Score</div>
                     <div class="stat-value" id="best-score">87%</div>
-                    <div class="stat-change">Achieved today</div>
+                    <div class="stat-change" id="best-change">Achieved today</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Completion</div>
-                    <div class="stat-value" id="completion">6/6</div>
-                    <div class="stat-change positive">100% complete</div>
+                    <div class="stat-value" id="completion">0/6</div>
+                    <div class="stat-change" id="completion-change">0% complete</div>
                 </div>
             </div>
         </div>
@@ -1084,8 +1084,11 @@
                 
                 scoreHistory = data.history;
                 changeEvents = data.changeEvents || [];
+                const completedCount = data.completedCount || 0;
+                const totalCount = data.totalCount || 6;
                 
                 console.log(`Received ${scoreHistory.length} history points and ${changeEvents.length} change events`);
+                console.log(`Completion: ${completedCount}/${totalCount} subcomponents`);
                 
                 // Process data for chart
                 const labels = [];
@@ -1125,8 +1128,8 @@
                     changeDetails: changeDetails
                 });
                 
-                // Update statistics
-                updateStatistics(scores);
+                // Update statistics with actual completion count from API
+                updateStatistics(scores, completedCount);
                 
                 // Update change log with clickable entries
                 populateChangeLog(changeEvents);
@@ -1212,8 +1215,17 @@
             updateStatistics(data);
         }
 
-        // Update statistics cards
-        function updateStatistics(data) {
+        // Update statistics cards with real data
+        function updateStatistics(data, completedCount = 0) {
+            if (!data || data.length === 0) {
+                document.getElementById('current-score').textContent = 'N/A';
+                document.getElementById('avg-score').textContent = 'N/A';
+                document.getElementById('best-score').textContent = 'N/A';
+                document.getElementById('completion').textContent = `${completedCount}/6`;
+                document.getElementById('completion-change').textContent = `${Math.round((completedCount / 6) * 100)}% complete`;
+                return;
+            }
+            
             const currentScore = data[data.length - 1];
             const avgScore = Math.round(data.reduce((a, b) => a + b, 0) / data.length);
             const bestScore = Math.max(...data);
@@ -1223,11 +1235,25 @@
             document.getElementById('avg-score').textContent = avgScore + '%';
             document.getElementById('best-score').textContent = bestScore + '%';
             
+            // ✅ Update completion from actual data
+            document.getElementById('completion').textContent = `${completedCount}/6`;
+            const completionPct = Math.round((completedCount / 6) * 100);
+            const completionChange = document.getElementById('completion-change');
+            if (completionChange) {
+                completionChange.textContent = `${completionPct}% complete`;
+                completionChange.className = completionPct === 100 ? 'stat-change positive' : 'stat-change';
+            }
+            
             // Update change indicators
-            const currentChange = document.querySelector('#current-score').parentElement.querySelector('.stat-change');
+            const currentChange = document.getElementById('current-change');
             if (currentChange) {
-                currentChange.textContent = weekChange > 0 ? `+${weekChange}% this week` : `${weekChange}% this week`;
-                currentChange.className = weekChange >= 0 ? 'stat-change positive' : 'stat-change negative';
+                if (weekChange === 0) {
+                    currentChange.textContent = 'No change this week';
+                    currentChange.className = 'stat-change';
+                } else {
+                    currentChange.textContent = weekChange > 0 ? `+${weekChange}% this week` : `${weekChange}% this week`;
+                    currentChange.className = weekChange >= 0 ? 'stat-change positive' : 'stat-change negative';
+                }
             }
         }
 
@@ -1289,6 +1315,11 @@
                 
                 // Analyze each subcomponent for improvement opportunities
                 blockData.subBlocks.forEach(subBlock => {
+                    // ✅ Skip N/A subcomponents (no analysis yet)
+                    if (subBlock.score === null || subBlock.score === undefined) {
+                        return;
+                    }
+                    
                     const scoreDiff = 100 - subBlock.score;
                     if (scoreDiff > 0) {
                         // Calculate potential improvement based on how low the score is
@@ -1314,11 +1345,12 @@
                         // Create recommendation object
                         recommendations.push({
                             area: subBlock.name,
-                            action: `Improve ${subBlock.name} from ${subBlock.score}% to target`,
+                            // ✅ Removed "to target" reference (SSOT compliant)
+                            action: `Improve ${subBlock.name} from ${subBlock.score}% through systematic improvements`,
                             priority: priority,
                             impact: `+${improvement} points`,
                             currentScore: subBlock.score,
-                            targetScore: Math.min(100, subBlock.score + improvement * 3),
+                            // ✅ Remove targetScore (SSOT violation)
                             actionPlan: [
                                 `Complete the ${subBlock.name} worksheet with detailed information`,
                                 `Run AI analysis to identify specific weaknesses`,
@@ -1418,10 +1450,6 @@
                                     <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Current Score</div>
                                     <div style="color: #FF9800; font-size: 16px; font-weight: 600;">${rec.currentScore}%</div>
                                 </div>
-                                <div>
-                                    <div style="color: #999; font-size: 11px; text-transform: uppercase; margin-bottom: 3px;">Target Score</div>
-                                    <div style="color: #2196F3; font-size: 16px; font-weight: 600;">${rec.targetScore}%</div>
-                                </div>
                             </div>
                             
                             <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -1518,10 +1546,6 @@
                                 <div style="text-align: center;">
                                     <div style="color: #999; font-size: 12px; margin-bottom: 5px;">Current Score</div>
                                     <div style="color: #FF9800; font-size: 24px; font-weight: 700;">${rec.currentScore}%</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="color: #999; font-size: 12px; margin-bottom: 5px;">Target Score</div>
-                                    <div style="color: #2196F3; font-size: 24px; font-weight: 700;">${rec.targetScore}%</div>
                                 </div>
                             </div>
                         </div>
@@ -1630,13 +1654,22 @@
             
             subBlocks.forEach(subBlock => {
                 const div = document.createElement('div');
-                const scoreClass = getScoreClass(subBlock.score);
+                // ✅ Handle null scores for N/A display
+                const scoreClass = subBlock.score !== null ? getScoreClass(subBlock.score) : 'score-needs-improvement';
                 div.className = `subblock ${scoreClass}`;
+                
+                // ✅ Use scoreDisplay from API (handles N/A)
+                const scoreDisplay = subBlock.scoreDisplay || (subBlock.score !== null ? `${Math.round(subBlock.score)}%` : 'N/A');
+                
+                // ✅ Use status from API
+                const statusDisplay = subBlock.status || 'In Progress';
+                const statusClass = subBlock.status === 'Complete' ? 'complete' : 'pending';
+                
                 div.innerHTML = `
                     <div class="subblock-name">${subBlock.name}</div>
                     ${subBlock.description ? `<p style="font-size: 12px; color: #999; margin: 5px 0 10px 0;">${subBlock.description}</p>` : ''}
-                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${Math.round(subBlock.score)}%</div>
-                    <span class="subblock-status">In Progress</span>
+                    <div class="subblock-score" id="subblock-score-${subBlock.id}">${scoreDisplay}</div>
+                    <span class="subblock-status ${statusClass}">${statusDisplay}</span>
                 `;
                 // Navigate to subcomponent detail page
                 div.onclick = () => {

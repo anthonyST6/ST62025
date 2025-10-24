@@ -1,94 +1,28 @@
 # Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+package-lock.json
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-scaleops6.db
-scaleops6-compliance.db
-
-# Logs
-logs/
+# Generated files
+generated/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+
+# Backups (optional - you may want to version these)
+backups/
+db-snapshots/
+
+# Database (optional - you may want to version this)
+# scaleops6.db
 
 # OS files
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# IDE files
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# Build output
-dist/
-build/
-out/
 
 # Temporary files
 *.tmp
 *.temp
-*.bak
-*.backup
-*.old
-
-# User data
-gdpr-export-*.json
-user-data/
-uploads/
-
-# Test coverage
-coverage/
-*.lcov
-.nyc_output
-
-# Documentation build
-docs/_build/
-docs/.doctrees/
-
-# Python (if any Python scripts)
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# Backup files
-*.backup
-*.bak
-*.orig
-
-# Lock files (keep package-lock.json)
-yarn.lock
-
-# Session data
-sessions/
-
-# Cache
-.cache/
-.parcel-cache/
-
-# Private keys and certificates
-*.pem
-*.key
-*.crt
-*.cer
-private/
+~*

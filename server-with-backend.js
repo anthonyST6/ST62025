@@ -1088,70 +1088,153 @@ const server = http.createServer(async (req, res) => {
     
     // ==================== EXISTING API ROUTES ====================
     
-    // Route: GET /api/blocks/:id/history - Block-level score history
+    // Route: GET /api/blocks/:id/history - Block-level score history (SSOT-COMPLIANT)
     const blockHistoryMatch = pathname.match(/^\/api\/blocks\/(\d+)\/history$/);
     if (blockHistoryMatch && req.method === 'GET') {
         const blockId = parseInt(blockHistoryMatch[1]);
         const days = parseInt(parsedUrl.query.days) || 7;
         
         try {
-            // Generate sample history data for the block
+            console.log(`📊 Building block history from subcomponent analyses for block ${blockId} (${days} days)`);
+            
+            // ✅ SSOT: Get ALL subcomponent score history for this block
+            const subcomponentIds = [];
+            for (let i = 1; i <= 6; i++) {
+                subcomponentIds.push(`${blockId}-${i}`);
+            }
+            
+            // Collect all subcomponent analyses
+            const allAnalyses = [];
+            for (const subId of subcomponentIds) {
+                const subHistory = await database.getScoreHistory(subId, 100); // Get all history
+                subHistory.forEach(entry => {
+                    // getScoreHistory already parses JSON fields
+                    allAnalyses.push({
+                        subcomponentId: subId,
+                        score: entry.overall_score,
+                        timestamp: new Date(entry.created_at),
+                        created_at: entry.created_at,
+                        strengths: Array.isArray(entry.strengths) ? entry.strengths : [],
+                        weaknesses: Array.isArray(entry.weaknesses) ? entry.weaknesses : [],
+                        subcomponentName: entry.subcomponent_name
+                    });
+                });
+            }
+            
+            // Filter to requested time period
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - days);
+            const recentAnalyses = allAnalyses.filter(a => a.timestamp >= cutoffDate);
+            
+            // Sort chronologically
+            recentAnalyses.sort((a, b) => a.timestamp - b.timestamp);
+            
+            console.log(`✅ Found ${recentAnalyses.length} subcomponent analyses in last ${days} days`);
+            
+            // ✅ Build block score progression - SHOW ALL ANALYSES as data points
             const history = [];
             const changeEvents = [];
-            const now = new Date();
-            const block = blocks.find(b => b.id === blockId);
-            const baseScore = block ? block.score : 75;
+            let previousBlockScore = null;
             
-            // Generate history points
-            for (let i = days - 1; i >= 0; i--) {
-                const date = new Date(now);
-                date.setDate(date.getDate() - i);
+            for (const analysis of recentAnalyses) {
+                // Calculate block score at this point in time
+                const scoresAtThisTime = [];
+                for (const subId of subcomponentIds) {
+                    // Get the most recent score for this subcomponent up to this timestamp
+                    const subAnalyses = allAnalyses.filter(a =>
+                        a.subcomponentId === subId &&
+                        a.timestamp <= analysis.timestamp &&
+                        a.score !== null && a.score !== undefined  // ✅ Filter out null scores
+                    );
+                    if (subAnalyses.length > 0) {
+                        const latestForSub = subAnalyses[subAnalyses.length - 1];
+                        if (latestForSub.score !== null && latestForSub.score !== undefined) {
+                            scoresAtThisTime.push(latestForSub.score);
+                        }
+                    }
+                }
                 
-                // Add some variation to scores
-                const variation = Math.sin(i / 3) * 5;
-                const score = Math.round(Math.max(0, Math.min(100, baseScore + variation)));
+                const blockScore = scoresAtThisTime.length > 0
+                    ? Math.round(scoresAtThisTime.reduce((a, b) => a + b, 0) / scoresAtThisTime.length)
+                    : null;
                 
-                history.push({
-                    date: date.toISOString().split('T')[0],
-                    score: score,
-                    hasChange: i % 7 === 0, // Mark weekly changes
-                    changeEvent: i % 7 === 0 ? {
-                        event: i === 0 ? 'Latest Assessment' : 'Weekly Review',
-                        eventType: i === days - 1 ? 'baseline' : 'improvement',
-                        title: i === 0 ? 'Current State' : `Week ${Math.floor((days - i) / 7)} Update`,
-                        improvement: i > 0 ? Math.round(score - (baseScore + Math.sin((i + 1) / 3) * 5)) : 0,
-                        previousScore: i > 0 ? Math.round(baseScore + Math.sin((i + 1) / 3) * 5) : score,
-                        newScore: score,
-                        weaknesses: ['Sample weakness'],
-                        actions: ['Sample action taken']
-                    } : null
-                });
+                // Debug logging
+                if (history.length < 3) {
+                    console.log(`  Analysis ${history.length + 1}: ${analysis.subcomponentName} at ${analysis.timestamp.toISOString()}`);
+                    console.log(`    Scores at this time: [${scoresAtThisTime.join(', ')}]`);
+                    console.log(`    Block score: ${blockScore}%`);
+                }
                 
-                // Add change events for weekly markers
-                if (i % 7 === 0) {
-                    changeEvents.push({
-                        date: date.toISOString().split('T')[0],
-                        dateFormatted: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-                        event: i === 0 ? 'Latest Assessment' : 'Weekly Review',
-                        eventType: i === days - 1 ? 'baseline' : 'improvement',
-                        title: i === 0 ? 'Current State' : `Week ${Math.floor((days - i) / 7)} Update`,
-                        improvement: i > 0 ? Math.round(score - (baseScore + Math.sin((i + 1) / 3) * 5)) : 0,
-                        previousScore: i > 0 ? Math.round(baseScore + Math.sin((i + 1) / 3) * 5) : score,
-                        newScore: score,
-                        weaknesses: ['Identified areas for improvement'],
-                        actions: ['Implemented optimization strategies']
+                if (blockScore !== null) {
+                    const improvement = previousBlockScore !== null ? blockScore - previousBlockScore : 0;
+                    const isSignificantChange = Math.abs(improvement) >= 1 || previousBlockScore === null;
+                    
+                    // ✅ ALWAYS add data point (show all analyses)
+                    history.push({
+                        date: analysis.timestamp.toISOString().split('T')[0],
+                        score: blockScore,
+                        hasChange: isSignificantChange,
+                        changeEvent: isSignificantChange ? {
+                            event: `${analysis.subcomponentName || analysis.subcomponentId} Analysis`,
+                            eventType: previousBlockScore === null ? 'baseline' : 'improvement',
+                            title: `${analysis.subcomponentName || analysis.subcomponentId} completed`,
+                            improvement: improvement,
+                            previousScore: previousBlockScore || blockScore,
+                            newScore: blockScore,
+                            weaknesses: analysis.weaknesses.slice(0, 3),
+                            actions: [`Completed ${analysis.subcomponentName || analysis.subcomponentId} analysis`],
+                            subcomponentId: analysis.subcomponentId
+                        } : null
                     });
+                    
+                    // ✅ Add to change log if significant change
+                    if (isSignificantChange) {
+                        changeEvents.push({
+                            date: analysis.timestamp.toISOString().split('T')[0],
+                            dateFormatted: analysis.timestamp.toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            }),
+                            event: `${analysis.subcomponentName || analysis.subcomponentId} Completed`,
+                            eventType: previousBlockScore === null ? 'baseline' : 'improvement',
+                            title: `${analysis.subcomponentName || analysis.subcomponentId} analysis completed`,
+                            improvement: improvement,
+                            previousScore: previousBlockScore || blockScore,
+                            newScore: blockScore,
+                            weaknesses: analysis.weaknesses.slice(0, 3),
+                            actions: [`Analyzed ${analysis.subcomponentName || analysis.subcomponentId}`, `Block score ${improvement > 0 ? 'increased' : improvement < 0 ? 'decreased' : 'maintained'} at ${blockScore}%`],
+                            subcomponentId: analysis.subcomponentId
+                        });
+                    }
+                    
+                    previousBlockScore = blockScore;
                 }
             }
+            
+            console.log(`✅ Generated ${history.length} block score data points from subcomponent analyses`);
+            
+            // ✅ Calculate actual completion count (only subcomponents with non-null scores)
+            const completedSubcomponents = new Set(
+                allAnalyses
+                    .filter(a => a.score !== null && a.score !== undefined)
+                    .map(a => a.subcomponentId)
+            ).size;
+            
+            console.log(`✅ Completion: ${completedSubcomponents}/6 subcomponents have valid scores`);
             
             res.setHeader('Content-Type', 'application/json');
             res.writeHead(200);
             res.end(JSON.stringify({
                 history: history,
-                changeEvents: changeEvents
+                changeEvents: changeEvents,
+                completedCount: completedSubcomponents,
+                totalCount: 6
             }));
         } catch (error) {
-            console.error('Error generating block history:', error);
+            console.error('Error fetching block history:', error);
             res.setHeader('Content-Type', 'application/json');
             res.writeHead(500);
             res.end(JSON.stringify({ error: error.message }));
@@ -1167,35 +1250,66 @@ const server = http.createServer(async (req, res) => {
         return;
     }
     
-    // Route: GET /api/blocks/:id
+    // Route: GET /api/blocks/:id - FIXED: Database-driven scores with N/A support
     const blockMatch = pathname.match(/^\/api\/blocks\/(\d+)$/);
     if (blockMatch && req.method === 'GET') {
         const blockId = parseInt(blockMatch[1]);
         const block = blocks.find(b => b.id === blockId);
         
         if (block) {
-            const subBlocks = subcomponents[blockId].map((subId, index) => {
-                const agent = getAgentForSubcomponent(subId);
-                const agentName = AGENT_CORRECT_MAPPING[subId];
-                const subcomponentName = SUBCOMPONENT_NAMES[subId] || `Subcomponent ${index + 1}`;
-                return {
-                    id: subId,
-                    name: subcomponentName,
-                    description: agent ? agent.description : "Subcomponent description",
-                    score: Math.round(testCompany.blockScores[blockId] ?
-                        testCompany.blockScores[blockId].score + (Math.random() * 10 - 5) :
-                        70 + Math.floor(Math.random() * 20)),
-                    agentName: agentName,
-                    companyContext: {
-                        company: testCompany.name,
-                        blockScore: testCompany.blockScores[blockId]
-                    }
-                };
-            });
-            
-            res.setHeader('Content-Type', 'application/json');
-            res.writeHead(200);
-            res.end(JSON.stringify({ ...block, subBlocks }));
+            try {
+                // Get all subcomponent scores from database
+                const subBlocks = [];
+                
+                for (let i = 1; i <= 6; i++) {
+                    const subId = `${blockId}-${i}`;
+                    const agent = getAgentForSubcomponent(subId);
+                    const agentName = AGENT_CORRECT_MAPPING[subId];
+                    const subcomponentName = SUBCOMPONENT_NAMES[subId] || `Subcomponent ${i}`;
+                    
+                    // ✅ Query database for latest score
+                    const latestScore = await database.getLatestSubcomponentScore(subId);
+                    const status = await database.getSubcomponentStatus(subId);
+                    
+                    subBlocks.push({
+                        id: subId,
+                        name: subcomponentName,
+                        description: agent ? agent.description : "Subcomponent description",
+                        // ✅ Use database score or null for N/A
+                        score: latestScore ? latestScore.overall_score : null,
+                        scoreDisplay: latestScore && latestScore.overall_score !== null ? `${latestScore.overall_score}%` : 'N/A',
+                        // ✅ Status from database
+                        status: status.status,
+                        analysisCount: status.analysis_count || 0,
+                        lastAnalyzed: latestScore ? latestScore.created_at : null,
+                        agentName: agentName,
+                        companyContext: {
+                            company: testCompany.name,
+                            blockScore: testCompany.blockScores[blockId]
+                        }
+                    });
+                }
+                
+                // ✅ Calculate block average (excluding N/A scores)
+                const blockAverage = await database.calculateBlockAverage(blockId);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({
+                    ...block,
+                    subBlocks,
+                    // ✅ Block score from cache (excluding N/A)
+                    score: blockAverage.average !== null ? blockAverage.average : block.score,
+                    completedSubcomponents: blockAverage.completedCount,
+                    totalSubcomponents: blockAverage.totalCount,
+                    completionPercentage: Math.round((blockAverage.completedCount / 6) * 100)
+                }));
+            } catch (error) {
+                console.error('Error fetching block data:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: 'Failed to fetch block data' }));
+            }
         } else {
             res.setHeader('Content-Type', 'application/json');
             res.writeHead(404);
@@ -1507,15 +1621,21 @@ globalThis.__dimensionArrayTemp.push({
                     
                     const strengths = generateStrengths(dimensionScores, agent);
                     const weaknesses = generateWeaknesses(dimensionScores, agent);
-                    const recommendations = expertRecommendations.length > 0 ? 
+                    const recommendations = expertRecommendations.length > 0 ?
                         expertRecommendations.map(r => ({
                             title: r.title,
                             description: r.description,
                             priority: r.priority,
                             impactScore: r.impact_score,
                             estimatedTime: r.estimated_time
-                        })) : 
+                        })) :
                         generateDefaultRecommendations(dimensionScores, agent);
+                    
+                    // ✅ Validate mathematical consistency
+                    const mathValidation = validateImprovementMath(dimensionScores, recommendations);
+                    if (!mathValidation.isConsistent) {
+                        console.warn(`⚠️ Math validation failed for ${subcomponentId}:`, mathValidation);
+                    }
                     
                     // Build dimensions array from temp (if created), then clear temp
                     const dimensionArray = Array.isArray(globalThis.__dimensionArrayTemp) ? globalThis.__dimensionArrayTemp : [];
@@ -1572,6 +1692,14 @@ globalThis.__dimensionArrayTemp.push({
                         answers: responses,
                         sessionId: sessionId
                     });
+                    
+                    // ✅ Update subcomponent status to "Complete"
+                    await database.updateSubcomponentStatus(subcomponentId, finalScore);
+                    
+                    // ✅ Recalculate block average and store history (SSOT-compliant)
+                    await database.calculateBlockAverage(blockId, subcomponentId);
+                    
+                    console.log(`✅ Updated status for ${subcomponentId} to Complete`);
                     
                     // Update analysis session
                     await database.updateAnalysisSession(sessionId, {
@@ -2325,7 +2453,8 @@ function generateDefaultRecommendations(dimensionScores, agent) {
         if (score < 70) {
             recommendations.push({
                 title: `Improve ${dimension}`,
-                description: `Focus on enhancing ${dimension} to reach the 80% excellence threshold`,
+                // ✅ Removed target score reference
+                description: `Focus on enhancing ${dimension} through systematic improvements`,
                 priority: score < 50 ? 'high' : 'medium',
                 impactScore: 100 - score,
                 estimatedTime: '30-60 days'
@@ -2334,6 +2463,34 @@ function generateDefaultRecommendations(dimensionScores, agent) {
     });
     
     return recommendations;
+}
+
+// ✅ Validate mathematical consistency in improvement calculations
+function validateImprovementMath(dimensionScores, recommendations) {
+    const totalGap = Object.values(dimensionScores)
+        .filter(score => typeof score === 'number')
+        .reduce((sum, score) => sum + Math.max(0, 100 - score), 0);
+    
+    const totalImpact = recommendations
+        .reduce((sum, rec) => sum + (rec.impactScore || 0), 0);
+    
+    // Allow 5% tolerance for rounding
+    const tolerance = totalGap * 0.05;
+    const isConsistent = Math.abs(totalGap - totalImpact) <= tolerance;
+    
+    if (!isConsistent) {
+        console.warn(`⚠️ Mathematical inconsistency detected:`);
+        console.warn(`   Total gap: ${totalGap}`);
+        console.warn(`   Total impact: ${totalImpact}`);
+        console.warn(`   Difference: ${Math.abs(totalGap - totalImpact)}`);
+    }
+    
+    return {
+        isConsistent,
+        totalGap,
+        totalImpact,
+        difference: Math.abs(totalGap - totalImpact)
+    };
 }
 
 /**

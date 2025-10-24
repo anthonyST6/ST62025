@@ -449,6 +449,334 @@ class DatabaseService {
         });
     }
 
+    // Get latest score for a subcomponent (returns null if no analysis exists)
+    getLatestSubcomponentScore(subcomponentId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT overall_score, created_at, status
+                FROM score_history
+                WHERE subcomponent_id = ?
+                ORDER BY created_at DESC, id DESC
+                LIMIT 1
+            `;
+            
+            this.db.get(query, [subcomponentId], (err, row) => {
+                if (err) {
+                    console.error('Error fetching latest score:', err);
+                    reject(err);
+                } else {
+                    resolve(row || null);
+                }
+            });
+        });
+    }
+
+    // Get subcomponent status (Pending/Complete)
+    getSubcomponentStatus(subcomponentId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT * FROM subcomponent_status
+                WHERE subcomponent_id = ?
+            `;
+            
+            this.db.get(query, [subcomponentId], (err, row) => {
+                if (err) {
+                    console.error('Error fetching subcomponent status:', err);
+                    reject(err);
+                } else {
+                    resolve(row || { status: 'Pending', analysis_count: 0 });
+                }
+            });
+        });
+    }
+
+    // Update subcomponent status after analysis
+    updateSubcomponentStatus(subcomponentId, score) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO subcomponent_status
+                (subcomponent_id, status, first_analysis_date, last_analysis_date,
+                 analysis_count, latest_score, updated_at)
+                VALUES (?, 'Complete', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1, ?, CURRENT_TIMESTAMP)
+                ON CONFLICT(subcomponent_id) DO UPDATE SET
+                    status = 'Complete',
+                    last_analysis_date = CURRENT_TIMESTAMP,
+                    analysis_count = analysis_count + 1,
+                    latest_score = ?,
+                    updated_at = CURRENT_TIMESTAMP
+            `;
+            
+            this.db.run(query, [subcomponentId, score, score], (err) => {
+                if (err) {
+                    console.error('Error updating subcomponent status:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true });
+                }
+            });
+        });
+    }
+
+    // Calculate and cache block average score (excluding N/A subcomponents)
+    async calculateBlockAverage(blockId, triggerSubcomponentId = null) {
+        const subcomponentIds = [];
+        for (let i = 1; i <= 6; i++) {
+            subcomponentIds.push(`${blockId}-${i}`);
+        }
+        
+        const scores = [];
+        for (const subId of subcomponentIds) {
+            const latestScore = await this.getLatestSubcomponentScore(subId);
+            if (latestScore && latestScore.overall_score !== null) {
+                scores.push(latestScore.overall_score);
+            }
+        }
+        
+        const average = scores.length > 0
+            ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
+            : null;
+        
+        // Get previous score from cache to detect changes
+        const previousCache = await this.getBlockScoreCache(blockId);
+        const previousScore = previousCache ? previousCache.average_score : null;
+        
+        // Update cache
+        await this.updateBlockScoreCache(blockId, average, scores.length);
+        
+        // ✅ SSOT: Store history snapshot if score changed
+        if (average !== null && average !== previousScore) {
+            const changeDescription = triggerSubcomponentId
+                ? `Score updated from ${previousScore || 'N/A'}% to ${average}% after ${triggerSubcomponentId} analysis`
+                : `Block score recalculated: ${average}%`;
+            
+            await this.saveBlockScoreHistory(
+                blockId,
+                average,
+                scores.length,
+                triggerSubcomponentId,
+                changeDescription
+            );
+        }
+        
+        return {
+            average,
+            completedCount: scores.length,
+            totalCount: 6,
+            previousScore: previousScore,
+            scoreChanged: average !== previousScore
+        };
+    }
+
+    // Update block scores cache
+    updateBlockScoreCache(blockId, averageScore, completedCount) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO block_scores_cache
+                (block_id, average_score, completed_count, total_count, last_updated)
+                VALUES (?, ?, ?, 6, CURRENT_TIMESTAMP)
+                ON CONFLICT(block_id) DO UPDATE SET
+                    average_score = ?,
+                    completed_count = ?,
+                    last_updated = CURRENT_TIMESTAMP
+            `;
+            
+            this.db.run(query, [blockId, averageScore, completedCount, averageScore, completedCount], (err) => {
+                if (err) {
+                    console.error('Error updating block cache:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true });
+                }
+            });
+        });
+    }
+
+    // Get block score from cache
+    getBlockScoreCache(blockId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT * FROM block_scores_cache
+                WHERE block_id = ?
+            `;
+            
+            this.db.get(query, [blockId], (err, row) => {
+                if (err) {
+                    console.error('Error fetching block cache:', err);
+                    reject(err);
+                } else {
+                    resolve(row || null);
+                }
+            });
+        });
+    }
+
+    // Get score changes for change log
+    getScoreChanges(subcomponentId, limit = 10) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT
+                    sh1.id,
+                    sh1.overall_score as current_score,
+                    sh1.created_at as change_date,
+                    sh1.analysis_event_type,
+                    sh2.overall_score as previous_score,
+                    (sh1.overall_score - COALESCE(sh2.overall_score, sh1.overall_score)) as score_change,
+                    sh1.dimension_scores as current_dimensions,
+                    sh2.dimension_scores as previous_dimensions
+                FROM score_history sh1
+                LEFT JOIN score_history sh2 ON
+                    sh2.subcomponent_id = sh1.subcomponent_id AND
+                    sh2.id = (
+                        SELECT MAX(id) FROM score_history
+                        WHERE subcomponent_id = sh1.subcomponent_id
+                        AND id < sh1.id
+                    )
+                WHERE sh1.subcomponent_id = ?
+                ORDER BY sh1.created_at DESC
+                LIMIT ?
+            `;
+            
+            this.db.all(query, [subcomponentId, limit], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching score changes:', err);
+                    reject(err);
+                } else {
+                    const changes = rows.map(row => {
+                        const currentDims = JSON.parse(row.current_dimensions || '{}');
+                        const previousDims = JSON.parse(row.previous_dimensions || '{}');
+                        
+                        return {
+                            ...row,
+                            currentDimensions: currentDims,
+                            previousDimensions: previousDims,
+                            dimensionChanges: this.calculateDimensionChanges(currentDims, previousDims)
+                        };
+                    });
+                    resolve(changes);
+                }
+            });
+        });
+    }
+
+    // Calculate dimension-level changes
+    calculateDimensionChanges(current, previous) {
+        const changes = {};
+        Object.keys(current).forEach(dimension => {
+            const currentScore = current[dimension] || 0;
+            const previousScore = previous[dimension] || currentScore;
+            changes[dimension] = {
+                current: currentScore,
+                previous: previousScore,
+                change: currentScore - previousScore
+            };
+        });
+        return changes;
+    }
+
+    // ==================== BLOCK SCORE HISTORY METHODS ====================
+
+    // Save block score history snapshot
+    saveBlockScoreHistory(blockId, score, completedCount, triggerSubcomponentId = null, changeDescription = null) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO block_score_history
+                (block_id, score, completed_count, total_count, trigger_subcomponent_id,
+                 trigger_event_type, change_description)
+                VALUES (?, ?, ?, 6, ?, 'analysis_completed', ?)
+            `;
+
+            const params = [
+                blockId,
+                score,
+                completedCount,
+                triggerSubcomponentId,
+                changeDescription
+            ];
+
+            this.db.run(query, params, function(err) {
+                if (err) {
+                    console.error('Error saving block score history:', err);
+                    reject(err);
+                } else {
+                    console.log(`✅ Saved block ${blockId} history: ${score}% (${completedCount}/6 complete)`);
+                    resolve({
+                        success: true,
+                        id: this.lastID,
+                        message: 'Block score history saved'
+                    });
+                }
+            });
+        });
+    }
+
+    // Get block score history for graphing
+    getBlockScoreHistory(blockId, days = 30) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT
+                    id,
+                    block_id,
+                    score,
+                    completed_count,
+                    total_count,
+                    trigger_subcomponent_id,
+                    trigger_event_type,
+                    change_description,
+                    created_at
+                FROM block_score_history
+                WHERE block_id = ?
+                AND created_at >= datetime('now', '-' || ? || ' days')
+                ORDER BY created_at ASC
+            `;
+
+            this.db.all(query, [blockId, days], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching block score history:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // Get block score change events (for change log table)
+    getBlockScoreChangeEvents(blockId, days = 30) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT
+                    bsh1.id,
+                    bsh1.score as new_score,
+                    bsh1.created_at,
+                    bsh1.trigger_subcomponent_id,
+                    bsh1.change_description,
+                    bsh1.trigger_event_type,
+                    COALESCE(bsh2.score, bsh1.score) as previous_score,
+                    (bsh1.score - COALESCE(bsh2.score, bsh1.score)) as improvement
+                FROM block_score_history bsh1
+                LEFT JOIN block_score_history bsh2 ON
+                    bsh2.block_id = bsh1.block_id AND
+                    bsh2.id = (
+                        SELECT MAX(id) FROM block_score_history
+                        WHERE block_id = bsh1.block_id
+                        AND id < bsh1.id
+                    )
+                WHERE bsh1.block_id = ?
+                AND bsh1.created_at >= datetime('now', '-' || ? || ' days')
+                ORDER BY bsh1.created_at DESC
+            `;
+
+            this.db.all(query, [blockId, days], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching block change events:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
     // Close database connection
     close() {
         return new Promise((resolve, reject) => {
