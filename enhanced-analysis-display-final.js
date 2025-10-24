@@ -375,9 +375,6 @@
                     <button class="btn-secondary" onclick="switchTab('workspace', null)" style="background: transparent; color: #FF5500; border: 2px solid #FF5500; padding: 14px 32px; border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
                         ✏️ Back to Worksheet
                     </button>
-                    <button class="btn-secondary" onclick="shareAnalysis()" style="background: transparent; color: #2196F3; border: 2px solid #2196F3; padding: 14px 32px; border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
-                        🔗 Share Results
-                    </button>
                 </div>
             </div>
             `;
@@ -921,24 +918,27 @@
     // UTILITY FUNCTIONS
     // ============================================================================
     
-    // Download function removed - handled by docx-download-client.js
-    // This prevents override of the DOCX download functionality
-    
-    window.shareAnalysis = function() {
-        console.log('🔗 Sharing analysis...');
-        const url = window.location.href;
-        if (navigator.share) {
-            navigator.share({
-                title: 'ScaleOps6 Enhanced Analysis Results',
-                text: 'Check out my ScaleOps6 analysis results!',
-                url: url
-            }).catch(err => console.log('Share cancelled:', err));
+    window.downloadAnalysisReport = function() {
+        console.log('📥 Downloading analysis report...');
+        const subcomponentId = new URLSearchParams(window.location.search).get('id') || 'unknown';
+        const savedAnalysis = localStorage.getItem(`analysis_${subcomponentId}`);
+        
+        if (savedAnalysis) {
+            const analysis = JSON.parse(savedAnalysis);
+            
+            // Call the DOCX download function from docx-download-client.js
+            if (typeof window.downloadDOCX === 'function') {
+                window.downloadDOCX('Analysis Report', subcomponentId, {}, analysis.score || 0, false);
+            } else {
+                console.error('❌ DOCX download function not available');
+                alert('Download functionality is loading. Please try again in a moment.');
+            }
         } else {
-            navigator.clipboard.writeText(url).then(() => {
-                alert('Link copied to clipboard!');
-            });
+            alert('No analysis data available to download');
         }
     };
+    
+    // Share function removed per user request
     
     // ============================================================================
     // INSTALLATION
