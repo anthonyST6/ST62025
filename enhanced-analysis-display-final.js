@@ -367,9 +367,10 @@
             // Dimension Performance section removed per request
             
             // Add Action Buttons
+            const subId = new URLSearchParams(window.location.search).get('id') || '1-1';
             html += `
                 <div style="display: flex; gap: 15px; margin-top: 40px; flex-wrap: wrap;">
-                    <button class="btn-primary" onclick="downloadAnalysisReport()" style="background: linear-gradient(135deg, #FF5500, #FF8800); color: white; border: none; padding: 14px 32px; border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);">
+                    <button class="btn-primary" onclick="if(typeof downloadAnalysisReport === 'function') { downloadAnalysisReport('${subId}', { score: ${score} }); } else { alert('Download function not ready'); }" style="background: linear-gradient(135deg, #FF5500, #FF8800); color: white; border: none; padding: 14px 32px; border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);">
                         📥 Download Report
                     </button>
                     <button class="btn-secondary" onclick="switchTab('workspace', null)" style="background: transparent; color: #FF5500; border: 2px solid #FF5500; padding: 14px 32px; border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
@@ -918,25 +919,9 @@
     // UTILITY FUNCTIONS
     // ============================================================================
     
-    window.downloadAnalysisReport = function() {
-        console.log('📥 Downloading analysis report...');
-        const subcomponentId = new URLSearchParams(window.location.search).get('id') || 'unknown';
-        const savedAnalysis = localStorage.getItem(`analysis_${subcomponentId}`);
-        
-        if (savedAnalysis) {
-            const analysis = JSON.parse(savedAnalysis);
-            
-            // Call the DOCX download function from docx-download-client.js
-            if (typeof window.downloadDOCX === 'function') {
-                window.downloadDOCX('Analysis Report', subcomponentId, {}, analysis.score || 0, false);
-            } else {
-                console.error('❌ DOCX download function not available');
-                alert('Download functionality is loading. Please try again in a moment.');
-            }
-        } else {
-            alert('No analysis data available to download');
-        }
-    };
+    // Download function intentionally NOT defined here
+    // It will be defined by docx-download-client.js and protected by download-function-protector.js
+    // The button onclick calls downloadAnalysisReport() which must be defined elsewhere
     
     // Share function removed per user request
     
