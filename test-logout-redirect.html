@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Logout Redirect</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px 10px 0;
+            font-size: 14px;
+        }
+        button:hover { background: #d64d2d; }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .success { background: rgba(76, 175, 80, 0.2); color: #4CAF50; }
+        .info { background: rgba(33, 150, 243, 0.2); color: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Logout Redirect Test</h1>
+    
+    <div class="test-section">
+        <h2>Current Session Status</h2>
+        <div id="sessionStatus"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 1: Clear Session & Access Dashboard</h2>
+        <p style="color: #999; font-size: 14px; margin-bottom: 15px;">
+            This will clear your session and try to access the dashboard.<br>
+            Expected: Should redirect to /signup.html (not /payment.html)
+        </p>
+        <button onclick="testLogoutRedirect()">Clear Session & Go to Dashboard</button>
+        <div id="test1Result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: Restore Session</h2>
+        <p style="color: #999; font-size: 14px; margin-bottom: 15px;">
+            Restore your session to continue using the app
+        </p>
+        <button onclick="restoreSession()">Restore Session</button>
+        <div id="test2Result"></div>
+    </div>
+
+    <script>
+        // Store current session before testing
+        let savedSession = null;
+        
+        function displaySessionStatus() {
+            const userId = localStorage.getItem('userId');
+            const userEmail = localStorage.getItem('userEmail');
+            const firebaseToken = localStorage.getItem('firebaseToken');
+            
+            const statusDiv = document.getElementById('sessionStatus');
+            
+            if (userId && firebaseToken) {
+                statusDiv.innerHTML = `
+                    <div class="status success">
+                        ✅ <strong>Logged In</strong><br>
+                        User ID: ${userId}<br>
+                        Email: ${userEmail || 'N/A'}<br>
+                        Token: ${firebaseToken.substring(0, 20)}...
+                    </div>
+                `;
+                
+                // Save session for restoration
+                savedSession = {
+                    userId,
+                    userEmail,
+                    firebaseToken,
+                    userName: localStorage.getItem('userName')
+                };
+            } else {
+                statusDiv.innerHTML = `
+                    <div class="status info">
+                        ℹ️ <strong>Not Logged In</strong><br>
+                        No active session found
+                    </div>
+                `;
+            }
+        }
+        
+        function testLogoutRedirect() {
+            const resultDiv = document.getElementById('test1Result');
+            resultDiv.innerHTML = '<div class="status info">⏳ Clearing session and redirecting...</div>';
+            
+            // Clear all session data
+            localStorage.removeItem('userId');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('firebaseToken');
+            localStorage.removeItem('userName');
+            
+            // Wait a moment then redirect to dashboard
+            setTimeout(() => {
+                window.location.href = '/dashboard.html';
+            }, 1000);
+        }
+        
+        function restoreSession() {
+            const resultDiv = document.getElementById('test2Result');
+            
+            if (!savedSession) {
+                resultDiv.innerHTML = '<div class="status info">⚠️ No saved session to restore</div>';
+                return;
+            }
+            
+            // Restore session
+            localStorage.setItem('userId', savedSession.userId);
+            localStorage.setItem('userEmail', savedSession.userEmail);
+            localStorage.setItem('firebaseToken', savedSession.firebaseToken);
+            if (savedSession.userName) {
+                localStorage.setItem('userName', savedSession.userName);
+            }
+            
+            resultDiv.innerHTML = '<div class="status success">✅ Session restored! Refreshing status...</div>';
+            
+            setTimeout(() => {
+                displaySessionStatus();
+                resultDiv.innerHTML = '<div class="status success">✅ Session restored successfully!</div>';
+            }, 500);
+        }
+        
+        // Display status on load
+        displaySessionStatus();
+    </script>
+</body>
+</html>

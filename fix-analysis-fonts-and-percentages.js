@@ -232,7 +232,7 @@
                 
                 <!-- Action Buttons -->
                 <div style="display: flex; gap: 15px; justify-content: center; margin-top: 40px; font-family: ${fontFamily};">
-                    <button onclick="window.downloadAnalysisReport && window.downloadAnalysisReport()" style="
+                    <button onclick="window.downloadAnalysisReport && window.downloadAnalysisReport('${subcomponentId}', window.currentAnalysis || {})" style="
                         background: linear-gradient(135deg, #FF5500, #FF8800);
                         color: white;
                         border: none;

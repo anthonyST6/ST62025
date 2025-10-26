@@ -326,20 +326,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- FIX: Auto-login MUST run before payment guard -->
+    <script src="fix-all-three-issues.js"></script>
+    <!-- Payment Guard - Check if user has paid before accessing dashboard -->
+    <script src="payment-guard.js"></script>
+    <script src="fix-demo-user-issues.js"></script>
+    <script src="diagnostic-login-and-scores.js"></script>
+    <!-- DEBUG: Auth issues diagnostic -->
+    <script src="debug-auth-issues.js"></script>
+    <!-- Load actual scores from API for non-demo users -->
+    <script src="load-dashboard-scores.js"></script>
+    <!-- Fix navigation company name and analysis downloads -->
+    <script src="fix-navigation-and-downloads.js"></script>
     <script src="nav.js"></script>
     
     <div class="container">
         <header>
             <h1>The GTM Accelerator™</h1>
             <p class="subtitle">Interactive maturity assessment across your startup journey</p>
-            <div style="margin-top: 20px;">
-                <a href="admin.html" style="color: #FF5500; text-decoration: none; margin-right: 20px; font-weight: 600;">
-                    ⚙️ Admin Panel
-                </a>
-                <a href="ssot-monitoring-dashboard.html" style="color: #FF5500; text-decoration: none; font-weight: 600;">
-                    🛡️ SSOT Monitor
-                </a>
-            </div>
         </header>
 
         <!-- Phase 1: Idea Market Fit -->

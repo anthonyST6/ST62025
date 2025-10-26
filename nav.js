@@ -3,10 +3,14 @@ function createNavigation() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
     // Check if user is logged in
-    const sessionId = localStorage.getItem('sessionId');
+    const userId = localStorage.getItem('userId');
+    const firebaseToken = localStorage.getItem('firebaseToken');
     const userName = localStorage.getItem('userName');
     const userEmail = localStorage.getItem('userEmail');
     const isGuest = localStorage.getItem('isGuest') === 'true';
+    
+    // User is logged in if they have userId and firebaseToken
+    const isLoggedIn = !!(userId && firebaseToken);
     
     // Navigation HTML
     const navHTML = `
@@ -77,7 +81,7 @@ function createNavigation() {
                         Dashboard
                     </a>
                     
-                    ${sessionId && !isGuest ? `
+                    ${userId && !isGuest && userEmail && !userEmail.endsWith('@demo.com') ? `
                         <a href="/admin.html" class="nav-link ${currentPage === 'admin.html' ? 'active' : ''}" style="
                             color: ${currentPage === 'admin.html' ? '#FF5500' : '#ccc'};
                             text-decoration: none;
@@ -112,7 +116,7 @@ function createNavigation() {
                 
                 <!-- User Section -->
                 <div style="display: flex; align-items: center; gap: 20px;">
-                    ${sessionId ? `
+                    ${isLoggedIn ? `
                         <div style="display: flex; align-items: center; gap: 15px;">
                             <div style="
                                 display: flex;
@@ -148,7 +152,7 @@ function createNavigation() {
                             </button>
                         </div>
                     ` : `
-                        <a href="/login.html" style="
+                        <a href="/signup.html" style="
                             padding: 8px 20px;
                             background: #FF5500;
                             color: white;
@@ -157,9 +161,9 @@ function createNavigation() {
                             font-size: 13px;
                             font-weight: 600;
                             transition: all 0.3s ease;
-                        " onmouseover="this.style.background='#d64d2d';" 
+                        " onmouseover="this.style.background='#d64d2d';"
                            onmouseout="this.style.background='#FF5500';">
-                            Login
+                            Sign Up
                         </a>
                     `}
                     
@@ -213,14 +217,17 @@ function createNavigation() {
 
 // Global functions
 function logout() {
+    console.log('🔓 Logging out user...');
     localStorage.clear();
+    console.log('✅ Redirecting to login page');
     window.location.href = '/login.html';
 }
 
 function showAnalytics() {
     // Check if user is logged in
-    const sessionId = localStorage.getItem('sessionId');
-    if (!sessionId) {
+    const userId = localStorage.getItem('userId');
+    const firebaseToken = localStorage.getItem('firebaseToken');
+    if (!userId || !firebaseToken) {
         alert('Please login to view analytics');
         window.location.href = '/login.html';
         return;

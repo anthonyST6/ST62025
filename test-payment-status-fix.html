@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Payment Status Fix</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #f44336; }
+        button {
+            background: #FF5500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px 10px 0;
+        }
+        button:hover { background: #d64d2d; }
+        pre {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Payment Status Endpoint Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: With x-user-id Header (Fixed Method)</h2>
+        <button onclick="testWithHeader()">Run Test</button>
+        <div id="result1"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: With Query Parameter (Fallback)</h2>
+        <button onclick="testWithQuery()">Run Test</button>
+        <div id="result2"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Without userId (Should Fail)</h2>
+        <button onclick="testWithoutUserId()">Run Test</button>
+        <div id="result3"></div>
+    </div>
+
+    <script>
+        async function testWithHeader() {
+            const resultDiv = document.getElementById('result1');
+            resultDiv.innerHTML = '<p>Testing...</p>';
+            
+            try {
+                const response = await fetch('/api/stripe/payment-status', {
+                    method: 'GET',
+                    headers: {
+                        'x-user-id': 'test-user-123',
+                        'Authorization': 'Bearer test-token'
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <p class="success">✅ SUCCESS (Status: ${response.status})</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <p class="error">❌ FAILED (Status: ${response.status})</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ ERROR: ${error.message}</p>`;
+            }
+        }
+        
+        async function testWithQuery() {
+            const resultDiv = document.getElementById('result2');
+            resultDiv.innerHTML = '<p>Testing...</p>';
+            
+            try {
+                const response = await fetch('/api/stripe/payment-status?userId=test-user-456', {
+                    method: 'GET'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <p class="success">✅ SUCCESS (Status: ${response.status})</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <p class="error">❌ FAILED (Status: ${response.status})</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ ERROR: ${error.message}</p>`;
+            }
+        }
+        
+        async function testWithoutUserId() {
+            const resultDiv = document.getElementById('result3');
+            resultDiv.innerHTML = '<p>Testing...</p>';
+            
+            try {
+                const response = await fetch('/api/stripe/payment-status', {
+                    method: 'GET'
+                });
+                
+                const data = await response.json();
+                
+                if (response.status === 400) {
+                    resultDiv.innerHTML = `
+                        <p class="success">✅ CORRECTLY REJECTED (Status: ${response.status})</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <p class="error">❌ UNEXPECTED (Status: ${response.status})</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ ERROR: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

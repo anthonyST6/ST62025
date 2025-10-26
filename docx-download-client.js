@@ -160,11 +160,86 @@
     
     /**
      * Download Analysis Report (from Analysis tab)
-     * This generates ANALYSIS REPORT documents with scores/recommendations
+     * This generates ANALYSIS REPORT documents with scores/recommendations AND workspace answers
      */
     window.downloadAnalysisReport = function(subcomponentId, analysisData) {
         console.log(`📄 Downloading analysis report for ${subcomponentId}`);
-        downloadDOCX('Analysis Report', subcomponentId, {}, analysisData.score || 0, false); // isTemplate = false
+        console.log('📊 Analysis data received:', analysisData);
+        
+        // ✅ FIX: Collect ALL analysis data including workspace answers, scores, and recommendations
+        let workspaceAnswers = {};
+        let fullAnalysisData = analysisData || {};
+        
+        // Try to get from analysisData first (if passed from analysis)
+        if (analysisData && analysisData.answers) {
+            workspaceAnswers = analysisData.answers;
+            console.log('  ✅ Using workspace answers from analysisData');
+        } else {
+            // Fallback: Get from localStorage
+            try {
+                const savedAnswers = localStorage.getItem(`workspace_answers_${subcomponentId}`);
+                if (savedAnswers) {
+                    workspaceAnswers = JSON.parse(savedAnswers);
+                    console.log('  ✅ Using workspace answers from localStorage');
+                }
+            } catch (e) {
+                console.warn('  ⚠️ Could not load workspace answers:', e);
+            }
+        }
+        
+        // Also try to get the full analysis from window.currentAnalysis or localStorage
+        if (!fullAnalysisData.overallScore && window.currentAnalysis) {
+            fullAnalysisData = window.currentAnalysis;
+            console.log('  ✅ Using full analysis from window.currentAnalysis');
+        }
+        
+        console.log(`  📝 Including ${Object.keys(workspaceAnswers).length} workspace answers in download`);
+        console.log(`  📊 Analysis score: ${fullAnalysisData.overallScore || fullAnalysisData.score || 0}%`);
+        console.log(`  💡 Recommendations: ${fullAnalysisData.recommendations?.length || 0}`);
+        
+        // Prepare complete request data with ALL analysis information
+        const completeData = {
+            templateName: 'Analysis Report',
+            subcomponentId: subcomponentId,
+            workspaceData: workspaceAnswers,
+            score: fullAnalysisData.overallScore || fullAnalysisData.score || 0,
+            // Include ALL analysis data
+            overallScore: fullAnalysisData.overallScore || fullAnalysisData.score || 0,
+            dimensionScores: fullAnalysisData.dimensionScores || fullAnalysisData.detailedScores || {},
+            dimensions: fullAnalysisData.dimensions || [],
+            strengths: fullAnalysisData.strengths || [],
+            weaknesses: fullAnalysisData.weaknesses || [],
+            recommendations: fullAnalysisData.recommendations || [],
+            executiveSummary: fullAnalysisData.executiveSummary || '',
+            timestamp: new Date().toISOString(),
+            company: localStorage.getItem('company') || 'ST6Co',
+            product: 'ScaleOps6'
+        };
+        
+        // Call server with complete data
+        fetch(`/api/generate-docx/${subcomponentId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(completeData)
+        })
+        .then(res => res.json())
+        .then(result => {
+            if (result.success && result.url) {
+                const serverUrl = `http://localhost:3001${result.url}`;
+                const downloadLink = document.createElement('a');
+                downloadLink.href = serverUrl;
+                downloadLink.download = result.filename || `analysis-report-${subcomponentId}.docx`;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                console.log('✅ Analysis report downloaded with complete data');
+            } else {
+                throw new Error(result.error || 'Failed to generate DOCX');
+            }
+        })
+        .catch(error => {
+            console.error('❌ Error downloading analysis report:', error);
+        });
     };
     
     /**

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScaleOps6</title>
+    <title>Login - ScaleOps6</title>
     <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
     <style>
         * {
@@ -20,25 +20,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .login-container {
             background: #111111;
-            border-radius: 12px;
-            padding: 40px;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 440px;
             width: 100%;
-            max-width: 400px;
-            border: 2px solid #333;
+            box-shadow: 0 8px 32px rgba(255, 85, 0, 0.1);
         }
 
         .logo {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .logo h1 {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 800;
             margin-bottom: 8px;
         }
 
@@ -52,10 +54,10 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 8px;
             color: #ccc;
@@ -63,205 +65,350 @@
             font-weight: 500;
         }
 
-        input {
+        .form-group input {
             width: 100%;
-            padding: 12px;
-            background: #1a1a1a;
+            padding: 12px 16px;
+            background: #0a0a0a;
             border: 1px solid #333;
-            border-radius: 6px;
+            border-radius: 8px;
             color: #fff;
             font-size: 14px;
             transition: all 0.3s ease;
         }
 
-        input:focus {
+        .form-group input:focus {
             outline: none;
             border-color: #FF5500;
             box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
         }
 
-        .btn-login {
+        .btn-primary {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background: #FF5500;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
-        .btn-login:hover {
+        .btn-primary:hover {
             background: #d64d2d;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
         }
 
-        .btn-guest {
+        .btn-primary:disabled {
+            background: #444;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-google {
             width: 100%;
-            padding: 12px;
-            background: transparent;
-            color: #888;
-            border: 1px solid #333;
-            border-radius: 6px;
+            padding: 14px;
+            background: #ffffff;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
-        .btn-guest:hover {
-            border-color: #555;
-            color: #aaa;
+        .btn-google:hover {
+            background: #f5f5f5;
+            transform: translateY(-1px);
         }
 
         .divider {
             text-align: center;
-            margin: 20px 0;
-            color: #555;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #333;
+        }
+
+        .divider span {
+            background: #111111;
+            padding: 0 16px;
+            position: relative;
+            color: #666;
             font-size: 12px;
+            text-transform: uppercase;
         }
 
         .error-message {
-            background: rgba(255, 85, 0, 0.1);
-            border: 1px solid rgba(255, 85, 0, 0.3);
-            color: #FF5500;
-            padding: 10px;
-            border-radius: 6px;
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid #f44336;
+            color: #f44336;
+            padding: 12px 16px;
+            border-radius: 8px;
             margin-bottom: 20px;
             font-size: 14px;
             display: none;
         }
 
-        .success-message {
-            background: rgba(76, 175, 80, 0.1);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            color: #4CAF50;
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 20px;
+        .error-message.show {
+            display: block;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 24px;
             font-size: 14px;
+        }
+
+        .links a {
+            color: #FF5500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #ff6b4a;
+        }
+
+        .links .separator {
+            color: #666;
+            margin: 0 12px;
+        }
+
+        .loading {
             display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #333;
+            border-top: 3px solid #FF5500;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <script src="nav.js"></script>
-    
-    <div class="login-container" style="margin-top: 50px;">
+    <div class="login-container">
         <div class="logo">
-            <h1><span>ScaleOps6</span></h1>
-            <p>Growth Execution Framework</p>
+            <h1>scale<span>ops</span><sup style="color: #FF5500; font-size: 18px;">6</sup></h1>
+            <p>Sign in to your account</p>
         </div>
 
-        <div class="error-message" id="errorMessage"></div>
-        <div class="success-message" id="successMessage"></div>
+        <div id="errorMessage" class="error-message"></div>
+        
+        <div id="loginForm">
+            <form id="emailLoginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="you@company.com">
+                </div>
 
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="you@company.com">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn-primary" id="loginButton">
+                    Sign In
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>or</span>
             </div>
 
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required placeholder="John Doe">
+            <button class="btn-google" id="googleSignIn">
+                <svg width="18" height="18" viewBox="0 0 18 18">
+                    <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                    <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+                    <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
+                    <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z"/>
+                </svg>
+                Continue with Google
+            </button>
+
+            <div class="links">
+                <a href="/signup.html">Create account</a>
+                <span class="separator">•</span>
+                <a href="/forgot-password.html">Forgot password?</a>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="company">Company (Optional)</label>
-                <input type="text" id="company" name="company" placeholder="Your Company">
-            </div>
-
-            <button type="submit" class="btn-login">Sign In / Register</button>
-        </form>
-
-        <div class="divider">OR</div>
-
-        <button class="btn-guest" onclick="continueAsGuest()">Continue as Guest</button>
+        <div id="loadingState" class="loading">
+            <div class="spinner"></div>
+            <p>Signing you in...</p>
+        </div>
     </div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
     <script>
-        // Log color update verification
-        console.log('🎨 Brand Color Update Verification:');
-        console.log('Old orange: #FF6B35 (muted burnt orange)');
-        console.log('New orange: #FF5500 (vibrant Scale Team 6 orange)');
-        console.log('Updated rgba: rgba(255, 85, 0, ...) from rgba(232, 93, 61, ...)');
-        
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        // Firebase configuration for login-df66c project
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGBVO31xPpGb06lv4CodXhmxoOskw7alA",
+            authDomain: "login-df66c.firebaseapp.com",
+            projectId: "login-df66c",
+            storageBucket: "login-df66c.firebasestorage.app",
+            messagingSenderId: "146663369589",
+            appId: "1:146663369589:web:e84209c4d5da7a0c5f013c",
+            measurementId: "G-1WCL87JV1V"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // DOM elements
+        const emailLoginForm = document.getElementById('emailLoginForm');
+        const googleSignInBtn = document.getElementById('googleSignIn');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginForm = document.getElementById('loginForm');
+        const loadingState = document.getElementById('loadingState');
+
+        // Show error message
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 5000);
+        }
+
+        // Show loading state
+        function setLoading(isLoading) {
+            if (isLoading) {
+                loginForm.style.display = 'none';
+                loadingState.classList.add('show');
+            } else {
+                loginForm.style.display = 'block';
+                loadingState.classList.remove('show');
+            }
+        }
+
+        // Handle successful login
+        async function handleLoginSuccess(user) {
+            try {
+                // Get Firebase ID token
+                const idToken = await user.getIdToken();
+                
+                // Store token in localStorage
+                localStorage.setItem('firebaseToken', idToken);
+                localStorage.setItem('userEmail', user.email);
+                localStorage.setItem('userId', user.uid);
+                
+                console.log('✅ Login successful:', user.email);
+                
+                // Redirect based on role (will be determined by backend)
+                // For now, redirect to dashboard
+                window.location.href = '/dashboard.html';
+                
+            } catch (error) {
+                console.error('Error handling login:', error);
+                showError('Login successful but failed to complete setup');
+                setLoading(false);
+            }
+        }
+
+        // Email/Password login
+        emailLoginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+            setLoading(true);
+
             const email = document.getElementById('email').value;
-            const name = document.getElementById('name').value;
-            const company = document.getElementById('company').value;
+            const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('/api/session', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email, name, company })
-                });
-
-                const data = await response.json();
-
-                if (data.sessionId) {
-                    // Store session info
-                    localStorage.setItem('sessionId', data.sessionId);
-                    localStorage.setItem('userId', data.userId);
-                    localStorage.setItem('userEmail', email);
-                    localStorage.setItem('userName', name);
-
-                    // Show success message
-                    document.getElementById('successMessage').textContent = 'Login successful! Redirecting...';
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('errorMessage').style.display = 'none';
-
-                    // Redirect to main dashboard
-                    setTimeout(() => {
-                        window.location.href = '/';
-                    }, 1000);
-                } else {
-                    throw new Error('Failed to create session');
-                }
+                const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                await handleLoginSuccess(userCredential.user);
             } catch (error) {
-                document.getElementById('errorMessage').textContent = 'Login failed. Please try again.';
-                document.getElementById('errorMessage').style.display = 'block';
-                document.getElementById('successMessage').style.display = 'none';
+                console.error('Login error:', error);
+                setLoading(false);
+                
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                        showError('No account found with this email');
+                        break;
+                    case 'auth/wrong-password':
+                        showError('Incorrect password');
+                        break;
+                    case 'auth/invalid-email':
+                        showError('Invalid email address');
+                        break;
+                    case 'auth/user-disabled':
+                        showError('This account has been disabled');
+                        break;
+                    case 'auth/too-many-requests':
+                        showError('Too many failed attempts. Please try again later');
+                        break;
+                    default:
+                        showError('Login failed. Please try again');
+                }
             }
         });
 
-        function continueAsGuest() {
-            // Create anonymous session
-            fetch('/api/session', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({})
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.sessionId) {
-                    localStorage.setItem('sessionId', data.sessionId);
-                    localStorage.setItem('isGuest', 'true');
-                    window.location.href = '/';
-                }
-            })
-            .catch(error => {
-                console.error('Error creating guest session:', error);
-                window.location.href = '/';
-            });
-        }
+        // Google Sign-In
+        googleSignInBtn.addEventListener('click', async () => {
+            setLoading(true);
 
-        // Check if already logged in
-        if (localStorage.getItem('sessionId') && !localStorage.getItem('isGuest')) {
-            window.location.href = '/';
-        }
+            const provider = new firebase.auth.GoogleAuthProvider();
+            
+            try {
+                const result = await auth.signInWithPopup(provider);
+                await handleLoginSuccess(result.user);
+            } catch (error) {
+                console.error('Google sign-in error:', error);
+                setLoading(false);
+                
+                if (error.code === 'auth/popup-closed-by-user') {
+                    showError('Sign-in cancelled');
+                } else if (error.code === 'auth/popup-blocked') {
+                    showError('Pop-up blocked. Please allow pop-ups for this site');
+                } else {
+                    showError('Google sign-in failed. Please try again');
+                }
+            }
+        });
+
+        // Check if already logged in - DISABLED to prevent auto-redirect
+        // Users can stay on login page even if logged in
+        // auth.onAuthStateChanged(async (user) => {
+        //     if (user && !window.location.search.includes('force-login')) {
+        //         console.log('User already logged in, redirecting...');
+        //         await handleLoginSuccess(user);
+        //     }
+        // });
     </script>
 </body>
 </html>

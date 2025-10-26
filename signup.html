@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .signup-container {
+            background: #111111;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(255, 85, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .logo h1 span {
+            color: #FF5500;
+        }
+
+        .logo p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #FF5500;
+            box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.1);
+        }
+
+        .password-strength {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .password-strength.weak { color: #f44336; }
+        .password-strength.medium { color: #FF9800; }
+        .password-strength.strong { color: #4CAF50; }
+
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: #FF5500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #d64d2d;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:disabled {
+            background: #444;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-google {
+            width: 100%;
+            padding: 14px;
+            background: #ffffff;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-google:hover {
+            background: #f5f5f5;
+            transform: translateY(-1px);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #333;
+        }
+
+        .divider span {
+            background: #111111;
+            padding: 0 16px;
+            position: relative;
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .error-message {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid #f44336;
+            color: #f44336;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #FF5500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #ff6b4a;
+        }
+
+        .terms {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .terms a {
+            color: #FF5500;
+            text-decoration: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #333;
+            border-top: 3px solid #FF5500;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">
+            <h1>scale<span>ops</span><sup style="color: #FF5500; font-size: 18px;">6</sup></h1>
+            <p>Create your account</p>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+        
+        <div id="signupForm">
+            <form id="emailSignupForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company" required placeholder="Your Startup Inc.">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="you@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Minimum 8 characters" minlength="8">
+                    <div id="passwordStrength" class="password-strength"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter password">
+                </div>
+
+                <button type="submit" class="btn-primary" id="signupButton">
+                    Create Account
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <button class="btn-google" id="googleSignUp">
+                <svg width="18" height="18" viewBox="0 0 18 18">
+                    <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                    <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+                    <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
+                    <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z"/>
+                </svg>
+                Sign up with Google
+            </button>
+
+            <div class="terms">
+                By creating an account, you agree to our<br>
+                <a href="/terms.html">Terms of Service</a> and <a href="/privacy.html">Privacy Policy</a>
+            </div>
+
+            <div class="links">
+                Already have an account? <a href="/login.html">Sign in</a>
+            </div>
+        </div>
+
+        <div id="loadingState" class="loading">
+            <div class="spinner"></div>
+            <p>Creating your account...</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+    <script>
+        // Firebase configuration for login-df66c project
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGBVO31xPpGb06lv4CodXhmxoOskw7alA",
+            authDomain: "login-df66c.firebaseapp.com",
+            projectId: "login-df66c",
+            storageBucket: "login-df66c.firebasestorage.app",
+            messagingSenderId: "146663369589",
+            appId: "1:146663369589:web:e84209c4d5da7a0c5f013c",
+            measurementId: "G-1WCL87JV1V"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // DOM elements
+        const emailSignupForm = document.getElementById('emailSignupForm');
+        const googleSignUpBtn = document.getElementById('googleSignUp');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const signupForm = document.getElementById('signupForm');
+        const loadingState = document.getElementById('loadingState');
+        const passwordInput = document.getElementById('password');
+        const passwordStrength = document.getElementById('passwordStrength');
+
+        // Show error message
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            successMessage.classList.remove('show');
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 5000);
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.classList.add('show');
+            errorMessage.classList.remove('show');
+        }
+
+        // Show loading state
+        function setLoading(isLoading) {
+            if (isLoading) {
+                signupForm.style.display = 'none';
+                loadingState.classList.add('show');
+            } else {
+                signupForm.style.display = 'block';
+                loadingState.classList.remove('show');
+            }
+        }
+
+        // Password strength checker
+        passwordInput.addEventListener('input', (e) => {
+            const password = e.target.value;
+            let strength = 0;
+            let strengthText = '';
+
+            if (password.length >= 8) strength++;
+            if (password.length >= 12) strength++;
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+            if (/\d/.test(password)) strength++;
+            if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+            if (strength <= 2) {
+                strengthText = 'Weak password';
+                passwordStrength.className = 'password-strength weak';
+            } else if (strength <= 3) {
+                strengthText = 'Medium strength';
+                passwordStrength.className = 'password-strength medium';
+            } else {
+                strengthText = 'Strong password';
+                passwordStrength.className = 'password-strength strong';
+            }
+
+            passwordStrength.textContent = password.length > 0 ? strengthText : '';
+        });
+
+        // Handle successful signup
+        async function handleSignupSuccess(user, additionalData = {}) {
+            try {
+                // Get Firebase ID token
+                const idToken = await user.getIdToken();
+                
+                // Send user data to backend to create database record
+                const response = await fetch('/api/auth/complete-signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${idToken}`
+                    },
+                    body: JSON.stringify({
+                        fullName: additionalData.fullName || user.displayName,
+                        company: additionalData.company,
+                        email: user.email
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to complete signup');
+                }
+
+                const data = await response.json();
+
+                // Store token
+                localStorage.setItem('firebaseToken', idToken);
+                localStorage.setItem('userEmail', user.email);
+                localStorage.setItem('userId', user.uid);
+                if (additionalData.fullName) {
+                    localStorage.setItem('userName', additionalData.fullName);
+                }
+                
+                console.log('✅ Signup successful:', user.email);
+                
+                // Check if payment should be skipped (demo/admin users)
+                if (data.skipPayment) {
+                    const roleText = data.role === 'admin' ? 'admin' : 'demo';
+                    showSuccess(`Account created successfully! Welcome ${roleText} user. Redirecting to dashboard...`);
+                    setTimeout(() => {
+                        window.location.href = '/dashboard.html';
+                    }, 2000);
+                } else {
+                    // Regular users go to payment
+                    showSuccess('Account created successfully! Redirecting to payment...');
+                    setTimeout(() => {
+                        window.location.href = '/payment.html';
+                    }, 2000);
+                }
+                
+            } catch (error) {
+                console.error('Error completing signup:', error);
+                showError('Account created but setup incomplete. Please try logging in.');
+                setLoading(false);
+            }
+        }
+
+        // Email/Password signup
+        emailSignupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            setLoading(true);
+
+            const fullName = document.getElementById('fullName').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                showError('Passwords do not match');
+                setLoading(false);
+                return;
+            }
+
+            // Validate password strength
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters');
+                setLoading(false);
+                return;
+            }
+
+            try {
+                // Create user in Firebase
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                
+                // Update display name
+                await userCredential.user.updateProfile({
+                    displayName: fullName
+                });
+
+                // Send verification email
+                await userCredential.user.sendEmailVerification();
+                
+                await handleSignupSuccess(userCredential.user, { fullName, company });
+            } catch (error) {
+                console.error('Signup error:', error);
+                setLoading(false);
+                
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        showError('An account with this email already exists');
+                        break;
+                    case 'auth/invalid-email':
+                        showError('Invalid email address');
+                        break;
+                    case 'auth/weak-password':
+                        showError('Password is too weak. Use at least 8 characters');
+                        break;
+                    case 'auth/operation-not-allowed':
+                        showError('Email/password accounts are not enabled');
+                        break;
+                    default:
+                        showError('Signup failed. Please try again');
+                }
+            }
+        });
+
+        // Google Sign-Up
+        googleSignUpBtn.addEventListener('click', async () => {
+            setLoading(true);
+
+            const provider = new firebase.auth.GoogleAuthProvider();
+            
+            try {
+                const result = await auth.signInWithPopup(provider);
+                await handleSignupSuccess(result.user, {
+                    fullName: result.user.displayName,
+                    company: '' // Will be collected later
+                });
+            } catch (error) {
+                console.error('Google sign-up error:', error);
+                setLoading(false);
+                
+                if (error.code === 'auth/popup-closed-by-user') {
+                    showError('Sign-up cancelled');
+                } else if (error.code === 'auth/popup-blocked') {
+                    showError('Pop-up blocked. Please allow pop-ups for this site');
+                } else if (error.code === 'auth/account-exists-with-different-credential') {
+                    showError('An account already exists with this email');
+                } else {
+                    showError('Google sign-up failed. Please try again');
+                }
+            }
+        });
+
+        // Check if already logged in - DISABLED to prevent auto-redirect
+        // Users can access signup page even if logged in
+        // auth.onAuthStateChanged((user) => {
+        //     if (user && !window.location.search.includes('force-signup')) {
+        //         console.log('User already logged in, redirecting...');
+        //         window.location.href = '/dashboard.html';
+        //     }
+        // });
+    </script>
+</body>
+</html>

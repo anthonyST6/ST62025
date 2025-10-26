@@ -790,6 +790,736 @@ class DatabaseService {
             });
         });
     }
+
+    // ==================== USER MANAGEMENT METHODS ====================
+
+    // Get user by Firebase UID
+    getUserByFirebaseUid(firebaseUid) {
+        return new Promise((resolve, reject) => {
+            const query = 'SELECT * FROM users WHERE firebase_uid = ?';
+            
+            this.db.get(query, [firebaseUid], (err, row) => {
+                if (err) {
+                    console.error('Error fetching user by Firebase UID:', err);
+                    reject(err);
+                } else {
+                    resolve(row || null);
+                }
+            });
+        });
+    }
+
+    // Get user by ID
+    getUserById(userId) {
+        return new Promise((resolve, reject) => {
+            const query = 'SELECT * FROM users WHERE id = ?';
+            
+            this.db.get(query, [userId], (err, row) => {
+                if (err) {
+                    console.error('Error fetching user by ID:', err);
+                    reject(err);
+                } else {
+                    resolve(row || null);
+                }
+            });
+        });
+    }
+
+    // Get user by email
+    getUserByEmail(email) {
+        return new Promise((resolve, reject) => {
+            const query = 'SELECT * FROM users WHERE email = ?';
+            
+            this.db.get(query, [email], (err, row) => {
+                if (err) {
+                    console.error('Error fetching user by email:', err);
+                    reject(err);
+                } else {
+                    resolve(row || null);
+                }
+            });
+        });
+    }
+
+    // Create new user
+    createUser(userData) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO users
+                (firebase_uid, email, name, full_name, company, role, tier, subscription_status, stripe_customer_id, metadata)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+
+            const params = [
+                userData.firebaseUid,
+                userData.email,
+                userData.fullName || userData.email.split('@')[0], // name is required
+                userData.fullName || null,
+                userData.metadata?.company || userData.company || null,
+                userData.role || 'user',
+                userData.tier || 0,
+                userData.subscriptionStatus || 'free',
+                userData.stripeCustomerId || null,
+                JSON.stringify(userData.metadata || {})
+            ];
+
+            this.db.run(query, params, function(err) {
+                if (err) {
+                    console.error('Error creating user:', err);
+                    reject(err);
+                } else {
+                    resolve({
+                        success: true,
+                        userId: this.lastID,
+                        message: 'User created successfully'
+                    });
+                }
+            });
+        });
+    }
+
+    // Update user role
+    updateUserRole(userId, role) {
+        return new Promise((resolve, reject) => {
+            const query = 'UPDATE users SET role = ? WHERE id = ?';
+            
+            this.db.run(query, [role, userId], (err) => {
+                if (err) {
+                    console.error('Error updating user role:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true, message: 'Role updated' });
+                }
+            });
+        });
+    }
+
+    // Update user tier
+    updateUserTier(userId, tier) {
+        return new Promise((resolve, reject) => {
+            const query = 'UPDATE users SET tier = ? WHERE id = ?';
+            
+            this.db.run(query, [tier, userId], (err) => {
+                if (err) {
+                    console.error('Error updating user tier:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true, message: 'Tier updated' });
+                }
+            });
+        });
+    }
+
+    // Update last login
+    updateLastLogin(userId) {
+        return new Promise((resolve, reject) => {
+            const query = 'UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?';
+            
+            this.db.run(query, [userId], (err) => {
+                if (err) {
+                    console.error('Error updating last login:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true });
+                }
+            });
+        });
+    }
+
+    // Deactivate user
+    deactivateUser(userId) {
+        return new Promise((resolve, reject) => {
+            const query = 'UPDATE users SET is_active = 0 WHERE id = ?';
+            
+            this.db.run(query, [userId], (err) => {
+                if (err) {
+                    console.error('Error deactivating user:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true, message: 'User deactivated' });
+                }
+            });
+        });
+    }
+
+    // Delete user
+    deleteUser(userId) {
+        return new Promise((resolve, reject) => {
+            const query = 'DELETE FROM users WHERE id = ?';
+            
+            this.db.run(query, [userId], (err) => {
+                if (err) {
+                    console.error('Error deleting user:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true, message: 'User deleted' });
+                }
+            });
+        });
+    }
+
+    // Get all users with filters
+    getUsers(filters = {}) {
+        return new Promise((resolve, reject) => {
+            let query = 'SELECT * FROM users WHERE 1=1';
+            const params = [];
+
+            if (filters.role) {
+                query += ' AND role = ?';
+                params.push(filters.role);
+            }
+
+            if (filters.tier !== undefined) {
+                query += ' AND tier = ?';
+                params.push(filters.tier);
+            }
+
+            if (filters.status) {
+                query += ' AND subscription_status = ?';
+                params.push(filters.status);
+            }
+
+            if (filters.search) {
+                query += ' AND (email LIKE ? OR full_name LIKE ?)';
+                params.push(`%${filters.search}%`, `%${filters.search}%`);
+            }
+
+            if (filters.isActive !== undefined) {
+                query += ' AND is_active = ?';
+                params.push(filters.isActive ? 1 : 0);
+            }
+
+            query += ' ORDER BY created_at DESC';
+
+            if (filters.limit) {
+                query += ' LIMIT ?';
+                params.push(filters.limit);
+                
+                if (filters.page && filters.page > 1) {
+                    query += ' OFFSET ?';
+                    params.push((filters.page - 1) * filters.limit);
+                }
+            }
+
+            this.db.all(query, params, (err, rows) => {
+                if (err) {
+                    console.error('Error fetching users:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // ==================== VC ASSIGNMENT METHODS ====================
+
+    // Assign startups to VC
+    assignStartupsToVC(vcUserId, startupUserIds, assignedBy, notes = null) {
+        return new Promise((resolve, reject) => {
+            const promises = startupUserIds.map(startupId => {
+                return new Promise((res, rej) => {
+                    const query = `
+                        INSERT OR REPLACE INTO vc_assignments 
+                        (vc_user_id, startup_user_id, assigned_by, notes)
+                        VALUES (?, ?, ?, ?)
+                    `;
+                    
+                    this.db.run(query, [vcUserId, startupId, assignedBy, notes], function(err) {
+                        if (err) rej(err);
+                        else res({ id: this.lastID, startupId });
+                    });
+                });
+            });
+
+            Promise.all(promises)
+                .then(results => resolve(results))
+                .catch(reject);
+        });
+    }
+
+    // Remove VC assignment
+    removeVCAssignment(assignmentId) {
+        return new Promise((resolve, reject) => {
+            const query = 'DELETE FROM vc_assignments WHERE id = ?';
+            
+            this.db.run(query, [assignmentId], (err) => {
+                if (err) {
+                    console.error('Error removing VC assignment:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true, message: 'Assignment removed' });
+                }
+            });
+        });
+    }
+
+    // Get all VC assignments
+    getVCAssignments() {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT 
+                    va.*,
+                    vc.email as vc_email,
+                    vc.full_name as vc_name,
+                    startup.email as startup_email,
+                    startup.full_name as startup_name
+                FROM vc_assignments va
+                JOIN users vc ON va.vc_user_id = vc.id
+                JOIN users startup ON va.startup_user_id = startup.id
+                WHERE va.is_active = 1
+                ORDER BY va.assigned_at DESC
+            `;
+
+            this.db.all(query, [], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching VC assignments:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // Get VC's portfolio with GTM scores
+    getVCPortfolio(vcUserId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT 
+                    u.id,
+                    u.email,
+                    u.full_name,
+                    u.tier,
+                    u.created_at,
+                    va.assigned_at,
+                    va.notes
+                FROM vc_assignments va
+                JOIN users u ON va.startup_user_id = u.id
+                WHERE va.vc_user_id = ? AND va.is_active = 1
+                ORDER BY va.assigned_at DESC
+            `;
+
+            this.db.all(query, [vcUserId], async (err, rows) => {
+                if (err) {
+                    console.error('Error fetching VC portfolio:', err);
+                    reject(err);
+                } else {
+                    // Enrich with GTM scores for each startup
+                    const portfolio = await Promise.all(
+                        rows.map(async (startup) => {
+                            const gtmScores = await this.getUserGTMScores(startup.id);
+                            return {
+                                ...startup,
+                                gtmScores
+                            };
+                        })
+                    );
+                    resolve(portfolio);
+                }
+            });
+        });
+    }
+
+    // Get user's GTM scores summary
+    getUserGTMScores(userId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT 
+                    sh.subcomponent_id,
+                    sh.overall_score,
+                    sh.created_at,
+                    sh.block_id
+                FROM score_history sh
+                WHERE sh.user_id = ?
+                ORDER BY sh.created_at DESC
+            `;
+
+            this.db.all(query, [userId], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching user GTM scores:', err);
+                    reject(err);
+                } else {
+                    // Calculate average by block
+                    const blockScores = {};
+                    rows.forEach(row => {
+                        if (!blockScores[row.block_id]) {
+                            blockScores[row.block_id] = [];
+                        }
+                        blockScores[row.block_id].push(row.overall_score);
+                    });
+
+                    const summary = Object.entries(blockScores).map(([blockId, scores]) => ({
+                        blockId: parseInt(blockId),
+                        averageScore: Math.round(scores.reduce((a, b) => a + b, 0) / scores.length),
+                        completedSubcomponents: scores.length
+                    }));
+
+                    resolve({
+                        blockScores: summary,
+                        totalSubcomponents: rows.length,
+                        overallAverage: rows.length > 0 
+                            ? Math.round(rows.reduce((sum, r) => sum + r.overall_score, 0) / rows.length)
+                            : 0
+                    });
+                }
+            });
+        });
+    }
+
+    // ==================== ADMIN ANALYTICS METHODS ====================
+
+    // Get admin overview statistics
+    getAdminOverviewStats() {
+        return new Promise((resolve, reject) => {
+            const queries = {
+                totalUsers: 'SELECT COUNT(*) as count FROM users WHERE is_active = 1',
+                activeUsers: `SELECT COUNT(*) as count FROM users WHERE last_login >= datetime('now', '-7 days')`,
+                paidUsers: 'SELECT COUNT(*) as count FROM users WHERE tier >= 1',
+                totalAssessments: 'SELECT COUNT(*) as count FROM score_history'
+            };
+
+            const stats = {};
+            const promises = Object.entries(queries).map(([key, query]) => {
+                return new Promise((res, rej) => {
+                    this.db.get(query, [], (err, row) => {
+                        if (err) rej(err);
+                        else {
+                            stats[key] = row.count;
+                            res();
+                        }
+                    });
+                });
+            });
+
+            Promise.all(promises)
+                .then(() => resolve(stats))
+                .catch(reject);
+        });
+    }
+
+    // Get GTM score analytics
+    getGTMScoreAnalytics(days = 30) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT 
+                    sh.subcomponent_id,
+                    sh.block_id,
+                    AVG(sh.overall_score) as avg_score,
+                    COUNT(DISTINCT sh.user_id) as user_count,
+                    COUNT(*) as assessment_count
+                FROM score_history sh
+                WHERE sh.created_at >= datetime('now', '-' || ? || ' days')
+                GROUP BY sh.subcomponent_id, sh.block_id
+                ORDER BY sh.block_id, sh.subcomponent_id
+            `;
+
+            this.db.all(query, [days], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching GTM analytics:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // Get agent usage logs
+    getAgentUsageLogs(days = 30, limit = 100) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT 
+                    sh.agent_name,
+                    sh.subcomponent_id,
+                    sh.user_id,
+                    sh.created_at,
+                    sh.overall_score,
+                    sh.status
+                FROM score_history sh
+                WHERE sh.created_at >= datetime('now', '-' || ? || ' days')
+                ORDER BY sh.created_at DESC
+                LIMIT ?
+            `;
+
+            this.db.all(query, [days, limit], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching agent usage logs:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // ==================== ADMIN ACTION LOGGING ====================
+
+    // Log admin action
+    logAdminAction(adminUserId, actionType, targetUserId = null, actionDetails = {}, ipAddress = null) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO admin_actions 
+                (admin_user_id, action_type, target_user_id, action_details, ip_address)
+                VALUES (?, ?, ?, ?, ?)
+            `;
+
+            const params = [
+                adminUserId,
+                actionType,
+                targetUserId,
+                JSON.stringify(actionDetails),
+                ipAddress
+            ];
+
+            this.db.run(query, params, function(err) {
+                if (err) {
+                    console.error('Error logging admin action:', err);
+                    reject(err);
+                } else {
+                    resolve({
+                        success: true,
+                        actionId: this.lastID
+                    });
+                }
+            });
+        });
+    }
+
+    // Get admin action history
+    getAdminActionHistory(filters = {}) {
+        return new Promise((resolve, reject) => {
+            let query = `
+                SELECT 
+                    aa.*,
+                    admin.email as admin_email,
+                    admin.full_name as admin_name,
+                    target.email as target_email,
+                    target.full_name as target_name
+                FROM admin_actions aa
+                JOIN users admin ON aa.admin_user_id = admin.id
+                LEFT JOIN users target ON aa.target_user_id = target.id
+                WHERE 1=1
+            `;
+            const params = [];
+
+            if (filters.adminUserId) {
+                query += ' AND aa.admin_user_id = ?';
+                params.push(filters.adminUserId);
+            }
+
+            if (filters.actionType) {
+                query += ' AND aa.action_type = ?';
+                params.push(filters.actionType);
+            }
+
+            if (filters.days) {
+                query += ` AND aa.timestamp >= datetime('now', '-' || ? || ' days')`;
+                params.push(filters.days);
+            }
+
+            query += ' ORDER BY aa.timestamp DESC';
+
+            if (filters.limit) {
+                query += ' LIMIT ?';
+                params.push(filters.limit);
+            }
+
+            this.db.all(query, params, (err, rows) => {
+                if (err) {
+                    console.error('Error fetching admin action history:', err);
+                    reject(err);
+                } else {
+                    const actions = rows.map(row => ({
+                        ...row,
+                        action_details: JSON.parse(row.action_details || '{}')
+                    }));
+                    resolve(actions);
+                }
+            });
+        });
+    }
+
+    // ==================== USER TAGS & NOTES ====================
+
+    // Add tag to user
+    addUserTag(userId, tag, createdBy) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT OR IGNORE INTO user_tags (user_id, tag, created_by)
+                VALUES (?, ?, ?)
+            `;
+
+            this.db.run(query, [userId, tag, createdBy], function(err) {
+                if (err) {
+                    console.error('Error adding user tag:', err);
+                    reject(err);
+                } else {
+                    resolve({
+                        success: true,
+                        tagId: this.lastID
+                    });
+                }
+            });
+        });
+    }
+
+    // Remove tag from user
+    removeUserTag(userId, tag) {
+        return new Promise((resolve, reject) => {
+            const query = 'DELETE FROM user_tags WHERE user_id = ? AND tag = ?';
+            
+            this.db.run(query, [userId, tag], (err) => {
+                if (err) {
+                    console.error('Error removing user tag:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true });
+                }
+            });
+        });
+    }
+
+    // Get user tags
+    getUserTags(userId) {
+        return new Promise((resolve, reject) => {
+            const query = 'SELECT * FROM user_tags WHERE user_id = ? ORDER BY created_at DESC';
+            
+            this.db.all(query, [userId], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching user tags:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // Add admin note
+    addAdminNote(userId, note, createdBy, isPinned = false) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO admin_notes (user_id, note, created_by, is_pinned)
+                VALUES (?, ?, ?, ?)
+            `;
+
+            this.db.run(query, [userId, note, createdBy, isPinned ? 1 : 0], function(err) {
+                if (err) {
+                    console.error('Error adding admin note:', err);
+                    reject(err);
+                } else {
+                    resolve({
+                        success: true,
+                        noteId: this.lastID
+                    });
+                }
+            });
+        });
+    }
+
+    // Get admin notes for user
+    getAdminNotes(userId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT 
+                    an.*,
+                    u.email as created_by_email,
+                    u.full_name as created_by_name
+                FROM admin_notes an
+                JOIN users u ON an.created_by = u.id
+                WHERE an.user_id = ?
+                ORDER BY an.is_pinned DESC, an.created_at DESC
+            `;
+
+            this.db.all(query, [userId], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching admin notes:', err);
+                    reject(err);
+                } else {
+                    resolve(rows || []);
+                }
+            });
+        });
+    }
+
+    // ==================== STRIPE EVENT TRACKING ====================
+
+    // Log Stripe event
+    logStripeEvent(eventData) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                INSERT INTO stripe_events 
+                (stripe_event_id, event_type, user_id, customer_id, subscription_id, event_data)
+                VALUES (?, ?, ?, ?, ?, ?)
+            `;
+
+            const params = [
+                eventData.stripeEventId,
+                eventData.eventType,
+                eventData.userId || null,
+                eventData.customerId || null,
+                eventData.subscriptionId || null,
+                JSON.stringify(eventData.data || {})
+            ];
+
+            this.db.run(query, params, function(err) {
+                if (err) {
+                    console.error('Error logging Stripe event:', err);
+                    reject(err);
+                } else {
+                    resolve({
+                        success: true,
+                        eventId: this.lastID
+                    });
+                }
+            });
+        });
+    }
+
+    // Mark Stripe event as processed
+    markStripeEventProcessed(stripeEventId) {
+        return new Promise((resolve, reject) => {
+            const query = `
+                UPDATE stripe_events 
+                SET processed = 1, processed_at = CURRENT_TIMESTAMP
+                WHERE stripe_event_id = ?
+            `;
+
+            this.db.run(query, [stripeEventId], (err) => {
+                if (err) {
+                    console.error('Error marking Stripe event as processed:', err);
+                    reject(err);
+                } else {
+                    resolve({ success: true });
+                }
+            });
+        });
+    }
+
+    // Get unprocessed Stripe events
+    getUnprocessedStripeEvents() {
+        return new Promise((resolve, reject) => {
+            const query = `
+                SELECT * FROM stripe_events 
+                WHERE processed = 0 
+                ORDER BY created_at ASC
+            `;
+
+            this.db.all(query, [], (err, rows) => {
+                if (err) {
+                    console.error('Error fetching unprocessed Stripe events:', err);
+                    reject(err);
+                } else {
+                    const events = rows.map(row => ({
+                        ...row,
+                        event_data: JSON.parse(row.event_data || '{}')
+                    }));
+                    resolve(events);
+                }
+            });
+        });
+    }
 }
 
 module.exports = DatabaseService;

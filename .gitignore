@@ -25,4 +25,10 @@ desktop.ini
 # Temporary files
 *.tmp
 *.temp
+
+# Firebase credentials (NEVER COMMIT)
+firebase-service-account.json
+.env
+.env.local
+.env.production
 ~*

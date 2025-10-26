@@ -7,6 +7,7 @@ const { Database, db } = require('./database');
 const { educationalContent } = require('./educational-content');
 const { missingContent } = require('./missing-content-additions');
 const { testCompany } = require('./test-company');
+const StripeService = require('./stripe-config');
 
 // Merge educational content with missing content additions
 const allEducationalContent = { ...educationalContent, ...missingContent };
@@ -3871,6 +3872,206 @@ app.post('/api/analyze/customer-success', async (req, res) => {
     }
 });
 
+
+// ============================================
+// STRIPE BILLING API ENDPOINTS
+// ============================================
+
+// Create payment intent
+app.post('/api/stripe/create-payment-intent', async (req, res) => {
+    const userId = parseInt(req.headers['x-user-id']);
+    const { email } = req.body;
+    
+    if (!userId || !email) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+    
+    try {
+        console.log(`💳 Creating payment intent for user ${userId}`);
+        
+        // Check if user already has a Stripe customer
+        let stripeCustomer = await StripeService.getStripeCustomer(userId);
+        
+        if (!stripeCustomer) {
+            // Get user details
+            Database.getUserById(userId, async (err, user) => {
+                if (err || !user) {
+                    return res.status(404).json({ error: 'User not found' });
+                }
+                
+                try {
+                    // Create Stripe customer
+                    const customer = await StripeService.createCustomer(userId, user.email, user.name);
+                    
+                    // Create payment intent
+                    const paymentIntent = await StripeService.createPaymentIntent(userId, customer.id);
+                    
+                    res.json({
+                        clientSecret: paymentIntent.client_secret,
+                        customerId: customer.id
+                    });
+                } catch (error) {
+                    console.error('Error creating payment:', error);
+                    res.status(500).json({ error: 'Failed to create payment intent' });
+                }
+            });
+        } else {
+            // Create payment intent with existing customer
+            const paymentIntent = await StripeService.createPaymentIntent(userId, stripeCustomer.stripe_customer_id);
+            
+            res.json({
+                clientSecret: paymentIntent.client_secret,
+                customerId: stripeCustomer.stripe_customer_id
+            });
+        }
+    } catch (error) {
+        console.error('Error in create-payment-intent:', error);
+        res.status(500).json({ error: 'Failed to create payment intent' });
+    }
+});
+
+// Verify payment
+app.post('/api/stripe/verify-payment', async (req, res) => {
+    const userId = parseInt(req.headers['x-user-id']);
+    const { paymentIntentId } = req.body;
+    
+    if (!userId || !paymentIntentId) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+    
+    try {
+        console.log(`🔍 Verifying payment for user ${userId}`);
+        
+        // Verify payment with Stripe
+        const verification = await StripeService.verifyPayment(paymentIntentId);
+        
+        if (verification.success) {
+            // Update user billing status
+            await StripeService.updateUserBillingStatus(userId, paymentIntentId, verification.amount);
+            
+            res.json({
+                success: true,
+                message: 'Payment verified successfully'
+            });
+        } else {
+            res.json({
+                success: false,
+                status: verification.status
+            });
+        }
+    } catch (error) {
+        console.error('Error verifying payment:', error);
+        res.status(500).json({ error: 'Failed to verify payment' });
+    }
+});
+
+// Check payment status
+app.get('/api/stripe/payment-status', async (req, res) => {
+    const userId = parseInt(req.headers['x-user-id']);
+    
+    if (!userId) {
+        return res.status(400).json({ error: 'Missing user ID' });
+    }
+    
+    try {
+        const billingStatus = await StripeService.checkUserPaymentStatus(userId);
+        
+        res.json({
+            hasPaid: billingStatus ? billingStatus.has_paid : false,
+            accessGranted: billingStatus ? billingStatus.access_granted : false,
+            paymentDate: billingStatus ? billingStatus.payment_date : null,
+            amount: billingStatus ? billingStatus.payment_amount : null
+        });
+    } catch (error) {
+        console.error('Error checking payment status:', error);
+        res.status(500).json({ error: 'Failed to check payment status' });
+    }
+});
+
+// Get user transactions
+app.get('/api/stripe/transactions', async (req, res) => {
+    const userId = parseInt(req.headers['x-user-id']);
+    
+    if (!userId) {
+        return res.status(400).json({ error: 'Missing user ID' });
+    }
+    
+    try {
+        const transactions = await StripeService.getUserTransactions(userId);
+        res.json(transactions);
+    } catch (error) {
+        console.error('Error getting transactions:', error);
+        res.status(500).json({ error: 'Failed to get transactions' });
+    }
+});
+
+// Stripe webhook endpoint
+app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+    const sig = req.headers['stripe-signature'];
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    
+    let event;
+    
+    try {
+        const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+        event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+    } catch (err) {
+        console.error('⚠️ Webhook signature verification failed:', err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+    
+    try {
+        await StripeService.handleWebhook(event);
+        res.json({ received: true });
+    } catch (error) {
+        console.error('Error handling webhook:', error);
+        res.status(500).json({ error: 'Webhook handler failed' });
+    }
+});
+
+// Admin: Get all billing data
+app.get('/api/admin/billing', async (req, res) => {
+    try {
+        // Get all users with billing status
+        db.all(`
+            SELECT
+                u.id,
+                u.email,
+                u.name,
+                u.company,
+                sc.stripe_customer_id,
+                ubs.has_paid,
+                ubs.payment_amount,
+                ubs.payment_date,
+                ubs.access_granted
+            FROM users u
+            LEFT JOIN stripe_customers sc ON u.id = sc.user_id
+            LEFT JOIN user_billing_status ubs ON u.id = ubs.user_id
+            ORDER BY u.created_at DESC
+        `, (err, rows) => {
+            if (err) {
+                console.error('Error fetching billing data:', err);
+                return res.status(500).json({ error: 'Failed to fetch billing data' });
+            }
+            
+            // Calculate statistics
+            const stats = {
+                totalUsers: rows.length,
+                paidUsers: rows.filter(r => r.has_paid).length,
+                totalRevenue: rows.reduce((sum, r) => sum + (r.payment_amount || 0), 0),
+                unpaidUsers: rows.filter(r => !r.has_paid).length
+            };
+            
+            res.json({
+                users: rows,
+                stats: stats
+            });
+        });
+    } catch (error) {
+        console.error('Error in admin billing endpoint:', error);
+        res.status(500).json({ error: 'Failed to fetch billing data' });
+    }
+});
 
 // Start server
 app.listen(PORT, () => {

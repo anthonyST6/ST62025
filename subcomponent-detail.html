@@ -753,6 +753,10 @@
             console.log('Auto-logged in as ST6C0');
         }
     </script>
+    <script src="fix-all-three-issues.js"></script>
+    <script src="fix-subblock-scores-demo-users.js"></script>
+    <script src="fix-subcomponent-score-history.js"></script>
+    <script src="fix-navigation-and-downloads.js"></script>
     <script src="nav.js"></script>
     
     <!-- DOWNLOAD DIAGNOSTIC TOOL - Logs all download activity -->
@@ -953,7 +957,12 @@
         async function loadSubcomponentData() {
             try {
                 console.log('🔍 Loading subcomponent data for:', subcomponentId);
-                const response = await fetch(`/api/subcomponents/${subcomponentId}`);
+                const userEmail = localStorage.getItem('userEmail');
+                const response = await fetch(`/api/subcomponents/${subcomponentId}`, {
+                    headers: {
+                        'x-user-email': userEmail
+                    }
+                });
                 
                 if (response.ok) {
                     const data = await response.json();

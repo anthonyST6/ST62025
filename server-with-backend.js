@@ -6,6 +6,7 @@ const url = require('url');
 // Import our new services
 const FileGenerationService = require('./file-generation-service.js');
 const DatabaseService = require('./database-service.js');
+const StripeService = require('./stripe-config.js');
 // UnifiedContentService is a browser-side script, not for server use
 
 // Initialize services
@@ -267,14 +268,27 @@ for (let i = 1; i <= 16; i++) {
 }
 
 // Helper function to integrate ST6Co data into questions
-function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
+function integrateCompanyData(questions, companyData, subcomponentId = '1-1', userEmail = null) {
     // Parse the subcomponent ID to get block and sub IDs
     const [blockId, subId] = subcomponentId.split('-');
     
-    // Get demo data directly from the demoData object
-    const subcomponentDemoData = st6coDemoData[subcomponentId] || {};
+    // ✅ SAFE MODE: Check if user is @demo.com - they get BLANK forms
+    const isDemoUser = userEmail && userEmail.endsWith('@demo.com');
     
-    console.log(`📝 Integrating demo data for ${subcomponentId}:`, Object.keys(subcomponentDemoData).length, 'answers available');
+    // ✅ Check if user is @scaleops6.com or @st6co - they get PRELOADED forms
+    const isScaleOpsUser = userEmail && (userEmail.endsWith('@scaleops6.com') || userEmail.endsWith('@st6co'));
+    
+    // Get demo data: blank for @demo.com, preloaded for @scaleops6.com/@st6co, blank for others
+    const subcomponentDemoData = isDemoUser ? {} :
+        (isScaleOpsUser ? (st6coDemoData[subcomponentId] || {}) : {});
+    
+    if (isDemoUser) {
+        console.log(`🎭 Demo user detected (${userEmail}) - providing BLANK workspace for ${subcomponentId}`);
+    } else if (isScaleOpsUser) {
+        console.log(`🏢 ScaleOps6 user detected (${userEmail}) - providing PRELOADED workspace for ${subcomponentId}:`, Object.keys(subcomponentDemoData).length, 'answers available');
+    } else {
+        console.log(`👤 Regular user (${userEmail}) - providing BLANK workspace for ${subcomponentId}`);
+    }
     
     const formattedQuestions = questions.map((q, index) => {
         // Properly capitalize category names
@@ -285,9 +299,9 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
         const questionId = q.id || `${subcomponentId}-q${index + 1}`;
         const demoAnswer = subcomponentDemoData[questionId] || "";
         
-        if (demoAnswer) {
+        if (demoAnswer && !isDemoUser) {
             console.log(`  ✅ Question ${questionId} has demo data (${demoAnswer.substring(0, 80)}...)`);
-        } else {
+        } else if (!isDemoUser) {
             console.log(`  ⚠️ Question ${questionId} has NO demo data`);
         }
         
@@ -301,7 +315,7 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
             maxLength: q.maxLength,
             hint: q.hint || q.helpText,
             placeholder: q.hint || "Provide detailed response...",
-            defaultValue: demoAnswer // Use demo data if available
+            defaultValue: demoAnswer // Use demo data if available (blank for @demo.com users)
         };
 
         // Add example answer if provided
@@ -317,14 +331,14 @@ function integrateCompanyData(questions, companyData, subcomponentId = '1-1') {
 }
 
 // Generate workspace questions using agent-specific generators
-function generateWorkspaceQuestions(agent, subcomponentId) {
+function generateWorkspaceQuestions(agent, subcomponentId, userEmail = null) {
     console.log(`📝 Generating workspace for ${subcomponentId} with agent: ${agent.name}`);
     
     if (agentGeneratedQuestions[subcomponentId]) {
         console.log(`✅ Using pre-generated questions for ${subcomponentId}`);
         const questions = agentGeneratedQuestions[subcomponentId].questions;
-        // Pass subcomponentId to ensure proper enhanced answers
-        return integrateCompanyData(questions, testCompany, subcomponentId);
+        // Pass subcomponentId AND userEmail to ensure proper enhanced answers
+        return integrateCompanyData(questions, testCompany, subcomponentId, userEmail);
     }
     
     console.log(`🔄 Dynamically generating questions for ${subcomponentId}`);
@@ -332,7 +346,7 @@ function generateWorkspaceQuestions(agent, subcomponentId) {
     const worksheet = generator.generateQuestions(subcomponentId, {});
     
     if (worksheet && worksheet.questions) {
-        return integrateCompanyData(worksheet.questions, testCompany, subcomponentId);
+        return integrateCompanyData(worksheet.questions, testCompany, subcomponentId, userEmail);
     }
     
     return generateFallbackQuestions(agent, subcomponentId);
@@ -405,6 +419,1110 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'OPTIONS') {
         res.writeHead(200);
         res.end();
+        return;
+    }
+    
+    // ==================== ADMIN API ROUTES ====================
+    
+    // Route: GET /api/admin/stats - Admin dashboard statistics
+    if (pathname === '/api/admin/stats' && req.method === 'GET') {
+        try {
+            const stats = await database.getAdminOverviewStats();
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                stats: stats
+            }));
+        } catch (error) {
+            console.error('Error fetching admin stats:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/users - List all users
+    if (pathname === '/api/admin/users' && req.method === 'GET') {
+        try {
+            const { role, tier, status, search, isActive } = parsedUrl.query;
+            
+            const users = await database.getUsers({
+                role,
+                tier: tier ? parseInt(tier) : undefined,
+                status,
+                search,
+                isActive: isActive !== undefined ? isActive === 'true' : undefined
+            });
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                users: users
+            }));
+        } catch (error) {
+            console.error('Error fetching users:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/analytics/gtm-scores - GTM score analytics
+    const gtmScoresMatch = pathname.match(/^\/api\/admin\/analytics\/gtm-scores$/);
+    if (gtmScoresMatch && req.method === 'GET') {
+        try {
+            const days = parseInt(parsedUrl.query.days) || 30;
+            const analytics = await database.getGTMScoreAnalytics(days);
+            
+            // Calculate block summaries
+            const blockAverages = {};
+            analytics.forEach(item => {
+                if (!blockAverages[item.block_id]) {
+                    blockAverages[item.block_id] = {
+                        blockId: item.block_id,
+                        scores: [],
+                        assessments: 0
+                    };
+                }
+                blockAverages[item.block_id].scores.push(item.avg_score);
+                blockAverages[item.block_id].assessments += item.assessment_count;
+            });
+            
+            const blockSummary = Object.values(blockAverages).map(block => ({
+                blockId: block.blockId,
+                averageScore: Math.round(block.scores.reduce((a, b) => a + b, 0) / block.scores.length),
+                totalAssessments: block.assessments
+            }));
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                analytics: analytics,
+                blockSummary: blockSummary
+            }));
+        } catch (error) {
+            console.error('Error fetching GTM analytics:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/users/:id - Get user details
+    const adminUserDetailMatch = pathname.match(/^\/api\/admin\/users\/(\d+)$/);
+    if (adminUserDetailMatch && req.method === 'GET') {
+        try {
+            const userId = parseInt(adminUserDetailMatch[1]);
+            const user = await database.getUserById(userId);
+            
+            if (!user) {
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(404);
+                res.end(JSON.stringify({ success: false, error: 'User not found' }));
+                return;
+            }
+            
+            // Get additional user data
+            const [tags, notes, gtmScores] = await Promise.all([
+                database.getUserTags(userId),
+                database.getAdminNotes(userId),
+                database.getUserGTMScores(userId)
+            ]);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                user: {
+                    ...user,
+                    tags: tags,
+                    notes: notes,
+                    gtmScores: gtmScores
+                }
+            }));
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: PUT /api/admin/users/:id/role - Update user role
+    const adminUserRoleMatch = pathname.match(/^\/api\/admin\/users\/(\d+)\/role$/);
+    if (adminUserRoleMatch && req.method === 'PUT') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const userId = parseInt(adminUserRoleMatch[1]);
+                const { role } = JSON.parse(body);
+                
+                if (!['admin', 'user', 'vc', 'st6_partner'].includes(role)) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ success: false, error: 'Invalid role' }));
+                    return;
+                }
+                
+                const user = await database.getUserById(userId);
+                if (!user) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(404);
+                    res.end(JSON.stringify({ success: false, error: 'User not found' }));
+                    return;
+                }
+                
+                await database.updateUserRole(userId, role);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({ 
+                    success: true, 
+                    message: 'Role updated',
+                    previousRole: user.role,
+                    newRole: role
+                }));
+            } catch (error) {
+                console.error('Error updating role:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: PUT /api/admin/users/:id/tier - Update user tier
+    const adminUserTierMatch = pathname.match(/^\/api\/admin\/users\/(\d+)\/tier$/);
+    if (adminUserTierMatch && req.method === 'PUT') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const userId = parseInt(adminUserTierMatch[1]);
+                const { tier } = JSON.parse(body);
+                
+                if (![0, 1, 2, 3].includes(tier)) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ success: false, error: 'Invalid tier' }));
+                    return;
+                }
+                
+                await database.updateUserTier(userId, tier);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({ success: true, message: 'Tier updated' }));
+            } catch (error) {
+                console.error('Error updating tier:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: POST /api/admin/users/:id/deactivate - Deactivate user
+    const adminUserDeactivateMatch = pathname.match(/^\/api\/admin\/users\/(\d+)\/deactivate$/);
+    if (adminUserDeactivateMatch && req.method === 'POST') {
+        try {
+            const userId = parseInt(adminUserDeactivateMatch[1]);
+            await database.deactivateUser(userId);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({ success: true, message: 'User deactivated' }));
+        } catch (error) {
+            console.error('Error deactivating user:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: POST /api/admin/users/:id/activate - Activate user
+    const adminUserActivateMatch = pathname.match(/^\/api\/admin\/users\/(\d+)\/activate$/);
+    if (adminUserActivateMatch && req.method === 'POST') {
+        try {
+            const userId = parseInt(adminUserActivateMatch[1]);
+            // Activate by setting is_active = 1
+            await new Promise((resolve, reject) => {
+                database.db.run('UPDATE users SET is_active = 1 WHERE id = ?', [userId], (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({ success: true, message: 'User activated' }));
+        } catch (error) {
+            console.error('Error activating user:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: DELETE /api/admin/users/:id - Delete user
+    const adminUserDeleteMatch = pathname.match(/^\/api\/admin\/users\/(\d+)$/);
+    if (adminUserDeleteMatch && req.method === 'DELETE') {
+        try {
+            const userId = parseInt(adminUserDeleteMatch[1]);
+            await database.deleteUser(userId);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({ success: true, message: 'User deleted' }));
+        } catch (error) {
+            console.error('Error deleting user:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: POST /api/admin/users/export - Export users to CSV
+    if (pathname === '/api/admin/users/export' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const filters = JSON.parse(body);
+                const users = await database.getUsers(filters);
+                
+                // Convert to CSV
+                const headers = ['ID', 'Email', 'Name', 'Company', 'Role', 'Tier', 'Status', 'Created', 'Last Login'];
+                const rows = users.map(u => [
+                    u.id,
+                    u.email,
+                    u.full_name || u.name || '',
+                    u.company || '',
+                    u.role,
+                    u.tier,
+                    u.subscription_status,
+                    u.created_at,
+                    u.last_login || 'Never'
+                ]);
+                
+                const csv = [
+                    headers.join(','),
+                    ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+                ].join('\n');
+                
+                res.setHeader('Content-Type', 'text/csv');
+                res.setHeader('Content-Disposition', `attachment; filename="scaleops6-users-${Date.now()}.csv"`);
+                res.writeHead(200);
+                res.end(csv);
+            } catch (error) {
+                console.error('Error exporting users:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // ==================== VC PORTFOLIO ROUTES ====================
+    
+    // Route: GET /api/admin/vc/list - Get all VCs
+    if (pathname === '/api/admin/vc/list' && req.method === 'GET') {
+        try {
+            const vcs = await database.getUsers({ role: 'vc', isActive: true });
+            
+            // Get assignment counts for each VC
+            const vcsWithCounts = await Promise.all(
+                vcs.map(async (vc) => {
+                    const portfolio = await database.getVCPortfolio(vc.id);
+                    return {
+                        ...vc,
+                        assignedStartups: portfolio.length
+                    };
+                })
+            );
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                vcs: vcsWithCounts,
+                count: vcsWithCounts.length
+            }));
+        } catch (error) {
+            console.error('Error fetching VCs:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/vc/assignments - Get all VC assignments
+    if (pathname === '/api/admin/vc/assignments' && req.method === 'GET') {
+        try {
+            const assignments = await database.getVCAssignments();
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                assignments: assignments,
+                count: assignments.length
+            }));
+        } catch (error) {
+            console.error('Error fetching VC assignments:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/vc/:vcId/portfolio - Get VC's portfolio
+    const vcPortfolioMatch = pathname.match(/^\/api\/admin\/vc\/(\d+)\/portfolio$/);
+    if (vcPortfolioMatch && req.method === 'GET') {
+        try {
+            const vcId = parseInt(vcPortfolioMatch[1]);
+            const portfolio = await database.getVCPortfolio(vcId);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                portfolio: portfolio,
+                count: portfolio.length
+            }));
+        } catch (error) {
+            console.error('Error fetching VC portfolio:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/vc/startups/unassigned - Get unassigned startups
+    if (pathname === '/api/admin/vc/startups/unassigned' && req.method === 'GET') {
+        try {
+            const allStartups = await database.getUsers({ role: 'user', isActive: true });
+            const assignments = await database.getVCAssignments();
+            const assignedStartupIds = new Set(assignments.map(a => a.startup_user_id));
+            const unassigned = allStartups.filter(s => !assignedStartupIds.has(s.id));
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                startups: unassigned,
+                count: unassigned.length
+            }));
+        } catch (error) {
+            console.error('Error fetching unassigned startups:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: POST /api/admin/vc/assign - Assign startups to VC
+    if (pathname === '/api/admin/vc/assign' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const { vcUserId, startupUserIds, notes } = JSON.parse(body);
+                
+                if (!vcUserId || !startupUserIds || !Array.isArray(startupUserIds)) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ success: false, error: 'vcUserId and startupUserIds (array) required' }));
+                    return;
+                }
+                
+                const results = await database.assignStartupsToVC(vcUserId, startupUserIds, 1, notes);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({ 
+                    success: true, 
+                    message: `${startupUserIds.length} startup(s) assigned`,
+                    assignments: results
+                }));
+            } catch (error) {
+                console.error('Error assigning startups:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: DELETE /api/admin/vc/assign/:assignmentId - Remove assignment
+    const vcAssignDeleteMatch = pathname.match(/^\/api\/admin\/vc\/assign\/(\d+)$/);
+    if (vcAssignDeleteMatch && req.method === 'DELETE') {
+        try {
+            const assignmentId = parseInt(vcAssignDeleteMatch[1]);
+            await database.removeVCAssignment(assignmentId);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({ success: true, message: 'Assignment removed' }));
+        } catch (error) {
+            console.error('Error removing assignment:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: POST /api/admin/vc/:vcId/portfolio/export - Export VC portfolio
+    const vcPortfolioExportMatch = pathname.match(/^\/api\/admin\/vc\/(\d+)\/portfolio\/export$/);
+    if (vcPortfolioExportMatch && req.method === 'POST') {
+        try {
+            const vcId = parseInt(vcPortfolioExportMatch[1]);
+            const portfolio = await database.getVCPortfolio(vcId);
+            const vcUser = await database.getUserById(vcId);
+            
+            if (!vcUser) {
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(404);
+                res.end(JSON.stringify({ success: false, error: 'VC not found' }));
+                return;
+            }
+            
+            const headers = ['Startup Name', 'Email', 'Tier', 'Assigned Date', 'Overall GTM Score', 'Completed Blocks'];
+            const rows = portfolio.map(s => [
+                s.full_name || s.email,
+                s.email,
+                s.tier,
+                new Date(s.assigned_at).toLocaleDateString(),
+                s.gtmScores?.overallAverage || 'N/A',
+                s.gtmScores?.totalSubcomponents || 0
+            ]);
+            
+            const csv = [
+                headers.join(','),
+                ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+            ].join('\n');
+            
+            res.setHeader('Content-Type', 'text/csv');
+            res.setHeader('Content-Disposition', `attachment; filename="vc-portfolio-${vcUser.email}-${Date.now()}.csv"`);
+            res.writeHead(200);
+            res.end(csv);
+        } catch (error) {
+            console.error('Error exporting portfolio:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // ==================== ANALYTICS ROUTES ====================
+    
+    // Route: GET /api/admin/analytics/overview - Analytics overview
+    if (pathname === '/api/admin/analytics/overview' && req.method === 'GET') {
+        try {
+            const stats = await database.getAdminOverviewStats();
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                platformAverage: stats.avgCompletion || 0,
+                totalAssessments: stats.totalAssessments || 0,
+                activeUsers: stats.activeUsers || 0,
+                completionRate: stats.avgCompletion || 0
+            }));
+        } catch (error) {
+            console.error('Error fetching analytics overview:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/analytics/top-performers - Top performing users
+    if (pathname === '/api/admin/analytics/top-performers' && req.method === 'GET') {
+        try {
+            const limit = parseInt(parsedUrl.query.limit) || 10;
+            const users = await database.getUsers({ isActive: true });
+            
+            // Get GTM scores for each user and sort
+            const usersWithScores = await Promise.all(
+                users.map(async (user) => {
+                    const gtmScores = await database.getUserGTMScores(user.id);
+                    return {
+                        ...user,
+                        overallScore: gtmScores?.overallAverage || 0,
+                        completedSubcomponents: gtmScores?.totalSubcomponents || 0
+                    };
+                })
+            );
+            
+            const topPerformers = usersWithScores
+                .sort((a, b) => b.overallScore - a.overallScore)
+                .slice(0, limit);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                topPerformers: topPerformers
+            }));
+        } catch (error) {
+            console.error('Error fetching top performers:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/analytics/most-improved - Most improved users
+    if (pathname === '/api/admin/analytics/most-improved' && req.method === 'GET') {
+        try {
+            const days = parseInt(parsedUrl.query.days) || 30;
+            const limit = parseInt(parsedUrl.query.limit) || 10;
+            
+            // Placeholder - would need historical score tracking
+            const mostImproved = [];
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                mostImproved: mostImproved
+            }));
+        } catch (error) {
+            console.error('Error fetching most improved:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/analytics/heatmap - Score heatmap
+    if (pathname === '/api/admin/analytics/heatmap' && req.method === 'GET') {
+        try {
+            const users = await database.getUsers({ isActive: true });
+            const heatmap = [];
+            
+            for (const user of users) {
+                for (let blockId = 1; blockId <= 16; blockId++) {
+                    const blockAvg = await database.calculateBlockAverage(blockId);
+                    heatmap.push({
+                        userId: user.id,
+                        blockId: blockId,
+                        averageScore: blockAvg.average || 0
+                    });
+                }
+            }
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                heatmap: heatmap
+            }));
+        } catch (error) {
+            console.error('Error generating heatmap:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/analytics/agent-usage - Agent usage logs
+    if (pathname === '/api/admin/analytics/agent-usage' && req.method === 'GET') {
+        try {
+            const days = parseInt(parsedUrl.query.days) || 30;
+            const limit = parseInt(parsedUrl.query.limit) || 50;
+            
+            // Placeholder - would need agent usage tracking
+            const logs = [];
+            const popularAgents = [];
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                logs: logs,
+                popularAgents: popularAgents,
+                totalInvocations: 0,
+                successRate: 100,
+                totalDeliverables: 0,
+                avgResponseTime: 0
+            }));
+        } catch (error) {
+            console.error('Error fetching agent usage:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // ==================== AUTH ROUTES ====================
+    
+    // Route: POST /api/auth/complete-signup - Complete user signup and create database record
+    if (pathname === '/api/auth/complete-signup' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const { fullName, company, email } = JSON.parse(body);
+                const userId = req.headers['x-user-id'] || req.headers.authorization?.replace('Bearer ', '');
+                
+                if (!userId || !email) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ error: 'userId and email required' }));
+                    return;
+                }
+                
+                // Check for demo/admin email domains
+                const emailDomain = email.split('@')[1];
+                let userRole = 'user';
+                let skipPayment = false;
+                
+                if (emailDomain === 'scaleops6.com') {
+                    // ScaleOps6 internal users get admin role and skip payment
+                    userRole = 'admin';
+                    skipPayment = true;
+                    console.log(`🔑 Admin user detected: ${email}`);
+                } else if (emailDomain === 'demo.com') {
+                    // Demo users skip payment but remain regular users
+                    userRole = 'user';
+                    skipPayment = true;
+                    console.log(`🎭 Demo user detected: ${email}`);
+                }
+                
+                // Create user in database
+                await database.createUser({
+                    firebase_uid: userId,
+                    email: email,
+                    full_name: fullName,
+                    company: company,
+                    role: userRole,
+                    tier: skipPayment ? 1 : 0, // Demo users get tier 1
+                    subscription_status: skipPayment ? 'paid' : 'trial'
+                });
+                
+                // If demo/admin user, auto-grant payment access
+                if (skipPayment) {
+                    await StripeService.updateUserBillingStatus(userId, 'demo-bypass', 0);
+                    console.log(`✅ Payment bypassed for ${email}`);
+                }
+                
+                console.log(`✅ User created in database: ${email} (role: ${userRole})`);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({
+                    success: true,
+                    message: 'User created successfully',
+                    userId: userId,
+                    skipPayment: skipPayment,
+                    role: userRole
+                }));
+            } catch (error) {
+                console.error('Error completing signup:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // ==================== STRIPE BILLING ROUTES ====================
+    
+    // Route: POST /api/stripe/create-payment-intent - Create payment intent for $1.00
+    if (pathname === '/api/stripe/create-payment-intent' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const requestData = JSON.parse(body);
+                const userId = req.headers['x-user-id'] || requestData.userId;
+                const email = requestData.email;
+                const name = requestData.name;
+                
+                if (!userId || !email) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ error: 'userId and email required' }));
+                    return;
+                }
+                
+                // Check if customer already exists
+                let customer = await StripeService.getStripeCustomer(userId);
+                
+                if (!customer) {
+                    // Create new Stripe customer
+                    const stripeCustomer = await StripeService.createCustomer(userId, email, name || email);
+                    customer = { stripe_customer_id: stripeCustomer.id };
+                }
+                
+                // Create payment intent
+                const paymentIntent = await StripeService.createPaymentIntent(userId, customer.stripe_customer_id);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({
+                    success: true,
+                    clientSecret: paymentIntent.client_secret,
+                    paymentIntentId: paymentIntent.id
+                }));
+            } catch (error) {
+                console.error('Error creating payment intent:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: POST /api/stripe/verify-payment - Verify payment completion
+    if (pathname === '/api/stripe/verify-payment' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const requestData = JSON.parse(body);
+                const userId = req.headers['x-user-id'] || requestData.userId;
+                const paymentIntentId = requestData.paymentIntentId;
+                
+                if (!paymentIntentId || !userId) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({ error: 'paymentIntentId and userId required' }));
+                    return;
+                }
+                
+                // Verify payment with Stripe
+                const verification = await StripeService.verifyPayment(paymentIntentId);
+                
+                if (verification.success) {
+                    // Update user billing status
+                    await StripeService.updateUserBillingStatus(userId, paymentIntentId, verification.amount);
+                    
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(200);
+                    res.end(JSON.stringify({
+                        success: true,
+                        message: 'Payment verified and access granted'
+                    }));
+                } else {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.writeHead(400);
+                    res.end(JSON.stringify({
+                        success: false,
+                        message: 'Payment not completed',
+                        status: verification.status
+                    }));
+                }
+            } catch (error) {
+                console.error('Error verifying payment:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(500);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: GET /api/stripe/payment-status - Check user payment status
+    if (pathname === '/api/stripe/payment-status' && req.method === 'GET') {
+        try {
+            // Accept userId from either header (preferred) or query parameter (fallback)
+            const userId = req.headers['x-user-id'] || parsedUrl.query.userId;
+            
+            if (!userId) {
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(400);
+                res.end(JSON.stringify({ error: 'userId required (provide via x-user-id header or userId query param)' }));
+                return;
+            }
+            
+            const billingStatus = await StripeService.checkUserPaymentStatus(userId);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                hasPaid: billingStatus ? billingStatus.has_paid === 1 : false,
+                accessGranted: billingStatus ? billingStatus.access_granted === 1 : false,
+                paymentDate: billingStatus ? billingStatus.payment_date : null,
+                amount: billingStatus ? billingStatus.payment_amount : null
+            }));
+        } catch (error) {
+            console.error('Error checking payment status:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/stripe/transactions - Get user transaction history
+    if (pathname === '/api/stripe/transactions' && req.method === 'GET') {
+        try {
+            const userId = parsedUrl.query.userId;
+            
+            if (!userId) {
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(400);
+                res.end(JSON.stringify({ error: 'userId required' }));
+                return;
+            }
+            
+            const transactions = await StripeService.getUserTransactions(userId);
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                transactions: transactions
+            }));
+        } catch (error) {
+            console.error('Error fetching transactions:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: POST /api/stripe/webhook - Handle Stripe webhook events
+    if (pathname === '/api/stripe/webhook' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', async () => {
+            try {
+                const sig = req.headers['stripe-signature'];
+                const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+                
+                // Verify webhook signature (if secret is configured)
+                let event;
+                if (webhookSecret) {
+                    const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+                    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
+                } else {
+                    event = JSON.parse(body);
+                }
+                
+                // Handle the event
+                await StripeService.handleWebhook(event);
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(200);
+                res.end(JSON.stringify({ received: true }));
+            } catch (error) {
+                console.error('Error handling webhook:', error);
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(400);
+                res.end(JSON.stringify({ error: error.message }));
+            }
+        });
+        return;
+    }
+    
+    // Route: GET /api/admin/billing - Admin billing data (for admin dashboard)
+    if (pathname === '/api/admin/billing' && req.method === 'GET') {
+        try {
+            const users = await database.getUsers({});
+            
+            // Get billing status for each user
+            const billingData = await Promise.all(
+                users.map(async (user) => {
+                    const billingStatus = await StripeService.checkUserPaymentStatus(user.id);
+                    const transactions = await StripeService.getUserTransactions(user.id);
+                    
+                    return {
+                        userId: user.id,
+                        email: user.email,
+                        name: user.full_name || user.name,
+                        hasPaid: billingStatus ? billingStatus.has_paid === 1 : false,
+                        paymentAmount: billingStatus ? billingStatus.payment_amount : 0,
+                        paymentDate: billingStatus ? billingStatus.payment_date : null,
+                        transactionCount: transactions.length,
+                        stripeCustomerId: billingStatus ? billingStatus.stripe_customer_id : null
+                    };
+                })
+            );
+            
+            const totalRevenue = billingData.reduce((sum, user) => sum + (user.paymentAmount || 0), 0);
+            const paidUsers = billingData.filter(u => u.hasPaid).length;
+            const unpaidUsers = billingData.filter(u => !u.hasPaid).length;
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                totalRevenue: totalRevenue / 100, // Convert cents to dollars
+                paidUsers: paidUsers,
+                unpaidUsers: unpaidUsers,
+                users: billingData
+            }));
+        } catch (error) {
+            console.error('Error fetching admin billing data:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    
+    // ==================== BILLING ROUTES ====================
+    
+    // Route: GET /api/admin/billing/overview - Billing overview
+    if (pathname === '/api/admin/billing/overview' && req.method === 'GET') {
+        try {
+            const users = await database.getUsers({});
+            const paidUsers = users.filter(u => u.subscription_status === 'paid').length;
+            const trialUsers = users.filter(u => u.subscription_status === 'trial').length;
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                users: users,
+                totalRevenue: 0,
+                paidUsers: paidUsers,
+                trialUsers: trialUsers,
+                churnRate: 0
+            }));
+        } catch (error) {
+            console.error('Error fetching billing overview:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/billing/:userId/history - Billing history
+    const billingHistoryMatch = pathname.match(/^\/api\/admin\/billing\/(\d+)\/history$/);
+    if (billingHistoryMatch && req.method === 'GET') {
+        try {
+            const userId = parseInt(billingHistoryMatch[1]);
+            const user = await database.getUserById(userId);
+            
+            if (!user) {
+                res.setHeader('Content-Type', 'application/json');
+                res.writeHead(404);
+                res.end(JSON.stringify({ success: false, error: 'User not found' }));
+                return;
+            }
+            
+            // Placeholder - would need Stripe integration
+            const history = [];
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                user: user,
+                history: history
+            }));
+        } catch (error) {
+            console.error('Error fetching billing history:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // ==================== SYSTEM ROUTES ====================
+    
+    // Route: GET /api/admin/system/health - System health metrics
+    if (pathname === '/api/admin/system/health' && req.method === 'GET') {
+        try {
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                databaseSize: 12.3,
+                avgResponseTime: 45,
+                errorRate: 0.02,
+                activeSessions: 0
+            }));
+        } catch (error) {
+            console.error('Error fetching system health:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/audit-log - Admin audit log
+    if (pathname === '/api/admin/audit-log' && req.method === 'GET') {
+        try {
+            const limit = parseInt(parsedUrl.query.limit) || 50;
+            // Placeholder - would need audit log table
+            const actions = [];
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                actions: actions
+            }));
+        } catch (error) {
+            console.error('Error fetching audit log:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
+        return;
+    }
+    
+    // Route: GET /api/admin/system/login-history - Login history
+    if (pathname === '/api/admin/system/login-history' && req.method === 'GET') {
+        try {
+            const limit = parseInt(parsedUrl.query.limit) || 50;
+            // Placeholder - would need login history tracking
+            const logins = [];
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                success: true,
+                logins: logins
+            }));
+        } catch (error) {
+            console.error('Error fetching login history:', error);
+            res.setHeader('Content-Type', 'application/json');
+            res.writeHead(500);
+            res.end(JSON.stringify({ error: error.message }));
+        }
         return;
     }
     
@@ -1419,11 +2537,17 @@ const server = http.createServer(async (req, res) => {
             const blockId = parseInt(subcomponentId.split('-')[0]);
             const block = blocks.find(b => b.id === blockId);
             
+            // ✅ SAFE MODE: Get user email from request headers or query
+            const userEmail = req.headers['x-user-email'] || parsedUrl.query.userEmail || null;
+            
             console.log(`📍 Loading from SSOT for ${subcomponentId}:`);
             console.log(`   - Subcomponent Name: ${ssotData.name}`);
             console.log(`   - Agent Name: ${ssotData.agent.name}`);
             console.log(`   - Block Name: ${ssotData.blockName}`);
             console.log(`   - Templates: ${ssotData.resources.templates.length}`);
+            if (userEmail) {
+                console.log(`   - User Email: ${userEmail}`);
+            }
             
             const response = {
                 id: subcomponentId,
@@ -1450,10 +2574,10 @@ const server = http.createServer(async (req, res) => {
                 // ✅ REAL WORLD EXAMPLES - Use rich use cases from SSOT
                 realWorldExamples: ssotData.education.useCases || ssotData.education.examples || [],
                 
-                // ✅ WORKSPACE FROM SSOT
+                // ✅ WORKSPACE FROM SSOT - Pass userEmail for demo user detection
                 workspace: {
                     ...ssotData.workspace,
-                    questions: generateWorkspaceQuestions(ssotData.agent, subcomponentId)
+                    questions: generateWorkspaceQuestions(ssotData.agent, subcomponentId, userEmail)
                 },
                 
                 // ✅ TEMPLATES FROM SSOT

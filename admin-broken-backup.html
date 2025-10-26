@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScaleOps6</title>
+    <link rel="icon" type="image/png" href="/Official_ScaleOps6_Logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #111111;
+            padding: 20px 40px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .header h1 span {
+            color: #FF5500;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info span {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .btn-logout {
+            padding: 8px 16px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background: #FF5500;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: #111111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #FF5500;
+            box-shadow: 0 0 20px rgba(255, 85, 0, 0.1);
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF5500;
+            margin-bottom: 8px;
+        }
+
+        .stat-change {
+            font-size: 14px;
+            color: #4CAF50;
+        }
+
+        .stat-change.negative {
+            color: #f44336;
+        }
+
+        .section {
+            background: #111111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            background: #FF5500;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #d64d2d;
+            transform: translateY(-1px);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #333;
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #222;
+            font-size: 14px;
+        }
+
+        .table tr:hover {
+            background: rgba(255, 85, 0, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+
+        .badge-warning {
+            background: rgba(255, 152, 0, 0.2);
+            color: #FF9800;
+        }
+
+        .badge-danger {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+        }
+
+        .chart-container {
+            height: 300px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: #FF5500;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            background: #ff6b4a;
+        }
+
+        .chart-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            background: transparent;
+            color: #888;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            color: #FF5500;
+            border-bottom-color: #FF5500;
+        }
+
+        .tab:hover {
+            color: #fff;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            padding: 6px 12px;
+            background: #222;
+            color: #888;
+            border: 1px solid #333;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-action:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .btn-action.danger:hover {
+            background: #f44336;
+            border-color: #f44336;
+        }
+    </style>
+</head>
+    <!-- Admin Dashboard Controller -->
+    <script src="admin-dashboard.js"></script>
+<body>
+    <script src="nav.js"></script>
+    
+    <div class="container" style="margin-top: 20px;">
+        <!-- Statistics Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Users</div>
+                <div class="stat-value" id="totalUsers">0</div>
+                <div class="stat-change">+12% from last month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Sessions</div>
+                <div class="stat-value" id="activeSessions">0</div>
+                <div class="stat-change">Currently online</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Avg. Completion</div>
+                <div class="stat-value" id="avgCompletion">0%</div>
+                <div class="stat-change">+5% improvement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Assessments</div>
+                <div class="stat-value" id="totalAssessments">0</div>
+                <div class="stat-change">This week</div>
+            </div>
+        </div>
+
+        <!-- User Management -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">User Management</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-primary" onclick="bulkOperations()">Bulk Actions</button>
+                    <button class="btn-primary" onclick="exportUsers()">Export Users</button>
+                </div>
+            </div>
+            
+            <!-- Search and Filters -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+                <div>
+                    <input type="text" id="userSearch" placeholder="Search by name or email..."
+                           onkeyup="searchUsers()"
+                           style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                </div>
+                <div>
+                    <select id="roleFilter" onchange="filterUsers()"
+                            style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                        <option value="">All Roles</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                        <option value="vc">VC</option>
+                        <option value="st6_partner">ST6 Partner</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="tierFilter" onchange="filterUsers()"
+                            style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                        <option value="">All Tiers</option>
+                        <option value="0">Tier 0</option>
+                        <option value="1">Tier 1</option>
+                        <option value="2">Tier 2</option>
+                        <option value="3">Tier 3</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="statusFilter" onchange="filterUsers()"
+                            style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('all')">All Users</button>
+                <button class="tab" onclick="switchTab('active')">Active</button>
+                <button class="tab" onclick="switchTab('inactive')">Inactive</button>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">
+                            <input type="checkbox" id="selectAll" onchange="toggleSelectAll()"
+                                   style="width: 16px; height: 16px; cursor: pointer;">
+                        </th>
+                        <th>User</th>
+                        <th>Company</th>
+                        <th>Joined</th>
+                        <th>Role & Tier</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Users will be populated by admin-dashboard.js -->
+                </tbody>
+            </table>
+            
+            <!-- Pagination -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #333;">
+                <div style="color: #666; font-size: 14px;" id="paginationInfo">
+                    Showing 0-0 of 0 users
+                </div>
+                <div style="display: flex; gap: 8px;" id="paginationControls">
+                    <button class="btn-action" onclick="previousPage()" id="prevBtn" disabled>Previous</button>
+                    <div style="display: flex; gap: 4px;" id="pageNumbers"></div>
+                    <button class="btn-action" onclick="nextPage()" id="nextBtn" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Operations Modal -->
+        <div id="bulkModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+            <div style="background: #111; border: 1px solid #333; border-radius: 12px; padding: 32px; max-width: 500px; width: 90%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h2 style="color: #FF5500; font-size: 24px; margin: 0;">Bulk Operations</h2>
+                    <button onclick="closeBulkModal()" style="background: #333; border: none; color: #fff; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Close</button>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <p style="color: #888; margin-bottom: 16px;"><span id="selectedCount">0</span> users selected</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <button class="btn-primary" onclick="bulkChangeRole()" style="width: 100%;">Change Role</button>
+                        <button class="btn-primary" onclick="bulkChangeTier()" style="width: 100%;">Change Tier</button>
+                        <button class="btn-action" onclick="bulkDeactivate()" style="width: 100%;">Deactivate Selected</button>
+                        <button class="btn-action danger" onclick="bulkDelete()" style="width: 100%; background: #f44336;">Delete Selected</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">User Management (OLD)</h2>
+                <button class="btn-primary" onclick="exportUsers()">Export Users</button>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('all')">All Users</button>
+                <button class="tab" onclick="switchTab('active')">Active</button>
+                <button class="tab" onclick="switchTab('inactive')">Inactive</button>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Company</th>
+                        <th>Joined</th>
+                        <th>Role & Tier</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Users will be populated by admin-dashboard.js -->
+                </tbody>
+            </table>
+
+        <!-- VC Portfolio Assignments -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">VC Portfolio Assignments</h2>
+                <button class="btn-primary" onclick="exportVCPortfolio()">Export Portfolio</button>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <!-- VC Selector -->
+                <div>
+                    <label style="display: block; color: #888; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Select VC</label>
+                    <select id="vcSelector" onchange="loadVCPortfolio()" style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                        <option value="">-- Select a VC --</option>
+                    </select>
+                    <div id="vcInfo" style="margin-top: 12px; padding: 12px; background: #0a0a0a; border-radius: 6px; display: none;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">Portfolio Summary</div>
+                        <div style="font-size: 20px; font-weight: 600; color: #FF5500;" id="vcPortfolioCount">0</div>
+                        <div style="color: #666; font-size: 12px;">Assigned Startups</div>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div style="padding: 12px; background: #0a0a0a; border-radius: 6px;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">Total VCs</div>
+                        <div style="font-size: 20px; font-weight: 600; color: #FF5500;" id="totalVCs">0</div>
+                    </div>
+                    <div style="padding: 12px; background: #0a0a0a; border-radius: 6px;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">Unassigned Startups</div>
+                        <div style="font-size: 20px; font-weight: 600; color: #FF5500;" id="unassignedStartups">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignment Interface -->
+            <div id="assignmentInterface" style="display: none; margin-bottom: 20px; padding: 20px; background: #0a0a0a; border-radius: 8px;">
+                <h3 style="color: #FF5500; font-size: 16px; margin-bottom: 16px;">Assign Startups to VC</h3>
+                
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; color: #888; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Select Startups</label>
+                    <div id="startupList" style="max-height: 200px; overflow-y: auto; border: 1px solid #333; border-radius: 6px; padding: 12px;">
+                        <!-- Startup checkboxes will be populated here -->
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; color: #888; font-size: 12px; text-transform: uppercase; margin-bottom: 8px;">Notes (Optional)</label>
+                    <textarea id="assignmentNotes" rows="3" style="width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px; font-family: inherit;" placeholder="Add notes about this assignment..."></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-primary" onclick="assignSelectedStartups()">Assign Selected</button>
+                    <button class="btn-action" onclick="toggleAssignmentInterface()">Cancel</button>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <button class="btn-primary" onclick="toggleAssignmentInterface()" id="showAssignBtn" style="display: none;">
+                    + Assign Startups
+                </button>
+                <div style="color: #666; font-size: 14px;" id="portfolioStatus">
+                    Select a VC to view their portfolio
+                </div>
+            </div>
+
+            <!-- Portfolio Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Startup</th>
+                        <th>Email</th>
+                        <th>Tier</th>
+                        <th>Assigned Date</th>
+
+        <!-- GTM Score Analytics -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">GTM Score Analytics</h2>
+                <div style="display: flex; gap: 10px;">
+                    <select id="analyticsTimeRange" onchange="loadAnalytics()" 
+                            style="padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                    </select>
+                    <button class="btn-primary" onclick="exportAnalytics()">Export Report</button>
+                </div>
+            </div>
+
+            <!-- Overview Stats -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Platform Average</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="platformAverage">0%</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Overall GTM Score</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Total Assessments</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="totalAssessmentsAnalytics">0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Completed</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Active Users</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="activeUsersAnalytics">0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">With Scores</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Completion Rate</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="completionRate">0%</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Avg per User</div>
+                </div>
+            </div>
+
+            <!-- Top Performers -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">🏆 Top Performers</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">Rank</th>
+                                <th>User</th>
+                                <th>Company</th>
+                                <th>Overall Score</th>
+                                <th>Completed</th>
+                                <th>Tier</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topPerformersBody">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 40px; color: #666;">
+                                    Loading top performers...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Most Improved -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">📈 Most Improved</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Company</th>
+                                <th>Previous Score</th>
+                                <th>Current Score</th>
+                                <th>Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mostImprovedBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 40px; color: #666;">
+                                    Loading improvement data...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Block Heatmap -->
+            <div>
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">🔥 Block Performance Heatmap</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px; overflow-x: auto;">
+                    <div id="heatmapContainer" style="min-width: 800px;">
+                        <div style="text-align: center; padding: 40px; color: #666;">
+                            Loading heatmap...
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 20px; margin-top: 16px; padding: 12px; background: #0a0a0a; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: #4CAF50; border-radius: 4px;"></div>
+                        <span style="color: #888; font-size: 12px;">80-100% (Excellent)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: #FF9800; border-radius: 4px;"></div>
+                        <span style="color: #888; font-size: 12px;">50-79% (Good)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: #f44336; border-radius: 4px;"></div>
+                        <span style="color: #888; font-size: 12px;">0-49% (Needs Work)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: #333; border-radius: 4px;"></div>
+
+        <!-- Agent & Deliverables Monitoring -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Agent & Deliverables Monitoring</h2>
+                <div style="display: flex; gap: 10px;">
+                    <select id="agentTimeRange" onchange="loadAgentUsage()" 
+                            style="padding: 10px; background: #222; color: #fff; border: 1px solid #333; border-radius: 6px; font-size: 14px;">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                    </select>
+                    <button class="btn-primary" onclick="exportAgentLogs()">Export Logs</button>
+                </div>
+            </div>
+
+            <!-- Agent Stats -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Total Invocations</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="totalInvocations">0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Agent Calls</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Success Rate</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #4CAF50;" id="successRate">0%</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Successful</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Deliverables</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="totalDeliverables">0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Generated</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Avg Response Time</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="avgResponseTime">0ms</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Per Request</div>
+                </div>
+            </div>
+
+            <!-- Agent Usage Logs -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">Recent Agent Activity</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>User</th>
+                                <th>Agent</th>
+                                <th>Block</th>
+                                <th>Status</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="agentLogsBody">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 40px; color: #666;">
+                                    Loading agent logs...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Most Used Agents -->
+            <div>
+
+        <!-- Billing & Stripe Integration -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Billing & Stripe Integration</h2>
+                <button class="btn-primary" onclick="refreshBillingData()">Refresh</button>
+            </div>
+
+            <!-- Billing Overview -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Total Revenue</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #4CAF50;" id="totalRevenue">$0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">MRR</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Paid Users</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF5500;" id="paidUsers">0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Active Subscriptions</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Trial Users</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #FF9800;" id="trialUsers">0</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">In Trial Period</div>
+                </div>
+                <div style="padding: 20px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                    <div style="color: #888; font-size: 12px; margin-bottom: 8px;">Churn Rate</div>
+                    <div style="font-size: 32px; font-weight: 700; color: #f44336;" id="churnRate">0%</div>
+                    <div style="color: #666; font-size: 12px; margin-top: 4px;">Last 30 Days</div>
+                </div>
+            </div>
+
+            <!-- Billing Table -->
+            <div>
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">User Billing Status</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Stripe Customer</th>
+                                <th>Plan</th>
+                                <th>Status</th>
+                                <th>Next Payment</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="billingTableBody">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 40px; color: #666;">
+                                    Loading billing data...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+        <!-- System Controls -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">System Controls & Monitoring</h2>
+                <button class="btn-primary" onclick="refreshSystemData()">Refresh</button>
+            </div>
+
+            <!-- System Health -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">System Health</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                    <div style="padding: 16px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">Database Size</div>
+                        <div style="font-size: 24px; font-weight: 600; color: #4CAF50;" id="dbSize">0 MB</div>
+                    </div>
+                    <div style="padding: 16px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">API Response Time</div>
+                        <div style="font-size: 24px; font-weight: 600; color: #4CAF50;" id="apiResponseTime">0ms</div>
+                    </div>
+                    <div style="padding: 16px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">Error Rate</div>
+                        <div style="font-size: 24px; font-weight: 600; color: #4CAF50;" id="errorRate">0%</div>
+                    </div>
+                    <div style="padding: 16px; background: #0a0a0a; border-radius: 8px; border: 1px solid #222;">
+                        <div style="color: #888; font-size: 12px; margin-bottom: 4px;">Active Sessions</div>
+                        <div style="font-size: 24px; font-weight: 600; color: #FF5500;" id="activeSessionsSystem">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audit Log -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">Recent Admin Actions</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Admin</th>
+                                <th>Action</th>
+                                <th>Target User</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="auditLogBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 40px; color: #666;">
+                                    Loading audit log...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Login History -->
+            <div>
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">Recent Logins</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>User</th>
+                                <th>IP Address</th>
+                                <th>Device</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="loginHistoryBody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 40px; color: #666;">
+                                    Loading login history...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+                <h3 style="color: #FF5500; font-size: 18px; margin-bottom: 16px;">Most Popular Agents</h3>
+                <div style="background: #0a0a0a; border-radius: 8px; padding: 20px;">
+                    <div id="popularAgentsChart" style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="text-align: center; padding: 40px; color: #666;">
+                            Loading agent statistics...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        <span style="color: #888; font-size: 12px;">Not Started</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        <th>GTM Score</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="portfolioTableBody">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 40px; color: #666;">
+                            Select a VC to view their portfolio
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        <!-- Block Performance -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Block Performance Overview</h2>
+                <button class="btn-primary" onclick="refreshBlockData()">Refresh</button>
+            </div>
+            
+            <div class="chart-container" id="blockChart">
+                <!-- Chart bars will be generated dynamically -->
+            </div>
+        </div>
+
+        <!-- System Analytics -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">System Analytics</h2>
+            </div>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Current</th>
+                        <th>Target</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Database Size</td>
+                        <td>12.3 MB</td>
+                        <td>100 MB</td>
+                        <td><span class="badge badge-success">Healthy</span></td>
+                    </tr>
+                    <tr>
+                        <td>API Response Time</td>
+                        <td>45ms</td>
+                        <td>&lt; 100ms</td>
+                        <td><span class="badge badge-success">Optimal</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cache Hit Rate</td>
+                        <td>87%</td>
+                        <td>&gt; 80%</td>
+                        <td><span class="badge badge-success">Good</span></td>
+                    </tr>
+                    <tr>
+                        <td>Error Rate</td>
+                        <td>0.02%</td>
+                        <td>&lt; 1%</td>
+                        <td><span class="badge badge-success">Excellent</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // All dashboard logic now handled by admin-dashboard.js
+        // This keeps the code modular and maintainable
+    </script>
+</body>
+</html>
