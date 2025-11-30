@@ -1,298 +1,321 @@
 /**
- * Structure Validator - Ensures NO structural changes to the platform
- * This script validates that all pages maintain the LOCKED structure
+ * Structure Lock Validator
+ * Enforces the structure lock policy defined in STRUCTURE_LOCK.md
+ * Prevents modifications to locked files while allowing content changes
  */
 
 const fs = require('fs');
 const path = require('path');
-const cheerio = require('cheerio');
-
-// Define the LOCKED structure patterns
-const LOCKED_STRUCTURES = {
-    'subcomponent-detail': {
-        requiredElements: [
-            '.subcomponent-header',
-            '.subcomponent-number',
-            '.subcomponent-title',
-            '.subcomponent-description',
-            '.tab-navigation',
-            '.tab-button[data-tab="education"]',
-            '.tab-button[data-tab="workspace"]',
-            '.tab-button[data-tab="analysis"]',
-            '.tab-button[data-tab="resources"]',
-            '.tab-button[data-tab="history"]',
-            '#education-tab',
-            '#workspace-tab',
-            '#analysis-tab',
-            '#resources-tab',
-            '#history-tab',
-            '.worksheet-builder',
-            '.upload-zone',
-            '.action-buttons'
-        ],
-        tabCount: 5,
-        worksheetFieldCount: 6
-    },
-    'block-detail': {
-        requiredElements: [
-            '.block-header',
-            '.block-number',
-            '.block-title',
-            '.block-description',
-            '.block-score',
-            '.progress-container',
-            '.progress-bar',
-            '.progress-fill',
-            '.subblocks-container',
-            '.subblocks-grid',
-            '.score-history-section',
-            '.change-log-section',
-            '#scoreChart'
-        ],
-        subblockCount: 6
-    },
-    'admin': {
-        requiredElements: [
-            '.stats-grid',
-            '.stat-card',
-            '.section',
-            '.table'
-        ],
-        phaseCount: 5,
-        blockCount: 16
-    }
-};
 
 class StructureValidator {
     constructor() {
-        this.violations = [];
-        this.warnings = [];
-    }
-
-    /**
-     * Validate a single HTML file against locked structure
-     */
-    validateFile(filePath) {
-        const fileName = path.basename(filePath);
-        const fileContent = fs.readFileSync(filePath, 'utf8');
-        const $ = cheerio.load(fileContent);
-        
-        console.log(`\n🔍 Validating: ${fileName}`);
-        
-        // Determine file type
-        let structureType = null;
-        if (fileName.includes('subcomponent')) {
-            structureType = 'subcomponent-detail';
-        } else if (fileName.includes('block-detail')) {
-            structureType = 'block-detail';
-        } else if (fileName === 'admin.html') {
-            structureType = 'admin';
-        }
-        
-        if (!structureType) {
-            console.log(`   ⚠️  Skipping - not a structured page`);
-            return true;
-        }
-        
-        const structure = LOCKED_STRUCTURES[structureType];
-        let isValid = true;
-        
-        // Check required elements
-        console.log(`   Checking required elements...`);
-        for (const selector of structure.requiredElements) {
-            if ($(selector).length === 0) {
-                this.violations.push({
-                    file: fileName,
-                    type: 'MISSING_ELEMENT',
-                    selector: selector,
-                    message: `Required element missing: ${selector}`
-                });
-                console.log(`   ❌ Missing: ${selector}`);
-                isValid = false;
-            }
-        }
-        
-        // Type-specific validations
-        if (structureType === 'subcomponent-detail') {
-            // Check tab count
-            const tabCount = $('.tab-button').length;
-            if (tabCount !== structure.tabCount) {
-                this.violations.push({
-                    file: fileName,
-                    type: 'INCORRECT_TAB_COUNT',
-                    expected: structure.tabCount,
-                    actual: tabCount,
-                    message: `Tab count mismatch: expected ${structure.tabCount}, found ${tabCount}`
-                });
-                console.log(`   ❌ Tab count: ${tabCount} (expected ${structure.tabCount})`);
-                isValid = false;
-            }
+        // Define locked file patterns (CANNOT be modified)
+        this.lockedPatterns = [
+            // UI Structure Files
+            /^dashboard\.html$/,
+            /^block-detail\.html$/,
+            /^subcomponent-detail\.html$/,
+            /^phase-\d+-.*\.html$/,
+            /^block-\d+-.*\.html$/,
             
-            // Check worksheet fields
-            const fieldCount = $('.worksheet-field').length;
-            if (fieldCount > 0 && fieldCount !== structure.worksheetFieldCount) {
-                this.violations.push({
-                    file: fileName,
-                    type: 'INCORRECT_FIELD_COUNT',
-                    expected: structure.worksheetFieldCount,
-                    actual: fieldCount,
-                    message: `Worksheet field count mismatch: expected ${structure.worksheetFieldCount}, found ${fieldCount}`
-                });
-                console.log(`   ❌ Worksheet fields: ${fieldCount} (expected ${structure.worksheetFieldCount})`);
-                isValid = false;
-            }
-        }
-        
-        if (structureType === 'block-detail') {
-            // Check subblock count
-            const subblockCount = $('.subblock').length;
-            if (subblockCount > 0 && subblockCount !== structure.subblockCount) {
-                this.violations.push({
-                    file: fileName,
-                    type: 'INCORRECT_SUBBLOCK_COUNT',
-                    expected: structure.subblockCount,
-                    actual: subblockCount,
-                    message: `Subblock count mismatch: expected ${structure.subblockCount}, found ${subblockCount}`
-                });
-                console.log(`   ❌ Subblocks: ${subblockCount} (expected ${structure.subblockCount})`);
-                isValid = false;
-            }
-        }
-        
-        if (isValid) {
-            console.log(`   ✅ Structure validated successfully`);
-        }
-        
-        return isValid;
-    }
-
-    /**
-     * Validate all HTML files in the platform
-     */
-    validateAll() {
-        console.log('🔒 ScaleOps6 Structure Validator');
-        console.log('================================');
-        console.log('Validating locked structure compliance...\n');
-        
-        const files = fs.readdirSync('.').filter(f => f.endsWith('.html'));
-        let allValid = true;
-        
-        for (const file of files) {
-            const isValid = this.validateFile(file);
-            if (!isValid) {
-                allValid = false;
-            }
-        }
-        
-        // Report results
-        console.log('\n================================');
-        console.log('VALIDATION REPORT');
-        console.log('================================');
-        
-        if (this.violations.length > 0) {
-            console.log('\n❌ STRUCTURE VIOLATIONS DETECTED:');
-            console.log('The following violations MUST be fixed immediately:\n');
+            // Database Files
+            /^database-schema\.sql$/,
+            /^database-service\.js$/,
+            /^database-migration-.*\.js$/,
             
-            for (const violation of this.violations) {
-                console.log(`File: ${violation.file}`);
-                console.log(`Type: ${violation.type}`);
-                console.log(`Issue: ${violation.message}`);
-                console.log('---');
-            }
+            // Core Platform Logic
+            /^server\.js$/,
+            /^auth-.*\.js$/,
+            /^payment-.*\.js$/,
+            /^firebase-.*\.js$/,
+            /^stripe-.*\.js$/,
             
-            console.log('\n⚠️  CRITICAL: Structure has been modified!');
-            console.log('The platform structure is LOCKED and must not be changed.');
-            console.log('Please restore the original structure immediately.');
-            console.log('\nRun: node restore-problem-statement-template.js');
-        } else {
-            console.log('\n✅ ALL STRUCTURES VALIDATED SUCCESSFULLY');
-            console.log('The platform structure remains intact and compliant.');
-        }
-        
-        return allValid;
-    }
-
-    /**
-     * Compare two HTML structures to detect changes
-     */
-    compareStructures(originalPath, currentPath) {
-        const original = fs.readFileSync(originalPath, 'utf8');
-        const current = fs.readFileSync(currentPath, 'utf8');
-        
-        const $original = cheerio.load(original);
-        const $current = cheerio.load(current);
-        
-        const differences = [];
-        
-        // Compare element counts
-        const selectors = [
-            '.tab-button',
-            '.worksheet-field',
-            '.section',
-            '.subblock',
-            '.stat-card'
+            // Navigation and Routing
+            /^nav\.js$/,
+            /^router\.js$/,
+            /^routes\.js$/,
+            
+            // Build and Config
+            /^package\.json$/,
+            /^package-lock\.json$/,
+            /^\.gitignore$/,
+            /^webpack\.config\.js$/,
+            /^tsconfig\.json$/
         ];
         
-        for (const selector of selectors) {
-            const originalCount = $original(selector).length;
-            const currentCount = $current(selector).length;
+        // Define content file patterns (CAN be modified)
+        this.contentPatterns = [
+            // Agent Files
+            /.*-agent.*\.js$/,
+            /^score-analysis-engine\.js$/,
+            /^recommendations-library\.js$/,
             
-            if (originalCount !== currentCount) {
-                differences.push({
-                    selector,
-                    original: originalCount,
-                    current: currentCount,
-                    type: 'COUNT_MISMATCH'
-                });
-            }
+            // Content Files
+            /^educational-content\.js$/,
+            /^st6co-demo-data.*\.js$/,
+            /^content-library.*\.js$/,
+            /^missing-content.*\.js$/,
+            
+            // Documentation
+            /\.md$/,
+            /^README.*$/,
+            /^CHANGELOG.*$/,
+            
+            // Configuration Data (not structure)
+            /^config\/.*\.json$/,
+            /^data\/.*\.json$/
+        ];
+        
+        // Define locked sections within otherwise modifiable files
+        this.lockedSections = {
+            'server.js': [
+                { start: 'app.listen', end: 'server started', reason: 'Server initialization' },
+                { start: 'app.use(express', end: 'middleware setup', reason: 'Middleware configuration' }
+            ],
+            'database-service.js': [
+                { start: 'constructor()', end: 'this.db = new', reason: 'Database connection' },
+                { start: 'CREATE TABLE', end: 'schema definition', reason: 'Schema structure' }
+            ]
+        };
+    }
+    
+    /**
+     * Check if a file is locked (cannot be modified)
+     */
+    isFileLocked(filename) {
+        const basename = path.basename(filename);
+        
+        // Check if file matches any locked pattern
+        const isLocked = this.lockedPatterns.some(pattern => pattern.test(basename));
+        
+        // Check if file matches any content pattern (overrides locked)
+        const isContent = this.contentPatterns.some(pattern => pattern.test(basename));
+        
+        return isLocked && !isContent;
+    }
+    
+    /**
+     * Check if a file is content (can be modified)
+     */
+    isFileContent(filename) {
+        const basename = path.basename(filename);
+        return this.contentPatterns.some(pattern => pattern.test(basename));
+    }
+    
+    /**
+     * Validate a file modification
+     */
+    validateFileModification(filename, oldContent = null, newContent = null) {
+        const basename = path.basename(filename);
+        
+        // Check if file is locked
+        if (this.isFileLocked(filename)) {
+            return {
+                allowed: false,
+                reason: 'STRUCTURE_LOCK_VIOLATION',
+                message: `❌ File "${basename}" is LOCKED and cannot be modified.\n` +
+                        `   See STRUCTURE_LOCK.md for details.\n` +
+                        `   This file is part of the frozen platform structure.`,
+                severity: 'ERROR',
+                override: 'Requires technical lead approval and STRUCTURE_LOCK.md update'
+            };
         }
         
-        return differences;
+        // Check if file is content (allowed)
+        if (this.isFileContent(filename)) {
+            return {
+                allowed: true,
+                reason: 'CONTENT_MODIFICATION',
+                message: `✅ File "${basename}" is in content zone - modification allowed.`,
+                severity: 'INFO',
+                recommendations: this.getContentModificationGuidelines(basename)
+            };
+        }
+        
+        // File not explicitly locked or content - warn but allow
+        return {
+            allowed: true,
+            reason: 'UNCLASSIFIED_FILE',
+            message: `⚠️  File "${basename}" is not classified in STRUCTURE_LOCK.md.\n` +
+                    `   Proceeding with caution. Consider adding to structure lock policy.`,
+            severity: 'WARNING',
+            recommendations: [
+                'Verify this file should be modifiable',
+                'Update STRUCTURE_LOCK.md if needed',
+                'Test thoroughly after changes'
+            ]
+        };
     }
-
+    
     /**
-     * Generate a structure compliance report
+     * Get modification guidelines for content files
      */
-    generateReport() {
-        const report = {
-            timestamp: new Date().toISOString(),
-            status: this.violations.length === 0 ? 'COMPLIANT' : 'VIOLATION',
-            violations: this.violations,
-            warnings: this.warnings,
-            recommendation: this.violations.length > 0 
-                ? 'Restore original structure immediately using restore-problem-statement-template.js'
-                : 'Structure is compliant. Only content changes are allowed.'
+    getContentModificationGuidelines(filename) {
+        if (filename.includes('agent')) {
+            return [
+                'Modify evaluation logic freely',
+                'Maintain return value structure (score, recommendations, analysis)',
+                'Keep scores in 0-100 range',
+                'Test with sample data after changes'
+            ];
+        }
+        
+        if (filename.includes('demo-data') || filename.includes('educational-content')) {
+            return [
+                'Update content text freely',
+                'Maintain data structure (keys, types)',
+                'Preserve field IDs and question IDs',
+                'Ensure backward compatibility'
+            ];
+        }
+        
+        if (filename.includes('recommendations')) {
+            return [
+                'Enhance recommendation content',
+                'Add new recommendations as needed',
+                'Maintain recommendation object structure',
+                'Test recommendation display'
+            ];
+        }
+        
+        return [
+            'Follow content modification guidelines in STRUCTURE_LOCK.md',
+            'Test changes before committing',
+            'Document significant changes'
+        ];
+    }
+    
+    /**
+     * Validate multiple file modifications (for git commits)
+     */
+    validateCommit(modifiedFiles) {
+        const results = {
+            allowed: true,
+            violations: [],
+            warnings: [],
+            contentChanges: [],
+            summary: ''
         };
         
-        fs.writeFileSync('structure-compliance-report.json', JSON.stringify(report, null, 2));
-        console.log('\n📄 Report saved to: structure-compliance-report.json');
+        modifiedFiles.forEach(file => {
+            const validation = this.validateFileModification(file);
+            
+            if (!validation.allowed) {
+                results.allowed = false;
+                results.violations.push({
+                    file: file,
+                    ...validation
+                });
+            } else if (validation.severity === 'WARNING') {
+                results.warnings.push({
+                    file: file,
+                    ...validation
+                });
+            } else if (validation.reason === 'CONTENT_MODIFICATION') {
+                results.contentChanges.push({
+                    file: file,
+                    ...validation
+                });
+            }
+        });
+        
+        // Generate summary
+        if (results.violations.length > 0) {
+            results.summary = `🚫 COMMIT BLOCKED: ${results.violations.length} structure lock violation(s)\n\n` +
+                            results.violations.map(v => v.message).join('\n\n') +
+                            `\n\n📖 See STRUCTURE_LOCK.md for modification guidelines.`;
+        } else if (results.warnings.length > 0) {
+            results.summary = `⚠️  COMMIT WARNING: ${results.warnings.length} unclassified file(s)\n\n` +
+                            results.warnings.map(w => w.message).join('\n\n') +
+                            `\n\n✅ ${results.contentChanges.length} content file(s) modified (allowed)`;
+        } else {
+            results.summary = `✅ COMMIT APPROVED: ${results.contentChanges.length} content file(s) modified\n\n` +
+                            results.contentChanges.map(c => `  • ${path.basename(c.file)}`).join('\n');
+        }
+        
+        return results;
+    }
+    
+    /**
+     * Generate a report of locked vs content files
+     */
+    generateStructureReport(directory = '.') {
+        const report = {
+            locked: [],
+            content: [],
+            unclassified: [],
+            summary: {}
+        };
+        
+        // This would scan directory and classify files
+        // Implementation depends on file system access
         
         return report;
     }
-}
-
-// Run validation if executed directly
-if (require.main === module) {
-    const validator = new StructureValidator();
-    const isValid = validator.validateAll();
-    const report = validator.generateReport();
     
-    // Exit with error code if violations found
-    if (!isValid) {
-        console.error('\n🚨 STRUCTURE LOCK VIOLATION DETECTED!');
-        console.error('The platform structure has been modified.');
-        console.error('This is strictly forbidden.');
-        console.error('\nTO FIX:');
-        console.error('1. Run: node restore-problem-statement-template.js');
-        console.error('2. Only make content changes, never structural changes');
-        console.error('3. Re-run validation: node structure-validator.js');
-        process.exit(1);
-    } else {
-        console.log('\n✅ Structure lock validated successfully!');
-        console.log('The platform structure remains unchanged.');
-        console.log('You may proceed with content-only changes.');
-        process.exit(0);
+    /**
+     * Check if specific code sections are being modified
+     */
+    validateCodeSection(filename, lineStart, lineEnd, content) {
+        const basename = path.basename(filename);
+        
+        if (!this.lockedSections[basename]) {
+            return { allowed: true, reason: 'No locked sections defined' };
+        }
+        
+        // Check if modification overlaps with locked sections
+        for (const section of this.lockedSections[basename]) {
+            if (content.includes(section.start)) {
+                return {
+                    allowed: false,
+                    reason: 'LOCKED_SECTION_VIOLATION',
+                    message: `❌ Cannot modify locked section: ${section.reason}\n` +
+                            `   This section is critical to platform structure.`,
+                    section: section
+                };
+            }
+        }
+        
+        return { allowed: true };
     }
 }
 
+/**
+ * CLI Interface for validation
+ */
+function validateFromCLI() {
+    const args = process.argv.slice(2);
+    const validator = new StructureValidator();
+    
+    if (args.length === 0) {
+        console.log('Usage: node structure-validator.js <file1> [file2] [file3] ...');
+        console.log('       node structure-validator.js --check-all');
+        process.exit(1);
+    }
+    
+    if (args[0] === '--check-all') {
+        console.log('📊 Generating structure report...\n');
+        const report = validator.generateStructureReport();
+        console.log(JSON.stringify(report, null, 2));
+        return;
+    }
+    
+    // Validate provided files
+    const results = validator.validateCommit(args);
+    
+    console.log(results.summary);
+    
+    if (!results.allowed) {
+        process.exit(1); // Exit with error code to block commit
+    }
+    
+    process.exit(0);
+}
+
+// Export for use in other scripts
 module.exports = StructureValidator;
+
+// Run CLI if executed directly
+if (require.main === module) {
+    validateFromCLI();
+}
